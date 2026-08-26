@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>好友列表 · 消息 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .search {
+        margin: 12px 16px;
+        padding: 0 12px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--g7);
+        border-radius: 8px;
+        color: var(--g4);
+      }
+      .search svg {
+        width: 17px;
+        height: 17px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .search input {
+        width: 100%;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--g1);
+        font: 14px inherit;
+      }
+      .friend-list {
+        background: var(--g7);
+      }
+      .friend {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--g6);
+        background: var(--g7);
+        color: var(--g1);
+      }
+      .friend:last-child {
+        border-bottom: 0;
+      }
+      .friend-avatar-link {
+        display: block;
+        flex: none;
+        text-decoration: none;
+      }
+      .friend .avatar {
+        width: 46px;
+        height: 46px;
+      }
+      .friend-copy {
+        min-width: 0;
+        flex: 1;
+      }
+      .friend-name {
+        display: block;
+        font-size: 16px;
+        line-height: 1.3;
+      }
+      .friend-tags {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 5px;
+      }
+      .friend-tags .tag {
+        padding: 2px 5px;
+        border-radius: 5px;
+        background: var(--g6);
+        color: var(--g3);
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+      .empty {
+        padding: 48px 16px;
+        color: var(--g4);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <a href="message-center.html" aria-label="返回">‹</a>好友
+      </header>
+      <label class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6"></circle>
+          <path d="m16 16 4 4"></path>
+        </svg>
+        <input
+          id="search"
+          type="search"
+          placeholder="搜索好友"
+          autocomplete="off"
+        />
+      </label>
+      <section
+        class="friend-list"
+        id="friendList"
+        aria-label="好友列表"
+      ></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const friendList = document.querySelector("#friendList");
+      const search = document.querySelector("#search");
+
+      function renderFriends(keyword = "") {
+        const normalized = keyword.trim().toLowerCase();
+        const friends = window.LUMA_MOCK.friends.filter((friend) =>
+          friend.name.toLowerCase().includes(normalized),
+        );
+        friendList.replaceChildren();
+        if (!friends.length) {
+          const empty = document.createElement("p");
+          empty.className = "empty";
+          empty.textContent = "未找到好友";
+          friendList.append(empty);
+          return;
+        }
+        friends.forEach((friend) => {
+          const row = document.createElement("div");
+          row.className = "friend";
+          const profilePage =
+            friend.profileType === "host"
+              ? `host-home.html?host=${encodeURIComponent(friend.profileKey)}`
+              : `user-home.html?user=${encodeURIComponent(friend.profileKey)}`;
+          const profileLabel =
+            friend.profileType === "host" ? "主播主页" : "用户主页";
+          row.innerHTML = `<a class="friend-avatar-link" href="${profilePage}" aria-label="进入 ${friend.name} 的${profileLabel}"><i class="avatar"></i></a><span class="friend-copy"><b class="friend-name"></b><span class="friend-tags"></span></span>`;
+          row.querySelector(".avatar").textContent = friend.avatar;
+          row.querySelector(".friend-name").textContent = friend.name;
+          const tags = row.querySelector(".friend-tags");
+          [friend.level, ...friend.badges].forEach((tag) => {
+            const label = document.createElement("i");
+            label.className = "tag";
+            label.textContent = tag;
+            tags.append(label);
+          });
+          friendList.append(row);
+        });
+      }
+
+      search.addEventListener("input", () => renderFriends(search.value));
+      renderFriends();
+    </script>
+  </body>
+</html>

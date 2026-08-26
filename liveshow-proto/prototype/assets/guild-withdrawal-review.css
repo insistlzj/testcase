@@ -1,0 +1,47 @@
+.guild-withdrawal-page{padding-top:12px}
+.guild-withdrawal-tabs{height:40px;margin:0 0 10px;padding:0 4px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;border-radius:8px;background:var(--g6);scrollbar-width:none}
+.guild-withdrawal-tabs::-webkit-scrollbar{display:none}
+.guild-withdrawal-tabs button{height:34px;margin-top:3px;padding:0 1px;border:0;border-radius:6px;background:transparent;color:var(--g3);font-size:11px;white-space:nowrap}
+.guild-withdrawal-tabs button.active{background:var(--g7);color:var(--g1);font-weight:600}
+.guild-withdrawal-summary{height:24px;padding:0 2px;color:var(--g3);font-size:11px}
+.guild-withdrawal-list{display:grid;gap:8px}
+.guild-withdrawal-card{padding:12px 34px 12px 12px;border-radius:8px;position:relative;display:block;background:var(--g7);color:var(--g1);text-decoration:none;cursor:pointer}
+.guild-withdrawal-card-chevron{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--g4);font-size:20px;font-style:normal}
+.guild-withdrawal-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.guild-withdrawal-host{min-width:0;display:flex;align-items:center;gap:10px}
+.guild-withdrawal-host .directory-avatar{width:40px;height:40px}
+.guild-withdrawal-host-copy{min-width:0}
+.guild-withdrawal-host-copy b,.guild-withdrawal-host-copy span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.guild-withdrawal-host-copy b{font-size:14px}
+.guild-withdrawal-host-copy span{margin-top:4px;color:var(--g3);font-size:11px}
+.guild-withdrawal-status{min-height:22px;padding:3px 7px;border-radius:6px;flex:none;background:var(--g6);color:var(--g2);font-size:11px;white-space:nowrap}
+.guild-withdrawal-status.firstApproved,.guild-withdrawal-status.finalApproved{color:var(--success)}
+.guild-withdrawal-status.firstRejected,.guild-withdrawal-status.finalRejected{color:var(--danger)}
+.guild-withdrawal-fields{margin-top:10px;padding-top:3px;border-top:1px solid var(--g6)}
+.guild-withdrawal-field{min-height:31px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.guild-withdrawal-field span{color:var(--g4);font-size:11px}
+.guild-withdrawal-field b{font-size:11px;font-weight:500;text-align:right}
+.guild-withdrawal-field.amount b{font-size:15px;font-weight:700}
+.guild-withdrawal-field.reason b{max-width:210px;line-height:1.45;white-space:normal}
+.guild-withdrawal-detail-card{padding:14px 12px;border-radius:8px;background:var(--g7)}
+.guild-withdrawal-detail-card .guild-withdrawal-fields{margin-top:12px}
+.guild-withdrawal-detail-card .guild-withdrawal-field{min-height:38px}
+.guild-withdrawal-detail-card .guild-withdrawal-field b{max-width:220px}
+.guild-withdrawal-detail-card .guild-withdrawal-field.amount b{font-size:17px}
+.guild-withdrawal-progress{margin-top:14px;padding-top:14px;border-top:1px solid var(--g6)}
+.guild-withdrawal-progress h2{margin:0 0 12px;font-size:13px}
+.guild-withdrawal-progress ol{margin:0;padding:0;list-style:none}
+.guild-withdrawal-progress li{min-height:52px;position:relative;display:flex;gap:10px}
+.guild-withdrawal-progress li:not(:last-child)::after{content:'';position:absolute;left:5px;top:13px;bottom:-1px;width:1px;background:var(--g5)}
+.guild-withdrawal-progress li>i{width:11px;height:11px;margin-top:2px;border:2px solid var(--g5);border-radius:50%;position:relative;z-index:1;flex:none;background:var(--g7)}
+.guild-withdrawal-progress li.done>i{border-color:var(--success);background:var(--success)}
+.guild-withdrawal-progress li.current>i{border-color:var(--g1)}
+.guild-withdrawal-progress li.rejected>i{border-color:var(--danger);background:var(--danger)}
+.guild-withdrawal-progress li>span{min-width:0;display:block}
+.guild-withdrawal-progress li b,.guild-withdrawal-progress li small{display:block}
+.guild-withdrawal-progress li b{font-size:12px}
+.guild-withdrawal-progress li small{margin-top:5px;color:var(--g3);font-size:11px}
+.guild-withdrawal-progress li.rejected b,.guild-withdrawal-progress li.rejected small{color:var(--danger)}
+.guild-withdrawal-progress li small.reason{margin-top:7px;line-height:1.5}
+.guild-withdrawal-detail-actions{margin-top:16px}
+@media(max-width:389px){.guild-withdrawal-tabs{gap:18px}}

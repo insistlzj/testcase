@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>购买份数配置详情 · 礼物道具 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <style>
+      .rule-form {
+        grid-template-columns: minmax(0, 760px);
+      }
+      .rule-form .admin-form-row {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        align-items: center;
+        gap: 16px;
+      }
+      .rule-form .admin-form-row > label:first-child {
+        margin: 0;
+      }
+      .rule-form .admin-form-row.is-top {
+        align-items: start;
+      }
+      .rule-form .admin-form-row.is-top > label:first-child {
+        margin-top: 9px;
+      }
+      .rule-form .gift-picker-row > label:first-child:after {
+        content: none;
+      }
+      .rule-box {
+        min-width: 0;
+      }
+      .gift-picker-head {
+        display: flex;
+        align-items: center;
+        min-height: 36px;
+      }
+      .gift-picker-row {
+        width: min(1080px, calc(100vw - 430px));
+      }
+      .gift-picker-head {
+        min-height: 42px;
+      }
+      .gift-type-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px;
+        margin-bottom: 22px;
+      }
+      .gift-type-tab {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        padding: 0 0 12px;
+      }
+      .gift-type-tab.active:after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        border-radius: 2px;
+        background: var(--admin-ink);
+        content: "";
+      }
+      .gift-type-button {
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--admin-muted);
+        font-size: 16px;
+        text-align: left;
+        cursor: pointer;
+      }
+      .gift-type-tab.active .gift-type-button {
+        color: var(--admin-ink);
+      }
+      .gift-type-count {
+        margin-left: 4px;
+        font-weight: 700;
+      }
+      .gift-select-all,
+      .gift-row-select {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        margin: 0;
+        accent-color: var(--admin-primary);
+        cursor: pointer;
+      }
+      .gift-option-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        column-gap: 24px;
+        row-gap: 16px;
+      }
+      .rule-form .gift-grid-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        margin: 0;
+        color: var(--admin-ink);
+        font-size: var(--admin-font-sm);
+        cursor: pointer;
+      }
+      .gift-grid-item-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+        min-width: 0;
+        overflow: hidden;
+        line-height: 1.25;
+      }
+      .gift-grid-item-info b {
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .gift-grid-item-info span {
+        display: block;
+        color: var(--admin-muted);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .gift-grid-empty {
+        grid-column: 1/-1;
+        padding: 28px 0;
+        color: var(--admin-muted);
+        text-align: center;
+      }
+      .admin-sticky-actions.is-stuck {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 216px;
+        z-index: 30;
+        padding: 14px 24px;
+        background: var(--admin-surface);
+        box-shadow: 0 -6px 18px rgba(34, 34, 34, 0.08);
+      }
+      body.has-sticky-actions .admin-content {
+        padding-bottom: 88px;
+      }
+      .rule-error {
+        margin-top: 8px;
+        color: var(--admin-danger);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>礼物道具</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-gift-list.html">普通礼物</a
+            ><a class="admin-nav-sub" href="admin-custom-gift.html">定制礼物</a
+            ><a class="admin-nav-sub" href="admin-lucky-gift-config.html"
+              >幸运礼物</a
+            ><a class="admin-nav-sub" href="admin-prop-list.html">道具配置</a
+            ><a
+              class="admin-nav-sub active"
+              href="admin-gift-send-count-rules.html"
+              >购买份数配置</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            礼物道具&nbsp;&nbsp;/&nbsp;&nbsp;购买份数配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              id="pageName"
+            ></strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content admin-create-page">
+          <a class="admin-back-link" href="admin-gift-send-count-rules.html"
+            >‹ 返回购买份数配置</a
+          >
+          <form id="ruleForm">
+            <section class="admin-panel admin-profile-panel">
+              <div class="admin-section-head"><h2>规则详情</h2></div>
+              <div class="admin-form-grid rule-form">
+                <div class="admin-form-row">
+                  <label>规则ID</label>
+                  <div class="admin-readonly-value" id="ruleId"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="purchaseCount">购买份数</label
+                  ><input
+                    class="admin-input"
+                    id="purchaseCount"
+                    type="number"
+                    min="1"
+                    step="1"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="ruleSort">排序</label
+                  ><input
+                    class="admin-input"
+                    id="ruleSort"
+                    type="number"
+                    min="0"
+                    step="1"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label>状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="ruleEnabled" type="checkbox" /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="ruleEnabledText"></span>
+                  </div>
+                </div>
+                <div class="admin-form-row is-top gift-picker-row">
+                  <label>适用礼物</label>
+                  <div class="rule-box">
+                    <div class="gift-picker-head">
+                      <strong id="giftSummary"></strong>
+                    </div>
+                    <div class="gift-type-tabs" id="giftTypeTabs"></div>
+                    <div class="gift-option-grid" id="giftOptions"></div>
+                    <div class="rule-error state-hide" id="giftError"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <div class="admin-modal-foot admin-sticky-actions" id="actionBar">
+              <a
+                class="admin-btn secondary"
+                href="admin-gift-send-count-rules.html"
+                >取消</a
+              ><button class="admin-btn" type="submit">保存</button>
+            </div>
+          </form>
+        </main>
+      </div>
+    </div>
+    <script>
+      const storageKey = "luma-admin-gift-purchase-count-rules-v1",
+        typeText = {
+          normal: "普通礼物",
+          custom: "定制礼物",
+          lucky: "幸运礼物",
+        },
+        defaults = window.LUMA_ADMIN_MOCK.giftPurchaseCountRules,
+        params = new URLSearchParams(location.search);
+      let isNew = params.get("new") === "1";
+      const baseGiftNames = {
+        GFT1001: "玫瑰",
+        GFT1002: "金色星星",
+        GFT1003: "单次幸运礼物",
+        GFT1004: "独立日烟花",
+        GFT1005: "音乐皇冠",
+        GFT1006: "咖啡",
+        GFT1007: "十连幸运礼物",
+        GFT1008: "百连幸运礼物",
+      };
+      const extraGiftNames = {
+        normal: [
+          "爱心",
+          "棒棒糖",
+          "气球",
+          "小熊",
+          "钻戒",
+          "皇冠",
+          "跑车",
+          "城堡",
+          "火箭",
+          "游艇",
+          "月亮",
+          "太阳",
+          "彩虹",
+          "音符",
+          "麦克风",
+          "水晶",
+          "宝箱",
+          "香水",
+          "口红",
+          "巧克力",
+          "冰淇淋",
+          "椰子",
+          "草莓",
+          "樱桃",
+          "幸运草",
+          "蝴蝶",
+          "白鸽",
+          "烟花棒",
+          "派对帽",
+          "金话筒",
+          "水晶鞋",
+          "星空瓶",
+        ],
+        custom: [
+          "生日蛋糕",
+          "周年礼炮",
+          "赛事奖杯",
+          "节日花束",
+          "嘉年华面具",
+          "海岛烟花",
+          "婚礼花门",
+          "毕业礼帽",
+          "新年灯笼",
+          "情人节花束",
+          "万圣南瓜",
+          "圣诞雪橇",
+          "音乐节舞台",
+          "冠军奖杯",
+          "粉丝纪念牌",
+          "主播周年框",
+          "限定跑车",
+          "限定城堡",
+        ],
+        lucky: ["幸运转盘", "幸运宝箱"],
+      };
+      function buildPickerGifts() {
+        const base = window.LUMA_ADMIN_MOCK.giftItems.map((item) => ({
+            ...item,
+            names: { ...item.names, zh: baseGiftNames[item.id] },
+          })),
+          prefix = { normal: 2, custom: 3, lucky: 4 },
+          extra = Object.entries(extraGiftNames).flatMap(([category, names]) =>
+            names.map((name, index) => ({
+              id: `GFT${prefix[category]}${String(index + 1).padStart(3, "0")}`,
+              names: { zh: name },
+              category,
+            })),
+          );
+        return [...base, ...extra];
+      }
+      const gifts = buildPickerGifts();
+      function sharedStorage() {
+        try {
+          return window.parent && window.parent !== window
+            ? window.parent.localStorage
+            : localStorage;
+        } catch (error) {
+          return localStorage;
+        }
+      }
+      function readRules() {
+        try {
+          const saved = JSON.parse(
+            sharedStorage().getItem(storageKey) || "null",
+          );
+          if (Array.isArray(saved)) return saved;
+        } catch (error) {}
+        return defaults.map((item) => ({
+          ...item,
+          giftTypes: [...item.giftTypes],
+          giftIds: [...item.giftIds],
+        }));
+      }
+      function saveRules() {
+        try {
+          sharedStorage().setItem(storageKey, JSON.stringify(rules));
+        } catch (error) {}
+      }
+      function nextId() {
+        return `GSR${Math.max(1000, ...rules.map((item) => Number(item.id.replace(/\D/g, "")) || 0)) + 1}`;
+      }
+      let rules = readRules(),
+        editing = isNew
+          ? null
+          : rules.find((item) => item.id === params.get("id")) || rules[0],
+        selectedGiftIds = new Set(),
+        activeGiftType = "normal";
+      function renderGiftPicker() {
+        giftSummary.textContent = `已选择 ${selectedGiftIds.size} 个礼物`;
+        giftTypeTabs.innerHTML = Object.entries(typeText)
+          .map(([type, label]) => {
+            const items = gifts.filter((item) => item.category === type),
+              selected = items.filter((item) =>
+                selectedGiftIds.has(item.id),
+              ).length,
+              allSelected = items.length > 0 && selected === items.length;
+            return `<div class="gift-type-tab ${type === activeGiftType ? "active" : ""}"><input class="gift-select-all" data-select-all-type="${type}" type="checkbox" aria-label="全选${label}" ${allSelected ? "checked" : ""}><button class="gift-type-button" type="button" data-gift-type="${type}">${label}<span class="gift-type-count">${selected}/${items.length}</span></button></div>`;
+          })
+          .join("");
+        giftTypeTabs
+          .querySelectorAll("[data-select-all-type]")
+          .forEach((input) => {
+            const items = gifts.filter(
+                (item) => item.category === input.dataset.selectAllType,
+              ),
+              selected = items.filter((item) =>
+                selectedGiftIds.has(item.id),
+              ).length;
+            input.indeterminate = selected > 0 && selected < items.length;
+          });
+        const items = gifts.filter((item) => item.category === activeGiftType);
+        giftOptions.innerHTML = items.length
+          ? items
+              .map(
+                (item) =>
+                  `<label class="gift-grid-item"><input class="gift-row-select" type="checkbox" data-gift-id="${item.id}" aria-label="选择 ${item.names.zh}" ${selectedGiftIds.has(item.id) ? "checked" : ""}><span class="gift-grid-item-info"><b>${item.names.zh}</b><span>${item.id}</span></span></label>`,
+              )
+              .join("")
+          : `<div class="gift-grid-empty">暂无礼物</div>`;
+        giftError.classList.add("state-hide");
+        requestAnimationFrame(syncStickyActions);
+      }
+      function syncStatus() {
+        ruleEnabledText.textContent = ruleEnabled.checked ? "生效" : "失效";
+      }
+      function syncStickyActions() {
+        actionBar.classList.remove("is-stuck");
+        document.body.classList.remove("has-sticky-actions");
+        const hasOverflow =
+          document.documentElement.scrollHeight > window.innerHeight + 1;
+        actionBar.classList.toggle("is-stuck", hasOverflow);
+        document.body.classList.toggle("has-sticky-actions", hasOverflow);
+      }
+      function loadForm() {
+        const title = isNew ? "新建购买份数配置" : "编辑购买份数配置",
+          data = isNew
+            ? {
+                id: "",
+                purchaseCount: 1,
+                sort: 100,
+                giftTypes: [],
+                giftIds: [],
+                status: "enabled",
+              }
+            : editing;
+        pageName.textContent = title;
+        ruleId.textContent = isNew ? "保存后由系统生成" : data.id;
+        purchaseCount.value = data.purchaseCount;
+        ruleSort.value = data.sort;
+        ruleEnabled.checked = data.status === "enabled";
+        selectedGiftIds = new Set(
+          isNew ? gifts.map((item) => item.id) : data.giftIds,
+        );
+        syncStatus();
+        renderGiftPicker();
+      }
+      giftTypeTabs.onclick = (event) => {
+        const tab = event.target.closest("[data-gift-type]");
+        if (!tab) return;
+        activeGiftType = tab.dataset.giftType;
+        renderGiftPicker();
+      };
+      giftTypeTabs.onchange = (event) => {
+        const input = event.target.closest("[data-select-all-type]");
+        if (!input) return;
+        activeGiftType = input.dataset.selectAllType;
+        const items = gifts.filter((item) => item.category === activeGiftType),
+          shouldSelect = input.checked;
+        items.forEach((item) =>
+          shouldSelect
+            ? selectedGiftIds.add(item.id)
+            : selectedGiftIds.delete(item.id),
+        );
+        renderGiftPicker();
+      };
+      giftOptions.onchange = (event) => {
+        const input = event.target.closest("[data-gift-id]");
+        if (!input) return;
+        if (input.checked) selectedGiftIds.add(input.dataset.giftId);
+        else selectedGiftIds.delete(input.dataset.giftId);
+        renderGiftPicker();
+      };
+      ruleEnabled.onchange = syncStatus;
+      window.addEventListener("resize", syncStickyActions);
+      ruleForm.onsubmit = (event) => {
+        event.preventDefault();
+        giftError.classList.add("state-hide");
+        const count = Number(purchaseCount.value);
+        if (!Number.isInteger(count) || count < 1)
+          return Luma.toast("购买份数必须为正整数");
+        if (!selectedGiftIds.size) {
+          giftError.textContent = "请至少选择一个适用礼物";
+          giftError.classList.remove("state-hide");
+          return;
+        }
+        const enabled = ruleEnabled.checked,
+          conflict = enabled
+            ? rules.find(
+                (rule) =>
+                  rule.id !== editing?.id &&
+                  rule.status === "enabled" &&
+                  rule.giftIds.some((id) => selectedGiftIds.has(id)),
+              )
+            : null;
+        if (conflict) {
+          const id = conflict.giftIds.find((value) =>
+              selectedGiftIds.has(value),
+            ),
+            gift = gifts.find((item) => item.id === id);
+          giftError.textContent = `${gift?.names.zh || id} 已关联生效规则 ${conflict.id}`;
+          giftError.classList.remove("state-hide");
+          return;
+        }
+        const giftTypes = [
+            ...new Set(
+              [...selectedGiftIds]
+                .map((id) => gifts.find((item) => item.id === id)?.category)
+                .filter(Boolean),
+            ),
+          ],
+          created = isNew,
+          item = {
+            id: created ? nextId() : editing.id,
+            purchaseCount: count,
+            sort: Number(ruleSort.value),
+            giftTypes,
+            giftIds: [...selectedGiftIds],
+            status: enabled ? "enabled" : "disabled",
+            updatedAt: "2026-08-11 16:20",
+          };
+        if (created) rules.unshift(item);
+        else rules = rules.map((rule) => (rule.id === item.id ? item : rule));
+        saveRules();
+        editing = item;
+        isNew = false;
+        Luma.toast(created ? "配置已新建" : "配置已保存");
+        setTimeout(() => {
+          location.href = "admin-gift-send-count-rules.html";
+        }, 300);
+      };
+      loadForm();
+      requestAnimationFrame(syncStickyActions);
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-gift-send-count-rule-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        编辑配置: () => {},
+        新建配置: () =>
+          (location.href =
+            "admin-gift-send-count-rule-detail.html?new=1&edit=1"),
+      });
+    </script>
+  </body>
+</html>

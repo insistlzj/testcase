@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>主播中心 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260817-manager-v2"></script>
+    <style>
+      .host-head {
+        padding: 12px 16px 16px;
+        background: var(--g7);
+      }
+      .host-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .host-row .avatar {
+        width: 52px;
+        height: 52px;
+        font-size: 18px;
+      }
+      .host-name {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .host-meta {
+        margin: 5px 0 0;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .profile-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px solid var(--g6);
+      }
+      .profile-stat {
+        text-align: center;
+      }
+      .profile-stat + .profile-stat {
+        border-left: 1px solid var(--g6);
+      }
+      .profile-stat span,
+      .profile-stat b {
+        display: block;
+      }
+      .profile-stat span {
+        margin-top: 5px;
+        color: var(--g3);
+        font-size: 11px;
+      }
+      .profile-stat b {
+        font-size: 17px;
+      }
+      .profile-stat .coin-value:before,
+      .metric .coin-value:before {
+        content: "◆";
+        margin-right: 3px;
+        color: var(--g2);
+      }
+      .data-panel {
+        margin: 16px 16px 0;
+        background: var(--g7);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .data-panel-head {
+        height: 46px;
+        padding: 0 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--g6);
+      }
+      .data-tabs {
+        display: flex;
+        align-self: stretch;
+        gap: 22px;
+      }
+      .data-tabs button {
+        padding: 0;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        background: none;
+        color: var(--g4);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .data-tabs button.active {
+        border-color: var(--g1);
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .data-center {
+        color: var(--g3);
+        font-size: 12px;
+        text-decoration: none;
+      }
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .metric {
+        padding: 14px 5px;
+        text-align: center;
+        border-right: 1px solid var(--g6);
+      }
+      .metric:last-child {
+        border: 0;
+      }
+      .metric span,
+      .metric b {
+        display: block;
+      }
+      .metric span {
+        color: var(--g3);
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .metric b {
+        margin-top: 7px;
+        font-size: 14px;
+      }
+      .valid-day-progress {
+        padding: 0 14px 14px;
+        border-top: 1px solid var(--g6);
+      }
+      .valid-day-title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-top: 12px;
+        font-size: 13px;
+      }
+      .valid-day-title b {
+        font-size: 14px;
+      }
+      .valid-day-title span {
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .valid-day-track {
+        height: 6px;
+        margin-top: 9px;
+        overflow: hidden;
+        border-radius: 12px;
+        background: var(--g6);
+      }
+      .valid-day-track i {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--g1);
+        transition: width 0.2s;
+      }
+      .valid-day-message {
+        margin: 8px 0 0;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .valid-day-message.complete {
+        color: var(--success);
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 16px 8px;
+      }
+      .section-title h2 {
+        margin: 0;
+        font-size: 16px;
+      }
+      .tools {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 0 16px;
+      }
+      .tool {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+        border: 0;
+        border-radius: 12px;
+        background: var(--g7);
+        color: var(--g2);
+        font: 14px inherit;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .tool i {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--g6);
+        font-style: normal;
+      }
+      .tool svg {
+        width: 19px;
+        height: 19px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .tool-badge {
+        position: absolute;
+        top: -7px;
+        right: -9px;
+        display: grid;
+        min-width: 16px;
+        height: 16px;
+        padding: 0 3px;
+        place-items: center;
+        border: 2px solid var(--g7);
+        border-radius: 9px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 10px/1 inherit;
+        font-weight: 600;
+      }
+    </style>
+    <style>
+      .guild-tag {
+        display: inline-flex;
+        margin-left: 6px;
+        padding: 2px 6px;
+        border: 1px solid var(--g4);
+        border-radius: 6px;
+        color: var(--g3);
+        font-size: 11px;
+        line-height: 1.4;
+        text-decoration: none;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='../profile/profile.html'"
+        >
+          ‹</button
+        >主播中心
+      </header>
+      <section class="host-head">
+        <div class="host-row">
+          <i class="avatar">安</i>
+          <div>
+            <p class="host-name">Andi <span class="level">Lv.12</span></p>
+            <p class="host-meta">
+              ID：88231007<a
+                class="guild-tag"
+                href="../guild/guild-application-records.html"
+                >Jakarta Star Guild</a
+              >
+            </p>
+          </div>
+        </div>
+        <section class="profile-stats" aria-label="资产总览">
+          <div class="profile-stat">
+            <b class="coin-value">86.420</b><span>累计收益</span>
+          </div>
+          <div class="profile-stat"><b>1.286</b><span>粉丝</span></div>
+        </section>
+      </section>
+      <section class="data-panel">
+        <header class="data-panel-head">
+          <nav class="data-tabs" aria-label="直播数据周期">
+            <button class="active" data-period="today" type="button">
+              今日</button
+            ><button data-period="month" type="button">本月</button>
+          </nav>
+          <a class="data-center" href="live-data.html">数据中心 ›</a>
+        </header>
+        <section class="metrics" id="metrics"></section>
+        <section
+          class="valid-day-progress"
+          id="validDayProgress"
+          aria-label="当日有效天进度"
+        >
+          <div class="valid-day-title">
+            <b>当日有效天</b><span id="validDayDuration"></span>
+          </div>
+          <div class="valid-day-track" aria-hidden="true">
+            <i id="validDayBar"></i>
+          </div>
+          <p class="valid-day-message" id="validDayMessage"></p>
+        </section>
+      </section>
+      <div class="section-title"><h2>主播工具</h2></div>
+      <section class="tools">
+        <button
+          class="tool"
+          type="button"
+          onclick="location.href='start-live-settings.html'"
+        >
+          <i
+            ><svg viewBox="0 0 24 24">
+              <rect x="3" y="6" width="13" height="12" rx="2" />
+              <path d="m16 10 5-3v10l-5-3z" /></svg></i
+          >开始直播</button
+        ><button
+          class="tool"
+          type="button"
+          onclick="location.href='fan-list.html'"
+        >
+          <i
+            ><svg viewBox="0 0 24 24">
+              <path
+                d="M12 20s-7-4.4-9-9c-1.2-2.8.6-6 3.8-6 2 0 3.6 1.2 5.2 3.4C13.6 6.2 15.2 5 17.2 5c3.2 0 5 3.2 3.8 6-2 4.6-9 9-9 9z"
+              /></svg></i
+          >粉丝列表</button
+        ><button
+          class="tool"
+          type="button"
+          onclick="location.href='fan-club.html'"
+        >
+          <i
+            ><svg viewBox="0 0 24 24">
+              <path d="M5 20v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+              <path d="m4 11-2 2 2 2M20 11l2 2-2 2" /></svg></i
+          >粉丝团管理</button
+        ><button
+          class="tool"
+          type="button"
+          onclick="location.href='moderator-management.html'"
+        >
+          <i
+            ><svg viewBox="0 0 24 24">
+              <path d="M12 3 5 6v5c0 4.5 2.9 8.1 7 10 4.1-1.9 7-5.5 7-10V6z" />
+              <path d="M9 12h6M12 9v6" /></svg></i
+          >房管管理</button
+        ><button
+          class="tool"
+          type="button"
+          onclick="Luma.toast('进入提现申请')"
+        >
+          <i
+            ><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="8" />
+              <path d="M9 10h5a2 2 0 0 1 0 4H10M12 7v10" /></svg></i
+          >分成记录</button
+        ><button
+          class="tool"
+          type="button"
+          onclick="Luma.toast('进入直播记录')"
+        >
+          <i
+            ><svg viewBox="0 0 24 24">
+              <rect x="4" y="5" width="16" height="15" rx="2" />
+              <path d="M8 3v4M16 3v4M8 11h8M8 15h5" /></svg></i
+          >直播记录</button
+        ><button
+          class="tool"
+          type="button"
+          onclick="Luma.toast('进入公会管理')"
+        >
+          <i
+            ><svg viewBox="0 0 24 24">
+              <path d="M3 21V8l4-4 4 4v13M11 21h18" /></svg></i
+          >公会管理</button
+        ><a class="tool" href="host-guild-notifications.html"
+          ><i
+            ><svg viewBox="0 0 24 24">
+              <path
+                d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+              /></svg
+            ><b class="tool-badge state-hide" id="guildNoticeBadge"></b></i
+          >公会通知</a
+        >
+      </section>
+    </main>
+    <script>
+      const hostCenter = LUMA_MOCK.hostCenter;
+      const guildNoticeBadge = document.querySelector("#guildNoticeBadge");
+      const unreadGuildNoticeCount = LUMA_MOCK.guildNotifications.filter(
+        (item) => item.unread,
+      ).length;
+      guildNoticeBadge.textContent = unreadGuildNoticeCount;
+      guildNoticeBadge.classList.toggle(
+        "state-hide",
+        unreadGuildNoticeCount === 0,
+      );
+      guildNoticeBadge.setAttribute(
+        "aria-label",
+        `${unreadGuildNoticeCount} 条未读公会通知`,
+      );
+      const periodMetrics = {
+        today: hostCenter.todayMetrics,
+        month: hostCenter.monthMetrics,
+      };
+      const metrics = document.querySelector("#metrics");
+      const validDayProgress = document.querySelector("#validDayProgress");
+      let validDayState = "incomplete";
+      function renderValidDay() {
+        const data = hostCenter.validDay[validDayState];
+        document.querySelector("#validDayDuration").textContent =
+          `${data.duration}/${data.target}`;
+        document.querySelector("#validDayBar").style.width =
+          `${Math.min((data.minutes / data.targetMinutes) * 100, 100)}%`;
+        const message = document.querySelector("#validDayMessage");
+        message.textContent = data.achieved ? "今日已达标，计为有效天" : "";
+        message.classList.toggle("complete", data.achieved);
+      }
+      function renderPeriod(period) {
+        metrics.innerHTML = periodMetrics[period]
+          .map(
+            (item) =>
+              `<div class="metric"><span>${item[0]}</span><b${item[2] ? ' class="coin-value"' : ""}>${item[1]}</b></div>`,
+          )
+          .join("");
+        validDayProgress.classList.toggle("state-hide", period !== "today");
+        document
+          .querySelectorAll("[data-period]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.period === period),
+          );
+      }
+      document
+        .querySelectorAll("[data-period]")
+        .forEach(
+          (button) =>
+            (button.onclick = () => renderPeriod(button.dataset.period)),
+        );
+      Luma.registerStates({
+        有效天进度: {
+          未达标: () => {
+            validDayState = "incomplete";
+            renderValidDay();
+          },
+          已达标: () => {
+            validDayState = "achieved";
+            renderValidDay();
+          },
+        },
+      });
+      renderValidDay();
+      renderPeriod("today");
+    </script>
+    <script>
+      document.querySelectorAll(".tool").forEach((tool) => {
+        if (tool.textContent.trim() === "公会管理")
+          tool.onclick = () => {
+            location.href = "../guild/guild-application-records.html";
+          };
+      });
+    </script>
+  </body>
+</html>

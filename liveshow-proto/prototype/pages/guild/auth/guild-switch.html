@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>选择公会 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260814-multi-guild-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          id="backLink"
+          href="guild-login.html"
+          aria-label="返回"
+          >‹</a
+        >选择公会
+      </header>
+      <div class="guild-page-body">
+        <section class="guild-switch-summary">
+          <div><b>Rizky</b><span>88227653</span></div>
+          <strong>公会长</strong>
+        </section>
+        <section class="guild-choice-list" id="guildList"></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      const context = LUMA_GUILD_CONTEXT;
+      const from = new URLSearchParams(location.search).get("from");
+      backLink.href =
+        from === "login" ? "guild-login.html" : "../home/guild-home.html";
+      function render() {
+        const current = context.getCurrent();
+        guildList.innerHTML = context.guilds
+          .map(
+            (guild) => `
+        <button class="guild-choice-card ${guild.id === current.id ? "active" : ""}" type="button" data-guild-id="${guild.id}">
+          <span class="guild-mark">${guild.mark}</span>
+          <span class="guild-choice-copy"><b>${guild.name}</b><span>${guild.id}</span></span>
+          <span class="guild-choice-state">${guild.id === current.id ? "当前公会" : "选择 ›"}</span>
+        </button>`,
+          )
+          .join("");
+        guildList.querySelectorAll("[data-guild-id]").forEach((button) => {
+          button.onclick = () => {
+            context.setCurrent(button.dataset.guildId);
+            location.href = "../home/guild-home.html";
+          };
+        });
+      }
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-switch.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

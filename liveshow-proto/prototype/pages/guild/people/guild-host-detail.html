@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>主播主页 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260824-former-host-tag-v2"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/guild-data-model.js?v=20260818-signed-fans-v4"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          id="backLink"
+          href="guild-host-list.html"
+          aria-label="返回主播列表"
+          >‹</a
+        ><span id="pageTitle">主播主页</span>
+      </header>
+      <div class="guild-page-body guild-host-page-body">
+        <section
+          class="guild-host-summary guild-host-home-summary"
+          aria-label="主播身份"
+        >
+          <div id="hostSummary"></div>
+          <button
+            class="guild-host-management-entry"
+            id="managementButton"
+            type="button"
+          >
+            管理
+          </button>
+          <nav
+            class="guild-host-home-shortcuts"
+            id="hostShortcuts"
+            aria-label="主播功能"
+          >
+            <a id="liveRecordsLink" href="../data/guild-host-data.html"
+              ><span class="guild-record-entry-icon" aria-hidden="true"
+                ><svg viewBox="0 0 24 24">
+                  <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+                  <path d="m10 9 5 3-5 3z"></path></svg></span
+              ><b>直播记录</b></a
+            >
+            <a
+              id="violationRecordsLink"
+              href="../data/guild-all-violations.html"
+              ><span class="guild-record-entry-icon" aria-hidden="true"
+                ><svg viewBox="0 0 24 24">
+                  <path d="M12 3 21 19H3Z"></path>
+                  <path d="M12 9v4M12 16h.01"></path></svg></span
+              ><b>违规记录</b></a
+            >
+            <a id="shareRecordsLink" href="../data/guild-share-ledger.html"
+              ><span class="guild-record-entry-icon" aria-hidden="true"
+                ><svg viewBox="0 0 24 24">
+                  <path
+                    d="M6 3h12v18H6zM9 7h6M9 11h6M9 15h3"
+                  ></path></svg></span
+              ><b>主播分成</b></a
+            >
+          </nav>
+        </section>
+
+        <a
+          class="guild-host-data-summary guild-host-total-link"
+          id="fullDataLink"
+          href="../data/guild-host-summary.html"
+          aria-label="查看主播业绩"
+        >
+          <div class="guild-host-card-title">
+            <h2>业绩</h2>
+            <span aria-hidden="true">›</span>
+          </div>
+          <div class="guild-data-summary-grid" id="dataSummary"></div>
+        </a>
+
+        <section class="guild-host-info-card guild-host-home-certification">
+          <h2>认证信息</h2>
+          <div id="certificationInfo"></div>
+          <div class="guild-cert-materials" id="certificationMaterials"></div>
+        </section>
+
+        <section class="guild-host-home-events" aria-label="加入与退出申请记录">
+          <div class="guild-host-event-timeline" id="eventTimeline"></div>
+        </section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <div class="guild-mask state-hide" id="managementSheet">
+      <section
+        class="guild-sheet guild-host-management-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="managementTitle"
+      >
+        <header>
+          <h2 id="managementTitle">主播管理</h2>
+          <button
+            class="guild-sheet-close"
+            id="closeManagement"
+            type="button"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </header>
+        <div class="guild-permission-grid" id="permissionGrid"></div>
+        <button class="guild-danger-action" type="button" id="removeButton">
+          移出公会
+        </button>
+      </section>
+    </div>
+    <div class="guild-confirm-mask state-hide" id="confirmDialog">
+      <section
+        class="guild-confirm-dialog"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="confirmTitle"
+      >
+        <h2 id="confirmTitle"></h2>
+        <p id="confirmMessage"></p>
+        <div class="guild-confirm-actions">
+          <button type="button" id="cancelConfirm">取消</button
+          ><button class="danger" type="button" id="confirmAction">确认</button>
+        </div>
+      </section>
+    </div>
+    <div class="guild-confirm-mask state-hide" id="materialDialog">
+      <section
+        class="guild-material-preview-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="materialTitle"
+      >
+        <button
+          class="guild-material-preview-close"
+          id="closeMaterial"
+          type="button"
+          aria-label="关闭"
+        >
+          ×
+        </button>
+        <div class="guild-material-preview-image" id="materialPreview"></div>
+        <b id="materialTitle"></b>
+      </section>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const dataModel = LUMA_GUILD_DATA;
+      const requestedId = params.get("id") || params.get("hostId");
+      const guildHosts = LUMA_MOCK.guildPortal.guildHosts;
+      const formerGuildHosts = LUMA_MOCK.guildPortal.formerGuildHosts;
+      const host =
+        [...guildHosts, ...formerGuildHosts].find(
+          (item) => item.id === requestedId,
+        ) || guildHosts[0];
+      const hostIndex = guildHosts.findIndex((item) => item.id === host.id);
+      const isFormerHost = formerGuildHosts.some((item) => item.id === host.id);
+      const totals = dataModel.getSummary(host.id);
+      const allDates = dataModel.dates.slice().sort();
+      const rangeStart = allDates[0];
+      const rangeEnd = allDates[allDates.length - 1];
+      const violations = dataModel
+        .getViolations(rangeStart, rangeEnd)
+        .filter((record) => record.hostId === host.id);
+      const platformPermission = host.platformPermission !== false;
+      const fromRoster = ["roster", "members"].includes(params.get("from"));
+      const isDeparted = params.get("state") === "departed";
+      let guildPermission = !isFormerHost && host.guildPermission !== false;
+      let liveNow = host.live;
+      let pendingAction = "";
+      const operationStorageKey = `luma-guild-host-operations-${host.id}`;
+      const certificationProfiles = [
+        {
+          name: "Sari Wulandari",
+          phone: "+62 812****2938",
+          files: [
+            "Sari-本人照片.jpg",
+            "KTP-Sari-正面.jpg",
+            "KTP-Sari-反面.jpg",
+          ],
+        },
+        {
+          name: "Dewi Lestari",
+          phone: "+62 813****2954",
+          files: [
+            "Dewi-本人照片.jpg",
+            "KTP-Dewi-正面.jpg",
+            "KTP-Dewi-反面.jpg",
+          ],
+        },
+        {
+          name: "Maya Putri",
+          phone: "+62 857****3006",
+          files: [
+            "Maya-本人照片.jpg",
+            "KTP-Maya-正面.jpg",
+            "KTP-Maya-反面.jpg",
+          ],
+        },
+        {
+          name: "Ayu Maharani",
+          phone: "+62 821****3121",
+          files: ["Ayu-本人照片.jpg", "KTP-Ayu-正面.jpg", "KTP-Ayu-反面.jpg"],
+        },
+        {
+          name: "Intan Permata",
+          phone: "+62 838****3208",
+          files: [
+            "Intan-本人照片.jpg",
+            "KTP-Intan-正面.jpg",
+            "KTP-Intan-反面.jpg",
+          ],
+        },
+        {
+          name: "Fajar",
+          phone: "+62 821****7440",
+          files: [
+            "Fajar-本人照片.jpg",
+            "KTP-Fajar-正面.jpg",
+            "KTP-Fajar-反面.jpg",
+          ],
+        },
+      ];
+      const certificationProfile = hostIndex >= 0
+        ? certificationProfiles[hostIndex]
+        : {
+            name: host.name,
+            phone: host.phone || "--",
+            files: [
+              `${host.name}-本人照片.jpg`,
+              `KTP-${host.name}-正面.jpg`,
+              `KTP-${host.name}-反面.jpg`,
+            ],
+          };
+      const coinIcon =
+        '<svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>';
+
+      function appendOperation(action, change, reason) {
+        let records = [];
+        try {
+          records = JSON.parse(
+            sessionStorage.getItem(operationStorageKey) || "[]",
+          );
+        } catch (error) {}
+        records.unshift({
+          action,
+          change,
+          reason,
+          operator: "Rizky",
+          time: "2026-08-10 11:20",
+        });
+        sessionStorage.setItem(operationStorageKey, JSON.stringify(records));
+      }
+
+      function infoGrid(items) {
+        return `<div class="guild-host-info-grid">${items.map((item) => `<div><span>${item[0]}</span><b>${item[0].includes("时间") ? LUMA_FORMAT.dateTime(item[1]) : item[1]}</b></div>`).join("")}</div>`;
+      }
+
+      function renderHostSummary() {
+        const level = dataModel.profiles[host.id]?.level || host.level || "";
+        const roleTag = isFormerHost
+          ? '<em class="guild-host-former-tag">【退会】</em>'
+          : '<em class="guild-member-role">主播</em>';
+        const levelText = level ? ` · ${level}` : "";
+        hostSummary.innerHTML = `<div class="guild-host-summary-main"><span class="directory-avatar">${host.avatar}</span><span class="guild-host-summary-copy"><b class="guild-host-summary-name">${host.name}${roleTag}</b><span>${host.id}${levelText}</span></span></div>`;
+      }
+
+      function renderDataSummary() {
+        const withdrawable = Math.round(totals.coins * 0.5);
+        const metrics = [
+          ["粉丝数", LUMA_FORMAT.integer(totals.fans)],
+          [
+            "总收益",
+            `${coinIcon}${LUMA_FORMAT.coins(totals.coins)}`,
+            "guild-host-total-coin",
+          ],
+          [
+            "可提现余额",
+            `${coinIcon}${LUMA_FORMAT.coins(withdrawable)}`,
+            "guild-host-total-coin",
+          ],
+          ["直播次数", LUMA_FORMAT.integer(totals.sessions)],
+          ["直播时长", dataModel.formatDuration(totals.duration)],
+          ["累计违规", LUMA_FORMAT.integer(violations.length)],
+        ];
+        dataSummary.innerHTML = metrics
+          .map(
+            (metric) =>
+              `<div><span>${metric[0]}</span><b class="${metric[2] || ""}">${metric[1]}</b></div>`,
+          )
+          .join("");
+      }
+
+      function renderPermission() {
+        const permissionDisabled = isDeparted || !platformPermission;
+        const permissionEnabled = guildPermission && platformPermission;
+        const permissionStatus = platformPermission
+          ? ""
+          : '<strong class="guild-permission-locked">已锁定</strong>';
+        permissionGrid.innerHTML = `<div><span>直播权限</span>${permissionStatus}<button class="guild-permission-switch ${permissionEnabled ? "active" : ""}" id="permissionSwitch" type="button" role="switch" aria-label="直播权限" aria-checked="${permissionEnabled}" ${permissionDisabled ? "disabled" : ""}><i></i></button></div>`;
+        permissionGrid.querySelector("#permissionSwitch").onclick = () => {
+          if (permissionDisabled) return;
+          if (guildPermission && liveNow) {
+            openConfirm("permission");
+            return;
+          }
+          guildPermission = !guildPermission;
+          appendOperation(
+            guildPermission ? "开启直播权限" : "关闭直播权限",
+            guildPermission ? "关闭 → 开启" : "开启 → 关闭",
+            "公会运营调整",
+          );
+          renderPermission();
+          Luma.toast(
+            guildPermission ? "直播权限已开启" : "直播权限已关闭",
+          );
+        };
+      }
+
+      function renderCertification() {
+        const labels = ["本人照片", "证件照正面", "证件照反面"];
+        certificationInfo.innerHTML = infoGrid([
+          ["姓名", certificationProfile.name],
+          ["电话", certificationProfile.phone],
+        ]);
+        certificationMaterials.innerHTML = `<h3>认证材料</h3><div class="guild-cert-media">${labels.map((label, index) => `<div class="guild-cert-item"><button class="guild-cert-thumb" type="button" data-material="${label}" data-file="${certificationProfile.files[index]}" aria-label="查看${label}大图">${label}</button></div>`).join("")}</div>`;
+        certificationMaterials.querySelectorAll("[data-material]").forEach(
+          (button) =>
+            (button.onclick = () => {
+              materialTitle.textContent = button.dataset.file;
+              materialPreview.textContent = button.dataset.material;
+              materialDialog.classList.remove("state-hide");
+            }),
+        );
+      }
+
+      function shiftDate(value, offset) {
+        const [year, month, day] = value.split("-").map(Number);
+        const date = new Date(year, month - 1, day + offset, 12);
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      }
+
+      function previousDate(value) {
+        return shiftDate(value, -1);
+      }
+
+      function renderEventTimeline() {
+        const events = [
+          {
+            type: "退出申请单",
+            status: "已驳回",
+            submittedAt: "2026-08-08 18:24",
+            details: [
+              ["处理时间", "2026-08-09 09:30", "time"],
+              ["申请", "近期直播安排变更，暂不继续在公会开展直播。"],
+              [
+                "驳回",
+                "存在待结算的主播收益，请完成结算后再申请退出。",
+                "reject",
+              ],
+            ],
+          },
+          {
+            type: "加入申请单",
+            status: "已通过",
+            submittedAt: `${previousDate(host.joinedAt)} 18:42`,
+            details: [
+              ["公会审核", "已通过"],
+              ["公会审核时间", `${previousDate(host.joinedAt)} 20:10`, "time"],
+              ["平台终审", "已通过"],
+              ["平台审核时间", `${host.joinedAt} 10:20`, "time"],
+            ],
+          },
+          {
+            type: "加入申请单",
+            status: "已作废",
+            submittedAt: `${shiftDate(host.joinedAt, -18)} 14:16`,
+            details: [
+              ["公会审核", "已通过"],
+              ["平台终审", "已拒绝"],
+              ["平台审核时间", `${shiftDate(host.joinedAt, -16)} 10:08`, "time"],
+              ["拒绝", "认证材料未通过平台校验。", "reject"],
+            ],
+          },
+        ].sort((left, right) =>
+          right.submittedAt.localeCompare(left.submittedAt),
+        );
+        eventTimeline.innerHTML = events
+          .map(
+            (event) =>
+              `<article><i aria-hidden="true"></i><time>${LUMA_FORMAT.dateTime(event.submittedAt)}</time><section><header><b>${event.type}</b><span>${event.status}</span></header>${event.details.map((detail) => `<div class="guild-host-event-detail${detail[2] === "reject" ? " is-reject" : ""}"><span>${detail[0]}</span><strong>${detail[2] === "time" ? LUMA_FORMAT.dateTime(detail[1]) : detail[1]}</strong></div>`).join("")}</section></article>`,
+          )
+          .join("");
+      }
+
+      function openConfirm(action) {
+        pendingAction = action;
+        if (action === "permission") {
+          confirmTitle.textContent = "确认关闭直播权限？";
+          confirmMessage.textContent = `${host.name} 正在直播，关闭后将立即结束当前直播，并禁止其通过当前公会再次开播。`;
+          confirmAction.textContent = "确认关闭";
+        } else {
+          confirmTitle.textContent = "确认移出公会？";
+          confirmMessage.textContent = `移出后，${host.name} 将不再归属当前公会；当前直播结束，直播权限关闭，并以移出时间作为收益归属截止时间。`;
+          confirmAction.textContent = "确认移出";
+        }
+        confirmDialog.classList.remove("state-hide");
+        cancelConfirm.focus();
+      }
+
+      function closeConfirm() {
+        confirmDialog.classList.add("state-hide");
+        pendingAction = "";
+      }
+
+      function openManagement() {
+        managementSheet.classList.remove("state-hide");
+        closeManagement.focus();
+      }
+
+      function closeManagementSheet() {
+        managementSheet.classList.add("state-hide");
+        managementButton.focus();
+      }
+
+      const dataQuery = new URLSearchParams({
+        hostId: host.id,
+        from: "detail",
+      });
+      const liveQuery = new URLSearchParams({
+        hostId: host.id,
+        from: "detail",
+        hostPeriod: rangeEnd.slice(0, 7),
+        rangeStart,
+        rangeEnd,
+        shortcut: "custom",
+      });
+      const violationQuery = new URLSearchParams({
+        hostId: host.id,
+        from: "host-detail",
+        rangeStart,
+        rangeEnd,
+        shortcut: "custom",
+      });
+      const shareQuery = new URLSearchParams({
+        members: host.id,
+        hostId: host.id,
+        from: "host-detail",
+        shortcut: "thisMonth",
+      });
+      fullDataLink.href = `../data/guild-host-summary.html?${dataQuery}`;
+      liveRecordsLink.href = `../data/guild-host-data.html?${liveQuery}`;
+      violationRecordsLink.href = `../data/guild-all-violations.html?${violationQuery}`;
+      shareRecordsLink.href = `../data/guild-share-ledger.html?${shareQuery}`;
+      if (fromRoster) {
+        backLink.href = "guild-member-list.html";
+        backLink.setAttribute("aria-label", "返回主播列表");
+      } else if (params.get("from") === "join-review") {
+        const applicationId = params.get("applicationId") || host.id;
+        const applicationTab = params.get("tab") || "approved";
+        backLink.href = `../approval/guild-join-review-detail.html?id=${encodeURIComponent(applicationId)}&tab=${encodeURIComponent(applicationTab)}`;
+        backLink.setAttribute("aria-label", "返回入会申请详情");
+      } else if (params.get("from") === "all-violations") {
+        const returnParams = new URLSearchParams();
+        ["rangeStart", "rangeEnd", "shortcut", "hostId", "hostIds"].forEach(
+          (key) => {
+            if (params.get(key)) returnParams.set(key, params.get(key));
+          },
+        );
+        backLink.href = `../data/guild-all-violations.html${returnParams.size ? `?${returnParams}` : ""}`;
+        backLink.setAttribute("aria-label", "返回违规记录");
+      }
+
+      managementButton.onclick = () => {
+        openManagement();
+      };
+      closeManagement.onclick = closeManagementSheet;
+      managementSheet.onclick = (event) => {
+        if (event.target === managementSheet) closeManagementSheet();
+      };
+      closeMaterial.onclick = () => materialDialog.classList.add("state-hide");
+      materialDialog.onclick = (event) => {
+        if (event.target === materialDialog)
+          materialDialog.classList.add("state-hide");
+      };
+      removeButton.onclick = () => {
+        managementSheet.classList.add("state-hide");
+        openConfirm("remove");
+      };
+      cancelConfirm.onclick = closeConfirm;
+      confirmDialog.onclick = (event) => {
+        if (event.target === confirmDialog) closeConfirm();
+      };
+      confirmAction.onclick = () => {
+        if (pendingAction === "permission") {
+          guildPermission = false;
+          liveNow = false;
+          appendOperation("关闭直播权限", "开启 → 关闭", "公会运营调整");
+          closeConfirm();
+          renderPermission();
+          renderHostSummary();
+          Luma.toast("直播权限已关闭，当前直播已结束");
+          return;
+        }
+        let removedIds = [];
+        const removalStorageKey = "luma-guild-removed-hosts-v1";
+        try {
+          removedIds = JSON.parse(
+            sessionStorage.getItem(removalStorageKey) || "[]",
+          );
+        } catch (error) {}
+        sessionStorage.setItem(
+          removalStorageKey,
+          JSON.stringify([...new Set([...removedIds, host.id])]),
+        );
+        appendOperation("移除公会", "在会 → 已移除", "公会主动移除");
+        confirmAction.disabled = true;
+        Luma.toast("主播已移除");
+        setTimeout(() => {
+          location.href = fromRoster
+            ? "guild-member-list.html"
+            : "guild-host-list.html";
+        }, 600);
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        if (!confirmDialog.classList.contains("state-hide")) closeConfirm();
+        else if (!managementSheet.classList.contains("state-hide"))
+          closeManagementSheet();
+        else if (!materialDialog.classList.contains("state-hide"))
+          materialDialog.classList.add("state-hide");
+      });
+      renderHostSummary();
+      renderDataSummary();
+      renderPermission();
+      managementButton.hidden = isDeparted;
+      hostShortcuts.classList.toggle("is-readonly", isDeparted);
+      renderCertification();
+      renderEventTimeline();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-host-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

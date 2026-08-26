@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会详情 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260817-guild-detail-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .nav-action {
+        position: absolute;
+        right: 16px;
+        padding: 8px 0;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .guild-card,
+      .order-card {
+        margin: 12px 16px 0;
+        padding: 14px;
+        border-radius: 12px;
+        background: var(--g7);
+      }
+      .guild-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .guild-logo {
+        width: 42px;
+        height: 42px;
+        flex: none;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 13px;
+        font-weight: 600;
+        font-style: normal;
+      }
+      .guild-copy {
+        min-width: 0;
+        flex: 1;
+      }
+      .guild-copy b,
+      .guild-copy span {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .guild-copy b {
+        font-size: 15px;
+      }
+      .guild-copy span {
+        margin-top: 4px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .status {
+        padding: 3px 7px;
+        border-radius: 6px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .status.pending {
+        outline: 1px solid var(--warning);
+      }
+      .orders {
+        display: grid;
+        gap: 0;
+        margin: 12px 16px 0;
+      }
+      .timeline-item {
+        position: relative;
+        padding: 0 0 14px 20px;
+      }
+      .timeline-item:not(:last-child):before {
+        content: "";
+        position: absolute;
+        top: 17px;
+        bottom: -3px;
+        left: 5px;
+        width: 1px;
+        background: var(--g5);
+      }
+      .timeline-dot {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 11px;
+        height: 11px;
+        border: 2px solid var(--g7);
+        border-radius: 50%;
+        background: var(--g2);
+        box-shadow: 0 0 0 1px var(--g5);
+      }
+      .timeline-dot.pending {
+        background: var(--warning);
+        box-shadow: 0 0 0 1px var(--warning);
+      }
+      .timeline-time {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--g4);
+        font-size: 11px;
+      }
+      .order-card {
+        margin: 0;
+      }
+      .order-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .order-head b {
+        font-size: 14px;
+      }
+      .detail {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--g6);
+        color: var(--g3);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .detail span:last-child {
+        color: var(--g2);
+        text-align: right;
+      }
+      .detail.reject span:last-child {
+        color: var(--danger);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='guild-application-records.html'"
+        >
+          ‹</button
+        >公会详情<button class="nav-action" id="applyLeave" type="button">
+          申请退出
+        </button>
+      </header>
+      <section class="guild-card" aria-label="所选公会">
+        <div class="guild-head">
+          <i class="guild-logo" id="guildLogo"></i>
+          <div class="guild-copy">
+            <b id="guildName"></b><span id="guildId"></span>
+          </div>
+          <span class="status" id="relationStatus"></span>
+        </div>
+      </section>
+      <section
+        class="orders"
+        id="orders"
+        aria-label="加入与退出申请记录时间轴"
+      ></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const query = new URLSearchParams(location.search);
+      const relations = window.LUMA_MOCK.guildRelationOrders;
+      const selectedGuildId = query.get("guild");
+      const selectedGuild = window.LUMA_MOCK.guilds.find(
+        (item) => item.id === selectedGuildId,
+      );
+      let relation = relations.find((item) => item.guildId === selectedGuildId);
+      if (!relation && selectedGuild) {
+        relation = {
+          guildId: selectedGuild.id,
+          relationStatus: "加入审核中",
+          orders: [],
+        };
+        relations.push(relation);
+      }
+      relation = relation || relations[0];
+      const guild = window.LUMA_MOCK.guilds.find(
+        (item) => item.id === relation.guildId,
+      );
+      document.querySelector("#guildLogo").textContent = guild.logo;
+      document.querySelector("#guildName").textContent = guild.name;
+      document.querySelector("#guildId").textContent = `ID：${guild.id}`;
+      document.querySelector("#relationStatus").textContent =
+        relation.relationStatus;
+      const pendingOrder =
+        query.get("exitPending") === "1"
+          ? {
+              type: "退出申请单",
+              status: "申请中",
+              submittedAt: query.get("submittedAt"),
+              reason: query.get("reason"),
+            }
+          : query.get("joinPending") === "1"
+            ? {
+                type: "加入申请单",
+                status: "加入审核中",
+                submittedAt: query.get("submittedAt"),
+              }
+            : null;
+      if (
+        pendingOrder &&
+        pendingOrder.submittedAt &&
+        !relation.orders.some(
+          (order) =>
+            order.status === pendingOrder.status &&
+            order.type === pendingOrder.type,
+        )
+      ) {
+        relation.orders.push(pendingOrder);
+        if (pendingOrder.type === "加入申请单")
+          relation.relationStatus = "加入审核中";
+      }
+      document.querySelector("#relationStatus").textContent =
+        relation.relationStatus;
+      const orderTime = (value) => Number(String(value).replace(/\D/g, ""));
+      const escapeHtml = (value) =>
+        String(value).replace(
+          /[&<>"']/g,
+          (char) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[char],
+        );
+      const orderedOrders = [...relation.orders].sort(
+        (first, second) =>
+          orderTime(second.submittedAt) - orderTime(first.submittedAt),
+      );
+      document.querySelector("#orders").innerHTML = orderedOrders
+        .map((order) => {
+          const isPending = ["申请中", "加入审核中"].includes(order.status);
+          const details = [
+            ["处理时间", order.processedAt],
+            ["申请", order.reason],
+            ["驳回", order.rejectionReason, "reject"],
+          ].filter(([, value]) => value);
+          return /* HTML */ `<article class="timeline-item">
+            <i
+              class="timeline-dot ${isPending ? "pending" : ""}"
+              aria-hidden="true"
+            ></i
+            ><time class="timeline-time"
+              >${escapeHtml(LUMA_FORMAT.dateTime(order.submittedAt))}</time
+            >
+            <section class="order-card">
+              <div class="order-head">
+                <b>${escapeHtml(order.type)}</b
+                ><span class="status ${isPending ? "pending" : ""}"
+                  >${escapeHtml(order.status)}</span
+                >
+              </div>
+              ${details
+                .map(
+                  ([label, value, kind]) =>
+                    `<div class="detail ${kind || ""}"><span>${label}</span><span>${escapeHtml(kind ? value : LUMA_FORMAT.dateTime(value))}</span></div>`,
+                )
+                .join("")}
+            </section>
+          </article>`;
+        })
+        .join("");
+      const applyLeave = document.querySelector("#applyLeave");
+      if (
+        relation.relationStatus === "已加入" &&
+        !orderedOrders.some(
+          (order) => order.type === "退出申请单" && order.status === "申请中",
+        )
+      )
+        applyLeave.onclick = () =>
+          (location.href = `guild-leave-application.html?guild=${encodeURIComponent(guild.id)}`);
+      else applyLeave.remove();
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-detail.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

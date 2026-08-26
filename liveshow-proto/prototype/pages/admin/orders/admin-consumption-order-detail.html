@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>消费订单详情 · 订单管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260815-consumption-refund-v1"></script>
+    <style>
+      .refund-confirm-summary {
+        margin-bottom: 18px;
+        padding: 14px;
+        border: 1px solid var(--admin-border);
+        border-radius: var(--admin-radius-sm);
+        background: var(--admin-canvas);
+        line-height: 1.7;
+      }
+      .refund-confirm-note {
+        margin: 8px 0 0;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+      }
+      @media (max-width: 1100px) {
+        .admin-detail-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            订单管理&nbsp;&nbsp;/&nbsp;&nbsp;消费订单&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >订单详情</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-consumption-order.html"
+            >‹ 返回消费订单</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head">
+              <h2>订单信息</h2>
+              <div class="admin-toolbar-actions">
+                <span class="admin-status" id="orderStatus"></span
+                ><button class="admin-btn danger" id="refundBtn" type="button">
+                  手动退款
+                </button>
+              </div>
+            </div>
+            <div class="admin-profile-summary">
+              <span class="admin-avatar" id="avatar"></span>
+              <div>
+                <h2 id="userName"></h2>
+                <div class="admin-profile-meta"><span id="userId"></span></div>
+              </div>
+            </div>
+            <div class="admin-detail-grid" id="orderInfo"></div>
+          </section>
+          <section class="admin-panel admin-tabs-panel">
+            <div class="admin-detail-tabs">
+              <button class="admin-detail-tab active" type="button">
+                消费去向
+              </button>
+            </div>
+            <div class="admin-detail-panel">
+              <section class="admin-detail-section">
+                <div class="admin-detail-grid" id="targetInfo"></div>
+              </section>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="refundOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2>确认手动退款</h2>
+          <button
+            class="admin-icon-btn"
+            type="button"
+            data-close="refundOverlay"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </div>
+        <form id="refundForm">
+          <div class="admin-modal-body">
+            <div class="refund-confirm-summary" id="refundSummary"></div>
+            <div class="admin-form-row">
+              <label for="refundReason">退款原因</label
+              ><textarea
+                class="admin-textarea"
+                id="refundReason"
+                maxlength="200"
+                placeholder="请输入核对结果和退款原因"
+                required
+              ></textarea>
+              <div class="refund-confirm-note">
+                提交后将退回该订单消耗的全部本金和赠金；已分成的主播收益不追回。
+              </div>
+            </div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="refundOverlay"
+            >
+              取消</button
+            ><button class="admin-btn danger" type="submit">确认</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const params = new URLSearchParams(location.search),
+        orders = window.LUMA_ADMIN_MOCK.consumptionOrders,
+        sourceOrder =
+          orders.find((item) => item.orderNo === params.get("id")) || orders[0],
+        order = {
+          ...sourceOrder,
+          refund: sourceOrder.refund ? { ...sourceOrder.refund } : null,
+        },
+        format = window.LUMA_ADMIN_FORMAT,
+        statusText = { paid: "已支付", refunded: "已退款" },
+        statusClass = { paid: "success", refunded: "banned" };
+      const refundBtn = document.querySelector("#refundBtn"),
+        refundOverlay = document.querySelector("#refundOverlay"),
+        refundReason = document.querySelector("#refundReason");
+      function escapeHtml(value) {
+        return String(value).replace(
+          /[&<>"']/g,
+          (char) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[char],
+        );
+      }
+      function displayStatus() {
+        return order.refund || order.status === "reversed"
+          ? "refunded"
+          : "paid";
+      }
+      function renderOrder() {
+        const status = displayStatus();
+        avatar.textContent = order.initials;
+        Luma.setTip(userName, order.userName, "用户昵称");
+        userId.innerHTML = Luma.id(order.userId, "用户ID");
+        orderStatus.className = `admin-status ${statusClass[status]}`;
+        orderStatus.textContent = statusText[status];
+        refundBtn.classList.toggle("state-hide", status === "refunded");
+        orderInfo.innerHTML = /* HTML */ `<div class="admin-detail-item">
+            <span>消费订单号</span><b>${order.orderNo}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>订单状态</span><b>${statusText[status]}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>消费类型</span><b>${order.type}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>消费金币</span><b>${format.coins(order.coins)}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>消耗本金</span><b>${format.coins(order.paidBaseCoins)}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>消耗赠金</span><b>${format.coins(order.paidBonusCoins)}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>商品 ID</span><b>${order.itemId}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>商品名称</span><b>${order.itemName}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>数量</span><b>${order.quantity}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>支付时间</span><b>${order.createdAt}</b>
+          </div>`;
+        targetInfo.innerHTML = `<div class="admin-detail-item"><span>主播</span><b>${order.targetName} · ${order.targetId}</b></div><div class="admin-detail-item"><span>直播间 ID</span><b>${order.roomId}</b></div><div class="admin-detail-item"><span>直播场次 ID</span><b>${order.sessionId}</b></div>`;
+      }
+      function openRefund() {
+        refundSummary.innerHTML = `<b>订单 ${order.orderNo}</b><br>退回金币：${format.coins(order.coins)}<br>其中本金：${format.coins(order.paidBaseCoins)}，赠金：${format.coins(order.paidBonusCoins)}`;
+        refundReason.value = "";
+        refundOverlay.classList.add("show");
+        setTimeout(() => refundReason.focus(), 0);
+      }
+      function closeRefund() {
+        refundOverlay.classList.remove("show");
+      }
+      refundBtn.onclick = openRefund;
+      document
+        .querySelectorAll('[data-close="refundOverlay"]')
+        .forEach((button) => (button.onclick = closeRefund));
+      refundOverlay.onclick = (event) => {
+        if (event.target === refundOverlay) closeRefund();
+      };
+      refundForm.onsubmit = (event) => {
+        event.preventDefault();
+        const reason = refundReason.value.trim();
+        if (!reason) return Luma.toast("请输入退款原因");
+        order.refund = {
+          refundNo: "CRF20260814000216",
+          type: "手动退款",
+          returnedBaseCoins: order.paidBaseCoins,
+          returnedBonusCoins: order.paidBonusCoins,
+          balanceAfter: order.walletBalance + order.coins,
+          reason,
+          operator: "后台管理员",
+          createdAt: "2026-08-14 15:40",
+          settlementImpact: "主播已分成收益不追回，退款损失由平台承担。",
+        };
+        closeRefund();
+        renderOrder();
+        Luma.toast("退款成功，订单状态已更新");
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeRefund();
+      });
+      renderOrder();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-consumption-order-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        已支付: () => {
+          Object.assign(order, {
+            ...orders.find(
+              (item) => item.status === "completed" && !item.refund,
+            ),
+            refund: null,
+          });
+          renderOrder();
+        },
+        已退款: () => {
+          const refunded = orders.find((item) => item.refund);
+          Object.assign(order, { ...refunded, refund: { ...refunded.refund } });
+          renderOrder();
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>新建运营消息 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260815-guild-host-select-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" id="backLink" href="guild-messages.html">‹</a
+        >新建运营消息
+      </header>
+      <div class="guild-page-body guild-compose-body">
+        <section class="guild-form-card">
+          <div class="guild-compose-label">发送对象</div>
+          <div class="guild-recipient-mode">
+            <button class="active" data-mode="all" type="button">
+              全体成员</button
+            ><a id="hostMode" data-mode="host" href="guild-host-select.html"
+              >指定主播</a
+            >
+          </div>
+          <div class="guild-selected-summary" id="selectedSummary">
+            将发送给全部 268 位成员
+          </div>
+        </section>
+        <section class="guild-form-card">
+          <label class="guild-field"
+            ><span>消息内容</span
+            ><textarea
+              id="messageContent"
+              maxlength="500"
+              placeholder="输入消息内容"
+            ></textarea>
+          </label>
+          <div class="guild-compose-count">
+            <span>支持文字与 1 张图片</span><span id="contentCount">0/500</span>
+          </div>
+          <label class="guild-image-upload" for="imageInput"
+            ><input
+              id="imageInput"
+              type="file"
+              accept="image/png,image/jpeg,image/webp"
+            /><span id="imagePreview"
+              ><b>＋</b><small>添加图片</small></span
+            ></label
+          ><button
+            class="guild-image-remove state-hide"
+            id="removeImage"
+            type="button"
+          >
+            移除图片
+          </button>
+        </section>
+        <button class="guild-primary-action" id="sendButton" type="button">
+          发送消息
+        </button>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <div class="guild-confirm-mask state-hide" id="sendConfirm">
+      <section class="guild-confirm-dialog">
+        <h2>确认发送运营消息？</h2>
+        <p id="confirmCopy"></p>
+        <div class="guild-confirm-actions">
+          <button id="cancelSend" type="button">取消</button
+          ><button class="primary" id="confirmSend" type="button">
+            确认发送
+          </button>
+        </div>
+      </section>
+    </div>
+    <script>
+      const hosts = LUMA_MOCK.guildPortal.guildHosts,
+        params = new URLSearchParams(location.search),
+        hostReturnContext =
+          params.get("from") === "host-detail" ? "host-detail" : "",
+        returnHostId = params.get("returnHostId") || params.get("hostId") || "";
+      let selectedHostId = params.get("hostId") || "",
+        mode = params.get("mode") === "host" ? "host" : "all",
+        imageData = "";
+      function contextQuery() {
+        return hostReturnContext
+          ? `&from=${hostReturnContext}&returnHostId=${encodeURIComponent(returnHostId)}`
+          : "";
+      }
+      function renderRecipient() {
+        const host = hosts.find((item) => item.id === selectedHostId);
+        document
+          .querySelectorAll("[data-mode]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.mode === mode),
+          );
+        hostMode.href = `guild-host-select.html?selected=${encodeURIComponent(selectedHostId)}${contextQuery()}`;
+        selectedSummary.textContent =
+          mode === "all"
+            ? "将发送给全部 268 位成员"
+            : host
+              ? `已选择主播：${host.name}`
+              : "请选择 1 位主播";
+      }
+      document.querySelector('[data-mode="all"]').onclick = () => {
+        mode = "all";
+        history.replaceState(null, "", "guild-message-compose.html");
+        renderRecipient();
+      };
+      messageContent.oninput = () =>
+        (contentCount.textContent = `${messageContent.value.length}/500`);
+      imageInput.onchange = () => {
+        const file = imageInput.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          imageData = reader.result;
+          imagePreview.innerHTML = `<img src="${imageData}" alt="消息图片预览">`;
+          removeImage.classList.remove("state-hide");
+        };
+        reader.readAsDataURL(file);
+      };
+      removeImage.onclick = () => {
+        imageInput.value = "";
+        imageData = "";
+        imagePreview.innerHTML = "<b>＋</b><small>添加图片</small>";
+        removeImage.classList.add("state-hide");
+      };
+      sendButton.onclick = () => {
+        const content = messageContent.value.trim(),
+          host = hosts.find((item) => item.id === selectedHostId);
+        if (mode === "host" && !host) {
+          Luma.toast("请选择 1 位主播");
+          return;
+        }
+        if (!content) {
+          Luma.toast("请输入消息内容");
+          return;
+        }
+        confirmCopy.textContent =
+          mode === "all"
+            ? "消息将发送给全部 268 位成员。"
+            : `消息将发送给主播 ${host.name}。`;
+        sendConfirm.classList.remove("state-hide");
+      };
+      cancelSend.onclick = () => sendConfirm.classList.add("state-hide");
+      confirmSend.onclick = () => {
+        const host = hosts.find((item) => item.id === selectedHostId);
+        const records = JSON.parse(
+          localStorage.getItem("luma-guild-message-records") || "[]",
+        );
+        records.unshift({
+          id: `M${Date.now()}`,
+          audience: mode === "all" ? "全体成员" : "指定主播",
+          recipientCount: mode === "all" ? 268 : 1,
+          recipientId: mode === "host" ? host.id : "",
+          recipients: mode === "all" ? [] : [host.name],
+          content: messageContent.value.trim(),
+          hasImage: Boolean(imageData),
+          image: imageData,
+          sentAt: "刚刚",
+          sender: "Rizky",
+        });
+        localStorage.setItem(
+          "luma-guild-message-records",
+          JSON.stringify(records),
+        );
+        location.href = "guild-messages.html";
+      };
+      backLink.href =
+        hostReturnContext === "host-detail" && returnHostId
+          ? `../people/guild-host-detail.html?id=${encodeURIComponent(returnHostId)}`
+          : "guild-messages.html";
+      renderRecipient();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-message-compose.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

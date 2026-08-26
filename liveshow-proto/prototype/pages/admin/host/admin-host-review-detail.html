@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>审核详情 · 主播管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-host-audit-modal-v1"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <style>
+      .admin-profile-panel .review-base-info {
+        padding-top: 14px;
+      }
+      .review-base-info .admin-detail-item {
+        display: grid;
+        grid-template-columns: 64px minmax(0, 1fr);
+        align-items: center;
+        gap: 10px;
+      }
+      .review-base-info .admin-detail-item span {
+        margin: 0;
+        white-space: nowrap;
+      }
+      .review-base-info .admin-detail-item b {
+        min-width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav" aria-label="管理后台一级菜单">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub active" href="admin-host-review.html"
+              >主播审核</a
+            ><a class="admin-nav-sub" href="admin-host-list.html">主播列表</a
+            ><a class="admin-nav-sub" href="admin-live-management.html"
+              >直播场次</a
+            ><a class="admin-nav-sub" href="admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub" href="../content/admin-content-audit.html"
+              >内容审核</a
+            ><a
+              class="admin-nav-sub"
+              href="../content/admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb"><strong>审核详情</strong></div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-host-review.html"
+            >‹ 返回主播审核</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-profile-summary">
+              <span class="admin-avatar" id="avatar"></span>
+              <div>
+                <h2 id="name"></h2>
+                <div class="admin-profile-meta">
+                  <span id="hostId"></span><span id="status"></span>
+                </div>
+              </div>
+              <div class="admin-profile-summary-actions" id="actions"></div>
+            </div>
+            <div class="admin-detail-grid review-base-info" id="baseInfo"></div>
+          </section>
+          <section class="admin-panel admin-tabs-panel">
+            <div class="admin-detail-panel" id="detailPanel"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="auditOverlay">
+      <section
+        class="admin-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="auditTitle"
+      >
+        <div class="admin-modal-head">
+          <h2 id="auditTitle">认证审核</h2>
+          <button
+            class="admin-icon-btn"
+            data-close="auditOverlay"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </div>
+        <form id="auditForm">
+          <div class="admin-modal-body">
+            <div class="admin-form-row admin-audit-form-row">
+              <label>申请单号</label>
+              <div class="admin-audit-readonly" id="auditApplicationNo"></div>
+            </div>
+            <div class="admin-form-row admin-audit-form-row">
+              <label>主播昵称/ID</label>
+              <div class="admin-audit-readonly" id="auditHost"></div>
+            </div>
+            <div class="admin-note admin-audit-age-note" id="ageRuleNote"></div>
+            <div class="admin-form-row admin-audit-form-row">
+              <label>审核结果</label>
+              <div class="admin-radio-group">
+                <label class="admin-radio-option admin-audit-choice approved"
+                  ><input
+                    type="radio"
+                    name="auditResult"
+                    value="approved"
+                    required
+                    checked
+                  />
+                  审核通过</label
+                ><label class="admin-radio-option admin-audit-choice rejected"
+                  ><input
+                    type="radio"
+                    name="auditResult"
+                    value="rejected"
+                    required
+                  />
+                  审核驳回</label
+                >
+              </div>
+            </div>
+            <div id="approvePermissionsWrap">
+              <div class="admin-form-row admin-audit-form-row">
+                <label for="livePermission">直播权限</label
+                ><label class="admin-switch-control"
+                  ><span class="admin-switch"
+                    ><input id="livePermission" type="checkbox" checked /><span
+                      class="admin-switch-track"
+                    ></span></span
+                  ><span id="livePermissionText">开启</span></label
+                >
+              </div>
+              <div class="admin-form-row admin-audit-form-row">
+                <label for="permissionLock">公会管理权限</label
+                ><label class="admin-switch-control"
+                  ><span class="admin-switch"
+                    ><input id="permissionLock" type="checkbox" checked /><span
+                      class="admin-switch-track"
+                    ></span></span
+                  ><span id="permissionLockText">开启</span></label
+                >
+              </div>
+            </div>
+            <div
+              class="admin-form-row admin-audit-form-row state-hide"
+              id="rejectReasonWrap"
+            >
+              <label for="rejectReason">驳回原因</label
+              ><textarea
+                class="admin-textarea"
+                id="rejectReason"
+                placeholder="填写驳回原因"
+              ></textarea>
+            </div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="auditOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" type="submit">确认</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const reviews = window.LUMA_ADMIN_MOCK.certifications,
+        id = new URLSearchParams(location.search).get("id");
+      const review =
+        reviews.find((item) => item.applicationNo === id) || reviews[0];
+      const statusText = {
+        pending: "待审核",
+        approved: "已通过",
+        rejected: "已驳回",
+      };
+      const avatarEl = document.querySelector("#avatar"),
+        nameEl = document.querySelector("#name"),
+        hostIdEl = document.querySelector("#hostId"),
+        statusEl = document.querySelector("#status"),
+        actionsEl = document.querySelector("#actions"),
+        baseInfoEl = document.querySelector("#baseInfo"),
+        detailPanelEl = document.querySelector("#detailPanel"),
+        auditApplicationNoEl = document.querySelector("#auditApplicationNo"),
+        auditHostEl = document.querySelector("#auditHost"),
+        ageRuleNoteEl = document.querySelector("#ageRuleNote"),
+        auditFormEl = document.querySelector("#auditForm"),
+        auditOverlayEl = document.querySelector("#auditOverlay"),
+        approvePermissionsWrapEl = document.querySelector(
+          "#approvePermissionsWrap",
+        ),
+        rejectReasonWrapEl = document.querySelector("#rejectReasonWrap"),
+        rejectReasonEl = document.querySelector("#rejectReason"),
+        livePermissionEl = document.querySelector("#livePermission"),
+        permissionLockEl = document.querySelector("#permissionLock"),
+        livePermissionTextEl = document.querySelector("#livePermissionText"),
+        permissionLockTextEl = document.querySelector("#permissionLockText");
+      function renderBase() {
+        avatarEl.textContent = review.initials;
+        Luma.setTip(nameEl, review.name, "主播昵称");
+        hostIdEl.innerHTML = Luma.id(review.hostId, "主播ID");
+        statusEl.className = `admin-status ${review.status}`;
+        Luma.setTip(statusEl, statusText[review.status], "审核状态");
+        actionsEl.innerHTML =
+          review.status === "pending"
+            ? '<button class="admin-btn" id="auditBtn">审核</button>'
+            : "";
+        const button = document.querySelector("#auditBtn");
+        if (button) button.onclick = openAudit;
+        baseInfoEl.innerHTML = `<div class="admin-detail-item"><span>申请单号</span><b>${review.applicationNo}</b></div><div class="admin-detail-item"><span>所属公会</span><b>${review.guild}</b></div><div class="admin-detail-item"><span>提交时间</span><b>${review.submittedAt}</b></div>`;
+      }
+      function renderTab(tab) {
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.tab === tab),
+          );
+        if (tab === "materials")
+          detailPanelEl.innerHTML = /* HTML */ `<div
+            class="admin-description-list"
+          >
+            <div class="admin-description-label">姓名</div>
+            <div class="admin-description-value">${review.identity.name}</div>
+            <div class="admin-description-label">证件类型</div>
+            <div class="admin-description-value">${review.identity.type}</div>
+            <div class="admin-description-label">证件号</div>
+            <div class="admin-description-value">${review.identity.number}</div>
+            <div class="admin-description-label">地区</div>
+            <div class="admin-description-value">${review.identity.region}</div>
+            <div class="admin-description-label">出生日期</div>
+            <div class="admin-description-value">
+              ${review.identity.birthDate}
+            </div>
+            <div class="admin-description-label">年龄校验</div>
+            <div class="admin-description-value">
+              <span
+                class="admin-status ${review.identity.age >= 18
+                  ? "success"
+                  : "banned"}"
+                >${review.identity.age} 岁 ·
+                ${review.identity.age >= 18
+                  ? "已成年"
+                  : "未成年，不可认证"}</span
+              >
+            </div>
+            <div class="admin-description-label">认证材料</div>
+            <div class="admin-description-value materials">
+              <div class="admin-document-gallery">
+                ${review.materials
+                  .map(
+                    (material) =>
+                      `<button class="admin-document-card" data-file="${material.file}" title="查看 ${material.file}"><span class="admin-document-thumb">${material.type}${material.side ? `<br>${material.side}` : ""}</span><span class="admin-document-name">${material.file}</span></button>`,
+                  )
+                  .join("")}
+              </div>
+            </div>
+          </div>`;
+      }
+      function openMaterialPreview(fileName) {
+        const material = review.materials.find(
+          (item) => item.file === fileName,
+        );
+        let overlay = document.querySelector("#materialPreviewOverlay");
+        if (!overlay) {
+          document.body.insertAdjacentHTML(
+            "beforeend",
+            '<div class="admin-overlay" id="materialPreviewOverlay"><section class="admin-modal"><div class="admin-modal-head"><h2>认证材料预览</h2><button class="admin-icon-btn" data-close="materialPreviewOverlay">×</button></div><div class="admin-modal-body" id="materialPreviewBody"></div></section></div>',
+          );
+          overlay = document.querySelector("#materialPreviewOverlay");
+        }
+        document.querySelector("#materialPreviewBody").innerHTML =
+          `<div class="admin-document-thumb" style="min-height:240px">材料预览<br>${material.type}${material.side ? ` · ${material.side}` : ""}</div><p>${material.file}</p>`;
+        overlay.classList.add("show");
+      }
+      function syncAuditForm() {
+        const underage = review.identity.age < 18,
+          approvedRadio = document.querySelector(
+            '[name="auditResult"][value="approved"]',
+          ),
+          rejectedRadio = document.querySelector(
+            '[name="auditResult"][value="rejected"]',
+          );
+        approvedRadio.disabled = underage;
+        if (underage) {
+          rejectedRadio.checked = true;
+          rejectReasonEl.value = "申请人未满 18 岁，不符合主播认证年龄要求";
+        }
+        const value = document.querySelector(
+            '[name="auditResult"]:checked',
+          ).value,
+          approved = value === "approved",
+          rejected = value === "rejected";
+        ageRuleNoteEl.textContent = underage
+          ? `年龄校验：${review.identity.age} 岁，未满 18 岁，只能驳回。`
+          : `年龄校验：${review.identity.age} 岁，已满足主播认证要求。`;
+        approvePermissionsWrapEl.classList.toggle("state-hide", !approved);
+        rejectReasonWrapEl.classList.toggle("state-hide", !rejected);
+        rejectReasonEl.required = rejected;
+        livePermissionTextEl.textContent = livePermissionEl.checked
+          ? "开启"
+          : "关闭";
+        permissionLockTextEl.textContent = permissionLockEl.checked
+          ? "开启"
+          : "关闭";
+        if (!rejected) rejectReasonEl.value = "";
+      }
+      function openAudit() {
+        auditFormEl.reset();
+        auditApplicationNoEl.textContent = review.applicationNo;
+        auditHostEl.textContent = `${review.name} / ${review.hostId}`;
+        syncAuditForm();
+        auditOverlayEl.classList.add("show");
+      }
+      document.addEventListener("change", (event) => {
+        if (
+          event.target.name === "auditResult" ||
+          event.target.id === "livePermission" ||
+          event.target.id === "permissionLock"
+        )
+          syncAuditForm();
+      });
+      document.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-tab]");
+        if (tab) renderTab(tab.dataset.tab);
+        const file = event.target.closest("[data-file]");
+        if (file) openMaterialPreview(file.dataset.file);
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      auditFormEl.onsubmit = (event) => {
+        event.preventDefault();
+        const value = document.querySelector(
+            '[name="auditResult"]:checked',
+          ).value,
+          reason = rejectReasonEl.value.trim();
+        if (review.identity.age < 18 && value === "approved")
+          return Luma.toast("未成年人不可通过主播认证");
+        if (value === "rejected" && !reason)
+          return Luma.toast("请填写驳回原因");
+        review.status = value;
+        review.audit = {
+          result: value === "approved" ? "审核通过" : "审核驳回",
+          identity: value === "approved" ? "主播" : "用户",
+          livePermission:
+            value === "approved"
+              ? livePermissionEl.checked
+                ? "enabled"
+                : "disabled"
+              : null,
+          locked: value === "approved" ? !permissionLockEl.checked : null,
+          reason:
+            value === "approved"
+              ? "身份资料、证件类型与年龄校验均通过"
+              : reason,
+          operator: "后台管理员",
+          time: "2026-08-11 10:30",
+        };
+        auditOverlayEl.classList.remove("show");
+        renderBase();
+        renderTab("materials");
+        Luma.toast(
+          value === "approved"
+            ? "主播身份审核已通过，直播权限已开通"
+            : "主播身份审核已驳回",
+        );
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") auditOverlayEl.classList.remove("show");
+      });
+      renderBase();
+      renderTab("materials");
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-host-review-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({ 认证审核: openAudit });
+    </script>
+  </body>
+</html>

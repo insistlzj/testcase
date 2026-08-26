@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>入会申请详情 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260818-single-column-info-v3"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js?v=20260818-person-id-v1"></script>
+    <style>
+      .guild-join-review-materials {
+        margin-top: 4px;
+        padding-top: 14px;
+        border-top: 1px solid var(--g6);
+      }
+      .guild-join-review-materials h2 {
+        margin: 0 0 11px;
+        font-size: 14px;
+      }
+      .guild-join-review-material-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .guild-join-review-material {
+        width: 100%;
+        aspect-ratio: 1;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        background: var(--g7);
+        color: var(--g3);
+        font-size: 10px;
+        text-align: center;
+      }
+      .guild-join-review-timeline {
+        margin-bottom: 12px;
+        padding: 15px;
+        border-radius: 12px;
+        background: var(--g7);
+      }
+      .guild-join-review-timeline ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .guild-join-review-step {
+        position: relative;
+        min-height: 54px;
+        padding: 0 0 17px 25px;
+      }
+      .guild-join-review-step:last-child {
+        min-height: 20px;
+        padding-bottom: 0;
+      }
+      .guild-join-review-step::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 12px;
+        bottom: -2px;
+        width: 1px;
+        background: var(--g5);
+      }
+      .guild-join-review-step:last-child::before {
+        display: none;
+      }
+      .guild-join-review-step::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 3px;
+        width: 11px;
+        height: 11px;
+        border: 2px solid var(--g7);
+        border-radius: 50%;
+        background: var(--g4);
+        box-shadow: 0 0 0 1px var(--g5);
+      }
+      .guild-join-review-step.is-complete::after {
+        background: var(--success);
+      }
+      .guild-join-review-step.is-rejected::after {
+        background: var(--danger);
+      }
+      .guild-join-review-step.is-active::after {
+        background: var(--g1);
+      }
+      .guild-join-review-step header {
+        display: block;
+      }
+      .guild-join-review-step h2 {
+        margin: 0;
+        font-size: 13px;
+      }
+      .guild-join-review-step p {
+        margin: 5px 0 0;
+        color: var(--g3);
+        font-size: 10px;
+        line-height: 1.5;
+      }
+      .guild-join-review-step p.is-reason {
+        color: var(--danger);
+      }
+      .guild-join-review-profile-link {
+        margin-top: 6px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--g1);
+        font-size: 11px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          id="backLink"
+          href="guild-join-review.html"
+          aria-label="返回入会申请列表"
+          >‹</a
+        >入会申请详情
+      </header>
+      <div class="guild-page-body">
+        <section
+          class="guild-join-review-timeline"
+          id="reviewTimeline"
+          aria-label="入会审核进度"
+        ></section>
+        <section class="guild-record-card" id="detailContent"></section>
+        <div class="review-actions" id="reviewActions"></div>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <div class="guild-confirm-mask state-hide" id="approveDialog">
+      <section
+        class="guild-confirm-dialog"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="approveTitle"
+        aria-describedby="approveMessage"
+      >
+        <h2 id="approveTitle">通过并提交平台终审</h2>
+        <p id="approveMessage">
+          通过后申请将进入平台终审。平台终审通过后，用户才会加入公会并成为主播。
+        </p>
+        <div class="guild-confirm-actions">
+          <button type="button" id="cancelApprove">取消</button
+          ><button class="primary" type="button" id="confirmApprove">
+            确认通过
+          </button>
+        </div>
+      </section>
+    </div>
+    <div class="guild-confirm-mask state-hide" id="rejectDialog">
+      <section
+        class="guild-confirm-dialog guild-message-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="rejectTitle"
+      >
+        <h2 id="rejectTitle">驳回入会申请</h2>
+        <label for="rejectReason">驳回理由（选填）</label>
+        <textarea
+          id="rejectReason"
+          maxlength="200"
+          placeholder="请输入驳回理由"
+        ></textarea>
+        <div class="guild-confirm-actions">
+          <button type="button" id="cancelReject">取消</button
+          ><button class="danger" type="button" id="confirmReject">
+            确认驳回
+          </button>
+        </div>
+      </section>
+    </div>
+    <div class="guild-confirm-mask state-hide" id="materialDialog">
+      <section
+        class="guild-material-preview-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="materialTitle"
+      >
+        <button
+          class="guild-material-preview-close"
+          id="closeMaterial"
+          type="button"
+          aria-label="关闭"
+        >
+          ×
+        </button>
+        <div class="guild-material-preview-image" id="materialPreview"></div>
+        <b id="materialTitle"></b>
+      </section>
+    </div>
+    <script>
+      const records = LUMA_MOCK.guildPortal.joinApplications;
+      const params = new URLSearchParams(location.search);
+      const requestedReturnTab = params.get("tab");
+      const returnTab = ["rejected", "approved"].includes(requestedReturnTab)
+        ? requestedReturnTab
+        : "reviewing";
+      const selected =
+        records.find((item) => item.id === params.get("id")) || records[0];
+      const storageKey = "luma-guild-join-review-results-v2";
+      try {
+        Object.assign(
+          selected,
+          JSON.parse(sessionStorage.getItem(storageKey) || "{}")[selected.id] ||
+            {},
+        );
+      } catch (error) {}
+      backLink.href = `guild-join-review.html${returnTab === "reviewing" ? "" : `?tab=${returnTab}`}`;
+      function saveResult() {
+        let saved = {};
+        try {
+          saved = JSON.parse(sessionStorage.getItem(storageKey) || "{}");
+        } catch (error) {}
+        saved[selected.id] = {
+          status: selected.status,
+          guildReviewedAt: selected.guildReviewedAt,
+          reviewStage: selected.reviewStage || "",
+          applicationVoided: Boolean(selected.applicationVoided),
+          rejectionReason: selected.rejectionReason || "",
+        };
+        sessionStorage.setItem(storageKey, JSON.stringify(saved));
+      }
+      function handleReview(result, rejectionReason = "") {
+        const approved = result === "approved";
+        selected.status = approved ? "platformPending" : "rejected";
+        selected.guildReviewedAt = "2026-08-10 11:20";
+        selected.reviewStage = "guild";
+        selected.applicationVoided = !approved;
+        selected.rejectionReason = approved ? "" : rejectionReason;
+        saveResult();
+        renderDetail();
+        Luma.toast(approved ? "已提交平台终审" : "申请已驳回并作废");
+      }
+      function closeApproveDialog() {
+        approveDialog.classList.add("state-hide");
+      }
+      function closeRejectDialog() {
+        rejectDialog.classList.add("state-hide");
+      }
+      function renderReviewTimeline() {
+        const guildRejected =
+          selected.status === "rejected" && selected.reviewStage === "guild";
+        const platformRejected =
+          selected.status === "rejected" && selected.reviewStage === "platform";
+        const guildCompleted = selected.status !== "pending";
+        const platformCompleted = ["approved", "rejected"].includes(
+          selected.status,
+        ) && selected.reviewStage === "platform";
+        const joined = selected.status === "approved";
+        const guildState = guildRejected
+          ? "is-rejected"
+          : guildCompleted
+            ? "is-complete"
+            : "is-active";
+        const platformState = platformRejected
+          ? "is-rejected"
+          : platformCompleted
+            ? "is-complete"
+            : selected.status === "platformPending"
+              ? "is-active"
+              : "";
+        const hostState = joined ? "is-complete" : "";
+        const guildTitle = guildRejected
+          ? "公会驳回"
+          : guildCompleted
+            ? "公会通过"
+            : "公会审核";
+        const platformTitle = platformRejected
+          ? "平台驳回"
+          : platformCompleted
+            ? "平台通过"
+            : "平台审核";
+        reviewTimeline.innerHTML = `<ol>
+          <li class="guild-join-review-step is-complete"><header><h2>用户提交</h2></header><p>${LUMA_FORMAT.dateTime(selected.appliedAt)}</p></li>
+          <li class="guild-join-review-step ${guildState}"><header><h2>${guildTitle}</h2></header>${selected.guildReviewedAt ? `<p>${LUMA_FORMAT.dateTime(selected.guildReviewedAt)}</p>` : ""}${guildRejected ? `<p class="is-reason">${selected.rejectionReason || "未填写"}</p>` : ""}</li>
+          <li class="guild-join-review-step ${platformState}"><header><h2>${platformTitle}</h2></header>${selected.platformReviewedAt ? `<p>${LUMA_FORMAT.dateTime(selected.platformReviewedAt)}</p>` : ""}${platformRejected ? `<p class="is-reason">${selected.rejectionReason || "未填写"}</p>` : ""}</li>
+          <li class="guild-join-review-step ${hostState}"><header><h2>成为主播</h2></header>${joined ? `<a class="guild-join-review-profile-link" href="../people/guild-host-detail.html?id=${encodeURIComponent(selected.id)}&from=join-review&applicationId=${encodeURIComponent(selected.id)}&tab=approved">查看主页 <span aria-hidden="true">›</span></a>` : ""}</li>
+        </ol>`;
+      }
+      function renderDetail() {
+        const materials = ["本人照片", "证件正面", "证件反面"]
+          .map(
+            (label) =>
+              `<button class="guild-join-review-material" type="button" data-material="${label}" aria-label="查看${label}大图">${label}</button>`,
+          )
+          .join("");
+        renderReviewTimeline();
+        detailContent.innerHTML = /* HTML */ `<div class="guild-detail-profile">
+            <span class="directory-avatar">${selected.avatar}</span
+            ><span><b>${selected.name}</b><span>${selected.id}</span></span>
+          </div>
+          <div class="guild-detail-grid">
+            <div class="guild-detail-item">
+              <span>申请公会</span
+              ><b>${selected.guild || "Bandung Voice Guild"}</b>
+            </div>
+            <div class="guild-detail-item">
+              <span>姓名</span><b>${selected.name}</b>
+            </div>
+            <div class="guild-detail-item">
+              <span>电话</span><b>${selected.phone}</b>
+            </div>
+          </div>
+          <div class="guild-join-review-materials">
+            <h2>认证材料</h2>
+            <div class="guild-join-review-material-grid">${materials}</div>
+          </div>
+          `;
+        reviewActions.innerHTML =
+          selected.status === "pending"
+            ? '<button class="review-reject" type="button" data-result="rejected">驳回</button><button class="review-approve" type="button" data-result="approved">通过</button>'
+            : "";
+        reviewActions
+          .querySelector('[data-result="approved"]')
+          ?.addEventListener("click", () =>
+            approveDialog.classList.remove("state-hide"),
+          );
+        reviewActions
+          .querySelector('[data-result="rejected"]')
+          ?.addEventListener("click", () => {
+            rejectReason.value = "";
+            rejectDialog.classList.remove("state-hide");
+            rejectReason.focus();
+          });
+        detailContent.querySelectorAll("[data-material]").forEach(
+          (button) =>
+            (button.onclick = () => {
+              materialTitle.textContent = button.dataset.material;
+              materialPreview.textContent = button.dataset.material;
+              materialDialog.classList.remove("state-hide");
+            }),
+        );
+      }
+      cancelApprove.onclick = closeApproveDialog;
+      approveDialog.onclick = (event) => {
+        if (event.target === approveDialog) closeApproveDialog();
+      };
+      confirmApprove.onclick = () => {
+        closeApproveDialog();
+        handleReview("approved");
+      };
+      cancelReject.onclick = closeRejectDialog;
+      rejectDialog.onclick = (event) => {
+        if (event.target === rejectDialog) closeRejectDialog();
+      };
+      confirmReject.onclick = () => {
+        const reason = rejectReason.value.trim();
+        closeRejectDialog();
+        handleReview("rejected", reason);
+      };
+      closeMaterial.onclick = () => materialDialog.classList.add("state-hide");
+      materialDialog.onclick = (event) => {
+        if (event.target === materialDialog)
+          materialDialog.classList.add("state-hide");
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeApproveDialog();
+          closeRejectDialog();
+          materialDialog.classList.add("state-hide");
+        }
+      });
+      renderDetail();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-join-review-detail.html",
+          query: `?id=${encodeURIComponent(selected.id)}&tab=${returnTab}`,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

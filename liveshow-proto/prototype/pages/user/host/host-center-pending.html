@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>申请成为主播 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .page {
+        padding: 0 16px 16px;
+      }
+      .benefit-banner {
+        margin: 0 -16px;
+        padding: 20px 18px;
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .benefit-banner b {
+        display: block;
+        font-size: 19px;
+      }
+      .benefit-banner p {
+        margin: 8px 0 0;
+        color: var(--g5);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .benefits {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .benefits span {
+        flex: 1;
+        padding: 8px 4px;
+        border: 1px solid var(--g3);
+        border-radius: 8px;
+        color: var(--g5);
+        font-size: 11px;
+        text-align: center;
+      }
+      .steps {
+        margin-top: 16px;
+        background: var(--g7);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .step {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 68px;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--g6);
+      }
+      .step:last-child {
+        border: 0;
+      }
+      .dot {
+        width: 23px;
+        height: 23px;
+        flex: none;
+        border-radius: 50%;
+        background: var(--g6);
+        color: var(--g3);
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-style: normal;
+      }
+      .step.done .dot {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .step-copy {
+        flex: 1;
+        min-width: 0;
+      }
+      .step-copy b,
+      .step-copy span {
+        display: block;
+      }
+      .step-copy b {
+        font-size: 14px;
+      }
+      .step-copy span {
+        margin-top: 4px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .step-status {
+        min-width: 64px;
+        color: var(--g3);
+        font-size: 12px;
+        text-align: right;
+        white-space: nowrap;
+      }
+      .step-action {
+        height: 32px;
+        padding: 0 11px;
+        border: 0;
+        border-radius: 7px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 12px inherit;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .step-action.muted {
+        background: var(--g6);
+        color: var(--g3);
+      }
+      .notice {
+        margin: 14px 4px 0;
+        color: var(--g4);
+        font-size: 12px;
+        line-height: 1.55;
+        text-align: center;
+      }
+      .apply-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        display: grid;
+        align-items: end;
+        background: rgba(51, 51, 51, 0.48);
+      }
+      .apply-mask.state-hide {
+        display: none;
+      }
+      .apply-sheet {
+        max-height: 78vh;
+        padding: 18px 16px 24px;
+        border-radius: 14px 14px 0 0;
+        background: var(--g7);
+        overflow: auto;
+      }
+      .apply-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+      .apply-head h2 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .apply-close {
+        width: 30px;
+        height: 30px;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 26px/1 inherit;
+      }
+      .apply-form {
+        display: grid;
+        gap: 12px;
+      }
+      .apply-field label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .apply-field input,
+      .apply-field select {
+        width: 100%;
+        height: 42px;
+        padding: 0 10px;
+        border: 1px solid var(--g5);
+        border-radius: 7px;
+        background: var(--g7);
+        color: var(--g1);
+        font: 14px inherit;
+      }
+      .apply-field input[type="file"] {
+        height: auto;
+        padding: 9px;
+      }
+      .age-note {
+        padding: 9px 10px;
+        border-radius: 7px;
+        background: var(--g6);
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .submit {
+        height: 44px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 600 14px inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='../profile/profile.html'"
+        >
+          ‹</button
+        >申请成为主播
+      </header>
+      <section class="page">
+        <section class="benefit-banner">
+          <b>成为主播，开启直播权益</b>
+          <p>获得开播工具、粉丝团管理和收益管理能力。</p>
+          <div class="benefits">
+            <span>直播互动</span><span>粉丝经营</span><span>收益管理</span>
+          </div>
+        </section>
+        <section class="steps" id="steps"></section>
+        <p class="notice" id="notice"></p>
+      </section>
+    </main>
+    <section class="apply-mask state-hide" id="applyMask">
+      <form class="apply-sheet" id="applyForm">
+        <div class="apply-head">
+          <h2>提交主播认证资料</h2>
+          <button class="apply-close" type="button" id="applyClose">×</button>
+        </div>
+        <div class="apply-form">
+          <div class="apply-field">
+            <label for="birthDate">出生日期</label
+            ><input id="birthDate" type="date" max="2026-08-11" required />
+          </div>
+          <div class="age-note">主播认证需年满 18 岁。</div>
+          <div class="apply-field">
+            <label for="documentType">证件类型</label
+            ><select id="documentType" required>
+              <option value="KTP">KTP 身份证件</option>
+              <option value="驾驶证">驾驶证</option>
+            </select>
+          </div>
+          <div class="apply-field">
+            <label for="documentFront">证件正面</label
+            ><input id="documentFront" type="file" accept="image/*" required />
+          </div>
+          <div class="apply-field">
+            <label for="documentBack">证件反面</label
+            ><input id="documentBack" type="file" accept="image/*" required />
+          </div>
+          <div class="apply-field">
+            <label for="identityPhoto">本人手持证件</label
+            ><input id="identityPhoto" type="file" accept="image/*" required />
+          </div>
+          <button class="submit" type="submit">提交审核</button>
+        </div>
+      </form>
+    </section>
+    <div class="homebar"><i></i></div>
+    <script>
+      const stateMap = {
+        guild: {
+          notice: "加入公会后即可提交直播权限申请。",
+          steps: [
+            ["加入公会", "选择公会并提交申请", "action", "去加入"],
+            ["申请直播权限", "未申请", "status", "未申请"],
+            ["开始直播", "", "status", "未开通"],
+          ],
+        },
+        guildPending: {
+          notice: "公会审核通过后，才能提交直播权限申请。",
+          steps: [
+            ["加入公会", "申请正在审核", "action muted", "审核中"],
+            ["申请直播权限", "未申请", "status", "未申请"],
+            ["开始直播", "", "status", "未开通"],
+          ],
+        },
+        apply: {
+          notice: "提交资料后，平台将审核主播认证与直播权限。",
+          steps: [
+            ["加入公会", "Jakarta Star Guild", "done", "已加入"],
+            ["申请直播权限", "提交证件与认证资料", "action", "提交申请"],
+            ["开始直播", "", "status", "未开通"],
+          ],
+        },
+        permissionPending: {
+          notice: "直播权限申请正在审核，请留意审核结果。",
+          steps: [
+            ["加入公会", "Jakarta Star Guild", "done", "已加入"],
+            ["申请直播权限", "平台正在审核", "status", "申请中"],
+            ["开始直播", "", "status", "未开通"],
+          ],
+        },
+      };
+      let current = "guild";
+      const steps = document.querySelector("#steps"),
+        applyMask = document.querySelector("#applyMask"),
+        applyForm = document.querySelector("#applyForm");
+      function render(name) {
+        current = name;
+        const state = stateMap[name];
+        document.querySelector("#notice").textContent = state.notice;
+        steps.innerHTML = state.steps
+          .map(
+            (item, index) =>
+              `<article class="step ${item[2] === "done" ? "done" : ""}"><i class="dot">${item[2] === "done" ? "✓" : index + 1}</i><div class="step-copy"><b>${item[0]}</b><span>${item[1]}</span></div>${item[2].includes("action") ? `<button class="step-action ${item[2].includes("muted") ? "muted" : ""}" type="button" data-action="${index}">${item[3]}</button>` : `<em class="step-status">${item[3]}</em>`}</article>`,
+          )
+          .join("");
+        steps.querySelectorAll("[data-action]").forEach(
+          (button) =>
+            (button.onclick = () => {
+              if (current === "guild")
+                location.href = "../guild/guild-management.html";
+              else if (current === "guildPending")
+                location.href = "../guild/guild-application-records.html";
+              else if (current === "apply")
+                applyMask.classList.remove("state-hide");
+            }),
+        );
+      }
+      function getAge(value) {
+        const birth = new Date(`${value}T00:00:00`),
+          today = new Date("2026-08-11T00:00:00");
+        let age = today.getFullYear() - birth.getFullYear();
+        if (
+          today.getMonth() < birth.getMonth() ||
+          (today.getMonth() === birth.getMonth() &&
+            today.getDate() < birth.getDate())
+        )
+          age -= 1;
+        return age;
+      }
+      document.querySelector("#applyClose").onclick = () =>
+        applyMask.classList.add("state-hide");
+      applyMask.onclick = (event) => {
+        if (event.target === applyMask) applyMask.classList.add("state-hide");
+      };
+      applyForm.onsubmit = (event) => {
+        event.preventDefault();
+        const age = getAge(document.querySelector("#birthDate").value);
+        if (age < 18) return Luma.toast("未满 18 岁，暂不能申请主播认证");
+        applyMask.classList.add("state-hide");
+        render("permissionPending");
+        Luma.toast("已提交主播认证资料");
+      };
+      render(current);
+      window.parent.postMessage(
+        { type: "luma-page", file: "host-center-pending.html" },
+        "*",
+      );
+      Luma.registerStates({
+        开通状态: {
+          未加入公会: () => render("guild"),
+          公会审核中: () => render("guildPending"),
+          公会通过未提交直播申请: () => render("apply"),
+          "公会通过+已提交直播申请": () => render("permissionPending"),
+          "公会通过+直播申请通过": () => (location.href = "host-center.html"),
+        },
+      });
+    </script>
+  </body>
+</html>

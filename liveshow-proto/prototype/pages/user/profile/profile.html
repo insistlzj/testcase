@@ -1,0 +1,275 @@
+<!doctype html>
+<style>
+  .icons button svg.shortcut-icon {
+    padding: 4px;
+  }
+</style>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>我的 · 用户主播端 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260812-profile-edit-text-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .cover {
+        height: 140px;
+        background: var(--g5);
+        display: grid;
+        place-items: center;
+        color: var(--g3);
+        font-size: 13px;
+        position: relative;
+      }
+      .cover-actions {
+        position: absolute;
+        right: 16px;
+        top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .cover-actions button {
+        height: 32px;
+        border: 0;
+        background: var(--g7);
+        color: var(--g2);
+        cursor: pointer;
+      }
+      .cover-actions .edit-profile {
+        padding: 0 10px;
+        font: 12px inherit;
+        border-radius: 7px;
+      }
+      .cover-actions .settings {
+        width: 32px;
+        border-radius: 50%;
+      }
+      .profile {
+        position: relative;
+        margin-top: -38px;
+        padding: 0 16px 14px;
+        text-align: center;
+        background: var(--g7);
+      }
+      .profile .avatar {
+        width: 76px;
+        height: 76px;
+        margin: auto;
+        border: 3px solid var(--g7);
+        font-size: 26px;
+      }
+      .name {
+        margin: 10px 0 0;
+        font-size: 20px;
+      }
+      .level {
+        border: 1px solid var(--g2);
+        border-radius: 8px;
+        padding: 2px 8px;
+        color: var(--g2);
+        font-size: 11px;
+      }
+      .medals {
+        margin: 10px 0;
+        font-size: 20px;
+        color: var(--g2);
+      }
+      .id {
+        font-size: 11px;
+        color: var(--g5);
+      }
+      .stats {
+        font-size: 13px;
+        color: var(--g3);
+      }
+      .stats a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .stats b {
+        font-size: 15px;
+        color: var(--g1);
+      }
+      .wallet {
+        margin: 14px 16px 0;
+        padding: 12px 16px;
+        background: var(--g7);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .wallet b {
+        font-size: 22px;
+      }
+      .icons {
+        display: flex;
+        margin: 12px 16px 0;
+        padding: 6px 0;
+        background: var(--g7);
+        border-radius: 12px;
+      }
+      .icons button,
+      .icons a {
+        flex: 1;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 13px inherit;
+        cursor: pointer;
+        padding: 10px 0;
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .shortcut-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        background: var(--g6);
+        display: grid;
+        place-items: center;
+        color: var(--g2);
+        font-size: 16px;
+        font-style: normal;
+        line-height: 1;
+      }
+      .icons span {
+        font-size: 13px;
+        line-height: 1;
+      }
+      .label {
+        margin: 16px 16px 4px;
+        color: var(--g4);
+        font-size: 13px;
+      }
+      .menu {
+        margin: 4px 16px;
+        background: var(--g7);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .menu button {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border: 0;
+        border-bottom: 1px solid var(--g6);
+        background: var(--g7);
+        font: 16px inherit;
+        text-align: left;
+        color: var(--g1);
+        cursor: pointer;
+      }
+      .menu button:last-child {
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <div class="cover">
+        背景图 · 16:9
+        <div class="cover-actions">
+          <button
+            class="edit-profile"
+            type="button"
+            onclick="location.href='profile-edit.html'"
+          >
+            编辑资料</button
+          ><button
+            class="settings"
+            type="button"
+            aria-label="设置"
+            onclick="location.href='settings.html'"
+          >
+            ⚙
+          </button>
+        </div>
+      </div>
+      <section class="profile">
+        <i class="avatar">安</i>
+        <p class="name">Andi <span class="level">Lv.12</span></p>
+        <p class="medals">◎ ☆ ◇</p>
+        <p class="id">ID: 88231007</p>
+        <p class="stats">
+          <a href="my-following.html" aria-label="查看我的关注"
+            ><b>26</b> 关注</a
+          >　<b>154</b> 粉丝　<b>12</b> 好友
+        </p>
+      </section>
+      <section class="wallet">
+        <span>◎ <b>12.580</b></span
+        ><button class="btn" onclick="Luma.toast('进入充值')">充值</button>
+      </section>
+      <section class="icons">
+        <button onclick="location.href='my-decoration.html'">
+          <i class="shortcut-icon">♧</i><span>我的装扮</span></button
+        ><button onclick="location.href='../fan-club/my-fan-clubs.html'">
+          <i class="shortcut-icon">♡</i><span>粉丝团</span></button
+        ><a href="../home/invite-friends.html"
+          ><i class="shortcut-icon">♢</i><span>邀请奖励</span></a
+        >
+      </section>
+      <p class="label">主播中心</p>
+      <section class="icons">
+        <button id="roleStartButton">
+          <i class="shortcut-icon">◉</i><span>开始直播</span></button
+        ><button id="roleCenterButton">
+          <i class="shortcut-icon">♙</i><span>主播中心</span></button
+        ><button onclick="location.href='../guild/guild-application-form.html'">
+          <i class="shortcut-icon">⌂</i><span>公会中心</span>
+        </button>
+      </section>
+      <section class="menu">
+        <button onclick="Luma.toast('进入黑名单')">
+          <span>黑名单</span><span>›</span></button
+        ><button onclick="Luma.toast('打开客服会话')">
+          <span>联系客服</span><span>›</span>
+        </button>
+      </section>
+    </main>
+    <nav class="tabbar">
+      <a class="tab" href="../home/live-plaza.html">⌂<br />首页</a
+      ><a class="tab" href="../home/welfare-center.html">♧<br />福利</a
+      ><a class="tab" href="../social/message-center.html">◌<br />消息</a
+      ><a class="tab active" href="profile.html">♙<br />我的</a>
+    </nav>
+    <div class="homebar"><i></i></div>
+    <script>
+      const roleStartButton = document.querySelector("#roleStartButton"),
+        roleCenterButton = document.querySelector("#roleCenterButton");
+      function setProfileRole(role) {
+        const enabled = role === "host";
+        roleStartButton.innerHTML =
+          '<i class="shortcut-icon">◉</i><span>开始直播</span>';
+        roleStartButton.onclick = () =>
+          (location.href = enabled
+            ? "../host/start-live-settings.html"
+            : "../host/host-center-pending.html");
+        roleCenterButton.onclick = () =>
+          (location.href = enabled
+            ? "../host/host-center.html"
+            : "../host/host-center-pending.html");
+      }
+      setProfileRole("user");
+      window.addEventListener("DOMContentLoaded", () => setProfileRole("user"));
+      Luma.registerStates({
+        账号身份: {
+          已认证主播: () => setProfileRole("host"),
+          普通用户: () => setProfileRole("user"),
+        },
+      });
+    </script>
+  </body>
+</html>

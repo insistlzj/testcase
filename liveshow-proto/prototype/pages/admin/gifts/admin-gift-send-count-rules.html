@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>购买份数配置 · 礼物道具 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>礼物道具</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-gift-list.html">普通礼物</a
+            ><a class="admin-nav-sub" href="admin-custom-gift.html">定制礼物</a
+            ><a class="admin-nav-sub" href="admin-lucky-gift-config.html"
+              >幸运礼物</a
+            ><a class="admin-nav-sub" href="admin-prop-list.html">道具配置</a
+            ><a
+              class="admin-nav-sub active"
+              href="admin-gift-send-count-rules.html"
+              >购买份数配置</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            礼物道具&nbsp;&nbsp;/&nbsp;&nbsp;<strong>购买份数配置</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>购买份数配置</h1></div>
+            <a
+              class="admin-btn"
+              href="admin-gift-send-count-rule-detail.html?new=1&edit=1"
+              >新建规则</a
+            >
+          </div>
+          <section
+            class="admin-panel admin-filter"
+            aria-label="购买份数配置筛选"
+          >
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="keyword">规则ID</label
+                ><input
+                  class="admin-input"
+                  id="keyword"
+                  placeholder="输入规则ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="giftType">礼物类型</label
+                ><select class="admin-select" id="giftType">
+                  <option value="">全部类型</option>
+                  <option value="normal">普通礼物</option>
+                  <option value="custom">定制礼物</option>
+                  <option value="lucky">幸运礼物</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="ruleStatus">状态</label
+                ><select class="admin-select" id="ruleStatus">
+                  <option value="">全部状态</option>
+                  <option value="enabled">生效</option>
+                  <option value="disabled">失效</option>
+                </select>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn" type="button">
+                重置</button
+              ><button class="admin-btn" id="searchBtn" type="button">
+                查询
+              </button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <strong>配置数据</strong><span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 980px">
+                <thead>
+                  <tr>
+                    <th>规则ID</th>
+                    <th>购买份数</th>
+                    <th>排序</th>
+                    <th>适用礼物</th>
+                    <th>状态</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="ruleRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const storageKey = "luma-admin-gift-purchase-count-rules-v1",
+        defaults = window.LUMA_ADMIN_MOCK.giftPurchaseCountRules;
+      function sharedStorage() {
+        try {
+          return window.parent && window.parent !== window
+            ? window.parent.localStorage
+            : localStorage;
+        } catch (error) {
+          return localStorage;
+        }
+      }
+      function readRules() {
+        try {
+          const saved = JSON.parse(
+            sharedStorage().getItem(storageKey) || "null",
+          );
+          if (Array.isArray(saved)) return saved;
+        } catch (error) {}
+        return defaults.map((item) => ({
+          ...item,
+          giftTypes: [...item.giftTypes],
+          giftIds: [...item.giftIds],
+        }));
+      }
+      function saveRules() {
+        try {
+          sharedStorage().setItem(storageKey, JSON.stringify(rules));
+        } catch (error) {}
+      }
+      function escapeHtml(value) {
+        return String(value).replace(
+          /[&<>"']/g,
+          (char) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[char],
+        );
+      }
+      let rules = readRules(),
+        visible = [];
+      function render(items) {
+        visible = items;
+        resultCount.textContent = `共 ${items.length} 条`;
+        if (!items.length) {
+          ruleRows.innerHTML =
+            '<tr><td colspan="7"><div class="admin-empty"><strong>未找到配置</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        ruleRows.innerHTML = items
+          .map(
+            (rule) =>
+              /* HTML */ `<tr>
+                <td>${escapeHtml(rule.id)}</td>
+                <td>${rule.purchaseCount}</td>
+                <td>${rule.sort}</td>
+                <td>${rule.giftIds.length} 个</td>
+                <td>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input
+                        type="checkbox"
+                        data-status-id="${rule.id}"
+                        ${rule.status === "enabled" ? "checked" : ""} /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span>${rule.status === "enabled" ? "生效" : "失效"}</span>
+                  </div>
+                </td>
+                <td>${rule.updatedAt}</td>
+                <td>
+                  <a
+                    class="admin-action"
+                    href="admin-gift-send-count-rule-detail.html?id=${rule.id}&edit=1"
+                    >编辑</a
+                  >
+                </td>
+              </tr>`,
+          )
+          .join("");
+      }
+      function filter(showToast = true) {
+        const key = keyword.value.trim().toLowerCase(),
+          type = giftType.value,
+          status = ruleStatus.value;
+        const items = rules
+          .filter(
+            (rule) =>
+              (!key || rule.id.toLowerCase().includes(key)) &&
+              (!type || rule.giftTypes.includes(type)) &&
+              (!status || rule.status === status),
+          )
+          .sort((a, b) => b.sort - a.sort);
+        render(items);
+        if (showToast) Luma.toast(`已查询到 ${items.length} 条规则`);
+      }
+      searchBtn.onclick = () => filter();
+      resetBtn.onclick = () => {
+        keyword.value = "";
+        giftType.value = "";
+        ruleStatus.value = "";
+        filter(false);
+        Luma.toast("筛选条件已重置");
+      };
+      document.addEventListener("change", (event) => {
+        const toggle = event.target.closest("[data-status-id]");
+        if (!toggle) return;
+        const rule = rules.find((item) => item.id === toggle.dataset.statusId);
+        if (toggle.checked) {
+          const conflict = rules.find(
+            (item) =>
+              item.id !== rule.id &&
+              item.status === "enabled" &&
+              item.giftIds.some((id) => rule.giftIds.includes(id)),
+          );
+          if (conflict) {
+            toggle.checked = false;
+            return Luma.toast(`存在与规则 ${conflict.id} 重复的适用礼物`);
+          }
+        }
+        rule.status = toggle.checked ? "enabled" : "disabled";
+        rule.updatedAt = "2026-08-11 16:20";
+        saveRules();
+        filter(false);
+        Luma.toast("规则状态已更新");
+      });
+      filter(false);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-gift-send-count-rules.html" },
+        "*",
+      );
+      Luma.registerStates({
+        配置列表: () => filter(false),
+        新建配置: () =>
+          (location.href =
+            "admin-gift-send-count-rule-detail.html?new=1&edit=1"),
+        无查询结果: () => render([]),
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>搜索结果 · 用户端 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js?v=20260817-manager-v3"></script>
+    <style>
+      .screen {
+        min-height: 844px;
+        padding-bottom: 34px;
+      }
+      .search-nav {
+        height: 56px;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--g7);
+      }
+      .search-nav .back {
+        position: static;
+        flex: none;
+        padding: 0;
+        font-size: 28px;
+      }
+      .search-form {
+        min-width: 0;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 40px;
+        padding: 0 12px;
+        border-radius: 8px;
+        background: var(--g6);
+      }
+      .search-form svg {
+        width: 18px;
+        height: 18px;
+        flex: none;
+        fill: none;
+        stroke: var(--g3);
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .search-form input {
+        min-width: 0;
+        flex: 1;
+        height: 100%;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--g1);
+        font: 14px inherit;
+      }
+      .search-form input::placeholder {
+        color: var(--g4);
+      }
+      .search-form button {
+        height: 30px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--g2);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .result-title {
+        margin: 18px 16px 8px;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .result-list {
+        margin: 0 16px;
+        background: var(--g7);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .result {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 72px;
+        padding: 12px;
+        border-bottom: 1px solid var(--g6);
+      }
+      .result:last-child {
+        border-bottom: 0;
+      }
+      .result .avatar {
+        width: 46px;
+        height: 46px;
+      }
+      .avatar-action {
+        border: 0;
+        cursor: pointer;
+      }
+      .result-info {
+        min-width: 0;
+        flex: 1;
+      }
+      .result-info b,
+      .result-info span {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .result-info b {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .result-info span {
+        margin-top: 5px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .live-entry {
+        height: 32px;
+        padding: 0 11px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .empty {
+        margin: 72px 16px 0;
+        text-align: center;
+        color: var(--g3);
+      }
+      .empty i {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        margin: 0 auto 12px;
+        border-radius: 50%;
+        background: var(--g5);
+        color: var(--g2);
+        font-style: normal;
+        font-size: 23px;
+      }
+      .empty b,
+      .empty span {
+        display: block;
+      }
+      .empty b {
+        color: var(--g2);
+        font-size: 15px;
+      }
+      .empty span {
+        margin-top: 7px;
+        font-size: 13px;
+      }
+      .manager-profile-sheet {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        min-height: 292px;
+        padding: 20px;
+        background: var(--g7);
+        border-top: 1px solid var(--g5);
+        text-align: center;
+      }
+      .manager-profile-sheet.state-hide {
+        display: none !important;
+      }
+      .manager-profile-close {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 28px/1 inherit;
+        cursor: pointer;
+      }
+      .manager-profile-avatar {
+        width: 68px;
+        height: 68px;
+        margin: 4px auto 10px;
+        background: var(--g5);
+        color: var(--g2);
+        font-size: 24px;
+      }
+      .manager-profile-name {
+        margin: 0;
+        color: var(--g1);
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .manager-profile-id {
+        margin: 5px 0 0;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .manager-profile-outfits {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin: 12px 0 30px;
+      }
+      .manager-profile-outfits i {
+        padding: 5px 9px;
+        border-radius: 5px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+      }
+      .manager-profile-actions {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        border-top: 1px solid var(--g6);
+        padding-top: 14px;
+      }
+      .manager-profile-actions button {
+        height: 34px;
+        padding: 0 14px;
+        border: 1px solid var(--g5);
+        border-radius: 17px;
+        background: var(--g7);
+        color: var(--g1);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .manager-profile-actions .primary {
+        background: var(--g1);
+        color: var(--g7);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="search-nav">
+        <button class="back" type="button" aria-label="返回搜索" id="back">
+          ‹
+        </button>
+        <form class="search-form" id="searchForm">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+          <input
+            id="keyword"
+            autocomplete="off"
+            placeholder="搜索房间号、主播 ID 或主播昵称"
+          />
+          <button type="submit">搜索</button>
+        </form>
+      </header>
+      <p class="result-title" id="resultTitle"></p>
+      <section class="result-list" id="resultList"></section>
+      <section class="empty state-hide" id="empty">
+        <i>⌕</i><b>没有找到相关结果</b><span>请检查输入后重新搜索</span>
+      </section>
+    </main>
+    <section
+      class="manager-profile-sheet state-hide"
+      id="managerProfileSheet"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="managerProfileName"
+    >
+      <button
+        class="manager-profile-close"
+        type="button"
+        id="closeManagerProfile"
+        aria-label="关闭资料卡"
+      >
+        ×</button
+      ><i class="avatar manager-profile-avatar" id="managerProfileAvatar"></i>
+      <p class="manager-profile-name" id="managerProfileName"></p>
+      <p class="manager-profile-id" id="managerProfileId"></p>
+      <div class="manager-profile-outfits">
+        <i id="managerProfileWealth"></i><i id="managerProfileFan"></i>
+      </div>
+      <footer class="manager-profile-actions">
+        <button type="button" id="cancelManagerProfile">取消</button
+        ><button class="primary" type="button" id="confirmManager">
+          设为房管
+        </button>
+      </footer>
+    </section>
+    <div class="homebar"><i></i></div>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const managerMode = params.get("mode") === "manager";
+      const returnTarget =
+        managerMode &&
+        params.get("return") === "../host/moderator-management.html"
+          ? "../host/moderator-management.html"
+          : "";
+      const entries = managerMode
+        ? window.LUMA_MOCK.hostCenter.managerCandidates
+        : window.LUMA_MOCK.search.entries;
+      const form = document.querySelector("#searchForm");
+      const input = document.querySelector("#keyword");
+      const title = document.querySelector("#resultTitle");
+      const list = document.querySelector("#resultList");
+      const empty = document.querySelector("#empty");
+      let keyword = params.get("keyword") || (managerMode ? "" : "620100");
+      if (managerMode) input.placeholder = "搜索用户 ID";
+      const resultUrl = (value) => {
+        const query = new URLSearchParams({ keyword: value });
+        if (managerMode) {
+          query.set("mode", "manager");
+          query.set("return", returnTarget);
+        }
+        return `search-results.html?${query}`;
+      };
+      function render(value) {
+        keyword = value.trim();
+        input.value = keyword;
+        const normalized = keyword.toLowerCase();
+        const matches = entries.filter((item) =>
+          (managerMode
+            ? [item.id, item.name]
+            : [item.roomId, item.hostId, item.hostName]
+          )
+            .filter(Boolean)
+            .some((field) => String(field).toLowerCase().includes(normalized)),
+        );
+        title.textContent = `“${keyword}” 的搜索结果`;
+        list.classList.toggle("state-hide", !matches.length);
+        empty.classList.toggle("state-hide", Boolean(matches.length));
+        list.innerHTML = matches
+          .map((item) => {
+            if (managerMode)
+              return `<article class="result"><button class="avatar avatar-action" type="button" data-manager-id="${item.id}" aria-label="查看 ${item.name} 的资料卡">${item.avatar}</button><span class="result-info"><b>${item.name}</b><span>ID：${item.id}</span></span><button class="live-entry" type="button" data-manager-id="${item.id}">查看资料</button></article>`;
+            const liveTarget = `../live/live-room.html?room=${encodeURIComponent(item.roomId)}`;
+            const profileTarget = `../social/user-home.html?host=${encodeURIComponent(item.hostId)}`;
+            const avatarTarget = item.live ? liveTarget : profileTarget;
+            const action = item.live
+              ? `<button class="live-entry" type="button" data-live-target="${liveTarget}">直播中</button>`
+              : "";
+            return `<article class="result"><button class="avatar avatar-action" type="button" aria-label="进入${item.live ? "直播间" : "主播主页"}" data-avatar-target="${avatarTarget}">${item.avatar}</button><span class="result-info"><b>${item.hostName}</b><span>房间号：${item.hostId}</span></span>${action}</article>`;
+          })
+          .join("");
+        if (managerMode)
+          list.querySelectorAll("[data-manager-id]").forEach((item) => {
+            item.onclick = () =>
+              openManagerProfile(
+                entries.find((entry) => entry.id === item.dataset.managerId),
+              );
+          });
+        else
+          list
+            .querySelectorAll("[data-avatar-target],[data-live-target]")
+            .forEach((item) => {
+              item.onclick = () => {
+                location.href =
+                  item.dataset.avatarTarget || item.dataset.liveTarget;
+              };
+            });
+      }
+      document.querySelector("#back").onclick = () => {
+        location.href = managerMode
+          ? `search.html?mode=manager&return=${encodeURIComponent(returnTarget)}&keyword=${encodeURIComponent(keyword)}`
+          : `search.html?keyword=${encodeURIComponent(keyword)}`;
+      };
+      form.onsubmit = (event) => {
+        event.preventDefault();
+        const value = input.value.trim();
+        if (!value) {
+          Luma.toast("请输入搜索内容");
+          input.focus();
+          return;
+        }
+        history.replaceState(null, "", resultUrl(value));
+        render(value);
+      };
+      const managerProfileSheet = document.querySelector(
+        "#managerProfileSheet",
+      );
+      let selectedManager = null;
+      function openManagerProfile(manager) {
+        selectedManager = manager;
+        document.querySelector("#managerProfileAvatar").textContent =
+          manager.avatar;
+        document.querySelector("#managerProfileName").textContent =
+          manager.name;
+        document.querySelector("#managerProfileId").textContent =
+          `ID：${manager.id}`;
+        document.querySelector("#managerProfileWealth").textContent =
+          manager.wealthLevel;
+        document.querySelector("#managerProfileFan").textContent =
+          manager.fanLevel;
+        managerProfileSheet.classList.remove("state-hide");
+      }
+      const closeManagerProfile = () =>
+        managerProfileSheet.classList.add("state-hide");
+      document.querySelector("#closeManagerProfile").onclick =
+        closeManagerProfile;
+      document.querySelector("#cancelManagerProfile").onclick =
+        closeManagerProfile;
+      document.querySelector("#confirmManager").onclick = () => {
+        if (!selectedManager) return;
+        location.href = `${returnTarget}?add=${encodeURIComponent(selectedManager.id)}`;
+      };
+      render(keyword);
+    </script>
+  </body>
+</html>

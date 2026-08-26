@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>直播记录明细报表 · 财务对账 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/admin-reporting.js?v=20260814-card-help-v2"></script>
+    <script src="../../../assets/admin-mock.js?v=20260822-host-live-record-report-v1"></script>
+  </head>
+  <body class="admin-monochrome analytics-report-page">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            数据分析&nbsp;&nbsp;/&nbsp;&nbsp;财务对账&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >直播记录明细报表</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <h1>直播记录明细报表</h1>
+            <button class="admin-btn secondary" type="button" id="exportBtn">
+              导出报表
+            </button>
+          </div>
+          <section class="admin-panel admin-filter statistics-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label>开播时间</label>
+                <div class="admin-range admin-date-range">
+                  <input
+                    class="admin-input"
+                    id="startDate"
+                    type="date"
+                    value="2026-08-17"
+                  /><span>至</span
+                  ><input
+                    class="admin-input"
+                    id="endDate"
+                    type="date"
+                    value="2026-08-19"
+                  />
+                </div>
+              </div>
+              <div class="admin-field">
+                <label for="hostId">主播 id</label
+                ><input
+                  class="admin-input"
+                  id="hostId"
+                  placeholder="请输入主播 id"
+                />
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" type="button" id="resetBtn">
+                重置</button
+              ><button class="admin-btn" type="button" id="searchBtn">
+                查询
+              </button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-wrap">
+              <table
+                class="admin-table statistics-table"
+                style="min-width: 1280px"
+              >
+                <thead>
+                  <tr>
+                    <th>主播昵称/id</th>
+                    <th>场地 id</th>
+                    <th>房型</th>
+                    <th>开播时间</th>
+                    <th>结束时间</th>
+                    <th>时长</th>
+                    <th>是否达标</th>
+                    <th>观众人数</th>
+                    <th>消费金币</th>
+                  </tr>
+                </thead>
+                <tbody id="rows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" type="button" disabled>‹</button
+              ><button class="admin-page-btn active" type="button" disabled>
+                1</button
+              ><button class="admin-page-btn" type="button" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const R = LUMA_REPORTING,
+        F = LUMA_FORMAT,
+        DATA = LUMA_ADMIN_MOCK.analytics.hostLiveRecordReports;
+      let visible = [];
+      const escapeHtml = (value) =>
+        String(value).replace(
+          /[&<>"']/g,
+          (char) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[char],
+        );
+      const dateOf = (value) => value.slice(0, 10);
+      function render(items) {
+        visible = items;
+        pagination.classList.toggle("state-hide", !items.length);
+        rows.innerHTML = items.length
+          ? items
+              .map(
+                (item) =>
+                  /* HTML */ `<tr>
+                    <td>
+                      <div class="admin-user-cell">
+                        <span class="admin-user-name"
+                          ><b>${escapeHtml(item.hostName)}</b>${Luma.id(
+                            item.hostId,
+                            "主播 id",
+                          )}</span
+                        >
+                      </div>
+                    </td>
+                    <td>${Luma.id(item.roomId, "场地 id")}</td>
+                    <td>${escapeHtml(item.roomType)}</td>
+                    <td>${F.dateTime(item.startedAt)}</td>
+                    <td>${F.dateTime(item.endedAt)}</td>
+                    <td>${escapeHtml(item.duration)}</td>
+                    <td>
+                      <span
+                        class="admin-status ${item.qualified
+                          ? "success"
+                          : "muted"}"
+                        >${item.qualified ? "达标" : "未达标"}</span
+                      >
+                    </td>
+                    <td>${F.integer(item.viewerCount)}</td>
+                    <td>${F.coins(item.consumptionCoins)}</td>
+                  </tr>`,
+              )
+              .join("")
+          : '<tr><td colspan="9"><div class="admin-empty"><strong>暂无主播直播记录</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+      }
+      function query() {
+        if (!R.validateDates(startDate.value, endDate.value)) return;
+        const keyword = hostId.value.trim();
+        render(
+          DATA.filter(
+            (item) =>
+              (!startDate.value || dateOf(item.startedAt) >= startDate.value) &&
+              (!endDate.value || dateOf(item.startedAt) <= endDate.value) &&
+              (!keyword || item.hostId.includes(keyword)),
+          ),
+        );
+        Luma.toast("已更新直播记录明细报表");
+      }
+      function reset() {
+        startDate.value = "2026-08-17";
+        endDate.value = "2026-08-19";
+        hostId.value = "";
+        query();
+        Luma.toast("筛选条件已重置");
+      }
+      searchBtn.onclick = query;
+      resetBtn.onclick = reset;
+      hostId.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") query();
+      });
+      exportBtn.onclick = () =>
+        R.exportReport("直播记录明细报表", visible.length);
+      query();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-host-live-record-report.html" },
+        "*",
+      );
+      Luma.registerStates({
+        默认: () => reset(),
+        主播筛选: () => {
+          startDate.value = "2026-08-17";
+          endDate.value = "2026-08-19";
+          hostId.value = "77210411";
+          query();
+        },
+        无查询结果: () => {
+          hostId.value = "00000000";
+          query();
+        },
+      });
+    </script>
+  </body>
+</html>

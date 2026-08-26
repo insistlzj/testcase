@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>推送配置 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub active" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong id="pageName"></strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-push-management.html"
+            >‹ 返回推送管理</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2 id="formTitle"></h2></div>
+            <div class="admin-metrics state-hide" id="pushMetrics"></div>
+            <form id="pushForm">
+              <div class="admin-form-grid" id="pushFields">
+                <div class="admin-form-row">
+                  <label>推送 ID</label>
+                  <div class="admin-readonly-value" id="pushIdText"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="pushTitle">推送标题</label
+                  ><input
+                    class="admin-input"
+                    id="pushTitle"
+                    maxlength="40"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="pushAudience">目标用户</label
+                  ><select class="admin-select" id="pushAudience" required>
+                    <option value="all">全部用户</option>
+                    <option value="guild:G100021">
+                      公会用户（Aurora Guild）
+                    </option>
+                    <option value="guild:G100018">
+                      公会用户（Star House）
+                    </option>
+                    <option value="guild:G100014">
+                      公会用户（Blue Ocean）
+                    </option>
+                    <option value="guild:G100009">公会用户（Moonlight）</option>
+                  </select>
+                </div>
+                <div class="admin-form-row full">
+                  <label for="pushContent">推送内容</label
+                  ><textarea
+                    class="admin-textarea"
+                    id="pushContent"
+                    maxlength="120"
+                    required
+                  ></textarea>
+                </div>
+                <div class="admin-form-row">
+                  <label for="sendAt">发送时间</label
+                  ><input
+                    class="admin-input"
+                    id="sendAt"
+                    type="datetime-local"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label>最后操作人</label>
+                  <div class="admin-readonly-value" id="operatorText"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label>最后更新时间</label>
+                  <div class="admin-readonly-value" id="updatedAtText"></div>
+                </div>
+              </div>
+              <div class="admin-modal-foot">
+                <a class="admin-btn secondary" href="admin-push-management.html"
+                  >取消</a
+                ><button class="admin-btn" id="saveBtn" type="submit">
+                  保存
+                </button>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const pushes = window.LUMA_ADMIN_MOCK.pushItems,
+        params = new URLSearchParams(location.search);
+      let isNew = params.get("new") === "1",
+        item = isNew
+          ? blankItem()
+          : pushes.find((entry) => entry.id === params.get("id")) || pushes[0];
+      function nextId() {
+        return `PSH${String(Math.max(...pushes.map((entry) => Number(entry.id.replace(/\D/g, "")))) + 1).padStart(4, "0")}`;
+      }
+      function blankItem() {
+        return {
+          id: nextId(),
+          title: "",
+          audience: "all",
+          guildName: "",
+          content: "",
+          sendAt: "2026-08-06 15:00",
+          status: "scheduled",
+          sentCount: 0,
+          readCount: 0,
+          operator: "-",
+          updatedAt: "-",
+        };
+      }
+      function guildName(value) {
+        return (
+          {
+            "guild:G100021": "Aurora Guild",
+            "guild:G100018": "Star House",
+            "guild:G100014": "Blue Ocean",
+            "guild:G100009": "Moonlight",
+          }[value] || ""
+        );
+      }
+      function audienceLabel(entry) {
+        return entry.audience === "all"
+          ? "全部用户"
+          : `公会用户（${entry.guildName}）`;
+      }
+      function readonlyRow(label, value) {
+        return `<div class="admin-form-row"><label>${label}</label><div class="admin-readonly-value">${value || "-"}</div></div>`;
+      }
+      function render() {
+        const locked = item.status === "sent" || item.status === "canceled",
+          title = isNew ? "新建推送" : locked ? "查看推送" : "编辑推送";
+        pageName.textContent = title;
+        formTitle.textContent = title;
+        pushIdText.textContent = item.id;
+        if (locked) {
+          pushMetrics.classList.remove("state-hide");
+          pushMetrics.innerHTML = `<div class="admin-metric"><span>发送人数</span><b>${item.sentCount.toLocaleString("id-ID")}</b></div><div class="admin-metric"><span>已读用户</span><b>${item.readCount.toLocaleString("id-ID")}</b></div>`;
+          pushFields.innerHTML =
+            readonlyRow("推送 ID", item.id) +
+            readonlyRow("推送标题", item.title) +
+            readonlyRow("目标用户", audienceLabel(item)) +
+            readonlyRow("推送内容", item.content) +
+            readonlyRow("发送时间", item.sendAt) +
+            readonlyRow(
+              "推送状态",
+              item.status === "sent" ? "已发送" : "已取消",
+            ) +
+            readonlyRow("最后操作人", item.operator) +
+            readonlyRow("最后更新时间", item.updatedAt);
+          saveBtn.classList.add("state-hide");
+          return;
+        }
+        pushTitle.value = item.title;
+        pushAudience.value = item.audience;
+        pushContent.value = item.content;
+        sendAt.value = item.sendAt.replace(" ", "T");
+        operatorText.textContent = item.operator;
+        updatedAtText.textContent = item.updatedAt;
+      }
+      pushForm.onsubmit = (event) => {
+        event.preventDefault();
+        const created = isNew;
+        Object.assign(item, {
+          title: pushTitle.value.trim(),
+          audience: pushAudience.value,
+          guildName: guildName(pushAudience.value),
+          content: pushContent.value.trim(),
+          sendAt: sendAt.value.replace("T", " "),
+          status: "scheduled",
+          operator: "后台管理员",
+          updatedAt: "2026-08-06 14:30",
+        });
+        if (created) {
+          pushes.unshift(item);
+          isNew = false;
+          history.replaceState(
+            null,
+            "",
+            `admin-push-detail.html?id=${item.id}&edit=1`,
+          );
+        }
+        render();
+        Luma.toast(created ? "推送已新建" : "推送已保存");
+      };
+      render();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-push-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({ 编辑推送: render });
+    </script>
+  </body>
+</html>

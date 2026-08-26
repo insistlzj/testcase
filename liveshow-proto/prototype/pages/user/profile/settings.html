@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>设置 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .section-label {
+        margin: 16px 16px 7px;
+        color: var(--g4);
+        font-size: 12px;
+      }
+      .settings-section {
+        background: var(--g7);
+      }
+      .setting-row {
+        min-height: 54px;
+        width: 100%;
+        padding: 0 16px;
+        border: 0;
+        border-bottom: 1px solid var(--g6);
+        background: var(--g7);
+        color: var(--g1);
+        font: 14px inherit;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+      }
+      .setting-row:last-child {
+        border-bottom: 0;
+      }
+      .setting-row > span:first-child {
+        min-width: 0;
+        flex: 1;
+      }
+      .setting-row small {
+        color: var(--g4);
+        font-size: 12px;
+      }
+      .setting-row .arrow {
+        color: var(--g4);
+        font-size: 18px;
+      }
+      .setting-row button {
+        border: 0;
+        background: none;
+      }
+      button.setting-row,
+      a.setting-row {
+        cursor: pointer;
+      }
+      .setting-row select {
+        max-width: 160px;
+        height: 34px;
+        border: 0;
+        background: transparent;
+        color: var(--g2);
+        font: 13px inherit;
+        text-align: right;
+      }
+      .switch {
+        position: relative;
+        width: 42px;
+        height: 24px;
+        flex: none;
+      }
+      .switch input {
+        position: absolute;
+        opacity: 0;
+      }
+      .switch i {
+        display: block;
+        width: 42px;
+        height: 24px;
+        border-radius: 12px;
+        background: var(--g5);
+        cursor: pointer;
+        transition: background 0.16s;
+      }
+      .switch i:after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--g7);
+        transition: transform 0.16s;
+      }
+      .switch input:checked + i {
+        background: var(--g1);
+      }
+      .switch input:checked + i:after {
+        transform: translateX(18px);
+      }
+      .danger {
+        color: var(--danger) !important;
+      }
+      .version {
+        padding: 18px 16px 26px;
+        color: var(--g4);
+        font-size: 11px;
+        text-align: center;
+      }
+      .dialog-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--overlay);
+      }
+      .dialog-card {
+        width: 300px;
+        padding: 20px 16px 16px;
+        border-radius: 8px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .dialog-card h2 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .dialog-card p {
+        margin: 10px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      .dialog-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .dialog-actions button {
+        flex: 1;
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .dialog-actions .primary {
+        background: var(--g1);
+        color: var(--g7);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="window.parent.postMessage({type:'luma-page',file:'profile.html'},'*');location.href='profile.html'"
+        >
+          ‹</button
+        >设置
+      </header>
+      <p class="section-label">账号与安全</p>
+      <section class="settings-section">
+        <div class="setting-row">
+          <span>手机号</span><small id="phone"></small>
+        </div>
+        <div class="setting-row">
+          <span>邮箱</span><small id="email"></small>
+        </div>
+        <a
+          class="setting-row"
+          href="../auth/auth-login-register.html?flow=reset"
+          ><span>修改登录密码</span><i class="arrow">›</i></a
+        >
+      </section>
+      <p class="section-label">通知</p>
+      <section class="settings-section">
+        <label class="setting-row"
+          ><span>开播提醒</span
+          ><span class="switch"
+            ><input
+              type="checkbox"
+              data-setting="liveReminder" /><i></i></span></label
+        ><label class="setting-row"
+          ><span>互动通知</span
+          ><span class="switch"
+            ><input type="checkbox" data-setting="interaction" /><i></i></span
+        ></label>
+      </section>
+      <p class="section-label">系统设置</p>
+      <section class="settings-section">
+        <label class="setting-row"
+          ><span>语言</span
+          ><select id="language" aria-label="语言">
+            <option value="en">English</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+          </select></label
+        ><button class="setting-row" id="about" type="button">
+          <span>关于 Luma Live</span><i class="arrow">›</i></button
+        ><button class="setting-row" id="logout" type="button">
+          <span>退出登录</span><i class="arrow">›</i></button
+        ><button class="setting-row danger" id="deleteAccount" type="button">
+          <span>注销账号</span><i class="arrow">›</i>
+        </button>
+      </section>
+      <p class="version">Luma Live v1.0.0</p>
+    </main>
+    <section
+      class="dialog-mask state-hide"
+      id="dialogMask"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="dialog-card">
+        <h2 id="dialogTitle"></h2>
+        <p id="dialogText"></p>
+        <div class="dialog-actions">
+          <button id="dialogCancel" type="button">取消</button
+          ><button class="primary" id="dialogConfirm" type="button">
+            确认
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="homebar"><i></i></div>
+    <script>
+      const settingsMock = window.LUMA_MOCK.settings;
+      const dialogMask = document.querySelector("#dialogMask"),
+        dialogTitle = document.querySelector("#dialogTitle"),
+        dialogText = document.querySelector("#dialogText"),
+        dialogCancel = document.querySelector("#dialogCancel"),
+        dialogConfirm = document.querySelector("#dialogConfirm");
+      let dialogAction = "",
+        canDelete = false;
+      document.querySelector("#phone").textContent = settingsMock.phone;
+      document.querySelector("#email").textContent = settingsMock.email;
+      document.querySelector("#language").value = settingsMock.language;
+      document.querySelectorAll("[data-setting]").forEach((input) => {
+        input.checked = Boolean(settingsMock[input.dataset.setting]);
+        input.onchange = () => Luma.toast("设置已保存");
+      });
+      document.querySelector("#language").onchange = () =>
+        Luma.toast("语言已切换");
+      function openDialog(action) {
+        dialogAction = action;
+        dialogCancel.classList.remove("state-hide");
+        if (action === "about") {
+          dialogTitle.textContent = "Luma Live";
+          dialogText.textContent = "版本 v1.0.0";
+          dialogCancel.classList.add("state-hide");
+          dialogConfirm.textContent = "知道了";
+        }
+        if (action === "logout") {
+          dialogTitle.textContent = "退出登录";
+          dialogText.textContent = "退出后将返回登录页。";
+          dialogConfirm.textContent = "退出";
+        }
+        if (action === "delete") {
+          dialogTitle.textContent = "注销账号";
+          dialogText.textContent = canDelete
+            ? "提交后账号进入注销冷静期。"
+            : `当前仍有 ${settingsMock.coins} 金币，请处理后再申请注销。`;
+          dialogConfirm.textContent = canDelete ? "提交申请" : "查看余额";
+        }
+        dialogMask.classList.remove("state-hide");
+      }
+      function closeDialog() {
+        dialogMask.classList.add("state-hide");
+        dialogAction = "";
+      }
+      document.querySelector("#about").onclick = () => openDialog("about");
+      document.querySelector("#logout").onclick = () => openDialog("logout");
+      document.querySelector("#deleteAccount").onclick = () =>
+        openDialog("delete");
+      dialogCancel.onclick = closeDialog;
+      dialogConfirm.onclick = () => {
+        if (dialogAction === "about") {
+          closeDialog();
+          return;
+        }
+        if (dialogAction === "logout") {
+          location.href = "../auth/auth-login-register.html";
+          return;
+        }
+        if (dialogAction === "delete" && !canDelete) {
+          location.href = "../wallet/recharge.html";
+          return;
+        }
+        if (dialogAction === "delete") {
+          closeDialog();
+          Luma.toast("注销申请已提交");
+        }
+      };
+      window.parent.postMessage(
+        { type: "luma-page", file: "settings.html" },
+        "*",
+      );
+      Luma.registerStates({
+        注销条件: {
+          有未处理资产: () => {
+            canDelete = false;
+          },
+          可提交注销: () => {
+            canDelete = true;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

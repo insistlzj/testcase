@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>用户主页 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 106px;
+      }
+      .top {
+        height: 188px;
+        position: relative;
+        background: var(--g5);
+      }
+      .top .back {
+        top: 12px;
+        color: var(--g2);
+        z-index: 1;
+      }
+      .cover-label {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .profile {
+        position: relative;
+        margin: -42px 16px 0;
+        padding: 0 0 12px;
+        text-align: left;
+      }
+      .profile-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .profile .avatar {
+        width: 82px;
+        height: 82px;
+        flex: none;
+        margin: 3px 0 0;
+        border: 3px solid var(--g6);
+        font-size: 28px;
+      }
+      .profile-info {
+        min-width: 0;
+        flex: 1;
+        padding-top: 3px;
+      }
+      .profile h1 {
+        margin: 0;
+        overflow: hidden;
+        font-size: 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .profile p {
+        margin: 0;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .profile-id {
+        margin-top: 5px !important;
+      }
+      .profile-badges {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 7px;
+        flex-wrap: wrap;
+      }
+      .wealth,
+      .badge {
+        height: 24px;
+        padding: 0 7px;
+        border-radius: 6px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+      }
+      .profile-description {
+        margin-top: 12px !important;
+        line-height: 1.45;
+      }
+      .stats {
+        display: flex;
+        margin: 0 16px;
+        padding: 12px 4px;
+        border-radius: 12px;
+        background: var(--g7);
+      }
+      .stats span {
+        min-width: 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        color: var(--g3);
+        font-size: 11px;
+      }
+      .stats span + span {
+        border-left: 1px solid var(--g6);
+      }
+      .stats b {
+        color: var(--g1);
+        font-size: 16px;
+      }
+      .stats small {
+        font-size: 11px;
+      }
+      .section {
+        margin: 12px 16px 0;
+        padding: 14px;
+        background: var(--g7);
+        border-radius: 12px;
+      }
+      .section h2 {
+        margin: 0 0 10px;
+        font-size: 16px;
+      }
+      .club {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 0;
+        border-top: 1px solid var(--g6);
+      }
+      .club:first-of-type {
+        border-top: 0;
+      }
+      .club .avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 15px;
+      }
+      .club-info {
+        min-width: 0;
+        flex: 1;
+      }
+      .club b {
+        display: block;
+        font-size: 14px;
+      }
+      .club-metrics {
+        display: flex;
+        gap: 6px;
+        margin-top: 5px;
+      }
+      .club-metrics span {
+        padding: 2px 5px;
+        border-radius: 5px;
+        background: var(--g6);
+        color: var(--g3);
+        font-size: 10px;
+        white-space: nowrap;
+      }
+      .profile-actions {
+        position: fixed;
+        left: 0;
+        bottom: 34px;
+        width: 390px;
+        height: 72px;
+        padding: 8px 16px;
+        background: var(--g7);
+        border-top: 1px solid var(--g5);
+        display: flex;
+        z-index: 4;
+      }
+      .profile-actions button {
+        flex: 1;
+        border: 0;
+        background: transparent;
+        color: var(--g2);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .profile-actions b,
+      .profile-actions span {
+        display: block;
+      }
+      .profile-actions b {
+        height: 28px;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 25px;
+      }
+      .profile-actions span {
+        margin-top: 2px;
+      }
+      .more-sheet {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 8px 16px 16px;
+        border-top: 1px solid var(--g5);
+        background: var(--g7);
+        z-index: 6;
+      }
+      .more-sheet button {
+        width: 100%;
+        height: 42px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--g1);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .more-sheet button:hover {
+        background: var(--g6);
+      }
+      .more-sheet [data-block] {
+        color: var(--danger);
+      }
+      .more-sheet [data-close-more] {
+        margin-top: 8px;
+        background: var(--g6);
+        color: var(--g2);
+      }
+      .confirm-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 7;
+        padding: 24px;
+        background: var(--overlay);
+        display: grid;
+        place-items: center;
+      }
+      .confirm-card {
+        width: 280px;
+        padding: 20px 16px 16px;
+        border-radius: 8px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .confirm-card b {
+        display: block;
+        font-size: 17px;
+      }
+      .confirm-card p {
+        margin: 8px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .confirm-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .confirm-actions button {
+        flex: 1;
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .confirm-actions [data-cancel-delete] {
+        background: var(--g6);
+        color: var(--g2);
+      }
+      .confirm-actions [data-confirm-delete] {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      body:has(.profile) .profile .avatar {
+        margin: 3px 0 0;
+      }
+      .club-avatar-link {
+        display: block;
+        line-height: 0;
+      }
+      .top-more {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--g2);
+        font: 700 19px/1 inherit;
+        cursor: pointer;
+      }
+    </style>
+    <style>
+      .profile-actions .blacklist-notice {
+        flex: 1;
+        margin: auto;
+        text-align: center;
+        color: var(--g3);
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <section class="top">
+        <button class="back" type="button" aria-label="返回" onclick="goBack()">
+          ‹</button
+        ><span class="cover-label">背景图 · 16:9</span
+        ><button class="top-more" type="button" aria-label="更多" data-more>
+          ···
+        </button>
+      </section>
+      <section class="profile">
+        <div class="profile-header">
+          <i class="avatar" id="avatar"></i>
+          <div class="profile-info">
+            <h1 id="name"></h1>
+            <p class="profile-id" id="id"></p>
+            <div class="profile-badges">
+              <span class="wealth" id="wealth"></span
+              ><span class="badge">勋章 1</span
+              ><span class="badge">勋章 2</span>
+            </div>
+          </div>
+        </div>
+        <p class="profile-description" id="description"></p>
+      </section>
+      <section class="stats" aria-label="用户数据">
+        <span><small>粉丝</small><b id="followers"></b></span
+        ><span><small>关注</small><b id="following"></b></span
+        ><span><small>送出</small><b id="sent"></b></span>
+      </section>
+      <section class="section">
+        <h2>加入粉丝团</h2>
+        <div id="clubs"></div>
+      </section>
+    </main>
+    <section class="more-sheet state-hide" id="moreSheet" aria-label="更多操作">
+      <button type="button" class="state-hide" data-delete-friend>
+        删除好友</button
+      ><button type="button" data-report>举报</button
+      ><button type="button" data-block>拉黑</button
+      ><button type="button" data-close-more>取消</button>
+    </section>
+    <section
+      class="confirm-mask state-hide"
+      id="deleteConfirm"
+      role="dialog"
+      aria-modal="true"
+      aria-label="删除好友确认"
+    >
+      <div class="confirm-card">
+        <b>删除好友？</b>
+        <p>删除后将不再是好友。</p>
+        <div class="confirm-actions">
+          <button type="button" data-cancel-delete>取消</button
+          ><button type="button" data-confirm-delete>确认删除</button>
+        </div>
+      </div>
+    </section>
+    <footer class="profile-actions">
+      <button type="button" data-follow><b>+</b><span>关注</span></button
+      ><button type="button" data-add-friend><b>+</b><span>加好友</span></button
+      ><button type="button" data-message><b>✉</b><span>私信</span></button>
+      <p class="blacklist-notice state-hide" id="blacklistNotice">
+        已加入黑名单
+      </p>
+    </footer>
+    <div class="homebar"><i></i></div>
+    <script>
+      function goBack() {
+        const previousPage = document.referrer.includes("/pages/")
+          ? document.referrer
+          : "";
+        if (previousPage) {
+          location.href = previousPage;
+          return;
+        }
+        history.back();
+      }
+      const userProfile = window.LUMA_MOCK.userProfile;
+      const avatarEl = document.querySelector("#avatar"),
+        nameEl = document.querySelector("#name"),
+        idEl = document.querySelector("#id"),
+        wealthEl = document.querySelector("#wealth"),
+        descriptionEl = document.querySelector("#description"),
+        clubsEl = document.querySelector("#clubs");
+      avatarEl.textContent = userProfile.avatar;
+      nameEl.textContent = userProfile.name;
+      idEl.textContent = `ID：${userProfile.id}`;
+      wealthEl.textContent = userProfile.wealthLevel;
+      descriptionEl.textContent = userProfile.description;
+      document.querySelector("#followers").textContent = userProfile.followers;
+      document.querySelector("#following").textContent = userProfile.following;
+      document.querySelector("#sent").textContent = userProfile.sent;
+      clubsEl.innerHTML = userProfile.fanClubs
+        .map(
+          (club) =>
+            `<div class="club"><a class="club-avatar-link" href="host-home.html?host=${encodeURIComponent(club.hostKey)}" aria-label="进入 ${club.hostName} 的主播主页"><i class="avatar">${club.hostAvatar}</i></a><span class="club-info"><b>${club.name}</b><span class="club-metrics"><span>${club.fanLevel}</span><span>亲密度 ${club.intimacy}</span></span></span></div>`,
+        )
+        .join("");
+      const moreSheet = document.querySelector("#moreSheet");
+      const followButton = document.querySelector("[data-follow]");
+      const addFriendButton = document.querySelector("[data-add-friend]");
+      const deleteFriendButton = document.querySelector("[data-delete-friend]");
+      const deleteConfirm = document.querySelector("#deleteConfirm");
+      const blacklistNotice = document.querySelector("#blacklistNotice");
+      const profileActionButtons = document.querySelectorAll(
+        ".profile-actions button",
+      );
+      const setRelationshipState = (relationship) => {
+        const isBlacklisted = relationship === "blacklist";
+        const isFriend = relationship === "friend";
+        profileActionButtons.forEach((button) =>
+          button.classList.toggle("state-hide", isBlacklisted),
+        );
+        blacklistNotice.classList.toggle("state-hide", !isBlacklisted);
+        addFriendButton.classList.toggle(
+          "state-hide",
+          isBlacklisted || isFriend,
+        );
+        deleteFriendButton.classList.toggle("state-hide", !isFriend);
+        if (isBlacklisted) {
+          moreSheet.classList.add("state-hide");
+          deleteConfirm.classList.add("state-hide");
+        }
+      };
+      const setFollowState = (isFollowed) => {
+        followButton.classList.toggle("is-following", isFollowed);
+        followButton.querySelector("b").textContent = isFollowed ? "✓" : "+";
+        followButton.querySelector("span").textContent = isFollowed
+          ? "已关注"
+          : "关注";
+      };
+      setFollowState(Boolean(userProfile.isFollowed));
+      setRelationshipState(
+        userProfile.isBlacklisted
+          ? "blacklist"
+          : userProfile.isFriend
+            ? "friend"
+            : "nonfriend",
+      );
+      followButton.onclick = () => {
+        const isFollowed = !followButton.classList.contains("is-following");
+        setFollowState(isFollowed);
+        Luma.toast(isFollowed ? `已关注 ${userProfile.name}` : "已取消关注");
+      };
+      addFriendButton.onclick = () => Luma.toast("已发送好友申请");
+      document.querySelector("[data-message]").onclick = () =>
+        (location.href = "direct-message.html");
+      document.querySelector("[data-more]").onclick = () =>
+        moreSheet.classList.remove("state-hide");
+      document.querySelector("[data-close-more]").onclick = () =>
+        moreSheet.classList.add("state-hide");
+      document.querySelector("[data-report]").onclick = () => {
+        moreSheet.classList.add("state-hide");
+        Luma.toast("已提交举报");
+      };
+      deleteFriendButton.onclick = () => {
+        moreSheet.classList.add("state-hide");
+        deleteConfirm.classList.remove("state-hide");
+      };
+      document.querySelector("[data-cancel-delete]").onclick = () =>
+        deleteConfirm.classList.add("state-hide");
+      document.querySelector("[data-confirm-delete]").onclick = () => {
+        deleteConfirm.classList.add("state-hide");
+        setRelationshipState("nonfriend");
+        Luma.toast("已删除好友");
+      };
+      document.querySelector("[data-block]").onclick = () => {
+        moreSheet.classList.add("state-hide");
+        Luma.toast("已拉黑该用户");
+      };
+      Luma.registerStates({
+        好友关系: {
+          非好友: () => setRelationshipState("nonfriend"),
+          好友: () => setRelationshipState("friend"),
+          黑名单: () => setRelationshipState("blacklist"),
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>我的关注 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .list {
+        margin-top: 12px;
+        background: var(--g7);
+      }
+      .host {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 13px 16px;
+        border: 0;
+        border-bottom: 1px solid var(--g6);
+        background: var(--g7);
+        color: var(--g1);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .host:last-child {
+        border-bottom: 0;
+      }
+      .host-avatar {
+        position: relative;
+        flex: none;
+      }
+      .host-avatar .avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+      }
+      .live-dot {
+        position: absolute;
+        right: 0;
+        bottom: 1px;
+        width: 12px;
+        height: 12px;
+        border: 2px solid var(--g7);
+        border-radius: 50%;
+        background: var(--success);
+        animation: live-pulse 1.25s ease-in-out infinite;
+      }
+      .copy {
+        min-width: 0;
+        flex: 1;
+      }
+      .copy b,
+      .copy span {
+        display: block;
+      }
+      .copy b {
+        font-size: 16px;
+      }
+      .copy span {
+        margin-top: 5px;
+        overflow: hidden;
+        color: var(--g3);
+        font-size: 13px;
+        line-height: 1.35;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .state {
+        flex: none;
+        color: var(--g4);
+        font-size: 12px;
+      }
+      .state.live {
+        color: var(--success);
+      }
+      @keyframes live-pulse {
+        50% {
+          box-shadow: 0 0 0 4px rgba(46, 139, 87, 0.18);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <a href="profile.html" aria-label="返回">‹</a>我的关注
+      </header>
+      <section
+        class="list"
+        id="followingList"
+        aria-label="已关注主播"
+      ></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const followingList = document.querySelector("#followingList");
+      const followingHosts = window.LUMA_MOCK.followingHosts;
+      followingList.innerHTML = followingHosts
+        .map(
+          (host) =>
+            `<button class="host" type="button" data-host="${host.name}" aria-label="${host.live ? `进入 ${host.name} 的直播间` : `进入 ${host.name} 的主播主页`}"><span class="host-avatar"><i class="avatar">${host.avatar}</i>${host.live ? '<i class="live-dot" aria-label="开播中"></i>' : ""}</span><span class="copy"><b>${host.name}</b><span>${host.description}</span></span><span class="state ${host.live ? "live" : ""}">${host.live ? "直播中" : "未开播"}</span></button>`,
+        )
+        .join("");
+      followingList.addEventListener("click", (event) => {
+        const row = event.target.closest("[data-host]");
+        if (!row) return;
+        const host = followingHosts.find(
+          (item) => item.name === row.dataset.host,
+        );
+        location.href = host.live
+          ? "../live/live-room.html"
+          : `../social/host-home.html?host=${encodeURIComponent(host.name.toLowerCase())}`;
+      });
+      window.parent.postMessage(
+        { type: "luma-page", file: "my-following.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会推荐 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a
+              class="admin-nav-sub active"
+              href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>公会推荐</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <h1>公会推荐</h1>
+            <a
+              class="admin-btn"
+              href="admin-guild-recommendation-detail.html?new=1&edit=1"
+              >新增推荐公会</a
+            >
+          </div>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <strong>推荐公会</strong><span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 900px">
+                <colgroup>
+                  <col style="width: 320px" />
+                  <col style="width: 150px" />
+                  <col style="width: 210px" />
+                  <col style="width: 180px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>公会信息</th>
+                    <th>排序权重</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="guildRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>最多维护 5 个推荐公会</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="deleteOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2>移除推荐公会</h2>
+          <button class="admin-icon-btn" data-close="deleteOverlay">×</button>
+        </div>
+        <form id="deleteForm">
+          <div class="admin-modal-body"><p id="deleteText"></p></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="deleteOverlay"
+            >
+              取消</button
+            ><button class="admin-btn danger" type="submit">确认移除</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const items = [
+        {
+          id: "GRP001",
+          guild: "Aurora Guild",
+          guildId: "G100021",
+          sort: 100,
+          updatedAt: "2026-08-05 10:12",
+        },
+        {
+          id: "GRP002",
+          guild: "Star House",
+          guildId: "G100018",
+          sort: 90,
+          updatedAt: "2026-08-04 16:40",
+        },
+        {
+          id: "GRP003",
+          guild: "Blue Ocean",
+          guildId: "G100014",
+          sort: 80,
+          updatedAt: "2026-08-03 13:26",
+        },
+        {
+          id: "GRP004",
+          guild: "Moonlight",
+          guildId: "G100009",
+          sort: 70,
+          updatedAt: "2026-08-01 09:18",
+        },
+      ];
+      let deleting = null;
+      function render(source = items) {
+        const visible = [...source].sort((a, b) => b.sort - a.sort);
+        resultCount.textContent = `共 ${visible.length} 条`;
+        pagination.classList.toggle("state-hide", !visible.length);
+        guildRows.innerHTML = visible.length
+          ? visible
+              .map(
+                (item) =>
+                  `<tr><td><b>${item.guild}</b><br><span class="admin-muted">${item.guildId}</span></td><td>${item.sort}</td><td>${item.updatedAt}</td><td><button class="admin-action" data-delete="${item.id}">移除</button></td></tr>`,
+              )
+              .join("")
+          : '<tr><td colspan="4"><div class="admin-empty"><strong>暂无推荐公会</strong></div></td></tr>';
+      }
+      guildRows.onclick = (event) => {
+        const button = event.target.closest("[data-delete]");
+        if (!button) return;
+        deleting = items.find((item) => item.id === button.dataset.delete);
+        deleteText.textContent = `确认移除 ${deleting.guild}（${deleting.guildId}）？`;
+        deleteOverlay.classList.add("show");
+      };
+      document.addEventListener("click", (event) => {
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+      });
+      deleteForm.onsubmit = (event) => {
+        event.preventDefault();
+        const index = items.indexOf(deleting);
+        if (index >= 0) items.splice(index, 1);
+        deleteOverlay.classList.remove("show");
+        render();
+        Luma.toast("推荐公会已移除");
+      };
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-guild-recommendation.html" },
+        "*",
+      );
+      Luma.registerStates({
+        推荐公会: () => render(items),
+        无推荐公会: () => render([]),
+        移除确认: () => {
+          deleting = items[0];
+          deleteText.textContent = `确认移除 ${deleting.guild}（${deleting.guildId}）？`;
+          deleteOverlay.classList.add("show");
+        },
+      });
+    </script>
+  </body>
+</html>

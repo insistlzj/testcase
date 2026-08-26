@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>通知消息 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260818-unified-notifications-v2"
+    />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="guild-home.html">‹</a>通知消息
+      </header>
+      <div class="guild-page-body">
+        <section class="guild-notification-list" id="list"></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      const data = [
+        {
+          id: "N26082001",
+          title: "公会分成已入账",
+          summary: "2026 年 7 月公会分成已发放至公会账户。",
+          time: "2026-08-20 18:06",
+          unread: true,
+        },
+        {
+          id: "N26081801",
+          title: "系统消息",
+          summary: "平台服务将于 25/08/2026 02.00 进行例行维护。",
+          time: "2026-08-18 11:30",
+          unread: false,
+        },
+      ];
+      list.innerHTML = data
+        .map(
+          (item) =>
+            `<a class="guild-notification-row" href="guild-notification-detail.html?id=${item.id}"><i class="${item.unread ? "unread" : ""}"></i><span><b>${item.title}</b><small>${item.summary}</small></span><time>${LUMA_FORMAT.dateTime(item.time)}<strong>›</strong></time></a>`,
+        )
+        .join("");
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-notifications.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

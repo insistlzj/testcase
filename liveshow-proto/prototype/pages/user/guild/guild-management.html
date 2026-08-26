@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会中心 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260813-guild-membership-v2"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .nav .records {
+        left: auto;
+        right: 16px;
+        font-size: 14px;
+      }
+      .banner {
+        position: relative;
+        min-height: 136px;
+        margin: 12px 16px;
+        padding: 18px;
+        border-radius: 12px;
+        background: var(--g1);
+        color: var(--g7);
+        overflow: hidden;
+      }
+      .banner b,
+      .banner span {
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+      .banner b {
+        font-size: 19px;
+      }
+      .banner span {
+        max-width: 226px;
+        margin-top: 8px;
+        color: var(--g5);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .banner-art {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        width: 64px;
+        height: 64px;
+        border: 1px solid var(--g3);
+        color: var(--g5);
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-style: normal;
+      }
+      .guild-logo {
+        width: 42px;
+        height: 42px;
+        flex: none;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 13px;
+        font-weight: 600;
+        font-style: normal;
+      }
+      .search {
+        display: flex;
+        height: 38px;
+        align-items: center;
+        gap: 8px;
+        margin: 12px 16px;
+        padding: 0 9px 0 12px;
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g4);
+      }
+      .search svg {
+        width: 17px;
+        height: 17px;
+        flex: none;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .search input {
+        min-width: 0;
+        flex: 1;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--g1);
+        font: 14px inherit;
+      }
+      .search button {
+        height: 26px;
+        padding: 0 8px;
+        border: 0;
+        border-radius: 5px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .guild-list {
+        margin: 0 16px;
+        border-radius: 12px;
+        background: var(--g7);
+        overflow: hidden;
+      }
+      .guild {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 15px 16px;
+        border-bottom: 1px solid var(--g6);
+      }
+      .guild:last-child {
+        border-bottom: 0;
+      }
+      .guild-copy {
+        min-width: 0;
+        flex: 1;
+      }
+      .guild b,
+      .guild small,
+      .guild-description {
+        display: block;
+      }
+      .guild b {
+        font-size: 16px;
+      }
+      .guild-description {
+        margin-top: 5px;
+        overflow: hidden;
+        color: var(--g3);
+        font-size: 12px;
+        line-height: 1.35;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .guild small {
+        margin-top: 6px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .apply {
+        height: 32px;
+        padding: 0 12px;
+        border: 0;
+        border-radius: 16px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 13px inherit;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .apply.pending,
+      .apply.joined {
+        background: var(--g6);
+        color: var(--g3);
+        cursor: default;
+      }
+      .empty {
+        padding: 48px 16px;
+        color: var(--g4);
+        font-size: 13px;
+        text-align: center;
+      }
+    </style>
+    <style>
+      .guild-host-count {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+      .guild-host-count svg {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <a href="../profile/profile.html" aria-label="返回">‹</a>公会中心<a
+          class="records"
+          href="guild-application-records.html"
+          >我的</a
+        >
+      </header>
+      <form class="search" id="guildSearch" role="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6"></circle>
+          <path d="m16 16 4 4"></path>
+        </svg>
+        <input
+          id="search"
+          type="search"
+          placeholder="搜索公会名称或 ID"
+          autocomplete="off"
+          aria-label="搜索公会名称或 ID"
+        />
+        <button type="submit">搜索</button>
+      </form>
+      <section class="banner">
+        <b>加入公会，开启主播之路</b><span>banner 图内容待定</span
+        ><i class="banner-art" aria-hidden="true"></i>
+      </section>
+      <section
+        class="guild-list"
+        id="guildList"
+        aria-label="公会列表"
+      ></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const labels = { apply: "申请", pending: "申请中", joined: "已入会" };
+      const guildList = document.querySelector("#guildList"),
+        guildSearch = document.querySelector("#guildSearch"),
+        search = document.querySelector("#search"),
+        configuredGuilds = window.LUMA_MOCK.configuredGuilds;
+      function renderGuilds(keyword = "") {
+        const normalized = keyword.trim().toLowerCase(),
+          guilds = configuredGuilds.filter(
+            (guild) =>
+              !normalized ||
+              guild.name.toLowerCase().includes(normalized) ||
+              guild.id.toLowerCase().includes(normalized),
+          );
+        if (!guilds.length) {
+          guildList.innerHTML = '<p class="empty">未找到匹配的公会</p>';
+          return;
+        }
+        guildList.innerHTML = guilds
+          .map(
+            (guild) =>
+              /* HTML */ `<article class="guild">
+                <i class="guild-logo">${guild.logo}</i>
+                <div class="guild-copy">
+                  <b>${guild.name}</b
+                  ><span class="guild-description">${guild.description}</span
+                  ><small
+                    >ID：${guild.id}<span class="guild-host-count"
+                      ><svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        role="img"
+                        aria-label="主播"
+                      >
+                        <rect x="9" y="3" width="6" height="11" rx="3" />
+                        <path d="M5 11a7 7 0 0 0 14 0M12 18v3" /></svg
+                      ><span>${guild.hosts} 人</span></span
+                    ></small
+                  >
+                </div>
+                <button
+                  class="apply ${guild.applicationState}"
+                  type="button"
+                  data-guild="${guild.id}"
+                  ${guild.applicationState === "apply" ? "" : "disabled"}
+                >
+                  ${labels[guild.applicationState]}
+                </button>
+              </article>`,
+          )
+          .join("");
+        guildList
+          .querySelectorAll(".apply.apply")
+          .forEach(
+            (button) =>
+              (button.onclick = () =>
+                (location.href = `guild-application-form.html?guild=${encodeURIComponent(button.dataset.guild)}`)),
+          );
+      }
+      search.addEventListener("input", () => renderGuilds(search.value));
+      guildSearch.onsubmit = (event) => {
+        event.preventDefault();
+        renderGuilds(search.value);
+      };
+      renderGuilds();
+      Luma.registerStates({
+        列表状态: {
+          全部: () => {
+            search.value = "";
+            renderGuilds();
+          },
+          无结果: () => {
+            search.value = "不存在的公会";
+            renderGuilds(search.value);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

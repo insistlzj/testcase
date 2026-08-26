@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>选择主播 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260815-live-avatar-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          id="backLink"
+          href="guild-message-compose.html?mode=host"
+          aria-label="返回新建运营消息"
+          >‹</a
+        >选择主播<button
+          class="guild-nav-action guild-host-select-done"
+          id="doneButton"
+          type="button"
+        >
+          完成
+        </button>
+      </header>
+      <div class="guild-page-body guild-host-select-body">
+        <label class="guild-search" for="hostSearch"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="m16 16 4 4"></path></svg
+          ><input id="hostSearch" type="search" placeholder="搜索主播昵称或 ID"
+        /></label>
+        <div class="guild-list-summary">
+          <strong id="listSummary"></strong><span>仅可选择 1 位</span>
+        </div>
+        <section
+          class="guild-host-choice-list"
+          id="hostList"
+          aria-label="主播单选列表"
+        ></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      const hosts = LUMA_MOCK.guildPortal.guildHosts,
+        params = new URLSearchParams(location.search),
+        hostReturnContext = ["host-detail", "host-related"].includes(
+          params.get("from"),
+        )
+          ? params.get("from")
+          : "",
+        returnHostId = params.get("returnHostId") || "";
+      let selectedHostId = params.get("selected") || "";
+      function composeUrl() {
+        return `guild-message-compose.html?mode=host${selectedHostId ? `&hostId=${encodeURIComponent(selectedHostId)}` : ""}${hostReturnContext ? `&from=${hostReturnContext}&returnHostId=${encodeURIComponent(returnHostId)}` : ""}`;
+      }
+      function render() {
+        const query = hostSearch.value.trim().toLowerCase(),
+          visible = hosts.filter(
+            (item) =>
+              !query ||
+              item.name.toLowerCase().includes(query) ||
+              item.id.toLowerCase().includes(query),
+          );
+        listSummary.textContent = `主播 ${visible.length} 人`;
+        hostList.innerHTML = visible.length
+          ? visible
+              .map(
+                (item) =>
+                  `<button class="guild-host-choice ${selectedHostId === item.id ? "selected" : ""}" data-id="${item.id}" type="button" role="radio" aria-checked="${selectedHostId === item.id}"><span class="directory-avatar${item.live ? " is-live" : ""}"${item.live ? ' aria-label="直播中"' : ""}>${item.avatar}</span><span class="guild-host-choice-copy"><b>${item.name}</b><small>${item.id}</small></span><i aria-hidden="true">${selectedHostId === item.id ? "✓" : ""}</i></button>`,
+              )
+              .join("")
+          : '<div class="guild-page-empty"><b>未找到主播</b><span>请调整搜索词</span></div>';
+        hostList.querySelectorAll("[data-id]").forEach(
+          (button) =>
+            (button.onclick = () => {
+              selectedHostId = button.dataset.id;
+              backLink.href = composeUrl();
+              render();
+            }),
+        );
+      }
+      hostSearch.oninput = render;
+      doneButton.onclick = () => {
+        if (!selectedHostId) {
+          Luma.toast("请选择 1 位主播");
+          return;
+        }
+        location.href = composeUrl();
+      };
+      backLink.href = composeUrl();
+      render();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-host-select.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

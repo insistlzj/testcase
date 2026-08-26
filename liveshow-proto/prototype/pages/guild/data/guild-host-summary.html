@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>主播数据 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260824-former-host-tag-v2"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild-core-data.css?v=20260820-money-color-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js?v=20260817-home-two-metrics-v1"></script>
+    <script src="../../../assets/guild-data-model.js?v=20260819-former-host-data-v1"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          id="backLink"
+          href="../people/guild-host-list.html"
+          aria-label="返回"
+          >‹</a
+        >主播数据
+      </header>
+      <nav
+        class="guild-host-summary-view-switch"
+        aria-label="数据展示方式"
+        role="tablist"
+      >
+        <button
+          class="active"
+          type="button"
+          data-summary-view="day"
+          role="tab"
+          aria-selected="true"
+        >
+          日数据
+        </button>
+        <button
+          type="button"
+          data-summary-view="month"
+          role="tab"
+          aria-selected="false"
+        >
+          月数据
+        </button>
+      </nav>
+      <div class="guild-page-body guild-host-summary-page">
+        <a
+          class="guild-host-data-identity"
+          id="hostHomeLink"
+          href="../people/guild-host-detail.html"
+        >
+          <span class="directory-avatar" id="hostAvatar"></span>
+          <span class="guild-host-data-identity-copy"
+            ><span class="guild-host-data-name-line"
+              ><b id="hostName"></b
+              ><i class="guild-host-former-tag" id="hostFormerTag" hidden
+                >【退会】</i
+              ></span
+            ><small id="hostMeta"></small
+          ></span>
+          <span class="guild-host-data-detail-entry"
+            >主页<i aria-hidden="true">›</i></span
+          >
+        </a>
+
+        <div class="guild-host-summary-filterbar" id="dayFilterBar">
+          <button
+            class="guild-host-summary-range"
+            id="rangePickerButton"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+              <path d="M8 3v4M16 3v4M4 10h16"></path></svg
+            ><span id="rangePickerValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <button
+            class="guild-host-performance-quick"
+            id="shortcutPicker"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+          >
+            <span id="shortcutPickerValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <div
+            class="guild-host-performance-shortcut-menu"
+            id="shortcutMenu"
+            role="menu"
+            aria-label="快捷日期筛选"
+            hidden
+          >
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="thisMonth"
+            >
+              本月
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="lastMonth"
+            >
+              上月
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="thisWeek"
+            >
+              本周
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="lastWeek"
+            >
+              上周
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="custom"
+            >
+              自定义
+            </button>
+          </div>
+        </div>
+
+        <section
+          class="guild-host-daily-table"
+          id="dailyTable"
+          role="table"
+          aria-label="主播每日数据列表"
+        >
+          <div class="guild-host-daily-table-head" role="row">
+            <span id="periodColumnHeader" role="columnheader">日期</span>
+            <span role="columnheader">直播时长</span>
+            <span role="columnheader">新增粉丝</span>
+            <span role="columnheader">收益 (金币)</span>
+          </div>
+          <div
+            class="guild-host-daily-list"
+            id="dailyList"
+            role="rowgroup"
+          ></div>
+        </section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <div class="guild-mask guild-host-date-mask" id="rangeSheet" hidden>
+      <section
+        class="guild-sheet guild-host-range-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="rangeSheetTitle"
+      >
+        <header class="guild-host-month-sheet-head">
+          <button id="rangeSheetCancel" type="button">取消</button>
+          <h2 id="rangeSheetTitle">选择日期范围</h2>
+          <button class="confirm" id="rangeSheetConfirm" type="button">
+            确定
+          </button>
+        </header>
+        <div class="guild-host-performance-calendar">
+          <div class="guild-host-performance-calendar-nav">
+            <button id="calendarPrev" type="button" aria-label="上一个月">
+              ‹</button
+            ><b id="calendarTitle"></b
+            ><button id="calendarNext" type="button" aria-label="下一个月">
+              ›
+            </button>
+          </div>
+          <div class="guild-host-performance-calendar-week" aria-hidden="true">
+            <span>日</span><span>一</span><span>二</span><span>三</span
+            ><span>四</span><span>五</span><span>六</span>
+          </div>
+          <div
+            class="guild-host-performance-calendar-days"
+            id="calendarDays"
+            role="grid"
+          ></div>
+        </div>
+        <p class="guild-host-performance-range-hint" id="rangeSelection"></p>
+      </section>
+    </div>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const dataModel = LUMA_GUILD_DATA;
+      const requestedHostId =
+        params.get("hostId") || params.get("id") || dataModel.hosts[0].id;
+      const completeSummary = dataModel.getSummary(requestedHostId);
+      const host = completeSummary.host;
+      const isFormerHost = LUMA_MOCK.guildPortal.formerGuildHosts.some(
+        (item) => item.id === host.id,
+      );
+      const origin = ["list", "operations", "detail"].includes(
+        params.get("from"),
+      )
+        ? params.get("from")
+        : "home";
+      const viewMode = params.get("view") === "month" ? "month" : "day";
+      const returnDate = dataModel.dates.includes(params.get("returnDate"))
+        ? params.get("returnDate")
+        : dataModel.dates[dataModel.dates.length - 1];
+      const returnPeriod = params.get("returnPeriod");
+      const returnSource = ["home", "income", "host-month"].includes(
+        params.get("returnSource"),
+      )
+        ? params.get("returnSource")
+        : "income";
+      const allDates = completeSummary.days.map((day) => day.date).sort();
+      const allDateSet = new Set(allDates);
+      const latestDate = allDates[allDates.length - 1];
+      const earliestMonth = allDates[0].slice(0, 7);
+      const latestMonth = latestDate.slice(0, 7);
+      const shortcutLabels = {
+        thisMonth: "本月",
+        lastMonth: "上月",
+        thisWeek: "本周",
+        lastWeek: "上周",
+      };
+
+      function dateObject(value) {
+        const [year, month, day] = value.split("-").map(Number);
+        return new Date(year, month - 1, day, 12);
+      }
+
+      function dateValue(date) {
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      }
+
+      function offsetDate(date, days) {
+        const value = new Date(date);
+        value.setDate(value.getDate() + days);
+        return value;
+      }
+
+      function shortcutRange(shortcut) {
+        const latest = dateObject(latestDate);
+        const weekdayOffset = (latest.getDay() + 6) % 7;
+        if (shortcut === "thisWeek")
+          return [dateValue(offsetDate(latest, -weekdayOffset)), latestDate];
+        if (shortcut === "lastWeek") {
+          const end = offsetDate(latest, -weekdayOffset - 1);
+          return [dateValue(offsetDate(end, -6)), dateValue(end)];
+        }
+        if (shortcut === "lastMonth") {
+          return [
+            dateValue(
+              new Date(latest.getFullYear(), latest.getMonth() - 1, 1, 12),
+            ),
+            dateValue(new Date(latest.getFullYear(), latest.getMonth(), 0, 12)),
+          ];
+        }
+        return [
+          dateValue(new Date(latest.getFullYear(), latest.getMonth(), 1, 12)),
+          latestDate,
+        ];
+      }
+
+      const shortcutKeys = Object.keys(shortcutLabels);
+      const requestedRangeStart = params.get("rangeStart") || "";
+      const requestedRangeEnd = params.get("rangeEnd") || "";
+      const hasRequestedRange =
+        /^\d{4}-\d{2}-\d{2}$/.test(requestedRangeStart) &&
+        /^\d{4}-\d{2}-\d{2}$/.test(requestedRangeEnd) &&
+        requestedRangeEnd >= requestedRangeStart &&
+        completeSummary.days.some(
+          (day) =>
+            day.date >= requestedRangeStart && day.date <= requestedRangeEnd,
+        );
+      const selectedShortcut =
+        hasRequestedRange && shortcutKeys.includes(params.get("shortcut"))
+          ? params.get("shortcut")
+          : hasRequestedRange
+            ? null
+            : "thisMonth";
+      const defaultRange = shortcutRange(selectedShortcut || "thisMonth");
+      const rangeStart = hasRequestedRange
+        ? requestedRangeStart
+        : defaultRange[0];
+      const rangeEnd = hasRequestedRange ? requestedRangeEnd : defaultRange[1];
+      const selectedDays = completeSummary.days
+        .filter((day) => day.date >= rangeStart && day.date <= rangeEnd)
+        .sort((left, right) => right.date.localeCompare(left.date));
+      let pendingRangeStart = rangeStart;
+      let pendingRangeEnd = rangeEnd;
+      let calendarMonth = rangeEnd.slice(0, 7);
+
+      function summarize(days) {
+        return days.reduce(
+          (result, day) => {
+            result.coins += day.coins;
+            result.gifts += day.gifts;
+            result.fans += day.fans;
+            result.sessions += day.sessionCount;
+            result.effectiveDays += day.effective ? 1 : 0;
+            result.duration += day.duration;
+            return result;
+          },
+          {
+            coins: 0,
+            gifts: 0,
+            fans: 0,
+            sessions: 0,
+            effectiveDays: 0,
+            duration: 0,
+          },
+        );
+      }
+
+      function dayMonth(value) {
+        const [, month, day] = value.split("-");
+        return `${Number(day)}/${Number(month)}`;
+      }
+
+      function dailyRow(day) {
+        const query = new URLSearchParams({
+          hostId: host.id,
+          from: "summary",
+          summaryFrom: origin,
+          hostPeriod: day.date.slice(0, 7),
+          rangeStart: day.date,
+          rangeEnd: day.date,
+        });
+        if (origin === "operations") {
+          query.set("returnDate", returnDate);
+          query.set("returnSource", returnSource);
+          if (returnPeriod) query.set("returnPeriod", returnPeriod);
+        }
+        const statusLabel = day.effective ? "已达成有效天" : "未达成有效天";
+        return `<a class="guild-host-daily-row" role="row" href="guild-host-data.html?${query}">
+        <span role="cell" aria-label="${LUMA_FORMAT.date(day.date)}">${dayMonth(day.date)}</span>
+        <span class="guild-host-daily-status" role="cell"><span class="guild-effective-status ${day.effective ? "is-effective" : "is-warning"}" aria-label="${statusLabel}" title="${statusLabel}">${day.effective ? "✓" : "!"}</span>${dataModel.formatDuration(day.duration)}</span>
+        <span class="guild-signed-value ${dataModel.signClass(day.fans)}" role="cell">${dataModel.formatSignedInteger(day.fans)}</span>
+        <strong role="cell"><svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>${LUMA_FORMAT.coins(day.coins)}</strong>
+        <i aria-hidden="true">›</i>
+      </a>`;
+      }
+
+      function monthlyRows() {
+        const groups = completeSummary.days.reduce((result, day) => {
+          const month = day.date.slice(0, 7);
+          if (!result.has(month)) result.set(month, []);
+          result.get(month).push(day);
+          return result;
+        }, new Map());
+        return [...groups.entries()]
+          .sort(([left], [right]) => right.localeCompare(left))
+          .map(([month, days]) => {
+            const summary = summarize(days);
+            const dates = days.map((day) => day.date).sort();
+            const [year, value] = month.split("-");
+            const query = new URLSearchParams({
+              hostId: host.id,
+              from: "summary",
+              summaryFrom: origin,
+              summaryView: "month",
+              hostPeriod: month,
+              rangeStart: dates[0],
+              rangeEnd: dates[dates.length - 1],
+            });
+            if (origin === "operations") {
+              query.set("returnDate", returnDate);
+              query.set("returnSource", returnSource);
+              if (returnPeriod) query.set("returnPeriod", returnPeriod);
+            }
+            return `<a class="guild-host-daily-row guild-host-monthly-row" role="row" href="guild-host-data.html?${query}">
+          <span role="cell">${value}/${year}</span>
+          <span role="cell">${dataModel.formatDuration(summary.duration)}</span>
+          <span class="guild-signed-value ${dataModel.signClass(summary.fans)}" role="cell">${dataModel.formatSignedInteger(summary.fans)}</span>
+          <strong role="cell"><svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>${LUMA_FORMAT.coins(summary.coins)}</strong>
+          <i aria-hidden="true">›</i>
+        </a>`;
+          })
+          .join("");
+      }
+
+      function applyRange(start, end, shortcut = null) {
+        const nextParams = new URLSearchParams(location.search);
+        nextParams.set("hostId", host.id);
+        nextParams.set("from", origin);
+        nextParams.set("hostPeriod", end.slice(0, 7));
+        nextParams.set("rangeStart", start);
+        nextParams.set("rangeEnd", end);
+        if (shortcut) nextParams.set("shortcut", shortcut);
+        else nextParams.delete("shortcut");
+        location.href = `guild-host-summary.html?${nextParams}`;
+      }
+
+      function shiftMonth(month, offset) {
+        const [year, value] = month.split("-").map(Number);
+        return dateValue(new Date(year, value - 1 + offset, 1, 12)).slice(0, 7);
+      }
+
+      function renderCalendar() {
+        const [yearText, monthText] = calendarMonth.split("-");
+        const year = Number(yearText);
+        const month = Number(monthText);
+        const firstWeekday = new Date(year, month - 1, 1).getDay();
+        const dayCount = new Date(year, month, 0).getDate();
+        calendarTitle.textContent = `${month}/${year}`;
+        calendarPrev.disabled = shiftMonth(calendarMonth, -1) < earliestMonth;
+        calendarNext.disabled = shiftMonth(calendarMonth, 1) > latestMonth;
+        const blanks = Array.from(
+          { length: firstWeekday },
+          () => '<span aria-hidden="true"></span>',
+        ).join("");
+        const days = Array.from({ length: dayCount }, (_, index) => {
+          const date = `${yearText}-${monthText}-${String(index + 1).padStart(2, "0")}`;
+          const enabled = allDateSet.has(date);
+          const isStart = date === pendingRangeStart;
+          const isEnd = date === pendingRangeEnd;
+          const inRange =
+            pendingRangeStart &&
+            pendingRangeEnd &&
+            date > pendingRangeStart &&
+            date < pendingRangeEnd;
+          const classes = [
+            isStart ? "range-start" : "",
+            isEnd ? "range-end" : "",
+            inRange ? "in-range" : "",
+          ]
+            .filter(Boolean)
+            .join(" ");
+          return `<button class="${classes}" type="button" role="gridcell" data-date="${date}" aria-selected="${Boolean(isStart || isEnd || inRange)}"${enabled ? "" : " disabled"}>${index + 1}</button>`;
+        }).join("");
+        calendarDays.innerHTML = blanks + days;
+        const end = pendingRangeEnd || pendingRangeStart;
+        rangeSelection.textContent = pendingRangeStart
+          ? `${LUMA_FORMAT.date(pendingRangeStart)}～${LUMA_FORMAT.date(end)}`
+          : "请选择日期";
+      }
+
+      function openRangeSheet() {
+        pendingRangeStart = rangeStart;
+        pendingRangeEnd = rangeEnd;
+        calendarMonth = rangeEnd.slice(0, 7);
+        renderCalendar();
+        rangeSheet.hidden = false;
+        document.body.classList.add("guild-sheet-open");
+      }
+
+      function closeRangeSheet() {
+        rangeSheet.hidden = true;
+        document.body.classList.remove("guild-sheet-open");
+        rangePickerButton.focus();
+      }
+
+      function closeShortcutMenu() {
+        shortcutMenu.hidden = true;
+        shortcutPicker.setAttribute("aria-expanded", "false");
+      }
+
+      hostAvatar.textContent = host.avatar;
+      hostAvatar.classList.toggle("is-live", host.live);
+      if (host.live) hostAvatar.setAttribute("aria-label", "直播中");
+      hostName.textContent = host.name;
+      hostFormerTag.hidden = !isFormerHost;
+      hostMeta.textContent = `${host.id} · ${dataModel.profiles[host.id]?.level || "-"}`;
+      hostHomeLink.href = `../people/guild-host-detail.html?id=${encodeURIComponent(host.id)}`;
+      document.querySelectorAll("[data-summary-view]").forEach((button) => {
+        const active = button.dataset.summaryView === viewMode;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-selected", String(active));
+        button.onclick = () => {
+          if (button.dataset.summaryView === viewMode) return;
+          const nextParams = new URLSearchParams(location.search);
+          nextParams.set("hostId", host.id);
+          nextParams.set("from", origin);
+          nextParams.set("view", button.dataset.summaryView);
+          if (button.dataset.summaryView === "day") {
+            const [start, end] = shortcutRange("thisMonth");
+            nextParams.set("hostPeriod", end.slice(0, 7));
+            nextParams.set("rangeStart", start);
+            nextParams.set("rangeEnd", end);
+            nextParams.set("shortcut", "thisMonth");
+          } else {
+            nextParams.delete("rangeStart");
+            nextParams.delete("rangeEnd");
+            nextParams.delete("shortcut");
+          }
+          location.href = `guild-host-summary.html?${nextParams}`;
+        };
+      });
+      dayFilterBar.hidden = viewMode === "month";
+      rangePickerValue.textContent = `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
+      rangePickerButton.setAttribute(
+        "aria-label",
+        `选择日期范围，当前${rangePickerValue.textContent}`,
+      );
+      shortcutPickerValue.textContent = selectedShortcut
+        ? shortcutLabels[selectedShortcut]
+        : "自定义";
+      document.querySelectorAll("[data-range-shortcut]").forEach((button) => {
+        const active =
+          button.dataset.rangeShortcut === (selectedShortcut || "custom");
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-checked", String(active));
+        button.onclick = () => {
+          const shortcut = button.dataset.rangeShortcut;
+          closeShortcutMenu();
+          if (shortcut === "custom") {
+            openRangeSheet();
+            return;
+          }
+          const [start, end] = shortcutRange(shortcut);
+          applyRange(start, end, shortcut);
+        };
+      });
+      if (viewMode === "month") {
+        periodColumnHeader.textContent = "月份";
+        dailyList.innerHTML = monthlyRows();
+        dailyTable.setAttribute("aria-label", "主播月度数据列表");
+      } else {
+        periodColumnHeader.textContent = "日期";
+        dailyList.innerHTML = selectedDays.length
+          ? selectedDays.map(dailyRow).join("")
+          : '<div class="guild-page-empty"><b>当前范围暂无数据</b><span>请选择其他日期范围</span></div>';
+        dailyTable.setAttribute(
+          "aria-label",
+          `${rangePickerValue.textContent}主播每日数据列表`,
+        );
+      }
+      rangePickerButton.onclick = openRangeSheet;
+      shortcutPicker.onclick = (event) => {
+        event.stopPropagation();
+        shortcutMenu.hidden = !shortcutMenu.hidden;
+        shortcutPicker.setAttribute(
+          "aria-expanded",
+          String(!shortcutMenu.hidden),
+        );
+      };
+      shortcutMenu.onclick = (event) => event.stopPropagation();
+      rangeSheetCancel.onclick = closeRangeSheet;
+      rangeSheetConfirm.onclick = () => {
+        if (!pendingRangeStart) return;
+        applyRange(pendingRangeStart, pendingRangeEnd || pendingRangeStart);
+      };
+      rangeSheet.onclick = (event) => {
+        if (event.target === rangeSheet) closeRangeSheet();
+      };
+      calendarPrev.onclick = () => {
+        const next = shiftMonth(calendarMonth, -1);
+        if (next < earliestMonth) return;
+        calendarMonth = next;
+        renderCalendar();
+      };
+      calendarNext.onclick = () => {
+        const next = shiftMonth(calendarMonth, 1);
+        if (next > latestMonth) return;
+        calendarMonth = next;
+        renderCalendar();
+      };
+      calendarDays.onclick = (event) => {
+        const option = event.target.closest("[data-date]");
+        if (!option || option.disabled) return;
+        const date = option.dataset.date;
+        if (!pendingRangeStart || pendingRangeEnd) {
+          pendingRangeStart = date;
+          pendingRangeEnd = null;
+        } else if (date < pendingRangeStart) {
+          pendingRangeEnd = pendingRangeStart;
+          pendingRangeStart = date;
+        } else {
+          pendingRangeEnd = date;
+        }
+        renderCalendar();
+      };
+      document.addEventListener("click", closeShortcutMenu);
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        if (!shortcutMenu.hidden) closeShortcutMenu();
+        else if (!rangeSheet.hidden) closeRangeSheet();
+      });
+      backLink.href =
+        origin === "operations"
+          ? `guild-income-day-detail.html?date=${encodeURIComponent(returnDate)}&from=${encodeURIComponent(returnSource)}${returnPeriod ? `&period=${encodeURIComponent(returnPeriod)}` : ""}`
+          : origin === "list"
+            ? "../people/guild-host-list.html"
+            : origin === "detail"
+              ? `../people/guild-host-detail.html?id=${encodeURIComponent(host.id)}`
+              : "../home/guild-home.html";
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-host-summary.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

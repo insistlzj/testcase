@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>敏感词编辑 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub active" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          >
+        </nav>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;敏感词库&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              id="pageName"
+            ></strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content" id="pageRoot">
+          <a class="admin-back-link" href="admin-sensitive-words.html"
+            >‹ 返回敏感词库</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2 id="formTitle"></h2></div>
+            <form id="wordForm">
+              <div class="admin-form-grid">
+                <div class="admin-form-row">
+                  <label>词条 ID</label>
+                  <div class="admin-readonly-value" id="wordId"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="word">敏感词</label
+                  ><input class="admin-input" id="word" required />
+                </div>
+                <div class="admin-form-row">
+                  <label for="category">分类</label
+                  ><select class="admin-select" id="category" required>
+                    <option value="illegal">违法违规</option>
+                    <option value="abuse">辱骂攻击</option>
+                    <option value="advertise">广告引流</option>
+                  </select>
+                </div>
+                <div class="admin-form-row">
+                  <label for="rule">匹配规则</label
+                  ><select class="admin-select" id="rule" required>
+                    <option>包含匹配</option>
+                    <option>精确匹配</option>
+                  </select>
+                </div>
+                <div class="admin-form-row full">
+                  <label>使用场景</label>
+                  <div class="admin-checkboxes">
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="scene"
+                        value="公屏"
+                      />公屏</label
+                    ><label
+                      ><input
+                        type="checkbox"
+                        name="scene"
+                        value="私信"
+                      />私信</label
+                    ><label
+                      ><input
+                        type="checkbox"
+                        name="scene"
+                        value="昵称"
+                      />昵称</label
+                    ><label
+                      ><input
+                        type="checkbox"
+                        name="scene"
+                        value="动态"
+                      />动态</label
+                    >
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="replace">替换内容</label
+                  ><input class="admin-input" id="replace" required />
+                </div>
+                <div class="admin-form-row">
+                  <label>启用状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="enabled" type="checkbox" checked /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="enabledText"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-modal-foot">
+                <a class="admin-btn secondary" href="admin-sensitive-words.html"
+                  >取消</a
+                ><button class="admin-btn" type="submit">保存</button>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const params = new URLSearchParams(location.search),
+        isNew = params.get("new") === "1",
+        data = {
+          SW1001: {
+            word: "免费充值",
+            category: "advertise",
+            rule: "包含匹配",
+            scenes: ["公屏", "私信"],
+            replace: "***",
+            enabled: true,
+          },
+          SW1002: {
+            word: "代充",
+            category: "advertise",
+            rule: "精确匹配",
+            scenes: ["公屏", "私信", "动态"],
+            replace: "***",
+            enabled: true,
+          },
+        },
+        item = isNew
+          ? {
+              word: "",
+              category: "advertise",
+              rule: "包含匹配",
+              scenes: ["公屏"],
+              replace: "***",
+              enabled: true,
+            }
+          : data[params.get("id")] || data.SW1001;
+      if (isNew) pageRoot.classList.add("admin-create-page");
+      const title = isNew ? "新增敏感词" : "编辑敏感词";
+      pageName.textContent = title;
+      formTitle.textContent = title;
+      wordId.textContent = isNew
+        ? "保存后由系统生成"
+        : params.get("id") || "SW1001";
+      word.value = item.word;
+      category.value = item.category;
+      rule.value = item.rule;
+      replace.value = item.replace;
+      enabled.checked = item.enabled;
+      document
+        .querySelectorAll('[name="scene"]')
+        .forEach((box) => (box.checked = item.scenes.includes(box.value)));
+      function sync() {
+        enabledText.textContent = enabled.checked ? "启用" : "停用";
+      }
+      enabled.onchange = sync;
+      wordForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (!document.querySelector('[name="scene"]:checked'))
+          return Luma.toast("请至少选择一个使用场景");
+        Luma.toast(isNew ? "敏感词已新增" : "敏感词已保存");
+      };
+      sync();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-sensitive-words-detail.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

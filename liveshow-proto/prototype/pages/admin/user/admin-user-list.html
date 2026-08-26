@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>用户列表 · 用户管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav" aria-label="管理后台一级菜单">
+          <button class="admin-nav-item active" data-menu="用户管理">
+            <span>用户管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub active" href="admin-user-list.html"
+              >用户列表</a
+            >
+            <a class="admin-nav-sub" href="admin-ban-appeal.html">封禁申诉</a>
+          </div>
+          <a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          >
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          >
+          <a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          >
+          <a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          >
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          >
+          <button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span>
+          </button>
+          <button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            用户管理&nbsp;&nbsp;/&nbsp;&nbsp;<strong>用户列表</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>用户列表</h1></div>
+          </div>
+
+          <section class="admin-panel admin-filter" aria-label="用户筛选">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="userKey">用户昵称/ID</label
+                ><input
+                  class="admin-input"
+                  id="userKey"
+                  placeholder="输入用户昵称或 ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="phone">手机号</label
+                ><input
+                  class="admin-input"
+                  id="phone"
+                  placeholder="输入手机号"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="guildFilter">所属公会</label
+                ><input
+                  class="admin-input"
+                  id="guildFilter"
+                  placeholder="输入公会名称"
+                />
+              </div>
+              <div class="admin-field">
+                <label>财富等级区间</label>
+                <div class="admin-range">
+                  <input
+                    class="admin-input"
+                    id="levelMin"
+                    type="number"
+                    min="0"
+                    placeholder="最低"
+                  /><span>至</span
+                  ><input
+                    class="admin-input"
+                    id="levelMax"
+                    type="number"
+                    min="0"
+                    placeholder="最高"
+                  />
+                </div>
+              </div>
+              <div class="admin-field">
+                <label>注册时间段</label>
+                <div class="admin-range admin-date-range">
+                  <input class="admin-input" id="dateStart" type="date" /><span
+                    >至</span
+                  ><input class="admin-input" id="dateEnd" type="date" />
+                </div>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs" aria-label="账号状态">
+                <button class="admin-list-tab active" data-status-tab="">
+                  全部</button
+                ><button class="admin-list-tab" data-status-tab="normal">
+                  正常</button
+                ><button class="admin-list-tab" data-status-tab="banned">
+                  封禁
+                </button>
+              </div>
+              <span id="resultCount">共 8 条</span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1200px">
+                <colgroup>
+                  <col style="width: 180px" />
+                  <col style="width: 100px" />
+                  <col style="width: 92px" />
+                  <col style="width: 84px" />
+                  <col style="width: 76px" />
+                  <col style="width: 100px" />
+                  <col style="width: 100px" />
+                  <col style="width: 102px" />
+                  <col style="width: 108px" />
+                  <col style="width: 130px" />
+                  <col style="width: 116px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>用户信息</th>
+                    <th>地区</th>
+                    <th>账号状态</th>
+                    <th>是否主播</th>
+                    <th>财富等级</th>
+                    <th>累计充值</th>
+                    <th>累计消费</th>
+                    <th>金币余额</th>
+                    <th>所属公会</th>
+                    <th>注册时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="userRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" aria-label="上一页" disabled>
+                ‹</button
+              ><button
+                class="admin-page-btn active"
+                aria-current="page"
+                disabled
+              >
+                1</button
+              ><button class="admin-page-btn" aria-label="下一页" disabled>
+                ›
+              </button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="admin-overlay" id="actionOverlay">
+      <section
+        class="admin-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="actionTitle"
+      >
+        <div class="admin-modal-head">
+          <h2 id="actionTitle">账号操作</h2>
+          <button
+            class="admin-icon-btn"
+            data-close="actionOverlay"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </div>
+        <form id="actionForm">
+          <div class="admin-modal-body" id="actionBody"></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="actionOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" id="actionSubmit" type="submit">
+              确认
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script>
+      const adminMock = window.LUMA_ADMIN_MOCK;
+      const allUsers = adminMock.users;
+      const presetGuild =
+        new URLSearchParams(location.search).get("guild") || "";
+      const emptyRecords = {
+        recharges: [],
+        consumptions: [],
+        devices: [],
+        relationships: [],
+        violations: [],
+      };
+      const statusMap = { normal: "正常", banned: "封禁" };
+      const rows = document.querySelector("#userRows");
+      const resultCount = document.querySelector("#resultCount");
+      const pagination = document.querySelector("#pagination");
+      let renderedUsers = allUsers;
+      let detailUser = null;
+      let currentUser = null;
+      let currentAction = "";
+      let activeStatus = "";
+
+      const { coins: formatCoins, money: formatMoney } =
+        window.LUMA_ADMIN_FORMAT;
+
+      function render(users) {
+        renderedUsers = users;
+        resultCount.textContent = `共 ${users.length} 条`;
+        pagination.classList.toggle("state-hide", users.length === 0);
+        if (!users.length) {
+          rows.innerHTML =
+            '<tr><td colspan="11"><div class="admin-empty"><strong>未找到匹配用户</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        rows.innerHTML = users
+          .map(
+            (user) => `
+        <tr>
+          <td><div class="admin-user-cell"><span class="admin-avatar">${user.initials}</span><span class="admin-user-name"><b>${user.name}</b>${Luma.id(user.id, "用户ID")}</span></div></td>
+          <td>${user.region}</td>
+          <td><span class="admin-status ${user.status}">${statusMap[user.status]}</span></td>
+          <td>${user.isHost ? '<span class="admin-tag">主播</span>' : "-"}</td>
+          <td><b>Lv.${user.level}</b></td>
+          <td class="admin-money">${formatMoney(user.recharge)}</td>
+          <td class="admin-money">${formatCoins(user.spend)}</td>
+          <td class="admin-money">${formatCoins(user.balance)}</td>
+          <td>${user.guild}</td>
+          <td class="admin-money">${user.registeredAt}</td>
+          <td><a class="admin-action" href="admin-user-detail.html?id=${user.id}">详情</a><span class="admin-action-menu"><button class="admin-action" data-more="${user.id}">更多</button><span class="admin-popover state-hide"><button data-action="${user.status === "banned" ? "unban" : "ban"}" data-user="${user.id}">${user.status === "banned" ? "解封" : "封禁"}</button><button data-action="reset" data-user="${user.id}">重置资料</button></span></span></td>
+        </tr>`,
+          )
+          .join("");
+      }
+
+      function filterUsers() {
+        const userKey = document
+          .querySelector("#userKey")
+          .value.trim()
+          .toLowerCase();
+        const phone = document
+          .querySelector("#phone")
+          .value.trim()
+          .toLowerCase();
+        const guildName = document
+          .querySelector("#guildFilter")
+          .value.trim()
+          .toLowerCase();
+        const min = Number(document.querySelector("#levelMin").value || 0);
+        const max = Number(
+          document.querySelector("#levelMax").value || Infinity,
+        );
+        const start = document.querySelector("#dateStart").value;
+        const end = document.querySelector("#dateEnd").value;
+        if (min > max) return Luma.toast("财富等级上限不能小于下限");
+        if (start && end && start > end)
+          return Luma.toast("注册结束时间不能早于开始时间");
+        const filtered = allUsers.filter(
+          (user) =>
+            `${user.name} ${user.id}`.toLowerCase().includes(userKey) &&
+            user.login.toLowerCase().includes(phone) &&
+            user.guild.toLowerCase().includes(guildName) &&
+            (!activeStatus || user.status === activeStatus) &&
+            user.level >= min &&
+            user.level <= max &&
+            (!start || user.registeredAt.slice(0, 10) >= start) &&
+            (!end || user.registeredAt.slice(0, 10) <= end),
+        );
+        render(filtered);
+        Luma.toast(`已查询到 ${filtered.length} 条用户数据`);
+      }
+
+      function recordTable(columns, records) {
+        if (!records.length)
+          return '<div class="admin-record-empty"><strong>暂无记录</strong><span>该用户当前没有相关数据</span></div>';
+        return `<div class="admin-record-scroll"><table class="admin-record-table"><thead><tr>${columns.map((column) => `<th>${column[0]}</th>`).join("")}</tr></thead><tbody>${records.map((record) => `<tr>${columns.map((column) => `<td>${column[1](record)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      }
+
+      function renderDetailTab(tab) {
+        if (!detailUser) return;
+        document.querySelectorAll("[data-detail-tab]").forEach((button) => {
+          const active = button.dataset.detailTab === tab;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        const records = adminMock.records[detailUser.id] || emptyRecords;
+        const panel = document.querySelector("#detailPanel");
+        if (tab === "profile")
+          panel.innerHTML = `
+        <div class="admin-metrics"><div class="admin-metric"><span>金币余额</span><b>${formatCoins(detailUser.balance)}</b></div><div class="admin-metric"><span>累计充值（USD）</span><b>${formatMoney(detailUser.recharge)}</b></div><div class="admin-metric"><span>累计消费（金币）</span><b>${formatCoins(detailUser.spend)} 金币</b></div></div>
+        <div class="admin-detail-grid">
+          <div class="admin-detail-item"><span>用户 ID</span><b>${detailUser.id}</b></div><div class="admin-detail-item"><span>昵称</span><b>${detailUser.name}</b></div>
+          <div class="admin-detail-item"><span>性别</span><b>${detailUser.gender}</b></div><div class="admin-detail-item"><span>地区</span><b>${detailUser.region}</b></div>
+          <div class="admin-detail-item"><span>生日</span><b>${detailUser.birthday}</b></div><div class="admin-detail-item"><span>财富等级</span><b>等级 ${detailUser.level}</b></div>
+          <div class="admin-detail-item"><span>手机号 / 登录标识</span><b>${detailUser.login}</b></div><div class="admin-detail-item"><span>注册时间</span><b>${detailUser.registeredAt}</b></div>
+          <div class="admin-detail-item"><span>所属公会</span><b>${detailUser.guild}</b></div><div class="admin-detail-item"><span>账号状态</span><b>${statusMap[detailUser.status]}</b></div>
+          <div class="admin-detail-item" style="grid-column:1/-1"><span>个性签名</span><b>${detailUser.signature || "未填写"}</b></div>
+        </div>`;
+        if (tab === "recharges")
+          panel.innerHTML = recordTable(
+            [
+              ["订单号", (item) => item.orderNo],
+              ["渠道", (item) => item.channel],
+              ["金额（USD）", (item) => formatMoney(item.amount)],
+              ["到账金币", (item) => formatCoins(item.coins)],
+              ["状态", (item) => item.status],
+              ["时间", (item) => item.time],
+            ],
+            records.recharges,
+          );
+        if (tab === "consumptions")
+          panel.innerHTML = recordTable(
+            [
+              ["流水号", (item) => item.flowNo],
+              ["消费类型", (item) => item.type],
+              ["消费对象", (item) => item.target],
+              ["消费金币", (item) => formatCoins(item.coins)],
+              ["时间", (item) => item.time],
+            ],
+            records.consumptions,
+          );
+        if (tab === "devices")
+          panel.innerHTML = recordTable(
+            [
+              ["设备标识", (item) => item.deviceId],
+              ["设备类型", (item) => item.type],
+              ["最后登录时间", (item) => item.lastLogin],
+            ],
+            records.devices,
+          );
+        if (tab === "relationships")
+          panel.innerHTML = recordTable(
+            [
+              ["用户 ID", (item) => item.userId],
+              ["昵称", (item) => item.name],
+              ["关系", (item) => item.type],
+              ["关系建立时间", (item) => item.createdAt],
+            ],
+            records.relationships,
+          );
+        if (tab === "violations")
+          panel.innerHTML = recordTable(
+            [
+              ["违规类型", (item) => item.type],
+              ["处置类型", (item) => item.action],
+              ["处置原因", (item) => item.reason],
+              ["处置时间", (item) => item.time],
+            ],
+            records.violations,
+          );
+      }
+
+      function openDetail(user) {
+        detailUser = user;
+        document.querySelector("#detailBody").innerHTML = `
+        <div class="admin-detail-user"><span class="admin-avatar">${user.initials}</span><div><h3>${user.name}</h3><span class="admin-status ${user.status}">${statusMap[user.status]}</span></div></div>
+        <div class="admin-detail-tabs" role="tablist" aria-label="用户关联信息">
+          <button class="admin-detail-tab active" role="tab" aria-selected="true" data-detail-tab="profile">基础资料</button>
+          <button class="admin-detail-tab" role="tab" aria-selected="false" data-detail-tab="recharges">充值流水</button>
+          <button class="admin-detail-tab" role="tab" aria-selected="false" data-detail-tab="consumptions">消费流水</button>
+          <button class="admin-detail-tab" role="tab" aria-selected="false" data-detail-tab="devices">登录设备</button>
+          <button class="admin-detail-tab" role="tab" aria-selected="false" data-detail-tab="relationships">关注 / 粉丝</button>
+          <button class="admin-detail-tab" role="tab" aria-selected="false" data-detail-tab="violations">违规记录</button>
+        </div>
+        <div class="admin-detail-panel" id="detailPanel" role="tabpanel"></div>`;
+        document.querySelector("#detailOverlay").classList.add("show");
+        renderDetailTab("profile");
+      }
+
+      function openAction(action, user) {
+        currentUser = user;
+        currentAction = action;
+        const title = {
+          ban: "封禁用户",
+          unban: "解封用户",
+          reset: "重置用户资料",
+        }[action];
+        document.querySelector("#actionTitle").textContent = title;
+        document.querySelector("#actionSubmit").className =
+          `admin-btn ${action === "ban" ? "danger" : ""}`;
+        const body = document.querySelector("#actionBody");
+        if (action === "ban")
+          body.innerHTML = /* HTML */ `<p>
+              将对 ${user.name}（${user.id}）执行封禁。
+            </p>
+            <div class="admin-form-row">
+              <label for="banReason">封禁原因</label
+              ><textarea
+                class="admin-textarea"
+                id="banReason"
+                placeholder="填写封禁原因"
+                required
+              ></textarea>
+            </div>
+            <div class="admin-form-row">
+              <label for="banDurationType">封禁时长</label
+              ><select class="admin-select" id="banDurationType" required>
+                <option value="temporary">临时封禁</option>
+                <option value="permanent">永久封禁</option>
+              </select>
+            </div>
+            <div class="admin-form-row" id="banDaysWrap">
+              <label for="banDays">临时天数</label
+              ><input
+                class="admin-input"
+                id="banDays"
+                type="number"
+                min="1"
+                max="365"
+                placeholder="输入 1-365 天"
+                required
+              />
+            </div>
+            <div class="admin-form-row">
+              <label>封禁范围</label>
+              <div class="admin-checkboxes">
+                <label
+                  ><input type="checkbox" name="banScope" checked /> 登录</label
+                ><label
+                  ><input type="checkbox" name="banScope" checked /> 发言</label
+                ><label><input type="checkbox" name="banScope" /> 送礼</label>
+              </div>
+            </div>`;
+        if (action === "unban")
+          body.innerHTML = `<p>确认解除 ${user.name}（${user.id}）的账号封禁？</p>`;
+        if (action === "reset")
+          body.innerHTML = `<p>将重置 ${user.name}（${user.id}）的头像、昵称和个性签名。</p><div class="admin-form-row"><label for="resetReason">重置原因</label><textarea class="admin-textarea" id="resetReason" placeholder="填写重置原因" required></textarea></div>`;
+        document.querySelector("#actionOverlay").classList.add("show");
+      }
+
+      function closeOverlays() {
+        document
+          .querySelectorAll(".admin-overlay")
+          .forEach((overlay) => overlay.classList.remove("show"));
+        document
+          .querySelectorAll(".admin-popover")
+          .forEach((popover) => popover.classList.add("state-hide"));
+      }
+
+      document.querySelector("#searchBtn").onclick = filterUsers;
+      document.querySelector("#resetBtn").onclick = () => {
+        document
+          .querySelectorAll(".admin-filter input")
+          .forEach((input) => (input.value = ""));
+        document
+          .querySelectorAll(".admin-filter select")
+          .forEach((select) => (select.selectedIndex = 0));
+        activeStatus = "";
+        document
+          .querySelectorAll("[data-status-tab]")
+          .forEach((button) =>
+            button.classList.toggle(
+              "active",
+              button.dataset.statusTab === activeStatus,
+            ),
+          );
+        render(allUsers);
+        Luma.toast("筛选条件已重置");
+      };
+      document.querySelectorAll(".admin-filter input").forEach((input) =>
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") filterUsers();
+        }),
+      );
+
+      document.addEventListener("change", (event) => {
+        if (event.target.id !== "banDurationType") return;
+        const permanent = event.target.value === "permanent";
+        const daysWrap = document.querySelector("#banDaysWrap");
+        const days = document.querySelector("#banDays");
+        daysWrap.classList.toggle("state-hide", permanent);
+        days.required = !permanent;
+        if (permanent) days.value = "";
+      });
+
+      document.addEventListener("click", (event) => {
+        const statusTab = event.target.closest("[data-status-tab]");
+        if (statusTab) {
+          activeStatus = statusTab.dataset.statusTab;
+          document
+            .querySelectorAll("[data-status-tab]")
+            .forEach((button) =>
+              button.classList.toggle(
+                "active",
+                button.dataset.statusTab === activeStatus,
+              ),
+            );
+          filterUsers();
+        }
+        const detail = event.target.closest("[data-detail]");
+        if (detail)
+          openDetail(
+            allUsers.find((user) => user.id === detail.dataset.detail),
+          );
+        const detailTab = event.target.closest("[data-detail-tab]");
+        if (detailTab) renderDetailTab(detailTab.dataset.detailTab);
+        const more = event.target.closest("[data-more]");
+        document.querySelectorAll(".admin-popover").forEach((popover) => {
+          if (!more || popover !== more.nextElementSibling)
+            popover.classList.add("state-hide");
+        });
+        if (more) {
+          const popover = more.nextElementSibling;
+          const rect = more.getBoundingClientRect();
+          popover.style.left = `${rect.right - 112}px`;
+          popover.style.top = `${rect.bottom + 100 > window.innerHeight ? rect.top - 100 : rect.bottom + 4}px`;
+          popover.classList.toggle("state-hide");
+        }
+        const action = event.target.closest("[data-action]");
+        if (action)
+          openAction(
+            action.dataset.action,
+            allUsers.find((user) => user.id === action.dataset.user),
+          );
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const unbuilt = event.target.closest(
+          "[data-unbuilt], [data-menu]:not(.active)",
+        );
+        if (unbuilt)
+          Luma.toast(unbuilt.dataset.unbuilt || unbuilt.dataset.menu);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeOverlays();
+      });
+
+      document.querySelector("#actionForm").onsubmit = (event) => {
+        event.preventDefault();
+        if (
+          currentAction === "ban" &&
+          !document.querySelector('[name="banScope"]:checked')
+        )
+          return Luma.toast("至少选择一个封禁范围");
+        let actionMessage = "操作已提交";
+        if (currentAction === "ban") currentUser.status = "banned";
+        if (currentAction === "unban") currentUser.status = "normal";
+        if (currentAction === "reset") {
+          currentUser.name = `用户${currentUser.id.slice(-4)}`;
+          currentUser.initials = "U";
+          currentUser.signature = "";
+        }
+        document.querySelector("#actionOverlay").classList.remove("show");
+        render(renderedUsers);
+        Luma.toast(actionMessage);
+      };
+
+      if (presetGuild) {
+        document.querySelector("#guildFilter").value = presetGuild;
+        render(
+          allUsers.filter((user) =>
+            user.guild.toLowerCase().includes(presetGuild.toLowerCase()),
+          ),
+        );
+      } else render(allUsers);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-user-list.html" },
+        "*",
+      );
+      Luma.registerStates({
+        正常列表: () => {
+          closeOverlays();
+          render(allUsers);
+        },
+        无查询结果: () => {
+          closeOverlays();
+          render([]);
+        },
+      });
+    </script>
+  </body>
+</html>

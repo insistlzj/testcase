@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>余额充值 · 用户主播 App · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 50px;
+      }
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .nav .detail-link {
+        right: 16px;
+        left: auto;
+        font-size: 14px;
+      }
+      .balance {
+        margin: 16px;
+        padding: 20px;
+        background: var(--g7);
+        border-radius: 12px;
+        text-align: center;
+      }
+      .balance strong {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 28px;
+        line-height: 1;
+      }
+      .coin-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--g1);
+        color: var(--g7);
+        display: grid;
+        place-items: center;
+        font-size: 17px;
+        font-style: normal;
+      }
+      .activity {
+        position: relative;
+        display: flex;
+        width: calc(100% - 32px);
+        align-items: center;
+        gap: 14px;
+        margin: 28px 16px 20px;
+        padding: 16px;
+        background: var(--g7);
+        border: 0;
+        border-radius: 12px;
+      }
+      .activity + .activity {
+        margin-top: 0;
+      }
+      .activity .package-art {
+        width: 56px;
+        height: 56px;
+        margin: 0;
+        flex: none;
+      }
+      .activity .badge {
+        right: 12px;
+        left: auto;
+        border-radius: 8px 8px 8px 0;
+      }
+      .package-copy {
+        min-width: 0;
+        flex: 1;
+      }
+      .package-copy b,
+      .package-copy small {
+        display: block;
+      }
+      .package-copy b {
+        font-size: 20px;
+      }
+      .package-copy small {
+        margin-top: 4px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .bonus-tag {
+        display: inline-block;
+        margin-right: 4px;
+        padding: 2px 6px;
+        border-radius: 7px;
+        background: var(--g4);
+        color: var(--g7);
+        font-size: 11px;
+        font-style: normal;
+        line-height: 1.2;
+        vertical-align: middle;
+      }
+      .badge {
+        position: absolute;
+        top: -10px;
+        left: 12px;
+        z-index: 0;
+        padding: 3px 8px;
+        border-radius: 8px;
+        background: var(--g3);
+        color: var(--g7);
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .price {
+        position: relative;
+        z-index: 1;
+        min-width: 82px;
+        padding: 10px 8px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 600 17px inherit;
+        text-align: center;
+        cursor: pointer;
+      }
+      .packages {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin: 0 16px;
+      }
+      .package {
+        position: relative;
+        min-height: 180px;
+        padding: 20px 12px 12px;
+        border: 1px solid var(--g5);
+        border-radius: 12px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .package-art {
+        display: grid;
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 10px;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g4);
+        font-size: 11px;
+        font-style: normal;
+        place-items: center;
+      }
+      .package-art::before {
+        content: "配图";
+      }
+      .package b,
+      .package small,
+      .package .price {
+        display: block;
+      }
+      .package b {
+        font-size: 20px;
+      }
+      .package small {
+        margin-top: 5px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .package .price {
+        margin: 10px auto 0;
+      }
+      .package .badge {
+        position: static;
+        display: inline-block;
+        margin-right: 4px;
+        vertical-align: middle;
+        background: var(--g4);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <div class="nav">
+        <a href="../profile/profile.html" aria-label="返回">‹</a>余额充值<a
+          class="detail-link"
+          href="balance-detail.html"
+          >明细</a
+        >
+      </div>
+      <section class="balance">
+        <strong
+          ><i
+            class="coin"
+            aria-hidden="true"
+            style="font-size: 28px; color: var(--g1)"
+          ></i
+          ><span id="balance"></span
+        ></strong>
+      </section>
+      <article class="activity">
+        <span class="badge" id="activityBadge"></span
+        ><i class="package-art" aria-hidden="true"></i
+        ><span class="package-copy"
+          ><b id="activityCoins"></b><small id="activityBonus"></small></span
+        ><button class="price" id="activityPrice"></button>
+      </article>
+      <article class="activity">
+        <span class="badge" id="limitedBadge"></span
+        ><i class="package-art" aria-hidden="true"></i
+        ><span class="package-copy"
+          ><b id="limitedCoins"></b><small id="limitedBonus"></small></span
+        ><button class="price" id="limitedPrice"></button>
+      </article>
+      <section class="packages" id="packages"></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const recharge = window.LUMA_MOCK.recharge;
+      balance.textContent = window.LUMA_MOCK.user.coins;
+      activityBadge.textContent = recharge.activity.badge;
+      activityCoins.textContent = recharge.activity.coins;
+      activityBonus.innerHTML = `<i class="bonus-tag">+100%</i>+${recharge.activity.bonus}`;
+      activityPrice.textContent = recharge.activity.price;
+      limitedBadge.textContent = recharge.limited.badge;
+      limitedCoins.textContent = recharge.limited.coins;
+      limitedBonus.innerHTML = `<i class="bonus-tag">+100%</i>+${recharge.limited.bonus}`;
+      limitedPrice.textContent = recharge.limited.price;
+      function pay(price) {
+        Luma.toast(`发起 ${price} 支付`);
+      }
+      activityPrice.onclick = () => pay(recharge.activity.price);
+      limitedPrice.onclick = () => pay(recharge.limited.price);
+      packages.innerHTML = recharge.packages
+        .map(
+          (item) =>
+            `<article class="package"><i class="package-art" aria-hidden="true"></i><b>${item.coins}</b><small><span class="badge">${item.badge}</span>+${item.bonus}</small><button class="price" data-price="${item.price}">${item.price}</button></article>`,
+        )
+        .join("");
+      packages
+        .querySelectorAll(".package .price")
+        .forEach((item) => (item.onclick = () => pay(item.dataset.price)));
+    </script>
+  </body>
+</html>

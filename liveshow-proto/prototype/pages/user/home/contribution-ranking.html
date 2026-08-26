@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>贡献榜 · 首页 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .ranking {
+        padding: 12px 16px 28px;
+      }
+      .period-tabs {
+        height: 38px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 0 0 10px;
+        border-bottom: 1px solid var(--g5);
+      }
+      .period-tabs button {
+        height: 38px;
+        padding: 0;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        background: none;
+        color: var(--g4);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .period-tabs button.active {
+        border-color: var(--g1);
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .podium {
+        height: 218px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 7px;
+        padding: 0 8px 14px;
+        border-bottom: 1px solid var(--g5);
+      }
+      .podium-item {
+        width: 102px;
+        text-align: center;
+        text-decoration: none;
+        color: var(--g1);
+      }
+      .avatar-wrap {
+        position: relative;
+        display: block;
+        width: 54px;
+        margin: 0 auto 7px;
+      }
+      .podium-item .avatar {
+        width: 54px;
+        height: 54px;
+        border: 3px solid var(--g7);
+        font-size: 19px;
+      }
+      .podium-item b,
+      .podium-item small {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .podium-item b {
+        font-size: 14px;
+      }
+      .podium-item small {
+        margin-top: 4px;
+        color: var(--success);
+        font-size: 12px;
+      }
+      .medal {
+        position: absolute;
+        right: -3px;
+        bottom: -3px;
+        width: 23px;
+        height: 23px;
+        border: 2px solid var(--g7);
+        border-radius: 50%;
+        background: var(--g2);
+        color: var(--g7);
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .podium-base {
+        margin-top: 9px;
+        border-radius: 7px 7px 0 0;
+        background: var(--g6);
+      }
+      .first .podium-base {
+        height: 62px;
+        background: var(--g5);
+      }
+      .second .podium-base {
+        height: 46px;
+      }
+      .third .podium-base {
+        height: 34px;
+      }
+      .ranking-list {
+        margin-top: 12px;
+        background: var(--g7);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .ranking-row {
+        min-height: 68px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        border-bottom: 1px solid var(--g6);
+        color: var(--g1);
+        text-decoration: none;
+      }
+      .ranking-row:last-child {
+        border-bottom: 0;
+      }
+      .row-rank {
+        width: 18px;
+        flex: none;
+        color: var(--g3);
+        font-size: 13px;
+        text-align: center;
+      }
+      .ranking-row .avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+      }
+      .member {
+        min-width: 0;
+        flex: 1;
+      }
+      .member b,
+      .member small {
+        display: block;
+      }
+      .member b {
+        font-size: 14px;
+      }
+      .member small {
+        margin-top: 5px;
+        color: var(--g3);
+        font-size: 11px;
+      }
+      .contribution {
+        flex: none;
+        color: var(--success);
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .contribution i {
+        margin-right: 3px;
+        color: var(--g2);
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='live-plaza.html'"
+        >
+          ‹</button
+        >贡献榜
+      </header>
+      <section class="ranking">
+        <nav class="period-tabs" aria-label="贡献榜周期">
+          <button type="button" class="active" data-period="day">当日</button
+          ><button type="button" data-period="week">本周</button
+          ><button type="button" data-period="month">本月</button>
+        </nav>
+        <section class="podium" id="podium" aria-label="贡献榜前三名"></section>
+        <section
+          class="ranking-list"
+          id="rankingList"
+          aria-label="贡献榜列表"
+        ></section>
+      </section>
+    </main>
+    <script>
+      const rankings = window.LUMA_MOCK.platformContributionRanking;
+      const podium = document.querySelector("#podium");
+      const rankingList = document.querySelector("#rankingList");
+      const userHome = (name) =>
+        `../social/user-home.html?user=${encodeURIComponent(name.toLowerCase())}`;
+      const render = (period) => {
+        const data = rankings[period];
+        const topOrder = [data[1], data[0], data[2]];
+        const podiumClass = ["second", "first", "third"];
+        podium.innerHTML = topOrder
+          .map(
+            (user, index) =>
+              `<a class="podium-item ${podiumClass[index]}" href="${userHome(user.name)}"><span class="avatar-wrap"><i class="avatar">${user.avatar}</i><i class="medal">${user.rank}</i></span><b>${user.name}</b><small>◆ ${user.contribution}</small><div class="podium-base"></div></a>`,
+          )
+          .join("");
+        rankingList.innerHTML = data
+          .slice(3)
+          .map(
+            (user) =>
+              `<a class="ranking-row" href="${userHome(user.name)}"><span class="row-rank">${user.rank}</span><i class="avatar">${user.avatar}</i><span class="member"><b>${user.name}</b><small>${user.wealthLevel}</small></span><strong class="contribution"><i>◆</i>${user.contribution}</strong></a>`,
+          )
+          .join("");
+      };
+      document.querySelectorAll("[data-period]").forEach(
+        (tab) =>
+          (tab.onclick = () => {
+            document
+              .querySelectorAll("[data-period]")
+              .forEach((item) => item.classList.toggle("active", item === tab));
+            render(tab.dataset.period);
+          }),
+      );
+      render("day");
+    </script>
+  </body>
+</html>

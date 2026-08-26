@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>我的粉丝团 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .clubs {
+        padding: 12px 16px 24px;
+      }
+      .club {
+        margin-bottom: 12px;
+        padding: 14px;
+        background: var(--g7);
+        border-radius: 12px;
+      }
+      .club-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .host-avatar {
+        position: relative;
+        display: block;
+      }
+      .club-top .avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 15px;
+      }
+      .live-entry {
+        position: absolute;
+        right: -3px;
+        bottom: -3px;
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--g7);
+        border-radius: 50%;
+        background: var(--success);
+        color: var(--g7);
+        font-size: 9px;
+        line-height: 14px;
+        text-align: center;
+        text-decoration: none;
+      }
+      .club-info {
+        min-width: 0;
+        flex: 1;
+      }
+      .club-name {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .level {
+        padding: 2px 6px;
+        border-radius: 5px;
+        background: var(--g6);
+        color: var(--g3);
+        font-size: 10px;
+        font-weight: 400;
+      }
+      .host,
+      .joined {
+        display: block;
+        color: var(--g4);
+        font-size: 12px;
+      }
+      .host {
+        margin-top: 4px;
+      }
+      .joined {
+        margin-top: 3px;
+        font-size: 11px;
+      }
+      .group-entry {
+        height: 30px;
+        flex: none;
+        padding: 0 10px;
+        border-radius: 15px;
+        background: var(--g6);
+        color: var(--g2);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+        margin-top: 14px;
+      }
+      .metric {
+        min-height: 70px;
+        padding: 9px 5px;
+        border: 0;
+        border-radius: 7px;
+        background: var(--g6);
+        text-align: center;
+      }
+      .metric b,
+      .metric small {
+        display: block;
+        white-space: nowrap;
+      }
+      .metric b {
+        font-size: 18px;
+        color: var(--g1);
+        line-height: 1.25;
+      }
+      .metric small {
+        margin-top: 6px;
+        color: var(--g3);
+        font-size: 10px;
+      }
+      .metric small i {
+        margin-right: 3px;
+        color: var(--g2);
+        font-size: 12px;
+        font-style: normal;
+      }
+      .club-data {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: 12px 0 0;
+        padding: 11px 0 0;
+        border: 0;
+        border-top: 1px solid var(--g6);
+        background: none;
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .metric-icon {
+        width: 24px;
+        height: 24px;
+        flex: none;
+        border-radius: 7px;
+        background: var(--g6);
+        color: var(--g3);
+        display: grid;
+        place-items: center;
+        font-size: 13px;
+        font-style: normal;
+      }
+      .fan-rank {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .fan-rank b {
+        color: var(--g1);
+        font-size: 14px;
+      }
+      .rank-avatars {
+        display: flex;
+        align-items: center;
+        padding-left: 4px;
+      }
+      .rank-avatars .avatar {
+        width: 25px;
+        height: 25px;
+        margin-left: -4px;
+        border: 2px solid var(--g7);
+        font-size: 9px;
+      }
+      .my-rank {
+        margin-left: auto;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .my-rank b {
+        margin-left: 5px;
+        color: var(--g1);
+        font-size: 15px;
+      }
+      .rank-arrow {
+        margin-left: 8px;
+        color: var(--g3);
+        font-size: 18px;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button class="back" onclick="location.href='../profile/profile.html'">
+          ‹</button
+        >我的粉丝团
+      </header>
+      <section class="clubs" id="clubs"></section>
+    </main>
+    <script>
+      const clubs = document.querySelector("#clubs");
+      clubs.innerHTML = LUMA_MOCK.myFanClubs
+        .map(
+          (club) =>
+            /* HTML */ `<article class="club">
+              <div class="club-top">
+                <span class="host-avatar"
+                  ><i class="avatar">${club.avatar}</i>${club.live
+                    ? `<a class="live-entry" href="../live/live-room.html" title="进入直播间" aria-label="进入 ${club.host} 的直播间">▶</a>`
+                    : ""}</span
+                ><span class="club-info"
+                  ><span class="club-name"
+                    >${club.name}<i class="level"
+                      >团 ${club.fanClubLevel}</i
+                    ></span
+                  ><span class="host">主播：${club.host}</span
+                  ><span class="joined">加入：${club.joined}</span></span
+                ><a
+                  class="group-entry"
+                  href="../social/fan-group-chat.html?club=${club.id}"
+                  title="进入粉丝群"
+                  aria-label="进入 ${club.name} 粉丝群"
+                  >群聊 ›</a
+                >
+              </div>
+              <section class="metrics" aria-label="我的粉丝团指标">
+                <div class="metric">
+                  <b>${club.fanLevel}</b><small><i>♛</i>粉丝等级</small>
+                </div>
+                <div class="metric">
+                  <b>${club.intimacy}</b><small><i>♡</i>亲密度</small>
+                </div>
+                <div class="metric">
+                  <b>${club.totalContribution}</b><small><i>◆</i>总贡献</small>
+                </div>
+              </section>
+              <button
+                class="club-data"
+                type="button"
+                title="查看完整贡献榜"
+                onclick="location.href='fan-contribution-ranking.html'"
+              >
+                <i class="metric-icon">♙</i
+                ><span class="fan-rank"
+                  ><b>贡献榜</b
+                  ><span class="rank-avatars"
+                    >${club.leaders
+                      .map(
+                        (avatar) =>
+                          /* HTML */ `<i class="avatar">${avatar}</i>`,
+                      )
+                      .join("")}</span
+                  ></span
+                ><span class="my-rank">我的排名 <b>${club.fanRank}</b></span
+                ><span class="rank-arrow">›</span>
+              </button>
+            </article>`,
+        )
+        .join("");
+    </script>
+  </body>
+</html>

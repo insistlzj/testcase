@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>用户详情 · 用户管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav" aria-label="管理后台一级菜单">
+          <button class="admin-nav-item active">
+            <span>用户管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub active" href="admin-user-list.html"
+              >用户列表</a
+            ><a class="admin-nav-sub" href="admin-ban-appeal.html">封禁申诉</a>
+          </div>
+          <a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          >
+          <a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            用户管理&nbsp;&nbsp;/&nbsp;&nbsp;用户列表&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >用户详情</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-user-list.html"
+            >‹ 返回用户列表</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-profile-summary">
+              <span class="admin-avatar" id="avatar"></span>
+              <div>
+                <h2 id="name"></h2>
+                <div class="admin-profile-meta">
+                  <span id="userId"></span><span id="gender"></span
+                  ><span id="status"></span>
+                </div>
+              </div>
+              <div
+                class="admin-profile-summary-actions"
+                id="profileActions"
+              ></div>
+            </div>
+            <div class="admin-metrics admin-inline-metrics" id="metrics"></div>
+            <div class="admin-detail-grid" id="baseInfo"></div>
+          </section>
+          <section class="admin-panel admin-tabs-panel">
+            <div
+              class="admin-detail-tabs"
+              role="tablist"
+              aria-label="用户关联信息"
+            >
+              <button class="admin-detail-tab active" data-tab="consumptions">
+                消费流水</button
+              ><button class="admin-detail-tab" data-tab="recharges">
+                充值流水</button
+              ><button class="admin-detail-tab" data-tab="violations">
+                账号违规记录</button
+              ><button class="admin-detail-tab" data-tab="followers">
+                粉丝</button
+              ><button class="admin-detail-tab" data-tab="following">
+                关注
+              </button>
+            </div>
+            <div class="admin-detail-panel" id="detailPanel"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="actionOverlay">
+      <section
+        class="admin-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="actionTitle"
+      >
+        <div class="admin-modal-head">
+          <h2 id="actionTitle">账号操作</h2>
+          <button
+            class="admin-icon-btn"
+            data-close="actionOverlay"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </div>
+        <form id="actionForm">
+          <div class="admin-modal-body" id="actionBody"></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="actionOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" id="actionSubmit" type="submit">
+              确认
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const mock = window.LUMA_ADMIN_MOCK;
+      const id = new URLSearchParams(location.search).get("id");
+      const user = mock.users.find((item) => item.id === id) || mock.users[0];
+      const records = mock.records[user.id] || {
+        recharges: [],
+        consumptions: [],
+        devices: [],
+        relationships: [],
+        violations: [],
+      };
+      const statusText = { normal: "正常", muted: "禁言中", banned: "已封禁" };
+      const { coins: formatCoins, money: formatMoney } =
+        window.LUMA_ADMIN_FORMAT;
+      const initials = (item) =>
+        item.initials ||
+        item.name
+          .split(/\s+/)
+          .map((part) => part[0])
+          .slice(0, 2)
+          .join("")
+          .toUpperCase();
+      const avatarEl = document.querySelector("#avatar"),
+        nameEl = document.querySelector("#name"),
+        userIdEl = document.querySelector("#userId"),
+        genderEl = document.querySelector("#gender"),
+        statusEl = document.querySelector("#status"),
+        profileActionsEl = document.querySelector("#profileActions"),
+        metricsEl = document.querySelector("#metrics"),
+        baseInfoEl = document.querySelector("#baseInfo"),
+        detailPanelEl = document.querySelector("#detailPanel");
+      let currentAction = "";
+      function table(columns, items) {
+        if (!items.length)
+          return '<div class="admin-record-empty"><strong>暂无记录</strong><span>该用户当前没有相关数据</span></div>';
+        return `<div class="admin-record-scroll"><table class="admin-record-table"><thead><tr>${columns.map((item) => `<th>${item[0]}</th>`).join("")}</tr></thead><tbody>${items.map((row) => `<tr>${columns.map((item) => `<td>${item[1](row)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      }
+      function renderTab(tab) {
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.tab === tab),
+          );
+        if (tab === "recharges")
+          detailPanelEl.innerHTML = table(
+            [
+              ["订单号", (i) => i.orderNo],
+              ["渠道", (i) => i.channel],
+              ["金额（USD）", (i) => formatMoney(i.amount)],
+              ["到账金币", (i) => formatCoins(i.coins)],
+              ["状态", (i) => i.status],
+              ["时间", (i) => i.time],
+            ],
+            records.recharges,
+          );
+        if (tab === "consumptions")
+          detailPanelEl.innerHTML = table(
+            [
+              ["流水号", (i) => i.flowNo],
+              ["消费类型", (i) => i.type],
+              [
+                "主播昵称 / 场次 ID",
+                (i) =>
+                  `<b>${i.hostName}</b><br><span class="admin-muted">${i.sessionId}</span>`,
+              ],
+              ["消费金币", (i) => formatCoins(i.coins)],
+              ["时间", (i) => i.time],
+            ],
+            records.consumptions,
+          );
+        if (tab === "following")
+          detailPanelEl.innerHTML = table(
+            [
+              ["用户 ID", (i) => i.userId],
+              [
+                "头像",
+                (i) => `<span class="admin-avatar">${initials(i)}</span>`,
+              ],
+              ["昵称", (i) => i.name],
+              ["关注时间", (i) => i.createdAt],
+            ],
+            records.relationships.filter((item) => item.type === "关注"),
+          );
+        if (tab === "followers")
+          detailPanelEl.innerHTML = table(
+            [
+              ["用户 ID", (i) => i.userId],
+              [
+                "头像",
+                (i) => `<span class="admin-avatar">${initials(i)}</span>`,
+              ],
+              ["昵称", (i) => i.name],
+              ["关注时间", (i) => i.createdAt],
+            ],
+            records.relationships.filter((item) => item.type === "粉丝"),
+          );
+        if (tab === "violations")
+          detailPanelEl.innerHTML = table(
+            [
+              ["违规类型", (i) => i.type],
+              ["处置类型", (i) => i.action],
+              ["处置原因", (i) => i.reason],
+              ["处置时间", (i) => i.time],
+            ],
+            records.violations,
+          );
+      }
+      function renderBase() {
+        avatarEl.textContent = user.initials;
+        Luma.setTip(nameEl, user.name, "用户昵称");
+        userIdEl.innerHTML = Luma.id(user.id, "用户ID");
+        Luma.setTip(genderEl, user.gender, "性别");
+        statusEl.className = `admin-status ${user.status}`;
+        Luma.setTip(statusEl, statusText[user.status], "账号状态");
+        profileActionsEl.innerHTML = `<button class="admin-btn secondary" data-action="reset">重置资料</button>${user.status === "banned" ? "" : '<button class="admin-btn secondary" data-action="mute">设置禁言</button>'}<button class="admin-btn ${user.status === "banned" ? "" : "danger"}" data-action="${user.status === "banned" ? "unban" : "ban"}">${user.status === "banned" ? "解封" : "封禁"}</button>`;
+        metricsEl.innerHTML = `<div class="admin-metric"><span>金币余额</span><b>${formatCoins(user.balance)}</b></div><div class="admin-metric"><span>累计充值（USD）</span><b>${formatMoney(user.recharge)}</b></div><div class="admin-metric"><span>累计消费（金币）</span><b>${formatCoins(user.spend)}</b></div>`;
+        baseInfoEl.innerHTML = /* HTML */ `<div class="admin-detail-item">
+            <span>地区</span><b>${user.region}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>生日</span><b>${user.birthday}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>财富等级</span><b>Lv.${user.level}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>手机号</span><b>${user.login}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>注册时间</span><b>${user.registeredAt}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>所属公会</span><b>${user.guild}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>个性签名</span><b>${user.signature || "未填写"}</b>
+          </div>`;
+      }
+      function openAction(action) {
+        currentAction = action;
+        actionTitle.textContent = {
+          mute: "设置用户禁言",
+          ban: "封禁用户",
+          unban: "解封用户",
+          reset: "重置用户资料",
+        }[action];
+        actionSubmit.className = `admin-btn ${action === "ban" ? "danger" : ""}`;
+        if (action === "mute")
+          actionBody.innerHTML = `<p>${user.name}（${user.id}）当前状态：${statusText[user.status]}</p><div class="admin-form-row"><label for="muteDuration">禁言时长</label><select class="admin-select" id="muteDuration" required><option value="">请选择</option><option value="0">0 / 不禁言（取消禁言）</option><option value="1h">1 小时</option><option value="24h">24 小时</option><option value="7d">7 天</option><option value="30d">30 天</option></select></div>`;
+        if (action === "ban")
+          actionBody.innerHTML = /* HTML */ `<p>
+              将对 ${user.name}（${user.id}）执行封禁。
+            </p>
+            <div class="admin-form-row">
+              <label for="banReason">封禁原因</label
+              ><textarea
+                class="admin-textarea"
+                id="banReason"
+                required
+              ></textarea>
+            </div>
+            <div class="admin-form-row">
+              <label for="banDurationType">封禁时长</label
+              ><select class="admin-select" id="banDurationType" required>
+                <option value="temporary">临时封禁</option>
+                <option value="permanent">永久封禁</option>
+              </select>
+            </div>
+            <div class="admin-form-row" id="banDaysWrap">
+              <label for="banDays">临时天数</label
+              ><input
+                class="admin-input"
+                id="banDays"
+                type="number"
+                min="1"
+                max="365"
+                required
+              />
+            </div>
+            <div class="admin-form-row">
+              <label>封禁范围</label>
+              <div class="admin-checkboxes">
+                <label
+                  ><input type="checkbox" name="banScope" checked /> 登录</label
+                ><label
+                  ><input type="checkbox" name="banScope" checked /> 发言</label
+                ><label><input type="checkbox" name="banScope" /> 送礼</label>
+              </div>
+            </div>`;
+        if (action === "unban")
+          actionBody.innerHTML = `<p>确认解除 ${user.name}（${user.id}）的账号封禁？</p>`;
+        if (action === "reset")
+          actionBody.innerHTML = `<p>将重置 ${user.name}（${user.id}）的头像、昵称和个性签名。</p><div class="admin-form-row"><label for="resetReason">重置原因</label><textarea class="admin-textarea" id="resetReason" required></textarea></div>`;
+        actionOverlay.classList.add("show");
+      }
+      document.addEventListener("change", (event) => {
+        if (event.target.id !== "banDurationType") return;
+        const permanent = event.target.value === "permanent";
+        banDaysWrap.classList.toggle("state-hide", permanent);
+        banDays.required = !permanent;
+        if (permanent) banDays.value = "";
+      });
+      document.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-tab]");
+        if (tab) renderTab(tab.dataset.tab);
+        const action = event.target.closest("[data-action]");
+        if (action) openAction(action.dataset.action);
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      actionForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (
+          currentAction === "ban" &&
+          !document.querySelector('[name="banScope"]:checked')
+        )
+          return Luma.toast("至少选择一个封禁范围");
+        let message = "操作已提交";
+        if (currentAction === "mute") {
+          user.status = muteDuration.value === "0" ? "normal" : "muted";
+          message =
+            muteDuration.value === "0"
+              ? "已取消用户禁言"
+              : "用户禁言设置已提交";
+        }
+        if (currentAction === "ban") user.status = "banned";
+        if (currentAction === "unban") user.status = "normal";
+        if (currentAction === "reset") {
+          user.name = `用户${user.id.slice(-4)}`;
+          user.initials = "U";
+          user.signature = "";
+        }
+        actionOverlay.classList.remove("show");
+        renderBase();
+        Luma.toast(message);
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") actionOverlay.classList.remove("show");
+      });
+      renderBase();
+      renderTab("consumptions");
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-user-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        设置禁言: () => openAction("mute"),
+        封禁用户: () => openAction("ban"),
+        重置资料: () => openAction("reset"),
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1492 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Luma Live · 产品原型</title>
+  <script src="assets/annotations.js?v=20260826-core-page-notes-v1"></script>
+  <style>
+    :root{--g1:#333333;--g2:#555555;--g3:#7F7F7F;--g4:#AAAAAA;--g5:#D7D7D7;--g6:#F2F2F2;--g7:#FFFFFF;--success:#2E8B57}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--g6);color:var(--g1);font:14px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;overflow:hidden}
+    .bar{height:52px;padding:0 16px;background:var(--g7);border-bottom:1px solid var(--g5);display:flex;align-items:center;gap:12px}
+    .bar button,.bar select,.bar-link{height:32px;border:1px solid var(--g5);border-radius:6px;background:var(--g7);color:var(--g2);font:13px inherit;padding:0 10px}
+    .bar-link{width:32px;display:grid;place-items:center;padding:0;text-decoration:none;font-size:17px}
+    .app-entry{display:flex;align-items:center;border:1px solid var(--g5);border-radius:6px;overflow:hidden;flex:none}
+    .bar .app-entry button{height:30px;border:0;border-right:1px solid var(--g5);border-radius:0;padding:0 11px}
+    .bar .app-entry button:last-child{border-right:0}
+    .bar .app-entry button.active{background:var(--g1);color:var(--g7);font-weight:600}
+    .state-controls{display:flex;align-items:center;gap:8px}.state-controls label{white-space:nowrap}
+    .title{font-weight:600;flex:1}
+    .layout{display:grid;grid-template-columns:220px minmax(0,1fr) 280px;height:calc(100vh - 52px)}
+    .layout.tree-hidden{grid-template-columns:minmax(0,1fr) 280px}
+    .layout.notes-hidden{grid-template-columns:220px minmax(0,1fr)}
+    .layout.tree-hidden.notes-hidden{grid-template-columns:minmax(0,1fr)}
+    aside{background:var(--g7);border-right:1px solid var(--g5);padding:14px;overflow:auto}
+    .tree-label{color:var(--g4);font-size:12px;margin:10px 0 6px}
+    .tree button{display:block;width:100%;border:0;background:none;text-align:left;padding:10px;border-radius:6px;color:var(--g2);font:14px inherit;cursor:pointer}
+    .tree button.active{background:var(--g6);color:var(--g1);font-weight:600}
+    .tree button.tree-primary{font-weight:600;color:var(--g1)}
+    .tree button.tree-primary:disabled{color:var(--g3);cursor:default}
+    .tree .review-group{padding-left:14px;margin-left:10px;border-left:1px solid var(--g6)}
+    .tree button.review-view{padding:7px 10px;color:var(--g3);font-size:12px}
+    .tree button.review-view.active{background:var(--g6);color:var(--g1);font-weight:600}
+    .stage{min-width:0;overflow:auto;display:grid;place-items:center;padding:20px}
+    .frame-wrap{position:relative;flex:none}
+    iframe{position:absolute;left:0;top:0;border:1px solid var(--g5);background:var(--g6);transform-origin:top left}
+    .notes{border-left:1px solid var(--g5);border-right:0;padding:14px}
+    .notes-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .notes h2{font-size:15px;margin:0}
+    .notes button{min-height:28px;border:1px solid var(--g5);border-radius:5px;background:var(--g7);color:var(--g2);font:12px inherit;padding:0 8px}
+    .notes button.primary{border-color:var(--g1);background:var(--g1);color:var(--g7)}
+    .note{border-bottom:1px solid var(--g6);padding:0 0 12px;margin:0 0 12px}
+    .note b{font-size:13px}
+    .note p{margin:6px 0 0;color:var(--g3);font-size:13px;line-height:1.5}
+    .note-metrics{margin:6px 0 0}
+    .note-metrics div{margin-top:7px}
+    .note-metrics dt{color:var(--success);font-size:13px;font-weight:600}
+    .note-metrics dd{margin:2px 0 0;color:var(--g3);font-size:13px;line-height:1.5}
+    .note-metrics.inline div{line-height:1.5}
+    .note-metrics.inline dt,.note-metrics.inline dd{display:inline;margin:0}
+    .note-target{display:block!important;max-width:100%;margin-bottom:7px;border:0!important;background:var(--g6)!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}
+    .note-actions{display:flex;gap:6px;margin-top:8px}
+    .note-form{padding:12px 0;border-top:1px solid var(--g5)}
+    .note-form label{display:block;margin-bottom:10px;color:var(--g3);font-size:12px}
+    .note-form input,.note-form textarea{display:block;width:100%;margin-top:5px;padding:8px;border:1px solid var(--g5);border-radius:5px;background:var(--g7);color:var(--g1);font:13px inherit;outline:none}
+    .note-form textarea{min-height:88px;resize:vertical}
+    .note-form-actions{display:flex;justify-content:flex-end;gap:7px}
+    .note-form-error{min-height:18px;margin-bottom:6px;color:var(--g2);font-size:12px}
+    .note-pick.active{border-color:var(--g1);background:var(--g6)}
+    .state-hide{display:none!important}
+    @media(max-width:900px){
+      .layout,.layout.notes-hidden{grid-template-columns:180px minmax(0,1fr)}
+      .layout.tree-hidden,.layout.tree-hidden.notes-hidden{grid-template-columns:minmax(0,1fr)}
+      .notes{position:fixed;top:52px;right:0;bottom:0;z-index:20;width:min(320px,calc(100vw - 24px));display:block;border-left:1px solid var(--g5);background:var(--g7);box-shadow:-8px 0 24px rgba(0,0,0,.12)}
+      .notes.state-hide{display:none!important}
+    }
+    @media(max-width:640px){.layout,.layout.tree-hidden,.layout.notes-hidden,.layout.tree-hidden.notes-hidden{grid-template-columns:1fr}.tree{display:none}.stage{padding:0;place-items:start center}.bar{overflow:auto}.title{min-width:100px}.layout aside:first-child{display:none}.notes{width:min(320px,100vw)}}
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <button id="treeToggle" type="button" aria-controls="treePanel" aria-expanded="true">页面树</button>
+    <nav class="app-entry" aria-label="原型入口">
+      <button type="button" data-app-entry="guild">公会 APP</button>
+      <button type="button" data-app-entry="user">用户 APP</button>
+      <button type="button" data-app-entry="admin">管理后台</button>
+    </nav>
+    <span class="title" id="title">首页</span>
+    <a class="bar-link" id="openPage" href="#" target="_blank" rel="noopener" aria-label="独立打开当前页面" title="独立打开当前页面">↗</a>
+    <span class="state-controls" id="stateControls"><label>页面状态 <select disabled><option>默认</option></select></label></span>
+    <label>缩放 <select id="zoom"><option value="1">100%</option><option value=".85">85%</option><option value=".7">70%</option><option value=".6">60%</option><option value=".5">50%</option></select></label>
+    <button id="notesToggle" type="button" aria-controls="notes" aria-expanded="true">批注</button>
+  </header>
+  <div class="layout">
+    <aside class="tree" id="treePanel"><div class="tree-label">页面树</div><div id="tree"></div></aside>
+    <main class="stage"><div class="frame-wrap" id="frameWrap"><iframe id="frame" title="原型预览"></iframe></div></main>
+    <aside class="notes" id="notes"></aside>
+  </div>
+  <script>
+    const userPages = [
+      { file: 'live-plaza.html', title: '首页', type: 'mobile' },
+      { file: 'host-ranking.html', title: '主播榜', type: 'mobile' },
+      { file: 'contribution-ranking.html', title: '贡献榜（平台）', type: 'mobile' },
+      { file: 'search.html', title: '搜索', type: 'mobile' },
+      { file: 'search-results.html', title: '搜索结果', type: 'mobile' },
+      { file: 'welfare-center.html', title: '充值福利', type: 'mobile' },
+      { file: 'invite-friends.html', title: '邀请好友', type: 'mobile' },
+      { file: 'message-center.html', title: '消息', type: 'mobile' },
+      { file: 'system-notifications.html', title: '系统通知', type: 'mobile' },
+      { file: 'profile.html', title: '我的', type: 'mobile' },
+      { file: 'my-following.html', title: '我的关注', type: 'mobile' },
+      { file: 'my-decoration.html', title: '我的装扮', type: 'mobile' },
+      { file: 'my-decoration-avatar-frame.html', title: '头像框', type: 'mobile' },
+      { file: 'my-decoration-chat-bubble.html', title: '聊天气泡', type: 'mobile' },
+      { file: 'my-decoration-medal.html', title: '勋章', type: 'mobile' },
+      { file: 'live-room.html', title: '直播间-观众', type: 'mobile' },
+      { file: 'live-room-report.html', title: '举报直播间', type: 'mobile' },
+      { file: 'live-room-user-report.html', title: '举报用户', type: 'mobile' },
+      { file: 'live-room-host.html', title: '直播间-主播', type: 'mobile' },
+      { file: 'live-room-host-password.html', title: '直播间-主播-密码房', type: 'mobile' },
+      { file: 'live-room-cohost-active.html', title: '直播间-连麦-主播', type: 'mobile' },
+      { file: 'live-end-viewer.html', title: '直播结束页（观众）', type: 'mobile' },
+      { file: 'live-end-host.html', title: '直播结束页（主播）', type: 'mobile' },
+      { file: 'friend-list.html', title: '好友列表', type: 'mobile' },
+      { file: 'interaction-notifications.html', title: '互动通知', type: 'mobile' },
+      { file: 'direct-message.html', title: '1 对 1 私信', type: 'mobile' },
+      { file: 'fan-group-chat.html', title: '粉丝团群聊', type: 'mobile' },
+      { file: 'group-manage-member.html', title: '群管理（成员）', type: 'mobile' },
+      { file: 'group-manage-owner.html', title: '群管理（群主）', type: 'mobile' },
+      { file: 'chat-settings.html', title: '单聊设置', type: 'mobile' },
+      { file: 'blacklist-management.html', title: '黑名单管理', type: 'mobile' },
+      { file: 'guild-management.html', title: '公会中心', type: 'mobile' },
+      { file: 'guild-application-form.html', title: '申请加入公会', type: 'mobile' },
+      { file: 'guild-application-records.html', title: '我的公会', type: 'mobile' },
+      { file: 'guild-detail.html', title: '公会详情', type: 'mobile' },
+      { file: 'guild-leave-application.html', title: '申请退出公会', type: 'mobile' },
+      { file: 'user-home.html', title: '用户主页', type: 'mobile' },
+      { file: 'host-home.html', title: '主播主页', type: 'mobile' },
+      { file: 'host-gift-gallery.html', title: '主播礼物展馆', type: 'mobile' },
+      { file: 'my-fan-clubs.html', title: '我的粉丝团', type: 'mobile' },
+      { file: 'fan-contribution-ranking.html', title: '贡献榜', type: 'mobile' },
+      { file: 'host-center.html', title: '主播中心', type: 'mobile' },
+      { file: 'moderator-management.html', title: '房管管理', type: 'mobile' },
+      { file: 'host-guild-notifications.html', title: '公会通知', type: 'mobile' },
+      { file: 'host-center-pending.html', title: '申请成为主播', type: 'mobile' },
+      { file: 'start-live-settings.html', title: '开播设置', type: 'mobile' },
+      { file: 'fan-list.html', title: '粉丝列表', type: 'mobile' },
+      { file: 'fan-club.html', title: '粉丝团', type: 'mobile' },
+      { file: 'fan-club-settings.html', title: '粉丝团设置', type: 'mobile' },
+      { file: 'live-data.html', title: '直播数据', type: 'mobile' },
+      { file: 'live-records.html', title: '直播记录', type: 'mobile' },
+      { file: 'income-withdrawal.html', title: '分成记录', type: 'mobile' },
+      { file: 'my-bank-cards.html', title: '我的银行卡【待定】', type: 'mobile' },
+      { file: 'add-bank-card.html', title: '添加银行卡', type: 'mobile' },
+      { file: 'withdrawal-application.html', title: '提现填写', type: 'mobile' },
+      { file: 'recharge.html', title: '余额充值', type: 'mobile' },
+      { file: 'balance-detail.html', title: '余额明细', type: 'mobile' },
+      { file: 'order-income-detail.html', title: '充值订单详情', type: 'mobile' },
+      { file: 'order-expense-detail.html', title: '支出订单详情', type: 'mobile' },
+      { file: 'auth-login-register.html', title: '登录与注册', type: 'mobile' },
+      { file: 'auth-profile-completion.html', title: '资料补全', type: 'mobile' },
+      { file: 'auth-phone-login.html', title: '手机号登录', type: 'mobile' },
+      { file: 'profile-edit.html', title: '资料编辑', type: 'mobile' },
+      { file: 'settings.html', title: '设置', type: 'mobile' }
+    ];
+    const guildPages = [
+      { file: 'guild-login.html', title: '公会登录', type: 'mobile' },
+      { file: 'guild-switch.html', title: '选择公会', type: 'mobile' },
+      { file: 'guild-home.html', title: '首页', type: 'mobile' },
+      { file: 'guild-notifications.html', title: '通知消息', type: 'mobile' },
+      { file: 'guild-notification-detail.html', title: '通知详情', type: 'mobile' },
+      { file: 'guild-join-review.html', title: '入会申请', type: 'mobile' },
+      { file: 'guild-leave-review.html', title: '退会申请', type: 'mobile' },
+      { file: 'guild-member-list.html', title: '主播列表', type: 'mobile' },
+      { file: 'guild-host-list.html', title: '主播业绩', type: 'mobile' },
+      { file: 'guild-host-summary.html', title: '主播数据', type: 'mobile' },
+      { file: 'guild-messages.html', title: '运营消息', type: 'mobile' },
+      { file: 'guild-message-compose.html', title: '新建运营消息', type: 'mobile' },
+      { file: 'guild-host-select.html', title: '选择主播', type: 'mobile' },
+      { file: 'guild-message-detail.html', title: '消息详情', type: 'mobile' },
+      { file: 'guild-operation-accounts.html', title: '运营账号', type: 'mobile' },
+      { file: 'guild-operation-account-compose.html', title: '添加运营账号', type: 'mobile' },
+      { file: 'guild-profile.html', title: '公会资料', type: 'mobile' },
+      { file: 'guild-settings.html', title: '账号设置', type: 'mobile' },
+      { file: 'guild-password.html', title: '修改密码', type: 'mobile' },
+      { file: 'guild-host-data.html', title: '直播记录', type: 'mobile' },
+      { file: 'guild-live-gift-detail.html', title: '直播场次详情', type: 'mobile' },
+      { file: 'guild-all-violations.html', title: '违规记录', type: 'mobile' },
+      { file: 'guild-income.html', title: '公会业绩', type: 'mobile' },
+      { file: 'guild-income-day-detail.html', title: '每日', type: 'mobile' },
+      { file: 'guild-share-ledger.html', title: '主播分成记录', type: 'mobile' },
+      { file: 'guild-share-income.html', title: '公会分成记录', type: 'mobile' },
+      { file: 'guild-all-live.html', title: '全部直播记录', type: 'mobile' },
+      { file: 'guild-violation-host-select.html', title: '选择主播（多选）', type: 'mobile' },
+      { file: 'guild-host-detail.html', title: '主播主页', type: 'mobile' },
+      { file: 'guild-join-review-detail.html', title: '入会申请详情', type: 'mobile' },
+      { file: 'guild-leave-review-detail.html', title: '退会申请详情', type: 'mobile' }
+    ];
+    const guildPageGroups = [
+      { title: '登录与首页', pageFiles: ['guild-login.html', 'guild-switch.html', 'guild-home.html', 'guild-notifications.html', 'guild-notification-detail.html'] },
+      { title: '主播管理', pageFiles: ['guild-join-review.html', 'guild-join-review-detail.html', 'guild-leave-review.html', 'guild-leave-review-detail.html', 'guild-member-list.html', 'guild-host-list.html', 'guild-host-summary.html', 'guild-host-detail.html'] },
+      { title: '运营工具', pageFiles: ['guild-messages.html', 'guild-message-compose.html', 'guild-host-select.html', 'guild-message-detail.html', 'guild-operation-accounts.html', 'guild-operation-account-compose.html'] },
+      { title: '公会管理', pageFiles: ['guild-profile.html', 'guild-settings.html', 'guild-password.html'] },
+      { title: '数据与收益', pageFiles: ['guild-income.html', 'guild-income-day-detail.html', 'guild-host-data.html', 'guild-live-gift-detail.html', 'guild-all-violations.html', 'guild-share-ledger.html', 'guild-share-income.html', 'guild-all-live.html', 'guild-violation-host-select.html'] }
+    ];
+    const adminPages = [
+      { file: 'admin-dashboard.html', title: '工作台', type: 'desktop' },
+      { file: 'admin-user-list.html', title: '用户列表', type: 'desktop' },
+      { file: 'admin-user-detail.html', title: '用户详情', type: 'desktop' },
+      { file: 'admin-ban-appeal.html', title: '封禁申诉', type: 'desktop' },
+      { file: 'admin-ban-appeal-detail.html', title: '申诉详情', type: 'desktop' },
+      { file: 'admin-host-list.html', title: '主播列表', type: 'desktop' },
+      { file: 'admin-host-detail.html', title: '主播详情', type: 'desktop' },
+      { file: 'admin-host-review.html', title: '主播审核', type: 'desktop' },
+      { file: 'admin-host-review-detail.html', title: '审核详情', type: 'desktop' },
+      { file: 'admin-live-management.html', title: '直播场次', type: 'desktop' },
+      { file: 'admin-live-detail.html', title: '直播详情', type: 'desktop' },
+      { file: 'admin-inspection-schedule.html', title: '巡房排班', type: 'desktop' },
+      { file: 'admin-inspection-schedule-create.html', title: '新建排班', type: 'desktop' },
+      { file: 'admin-inspection-schedule-detail.html', title: '排班详情', type: 'desktop' },
+      { file: 'admin-content-audit.html', title: '内容审核', type: 'desktop' },
+      { file: 'admin-content-audit-detail.html', title: '内容审核详情', type: 'desktop' },
+      { file: 'admin-account-violation.html', title: '账号违规', type: 'desktop' },
+      { file: 'admin-report-handling.html', title: '直播间违规', type: 'desktop' },
+      { file: 'admin-report-detail.html', title: '举报详情', type: 'desktop' },
+      { file: 'admin-guild-list.html', title: '公会列表', type: 'desktop' },
+      { file: 'admin-guild-detail.html', title: '公会详情', type: 'desktop' },
+      { file: 'admin-settlement-record.html', title: '主播分成记录', type: 'desktop' },
+      { file: 'admin-settlement-record-detail.html', title: '主播分成记录详情', type: 'desktop' },
+      { file: 'admin-host-account-balance.html', title: '主播账户余额', type: 'desktop' },
+      { file: 'admin-host-balance-change-record.html', title: '主播余额变更记录', type: 'desktop' },
+      { file: 'admin-guild-settlement-record.html', title: '公会分成记录', type: 'desktop' },
+      { file: 'admin-guild-settlement-record-detail.html', title: '公会分成记录详情', type: 'desktop' },
+      { file: 'admin-guild-account-balance.html', title: '公会账户余额', type: 'desktop' },
+      { file: 'admin-guild-balance-change-record.html', title: '公会余额变更记录', type: 'desktop' },
+      { file: 'admin-gift-list.html', title: '普通礼物', type: 'desktop' },
+      { file: 'admin-gift-detail.html', title: '礼物详情', type: 'desktop' },
+      { file: 'admin-custom-gift.html', title: '定制礼物', type: 'desktop' },
+      { file: 'admin-lucky-gift-config.html', title: '幸运礼物', type: 'desktop' },
+      { file: 'admin-lucky-gift-detail.html', title: '幸运礼物详情', type: 'desktop' },
+      { file: 'admin-prop-list.html', title: '道具配置', type: 'desktop' },
+      { file: 'admin-prop-detail.html', title: '道具详情', type: 'desktop' },
+      { file: 'admin-gift-send-count-rules.html', title: '购买份数配置', type: 'desktop' },
+      { file: 'admin-gift-send-count-rule-detail.html', title: '购买份数配置详情', type: 'desktop' },
+      { file: 'admin-recharge-order.html', title: '充值订单', type: 'desktop' },
+      { file: 'admin-recharge-order-detail.html', title: '充值订单详情', type: 'desktop' },
+      { file: 'admin-consumption-order.html', title: '消费订单', type: 'desktop' },
+      { file: 'admin-consumption-order-detail.html', title: '消费订单详情', type: 'desktop' },
+      { file: 'admin-refund-order.html', title: '退款订单', type: 'desktop' },
+      { file: 'admin-placement-config.html', title: '展位配置', type: 'desktop' },
+        { file: 'admin-placement-detail.html', title: '展示素材编辑', type: 'desktop' },
+      { file: 'admin-push-management.html', title: '推送管理', type: 'desktop' },
+      { file: 'admin-push-detail.html', title: '推送编辑', type: 'desktop' },
+      { file: 'admin-recharge-package.html', title: '充值套餐', type: 'desktop' },
+      { file: 'admin-recharge-package-detail.html', title: '充值套餐编辑', type: 'desktop' },
+      { file: 'admin-task-config.html', title: '任务配置', type: 'desktop' },
+      { file: 'admin-task-detail.html', title: '任务编辑', type: 'desktop' },
+      { file: 'admin-guild-recommendation.html', title: '公会推荐', type: 'desktop' },
+      { file: 'admin-guild-recommendation-detail.html', title: '公会推荐编辑', type: 'desktop' },
+      { file: 'admin-live-type.html', title: '直播类型', type: 'desktop' },
+      { file: 'admin-feature-switch.html', title: '直播房型', type: 'desktop' },
+      { file: 'admin-feature-switch-detail.html', title: '直播房型编辑', type: 'desktop' },
+      { file: 'admin-sensitive-words.html', title: '敏感词库', type: 'desktop' },
+      { file: 'admin-sensitive-words-detail.html', title: '敏感词编辑', type: 'desktop' },
+      { file: 'admin-report-center.html', title: '报表中心', type: 'desktop' },
+      { file: 'admin-data-overview.html', title: '数据概览', type: 'desktop' },
+      { file: 'admin-daily-statistics.html', title: '每日统计', type: 'desktop' },
+      { file: 'admin-user-active-statistics.html', title: '用户活跃汇总（每日）', type: 'desktop' },
+      { file: 'admin-host-statistics.html', title: '主播活跃汇总（每日）', type: 'desktop' },
+      { file: 'admin-live-statistics.html', title: '直播间互动汇总（每日）', type: 'desktop' },
+      { file: 'admin-host-live-record-report.html', title: '直播记录明细报表', type: 'desktop' },
+      { file: 'admin-recharge-statistics.html', title: '充值消费汇总（每日）', type: 'desktop' },
+      { file: 'admin-user-activity-statistics.html', title: '充值用户分层汇总（每日）', type: 'desktop' },
+      { file: 'admin-monthly-income-expense.html', title: '月度收益支出汇总', type: 'desktop' },
+      { file: 'admin-monthly-host-share.html', title: '主播业绩分成报表', type: 'desktop' },
+      { file: 'admin-monthly-host-earnings.html', title: '主播礼物打赏明细报表', type: 'desktop' },
+      { file: 'admin-monthly-viewer-consumption.html', title: '用户消费汇总报表', type: 'desktop' },
+      { file: 'admin-monthly-gift-sales.html', title: '礼物消费汇总报表', type: 'desktop' },
+      { file: 'admin-consumption-order-detail-report.html', title: '消费订单明细', type: 'desktop' },
+      { file: 'admin-refund-order-detail-report.html', title: '退款订单明细', type: 'desktop' },
+      { file: 'admin-recharge-order-detail-report.html', title: '充值订单明细', type: 'desktop' },
+      { file: 'admin-system-account.html', title: '后台账号', type: 'desktop' },
+      { file: 'admin-system-account-detail.html', title: '账号编辑', type: 'desktop' },
+      { file: 'admin-system-role.html', title: '角色权限', type: 'desktop' },
+      { file: 'admin-system-role-detail.html', title: '角色编辑', type: 'desktop' },
+      { file: 'admin-system-parameter.html', title: '系统参数', type: 'desktop' },
+      { file: 'admin-system-parameter-detail.html', title: '参数编辑', type: 'desktop' },
+      { file: 'admin-system-audit.html', title: '操作审计', type: 'desktop' },
+      { file: 'admin-system-audit-detail.html', title: '日志详情', type: 'desktop' }
+    ];
+    const adminPageGroups = [
+      { title: '工作台', pageFiles: ['admin-dashboard.html'], allFiles: ['admin-dashboard.html'] },
+      { title: '用户管理', pageFiles: ['admin-user-list.html', 'admin-ban-appeal.html'], allFiles: ['admin-user-list.html', 'admin-user-detail.html', 'admin-ban-appeal.html', 'admin-ban-appeal-detail.html'] },
+      { title: '主播管理', pageFiles: ['admin-host-review.html', 'admin-host-list.html', 'admin-live-management.html', 'admin-inspection-schedule.html', 'admin-content-audit.html'], allFiles: ['admin-host-review.html', 'admin-host-review-detail.html', 'admin-host-list.html', 'admin-host-detail.html', 'admin-live-management.html', 'admin-live-detail.html', 'admin-inspection-schedule.html', 'admin-inspection-schedule-create.html', 'admin-inspection-schedule-detail.html', 'admin-content-audit.html', 'admin-content-audit-detail.html'] },
+      { title: '举报处理', pageFiles: ['admin-account-violation.html', 'admin-report-handling.html'], allFiles: ['admin-account-violation.html', 'admin-report-handling.html', 'admin-report-detail.html'] },
+      { title: '公会管理', pageFiles: ['admin-guild-list.html'], allFiles: ['admin-guild-list.html', 'admin-guild-detail.html'] },
+      { title: '礼物道具', pageFiles: ['admin-gift-list.html', 'admin-custom-gift.html', 'admin-lucky-gift-config.html', 'admin-prop-list.html', 'admin-gift-send-count-rules.html'], allFiles: ['admin-gift-list.html', 'admin-gift-detail.html', 'admin-custom-gift.html', 'admin-lucky-gift-config.html', 'admin-lucky-gift-detail.html', 'admin-prop-list.html', 'admin-prop-detail.html', 'admin-gift-send-count-rules.html', 'admin-gift-send-count-rule-detail.html'] },
+      { title: '运营配置', pageFiles: ['admin-placement-config.html', 'admin-push-management.html', 'admin-recharge-package.html', 'admin-task-config.html', 'admin-guild-recommendation.html', 'admin-live-type.html', 'admin-feature-switch.html', 'admin-sensitive-words.html'], allFiles: ['admin-placement-config.html', 'admin-placement-detail.html', 'admin-push-management.html', 'admin-push-detail.html', 'admin-recharge-package.html', 'admin-recharge-package-detail.html', 'admin-task-config.html', 'admin-task-detail.html', 'admin-guild-recommendation.html', 'admin-guild-recommendation-detail.html', 'admin-live-type.html', 'admin-feature-switch.html', 'admin-feature-switch-detail.html', 'admin-sensitive-words.html', 'admin-sensitive-words-detail.html'] },
+      { title: '订单管理', pageFiles: ['admin-recharge-order.html', 'admin-consumption-order.html', 'admin-refund-order.html'], allFiles: ['admin-recharge-order.html', 'admin-recharge-order-detail.html', 'admin-consumption-order.html', 'admin-consumption-order-detail.html', 'admin-refund-order.html'] },
+      { title: '财务分成', pageFiles: ['admin-settlement-record.html', 'admin-host-account-balance.html', 'admin-guild-settlement-record.html', 'admin-guild-account-balance.html'], allFiles: ['admin-settlement-record.html', 'admin-settlement-record-detail.html', 'admin-host-account-balance.html', 'admin-host-balance-change-record.html', 'admin-guild-settlement-record.html', 'admin-guild-settlement-record-detail.html', 'admin-guild-account-balance.html', 'admin-guild-balance-change-record.html'] },
+      { title: '数据分析', pageFiles: ['admin-report-center.html', 'admin-data-overview.html', 'admin-daily-statistics.html', 'admin-user-active-statistics.html', 'admin-host-statistics.html', 'admin-live-statistics.html', 'admin-host-live-record-report.html', 'admin-recharge-statistics.html', 'admin-user-activity-statistics.html', 'admin-monthly-income-expense.html', 'admin-monthly-host-share.html', 'admin-monthly-viewer-consumption.html', 'admin-monthly-gift-sales.html', 'admin-consumption-order-detail-report.html', 'admin-refund-order-detail-report.html', 'admin-recharge-order-detail-report.html'], allFiles: ['admin-report-center.html', 'admin-data-overview.html', 'admin-daily-statistics.html', 'admin-user-active-statistics.html', 'admin-host-statistics.html', 'admin-live-statistics.html', 'admin-host-live-record-report.html', 'admin-recharge-statistics.html', 'admin-user-activity-statistics.html', 'admin-monthly-income-expense.html', 'admin-monthly-host-share.html', 'admin-monthly-viewer-consumption.html', 'admin-monthly-gift-sales.html', 'admin-consumption-order-detail-report.html', 'admin-refund-order-detail-report.html', 'admin-recharge-order-detail-report.html'] },
+      { title: '系统配置', pageFiles: ['admin-system-account.html', 'admin-system-role.html', 'admin-system-parameter.html', 'admin-system-audit.html'], allFiles: ['admin-system-account.html', 'admin-system-account-detail.html', 'admin-system-role.html', 'admin-system-role-detail.html', 'admin-system-parameter.html', 'admin-system-parameter-detail.html', 'admin-system-audit.html', 'admin-system-audit-detail.html'] }
+    ];
+    adminPageGroups.flatMap((group) => group.pageFiles).forEach((file, index) => {
+      const page = adminPages.find((item) => item.file === file);
+      if (page) page.title = `${page.title}-${String(index + 1).padStart(2, '0')}`;
+    });
+    const guildDetailParents = {
+      'guild-notifications.html': 'guild-home.html',
+      'guild-notification-detail.html': 'guild-home.html',
+      'guild-join-review-detail.html': 'guild-join-review.html',
+      'guild-leave-review-detail.html': 'guild-leave-review.html',
+      'guild-live-gift-detail.html': 'guild-host-data.html',
+      'guild-host-summary.html': 'guild-host-list.html',
+      'guild-host-detail.html': 'guild-member-list.html'
+      ,'guild-message-compose.html': 'guild-messages.html'
+      ,'guild-host-select.html': 'guild-messages.html'
+      ,'guild-message-detail.html': 'guild-messages.html'
+      ,'guild-operation-account-compose.html': 'guild-operation-accounts.html'
+      ,'guild-password.html': 'guild-settings.html'
+      ,'guild-switch.html': 'guild-home.html'
+    };
+    const adminDetailParents = {
+      'admin-user-detail.html': 'admin-user-list.html',
+      'admin-ban-appeal-detail.html': 'admin-ban-appeal.html',
+      'admin-host-detail.html': 'admin-host-list.html',
+      'admin-host-review-detail.html': 'admin-host-review.html',
+      'admin-live-detail.html': 'admin-live-management.html',
+      'admin-inspection-schedule-create.html': 'admin-inspection-schedule.html',
+      'admin-inspection-schedule-detail.html': 'admin-inspection-schedule.html',
+      'admin-content-audit-detail.html': 'admin-content-audit.html',
+      'admin-report-detail.html': 'admin-report-handling.html',
+      'admin-guild-detail.html': 'admin-guild-list.html',
+      'admin-feature-switch-detail.html': 'admin-feature-switch.html',
+      'admin-settlement-record-detail.html': 'admin-settlement-record.html',
+      'admin-guild-settlement-record-detail.html': 'admin-guild-settlement-record.html',
+      'admin-gift-detail.html': 'admin-gift-list.html',
+      'admin-lucky-gift-detail.html': 'admin-lucky-gift-config.html',
+      'admin-prop-detail.html': 'admin-prop-list.html',
+      'admin-gift-send-count-rule-detail.html': 'admin-gift-send-count-rules.html',
+      'admin-consumption-order-detail.html': 'admin-consumption-order.html',
+      'admin-placement-detail.html': 'admin-placement-config.html',
+      'admin-push-detail.html': 'admin-push-management.html',
+      'admin-recharge-package-detail.html': 'admin-recharge-package.html',
+      'admin-recharge-order-detail.html': 'admin-recharge-order.html',
+      'admin-task-detail.html': 'admin-task-config.html',
+      'admin-guild-recommendation-detail.html': 'admin-guild-recommendation.html',
+      'admin-sensitive-words-detail.html': 'admin-sensitive-words.html',
+      'admin-system-account-detail.html': 'admin-system-account.html',
+      'admin-system-role-detail.html': 'admin-system-role.html',
+      'admin-system-parameter-detail.html': 'admin-system-parameter.html',
+      'admin-system-audit-detail.html': 'admin-system-audit.html'
+    };
+    const baseUserPageOrder = [
+      'live-plaza.html', 'host-ranking.html', 'contribution-ranking.html', 'search.html', 'search-results.html', 'live-room.html', 'live-room-report.html', 'live-room-user-report.html', 'live-room-host.html', 'live-room-host-password.html', 'live-room-cohost-active.html', 'live-end-viewer.html', 'live-end-host.html',
+      'welfare-center.html', 'invite-friends.html', 'message-center.html', 'direct-message.html', 'fan-group-chat.html', 'group-manage-member.html',
+      'group-manage-owner.html', 'profile.html', 'my-following.html', 'my-decoration.html', 'my-decoration-avatar-frame.html', 'my-decoration-chat-bubble.html', 'my-decoration-medal.html', 'my-fan-clubs.html', 'fan-contribution-ranking.html', 'host-center.html', 'moderator-management.html', 'host-guild-notifications.html', 'host-center-pending.html',
+      'start-live-settings.html', 'fan-list.html', 'fan-club.html', 'fan-club-settings.html', 'live-data.html', 'live-records.html', 'income-withdrawal.html',
+      'recharge.html', 'balance-detail.html', 'order-income-detail.html', 'order-expense-detail.html', 'chat-settings.html',
+      'user-home.html', 'host-home.html', 'host-gift-gallery.html', 'friend-list.html', 'interaction-notifications.html', 'blacklist-management.html', 'guild-management.html', 'guild-application-form.html',
+      'guild-application-records.html', 'guild-detail.html', 'guild-leave-application.html', 'system-notifications.html', 'my-bank-cards.html', 'add-bank-card.html', 'withdrawal-application.html'
+    ];
+    const userPageOrder = ['auth-login-register.html', 'auth-profile-completion.html', 'auth-phone-login.html', ...baseUserPageOrder.slice(0, 12), 'profile-edit.html', 'settings.html', ...baseUserPageOrder.slice(12)];
+    const userPageCodes = {
+      'auth-login-register.html': 'A001',
+      'auth-phone-login.html': 'A002',
+      'auth-profile-completion.html': 'A003',
+      'search.html': 'P001-2',
+      'search-results.html': 'P001-1',
+      'live-room-report.html': 'P006-1',
+      'live-room-user-report.html': 'P006-2',
+      'host-ranking.html': 'P001-3',
+      'contribution-ranking.html': 'P001-4',
+      'live-room-host-password.html': 'P004',
+      'live-end-viewer.html': 'P003-1',
+      'live-end-host.html': 'P003-2',
+      'live-room-cohost-active.html': 'P005',
+      'invite-friends.html': 'P009',
+      'fan-group-chat.html': 'P011-1',
+      'friend-list.html': 'P043',
+      'fan-contribution-ranking.html': 'P011-5',
+      'my-decoration.html': 'P011-4',
+      'my-decoration-avatar-frame.html': 'P011-4-1',
+      'my-decoration-chat-bubble.html': 'P011-4-2',
+      'my-decoration-medal.html': 'P011-4-3',
+      'profile-edit.html': 'P011-2',
+      'settings.html': 'P011-3'
+      ,'my-following.html': 'P034-1'
+      ,'host-home.html': 'P035-1'
+      ,'host-gift-gallery.html': 'P035-2'
+      ,'host-center-pending.html': 'P014-1'
+      ,'fan-list.html': 'P014-2'
+      ,'host-center.html': 'P027'
+      ,'moderator-management.html': 'P027-1'
+      ,'host-guild-notifications.html': 'P027-2'
+      ,'fan-club.html': 'P026'
+      ,'fan-club-settings.html': 'P026-1'
+      ,'guild-management.html': 'P030'
+      ,'guild-application-form.html': 'P030-1'
+      ,'guild-application-records.html': 'P032'
+      ,'guild-detail.html': 'P032-3'
+      ,'guild-leave-application.html': 'P032-1'
+      ,'my-bank-cards.html': 'P037-1'
+      ,'add-bank-card.html': 'P037-2'
+      ,'withdrawal-application.html': 'P037-3'
+    };
+    const pagePaths = {
+  "auth-login-register.html": "user/auth/auth-login-register.html",
+  "auth-profile-completion.html": "user/auth/auth-profile-completion.html",
+  "auth-phone-login.html": "user/auth/auth-phone-login.html",
+  "live-plaza.html": "user/home/live-plaza.html",
+  "host-ranking.html": "user/home/host-ranking.html",
+  "contribution-ranking.html": "user/home/contribution-ranking.html",
+  "search.html": "user/home/search.html",
+  "search-results.html": "user/home/search-results.html",
+  "welfare-center.html": "user/home/welfare-center.html",
+  "invite-friends.html": "user/home/invite-friends.html",
+  "live-room.html": "user/live/live-room.html",
+  "live-room-report.html": "user/live/live-room-report.html",
+  "live-room-user-report.html": "user/live/live-room-user-report.html",
+  "live-room-host.html": "user/live/live-room-host.html",
+  "live-room-host-password.html": "user/live/live-room-host-password.html",
+  "live-room-cohost-active.html": "user/live/live-room-cohost-active.html",
+  "live-end-viewer.html": "user/live/live-end-viewer.html",
+  "live-end-host.html": "user/live/live-end-host.html",
+  "message-center.html": "user/social/message-center.html",
+  "system-notifications.html": "user/social/system-notifications.html",
+  "direct-message.html": "user/social/direct-message.html",
+  "fan-group-chat.html": "user/social/fan-group-chat.html",
+  "group-manage-member.html": "user/social/group-manage-member.html",
+  "group-manage-owner.html": "user/social/group-manage-owner.html",
+  "chat-settings.html": "user/social/chat-settings.html",
+  "friend-list.html": "user/social/friend-list.html",
+  "interaction-notifications.html": "user/social/interaction-notifications.html",
+  "user-home.html": "user/social/user-home.html",
+  "host-home.html": "user/social/host-home.html",
+  "host-gift-gallery.html": "user/social/host-gift-gallery.html",
+  "profile.html": "user/profile/profile.html",
+  "my-following.html": "user/profile/my-following.html",
+  "my-decoration.html": "user/profile/my-decoration.html",
+  "my-decoration-avatar-frame.html": "user/profile/my-decoration-avatar-frame.html",
+  "my-decoration-chat-bubble.html": "user/profile/my-decoration-chat-bubble.html",
+  "my-decoration-medal.html": "user/profile/my-decoration-medal.html",
+  "profile-edit.html": "user/profile/profile-edit.html",
+  "settings.html": "user/profile/settings.html",
+  "blacklist-management.html": "user/profile/blacklist-management.html",
+  "my-fan-clubs.html": "user/fan-club/my-fan-clubs.html",
+  "fan-contribution-ranking.html": "user/fan-club/fan-contribution-ranking.html",
+  "guild-management.html": "user/guild/guild-management.html",
+  "guild-application-form.html": "user/guild/guild-application-form.html",
+  "guild-application-records.html": "user/guild/guild-application-records.html",
+  "guild-detail.html": "user/guild/guild-detail.html",
+  "guild-leave-application.html": "user/guild/guild-leave-application.html",
+  "host-center.html": "user/host/host-center.html",
+  "moderator-management.html": "user/host/moderator-management.html",
+  "host-guild-notifications.html": "user/host/host-guild-notifications.html",
+  "host-center-pending.html": "user/host/host-center-pending.html",
+  "start-live-settings.html": "user/host/start-live-settings.html",
+  "fan-list.html": "user/host/fan-list.html",
+  "fan-club.html": "user/host/fan-club.html",
+  "fan-club-settings.html": "user/host/fan-club-settings.html",
+  "live-data.html": "user/host/live-data.html",
+  "live-records.html": "user/host/live-records.html",
+  "income-withdrawal.html": "user/host/income-withdrawal.html",
+  "my-bank-cards.html": "user/host/my-bank-cards.html",
+  "add-bank-card.html": "user/host/add-bank-card.html",
+  "withdrawal-application.html": "user/host/withdrawal-application.html",
+  "recharge.html": "user/wallet/recharge.html",
+  "balance-detail.html": "user/wallet/balance-detail.html",
+  "order-income-detail.html": "user/wallet/order-income-detail.html",
+  "order-expense-detail.html": "user/wallet/order-expense-detail.html",
+  "guild-home.html": "guild/home/guild-home.html",
+  "guild-notifications.html": "guild/home/guild-notifications.html",
+  "guild-notification-detail.html": "guild/home/guild-notification-detail.html",
+  "guild-join-review.html": "guild/approval/guild-join-review.html",
+  "guild-join-review-detail.html": "guild/approval/guild-join-review-detail.html",
+  "guild-leave-review.html": "guild/approval/guild-leave-review.html",
+  "guild-leave-review-detail.html": "guild/approval/guild-leave-review-detail.html",
+  "guild-member-list.html": "guild/people/guild-member-list.html",
+  "guild-host-list.html": "guild/people/guild-host-list.html",
+  "guild-messages.html": "guild/operations/guild-messages.html",
+  "guild-message-compose.html": "guild/operations/guild-message-compose.html",
+  "guild-host-select.html": "guild/operations/guild-host-select.html",
+  "guild-message-detail.html": "guild/operations/guild-message-detail.html",
+  "guild-operation-accounts.html": "guild/operations/guild-operation-accounts.html",
+  "guild-operation-account-compose.html": "guild/operations/guild-operation-account-compose.html",
+  "guild-profile.html": "guild/management/guild-profile.html",
+  "guild-settings.html": "guild/management/guild-settings.html",
+  "guild-password.html": "guild/management/guild-password.html",
+  "guild-login.html": "guild/auth/guild-login.html",
+  "guild-switch.html": "guild/auth/guild-switch.html",
+  "guild-income.html": "guild/data/guild-income.html",
+  "guild-income-day-detail.html": "guild/data/guild-income-day-detail.html",
+  "guild-share-ledger.html": "guild/data/guild-share-ledger.html",
+  "guild-share-income.html": "guild/data/guild-share-income.html",
+  "guild-host-detail.html": "guild/people/guild-host-detail.html",
+  "guild-host-summary.html": "guild/data/guild-host-summary.html",
+  "guild-host-data.html": "guild/data/guild-host-data.html",
+  "guild-all-live.html": "guild/data/guild-all-live.html",
+  "guild-violation-host-select.html": "guild/data/guild-violation-host-select.html",
+  "guild-live-gift-detail.html": "guild/data/guild-live-gift-detail.html",
+  "guild-all-violations.html": "guild/data/guild-all-violations.html",
+  "admin-dashboard.html": "admin/dashboard/admin-dashboard.html",
+  "admin-user-list.html": "admin/user/admin-user-list.html",
+  "admin-user-detail.html": "admin/user/admin-user-detail.html",
+  "admin-ban-appeal.html": "admin/user/admin-ban-appeal.html",
+  "admin-ban-appeal-detail.html": "admin/user/admin-ban-appeal-detail.html",
+  "admin-host-list.html": "admin/host/admin-host-list.html",
+  "admin-host-detail.html": "admin/host/admin-host-detail.html",
+  "admin-host-review.html": "admin/host/admin-host-review.html",
+  "admin-host-review-detail.html": "admin/host/admin-host-review-detail.html",
+  "admin-live-management.html": "admin/host/admin-live-management.html",
+  "admin-live-detail.html": "admin/host/admin-live-detail.html",
+  "admin-inspection-schedule.html": "admin/host/admin-inspection-schedule.html",
+  "admin-inspection-schedule-create.html": "admin/host/admin-inspection-schedule-create.html",
+  "admin-inspection-schedule-detail.html": "admin/host/admin-inspection-schedule-detail.html",
+  "admin-guild-list.html": "admin/guild/admin-guild-list.html",
+  "admin-guild-detail.html": "admin/guild/admin-guild-detail.html",
+  "admin-gift-list.html": "admin/gifts/admin-gift-list.html",
+  "admin-gift-detail.html": "admin/gifts/admin-gift-detail.html",
+  "admin-custom-gift.html": "admin/gifts/admin-custom-gift.html",
+  "admin-lucky-gift-config.html": "admin/gifts/admin-lucky-gift-config.html",
+  "admin-lucky-gift-detail.html": "admin/gifts/admin-lucky-gift-detail.html",
+  "admin-prop-list.html": "admin/gifts/admin-prop-list.html",
+  "admin-prop-detail.html": "admin/gifts/admin-prop-detail.html",
+  "admin-gift-send-count-rules.html": "admin/gifts/admin-gift-send-count-rules.html",
+  "admin-gift-send-count-rule-detail.html": "admin/gifts/admin-gift-send-count-rule-detail.html",
+  "admin-content-audit.html": "admin/content/admin-content-audit.html",
+  "admin-content-audit-detail.html": "admin/content/admin-content-audit-detail.html",
+  "admin-account-violation.html": "admin/content/admin-account-violation.html",
+  "admin-report-handling.html": "admin/content/admin-report-handling.html",
+  "admin-report-detail.html": "admin/content/admin-report-detail.html",
+  "admin-placement-config.html": "admin/operations/admin-placement-config.html",
+  "admin-placement-detail.html": "admin/operations/admin-placement-detail.html",
+  "admin-push-management.html": "admin/operations/admin-push-management.html",
+  "admin-push-detail.html": "admin/operations/admin-push-detail.html",
+  "admin-recharge-package.html": "admin/operations/admin-recharge-package.html",
+  "admin-recharge-package-detail.html": "admin/operations/admin-recharge-package-detail.html",
+  "admin-task-config.html": "admin/operations/admin-task-config.html",
+  "admin-task-detail.html": "admin/operations/admin-task-detail.html",
+  "admin-guild-recommendation.html": "admin/operations/admin-guild-recommendation.html",
+  "admin-guild-recommendation-detail.html": "admin/operations/admin-guild-recommendation-detail.html",
+  "admin-live-type.html": "admin/operations/admin-live-type.html",
+  "admin-feature-switch.html": "admin/operations/admin-feature-switch.html",
+  "admin-feature-switch-detail.html": "admin/operations/admin-feature-switch-detail.html",
+  "admin-sensitive-words.html": "admin/operations/admin-sensitive-words.html",
+  "admin-sensitive-words-detail.html": "admin/operations/admin-sensitive-words-detail.html",
+  "admin-recharge-order.html": "admin/orders/admin-recharge-order.html",
+  "admin-recharge-order-detail.html": "admin/orders/admin-recharge-order-detail.html",
+  "admin-consumption-order.html": "admin/orders/admin-consumption-order.html",
+  "admin-consumption-order-detail.html": "admin/orders/admin-consumption-order-detail.html",
+  "admin-refund-order.html": "admin/orders/admin-refund-order.html",
+  "admin-settlement-record.html": "admin/finance/admin-settlement-record.html",
+  "admin-settlement-record-detail.html": "admin/finance/admin-settlement-record-detail.html",
+  "admin-host-account-balance.html": "admin/finance/admin-host-account-balance.html",
+  "admin-host-balance-change-record.html": "admin/finance/admin-host-balance-change-record.html",
+  "admin-guild-settlement-record.html": "admin/finance/admin-guild-settlement-record.html",
+  "admin-guild-settlement-record-detail.html": "admin/finance/admin-guild-settlement-record-detail.html",
+  "admin-guild-account-balance.html": "admin/finance/admin-guild-account-balance.html",
+  "admin-guild-balance-change-record.html": "admin/finance/admin-guild-balance-change-record.html",
+  "admin-report-center.html": "admin/analytics/admin-report-center.html",
+  "admin-data-overview.html": "admin/analytics/admin-data-overview.html",
+  "admin-daily-statistics.html": "admin/analytics/admin-daily-statistics.html",
+  "admin-user-active-statistics.html": "admin/analytics/admin-user-active-statistics.html",
+  "admin-recharge-statistics.html": "admin/analytics/admin-recharge-statistics.html",
+  "admin-user-activity-statistics.html": "admin/analytics/admin-user-activity-statistics.html",
+  "admin-host-statistics.html": "admin/analytics/admin-host-statistics.html",
+  "admin-live-statistics.html": "admin/analytics/admin-live-statistics.html",
+  "admin-host-live-record-report.html": "admin/analytics/admin-host-live-record-report.html",
+  "admin-monthly-income-expense.html": "admin/analytics/admin-monthly-income-expense.html",
+  "admin-monthly-host-share.html": "admin/analytics/admin-monthly-host-share.html",
+  "admin-monthly-host-earnings.html": "admin/analytics/admin-monthly-host-earnings.html",
+  "admin-monthly-viewer-consumption.html": "admin/analytics/admin-monthly-viewer-consumption.html",
+  "admin-monthly-gift-sales.html": "admin/analytics/admin-monthly-gift-sales.html",
+  "admin-consumption-order-detail-report.html": "admin/analytics/admin-consumption-order-detail-report.html",
+  "admin-refund-order-detail-report.html": "admin/analytics/admin-refund-order-detail-report.html",
+  "admin-recharge-order-detail-report.html": "admin/analytics/admin-recharge-order-detail-report.html",
+  "admin-system-account.html": "admin/system/admin-system-account.html",
+  "admin-system-account-detail.html": "admin/system/admin-system-account-detail.html",
+  "admin-system-role.html": "admin/system/admin-system-role.html",
+  "admin-system-role-detail.html": "admin/system/admin-system-role-detail.html",
+  "admin-system-parameter.html": "admin/system/admin-system-parameter.html",
+  "admin-system-parameter-detail.html": "admin/system/admin-system-parameter-detail.html",
+  "admin-system-audit.html": "admin/system/admin-system-audit.html",
+  "admin-system-audit-detail.html": "admin/system/admin-system-audit-detail.html"
+};
+    const pages = [...userPages, ...guildPages, ...adminPages];
+    pages.forEach((page) => { page.path = pagePaths[page.file] || page.file; });
+    const appEntries = {
+      guild: guildPages.find((page) => page.file === 'guild-home.html'),
+      user: userPages[0],
+      admin: adminPages[0]
+    };
+    const savedUrl = new URLSearchParams(location.hash.slice(1)).get('page') || '';
+    const savedPage = pageFromUrl(savedUrl);
+    let current = savedPage || appEntries.guild;
+    // Ignore stale cache-busting versions for this page so old viewer links load the current calendar.
+    const savedQuery = savedPage && savedPage.file === 'guild-host-list.html' ? '' : (savedUrl.split('?')[1] ? '?' + savedUrl.split('?').slice(1).join('?') : '');
+    let currentUrl = savedPage ? pageUrl(savedPage, savedQuery) : pageUrl(current);
+    const frame = document.querySelector('#frame');
+    const frameWrap = document.querySelector('#frameWrap');
+    const layout = document.querySelector('.layout');
+    const treePanel = document.querySelector('#treePanel');
+    const tree = document.querySelector('#tree');
+    const notesPanel = document.querySelector('#notes');
+    const stateControls = document.querySelector('#stateControls');
+    const zoom = document.querySelector('#zoom');
+    const treeToggle = document.querySelector('#treeToggle');
+    const notesToggle = document.querySelector('#notesToggle');
+    const openPage = document.querySelector('#openPage');
+    const noteStorageKey = 'luma-prototype-notes-v1';
+    const viewStorageKey = 'luma-prototype-view-v1';
+    const liveReviewFiles = new Set(['live-room.html', 'live-room-report.html', 'live-room-host.html', 'live-room-host-password.html', 'live-room-cohost-active.html', 'live-end-viewer.html', 'live-end-host.html', 'welfare-center.html', 'invite-friends.html', 'message-center.html', 'user-home.html', 'start-live-settings.html', 'live-data.html', 'my-bank-cards.html', 'add-bank-card.html', 'withdrawal-application.html']);
+    const panelScopedStateFiles = new Set(['live-room.html', 'live-room-host.html', 'live-room-host-password.html', 'live-room-cohost-active.html']);
+    const liveReviewViews = {
+      'live-room.html': [
+        { id: 'gift', title: '视图-礼物', selectors: ['#gift'] },
+        { id: 'gift:recharge', title: '视图-充值', selectors: ['#gift', '[data-recharge]'] },
+        { id: 'fan-club:not-joined', title: '视图-粉丝团-未加入', state: { group: '粉丝团状态', name: '未加入' }, selectors: ['.fan-club-entry'] },
+        { id: 'fan-club:joined', title: '视图-粉丝团-已加入', state: { group: '粉丝团状态', name: '已加入' }, selectors: ['.fan-club-entry'], hideSelectors: ['[data-fan-club-action]'] },
+        { id: 'comment:muted', title: '视图-被禁言', state: { group: '发言状态', name: '被禁言' } },
+        { id: 'password-room:restricted', title: '视图-密码房-访问受限', state: { group: '房间访问', name: '密码房-访问受限' } },
+        { id: 'ticket-room:restricted', title: '视图-门票房-访问受限', state: { group: '房间访问', name: '门票房-访问受限' } },
+        { id: 'audience:online', title: '视图-在线观众-观众列表', selectors: ['.watch-chip', '[data-manager-tab="online"]'] },
+        { id: 'audience:managers', title: '视图-在线观众-房管列表', selectors: ['.watch-chip', '[data-manager-tab="managers"]'] },
+        {
+          id: 'profile:viewer',
+          title: '视图-用户资料卡-普通观众',
+          state: { group: '当前身份', name: '普通观众' },
+          selectors: ['#chat .chat-meta b']
+        },
+        {
+          id: 'profile:moderator',
+          title: '视图-用户资料卡-房管',
+          state: { group: '当前身份', name: '房管' },
+          selectors: ['#chat .chat-meta b'],
+          hideSelectors: ['#audienceSheet'],
+          children: [
+            { id: 'profile:moderator-mute', title: '视图-禁言确认', state: { group: '当前身份', name: '房管' }, selectors: ['#chat .chat-meta b', '[aria-label="禁言"]'], hideSelectors: ['#audienceSheet'] },
+            { id: 'profile:moderator-remove', title: '视图-踢出确认', state: { group: '当前身份', name: '房管' }, selectors: ['#chat .chat-meta b', '[aria-label="踢出直播间"]'], hideSelectors: ['#audienceSheet'] }
+          ]
+        },
+        { id: 'contribution:rank', title: '视图-本场贡献-贡献榜', selectors: ['.quick button:first-child', '[data-session-tab="contribution"]'] },
+        { id: 'contribution:gifts', title: '视图-本场贡献-收到礼物', selectors: ['.quick button:first-child', '[data-session-tab="gifts"]'] },
+        { title: '视图-更多功能（用户）', selectors: ['.more-actions'] },
+        {
+          title: '视图-主播资料卡',
+          selectors: ['.host-chip']
+        }
+      ],
+      'live-room-host.html': [
+        { id: 'contribution:rank', title: '视图-本场贡献-贡献榜', selectors: ['.quick button:first-child', '[data-session-tab="contribution"]'] },
+        { id: 'audience:viewers', title: '视图-在线观众-观众列表', selectors: ['.watch-chip', '[data-audience-tab="viewers"]'] },
+        {
+          id: 'muted-users', title: '视图-禁用用户', selectors: ['#moreActions', '[data-host-setting="muted"]'],
+          children: [
+            { id: 'restore-speaking-confirm', title: '视图-恢复发言确认', selectors: ['#moreActions', '[data-host-setting="muted"]', '[data-restore-user]'] }
+          ]
+        },
+        {
+          id: 'profile:host', title: '视图-观众资料卡-主播', state: { group: '资料卡权限', name: '主播' }, selectors: ['#chat .chat-meta b']
+        },
+        { id: 'focus-viewers', title: '视图-重点观众', selectors: ['.focus-entry'] },
+        { id: 'more-actions', title: '视图-更多功能', selectors: ['#moreActions'] },
+        { id: 'end-confirm', title: '视图-结束直播确认', selectors: ['#exit'] }
+      ],
+      'live-room-host-password.html': [
+        { id: 'more-actions', title: '视图-更多功能', selectors: ['#moreActions'] },
+        { id: 'room-password', title: '视图-房间密码', selectors: ['#moreActions', '[data-host-setting="password"]'] }
+      ],
+      'live-room-cohost-active.html': [
+        { id: 'more-actions', title: '视图-更多功能', selectors: ['#moreActions'] },
+        { id: 'cohost-exit-confirm', title: '视图-退出连麦确认', selectors: ['[data-host-pk]'] }
+      ]
+    };
+    const guildReviewViews = {
+      'guild-join-review.html': [
+        { id: 'rejected', title: '视图-入会申请-已驳回', selectors: ['[data-tab="rejected"]'] },
+        { id: 'approved', title: '视图-入会申请-已通过', selectors: ['[data-tab="approved"]'] }
+      ],
+      'guild-join-review-detail.html': [
+        { id: 'approve-confirm', title: '视图-提交平台终审确认', selectors: ['[data-result="approved"]'] },
+        { id: 'reject-reason', title: '视图-拒绝原因', selectors: ['[data-result="rejected"]'] },
+        { id: 'material', title: '视图-认证材料预览', selectors: ['[data-material]'] }
+      ],
+      'guild-leave-review.html': [
+        { id: 'processed', title: '视图-退会申请-已处理', selectors: ['[data-tab="processed"]'] }
+      ],
+      'guild-leave-review-detail.html': [
+        { id: 'reject-reason', title: '视图-驳回原因', selectors: ['[data-result="rejected"]'] }
+      ],
+      'guild-member-list.html': [
+        { id: 'departed', title: '视图-主播-已退会', selectors: ['[data-status="departed"]'] }
+      ],
+      'guild-host-list.html': [
+        { id: 'date-shortcuts', title: '视图-主播业绩-快捷日期', selectors: ['#shortcutPicker'] },
+        { id: 'date-range', title: '视图-主播业绩-自定义日期', selectors: ['#rangePicker'] }
+      ],
+      'guild-host-summary.html': [
+        { id: 'month', title: '视图-主播数据-月数据', selectors: ['[data-summary-view="month"]'] },
+        { id: 'date-range', title: '视图-主播数据-自定义日期', selectors: ['#rangePickerButton'] }
+      ],
+      'guild-host-detail.html': [
+        { id: 'management', title: '视图-主播管理', selectors: ['#managementButton'] },
+        { id: 'remove-confirm', title: '视图-移出公会确认', selectors: ['#managementButton', '#removeButton'] }
+      ],
+      'guild-messages.html': [
+        { id: 'date-range', title: '视图-运营消息-日期范围', selectors: ['#messageRangeButton'] }
+      ],
+      'guild-settings.html': [
+        { id: 'language', title: '视图-语言-印尼语', selectors: ['#language'] },
+        { id: 'logout-confirm', title: '视图-退出登录确认', selectors: ['#logout'] }
+      ],
+      'guild-income.html': [
+        { id: 'month', title: '视图-公会业绩-月数据', selectors: ['[data-mode="month"]'] },
+        { id: 'date-range', title: '视图-公会业绩-自定义日期', selectors: ['#rangePickerButton'] }
+      ],
+      'guild-income-day-detail.html': [
+        { id: 'not-started', title: '视图-主播概况-未开播', selectors: ['[data-view="notStarted"]'] }
+      ],
+      'guild-host-data.html': [
+        { id: 'date-shortcuts', title: '视图-直播记录-快捷日期', selectors: ['#shortcutPicker'] },
+        { id: 'date-range', title: '视图-直播记录-自定义日期', selectors: ['#rangePickerButton'] }
+      ],
+      'guild-all-violations.html': [
+        { id: 'account', title: '视图-违规记录-账号违规', selectors: ['#violationScopePicker', '[data-violation-scope="account"]'] },
+        { id: 'date-range', title: '视图-违规记录-日期范围', selectors: ['#rangePickerButton'] }
+      ],
+      'guild-live-gift-detail.html': [
+        { id: 'gift-detail', title: '视图-礼物明细', selectors: ['[data-gift-id]'] }
+      ]
+    };
+    const guildReviewFiles = new Set(Object.keys(guildReviewViews));
+    const reviewFiles = new Set([...liveReviewFiles, ...guildReviewFiles]);
+    const staticPageViews = {
+      'welfare-center.html': [
+        { id: 'state:页面状态:已领取', title: '视图-充值福利-已领取', state: { group: '页面状态', name: '已领取' } }
+      ],
+      'invite-friends.html': [
+        { id: 'state:页面状态:邀请好友选项', title: '视图-邀请好友-选项', state: { group: '页面状态', name: '邀请好友选项' } }
+      ],
+      'message-center.html': [
+        { id: 'state:消息:粉丝团', title: '视图-粉丝团群聊', state: { group: '消息', name: '粉丝团' } }
+      ],
+      'user-home.html': [
+        { id: 'state:好友关系:好友', title: '视图-好友', state: { group: '好友关系', name: '好友' } },
+        { id: 'state:好友关系:黑名单', title: '视图-拉黑', state: { group: '好友关系', name: '黑名单' } }
+      ],
+      'start-live-settings.html': [
+        { id: 'category-sheet', title: '视图-选类型', selectors: ['#categoryEntry'] },
+        { id: 'room-normal', title: '视图-房型（普通）', selectors: ['#roomEntry'] },
+        { id: 'room-ticket', title: '视图-房型（门票房）', selectors: ['#roomEntry', '[name="roomType"][value="ticket"]'] },
+        { id: 'room-password', title: '视图-房型（密码房）', selectors: ['#roomEntry', '[name="roomType"][value="password"]'] },
+        { id: 'beauty-sheet', title: '视图-美颜设置', selectors: ['#beautyEntry'] }
+      ],
+      'live-data.html': [
+        { id: 'month-data', title: '视图-月数据', selectors: ['[data-mode="month"]'] }
+      ],
+      'my-bank-cards.html': [
+        { id: 'bank-bound', title: '视图-已绑定银行卡', state: { group: '银行卡状态', name: '已绑定' } },
+        { id: 'bank-remove-confirm', title: '视图-移除银行卡确认', state: { group: '银行卡状态', name: '已绑定' }, selectors: ['#removeBank'] }
+      ],
+      'add-bank-card.html': [
+        { id: 'recipient-name', title: '视图-收款人姓名已回显', state: { group: '页面状态', name: '已回显收款人姓名' } }
+      ],
+      'withdrawal-application.html': [
+        { id: 'bank-sheet', title: '视图-选择到账银行卡', state: { group: '页面状态', name: '选择到账银行卡' } }
+      ]
+    };
+    const liveStateCatalog = {};
+    const reviewTreeTargets = new Map();
+    let customNotes = readCustomNotes();
+    let viewerPreferences = readViewerPreferences();
+    let editingNoteId = null;
+    let selectedTarget = null;
+    let selectionMode = false;
+    let selectionZoom = '';
+    let pendingReviewView = null;
+    let pendingReviewTimer = null;
+    let activeReviewId = '';
+
+    function pageUrl(page, query = '') {
+      const version = !query && page.file === 'profile.html' ? '?v=20260815-profile-host-link-v1' : !query && page.file === 'guild-management.html' ? '?v=20260815-p030-host-icon-v3' : !query && page.file === 'host-center.html' ? '?v=20260815-p024-guild-tag-v2' : page.file === 'host-center-pending.html' && !query ? '?v=20260808-p014-state-v2' : !query && page.file === 'guild-host-list.html' ? '?v=20260820-host-performance-summary-v2' : !query && page.file === 'guild-host-data.html' ? '?v=20260820-guild-live-records-v2' : '';
+      return `pages/${page.path || page.file}${query || version}`;
+    }
+
+    function pageFromUrl(url) {
+      if (!url.startsWith('pages/')) return null;
+      const route = url.slice(6).split('?')[0];
+      return pages.find((page) => page.path === route || page.file === route) || null;
+    }
+
+    function appKey(page) {
+      if (guildPages.includes(page)) return 'guild';
+      if (adminPages.includes(page)) return 'admin';
+      return 'user';
+    }
+
+    function displayTitle(page) {
+      return `${page.title} · ${{ guild: '公会 APP', user: '用户 APP', admin: '管理后台' }[appKey(page)]}`;
+    }
+
+    function updateAppEntry(page) {
+      const activeKey = appKey(page);
+      document.querySelectorAll('[data-app-entry]').forEach((button) => {
+        const active = button.dataset.appEntry === activeKey;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-current', active ? 'page' : 'false');
+      });
+    }
+
+    function treeFile(file) {
+      if (file === 'admin-gift-detail.html') {
+        const from = new URLSearchParams((currentUrl.split('?')[1] || '')).get('from');
+        if (['admin-gift-list.html', 'admin-custom-gift.html', 'admin-lucky-gift-config.html'].includes(from)) return from;
+      }
+      if (file === 'admin-report-detail.html') {
+        const scope = new URLSearchParams((currentUrl.split('?')[1] || '')).get('scope');
+        return scope === 'account' ? 'admin-account-violation.html' : 'admin-report-handling.html';
+      }
+      if (guildPageGroups.some((group) => group.pageFiles.includes(file))) return file;
+      return guildDetailParents[file] || adminDetailParents[file] || file;
+    }
+
+    function rememberPage(url) {
+      history.replaceState(null, '', `#page=${encodeURIComponent(url)}`);
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+    }
+
+    function readCustomNotes() {
+      try {
+        const data = JSON.parse(localStorage.getItem(noteStorageKey) || '[]');
+        return Array.isArray(data) ? data : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveCustomNotes() {
+      try { localStorage.setItem(noteStorageKey, JSON.stringify(customNotes)); } catch (error) {}
+    }
+
+    function readViewerPreferences() {
+      const defaults = { url: '', treeHidden: false, notesHidden: false, pageStates: {}, zoom: '', folders: {} };
+      try {
+        const data = JSON.parse(localStorage.getItem(viewStorageKey) || '{}');
+        return { ...defaults, ...data, pageStates: data.pageStates && typeof data.pageStates === 'object' ? data.pageStates : {}, folders: data.folders && typeof data.folders === 'object' ? data.folders : {} };
+      } catch (error) {
+        return defaults;
+      }
+    }
+
+    function saveViewerPreferences() {
+      try { localStorage.setItem(viewStorageKey, JSON.stringify(viewerPreferences)); } catch (error) {}
+    }
+
+    function resetStateControls() {
+      stateControls.classList.toggle('state-hide', panelScopedStateFiles.has(current.file));
+      stateControls.innerHTML = '<label>页面状态 <select disabled><option>默认</option></select></label>';
+    }
+
+    function applyFrameState(group, name) {
+      frame.contentWindow.postMessage({ type: 'luma-apply-state', group, name }, '*');
+    }
+
+    function renderStateControls(groups, grouped) {
+      stateControls.replaceChildren();
+      if (panelScopedStateFiles.has(current.file)) {
+        stateControls.classList.add('state-hide');
+        return;
+      }
+      stateControls.classList.remove('state-hide');
+      Object.entries(groups).forEach(([group, names]) => {
+        if (!Array.isArray(names) || !names.length) return;
+        const label = document.createElement('label');
+        const select = document.createElement('select');
+        select.dataset.stateGroup = group;
+        select.dataset.reloadDefault = String(!grouped);
+        const options = grouped ? names : ['默认', ...names];
+        options.forEach((name) => select.append(new Option(name, name)));
+        const saved = viewerPreferences.url === currentUrl ? viewerPreferences.pageStates[group] : '';
+        select.value = options.includes(saved) ? saved : options[0];
+        viewerPreferences.pageStates[group] = select.value;
+        label.append(`${group} `, select);
+        stateControls.append(label);
+        if (select.value !== '默认' || grouped) setTimeout(() => applyFrameState(group, select.value), 0);
+      });
+      if (!stateControls.children.length) resetStateControls();
+      saveViewerPreferences();
+    }
+
+    function applyPanelPreferences() {
+      treePanel.classList.toggle('state-hide', viewerPreferences.treeHidden);
+      notesPanel.classList.toggle('state-hide', viewerPreferences.notesHidden);
+      layout.classList.toggle('tree-hidden', viewerPreferences.treeHidden);
+      layout.classList.toggle('notes-hidden', viewerPreferences.notesHidden);
+      treeToggle.setAttribute('aria-expanded', String(!viewerPreferences.treeHidden));
+      notesToggle.setAttribute('aria-expanded', String(!viewerPreferences.notesHidden));
+    }
+
+    function folderExpanded(key, fallback) {
+      const value = viewerPreferences.folders[key];
+      return typeof value === 'boolean' ? value : fallback;
+    }
+
+    function rememberFolder(key, expanded) {
+      viewerPreferences.folders[key] = expanded;
+      saveViewerPreferences();
+    }
+
+    function noteForm() {
+      if (!editingNoteId) return '';
+      const note = editingNoteId === 'new' ? null : customNotes.find((item) => item.id === editingNoteId);
+      const target = selectedTarget || (note ? { selector: note.selector, label: note.target } : null);
+      return `<form class="note-form" id="noteForm">
+        <label>关联功能<button class="note-pick${selectionMode ? ' active' : ''}" id="pickTarget" type="button">${target ? escapeHtml(target.label) : (selectionMode ? '选择中' : '选择功能')}</button></label>
+        <label>标题<input id="noteTitle" maxlength="40" required value="${escapeHtml(note ? note.title : '')}"></label>
+        <label>内容<textarea id="noteContent" maxlength="300" required>${escapeHtml(note ? note.content : '')}</textarea></label>
+        <div class="note-form-error" id="noteFormError"></div>
+        <div class="note-form-actions"><button type="button" data-note-cancel>取消</button><button class="primary" type="submit">保存</button></div>
+      </form>`;
+    }
+
+    function renderNotes(file) {
+      const builtIn = [...(window.LUMA_ANNOTATIONS['*'] || []), ...(window.LUMA_ANNOTATIONS[file] || [])];
+      const added = customNotes.filter((item) => item.file === file);
+      const builtInHtml = builtIn.map((item) => {
+        const isDataMetrics = item[0].startsWith('数据指标');
+        const content = Array.isArray(item[1])
+          ? `<dl class="note-metrics${isDataMetrics ? ' inline' : ''}">${item[1].map(metric => `<div><dt>${escapeHtml(metric[0])}${isDataMetrics ? '：' : ''}</dt><dd>${escapeHtml(metric[1])}</dd></div>`).join('')}</dl>`
+          : `<p>${escapeHtml(item[1])}</p>`;
+        return `<div class="note"><b>${escapeHtml(item[0])}</b>${content}</div>`;
+      }).join('');
+      const addedHtml = added.map((item) => `<div class="note"><button class="note-target" data-note-locate="${escapeHtml(item.id)}" title="定位到 ${escapeHtml(item.target)}">${escapeHtml(item.target)}</button><b>${escapeHtml(item.title)}</b><p>${escapeHtml(item.content)}</p><div class="note-actions"><button data-note-edit="${escapeHtml(item.id)}">编辑</button><button data-note-delete="${escapeHtml(item.id)}">删除</button></div></div>`).join('');
+      notesPanel.innerHTML = `<div class="notes-head"><h2>原型批注</h2><button id="addNote" type="button">添加批注</button></div>${builtInHtml}${addedHtml}${noteForm()}`;
+    }
+
+    function postFrameMessage(message) {
+      try { frame.contentWindow.postMessage(message, '*'); } catch (error) {}
+    }
+
+    function clearFrameTarget() {
+      postFrameMessage({ type: 'luma-note-clear' });
+    }
+
+    function highlightTarget(selector) {
+      if (!selector) return false;
+      postFrameMessage({ type: 'luma-note-highlight', selector });
+      return true;
+    }
+
+    function bindFrameAnnotations() {
+      postFrameMessage({ type: 'luma-note-mode', enabled: selectionMode });
+      if (selectedTarget?.selector) highlightTarget(selectedTarget.selector);
+    }
+
+    function beginTargetSelection() {
+      if (!selectionZoom) selectionZoom = zoom.value;
+      if (zoom.value !== '1') {
+        zoom.value = '1';
+        resizeFrame();
+      }
+    }
+
+    function endTargetSelection() {
+      if (!selectionZoom) return;
+      zoom.value = selectionZoom;
+      selectionZoom = '';
+      resizeFrame();
+    }
+
+    function resizeFrame() {
+      const desktop = current.type === 'desktop';
+      const width = desktop ? 1440 : 390;
+      const height = desktop ? 900 : 844;
+      const scale = Number(zoom.value);
+      frame.style.width = `${width}px`;
+      frame.style.height = `${height}px`;
+      frame.style.zoom = '';
+      frame.style.transform = `scale(${scale})`;
+      frameWrap.style.width = `${width * scale}px`;
+      frameWrap.style.height = `${height * scale}px`;
+    }
+
+    function load(page, url = pageUrl(page), restoreControls = false) {
+      current = page;
+      if (!pendingReviewView) activeReviewId = '';
+      editingNoteId = null;
+      selectedTarget = null;
+      selectionMode = false;
+      clearFrameTarget();
+      document.querySelector('#title').textContent = displayTitle(page);
+      updateAppEntry(page);
+      tree.querySelectorAll('[data-file]').forEach((button) => button.classList.toggle('active', button.dataset.file === treeFile(page.file)));
+      resetStateControls();
+      const canRestore = restoreControls && viewerPreferences.url === url;
+      const savedZoom = [...zoom.options].some((option) => option.value === viewerPreferences.zoom) ? viewerPreferences.zoom : '';
+      zoom.value = savedZoom || (page.type === 'desktop' ? '.6' : '1');
+      resizeFrame();
+      currentUrl = url;
+      viewerPreferences.url = currentUrl;
+      viewerPreferences.zoom = zoom.value;
+      if (!canRestore) viewerPreferences.pageStates = {};
+      saveViewerPreferences();
+      frame.src = currentUrl;
+      openPage.href = currentUrl;
+      renderNotes(page.file);
+      rememberPage(currentUrl);
+    }
+
+    function reviewGroupName(group) {
+      return /角色|身份|权限/.test(group) ? '角色视角' : '页面状态';
+    }
+
+    function runReviewView(view) {
+      if (!view || current.file !== view.file) return;
+      const reviewId = view.id || `view:${view.title}`;
+      const openReviewPanel = () => {
+        if (view.selectors?.length || view.hideSelectors?.length) postFrameMessage({ type: 'luma-review-actions', selectors: view.selectors, hideSelectors: view.hideSelectors });
+      };
+      if (view.state) {
+        const select = stateControls.querySelector(`select[data-state-group="${CSS.escape(view.state.group)}"]`);
+        if (select) select.value = view.state.name;
+        viewerPreferences.pageStates[view.state.group] = view.state.name;
+        saveViewerPreferences();
+        applyFrameState(view.state.group, view.state.name);
+        setTimeout(openReviewPanel, 60);
+      } else setTimeout(openReviewPanel, 120);
+      activeReviewId = `${view.file}:${reviewId}`;
+      tree.querySelectorAll('[data-review-id]').forEach((button) => button.classList.toggle('active', button.dataset.reviewId === activeReviewId));
+      pendingReviewView = null;
+    }
+
+    function schedulePendingReviewView() {
+      if (!pendingReviewView || pendingReviewView.file !== current.file) return;
+      clearTimeout(pendingReviewTimer);
+      pendingReviewTimer = setTimeout(() => runReviewView(pendingReviewView), 120);
+    }
+
+    function openReviewView(page, view) {
+      pendingReviewView = { ...view, file: page.file };
+      load(page);
+    }
+
+    function addReviewButton(box, page, view) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'review-view';
+      button.dataset.reviewId = `${page.file}:${view.id || `view:${view.title}`}`;
+      button.textContent = view.title;
+      button.onclick = () => openReviewView(page, view);
+      box.append(button);
+    }
+
+    function addReviewBranch(box, page, view) {
+      addReviewButton(box, page, view);
+      if (!view.children?.length) return;
+      const children = document.createElement('div');
+      children.className = 'review-group';
+      view.children.forEach((child) => addReviewBranch(children, page, child));
+      box.append(children);
+    }
+
+    function renderReviewTree(file) {
+      const target = reviewTreeTargets.get(file);
+      const page = pages.find((item) => item.file === file);
+      if (!target || !page) return;
+      target.replaceChildren();
+      const catalog = liveStateCatalog[file] || {};
+      const staticViews = staticPageViews[file];
+      if (staticViews) {
+        staticViews.forEach((view) => addReviewButton(target, page, view));
+        target.querySelectorAll('[data-review-id]').forEach((button) => button.classList.toggle('active', button.dataset.reviewId === activeReviewId));
+        return;
+      }
+      const dimensions = { '页面状态': [], '角色视角': [] };
+      if (!panelScopedStateFiles.has(file)) Object.entries(catalog).forEach(([group, names]) => {
+        const bucket = reviewGroupName(group);
+        names.forEach((name) => dimensions[bucket].push({ group, name }));
+      });
+      Object.entries(dimensions).forEach(([label, states]) => {
+        if (!states.length) return;
+        const group = document.createElement('div');
+        group.className = 'review-group';
+        const title = document.createElement('button');
+        title.type = 'button';
+        title.className = 'tree-primary';
+        title.disabled = true;
+        title.textContent = label;
+        group.append(title);
+        states.forEach(({ group: stateGroup, name }) => addReviewButton(group, page, {
+          id: `state:${stateGroup}:${name}`,
+          title: `${stateGroup}：${name}`,
+          state: { group: stateGroup, name }
+        }));
+        target.append(group);
+      });
+      const views = liveReviewViews[file] || guildReviewViews[file] || [];
+      if (panelScopedStateFiles.has(file)) {
+        views.forEach((view) => addReviewBranch(target, page, view));
+        target.querySelectorAll('[data-review-id]').forEach((button) => button.classList.toggle('active', button.dataset.reviewId === activeReviewId));
+        return;
+      }
+      if (guildReviewFiles.has(file)) {
+        views.forEach((view) => addReviewBranch(target, page, view));
+        target.querySelectorAll('[data-review-id]').forEach((button) => button.classList.toggle('active', button.dataset.reviewId === activeReviewId));
+        return;
+      }
+      if (views.length) {
+        const group = document.createElement('div');
+        group.className = 'review-group';
+        const title = document.createElement('button');
+        title.type = 'button';
+        title.className = 'tree-primary';
+        title.disabled = true;
+        title.textContent = '弹层校对';
+        group.append(title);
+        views.forEach((view) => {
+          if (Array.isArray(view)) {
+            const [titleText, selectors] = view;
+            addReviewButton(group, page, { id: `view:${titleText}`, title: titleText, selectors });
+            return;
+          }
+          if (!view.children) {
+            addReviewButton(group, page, { ...view, id: view.id || `view:${view.title}` });
+            return;
+          }
+          const subGroup = document.createElement('div');
+          subGroup.className = 'review-group';
+          const subTitle = document.createElement('button');
+          subTitle.type = 'button';
+          subTitle.className = 'tree-primary';
+          subTitle.disabled = true;
+          subTitle.textContent = view.title;
+          subGroup.append(subTitle);
+          view.children.forEach((child) => addReviewButton(subGroup, page, child));
+          group.append(subGroup);
+        });
+        target.append(group);
+      }
+    }
+
+    function addFolder(label, folderPages, expanded) {
+      const folder = document.createElement('button');
+      const children = document.createElement('div');
+      children.style.paddingLeft = '14px';
+      children.style.display = folderExpanded(label, expanded) ? 'block' : 'none';
+      folder.style.cssText = 'font-weight:600;color:var(--g1);padding-left:10px';
+      const updateLabel = () => { folder.textContent = `${children.style.display === 'none' ? '▸' : '▾'}  ${label}`; };
+      folder.onclick = () => { children.style.display = children.style.display === 'none' ? 'block' : 'none'; rememberFolder(label, children.style.display !== 'none'); updateLabel(); };
+      folderPages.forEach((page) => {
+        const button = document.createElement('button');
+        button.dataset.file = page.file;
+        button.textContent = page.title;
+        button.onclick = () => load(page);
+        children.appendChild(button);
+      });
+      updateLabel();
+      tree.append(folder, children);
+    }
+
+    function addUserTree(expanded) {
+      const folder = document.createElement('button');
+      const children = document.createElement('div');
+      children.style.paddingLeft = '14px';
+      children.style.display = folderExpanded('用户 APP', expanded) ? 'block' : 'none';
+      folder.className = 'tree-primary';
+      const updateFolder = () => { folder.textContent = (children.style.display === 'none' ? '▸' : '▾') + '  用户 APP'; };
+      folder.onclick = () => { children.style.display = children.style.display === 'none' ? 'block' : 'none'; rememberFolder('用户 APP', children.style.display !== 'none'); updateFolder(); };
+      const groups = [
+        ['系统入口', ['auth-login-register.html', 'auth-profile-completion.html', 'auth-phone-login.html']],
+        ['首页与福利', ['live-plaza.html', 'host-ranking.html', 'contribution-ranking.html', 'search.html', 'search-results.html', 'welfare-center.html', 'invite-friends.html']],
+        ['直播', ['live-room.html', 'live-room-report.html', 'live-room-user-report.html', 'live-room-host.html', 'live-room-host-password.html', 'live-room-cohost-active.html', 'live-end-viewer.html', 'live-end-host.html']],
+        ['消息与社交', ['message-center.html', 'system-notifications.html', 'direct-message.html', 'fan-group-chat.html', 'group-manage-member.html', 'group-manage-owner.html', 'chat-settings.html', 'friend-list.html', 'interaction-notifications.html', 'user-home.html', 'host-home.html', 'host-gift-gallery.html']],
+        ['我的', ['profile.html', 'profile-edit.html', 'my-following.html', 'my-decoration.html', 'my-decoration-avatar-frame.html', 'my-decoration-chat-bubble.html', 'my-decoration-medal.html', 'settings.html', 'blacklist-management.html', 'my-fan-clubs.html', 'fan-contribution-ranking.html']],
+        ['公会关系', ['guild-management.html', 'guild-application-form.html', 'guild-application-records.html', 'guild-detail.html', 'guild-leave-application.html']],
+        ['主播中心', ['host-center.html', 'moderator-management.html', 'host-guild-notifications.html', 'host-center-pending.html', 'start-live-settings.html', 'fan-list.html', 'fan-club.html', 'fan-club-settings.html', 'live-data.html', 'live-records.html', 'income-withdrawal.html', 'my-bank-cards.html', 'add-bank-card.html', 'withdrawal-application.html']],
+        ['钱包与账单', ['recharge.html', 'balance-detail.html', 'order-income-detail.html', 'order-expense-detail.html']]
+      ];
+      const appendPage = (box, file) => {
+        const page = userPages.find((item) => item.file === file);
+        if (!page) return;
+        const button = document.createElement('button');
+        button.dataset.file = page.file;
+        const index = baseUserPageOrder.filter((file) => file !== 'live-room-report.html').indexOf(page.file);
+        const code = userPageCodes[page.file] || ('P' + String(index + 1 - (index > 10 ? 1 : 0)).padStart(3, '0'));
+        button.textContent = page.title + ' · ' + code;
+        button.onclick = () => load(page);
+        box.appendChild(button);
+        if (reviewFiles.has(file)) {
+          const review = document.createElement('div');
+          review.className = 'review-group';
+          reviewTreeTargets.set(file, review);
+          renderReviewTree(file);
+          box.appendChild(review);
+        }
+      };
+      groups.forEach(([label, files]) => {
+        const groupButton = document.createElement('button');
+        const groupChildren = document.createElement('div');
+        const groupKey = '用户 APP/' + label;
+        groupChildren.style.paddingLeft = '14px';
+        groupChildren.style.borderLeft = '1px solid var(--g6)';
+        groupChildren.style.marginLeft = '10px';
+        groupChildren.style.display = folderExpanded(groupKey, label === '首页与福利') ? 'block' : 'none';
+        const updateGroup = () => { groupButton.textContent = (groupChildren.style.display === 'none' ? '▸' : '▾') + '  ' + label; };
+        groupButton.className = 'tree-primary';
+        groupButton.onclick = () => { groupChildren.style.display = groupChildren.style.display === 'none' ? 'block' : 'none'; rememberFolder(groupKey, groupChildren.style.display !== 'none'); updateGroup(); };
+        files.forEach((file) => appendPage(groupChildren, file));
+        updateGroup();
+        children.append(groupButton, groupChildren);
+      });
+      updateFolder();
+      tree.append(folder, children);
+    }
+
+    function addAdminTree(expanded) {
+      const folder = document.createElement('button');
+      const children = document.createElement('div');
+      children.style.paddingLeft = '14px';
+      children.style.display = (expanded || folderExpanded('管理后台', false)) ? 'block' : 'none';
+      folder.className = 'tree-primary';
+      const updateFolder = () => { folder.textContent = `${children.style.display === 'none' ? '▸' : '▾'}  管理后台`; };
+      folder.onclick = () => { children.style.display = children.style.display === 'none' ? 'block' : 'none'; rememberFolder('管理后台', children.style.display !== 'none'); updateFolder(); };
+      adminPageGroups.forEach((group) => {
+        const groupButton = document.createElement('button');
+        const groupChildren = document.createElement('div');
+        const groupExpanded = group.allFiles.includes(current.file);
+        groupButton.className = 'tree-primary';
+        groupChildren.style.paddingLeft = '14px';
+        const groupKey = `管理后台/${group.title}`;
+        groupChildren.style.display = (groupExpanded || folderExpanded(groupKey, false)) ? 'block' : 'none';
+        if (group.pageFiles.length) {
+          const updateGroup = () => { groupButton.textContent = `${groupChildren.style.display === 'none' ? '▸' : '▾'}  ${group.title}`; };
+          groupButton.onclick = () => { groupChildren.style.display = groupChildren.style.display === 'none' ? 'block' : 'none'; rememberFolder(groupKey, groupChildren.style.display !== 'none'); updateGroup(); };
+          group.pageFiles.forEach((file) => {
+            const page = adminPages.find((item) => item.file === file);
+            const button = document.createElement('button');
+            button.dataset.file = page.file;
+            button.textContent = page.title;
+            button.onclick = () => load(page);
+            groupChildren.appendChild(button);
+          });
+          updateGroup();
+        } else {
+          groupButton.textContent = group.title;
+          groupButton.disabled = true;
+        }
+        children.append(groupButton, groupChildren);
+      });
+      updateFolder();
+      tree.append(folder, children);
+    }
+
+    function addGuildTree(expanded) {
+      const folder = document.createElement('button');
+      const children = document.createElement('div');
+      children.style.paddingLeft = '14px';
+      children.style.display = (expanded || folderExpanded('公会 APP', false)) ? 'block' : 'none';
+      folder.className = 'tree-primary';
+      const updateFolder = () => { folder.textContent = `${children.style.display === 'none' ? '▸' : '▾'}  公会 APP`; };
+      folder.onclick = () => { children.style.display = children.style.display === 'none' ? 'block' : 'none'; rememberFolder('公会 APP', children.style.display !== 'none'); updateFolder(); };
+      const guildTreeFiles = guildPageGroups.flatMap((group) => group.pageFiles);
+      const appendPage = (box, page) => {
+        if (!page) return;
+        const button = document.createElement('button');
+        button.dataset.file = page.file;
+        button.textContent = `${page.title}-${String(guildTreeFiles.indexOf(page.file) + 1).padStart(2, '0')}`;
+        button.onclick = () => load(page);
+        box.appendChild(button);
+        if (guildReviewFiles.has(page.file)) {
+          const review = document.createElement('div');
+          review.className = 'review-group';
+          reviewTreeTargets.set(page.file, review);
+          renderReviewTree(page.file);
+          box.appendChild(review);
+        }
+      };
+      guildPageGroups.forEach((group) => {
+        const groupButton = document.createElement('button');
+        const groupChildren = document.createElement('div');
+        const groupKey = `公会 APP/${group.title}`;
+        const groupExpanded = group.pageFiles.includes(current.file);
+        groupButton.className = 'tree-primary';
+        groupChildren.style.paddingLeft = '14px';
+        groupChildren.style.display = (groupExpanded || folderExpanded(groupKey, false)) ? 'block' : 'none';
+        const updateGroup = () => { groupButton.textContent = `${groupChildren.style.display === 'none' ? '▸' : '▾'}  ${group.title}`; };
+        groupButton.onclick = () => { groupChildren.style.display = groupChildren.style.display === 'none' ? 'block' : 'none'; rememberFolder(groupKey, groupChildren.style.display !== 'none'); updateGroup(); };
+        group.pageFiles.forEach((file) => appendPage(groupChildren, guildPages.find((page) => page.file === file)));
+        updateGroup();
+        children.append(groupButton, groupChildren);
+      });
+      updateFolder();
+      tree.append(folder, children);
+    }
+
+    addGuildTree(guildPages.some((page) => page.file === current.file));
+    addUserTree(userPages.some((page) => page.file === current.file));
+    addAdminTree(adminPages.some((page) => page.file === current.file));
+    applyPanelPreferences();
+    document.querySelectorAll('[data-app-entry]').forEach((button) => {
+      button.onclick = () => load(appEntries[button.dataset.appEntry]);
+    });
+    frame.addEventListener('load', () => {
+      bindFrameAnnotations();
+      schedulePendingReviewView();
+    });
+    load(current, currentUrl, true);
+
+    notesPanel.addEventListener('click', (event) => {
+      if (event.target.id === 'addNote') {
+        editingNoteId = 'new';
+        selectedTarget = null;
+        selectionMode = false;
+        renderNotes(current.file);
+        return;
+      }
+      if (event.target.id === 'pickTarget') {
+        selectionMode = !selectionMode;
+        if (selectionMode) beginTargetSelection();
+        else endTargetSelection();
+        event.target.textContent = selectionMode ? '选择中' : (selectedTarget ? selectedTarget.label : '选择功能');
+        event.target.classList.toggle('active', selectionMode);
+        if (selectionMode) clearFrameTarget();
+        postFrameMessage({ type: 'luma-note-mode', enabled: selectionMode });
+        return;
+      }
+      const cancel = event.target.closest('[data-note-cancel]');
+      if (cancel) {
+        editingNoteId = null;
+        selectedTarget = null;
+        selectionMode = false;
+        endTargetSelection();
+        postFrameMessage({ type: 'luma-note-mode', enabled: false });
+        clearFrameTarget();
+        renderNotes(current.file);
+        return;
+      }
+      const edit = event.target.closest('[data-note-edit]');
+      if (edit) {
+        const note = customNotes.find((item) => item.id === edit.dataset.noteEdit);
+        if (!note) return;
+        editingNoteId = note.id;
+        selectedTarget = { selector: note.selector, label: note.target };
+        selectionMode = false;
+        renderNotes(current.file);
+        highlightTarget(note.selector);
+        return;
+      }
+      const remove = event.target.closest('[data-note-delete]');
+      if (remove) {
+        customNotes = customNotes.filter((item) => item.id !== remove.dataset.noteDelete);
+        saveCustomNotes();
+        clearFrameTarget();
+        renderNotes(current.file);
+        return;
+      }
+      const locate = event.target.closest('[data-note-locate]');
+      if (locate) {
+        const note = customNotes.find((item) => item.id === locate.dataset.noteLocate);
+        if (note) highlightTarget(note.selector);
+      }
+    });
+
+    notesPanel.addEventListener('submit', (event) => {
+      if (event.target.id !== 'noteForm') return;
+      event.preventDefault();
+      const existing = editingNoteId === 'new' ? null : customNotes.find((item) => item.id === editingNoteId);
+      const target = selectedTarget || (existing ? { selector: existing.selector, label: existing.target } : null);
+      const error = document.querySelector('#noteFormError');
+      if (!target) {
+        error.textContent = '请选择关联功能';
+        return;
+      }
+      const item = {
+        id: existing ? existing.id : `${Date.now()}`,
+        file: current.file,
+        selector: target.selector,
+        target: target.label,
+        title: document.querySelector('#noteTitle').value.trim(),
+        content: document.querySelector('#noteContent').value.trim()
+      };
+      if (existing) customNotes = customNotes.map((note) => note.id === existing.id ? item : note);
+      else customNotes.push(item);
+      saveCustomNotes();
+      editingNoteId = null;
+      selectedTarget = null;
+      selectionMode = false;
+      endTargetSelection();
+      postFrameMessage({ type: 'luma-note-mode', enabled: false });
+      clearFrameTarget();
+      renderNotes(current.file);
+    });
+
+    window.addEventListener('message', (event) => {
+      if (event.source !== frame.contentWindow) return;
+      if (event.data && event.data.type === 'luma-note-ready') {
+        bindFrameAnnotations();
+      }
+      if (event.data && event.data.type === 'luma-note-target') {
+        if (!editingNoteId || !event.data.selector) return;
+        selectedTarget = {
+          selector: String(event.data.selector),
+          label: String(event.data.label || '已选元素').slice(0, 36)
+        };
+        selectionMode = false;
+        endTargetSelection();
+        const picker = document.querySelector('#pickTarget');
+        if (picker) {
+          picker.textContent = selectedTarget.label;
+          picker.classList.remove('active');
+        }
+        const error = document.querySelector('#noteFormError');
+        if (error) error.textContent = '';
+      }
+      if (event.data && event.data.type === 'luma-note-cancel') {
+        selectionMode = false;
+        endTargetSelection();
+        const picker = document.querySelector('#pickTarget');
+        if (picker) {
+          picker.textContent = selectedTarget ? selectedTarget.label : '选择功能';
+          picker.classList.remove('active');
+        }
+      }
+      if (event.data && event.data.type === 'luma-states') {
+        const groups = event.data.groups || { '页面状态': event.data.states || [] };
+        const grouped = typeof event.data.grouped === 'boolean' ? event.data.grouped : !Object.prototype.hasOwnProperty.call(groups, '页面状态');
+        renderStateControls(groups, grouped);
+        if (reviewFiles.has(current.file)) {
+          liveStateCatalog[current.file] = groups;
+          renderReviewTree(current.file);
+        }
+        schedulePendingReviewView();
+      }
+      if (event.data && event.data.type === 'luma-page') {
+        const page = pages.find((item) => item.file === event.data.file);
+        if (!page) return;
+        const nextUrl = pageUrl(page, event.data.query || '');
+        const pageChanged = nextUrl !== currentUrl;
+        current = page;
+        currentUrl = nextUrl;
+        openPage.href = currentUrl;
+        if (pageChanged) {
+          editingNoteId = null;
+          selectedTarget = null;
+          selectionMode = false;
+          postFrameMessage({ type: 'luma-note-mode', enabled: false });
+          clearFrameTarget();
+          resetStateControls();
+          resizeFrame();
+          viewerPreferences.url = currentUrl;
+          viewerPreferences.pageStates = {};
+          saveViewerPreferences();
+        }
+        rememberPage(currentUrl);
+        document.querySelector('#title').textContent = displayTitle(page);
+        updateAppEntry(page);
+        tree.querySelectorAll('[data-file]').forEach((button) => button.classList.toggle('active', button.dataset.file === treeFile(page.file)));
+        renderNotes(page.file);
+      }
+    });
+    stateControls.onchange = (event) => {
+      const select = event.target.closest('select[data-state-group]');
+      if (!select) return;
+      viewerPreferences.url = currentUrl;
+      viewerPreferences.pageStates[select.dataset.stateGroup] = select.value;
+      saveViewerPreferences();
+      if (select.dataset.reloadDefault === 'true' && select.value === '默认') frame.src = currentUrl;
+      else applyFrameState(select.dataset.stateGroup, select.value);
+    };
+    zoom.onchange = () => {
+      resizeFrame();
+      viewerPreferences.url = currentUrl;
+      viewerPreferences.zoom = zoom.value;
+      saveViewerPreferences();
+    };
+    treeToggle.onclick = () => {
+      const hidden = treePanel.classList.toggle('state-hide');
+      layout.classList.toggle('tree-hidden', hidden);
+      treeToggle.setAttribute('aria-expanded', String(!hidden));
+      viewerPreferences.treeHidden = hidden;
+      saveViewerPreferences();
+    };
+    notesToggle.onclick = () => {
+      const hidden = notesPanel.classList.toggle('state-hide');
+      layout.classList.toggle('notes-hidden', hidden);
+      notesToggle.setAttribute('aria-expanded', String(!hidden));
+      if (hidden && selectionMode) {
+        selectionMode = false;
+        endTargetSelection();
+        postFrameMessage({ type: 'luma-note-mode', enabled: false });
+        clearFrameTarget();
+      }
+      viewerPreferences.notesHidden = hidden;
+      saveViewerPreferences();
+    };
+  </script>
+</body>
+</html>

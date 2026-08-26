@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会登录 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260824-login-logo-center-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-login-screen">
+      <div class="guild-login-brand">
+        <span class="guild-mark">L</span
+        ><span><b>Luma 公会工作台</b><span>一个账号可管理多个公会</span></span>
+      </div>
+      <label class="guild-field"
+        ><span>公会账号</span
+        ><input
+          id="account"
+          value="jakarta_star"
+          autocomplete="username" /></label
+      ><label class="guild-field"
+        ><span>密码</span
+        ><input
+          id="password"
+          type="password"
+          value="12345678"
+          autocomplete="current-password" /></label
+      ><button class="guild-primary-action" id="loginButton" type="button">
+        登录
+      </button>
+    </main>
+    <script>
+      loginButton.onclick = () => {
+        if (!account.value.trim() || !password.value) {
+          Luma.toast("请输入账号和密码");
+          return;
+        }
+        location.href = "guild-switch.html?from=login";
+      };
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-login.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

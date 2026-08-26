@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>每日 · 15/08/2026 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260820-fiat-values-v1"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild-core-data.css?v=20260820-money-color-v1"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260817-home-two-metrics-v1"></script>
+    <script src="../../../assets/guild-data-model.js?v=20260817-guild-income-flow-v2"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          id="backLink"
+          href="guild-income.html"
+          aria-label="返回经营数据"
+          >‹</a
+        >
+        <span id="dailyPageTitle">每日 · 15/08/2026</span>
+        <a
+          class="guild-nav-action guild-income-data-link"
+          id="incomeDataLink"
+          href="guild-income.html"
+          >历史</a
+        >
+      </header>
+      <div class="guild-page-body guild-income-day-page">
+        <div class="guild-data-section-title"><h2>公会概况</h2></div>
+        <section
+          class="guild-income-total guild-income-day-total"
+          aria-label="公会收益"
+        >
+          <div class="guild-income-dual-values is-single">
+            <article>
+              <span>当日收益</span
+              ><b
+                ><svg
+                  class="guild-coin-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3 21 12 12 21 3 12Z"></path></svg
+                ><span id="dayCoins"></span
+              ></b>
+            </article>
+          </div>
+        </section>
+
+        <div class="guild-data-section-title"><h2>主播概况</h2></div>
+        <section
+          class="guild-host-overview-summary guild-daily-host-summary"
+          aria-label="主播概况"
+        >
+          <div
+            class="guild-host-overview-summary-grid"
+            id="hostSummaryGrid"
+          ></div>
+        </section>
+
+        <nav
+          class="guild-overview-tabs guild-host-overview-status-tabs"
+          aria-label="开播状态筛选"
+          role="tablist"
+        >
+          <button
+            class="active"
+            type="button"
+            data-view="started"
+            role="tab"
+            aria-selected="true"
+          ></button>
+          <button
+            type="button"
+            data-view="notStarted"
+            role="tab"
+            aria-selected="false"
+          ></button>
+        </nav>
+        <section
+          class="guild-host-overview-list"
+          id="hostList"
+          aria-label="当日主播列表"
+        ></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const dates = LUMA_GUILD_DATA.dates;
+      const selectedDate = dates.includes(params.get("date"))
+        ? params.get("date")
+        : dates[dates.length - 1];
+      const returnPeriod = params.get("period");
+      const returnSource = ["home", "income", "host-month"].includes(
+        params.get("from"),
+      )
+        ? params.get("from")
+        : "income";
+      const day = LUMA_GUILD_DATA.getGuildDay(selectedDate);
+      const todaySummary = LUMA_GUILD_DATA.todaySummary;
+      const hostRows = LUMA_GUILD_DATA.hosts.map((host) =>
+        LUMA_GUILD_DATA.getDay(host.id, selectedDate),
+      );
+      let currentView = "started";
+
+      function summaryMetric(label, value) {
+        return `<article><span>${label}</span><b>${value}</b></article>`;
+      }
+
+      function hostCard(hostDay) {
+        const host = hostDay.host;
+        const started = hostDay.sessionCount > 0;
+        const level = LUMA_GUILD_DATA.profiles[host.id]?.level || "-";
+        const statusLabel = hostDay.effective ? "已达成有效天" : "未达成有效天";
+        const query = new URLSearchParams({
+          hostId: host.id,
+          from: "operations",
+          hostPeriod: selectedDate.slice(0, 7),
+          returnDate: selectedDate,
+          returnSource,
+        });
+        if (returnPeriod) query.set("returnPeriod", returnPeriod);
+        return `<a class="guild-host-overview-card guild-host-overview-card-v2" href="guild-host-summary.html?${query}">
+        <div class="guild-host-overview-card-head">
+          <span class="directory-avatar">${host.avatar}</span>
+          <span class="guild-host-overview-copy"><b>${host.name}</b><small>${host.id} · ${level}</small></span>
+          ${started ? `<span class="guild-host-overview-values"><b><svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>${LUMA_FORMAT.coins(hostDay.coins)}</b><small><span class="guild-effective-status ${hostDay.effective ? "is-effective" : "is-warning"}" aria-label="${statusLabel}">${hostDay.effective ? "✓" : "!"}</span>${LUMA_GUILD_DATA.formatDuration(hostDay.duration)}</small></span>` : ""}
+          <span class="review-arrow" aria-hidden="true">›</span>
+        </div>
+      </a>`;
+      }
+
+      const today = dates[dates.length - 1];
+      const isToday = selectedDate === today;
+      const dataPeriod = /^\d{4}-\d{2}$/.test(returnPeriod || "")
+        ? returnPeriod
+        : selectedDate.slice(0, 7);
+      const titleDate = `${selectedDate.slice(8, 10)}/${selectedDate.slice(5, 7)}/${selectedDate.slice(0, 4)}`;
+      dailyPageTitle.textContent = `每日 · ${titleDate}`;
+      document.title = `每日 · ${titleDate} · 公会 APP`;
+      incomeDataLink.href = `guild-income.html?period=${encodeURIComponent(dataPeriod)}`;
+      backLink.href =
+        returnSource === "home"
+          ? "../home/guild-home.html"
+          : `guild-income.html${returnPeriod && returnPeriod !== "recent" ? `?period=${encodeURIComponent(returnPeriod)}` : ""}`;
+      dayCoins.textContent = LUMA_FORMAT.coins(day.coins);
+      hostSummaryGrid.innerHTML = [
+        summaryMetric("直播中", isToday ? todaySummary.live : day.startedHosts),
+        summaryMetric("达成有效天", day.effectiveHosts),
+      ].join("");
+      document.querySelector('[data-view="started"]').textContent =
+        `已开播 ${day.startedHosts}`;
+      document.querySelector('[data-view="notStarted"]').textContent =
+        `未开播 ${todaySummary.hosts - day.startedHosts}`;
+
+      function renderHosts() {
+        const rows = hostRows
+          .filter((hostDay) =>
+            currentView === "started"
+              ? hostDay.sessionCount > 0
+              : hostDay.sessionCount === 0,
+          )
+          .sort((a, b) =>
+            currentView === "started"
+              ? b.coins - a.coins
+              : a.host.name.localeCompare(b.host.name),
+          );
+        hostList.innerHTML = rows.map(hostCard).join("");
+      }
+
+      document.querySelectorAll("[data-view]").forEach(
+        (button) =>
+          (button.onclick = () => {
+            currentView = button.dataset.view;
+            document.querySelectorAll("[data-view]").forEach((item) => {
+              const active = item === button;
+              item.classList.toggle("active", active);
+              item.setAttribute("aria-selected", String(active));
+            });
+            renderHosts();
+          }),
+      );
+      renderHosts();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-income-day-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

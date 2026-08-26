@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>直播场次 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-host-review.html">主播审核</a
+            ><a class="admin-nav-sub" href="admin-host-list.html">主播列表</a
+            ><a class="admin-nav-sub active" href="admin-live-management.html"
+              >直播场次</a
+            ><a class="admin-nav-sub" href="admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub" href="../content/admin-content-audit.html"
+              >内容审核</a
+            ><a
+              class="admin-nav-sub"
+              href="../content/admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb"><strong>直播场次</strong></div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>直播场次</h1></div>
+          </div>
+          <section class="admin-panel admin-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="roomKey">主播昵称/ID</label
+                ><input
+                  class="admin-input"
+                  id="roomKey"
+                  placeholder="输入主播昵称或 ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="sessionKey">场次 ID</label
+                ><input
+                  class="admin-input"
+                  id="sessionKey"
+                  placeholder="输入场次 ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="roomType">房型</label
+                ><select class="admin-select" id="roomType">
+                  <option value="">全部房型</option>
+                  <option>普通房</option>
+                  <option>密码房</option>
+                  <option>门票房</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label>开播时间段</label>
+                <div class="admin-range admin-date-range">
+                  <input class="admin-input" id="startDate" type="date" /><span
+                    >至</span
+                  ><input class="admin-input" id="endDate" type="date" />
+                </div>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs" aria-label="直播状态">
+                <button class="admin-list-tab active" data-status-tab="">
+                  全部</button
+                ><button class="admin-list-tab" data-status-tab="live">
+                  直播中</button
+                ><button class="admin-list-tab" data-status-tab="ended">
+                  已结束
+                </button>
+              </div>
+              <span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table
+                class="admin-table has-actions"
+                id="liveTable"
+                style="min-width: 1480px"
+              >
+                <thead id="tableHead"></thead>
+                <tbody id="liveRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="actionOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2 id="actionTitle">直播处置</h2>
+          <button class="admin-icon-btn" data-close="actionOverlay">×</button>
+        </div>
+        <form id="actionForm">
+          <div class="admin-modal-body">
+            <p id="actionTarget"></p>
+            <div class="admin-form-row">
+              <label for="actionReason">处置原因</label
+              ><textarea
+                class="admin-textarea"
+                id="actionReason"
+                required
+              ></textarea>
+            </div>
+            <div class="admin-note" id="actionNote"></div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="actionOverlay"
+            >
+              取消</button
+            ><button class="admin-btn danger" type="submit">确认</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const mock = window.LUMA_ADMIN_MOCK,
+        data = mock.liveSessions,
+        { coins: formatCoins, integer: formatInteger } =
+          window.LUMA_ADMIN_FORMAT;
+      let visible = [],
+        current = null,
+        currentAction = "",
+        activeStatus = "";
+      const rows = document.querySelector("#liveRows"),
+        head = document.querySelector("#tableHead"),
+        count = document.querySelector("#resultCount"),
+        pagination = document.querySelector("#pagination");
+      function filters(item) {
+        const host = roomKey.value.trim().toLowerCase(),
+          session = sessionKey.value.trim().toLowerCase(),
+          type = roomType.value,
+          start = startDate.value,
+          end = endDate.value,
+          date = item.startedAt.slice(0, 10),
+          statusMatch =
+            activeStatus === "ended"
+              ? item.status !== "live"
+              : !activeStatus || item.status === activeStatus,
+          hostText = `${item.name} ${item.hostId}`.toLowerCase();
+        return (
+          hostText.includes(host) &&
+          item.sessionId.toLowerCase().includes(session) &&
+          (!type || item.roomType === type) &&
+          statusMatch &&
+          (!start || date >= start) &&
+          (!end || date <= end)
+        );
+      }
+      function syncStatusTabs() {
+        document
+          .querySelectorAll("[data-status-tab]")
+          .forEach((button) =>
+            button.classList.toggle(
+              "active",
+              button.dataset.statusTab === activeStatus,
+            ),
+          );
+      }
+      function render() {
+        const items = data.filter(filters);
+        visible = items;
+        count.textContent = `共 ${items.length} 条`;
+        pagination.classList.toggle("state-hide", !items.length);
+        head.innerHTML =
+          "<tr><th>直播场次 ID</th><th>封面</th><th>主播信息</th><th>房型</th><th>状态</th><th>观众人数</th><th>消费金币</th><th>开播时间</th><th>直播时长</th><th>收礼数量</th><th>主播收益</th><th>操作</th></tr>";
+        rows.innerHTML = items
+          .map((item) => {
+            const isLive = item.status === "live";
+            return /* HTML */ `<tr>
+              <td>${item.sessionId}</td>
+              <td>
+                <div class="admin-media">
+                  <span class="admin-media-placeholder">${item.cover}</span>
+                </div>
+              </td>
+              <td>
+                <div class="admin-user-cell">
+                  <span class="admin-avatar">${item.initials}</span
+                  ><span class="admin-user-name"
+                    ><b>${item.name}</b>${Luma.id(item.hostId, "主播ID")}</span
+                  >
+                </div>
+              </td>
+              <td>${item.roomType}</td>
+              <td>
+                <span class="admin-status ${isLive ? "live" : "ended"}"
+                  >${isLive ? "直播中" : "已结束"}</span
+                >
+              </td>
+              <td>${formatInteger(item.totalViewers)}</td>
+              <td>${formatCoins(item.consumptionCoins)}</td>
+              <td>${item.startedAt}</td>
+              <td>${item.duration}</td>
+              <td>${formatCoins(item.gifts)}</td>
+              <td>${formatCoins(item.revenue)}</td>
+              <td>
+                <a
+                  class="admin-action"
+                  href="admin-live-detail.html?id=${item.sessionId}"
+                  >查看</a
+                >${isLive
+                  ? `<button class="admin-action" data-action="警告" data-id="${item.sessionId}">警告</button><button class="admin-action" data-action="断流" data-id="${item.sessionId}">断流</button><button class="admin-action" data-action="强制关播" data-id="${item.sessionId}">关播</button>`
+                  : ""}
+              </td>
+            </tr>`;
+          })
+          .join("");
+        if (!items.length)
+          rows.innerHTML =
+            '<tr><td colspan="12"><div class="admin-empty"><strong>未找到直播记录</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+      }
+      function openAction(item, type) {
+        current = item;
+        currentAction = type;
+        actionTitle.textContent = type;
+        actionTarget.textContent = `${item.name}（${item.hostId}）· 直播间 ${item.roomId}`;
+        actionReason.value = "";
+        actionNote.textContent =
+          type === "强制关播"
+            ? "提交后直播立即结束。"
+            : type === "断流"
+              ? "提交后中断当前直播流。"
+              : "警告内容将记录在处置记录中。";
+        actionOverlay.classList.add("show");
+      }
+      searchBtn.onclick = () => {
+        render();
+        Luma.toast(`已查询到 ${visible.length} 条直播记录`);
+      };
+      resetBtn.onclick = () => {
+        document
+          .querySelectorAll(".admin-filter input")
+          .forEach((x) => (x.value = ""));
+        document
+          .querySelectorAll(".admin-filter select")
+          .forEach((x) => (x.selectedIndex = 0));
+        activeStatus = "";
+        syncStatusTabs();
+        render();
+        Luma.toast("筛选条件已重置");
+      };
+      document.addEventListener("click", (event) => {
+        const statusTab = event.target.closest("[data-status-tab]");
+        if (statusTab) {
+          activeStatus = statusTab.dataset.statusTab;
+          syncStatusTabs();
+          render();
+        }
+        const action = event.target.closest("[data-action]");
+        if (action)
+          openAction(
+            data.find((item) => item.sessionId === action.dataset.id),
+            action.dataset.action,
+          );
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      actionForm.onsubmit = (event) => {
+        event.preventDefault();
+        current.actions.unshift({
+          type: currentAction,
+          reason: actionReason.value.trim(),
+          operator: "后台管理员",
+          time: "2026-08-04 12:35",
+        });
+        if (currentAction === "强制关播" || currentAction === "断流") {
+          current.status = "stopped";
+          current.endedAt = "2026-08-04 12:35";
+        }
+        actionOverlay.classList.remove("show");
+        render();
+        Luma.toast(`${currentAction}已执行`);
+      };
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-live-management.html" },
+        "*",
+      );
+      Luma.registerStates({
+        全部场次: () => {
+          activeStatus = "";
+          syncStatusTabs();
+          render();
+        },
+        仅直播中: () => {
+          activeStatus = "live";
+          syncStatusTabs();
+          render();
+        },
+        直播处置: () =>
+          openAction(
+            data.find((item) => item.status === "live") || data[0],
+            "强制关播",
+          ),
+        无查询结果: () => {
+          roomKey.value = "000000";
+          render();
+        },
+      });
+    </script>
+  </body>
+</html>

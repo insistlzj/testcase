@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>账号设置 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260812-guild-complete-v2"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="../home/guild-home.html">‹</a>账号设置
+      </header>
+      <div class="guild-page-body">
+        <section class="guild-manage-card">
+          <div class="guild-detail-profile">
+            <span class="directory-avatar">R</span
+            ><span><b>Rizky</b><span>G10021</span></span>
+          </div>
+        </section>
+        <section class="guild-setting-list">
+          <a class="guild-setting-row" href="guild-password.html"
+            ><span>修改密码</span><span>›</span></a
+          ><button class="guild-setting-row" id="language" type="button">
+            <span>语言</span><span id="languageValue">简体中文 ›</span>
+          </button>
+        </section>
+        <button class="guild-danger-action" id="logout" type="button">
+          退出登录
+        </button>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <div class="guild-confirm-mask state-hide" id="logoutDialog">
+      <section class="guild-confirm-dialog">
+        <h2>确认退出登录？</h2>
+        <p>退出后需要重新输入公会账号和密码。</p>
+        <div class="guild-confirm-actions">
+          <button id="logoutCancel" type="button">取消</button
+          ><button class="danger" id="logoutSubmit" type="button">
+            退出登录
+          </button>
+        </div>
+      </section>
+    </div>
+    <script>
+      if (new URLSearchParams(location.search).get("action") === "password")
+        Luma.toast("密码修改成功");
+      language.onclick = () => {
+        languageValue.textContent = languageValue.textContent.startsWith("简体")
+          ? "Bahasa Indonesia ›"
+          : "简体中文 ›";
+      };
+      logout.onclick = () => logoutDialog.classList.remove("state-hide");
+      logoutCancel.onclick = () => logoutDialog.classList.add("state-hide");
+      logoutSubmit.onclick = () => (location.href = "../auth/guild-login.html");
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-settings.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

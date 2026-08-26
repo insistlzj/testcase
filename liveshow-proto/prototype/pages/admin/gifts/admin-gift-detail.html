@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>礼物详情 · 礼物道具 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>礼物道具</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a
+              class="admin-nav-sub"
+              data-gift-page="admin-gift-list.html"
+              href="admin-gift-list.html"
+              >普通礼物</a
+            ><a
+              class="admin-nav-sub"
+              data-gift-page="admin-custom-gift.html"
+              href="admin-custom-gift.html"
+              >定制礼物</a
+            ><a
+              class="admin-nav-sub"
+              data-gift-page="admin-lucky-gift-config.html"
+              href="admin-lucky-gift-config.html"
+              >幸运礼物</a
+            ><a class="admin-nav-sub" href="admin-prop-list.html">道具配置</a>
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            <strong id="pageName">礼物详情</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" id="backLink" href="admin-gift-list.html"
+            >‹ 返回普通礼物</a
+          >
+          <section class="admin-panel admin-profile-panel" id="viewProfile">
+            <div class="admin-profile-summary">
+              <div class="admin-media" id="giftIcon"></div>
+              <div>
+                <h2 id="giftName"></h2>
+                <span id="giftStatus"></span>
+              </div>
+              <div class="admin-profile-summary-actions" id="actions"></div>
+            </div>
+            <div class="admin-detail-grid" id="baseInfo"></div>
+          </section>
+          <section class="admin-panel admin-tabs-panel" id="viewTabs">
+            <div class="admin-detail-tabs">
+              <button class="admin-detail-tab active" data-tab="names">
+                多语言名称</button
+              ><button class="admin-detail-tab" data-tab="effect">
+                特效信息</button
+              ><button class="admin-detail-tab" data-tab="records">
+                操作记录
+              </button>
+            </div>
+            <div class="admin-detail-panel" id="detailPanel"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="editOverlay">
+      <section class="admin-modal wide" id="editPanel">
+        <div class="admin-modal-head">
+          <h2>编辑礼物</h2>
+          <button
+            class="admin-icon-btn"
+            id="editClose"
+            data-close="editOverlay"
+          >
+            ×
+          </button>
+        </div>
+        <form class="admin-resource-form" id="editForm">
+          <div class="admin-modal-body">
+            <div class="admin-form-grid admin-basic-form-grid">
+              <div class="admin-form-row" id="giftIdRow">
+                <label>礼物 ID</label>
+                <div class="admin-readonly-value" id="editGiftIdText"></div>
+                <input id="editGiftId" type="hidden" />
+              </div>
+              <div class="admin-form-row full admin-form-row-top">
+                <label>礼物名称</label>
+                <div class="admin-localized-inputs">
+                  <label for="nameEn"
+                    ><span>英语</span
+                    ><input class="admin-input" id="nameEn" required /></label
+                  ><label for="nameId"
+                    ><span>印尼语</span
+                    ><input class="admin-input" id="nameId" required /></label
+                  ><label for="nameMs"
+                    ><span>马来语</span
+                    ><input class="admin-input" id="nameMs" required
+                  /></label>
+                </div>
+              </div>
+              <div class="admin-form-row">
+                <label for="editSort">排序权重</label
+                ><input
+                  class="admin-input"
+                  id="editSort"
+                  type="number"
+                  min="0"
+                  required
+                />
+              </div>
+              <div class="admin-form-row">
+                <label for="editStatus">上下架状态</label>
+                <div class="admin-switch-control">
+                  <label class="admin-switch"
+                    ><input id="editStatus" type="checkbox" /><span
+                      class="admin-switch-track"
+                    ></span></label
+                  ><span id="editStatusText"></span>
+                </div>
+              </div>
+            </div>
+            <div class="admin-media-upload-grid">
+              <div class="admin-media-upload">
+                <h4>礼物图标</h4>
+                <div class="admin-media-upload-preview-wrap">
+                  <button
+                    class="admin-media-upload-preview"
+                    type="button"
+                    data-preview-media="icon"
+                    id="editIconPreview"
+                  ></button
+                  ><button
+                    class="admin-media-delete"
+                    type="button"
+                    data-delete-media="icon"
+                    aria-label="删除礼物图标"
+                    title="删除礼物图标"
+                  >
+                    ×
+                  </button>
+                </div>
+                <input
+                  class="admin-file-input"
+                  id="iconFile"
+                  type="file"
+                  accept="image/*"
+                />
+              </div>
+              <div class="admin-media-upload">
+                <h4>礼物特效</h4>
+                <div class="admin-media-upload-preview-wrap">
+                  <button
+                    class="admin-media-upload-preview"
+                    type="button"
+                    data-preview-media="effect"
+                    id="editEffectPreview"
+                  ></button
+                  ><button
+                    class="admin-media-delete"
+                    type="button"
+                    data-delete-media="effect"
+                    aria-label="删除礼物特效"
+                    title="删除礼物特效"
+                  >
+                    ×
+                  </button>
+                </div>
+                <input
+                  class="admin-file-input"
+                  id="effectFile"
+                  type="file"
+                  accept=".svga,.webm,.mp4,.json,.gif"
+                />
+              </div>
+            </div>
+            <div class="admin-form-grid">
+              <div class="admin-form-row">
+                <label for="editPrice">单价</label>
+                <div class="admin-input-unit">
+                  <input
+                    class="admin-input"
+                    id="editPrice"
+                    type="number"
+                    min="1"
+                    required
+                  /><span>金币</span>
+                </div>
+              </div>
+              <div class="admin-form-row full state-hide" id="scheduleWrap">
+                <label>生效时间</label>
+                <div class="admin-range">
+                  <input
+                    class="admin-input"
+                    id="editEffective"
+                    type="datetime-local"
+                  /><span>至</span
+                  ><input
+                    class="admin-input"
+                    id="editExpired"
+                    type="datetime-local"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="editOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" type="submit">保存</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <div class="admin-overlay" id="mediaPreviewOverlay">
+      <section class="admin-modal admin-media-preview-modal">
+        <div class="admin-modal-head">
+          <h2 id="mediaPreviewTitle"></h2>
+          <button class="admin-icon-btn" data-close="mediaPreviewOverlay">
+            ×
+          </button>
+        </div>
+        <div class="admin-modal-body">
+          <div class="admin-media-full-preview" id="mediaPreviewContent"></div>
+        </div>
+      </section>
+    </div>
+    <div class="admin-overlay" id="confirmOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2 id="confirmTitle">礼物操作</h2>
+          <button class="admin-icon-btn" data-close="confirmOverlay">×</button>
+        </div>
+        <form id="confirmForm">
+          <div class="admin-modal-body"><p id="confirmText"></p></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="confirmOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" id="confirmSubmit" type="submit">
+              确认
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const gifts = window.LUMA_ADMIN_MOCK.giftItems,
+        params = new URLSearchParams(location.search),
+        id = params.get("id"),
+        requestedCategory = ["normal", "custom"].includes(
+          params.get("category"),
+        )
+          ? params.get("category")
+          : "normal",
+        categoryText = {
+          normal: "普通礼物",
+          lucky: "幸运礼物",
+          custom: "定制礼物",
+        },
+        pageByCategory = {
+          normal: "admin-gift-list.html",
+          custom: "admin-custom-gift.html",
+          lucky: "admin-lucky-gift-config.html",
+        },
+        statusText = { online: "上架", offline: "下架" },
+        statusClass = { online: "enabled", offline: "offline" },
+        { coins: formatCoins } = window.LUMA_ADMIN_FORMAT;
+      let isNew = params.get("new") === "1",
+        item = isNew
+          ? blankGift(requestedCategory)
+          : gifts.find((x) => x.id === id) || gifts[0],
+        confirmAction = "",
+        editorIcon = item.icon,
+        editorEffect = item.effect;
+      const directEdit = params.get("edit") === "1" || isNew,
+        from = [
+          "admin-gift-list.html",
+          "admin-custom-gift.html",
+          "admin-lucky-gift-config.html",
+        ].includes(params.get("from"))
+          ? params.get("from")
+          : pageByCategory[item.category],
+        iconEl = document.querySelector("#giftIcon"),
+        nameEl = document.querySelector("#giftName"),
+        statusEl = document.querySelector("#giftStatus"),
+        actionsEl = document.querySelector("#actions"),
+        baseInfoEl = document.querySelector("#baseInfo"),
+        panel = document.querySelector("#detailPanel");
+      backLink.href = from;
+      backLink.textContent = `‹ 返回${categoryText[item.category]}`;
+      document
+        .querySelector(`[data-gift-page="${from}"]`)
+        .classList.add("active");
+      function blankGift(category) {
+        const next =
+          Math.max(...gifts.map((gift) => Number(gift.id.replace(/\D/g, "")))) +
+          1;
+        return {
+          id: `GFT${next}`,
+          names: { en: "", id: "", ms: "" },
+          icon: "未上传",
+          category,
+          price: category === "custom" ? 100 : 10,
+          effect: "未上传",
+          sort: 50,
+          status: "online",
+          effectiveAt: category === "custom" ? "2026-08-06 00:00" : "-",
+          expiredAt: category === "custom" ? "2026-08-31 23:59" : "-",
+          updatedAt: "2026-08-05 14:30",
+          changes: [],
+        };
+      }
+      function table(records) {
+        if (!records.length)
+          return '<div class="admin-record-empty"><strong>暂无记录</strong></div>';
+        return `<div class="admin-record-scroll"><table class="admin-record-table"><thead><tr><th>操作类型</th><th>操作说明</th><th>操作人</th><th>操作时间</th></tr></thead><tbody>${records.map((x) => `<tr><td>${x.action}</td><td>${x.detail}</td><td>${x.operator}</td><td>${x.time}</td></tr>`).join("")}</tbody></table></div>`;
+      }
+      function renderBase() {
+        iconEl.innerHTML = `<span class="admin-media-placeholder">${item.icon === "未上传" ? "未上传" : "图标 占位"}</span>`;
+        nameEl.innerHTML = `${Luma.tip(item.names.id, "礼物名称")}（${Luma.id(item.id, "礼物ID")}）`;
+        statusEl.className = "admin-switch-control";
+        statusEl.innerHTML = `<label class="admin-switch"><input type="checkbox" data-detail-status-toggle aria-label="${item.names.id} 上下架状态" ${item.status === "online" ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${statusText[item.status]}</span>`;
+        actionsEl.innerHTML = `<a class="admin-btn secondary" href="admin-gift-detail.html?id=${item.id}&from=${from}&edit=1">编辑</a><button class="admin-btn danger" data-action="delete">删除</button>`;
+        const schedule =
+          item.category === "custom"
+            ? `<div class="admin-detail-item"><span>生效时间</span><b>${item.effectiveAt}</b></div><div class="admin-detail-item"><span>失效时间</span><b>${item.expiredAt}</b></div>`
+            : "";
+        baseInfoEl.innerHTML = `<div class="admin-detail-item"><span>单价</span><b>${formatCoins(item.price)} 金币</b></div><div class="admin-detail-item"><span>礼物图标</span><b>${item.icon}</b></div><div class="admin-detail-item"><span>礼物特效</span><b>${item.effect}</b></div><div class="admin-detail-item"><span>排序权重</span><b>${item.sort}</b></div>${schedule}`;
+      }
+      function renderTab(tab) {
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((x) => x.classList.toggle("active", x.dataset.tab === tab));
+        if (tab === "names")
+          panel.innerHTML = `<div class="admin-detail-grid"><div class="admin-detail-item"><span>英文</span><b>${item.names.en}</b></div><div class="admin-detail-item"><span>印尼语</span><b>${item.names.id}</b></div><div class="admin-detail-item"><span>马来语</span><b>${item.names.ms}</b></div></div>`;
+        if (tab === "effect")
+          panel.innerHTML = `<div class="admin-media-grid"><div><h4>礼物图标</h4><div class="admin-media large"><span class="admin-media-placeholder">${item.icon === "未上传" ? "未上传" : "图标 占位"}</span></div></div><div><h4>礼物特效</h4><div class="admin-media large"><span class="admin-media-placeholder">${item.effect === "未上传" ? "未上传" : "特效 占位"}</span></div></div></div>`;
+        if (tab === "records") panel.innerHTML = table(item.changes);
+      }
+      function scheduleState() {
+        const custom = item.category === "custom";
+        scheduleWrap.classList.toggle("state-hide", !custom);
+        editEffective.required = custom;
+        editExpired.required = custom;
+      }
+      function updateEditPreview() {
+        [
+          [editIconPreview, editorIcon],
+          [editEffectPreview, editorEffect],
+        ].forEach(([preview, value]) => {
+          const empty = value === "未上传";
+          preview.textContent = empty ? "点击上传" : value;
+          preview.classList.toggle("is-empty", empty);
+          preview.parentElement
+            .querySelector("[data-delete-media]")
+            .classList.toggle("state-hide", empty);
+        });
+      }
+      function syncEditStatus() {
+        editStatusText.textContent = editStatus.checked ? "上架" : "下架";
+      }
+      function openEdit() {
+        editForm.reset();
+        editorIcon = item.icon;
+        editorEffect = item.effect;
+        editGiftId.value = item.id;
+        editGiftIdText.textContent = item.id;
+        giftIdRow.classList.toggle("state-hide", isNew);
+        nameEn.value = item.names.en;
+        nameId.value = item.names.id;
+        nameMs.value = item.names.ms;
+        editPrice.value = item.price;
+        editSort.value = item.sort;
+        editStatus.checked = item.status === "online";
+        if (item.effectiveAt !== "-")
+          editEffective.value = item.effectiveAt.replace(" ", "T");
+        if (item.expiredAt !== "-")
+          editExpired.value = item.expiredAt.replace(" ", "T");
+        scheduleState();
+        updateEditPreview();
+        syncEditStatus();
+        pageName.textContent = `${isNew ? "新增" : "编辑"}${categoryText[item.category]}`;
+        viewProfile.classList.add("state-hide");
+        viewTabs.classList.add("state-hide");
+        document.querySelector(".admin-content").appendChild(editOverlay);
+        editOverlay.className = "admin-panel admin-profile-panel";
+        editPanel.className = "";
+        editClose.classList.add("state-hide");
+      }
+      function openConfirm() {
+        confirmAction = "delete";
+        confirmTitle.textContent = "删除礼物";
+        confirmText.textContent =
+          "删除后不再显示于礼物配置，已完成的赠送流水仍保留快照。";
+        confirmSubmit.className = "admin-btn danger";
+        confirmOverlay.classList.add("show");
+      }
+      document.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-tab]");
+        if (tab) renderTab(tab.dataset.tab);
+        const action = event.target.closest("[data-action]");
+        if (action) openConfirm();
+        const remove = event.target.closest("[data-delete-media]");
+        if (remove) {
+          if (remove.dataset.deleteMedia === "icon") editorIcon = "未上传";
+          else editorEffect = "未上传";
+          updateEditPreview();
+        }
+        const preview = event.target.closest("[data-preview-media]");
+        if (preview) {
+          const icon = preview.dataset.previewMedia === "icon",
+            value = icon ? editorIcon : editorEffect;
+          if (value === "未上传") return (icon ? iconFile : effectFile).click();
+          mediaPreviewTitle.textContent = icon
+            ? "礼物图标预览"
+            : "礼物特效预览";
+          mediaPreviewContent.textContent = value;
+          mediaPreviewOverlay.classList.add("show");
+        }
+        const close = event.target.closest("[data-close]");
+        if (close && close.dataset.close === "editOverlay") {
+          location.href = from;
+          return;
+        }
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      document.addEventListener("change", (event) => {
+        if (event.target.matches("[data-detail-status-toggle]")) {
+          item.status = event.target.checked ? "online" : "offline";
+          item.updatedAt = "2026-08-05 14:30";
+          item.changes.unshift({
+            action: event.target.checked ? "上架" : "下架",
+            detail: "通过开关调整礼物状态",
+            operator: "后台管理员",
+            time: item.updatedAt,
+          });
+          renderBase();
+          renderTab("records");
+          Luma.toast("礼物状态已更新");
+        }
+      });
+      editStatus.onchange = syncEditStatus;
+      iconFile.onchange = () => {
+        if (iconFile.files[0]) {
+          editorIcon = iconFile.files[0].name;
+          updateEditPreview();
+        }
+      };
+      effectFile.onchange = () => {
+        if (effectFile.files[0]) {
+          editorEffect = effectFile.files[0].name;
+          updateEditPreview();
+        }
+      };
+      editForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (
+          item.category === "custom" &&
+          editEffective.value >= editExpired.value
+        )
+          return Luma.toast("失效时间必须晚于生效时间");
+        const created = isNew;
+        if (
+          created &&
+          gifts.some((gift) => gift.id === editGiftId.value.trim())
+        )
+          return Luma.toast("礼物 ID 已存在");
+        item.id = editGiftId.value.trim();
+        item.names = {
+          en: nameEn.value.trim(),
+          id: nameId.value.trim(),
+          ms: nameMs.value.trim(),
+        };
+        item.icon = editorIcon;
+        item.price = Number(editPrice.value);
+        item.effect = editorEffect;
+        item.sort = Number(editSort.value);
+        item.status = editStatus.checked ? "online" : "offline";
+        item.effectiveAt =
+          item.category === "custom"
+            ? editEffective.value.replace("T", " ")
+            : "-";
+        item.expiredAt =
+          item.category === "custom"
+            ? editExpired.value.replace("T", " ")
+            : "-";
+        item.updatedAt = "2026-08-05 10:20";
+        item.changes.unshift({
+          action: created ? "新建礼物" : "编辑礼物",
+          detail: created ? "创建礼物配置" : "更新礼物配置",
+          operator: "后台管理员",
+          time: item.updatedAt,
+        });
+        if (created) {
+          gifts.unshift(item);
+          isNew = false;
+        }
+        history.replaceState(
+          null,
+          "",
+          `admin-gift-detail.html?id=${item.id}&from=${from}&edit=1`,
+        );
+        renderBase();
+        renderTab("names");
+        openEdit();
+        Luma.toast(created ? "礼物已新增" : "礼物配置已保存");
+      };
+      confirmForm.onsubmit = (event) => {
+        event.preventDefault();
+        const index = gifts.indexOf(item);
+        if (index >= 0) gifts.splice(index, 1);
+        location.href = from;
+      };
+      renderBase();
+      renderTab("names");
+      if (directEdit) openEdit();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-gift-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        多语言名称: () => renderTab("names"),
+        特效信息: () => renderTab("effect"),
+        操作记录: () => renderTab("records"),
+        编辑: () =>
+          (location.href = `admin-gift-detail.html?id=${item.id}&from=${from}&edit=1`),
+        删除: openConfirm,
+      });
+    </script>
+  </body>
+</html>

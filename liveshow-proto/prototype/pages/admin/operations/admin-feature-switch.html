@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>直播房型 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub active" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>直播房型</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head"><h1>直播房型</h1></div>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <strong>直播房型配置</strong><span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table" style="min-width: 760px">
+                <thead>
+                  <tr>
+                    <th>房型名称</th>
+                    <th>当前状态</th>
+                    <th>最后操作人</th>
+                    <th>最后修改时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="switchRows"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const items = [
+        {
+          id: "RT001",
+          name: "普通房",
+          enabled: true,
+          operator: "后台管理员",
+          updatedAt: "2026-08-05 09:40",
+        },
+        {
+          id: "RT002",
+          name: "门票房",
+          enabled: true,
+          operator: "后台管理员",
+          updatedAt: "2026-08-05 09:35",
+        },
+        {
+          id: "RT003",
+          name: "密码房",
+          enabled: false,
+          operator: "Maya Chen",
+          updatedAt: "2026-08-04 18:20",
+        },
+      ];
+      function render() {
+        resultCount.textContent = `共 ${items.length} 条`;
+        switchRows.innerHTML = items
+          .map(
+            (item) =>
+              `<tr><td><b>${item.name}</b></td><td><div class="admin-switch-control"><label class="admin-switch"><input type="checkbox" data-toggle="${item.id}" ${item.enabled ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${item.enabled ? "开启" : "关闭"}</span></div></td><td>${item.operator}</td><td>${item.updatedAt}</td><td><a class="admin-table-link" href="admin-feature-switch-detail.html?id=${item.id}">编辑</a></td></tr>`,
+          )
+          .join("");
+      }
+      switchRows.onchange = (event) => {
+        const input = event.target.closest("[data-toggle]");
+        if (!input) return;
+        const item = items.find((entry) => entry.id === input.dataset.toggle);
+        item.enabled = input.checked;
+        item.operator = "后台管理员";
+        item.updatedAt = new Date()
+          .toLocaleString("sv-SE", { hour12: false })
+          .slice(0, 16);
+        render();
+        Luma.toast(`${item.name}已${item.enabled ? "开启" : "关闭"}`);
+      };
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-feature-switch.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

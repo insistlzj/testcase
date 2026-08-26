@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>黑名单管理 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .list {
+        margin-top: 12px;
+        background: var(--g7);
+      }
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 13px 16px;
+        border-bottom: 1px solid var(--g6);
+      }
+      .item:last-child {
+        border-bottom: 0;
+      }
+      .item b {
+        flex: 1;
+        font-size: 16px;
+      }
+      .remove {
+        height: 30px;
+        padding: 0 10px;
+        border: 0;
+        border-radius: 15px;
+        background: var(--g6);
+        color: var(--g2);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .empty {
+        padding: 48px 16px;
+        color: var(--g4);
+        text-align: center;
+      }
+      .confirm {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: grid;
+        place-items: center;
+        background: rgba(0, 0, 0, 0.32);
+      }
+      .confirm-card {
+        width: 294px;
+        padding: 22px 16px 16px;
+        border-radius: 8px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .confirm-card b {
+        display: block;
+        font-size: 17px;
+      }
+      .confirm-card p {
+        margin: 8px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .confirm-card div {
+        display: flex;
+        gap: 10px;
+      }
+      .confirm-card button {
+        flex: 1;
+        height: 38px;
+        border: 0;
+        border-radius: 8px;
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .confirm-card [data-cancel] {
+        background: var(--g6);
+        color: var(--g2);
+      }
+      .confirm-card [data-confirm] {
+        background: var(--g1);
+        color: var(--g7);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <a href="profile.html" aria-label="返回">‹</a>黑名单管理
+      </header>
+      <section class="list" id="list" aria-label="黑名单列表"></section>
+    </main>
+    <section
+      class="confirm state-hide"
+      id="confirmOne"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="confirm-card">
+        <b></b>
+        <p></p>
+        <div>
+          <button type="button" data-cancel>取消</button
+          ><button type="button" data-confirm>确认</button>
+        </div>
+      </div>
+    </section>
+    <section
+      class="confirm state-hide"
+      id="confirmTwo"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="confirm-card">
+        <b></b>
+        <p></p>
+        <div>
+          <button type="button" data-cancel>取消</button
+          ><button type="button" data-confirm>再次确认</button>
+        </div>
+      </div>
+    </section>
+    <div class="homebar"><i></i></div>
+    <script>
+      let blacklist = [...window.LUMA_MOCK.blacklist];
+      let pendingName = "";
+      const list = document.querySelector("#list"),
+        confirmOne = document.querySelector("#confirmOne"),
+        confirmTwo = document.querySelector("#confirmTwo");
+      function render() {
+        list.replaceChildren();
+        if (!blacklist.length) {
+          const empty = document.createElement("p");
+          empty.className = "empty";
+          empty.textContent = "暂无黑名单用户";
+          list.append(empty);
+          return;
+        }
+        blacklist.forEach((user) => {
+          const item = document.createElement("article");
+          item.className = "item";
+          item.innerHTML =
+            '<i class="avatar"></i><b></b><button class="remove" type="button">移除</button>';
+          item.querySelector(".avatar").textContent = user.avatar;
+          item.querySelector("b").textContent = user.name;
+          item.querySelector(".remove").onclick = () => openConfirm(user.name);
+          list.append(item);
+        });
+      }
+      function setDialog(dialog, title, detail) {
+        dialog.querySelector("b").textContent = title;
+        dialog.querySelector("p").textContent = detail;
+      }
+      function closeConfirm() {
+        confirmOne.classList.add("state-hide");
+        confirmTwo.classList.add("state-hide");
+        pendingName = "";
+      }
+      function openConfirm(name) {
+        pendingName = name;
+        setDialog(
+          confirmOne,
+          `确认移除 ${name}？`,
+          "移除后将恢复正常互动权限。",
+        );
+        confirmOne.classList.remove("state-hide");
+      }
+      document
+        .querySelectorAll("[data-cancel]")
+        .forEach((button) => (button.onclick = closeConfirm));
+      confirmOne.querySelector("[data-confirm]").onclick = () => {
+        setDialog(
+          confirmTwo,
+          `再次确认移除 ${pendingName}？`,
+          "确认后将移除黑名单。",
+        );
+        confirmOne.classList.add("state-hide");
+        confirmTwo.classList.remove("state-hide");
+      };
+      confirmTwo.querySelector("[data-confirm]").onclick = () => {
+        const name = pendingName;
+        blacklist = blacklist.filter((user) => user.name !== name);
+        closeConfirm();
+        render();
+        Luma.toast(`已将 ${name} 移出黑名单`);
+      };
+      render();
+    </script>
+  </body>
+</html>

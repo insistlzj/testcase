@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title">
+  <title id="title">直播练习室封面</title>
+  <rect width="640" height="360" fill="#536174"/>
+  <rect x="38" y="36" width="182" height="174" rx="14" fill="#d9dfe7"/>
+  <rect x="56" y="54" width="146" height="138" rx="8" fill="#8796aa"/>
+  <path d="M72 166c36-60 72-74 114-92v92z" fill="#68768a"/>
+  <rect x="424" y="44" width="164" height="98" rx="12" fill="#e7c4a0"/>
+  <circle cx="506" cy="93" r="27" fill="#bd6a72"/>
+  <rect y="256" width="640" height="104" fill="#333b49"/>
+  <rect x="118" y="242" width="404" height="28" rx="14" fill="#252b36"/>
+  <circle cx="318" cy="124" r="38" fill="#dca188"/>
+  <path d="M278 119c3-52 77-57 82-1-16-15-30-21-42-21-14 0-27 7-40 22z" fill="#222937"/>
+  <path d="M274 166h90l25 94H249z" fill="#65738a"/>
+  <path d="M248 181c-42 18-70 51-82 78M390 181c42 18 70 51 82 78" fill="none" stroke="#dca188" stroke-width="18" stroke-linecap="round"/>
+  <rect x="304" y="184" width="28" height="76" rx="14" fill="#1f2631"/>
+  <circle cx="318" cy="178" r="21" fill="#d7dde6"/>
+  <path d="M318 198v62" stroke="#8c98a8" stroke-width="8"/>
+  <path d="M286 126a34 34 0 0 1 66 0" fill="none" stroke="#e5eaf0" stroke-width="12" stroke-linecap="round"/>
+</svg>

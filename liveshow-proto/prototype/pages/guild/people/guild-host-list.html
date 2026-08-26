@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>主播业绩 · 主播管理 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260819-host-performance-toolbar-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260818-host-performance-income-v1"></script>
+    <script src="../../../assets/guild-data-model.js?v=20260817-host-flow-v2"></script>
+    <style>
+      #rangeSheet[hidden] {
+        display: none !important;
+      }
+      .directory-copy .guild-host-name-line {
+        min-width: 0;
+        display: flex !important;
+        align-items: center;
+        gap: 4px;
+      }
+      .guild-host-name-line b {
+        min-width: 0;
+        color: var(--g1);
+      }
+      .guild-host-former-tag {
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        margin-top: 0 !important;
+        padding: 2px 5px;
+        border-radius: 4px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 9px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+      .guild-host-performance-income b {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 4px;
+      }
+      .guild-host-performance-income .guild-coin-icon {
+        width: 11px;
+        height: 11px;
+        flex: none;
+      }
+      .guild-host-performance-summary {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin: 0 0 12px;
+        padding: 14px;
+        border-radius: 12px;
+        background: var(--g7);
+      }
+      .guild-host-performance-summary article {
+        min-width: 0;
+        padding: 0 8px;
+        border-right: 1px solid var(--g6);
+      }
+      .guild-host-performance-summary article:first-child {
+        padding-left: 0;
+      }
+      .guild-host-performance-summary article:last-child {
+        padding-right: 0;
+        border-right: 0;
+      }
+      .guild-host-performance-summary span,
+      .guild-host-performance-summary b {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .guild-host-performance-summary span {
+        color: var(--g3);
+        font-size: 11px;
+      }
+      .guild-host-performance-summary b {
+        margin-top: 7px;
+        font-size: 15px;
+      }
+      .guild-host-performance-summary .guild-host-performance-coins {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .guild-host-performance-summary .guild-coin-icon {
+        width: 11px;
+        height: 11px;
+        flex: none;
+      }
+      .guild-host-list-page .guild-host-performance-controls {
+        grid-template-columns: minmax(0, 1fr) 72px;
+      }
+      .guild-host-list-page .guild-host-search-button {
+        display: none;
+      }
+      .guild-host-select-mode .guild-host-performance-controls {
+        grid-template-columns: 1fr;
+      }
+      .guild-host-select-mode #rangePicker,
+      .guild-host-select-mode #shortcutPicker,
+      .guild-host-select-mode .guild-host-performance-summary {
+        display: none;
+      }
+      .guild-host-select-mode .guild-host-search-button {
+        width: 100%;
+        padding: 0 12px;
+        display: flex;
+        justify-content: flex-start;
+        gap: 8px;
+      }
+      .guild-host-select-mode .guild-host-search-button::after {
+        content: "搜索主播";
+        font-size: 11px;
+      }
+      .guild-host-select-mode .directory-row.is-current {
+        background: var(--g6);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          id="backLink"
+          href="../home/guild-home.html"
+          aria-label="返回"
+          >‹</a
+        ><span id="pageTitle">主播业绩</span>
+      </header>
+      <div class="guild-page-body guild-host-list-page">
+        <div class="guild-host-performance-controls">
+          <button
+            class="guild-host-search-button"
+            id="searchToggle"
+            type="button"
+            aria-label="搜索主播"
+            title="搜索"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <path d="m16 16 4 4"></path>
+            </svg>
+          </button>
+          <button
+            class="guild-host-performance-range"
+            id="rangePicker"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+              <path d="M8 3v4M16 3v4M4 10h16"></path></svg
+            ><span id="rangePickerValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <button
+            class="guild-host-performance-quick"
+            id="shortcutPicker"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+          >
+            <span id="shortcutPickerValue">今日</span
+            ><i aria-hidden="true">⌄</i>
+          </button>
+          <div
+            class="guild-host-performance-shortcut-menu"
+            id="shortcutMenu"
+            role="menu"
+            aria-label="快捷日期筛选"
+            hidden
+          >
+            <button
+              class="active"
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="today"
+              aria-checked="true"
+            >
+              今日
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="yesterday"
+              aria-checked="false"
+            >
+              昨日
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="thisWeek"
+              aria-checked="false"
+            >
+              本周
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="lastWeek"
+              aria-checked="false"
+            >
+              上周
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="thisMonth"
+              aria-checked="false"
+            >
+              本月
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="lastMonth"
+              aria-checked="false"
+            >
+              上月
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="custom"
+              aria-checked="false"
+            >
+              自定义
+            </button>
+          </div>
+        </div>
+        <section
+          class="guild-host-performance-summary"
+          id="performanceSummary"
+          aria-label="主播业绩汇总"
+        ></section>
+        <section
+          class="directory-list"
+          id="hostList"
+          aria-label="主播业绩"
+        ></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <div
+      class="guild-mask"
+      id="rangeSheet"
+      hidden
+      onclick="if(event.target===this){this.hidden=true;document.body.classList.remove('guild-sheet-open')}"
+    >
+      <section
+        class="guild-sheet guild-host-performance-range-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="rangeSheetTitle"
+      >
+        <header>
+          <button
+            id="rangeSheetCancel"
+            type="button"
+            onclick="document.getElementById('rangeSheet').hidden=true;document.body.classList.remove('guild-sheet-open')"
+          >
+            取消
+          </button>
+          <h2 id="rangeSheetTitle">选择日期范围</h2>
+          <button
+            class="confirm"
+            id="rangeSheetConfirm"
+            type="button"
+            onclick="document.getElementById('rangeSheet').hidden=true;document.body.classList.remove('guild-sheet-open')"
+          >
+            确定
+          </button>
+        </header>
+        <div class="guild-host-performance-calendar">
+          <div class="guild-host-performance-calendar-nav">
+            <button id="calendarPrev" type="button" aria-label="上一个月">
+              ‹</button
+            ><b id="calendarTitle">2026年8月</b
+            ><button id="calendarNext" type="button" aria-label="下一个月">
+              ›
+            </button>
+          </div>
+          <div class="guild-host-performance-calendar-week" aria-hidden="true">
+            <span>日</span><span>一</span><span>二</span><span>三</span
+            ><span>四</span><span>五</span><span>六</span>
+          </div>
+          <div
+            class="guild-host-performance-calendar-days"
+            id="calendarDays"
+            role="grid"
+          >
+            <span aria-hidden="true"></span><span aria-hidden="true"></span
+            ><span aria-hidden="true"></span><span aria-hidden="true"></span
+            ><span aria-hidden="true"></span><span aria-hidden="true"></span
+            ><button type="button" role="gridcell" data-date="2026-08-01">
+              1</button
+            ><button type="button" role="gridcell" data-date="2026-08-02">
+              2</button
+            ><button type="button" role="gridcell" data-date="2026-08-03">
+              3</button
+            ><button type="button" role="gridcell" data-date="2026-08-04">
+              4</button
+            ><button type="button" role="gridcell" data-date="2026-08-05">
+              5</button
+            ><button type="button" role="gridcell" data-date="2026-08-06">
+              6</button
+            ><button type="button" role="gridcell" data-date="2026-08-07">
+              7</button
+            ><button type="button" role="gridcell" data-date="2026-08-08">
+              8</button
+            ><button type="button" role="gridcell" data-date="2026-08-09">
+              9</button
+            ><button type="button" role="gridcell" data-date="2026-08-10">
+              10</button
+            ><button type="button" role="gridcell" data-date="2026-08-11">
+              11</button
+            ><button type="button" role="gridcell" data-date="2026-08-12">
+              12</button
+            ><button type="button" role="gridcell" data-date="2026-08-13">
+              13</button
+            ><button type="button" role="gridcell" data-date="2026-08-14">
+              14</button
+            ><button type="button" role="gridcell" data-date="2026-08-15">
+              15</button
+            ><button type="button" role="gridcell" data-date="2026-08-16">
+              16</button
+            ><button type="button" role="gridcell" data-date="2026-08-17">
+              17</button
+            ><button
+              class="range-end"
+              type="button"
+              role="gridcell"
+              data-date="2026-08-18"
+              aria-selected="true"
+            >
+              18</button
+            ><button type="button" role="gridcell" data-date="2026-08-19">
+              19</button
+            ><button type="button" role="gridcell" data-date="2026-08-20">
+              20</button
+            ><button type="button" role="gridcell" data-date="2026-08-21">
+              21</button
+            ><button type="button" role="gridcell" data-date="2026-08-22">
+              22</button
+            ><button type="button" role="gridcell" data-date="2026-08-23">
+              23</button
+            ><button type="button" role="gridcell" data-date="2026-08-24">
+              24</button
+            ><button type="button" role="gridcell" data-date="2026-08-25">
+              25</button
+            ><button type="button" role="gridcell" data-date="2026-08-26">
+              26</button
+            ><button type="button" role="gridcell" data-date="2026-08-27">
+              27</button
+            ><button type="button" role="gridcell" data-date="2026-08-28">
+              28</button
+            ><button type="button" role="gridcell" data-date="2026-08-29">
+              29</button
+            ><button type="button" role="gridcell" data-date="2026-08-30">
+              30</button
+            ><button type="button" role="gridcell" data-date="2026-08-31">
+              31
+            </button>
+          </div>
+        </div>
+        <p class="guild-host-performance-range-hint" id="rangeSelection"></p>
+      </section>
+    </div>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const selectMode = params.get("mode") === "select";
+      const currentHostId = params.get("currentHostId");
+      const activeHosts = LUMA_MOCK.guildPortal.guildHosts;
+      const formerHosts = LUMA_MOCK.guildPortal.formerGuildHosts;
+      let removedHostIds = new Set();
+      const rangePicker = document.getElementById("rangePicker");
+      const rangePickerValue = document.getElementById("rangePickerValue");
+      const rangeSheet = document.getElementById("rangeSheet");
+      const rangeSheetCancel = document.getElementById("rangeSheetCancel");
+      const rangeSheetConfirm = document.getElementById("rangeSheetConfirm");
+      const searchToggle = document.getElementById("searchToggle");
+      const shortcutPicker = document.getElementById("shortcutPicker");
+      const shortcutPickerValue = document.getElementById(
+        "shortcutPickerValue",
+      );
+      const shortcutMenu = document.getElementById("shortcutMenu");
+      const calendarPrev = document.getElementById("calendarPrev");
+      const calendarNext = document.getElementById("calendarNext");
+      const calendarTitle = document.getElementById("calendarTitle");
+      const calendarDays = document.getElementById("calendarDays");
+      const rangeSelection = document.getElementById("rangeSelection");
+      const performanceSummary = document.getElementById("performanceSummary");
+      const today = new Date();
+      today.setHours(12, 0, 0, 0);
+      const dateValue = (date) =>
+        `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      const displayDate = (value) =>
+        `${Number(value.slice(8, 10))}/${Number(value.slice(5, 7))}/${value.slice(0, 4)}`;
+      const todayValue = dateValue(today);
+      const shortcutLabels = {
+        today: "今日",
+        yesterday: "昨日",
+        thisWeek: "本周",
+        lastWeek: "上周",
+        thisMonth: "本月",
+        lastMonth: "上月",
+      };
+      const requestedRangeStart = params.get("rangeStart") || "";
+      const requestedRangeEnd = params.get("rangeEnd") || "";
+      const hasRequestedRange =
+        /^\d{4}-\d{2}-\d{2}$/.test(requestedRangeStart) &&
+        /^\d{4}-\d{2}-\d{2}$/.test(requestedRangeEnd) &&
+        requestedRangeEnd >= requestedRangeStart;
+      const requestedShortcut = params.get("shortcut");
+      let selectedRangeStart = hasRequestedRange
+        ? requestedRangeStart
+        : todayValue;
+      let selectedRangeEnd = hasRequestedRange ? requestedRangeEnd : todayValue;
+      let selectedShortcut = Object.prototype.hasOwnProperty.call(
+        shortcutLabels,
+        requestedShortcut,
+      )
+        ? requestedShortcut
+        : hasRequestedRange
+          ? null
+          : "today";
+      let pendingRangeStart = selectedRangeStart;
+      let pendingRangeEnd = selectedRangeEnd;
+      let pendingShortcut = selectedShortcut;
+      let calendarMonth = selectedRangeEnd.slice(0, 7);
+      let searchQuery = "";
+      try {
+        removedHostIds = new Set(
+          JSON.parse(
+            sessionStorage.getItem("luma-guild-removed-hosts-v1") || "[]",
+          ),
+        );
+      } catch (error) {}
+      const returnFrom = [
+        "overview",
+        "detail",
+        "income",
+        "operations",
+        "list",
+        "summary",
+        "all-live",
+        "home",
+      ].includes(params.get("returnFrom"))
+        ? params.get("returnFrom")
+        : "list";
+      const selectionParams = new URLSearchParams();
+      ["hostPeriod", "rangeStart", "rangeEnd", "shortcut"].forEach((key) => {
+        if (params.get(key)) selectionParams.set(key, params.get(key));
+      });
+      const selectionSuffix = selectionParams.toString()
+        ? `&${selectionParams}`
+        : "";
+      if (selectMode) {
+        document.body.classList.add("guild-host-select-mode");
+        pageTitle.textContent = "切换主播";
+        const backQuery = new URLSearchParams({
+          hostId: currentHostId || "all",
+          from: returnFrom,
+        });
+        selectionParams.forEach((value, key) => backQuery.set(key, value));
+        backLink.href = `../data/guild-host-data.html?${backQuery}`;
+      } else if (params.get("from") === "income") {
+        const returnQuery = new URLSearchParams({
+          mode: params.get("incomeMode") === "month" ? "month" : "day",
+          rangeStart: selectedRangeStart,
+          rangeEnd: selectedRangeEnd,
+          shortcut: "custom",
+        });
+        backLink.href = `../data/guild-income.html?${returnQuery}`;
+      }
+      function offsetDate(date, days) {
+        const value = new Date(date);
+        value.setDate(value.getDate() + days);
+        return value;
+      }
+      function shortcutRange(shortcut) {
+        if (shortcut === "yesterday") {
+          const value = offsetDate(today, -1);
+          return [dateValue(value), dateValue(value)];
+        }
+        const weekdayOffset = (today.getDay() + 6) % 7;
+        if (shortcut === "thisWeek")
+          return [dateValue(offsetDate(today, -weekdayOffset)), todayValue];
+        if (shortcut === "lastWeek") {
+          const lastWeekEnd = offsetDate(today, -weekdayOffset - 1);
+          return [
+            dateValue(offsetDate(lastWeekEnd, -6)),
+            dateValue(lastWeekEnd),
+          ];
+        }
+        if (shortcut === "thisMonth")
+          return [
+            dateValue(new Date(today.getFullYear(), today.getMonth(), 1, 12)),
+            todayValue,
+          ];
+        if (shortcut === "lastMonth")
+          return [
+            dateValue(
+              new Date(today.getFullYear(), today.getMonth() - 1, 1, 12),
+            ),
+            dateValue(new Date(today.getFullYear(), today.getMonth(), 0, 12)),
+          ];
+        return [todayValue, todayValue];
+      }
+      function renderRangePicker() {
+        rangePickerValue.textContent =
+          selectedRangeStart === selectedRangeEnd
+            ? displayDate(selectedRangeStart)
+            : `${displayDate(selectedRangeStart)}～${displayDate(selectedRangeEnd)}`;
+        rangePicker.setAttribute(
+          "aria-label",
+          `选择业绩日期范围，当前${rangePickerValue.textContent}`,
+        );
+      }
+      function renderShortcutPicker() {
+        shortcutPickerValue.textContent = selectedShortcut
+          ? shortcutLabels[selectedShortcut]
+          : "自定义";
+        document.querySelectorAll("[data-range-shortcut]").forEach((button) => {
+          const active =
+            button.dataset.rangeShortcut === (selectedShortcut || "custom");
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-checked", active);
+        });
+      }
+      function closeShortcutMenu() {
+        shortcutMenu.hidden = true;
+        shortcutPicker.setAttribute("aria-expanded", "false");
+      }
+      function closeRangeSheet() {
+        rangeSheet.hidden = true;
+        document.body.classList.remove("guild-sheet-open");
+        rangePicker.focus();
+      }
+      function openRangeSheet() {
+        pendingRangeStart = selectedRangeStart;
+        pendingRangeEnd = selectedRangeEnd;
+        pendingShortcut = selectedShortcut;
+        calendarMonth = selectedRangeEnd.slice(0, 7);
+        renderCalendar();
+        rangeSheet.hidden = false;
+        document.body.classList.add("guild-sheet-open");
+      }
+      function calendarDate(year, month, day) {
+        return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+      }
+      function renderCalendar() {
+        const [yearText, monthText] = calendarMonth.split("-");
+        const year = Number(yearText);
+        const month = Number(monthText);
+        const firstWeekday = new Date(year, month - 1, 1).getDay();
+        const dayCount = new Date(year, month, 0).getDate();
+        calendarTitle.textContent = `${month}/${year}`;
+        const blanks = Array.from(
+          { length: firstWeekday },
+          () => '<span aria-hidden="true"></span>',
+        ).join("");
+        const days = Array.from({ length: dayCount }, (_, index) => {
+          const date = calendarDate(year, month, index + 1);
+          const disabled = date > todayValue;
+          const isStart = date === pendingRangeStart;
+          const isEnd = date === pendingRangeEnd;
+          const inRange =
+            pendingRangeStart &&
+            pendingRangeEnd &&
+            date > pendingRangeStart &&
+            date < pendingRangeEnd;
+          const classes = [
+            isStart ? "range-start" : "",
+            isEnd ? "range-end" : "",
+            inRange ? "in-range" : "",
+          ]
+            .filter(Boolean)
+            .join(" ");
+          return `<button class="${classes}" type="button" role="gridcell" data-date="${date}" aria-selected="${isStart || isEnd || inRange}"${disabled ? " disabled" : ""}>${index + 1}</button>`;
+        }).join("");
+        calendarDays.innerHTML = blanks + days;
+        rangeSelection.textContent = pendingRangeStart
+          ? pendingRangeEnd
+            ? `${displayDate(pendingRangeStart)}～${displayDate(pendingRangeEnd)}`
+            : `已选开始日期：${displayDate(pendingRangeStart)}`
+          : "请选择开始日期";
+      }
+      function filteredHosts() {
+        return [
+          ...activeHosts.map((item) => ({ ...item, status: "active" })),
+          ...formerHosts.map((item) => ({ ...item, status: "former" })),
+        ]
+          .filter(
+            (item) =>
+              !removedHostIds.has(item.id) &&
+              (!searchQuery ||
+                item.name.toLowerCase().includes(searchQuery) ||
+                item.id.toLowerCase().includes(searchQuery)),
+          )
+          .sort(
+            (left, right) =>
+              Number(String(right.income || "").replace(/\D/g, "")) -
+              Number(String(left.income || "").replace(/\D/g, "")),
+          );
+      }
+      function renderPerformanceSummary() {
+        const dates = LUMA_GUILD_DATA.dates.filter(
+          (date) => date >= selectedRangeStart && date <= selectedRangeEnd,
+        );
+        const metrics = (
+          dates.length
+            ? dates
+            : [LUMA_GUILD_DATA.dates[LUMA_GUILD_DATA.dates.length - 1]]
+        ).map((date) => LUMA_GUILD_DATA.getGuildDay(date));
+        const coins = metrics.reduce((sum, item) => sum + item.coins, 0);
+        const startedHosts = Math.max(
+          ...metrics.map((item) => item.startedHosts),
+        );
+        const effectiveHosts = Math.max(
+          ...metrics.map((item) => item.effectiveHosts),
+        );
+        performanceSummary.innerHTML = `<article><span>主播收益</span><b class="guild-host-performance-coins"><svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>${LUMA_FORMAT.coins(coins)}</b></article><article><span>开播人数</span><b>${LUMA_FORMAT.integer(startedHosts)}</b></article><article><span>达标人数</span><b>${LUMA_FORMAT.integer(effectiveHosts)}</b></article>`;
+      }
+      function renderList() {
+        const items = filteredHosts();
+        if (selectMode && (!searchQuery || "所有主播".includes(searchQuery)))
+          items.unshift({
+            id: "all",
+            name: "所有主播",
+            avatar: "全",
+            status: "all",
+            live: false,
+          });
+        hostList.innerHTML = items.length
+          ? items
+              .map((item) => {
+                const allOption = item.id === "all";
+                const level = allOption
+                  ? `${activeHosts.length} 位主播`
+                  : LUMA_GUILD_DATA.profiles[item.id]?.level ||
+                    item.level ||
+                    "-";
+                const formerTag =
+                  item.status === "former"
+                    ? '<i class="guild-host-former-tag">【退会】</i>'
+                    : "";
+                const current = selectMode && item.id === currentHostId;
+                const target = selectMode
+                  ? "../data/guild-host-data.html"
+                  : "../data/guild-host-summary.html";
+                const income = String(item.income || "-").replace(/^\$/, "");
+                const performance = current
+                  ? '<span class="directory-meta"><span>当前主播</span><b>当前</b></span>'
+                  : allOption
+                    ? '<span class="directory-meta"><span>查看范围</span><b>全部</b></span>'
+                    : `<span class="directory-meta guild-host-performance-income" aria-label="金币收益 ${income}"><b><svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>${income}</b></span>`;
+                const selectQuery = new URLSearchParams({
+                  hostId: item.id,
+                  from: returnFrom,
+                });
+                selectionParams.forEach((value, key) =>
+                  selectQuery.set(key, value),
+                );
+                const href = selectMode
+                  ? `${target}?${selectQuery}`
+                  : `${target}?id=${encodeURIComponent(item.id)}&from=list`;
+                const meta = allOption ? level : `${item.id} · ${level}`;
+                return `<a class="directory-row${current ? " is-current" : ""}" href="${href}"><span class="directory-person"><span class="directory-avatar${item.live ? " is-live" : ""}"${item.live ? ' aria-label="直播中"' : ""}>${item.avatar}</span><span class="directory-copy"><span class="guild-host-name-line"><b>${item.name}</b>${formerTag}</span><span>${meta}</span></span></span>${performance}<span class="review-arrow" aria-hidden="true">›</span></a>`;
+              })
+              .join("")
+          : '<div class="guild-page-empty"><b>未找到主播</b><span>请调整搜索词</span></div>';
+      }
+      searchToggle.onclick = () => {
+        const value = window.prompt("搜索主播昵称或 ID", searchQuery);
+        if (value === null) return;
+        searchQuery = value.trim().toLowerCase();
+        renderList();
+      };
+      rangePicker.onclick = openRangeSheet;
+      rangeSheetCancel.onclick = closeRangeSheet;
+      rangeSheetConfirm.onclick = () => {
+        if (!pendingRangeStart) return;
+        selectedRangeStart = pendingRangeStart;
+        selectedRangeEnd = pendingRangeEnd || pendingRangeStart;
+        selectedShortcut = pendingShortcut;
+        renderRangePicker();
+        renderShortcutPicker();
+        closeRangeSheet();
+        renderPerformanceSummary();
+        renderList();
+      };
+      rangeSheet.onclick = (event) => {
+        if (event.target === rangeSheet) closeRangeSheet();
+      };
+      calendarPrev.onclick = () => {
+        const [year, month] = calendarMonth.split("-").map(Number);
+        const date = new Date(year, month - 2, 1);
+        calendarMonth = dateValue(date).slice(0, 7);
+        renderCalendar();
+      };
+      calendarNext.onclick = () => {
+        const [year, month] = calendarMonth.split("-").map(Number);
+        const date = new Date(year, month, 1);
+        calendarMonth = dateValue(date).slice(0, 7);
+        renderCalendar();
+      };
+      calendarDays.onclick = (event) => {
+        const option = event.target.closest("[data-date]");
+        if (!option) return;
+        const date = option.dataset.date;
+        pendingShortcut = null;
+        if (!pendingRangeStart || pendingRangeEnd) {
+          pendingRangeStart = date;
+          pendingRangeEnd = null;
+        } else if (date < pendingRangeStart) {
+          pendingRangeEnd = pendingRangeStart;
+          pendingRangeStart = date;
+        } else pendingRangeEnd = date;
+        renderCalendar();
+      };
+      document.querySelectorAll("[data-range-shortcut]").forEach((button) => {
+        button.onclick = () => {
+          if (button.dataset.rangeShortcut === "custom") {
+            closeShortcutMenu();
+            openRangeSheet();
+            return;
+          }
+          selectedShortcut = button.dataset.rangeShortcut;
+          [selectedRangeStart, selectedRangeEnd] =
+            shortcutRange(selectedShortcut);
+          pendingShortcut = selectedShortcut;
+          pendingRangeStart = selectedRangeStart;
+          pendingRangeEnd = selectedRangeEnd;
+          calendarMonth = selectedRangeEnd.slice(0, 7);
+          renderRangePicker();
+          renderShortcutPicker();
+          closeShortcutMenu();
+          renderPerformanceSummary();
+          renderList();
+        };
+      });
+      shortcutPicker.onclick = (event) => {
+        event.stopPropagation();
+        shortcutMenu.hidden = !shortcutMenu.hidden;
+        shortcutPicker.setAttribute(
+          "aria-expanded",
+          String(!shortcutMenu.hidden),
+        );
+      };
+      shortcutMenu.onclick = (event) => event.stopPropagation();
+      document.addEventListener("click", closeShortcutMenu);
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        if (!shortcutMenu.hidden) closeShortcutMenu();
+        else if (!rangeSheet.hidden) closeRangeSheet();
+      });
+      renderRangePicker();
+      renderShortcutPicker();
+      renderPerformanceSummary();
+      renderList();
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-host-list.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

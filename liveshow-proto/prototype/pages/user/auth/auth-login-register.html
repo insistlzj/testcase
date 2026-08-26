@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>登录与注册 · 账号 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      body {
+        background: var(--g7);
+      }
+      .auth-page {
+        width: 390px;
+        min-height: 844px;
+        padding: 34px 24px 28px;
+        background: var(--g7);
+        display: flex;
+        flex-direction: column;
+      }
+      .brand {
+        padding-top: 94px;
+        text-align: center;
+      }
+      .brand-mark {
+        width: 66px;
+        height: 66px;
+        margin: 0 auto 13px;
+        border-radius: 16px;
+        background: var(--g1);
+        color: var(--g7);
+        display: grid;
+        place-items: center;
+        font-size: 30px;
+        font-weight: 700;
+      }
+      .brand h1 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: 0;
+      }
+      .entry-actions {
+        margin-top: 82px;
+      }
+      .primary-entry {
+        width: 100%;
+        height: 48px;
+        margin-bottom: 14px;
+        border: 1px solid var(--g1);
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 600 14px inherit;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 11px;
+      }
+      .primary-entry.phone {
+        border-color: var(--g5);
+        background: var(--g7);
+        color: var(--g1);
+      }
+      .google-mark {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        border: 2px solid currentColor;
+        display: grid;
+        place-items: center;
+        font: 700 14px Arial;
+      }
+      .phone-mark {
+        width: 15px;
+        height: 21px;
+        border: 2px solid currentColor;
+        border-radius: 4px;
+        position: relative;
+      }
+      .phone-mark:after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: currentColor;
+        left: 4px;
+        bottom: 2px;
+      }
+      .other-title {
+        margin: 17px 0;
+        color: var(--g4);
+        font-size: 12px;
+        text-align: center;
+      }
+      .provider-grid {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      .provider-grid button {
+        width: 52px;
+        height: 42px;
+        padding: 0;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g2);
+        font: 600 11px inherit;
+        cursor: pointer;
+      }
+      .agreement {
+        margin-top: auto;
+        padding-top: 38px;
+        color: var(--g3);
+        font-size: 11px;
+        line-height: 1.5;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .agreement input {
+        margin: 2px 0 0;
+        accent-color: var(--g1);
+      }
+      .agreement a {
+        color: var(--g1);
+      }
+      .form-error {
+        min-height: 18px;
+        margin: 10px 0 0;
+        color: var(--danger);
+        font-size: 12px;
+        text-align: center;
+      }
+      .result-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--overlay);
+      }
+      .result-card {
+        width: 300px;
+        padding: 22px 18px 18px;
+        border-radius: 8px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .result-card i {
+        width: 42px;
+        height: 42px;
+        margin: 0 auto 12px;
+        border-radius: 50%;
+        background: var(--g1);
+        color: var(--g7);
+        display: grid;
+        place-items: center;
+        font: 20px inherit;
+      }
+      .result-card b {
+        display: block;
+        font-size: 17px;
+      }
+      .result-card p {
+        margin: 8px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .result-card button {
+        width: 100%;
+        height: 42px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="auth-page">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="brand">
+        <div class="brand-mark">L</div>
+        <h1>Luma Live</h1>
+      </header>
+      <div class="entry-actions">
+        <button class="primary-entry" type="button" data-provider="Google">
+          <i class="google-mark">G</i>使用 Google 账号
+        </button>
+        <button class="primary-entry phone" type="button" id="openPhone">
+          <i class="phone-mark"></i>使用手机号
+        </button>
+      </div>
+      <p class="other-title">其他登录方式</p>
+      <div class="provider-grid">
+        <button type="button" data-provider="Email" aria-label="其他邮箱登录">
+          其他邮箱</button
+        ><button type="button" data-provider="Apple ID" aria-label="Apple 登录">
+          Apple</button
+        ><button type="button" data-provider="TikTok" aria-label="TikTok 登录">
+          TikTok</button
+        ><button
+          type="button"
+          data-provider="Facebook"
+          aria-label="Facebook 登录"
+        >
+          Fb
+        </button>
+      </div>
+      <label class="agreement"
+        ><input id="agreement" type="checkbox" /><span
+          >我已阅读并同意 <a href="#" data-policy="用户协议">《用户协议》</a> 与
+          <a href="#" data-policy="隐私政策">《隐私政策》</a></span
+        ></label
+      >
+      <p class="form-error" id="formError"></p>
+    </main>
+    <section
+      class="result-mask state-hide"
+      id="resultMask"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="result-card">
+        <i>✓</i><b id="resultTitle"></b>
+        <p id="resultText"></p>
+        <button id="enterApp" type="button">进入首页</button>
+      </div>
+    </section>
+    <div class="homebar"><i></i></div>
+    <script>
+      const authMock = window.LUMA_MOCK.auth,
+        agreement = document.querySelector("#agreement"),
+        formError = document.querySelector("#formError");
+      let authScenario =
+        new URLSearchParams(location.search).get("account") === "existing"
+          ? "existingUser"
+          : "newUser";
+      document.querySelector("#openPhone").onclick = () => {
+        window.parent.postMessage(
+          { type: "luma-page", file: "auth-phone-login.html" },
+          "*",
+        );
+        location.href = "auth-phone-login.html";
+      };
+      document.querySelectorAll("[data-policy]").forEach(
+        (link) =>
+          (link.onclick = (event) => {
+            event.preventDefault();
+            Luma.toast(`打开${link.dataset.policy}`);
+          }),
+      );
+      function setScenario(scenario) {
+        authScenario = scenario;
+        document.querySelector("#resultMask").classList.add("state-hide");
+      }
+      function goToProfileCompletion() {
+        window.parent.postMessage(
+          { type: "luma-page", file: "auth-profile-completion.html" },
+          "*",
+        );
+        location.href = "auth-profile-completion.html";
+      }
+      function showResult() {
+        document.querySelector("#resultTitle").textContent = "登录成功";
+        document.querySelector("#resultText").textContent =
+          `欢迎回来，${authMock.userName}。`;
+        document.querySelector("#enterApp").textContent = "进入首页";
+        document.querySelector("#resultMask").classList.remove("state-hide");
+      }
+      document.querySelectorAll("[data-provider]").forEach(
+        (button) =>
+          (button.onclick = () => {
+            if (!agreement.checked) {
+              formError.textContent = "请先同意用户协议与隐私政策";
+              return;
+            }
+            formError.textContent = "";
+            authScenario === "newUser" ? goToProfileCompletion() : showResult();
+          }),
+      );
+      document.querySelector("#enterApp").onclick = () => {
+        const target = "../home/live-plaza.html";
+        window.parent.postMessage({ type: "luma-page", file: target }, "*");
+        location.href = target;
+      };
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "auth-login-register.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        账号类型: {
+          新用户注册: () => setScenario("newUser"),
+          老用户登录: () => setScenario("existingUser"),
+        },
+      });
+    </script>
+  </body>
+</html>

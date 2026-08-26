@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>封禁申诉 · 用户管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav" aria-label="管理后台一级菜单">
+          <button class="admin-nav-item active" data-menu="用户管理">
+            <span>用户管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-user-list.html">用户列表</a>
+            <a class="admin-nav-sub active" href="admin-ban-appeal.html"
+              >封禁申诉</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          >
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          >
+          <a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          >
+          <a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          >
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          >
+          <button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span>
+          </button>
+          <button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            用户管理&nbsp;&nbsp;/&nbsp;&nbsp;<strong>封禁申诉</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>封禁申诉</h1></div>
+          </div>
+
+          <section class="admin-panel admin-filter" aria-label="申诉筛选">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="appellant">申诉人</label
+                ><input
+                  class="admin-input"
+                  id="appellant"
+                  placeholder="输入用户 ID 或昵称"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="identity">账号身份</label
+                ><select class="admin-select" id="identity">
+                  <option value="">全部身份</option>
+                  <option>用户</option>
+                  <option>主播</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label>提交时间段</label>
+                <div class="admin-range admin-date-range">
+                  <input class="admin-input" id="dateStart" type="date" /><span
+                    >至</span
+                  ><input class="admin-input" id="dateEnd" type="date" />
+                </div>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs" aria-label="申诉状态">
+                <button class="admin-list-tab active" data-status-tab="">
+                  全部</button
+                ><button class="admin-list-tab" data-status-tab="pending">
+                  待受理</button
+                ><button class="admin-list-tab" data-status-tab="success">
+                  申诉成功</button
+                ><button class="admin-list-tab" data-status-tab="maintained">
+                  维持封禁
+                </button>
+              </div>
+              <span id="resultCount">共 7 条</span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions">
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: 72px" />
+                  <col style="width: 180px" />
+                  <col style="width: 230px" />
+                  <col style="width: 126px" />
+                  <col style="width: 92px" />
+                  <col style="width: 92px" />
+                  <col style="width: 112px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>申诉人信息</th>
+                    <th>账号身份</th>
+                    <th>被封原因</th>
+                    <th>申诉理由</th>
+                    <th>提交时间</th>
+                    <th>申诉状态</th>
+                    <th>处置结果</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="appealRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" aria-label="上一页" disabled>
+                ‹</button
+              ><button
+                class="admin-page-btn active"
+                aria-current="page"
+                disabled
+              >
+                1</button
+              ><button class="admin-page-btn" aria-label="下一页" disabled>
+                ›
+              </button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="admin-overlay" id="processOverlay">
+      <section
+        class="admin-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="processTitle"
+      >
+        <div class="admin-modal-head">
+          <h2 id="processTitle">处理封禁申诉</h2>
+          <button
+            class="admin-icon-btn"
+            data-close="processOverlay"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </div>
+        <form id="processForm">
+          <div class="admin-modal-body">
+            <p id="processTarget"></p>
+            <div class="admin-form-row">
+              <label>处理结果</label>
+              <div class="admin-radio-group">
+                <label class="admin-radio-option"
+                  ><input
+                    type="radio"
+                    name="processResult"
+                    value="restore"
+                    required
+                  />
+                  恢复账号</label
+                >
+                <label class="admin-radio-option"
+                  ><input
+                    type="radio"
+                    name="processResult"
+                    value="maintain"
+                    required
+                  />
+                  维持封禁</label
+                >
+              </div>
+            </div>
+            <div class="admin-form-row">
+              <label for="processConclusion">处理结论</label
+              ><textarea
+                class="admin-textarea"
+                id="processConclusion"
+                placeholder="填写复核结论"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="processOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" type="submit">确认</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script>
+      const appeals = window.LUMA_ADMIN_MOCK.appeals;
+      const statusMap = {
+        pending: "待受理",
+        success: "申诉成功",
+        maintained: "维持封禁",
+      };
+      const rows = document.querySelector("#appealRows");
+      const resultCount = document.querySelector("#resultCount");
+      const pagination = document.querySelector("#pagination");
+      let renderedAppeals = appeals;
+      let activeStatus = "";
+      let currentAppeal = null;
+
+      function render(items) {
+        renderedAppeals = items;
+        resultCount.textContent = `共 ${items.length} 条`;
+        pagination.classList.toggle("state-hide", items.length === 0);
+        if (!items.length) {
+          rows.innerHTML =
+            '<tr><td colspan="8"><div class="admin-empty"><strong>未找到匹配申诉</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        rows.innerHTML = items
+          .map(
+            (appeal) => `
+        <tr>
+          <td><div class="admin-user-cell"><span class="admin-avatar">${appeal.initials}</span><span class="admin-user-name"><b>${appeal.name}</b>${Luma.id(appeal.appellantId, "用户ID")}</span></div></td>
+          <td><span class="admin-tag">${appeal.identity}</span></td>
+          <td><span class="admin-cell-ellipsis" title="${appeal.banReason}">${appeal.banReason}</span></td>
+          <td><span class="admin-cell-ellipsis" title="${appeal.appealReason}">${appeal.appealReason}</span></td>
+          <td class="admin-money">${appeal.submittedAt}</td>
+          <td><span class="admin-status ${appeal.status}">${statusMap[appeal.status]}</span></td>
+          <td>${appeal.result || "-"}</td>
+          <td><a class="admin-action" href="admin-ban-appeal-detail.html?id=${appeal.appealNo}">详情</a>${appeal.status === "pending" ? `<button class="admin-action" data-process="${appeal.appealNo}">处理</button>` : ""}</td>
+        </tr>`,
+          )
+          .join("");
+      }
+
+      function filterAppeals() {
+        const appellant = document
+          .querySelector("#appellant")
+          .value.trim()
+          .toLowerCase();
+        const identity = document.querySelector("#identity").value;
+        const start = document.querySelector("#dateStart").value;
+        const end = document.querySelector("#dateEnd").value;
+        if (start && end && start > end)
+          return Luma.toast("提交结束时间不能早于开始时间");
+        const filtered = appeals.filter(
+          (appeal) =>
+            `${appeal.appellantId} ${appeal.name}`
+              .toLowerCase()
+              .includes(appellant) &&
+            (!identity || appeal.identity === identity) &&
+            (!activeStatus || appeal.status === activeStatus) &&
+            (!start || appeal.submittedAt.slice(0, 10) >= start) &&
+            (!end || appeal.submittedAt.slice(0, 10) <= end),
+        );
+        render(filtered);
+        Luma.toast(`已查询到 ${filtered.length} 条申诉工单`);
+      }
+
+      function openProcess(appeal) {
+        currentAppeal = appeal;
+        document.querySelector("#processTarget").textContent =
+          `${appeal.name}（${appeal.appellantId}）· ${appeal.banReason}`;
+        document.querySelector("#processForm").reset();
+        document.querySelector("#processOverlay").classList.add("show");
+      }
+
+      function closeOverlays() {
+        document
+          .querySelectorAll(".admin-overlay")
+          .forEach((overlay) => overlay.classList.remove("show"));
+      }
+
+      document.querySelector("#searchBtn").onclick = filterAppeals;
+      document.querySelector("#resetBtn").onclick = () => {
+        document
+          .querySelectorAll(".admin-filter input")
+          .forEach((input) => (input.value = ""));
+        document
+          .querySelectorAll(".admin-filter select")
+          .forEach((select) => (select.selectedIndex = 0));
+        activeStatus = "";
+        document
+          .querySelectorAll("[data-status-tab]")
+          .forEach((button) =>
+            button.classList.toggle(
+              "active",
+              button.dataset.statusTab === activeStatus,
+            ),
+          );
+        render(appeals);
+        Luma.toast("筛选条件已重置");
+      };
+      document.querySelectorAll(".admin-filter input").forEach((input) =>
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") filterAppeals();
+        }),
+      );
+
+      document.addEventListener("click", (event) => {
+        const statusTab = event.target.closest("[data-status-tab]");
+        if (statusTab) {
+          activeStatus = statusTab.dataset.statusTab;
+          document
+            .querySelectorAll("[data-status-tab]")
+            .forEach((button) =>
+              button.classList.toggle(
+                "active",
+                button.dataset.statusTab === activeStatus,
+              ),
+            );
+          filterAppeals();
+        }
+        const process = event.target.closest("[data-process]");
+        if (process)
+          openProcess(
+            appeals.find(
+              (appeal) => appeal.appealNo === process.dataset.process,
+            ),
+          );
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const unbuilt = event.target.closest("[data-menu]:not(.active)");
+        if (unbuilt) Luma.toast(unbuilt.dataset.menu);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeOverlays();
+      });
+
+      document.querySelector("#processForm").onsubmit = (event) => {
+        event.preventDefault();
+        const result = document.querySelector(
+          '[name="processResult"]:checked',
+        ).value;
+        const conclusion = document
+          .querySelector("#processConclusion")
+          .value.trim();
+        if (!conclusion) return Luma.toast("请填写处理结论");
+        currentAppeal.status = result === "restore" ? "success" : "maintained";
+        currentAppeal.result = result === "restore" ? "恢复账号" : "维持封禁";
+        currentAppeal.accountStatus =
+          result === "restore" ? "正常" : currentAppeal.accountStatus;
+        currentAppeal.record = {
+          result: currentAppeal.result,
+          conclusion,
+          operator: "后台管理员",
+          processedAt: "2026-08-04 12:00",
+        };
+        document.querySelector("#processOverlay").classList.remove("show");
+        filterAppeals();
+        Luma.toast("申诉处理已提交");
+      };
+
+      render(appeals);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-ban-appeal.html" },
+        "*",
+      );
+      Luma.registerStates({
+        正常列表: () => {
+          closeOverlays();
+          render(appeals);
+        },
+        无查询结果: () => {
+          closeOverlays();
+          render([]);
+        },
+        处理申诉: () => {
+          render(appeals);
+          openProcess(appeals[0]);
+        },
+      });
+    </script>
+  </body>
+</html>

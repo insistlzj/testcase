@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title">
+  <title id="title">直播舞台封面</title>
+  <rect width="640" height="360" fill="#303442"/>
+  <rect y="250" width="640" height="110" fill="#20242e"/>
+  <circle cx="112" cy="70" r="42" fill="#e7a7b8"/>
+  <circle cx="532" cy="74" r="48" fill="#f0c98a"/>
+  <path d="M112 112 42 276h140z" fill="#e7a7b8" opacity=".22"/>
+  <path d="M532 122 452 276h160z" fill="#f0c98a" opacity=".2"/>
+  <ellipse cx="320" cy="300" rx="132" ry="26" fill="#151923"/>
+  <circle cx="320" cy="112" r="34" fill="#d99b82"/>
+  <path d="M284 108c4-46 68-51 76-3-14-12-27-18-40-18-14 0-26 7-36 21z" fill="#202532"/>
+  <path d="M294 147h52l24 112h-100z" fill="#9e5778"/>
+  <path d="m294 166-74 58 16 20 70-42M346 166l72 58-16 20-70-42" fill="none" stroke="#d99b82" stroke-width="18" stroke-linecap="round"/>
+  <path d="m290 258-40 70M350 258l42 70" fill="none" stroke="#d6dde8" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="214" cy="236" r="18" fill="#616b7d"/>
+  <circle cx="426" cy="236" r="18" fill="#616b7d"/>
+</svg>

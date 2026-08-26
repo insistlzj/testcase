@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>角色编辑 · 系统配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body class="admin-monochrome">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../analytics/admin-report-center.html"
+            ><span>数据分析</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            系统配置&nbsp;&nbsp;/&nbsp;&nbsp;角色权限&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              id="crumb"
+              >角色编辑</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-system-role.html"
+            >‹ 返回角色权限</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head">
+              <h2 id="pageTitle">角色编辑</h2>
+              <div class="admin-page-actions">
+                <a class="admin-btn secondary" href="admin-system-role.html"
+                  >取消</a
+                ><button class="admin-btn" type="submit" form="roleForm">
+                  保存
+                </button>
+              </div>
+            </div>
+            <form id="roleForm">
+              <div class="admin-form-grid">
+                <div class="admin-form-row">
+                  <label>角色 ID</label>
+                  <div class="admin-readonly-value" id="roleCode"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="roleName">角色名称</label
+                  ><input
+                    class="admin-input"
+                    id="roleName"
+                    maxlength="30"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="dataScope">数据范围</label
+                  ><select class="admin-select" id="dataScope">
+                    <option>全平台</option>
+                    <option>指定业务范围</option>
+                    <option>本人操作数据</option>
+                  </select>
+                </div>
+                <div class="admin-form-row">
+                  <label>角色状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="enabled" type="checkbox" /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="enabledText"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-detail-section">
+                <div class="admin-section-head">
+                  <h4>功能权限</h4>
+                  <span
+                    class="system-permission-count"
+                    id="permissionCount"
+                  ></span>
+                </div>
+                <div
+                  class="system-permission-groups"
+                  id="permissionGroups"
+                ></div>
+              </div>
+              <div class="admin-note state-hide" id="lockedNote">
+                超级管理员为系统内置角色，默认拥有全部权限，不允许修改。
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const S = LUMA_ADMIN_MOCK.system,
+        params = new URLSearchParams(location.search);
+      let isNew = params.get("new") === "1",
+        item = isNew
+          ? {
+              id: "系统生成",
+              name: "",
+              permissionCount: 0,
+              dataScope: "指定业务范围",
+              status: "enabled",
+              selected: [],
+            }
+          : S.roles.find((x) => x.id === params.get("id")) || S.roles[1];
+      let selected = new Set(
+        item.locked
+          ? S.permissions.flatMap((g) => g.items)
+          : item.selected ||
+            S.permissions
+              .flatMap((g) => g.items)
+              .slice(0, item.permissionCount),
+      );
+      function renderPermissions() {
+        permissionGroups.innerHTML = S.permissions
+          .map((group, index) => {
+            const all = group.items.every((x) => selected.has(x));
+            return /* HTML */ `<section class="system-permission-group">
+              <div class="system-permission-head">
+                <label
+                  ><input
+                    type="checkbox"
+                    data-group="${index}"
+                    ${all ? "checked" : ""}
+                    ${item.locked ? "disabled" : ""}
+                  />${group.group}</label
+                ><span class="system-permission-count"
+                  >${group.items.filter((x) => selected.has(x)).length} /
+                  ${group.items.length}</span
+                >
+              </div>
+              <div class="system-permission-items">
+                ${group.items
+                  .map(
+                    (x) =>
+                      `<label><input type="checkbox" data-permission="${x}" ${selected.has(x) ? "checked" : ""} ${item.locked ? "disabled" : ""}>${x}</label>`,
+                  )
+                  .join("")}
+              </div>
+            </section>`;
+          })
+          .join("");
+        permissionCount.textContent = `已选择 ${selected.size} 项权限`;
+      }
+      function render() {
+        crumb.textContent = pageTitle.textContent = isNew
+          ? "新建角色"
+          : "角色编辑";
+        roleCode.textContent = item.id;
+        roleName.value = item.name;
+        dataScope.value = item.dataScope;
+        enabled.checked = item.status === "enabled";
+        enabledText.textContent = enabled.checked ? "启用" : "停用";
+        lockedNote.classList.toggle("state-hide", !item.locked);
+        [roleName, dataScope, enabled].forEach(
+          (x) => (x.disabled = Boolean(item.locked)),
+        );
+        renderPermissions();
+      }
+      permissionGroups.onchange = (e) => {
+        const groupIndex = e.target.dataset.group,
+          permission = e.target.dataset.permission;
+        if (groupIndex !== undefined) {
+          S.permissions[Number(groupIndex)].items.forEach((x) =>
+            e.target.checked ? selected.add(x) : selected.delete(x),
+          );
+        } else if (permission) {
+          e.target.checked
+            ? selected.add(permission)
+            : selected.delete(permission);
+        }
+        renderPermissions();
+      };
+      enabled.onchange = () =>
+        (enabledText.textContent = enabled.checked ? "启用" : "停用");
+      roleForm.onsubmit = (e) => {
+        e.preventDefault();
+        if (item.locked) return Luma.toast("系统内置角色不可修改");
+        if (!selected.size) return Luma.toast("请至少选择一个功能权限");
+        if (S.roles.some((x) => x !== item && x.name === roleName.value.trim()))
+          return Luma.toast("角色名称已存在");
+        Object.assign(item, {
+          name: roleName.value.trim(),
+          dataScope: dataScope.value,
+          status: enabled.checked ? "enabled" : "disabled",
+          permissionCount: selected.size,
+          selected: [...selected],
+          updatedAt: "2026-08-07 10:30",
+        });
+        if (isNew) {
+          item.id = `ROLE${String(S.roles.length + 1).padStart(3, "0")}`;
+          item.accountCount = 0;
+          item.createdAt = "2026-08-07 10:30";
+          S.roles.push(item);
+          isNew = false;
+          history.replaceState(
+            null,
+            "",
+            `admin-system-role-detail.html?id=${item.id}`,
+          );
+        }
+        render();
+        Luma.toast("角色权限已保存");
+      };
+      render();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-system-role-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        编辑角色: () => {},
+        新建角色: () => (location.href = "admin-system-role-detail.html?new=1"),
+        系统内置角色: () =>
+          (location.href = "admin-system-role-detail.html?id=ROLE001"),
+      });
+    </script>
+  </body>
+</html>

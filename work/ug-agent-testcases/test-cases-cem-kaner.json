@@ -1,0 +1,3692 @@
+[
+  {
+    "module": "身份与会话",
+    "page": "代理端登录/受保护接口",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "代理身份",
+    "title": "验证总代理登录后可访问代理商核心数据",
+    "precondition": [
+      "存在启用状态的 GENERAL 代理账号",
+      "账号已完成协议确认并取得 agent 角色会话"
+    ],
+    "step": [
+      "使用该账号登录代理端",
+      "进入首页并请求 /agent/home/overview"
+    ],
+    "expected_result": [
+      "登录进入首页，首页概览接口返回该代理自身数据范围，不混入其他代理树数据"
+    ],
+    "Remarks": [
+      "原型有描述：B1 密码登录页、D1 首页总览",
+      "代码：gateway/.../SaTokenConfig.java；common-base/.../AgentLevel.java",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "代码快照：ug-server dev@dac9290；ug-app-agent main@10d2be8；原型 main@7d7e6d0。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "身份与会话",
+    "page": "代理端登录/受保护接口",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "代理身份",
+    "title": "验证普通代理登录后可访问代理商核心数据",
+    "precondition": [
+      "存在启用状态的 NORMAL 代理账号",
+      "账号已取得 agent 角色会话"
+    ],
+    "step": [
+      "使用该账号登录代理端",
+      "进入首页、客户列表和成长概览"
+    ],
+    "expected_result": [
+      "首页、客户和成长数据按当前普通代理的下级关系树返回"
+    ],
+    "Remarks": [
+      "原型有描述：B1 密码登录页",
+      "代码：common-base/.../AgentLevel.java 的 isAgent；各 agent Service 的 getCurrentAgentId",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "身份与会话",
+    "page": "代理端登录/受保护接口",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "非代理拦截",
+    "title": "验证会员或非会员不能调用代理端接口",
+    "precondition": [
+      "准备 MEMBER 或 NONMEMBER 账号",
+      "账号没有 agent 角色"
+    ],
+    "step": [
+      "携带该账号会话直接请求 /agent/home/overview"
+    ],
+    "expected_result": [
+      "网关拒绝请求并返回无权限响应，代理商数据不返回"
+    ],
+    "Remarks": [
+      "原型有描述：B1 会员非代理拦截",
+      "代码：gateway/.../SaTokenConfig.java 对 /agent/** 校验 agent 角色",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "身份与会话",
+    "page": "代理端登录/受保护接口",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "会话失效",
+    "title": "验证登录失效后受保护页面不保留旧数据",
+    "precondition": [
+      "代理账号曾成功登录并加载首页",
+      "使会话过期或撤销"
+    ],
+    "step": [
+      "重新进入首页",
+      "触发首页概览请求"
+    ],
+    "expected_result": [
+      "页面进入登录失效处理，不继续展示可被误认为当前有效的旧统计数据"
+    ],
+    "Remarks": [
+      "原型有描述：A1 登录失效拦截、K7 登录拦截",
+      "代码：gateway/.../SaTokenConfig.java 返回 unauthorized",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "国内手机号",
+    "title": "验证已有会员通过短信授权绑定为直接客户",
+    "precondition": [
+      "当前账号为代理",
+      "目标账号是已激活会员且存在有效会员卡",
+      "目标尚未绑定上级且不是代理"
+    ],
+    "step": [
+      "输入与会员档案一致的姓名和完整手机号",
+      "获取验证码",
+      "输入最新验证码并确认绑定"
+    ],
+    "expected_result": [
+      "目标 agent_info.parent_id 原子写入当前代理 ID，目标成为当前代理的直接客户且只绑定一次"
+    ],
+    "Remarks": [
+      "原型有描述：E5 App 只绑定既有会员、不创建账号、短信代表授权",
+      "代码：agent/.../AgentCustomerBindServiceImpl.java",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "姓名校验",
+    "title": "验证姓名与会员档案不一致时不能发送验证码",
+    "precondition": [
+      "当前账号为代理",
+      "手机号对应一个可绑定会员"
+    ],
+    "step": [
+      "输入该手机号和不一致姓名",
+      "点击获取验证码"
+    ],
+    "expected_result": [
+      "请求被拒绝，不生成 SENT 验证码记录，也不改变客户归属"
+    ],
+    "Remarks": [
+      "原型有描述：E5 姓名与手机号用于识别会员",
+      "代码：AgentCustomerBindServiceImplTest#rejectsNameThatDoesNotMatchMemberProfileWhenAgentRealNameIsEmpty",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "会员资格",
+    "title": "验证非会员不能被绑定",
+    "precondition": [
+      "手机号存在用户账号",
+      "该用户 memberLevel<=0 或不是会员"
+    ],
+    "step": [
+      "输入姓名与手机号",
+      "点击获取验证码"
+    ],
+    "expected_result": [
+      "请求被拒绝，不生成验证码，不建立代理关系"
+    ],
+    "Remarks": [
+      "原型有描述：E5 仅支持既有会员",
+      "代码：agent/.../AgentCustomerBindServiceImpl.java",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "会员卡状态",
+    "title": "验证没有有效会员卡的账号不能被绑定",
+    "precondition": [
+      "手机号对应会员账号",
+      "该账号没有有效会员卡"
+    ],
+    "step": [
+      "输入匹配的姓名与手机号",
+      "点击获取验证码"
+    ],
+    "expected_result": [
+      "请求被拒绝，客户归属保持不变"
+    ],
+    "Remarks": [
+      "原型未描述：会员卡是后端绑定资格条件",
+      "代码：AgentCustomerBindServiceImplTest#rejectsCustomerWithoutAnActiveMemberCard",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "已绑定客户",
+    "title": "验证已有上级的会员不能再次绑定",
+    "precondition": [
+      "目标会员的 parent_id 已指向其他代理"
+    ],
+    "step": [
+      "当前代理为该会员获取验证码或提交绑定"
+    ],
+    "expected_result": [
+      "请求被拒绝，原上级关系不变，不出现重复或迁移绑定"
+    ],
+    "Remarks": [
+      "原型有描述：E5 关联关系永久、已绑定时阻断",
+      "代码：AgentCustomerBindServiceImpl.java 的 parentId 校验与条件更新",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "代理账号",
+    "title": "验证代理账号不能作为普通客户被绑定",
+    "precondition": [
+      "目标手机号对应 GENERAL 或 NORMAL 代理"
+    ],
+    "step": [
+      "当前代理输入目标姓名和手机号",
+      "点击获取验证码"
+    ],
+    "expected_result": [
+      "请求被拒绝，不改变任何层级关系"
+    ],
+    "Remarks": [
+      "原型有描述：E5 绑定会员",
+      "代码：AgentCustomerBindServiceImpl.java 排除 agentLevel.isAgent()",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "层级环路",
+    "title": "验证不能把祖先代理绑定到其后代名下",
+    "precondition": [
+      "当前代理位于目标代理的后代关系链",
+      "构造可提交的绑定请求"
+    ],
+    "step": [
+      "提交验证码绑定"
+    ],
+    "expected_result": [
+      "服务拒绝产生层级环路，现有祖先和后代关系保持不变"
+    ],
+    "Remarks": [
+      "原型未描述：层级环路防护",
+      "代码：AgentCustomerBindServiceImplTest#rejectsBindingAnAncestorBelowItsDescendant",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "发送冷却",
+    "title": "验证同一手机号 60 秒内不能重复发送验证码",
+    "precondition": [
+      "当前代理已为目标手机号成功发送一次验证码",
+      "距上次发送不足 60 秒"
+    ],
+    "step": [
+      "再次点击获取验证码"
+    ],
+    "expected_result": [
+      "请求被限流，不新增第二条有效 SENT 验证码"
+    ],
+    "Remarks": [
+      "原型有描述：E5 验证码倒计时",
+      "代码默认值：send interval=60s；AgentCustomerBindServiceImplTest#sendRejectsRequestInsideSixtySecondCooldown",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "每日上限",
+    "title": "验证同一手机号达到每日 20 次后不能继续发送验证码",
+    "precondition": [
+      "同一手机号当日已达到 20 次发送记录",
+      "当前不在 60 秒冷却期"
+    ],
+    "step": [
+      "再次请求验证码"
+    ],
+    "expected_result": [
+      "请求被拒绝，当日发送计数不再增加"
+    ],
+    "Remarks": [
+      "原型未描述：发送次数上限",
+      "代码默认值：daily limit=20；agent/.../AgentCustomerBindServiceImpl.java",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "验证码有效期",
+    "title": "验证超过 5 分钟的验证码不能用于绑定",
+    "precondition": [
+      "已生成验证码",
+      "验证码创建时间超过 5 分钟且未使用"
+    ],
+    "step": [
+      "输入该验证码并确认绑定"
+    ],
+    "expected_result": [
+      "提交被拒绝，验证码不生效，客户 parent_id 仍为空"
+    ],
+    "Remarks": [
+      "原型未描述：验证码有效期",
+      "代码默认值：expiry=5m；AgentCustomerBindServiceImpl.java",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "最新验证码",
+    "title": "验证只有最新一条已发送验证码可以绑定",
+    "precondition": [
+      "同一代理与目标先后生成旧验证码和新验证码",
+      "两条记录均未手工标记使用"
+    ],
+    "step": [
+      "输入旧验证码提交"
+    ],
+    "expected_result": [
+      "旧验证码被拒绝，客户不绑定；只有最新 SENT 验证码具备消费资格"
+    ],
+    "Remarks": [
+      "原型未描述：最新验证码规则",
+      "代码：AgentCustomerBindServiceImplTest#rejectsAnOlderCodeWhenTheLatestSentCodeDiffers",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "验证码单次消费",
+    "title": "验证已使用验证码不能重复绑定",
+    "precondition": [
+      "验证码已成功用于一次绑定并标记 USED"
+    ],
+    "step": [
+      "重放同一确认请求"
+    ],
+    "expected_result": [
+      "重放被拒绝，不产生第二次绑定和重复审计记录"
+    ],
+    "Remarks": [
+      "原型有描述：验证码用于一次授权",
+      "代码：AgentCustomerBindServiceImpl.java 条件消费 SENT→USED",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "失败锁定",
+    "title": "验证连续 5 次验证码错误后锁定 10 分钟",
+    "precondition": [
+      "目标仍可绑定",
+      "同一账号与手机号已连续错误 4 次"
+    ],
+    "step": [
+      "第 5 次输入错误验证码",
+      "立即再输入正确验证码"
+    ],
+    "expected_result": [
+      "第 5 次错误触发 10 分钟锁定；锁定期内正确验证码也不能完成绑定"
+    ],
+    "Remarks": [
+      "原型未描述：错误次数与锁定窗口",
+      "代码默认值：max failures=5、lock=10m；AgentCustomerBindServiceImpl.java",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "并发绑定",
+    "title": "验证两个代理并发绑定同一客户只允许一个成功",
+    "precondition": [
+      "目标客户 parent_id 为空",
+      "两个代理分别持有可提交的验证码"
+    ],
+    "step": [
+      "同时提交两笔绑定确认"
+    ],
+    "expected_result": [
+      "仅一个条件更新成功，最终只有一个 parent_id；另一笔返回不可绑定，不出现双重归属"
+    ],
+    "Remarks": [
+      "原型有描述：关联关系唯一且永久",
+      "代码：AgentCustomerBindServiceImpl.java 的 update parent only if null",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P2",
+    "page_01": "前端字段联动",
+    "title": "验证修改姓名或手机号后旧验证码状态失效",
+    "precondition": [
+      "客户端已发送验证码并进入倒计时"
+    ],
+    "step": [
+      "修改姓名或手机号",
+      "尝试直接提交原验证码"
+    ],
+    "expected_result": [
+      "客户端清空验证码与已发送状态，必须针对新目标重新获取验证码"
+    ],
+    "Remarks": [
+      "原型有描述：E5 验证码绑定",
+      "代码：ug-app-agent/.../BindCustomerController 修改目标后 invalidate sent state",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E1 我的客户列表",
+    "type": "功能需求",
+    "priority": "P0",
+    "page_01": "全部客户",
+    "title": "验证客户列表只统计当前代理下 1 至 3 层去重客户",
+    "precondition": [
+      "当前代理下分别存在第 1、2、3、4 层客户",
+      "各客户 agent_id 唯一"
+    ],
+    "step": [
+      "进入客户列表并选择全部"
+    ],
+    "expected_result": [
+      "列表和总数包含第 1 至 3 层客户且每人只计一次，不包含第 4 层"
+    ],
+    "Remarks": [
+      "原型有描述：E1 直接+间接客户；总关系层级 1..3",
+      "代码：agent/.../AgentInfoMapper.xml 的 customer_tree relation_layer<3",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E1 我的客户列表",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "直接/间接筛选",
+    "title": "验证直接和间接客户筛选口径",
+    "precondition": [
+      "当前代理下存在第 1、2、3 层客户"
+    ],
+    "step": [
+      "依次选择直接、间接筛选"
+    ],
+    "expected_result": [
+      "直接仅返回 relationLayer=1；间接仅返回 relationLayer=2 或 3，集合互斥且并集等于全部"
+    ],
+    "Remarks": [
+      "原型有描述：E1 直接/间接标签",
+      "代码：AgentInfoMapper.xml relation type DIRECT/INDIRECT",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E1 我的客户列表",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "关键词搜索",
+    "title": "验证直接客户可按完整编号姓名手机号搜索",
+    "precondition": [
+      "存在直接客户，准备其完整 userCode、姓名和完整手机号"
+    ],
+    "step": [
+      "分别输入三种关键词搜索"
+    ],
+    "expected_result": [
+      "三次均只返回匹配的直接客户"
+    ],
+    "Remarks": [
+      "原型有描述：E1 搜索",
+      "代码：AgentInfoMapper.xml 对直接客户搜索完整 code/name/phone",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E1 我的客户列表",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "间接客户搜索隐私",
+    "title": "验证不能用间接客户完整隐私信息反查客户",
+    "precondition": [
+      "存在间接客户，掌握其完整姓名、手机号和编号"
+    ],
+    "step": [
+      "分别用完整姓名、完整手机号、编号被遮蔽部分搜索"
+    ],
+    "expected_result": [
+      "结果不因隐私字段命中而暴露该客户；仅允许使用接口返回的脱敏可见值进行受限搜索"
+    ],
+    "Remarks": [
+      "原型有描述：E2 间接客户脱敏",
+      "代码：AgentInfoMapper.xml 间接搜索仅使用 masked code/name",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E1 我的客户列表",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "默认排序",
+    "title": "验证客户列表按最近订单时间排序",
+    "precondition": [
+      "准备多名客户，最近订单时间不同，其中一人无订单"
+    ],
+    "step": [
+      "进入客户列表"
+    ],
+    "expected_result": [
+      "有订单客户按最近订单时间倒序排列；无订单客户按实现的空值次序稳定展示"
+    ],
+    "Remarks": [
+      "原型有描述：E1 按最新订单排序",
+      "代码：AgentInfoMapper.xml 支持 latest order/latest added 排序",
+      "待确认：无订单客户与同时间客户的最终产品排序口径",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E1 我的客户列表",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "分页",
+    "title": "验证客户列表分页不重复不漏数",
+    "precondition": [
+      "当前代理有 41 名可见客户",
+      "客户端页大小为 20"
+    ],
+    "step": [
+      "连续加载第 1、2、3 页"
+    ],
+    "expected_result": [
+      "三页分别返回 20、20、1 条，跨页 agent_id 不重复，总数为 41"
+    ],
+    "Remarks": [
+      "原型有描述：E1 客户列表",
+      "代码：ug-app-agent 客户列表 pageSize=20",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "直接客户隐私",
+    "title": "验证直接客户详情保留完整身份信息",
+    "precondition": [
+      "目标是当前代理第 1 层直接客户"
+    ],
+    "step": [
+      "从列表进入客户详情"
+    ],
+    "expected_result": [
+      "姓名、用户编号和手机号按数据源完整返回，并允许进入订单详情"
+    ],
+    "Remarks": [
+      "原型有描述：E2 直接客户完整数据且可查看订单",
+      "代码：AgentCustomerPrivacyUtil.java 对 direct=true 不脱敏",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "间接客户隐私",
+    "title": "验证间接客户及其上级信息被脱敏",
+    "precondition": [
+      "目标是当前代理第 2 或 3 层间接客户"
+    ],
+    "step": [
+      "从列表进入客户详情"
+    ],
+    "expected_result": [
+      "客户姓名仅首字符可见后缀 **，编号最多前 5 个字符后缀 **，手机号按统一规则脱敏；上级姓名和编号同样脱敏"
+    ],
+    "Remarks": [
+      "原型有描述：E2 间接客户脱敏",
+      "代码：agent/.../AgentCustomerPrivacyUtil.java",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "间接订单限制",
+    "title": "验证间接客户不能打开订单详情",
+    "precondition": [
+      "目标是第 2 或 3 层间接客户",
+      "该客户存在成长记录"
+    ],
+    "step": [
+      "在成长记录中尝试进入订单详情",
+      "或直接请求记录中的 consumeNo"
+    ],
+    "expected_result": [
+      "客户端不提供可用入口；服务端直接访问也只能在当前代理数据范围内返回，产品层面不得借此暴露间接客户完整订单隐私"
+    ],
+    "Remarks": [
+      "原型有描述：E2 间接客户不能查看订单详情",
+      "代码：客户端根据 direct 控制入口；AgentOrderMapper.xml 仍允许关系树 1..3",
+      "待确认：后端是否也应强制仅 relation_layer=1",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "越权客户",
+    "title": "验证不属于当前代理关系树的客户详情不可访问",
+    "precondition": [
+      "准备另一代理树下的 customerAgentId"
+    ],
+    "step": [
+      "直接请求该客户详情接口"
+    ],
+    "expected_result": [
+      "返回资源不存在或等价拒绝，不返回客户身份、消费和成长数据"
+    ],
+    "Remarks": [
+      "原型有描述：K4 无权限、K5 内容失效",
+      "代码：AgentHomeServiceImpl 先按当前 agentId 约束详情查询",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E4 订单详情",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "越权订单",
+    "title": "验证不属于当前代理关系树的订单不可访问",
+    "precondition": [
+      "获取另一代理树客户的 consumeNo"
+    ],
+    "step": [
+      "直接请求 /agent/order/{consumeNo}"
+    ],
+    "expected_result": [
+      "返回资源不存在，不返回订单金额、门店和客户信息"
+    ],
+    "Remarks": [
+      "原型有描述：E4 订单详情、K4 无权限",
+      "代码：AgentOrderServiceImpl.java；AgentOrderMapper.xml customer_tree",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E4 订单详情",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "订单类型",
+    "title": "验证商品项目和医材订单详情按支付流水关联",
+    "precondition": [
+      "分别准备 goods、project、medical_material 支付流水",
+      "订单属于当前代理可见关系树"
+    ],
+    "step": [
+      "依次打开三类订单详情"
+    ],
+    "expected_result": [
+      "每类都返回对应订单号、类型、支付金额、退款金额、时间及门店/项目字段，不串单"
+    ],
+    "Remarks": [
+      "原型有描述：E4 订单详情",
+      "代码：AgentOrderMapper.xml 三个 UNION 分支；AgentOrderMapperXmlTest",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "成长值合计",
+    "title": "验证客户总成长值等于已发放加待发放",
+    "precondition": [
+      "客户有已发放 120.00、待发放 30.00、已回滚 50.00 的佣金记录"
+    ],
+    "step": [
+      "进入客户详情"
+    ],
+    "expected_result": [
+      "已发放为 120.00，待发放为 30.00，总成长值为 150.00；已回滚 50.00 不计入"
+    ],
+    "Remarks": [
+      "原型有描述：E2 成长统计",
+      "代码：AgentInfoMapper.xml detail growth sums；AgentHomeServiceImpl 默认空值为 0",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "消费净额",
+    "title": "验证客户累计消费按支付额减退款额且不为负",
+    "precondition": [
+      "客户有支付 1000.00 退款 250.00 的订单、支付 300.00 退款 300.00 的订单"
+    ],
+    "step": [
+      "进入客户详情"
+    ],
+    "expected_result": [
+      "累计消费金额为 750.00，单笔退款不允许使净消费为负数"
+    ],
+    "Remarks": [
+      "原型有描述：E2 累计消费",
+      "代码：AgentInfoMapper.xml AgentPaidOrderCte 使用 GREATEST(pay-refund,0)",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "订单笔数去重",
+    "title": "验证订单笔数按订单类型和订单 ID 去重",
+    "precondition": [
+      "同一业务订单产生多条余额流水或佣金受益人记录",
+      "另有不同类型但相同数值 ID 的订单"
+    ],
+    "step": [
+      "查看客户详情订单数"
+    ],
+    "expected_result": [
+      "同一类型同一订单 ID 只计 1 笔；不同类型即使 ID 相同也分别计数"
+    ],
+    "Remarks": [
+      "原型有描述：E2 订单笔数",
+      "代码：AgentInfoMapper.xml COUNT(DISTINCT CONCAT(order_type,':',order_id))",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "全额退款历史订单",
+    "title": "验证全额退款订单保留历史笔数但消费净额归零",
+    "precondition": [
+      "商品订单已支付 500.00 后全额退款 500.00，订单未被物理删除"
+    ],
+    "step": [
+      "查看客户详情"
+    ],
+    "expected_result": [
+      "历史订单笔数仍包含该订单，累计消费对该订单贡献为 0.00"
+    ],
+    "Remarks": [
+      "原型未描述：退款后历史订单计数口径",
+      "代码：AgentPaidOrderCte 保留已支付订单并将净额压到 0",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "功能需求",
+    "priority": "P2",
+    "page_01": "空数据",
+    "title": "验证无订单无成长客户详情显示零值",
+    "precondition": [
+      "直接客户已绑定但没有订单和佣金记录"
+    ],
+    "step": [
+      "进入客户详情"
+    ],
+    "expected_result": [
+      "订单数、累计消费、已发放、待发放、总成长值均显示 0，不显示 null"
+    ],
+    "Remarks": [
+      "原型有描述：E2 空数据",
+      "代码：AgentHomeServiceImpl 对 totalGrowthAmount 等空值补 0；客户端模型有默认值",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "累计客户",
+    "title": "验证首页累计客户按当前代理 1 至 3 层去重",
+    "precondition": [
+      "关系树有第 1 层 2 人、第 2 层 3 人、第 3 层 4 人、第 4 层 5 人"
+    ],
+    "step": [
+      "打开首页总览"
+    ],
+    "expected_result": [
+      "累计客户显示 9，不包含第 4 层且同一 agent_id 不重复"
+    ],
+    "Remarks": [
+      "原型有描述：D1 当前代理直接+间接客户去重",
+      "代码：AgentInfoMapper.xml findHomeOverview",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "本月新增客户",
+    "title": "验证本月新增客户以绑定时间落月统计",
+    "precondition": [
+      "准备上月末、本月首日 00:00、本月中和下月首日 00:00 绑定的客户"
+    ],
+    "step": [
+      "打开首页总览"
+    ],
+    "expected_result": [
+      "仅本月首日含边界到下月首日前的客户计入本月新增"
+    ],
+    "Remarks": [
+      "原型有描述：D1 本月新增客户按关联时间",
+      "代码：AgentInfoMapper.xml 月度条件",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "累计订单",
+    "title": "验证首页累计订单跨类型去重统计",
+    "precondition": [
+      "客户树中存在多类已支付订单及重复流水",
+      "另有待支付和取消订单"
+    ],
+    "step": [
+      "打开首页总览"
+    ],
+    "expected_result": [
+      "只统计符合支付/消费条件的业务订单，并按 order_type+order_id 去重；待支付和取消不计入"
+    ],
+    "Remarks": [
+      "原型有描述：D1 累计订单",
+      "代码：AgentInfoMapper.xml AgentPaidOrderCte、distinct order key",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "本月订单",
+    "title": "验证本月订单按业务统计时间落月",
+    "precondition": [
+      "准备月界前后完成或支付的订单"
+    ],
+    "step": [
+      "打开首页总览"
+    ],
+    "expected_result": [
+      "本月订单只包含代码口径下统计时间位于本月区间的订单"
+    ],
+    "Remarks": [
+      "原型有描述：D1 本月订单",
+      "代码：AgentInfoMapper.xml findHomeOverview",
+      "待确认：不同订单类型统一采用支付时间还是完成/核销时间作为月度口径",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "累计成长值",
+    "title": "验证首页累计成长值排除已回滚记录",
+    "precondition": [
+      "当前代理有 RELEASED 200.00、FROZEN 80.00、ROLLED_BACK 50.00 佣金"
+    ],
+    "step": [
+      "打开首页总览"
+    ],
+    "expected_result": [
+      "累计成长值显示 280.00，已回滚 50.00 不计入"
+    ],
+    "Remarks": [
+      "原型有描述：D1 累计成长值含已发放+待发放",
+      "代码：AgentInfoMapper.xml commission_total status<>rolled_back",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "本月成长值",
+    "title": "验证本月成长值按佣金记录时间且排除回滚",
+    "precondition": [
+      "准备本月与上月佣金记录，并包含本月 ROLLED_BACK 记录"
+    ],
+    "step": [
+      "打开首页总览"
+    ],
+    "expected_result": [
+      "本月成长值仅汇总本月非回滚佣金，跨月和已回滚金额不计入"
+    ],
+    "Remarks": [
+      "原型有描述：D1 本月成长值",
+      "代码：AgentInfoMapper.xml commission_month",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "消费金额",
+    "title": "验证首页消费总额按退款后净额累计",
+    "precondition": [
+      "客户树内有支付 1200.00、退款 200.00 的订单",
+      "另有客户树外支付订单"
+    ],
+    "step": [
+      "进入成长概览或首页关联统计"
+    ],
+    "expected_result": [
+      "当前代理范围内消费总额为 1000.00，树外订单不计入"
+    ],
+    "Remarks": [
+      "原型有描述：D1/E2 数据统计",
+      "代码：AgentInfoMapper.xml growth overview total_consume_amount",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "零值",
+    "title": "验证没有客户订单和佣金时首页返回完整零值",
+    "precondition": [
+      "新代理无下级、无订单、无佣金、无钱包记录"
+    ],
+    "step": [
+      "打开首页"
+    ],
+    "expected_result": [
+      "客户、订单、成长值和本月指标均为 0，不出现 null、NaN 或加载失败"
+    ],
+    "Remarks": [
+      "原型有描述：D1 数据为空显示 0",
+      "代码：AgentHomeServiceImpl.java 和客户端模型默认值",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "未读消息",
+    "title": "验证首页未读消息按登录账号而不是代理实体统计",
+    "precondition": [
+      "同一代理实体关联明确的登录 accountId",
+      "该 accountId 有 3 条未读消息，其他账号有 2 条"
+    ],
+    "step": [
+      "打开首页"
+    ],
+    "expected_result": [
+      "未读消息数显示 3，不混入其他账号消息"
+    ],
+    "Remarks": [
+      "原型有描述：D1 消息入口",
+      "代码：AgentHomeServiceImplTest#homeOverviewCountsUnreadMessagesByLoginAccountId",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "异常用例",
+    "priority": "P1",
+    "page_01": "刷新失败",
+    "title": "验证首页刷新失败不把旧统计误写成零",
+    "precondition": [
+      "首页已加载一组有效统计",
+      "模拟网络或依赖错误"
+    ],
+    "step": [
+      "下拉刷新首页"
+    ],
+    "expected_result": [
+      "页面展示请求失败与重试入口；旧数据若保留必须明确为旧值，不用默认零覆盖已加载结果"
+    ],
+    "Remarks": [
+      "原型有描述：K3 网络异常",
+      "原型未描述：失败时旧数据保留策略",
+      "待确认：客户端具体缓存展示策略",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "功能需求",
+    "priority": "P0",
+    "page_01": "团队范围",
+    "title": "验证团队成员只包含下级第 1 和第 2 层代理",
+    "precondition": [
+      "当前代理下有第 1、2、3 层 GENERAL/NORMAL 代理及普通会员"
+    ],
+    "step": [
+      "进入团队列表"
+    ],
+    "expected_result": [
+      "仅列出第 1、2 层 GENERAL/NORMAL 代理；第 3 层代理及 MEMBER/NONMEMBER 不作为团队成员"
+    ],
+    "Remarks": [
+      "原型有描述：E3 下一层+第二层团队",
+      "代码：AgentInfoMapper.xml AgentTeamCommonCtes",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "团队人数",
+    "title": "验证团队人数按代理 ID 去重",
+    "precondition": [
+      "同一团队成员通过多条业务记录参与统计"
+    ],
+    "step": [
+      "查看团队概览"
+    ],
+    "expected_result": [
+      "团队人数等于第 1、2 层有效代理的 distinct agent_id 数量"
+    ],
+    "Remarks": [
+      "原型有描述：E3 团队人数",
+      "代码：AgentInfoMapper.xml COUNT(DISTINCT team_agent_id)",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "团队贡献",
+    "title": "验证团队贡献只汇总团队代理直接客户产生的非回滚佣金",
+    "precondition": [
+      "团队代理 A 的直接客户产生 RELEASED 100、FROZEN 50、ROLLED_BACK 20",
+      "A 的间接客户另有佣金 30"
+    ],
+    "step": [
+      "查看团队概览和 A 的列表行"
+    ],
+    "expected_result": [
+      "A 的贡献为 150.00，不计已回滚 20.00和不属于其直接客户口径的 30.00"
+    ],
+    "Remarks": [
+      "原型有描述：E3 团队贡献",
+      "代码：AgentInfoMapper.xml contribution CTE",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "团队客户数",
+    "title": "验证团队客户数使用团队后代关系层级口径",
+    "precondition": [
+      "构造团队成员及其下级第 2、3 层客户，包含重复业务记录"
+    ],
+    "step": [
+      "查看团队概览"
+    ],
+    "expected_result": [
+      "客户数按代码定义的团队后代层级与 distinct agent_id 汇总，不因订单或佣金多行重复"
+    ],
+    "Remarks": [
+      "原型有描述：E3 客户统计",
+      "代码：AgentInfoMapper.xml team customer_count",
+      "待确认：产品希望统计相对当前代理第 2/3 层，还是每名团队代理各自直接/间接客户",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "团队订单数",
+    "title": "验证团队订单数按业务订单去重",
+    "precondition": [
+      "团队范围客户有多类型订单和重复支付/佣金记录"
+    ],
+    "step": [
+      "查看团队概览与成员行"
+    ],
+    "expected_result": [
+      "订单数按 order_type+order_id 去重，不按流水行或佣金受益人数量放大"
+    ],
+    "Remarks": [
+      "原型有描述：E3 订单统计",
+      "代码：AgentInfoMapper.xml team order_count",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "贡献排名",
+    "title": "验证团队按贡献降序并用代理 ID 稳定破同分",
+    "precondition": [
+      "A 贡献 300、B 贡献 500、C 贡献 300，且 A.agentId<C.agentId"
+    ],
+    "step": [
+      "打开团队列表"
+    ],
+    "expected_result": [
+      "B 排名在前；A 与 C 同分时按 team_agent_id 升序稳定排序，分页前后顺序不跳动"
+    ],
+    "Remarks": [
+      "原型有描述：E3 团队排行",
+      "代码：AgentInfoMapper.xml ORDER BY contribution DESC, team_agent_id",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "分页",
+    "title": "验证团队列表分页累计排名连续",
+    "precondition": [
+      "当前代理有 21 名可见团队代理",
+      "客户端页大小 20"
+    ],
+    "step": [
+      "加载第 1 页和第 2 页"
+    ],
+    "expected_result": [
+      "第一页 20 条、第二页 1 条；排名从 1 连续到 21，无重复或跳号"
+    ],
+    "Remarks": [
+      "原型有描述：E3 团队列表",
+      "代码：ug-app-agent TeamController pageSize=20",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "普通代理权限",
+    "title": "验证普通代理按当前实现可访问团队概览和列表",
+    "precondition": [
+      "使用 NORMAL 代理登录",
+      "其下存在代理成员"
+    ],
+    "step": [
+      "请求团队概览和团队分页接口"
+    ],
+    "expected_result": [
+      "当前实现返回该普通代理自身关系树的团队数据"
+    ],
+    "Remarks": [
+      "代码：AgentInfoServiceImplTest#normalAgentCanAccessTeamData",
+      "待确认：Controller 注释与产品原型是否期望仅 GENERAL 可见；当前服务实现允许 NORMAL",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "树外隔离",
+    "title": "验证团队统计不混入其他代理树",
+    "precondition": [
+      "另一个顶级代理树存在高贡献团队成员和大量订单"
+    ],
+    "step": [
+      "当前代理查看团队概览和列表"
+    ],
+    "expected_result": [
+      "人数、贡献、客户和订单均不包含另一棵代理树数据"
+    ],
+    "Remarks": [
+      "原型有描述：E3 当前代理团队",
+      "代码：AgentInfoMapper.xml recursive roots by current agentId",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "订单完成→佣金生成",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "商品订单",
+    "title": "验证已完成商品订单生成冻结佣金",
+    "precondition": [
+      "商品订单已支付且状态 FINISH",
+      "当前有效佣金规则存在",
+      "订单尚无佣金记录"
+    ],
+    "step": [
+      "等待佣金任务扫描该订单"
+    ],
+    "expected_result": [
+      "为订单生成平台、成本、实际代理层级或总池记录；代理佣金状态为 FROZEN，pendingAmount 等于佣金金额，冻结截止时间为完成时间加 7 天"
+    ],
+    "Remarks": [
+      "原型有描述：F1 待发放成长值、E4 订单详情",
+      "代码：admin/.../AgentCommissionRecordServiceImpl.java；CommissionTask.java",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "订单完成→佣金生成",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "项目订单已消费",
+    "title": "验证部分核销项目订单可生成佣金",
+    "precondition": [
+      "项目订单状态 WAIT_USE",
+      "totalCount=3、remainCount=2",
+      "存在已扣减工单且未生成佣金"
+    ],
+    "step": [
+      "运行佣金生成任务"
+    ],
+    "expected_result": [
+      "该项目订单被识别为可佣金订单并生成冻结记录"
+    ],
+    "Remarks": [
+      "原型未描述：项目订单核销资格",
+      "代码：OrderCompletionCommissionServiceTest#partiallyConsumedProjectIsEligibleForCommissionSettlement",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "订单完成→佣金生成",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "项目订单未消费",
+    "title": "验证完全未核销项目订单不生成佣金",
+    "precondition": [
+      "项目订单 WAIT_USE，totalCount=remainCount=3"
+    ],
+    "step": [
+      "运行佣金生成任务"
+    ],
+    "expected_result": [
+      "订单不进入可佣金集合，不生成佣金记录"
+    ],
+    "Remarks": [
+      "原型未描述：项目订单核销资格",
+      "代码：OrderCompletionCommissionServiceTest#unusedProjectIsNotEligibleForCommissionSettlement",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "订单完成→佣金生成",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "医材订单",
+    "title": "验证已支付且已扣减工单的医材订单生成佣金",
+    "precondition": [
+      "医材订单状态 PAID",
+      "关联工单已扣减",
+      "订单尚无佣金记录"
+    ],
+    "step": [
+      "运行佣金生成任务"
+    ],
+    "expected_result": [
+      "订单生成冻结佣金记录；未扣减工单的医材订单不生成"
+    ],
+    "Remarks": [
+      "原型有描述：E4 订单详情",
+      "代码：AgentCommissionRecordMapper.findCommissionableOrders SQL",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "佣金规则",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "分配比例合计",
+    "title": "验证直推与两层间推分配比例必须合计 100%",
+    "precondition": [
+      "准备规则 direct=50%、indirect1=30%、indirect2=10%"
+    ],
+    "step": [
+      "保存或启用该规则"
+    ],
+    "expected_result": [
+      "规则被拒绝，不能用于订单佣金生成"
+    ],
+    "Remarks": [
+      "原型未描述：佣金后台规则校验",
+      "代码：AgentCommissionRuleSaveRequestTest#rejectsDistributionRatesThatDoNotTotalOne",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "佣金规则",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "层级比例顺序",
+    "title": "验证分配比例不能随层级加深而升高",
+    "precondition": [
+      "准备 direct=50%、indirect1=20%、indirect2=30%"
+    ],
+    "step": [
+      "保存或启用该规则"
+    ],
+    "expected_result": [
+      "规则被拒绝，不能产生层级越深比例反而越高的分配"
+    ],
+    "Remarks": [
+      "原型未描述：佣金后台规则校验",
+      "代码：AgentCommissionRuleSaveRequestTest#rejectsDistributionRatesThatIncreaseByLayer",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "佣金规则",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "基础扣减比例",
+    "title": "验证平台费率与成本费率合计不能超过 100%",
+    "precondition": [
+      "准备 platform=60%、cost=50% 的规则"
+    ],
+    "step": [
+      "保存或启用该规则"
+    ],
+    "expected_result": [
+      "规则被拒绝，避免可分配金额为负数"
+    ],
+    "Remarks": [
+      "原型未描述：佣金后台规则校验",
+      "代码：AgentCommissionRuleSaveRequestTest#rejectsBaseRatesAboveOneHundredPercent",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "佣金计算",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "标准金额",
+    "title": "验证佣金按平台成本扣减后再按层级比例分配",
+    "precondition": [
+      "订单实付 1000.00",
+      "测试规则 platform=10%、cost=20%、direct=50%、indirect1=30%、indirect2=20%",
+      "三层受益代理均存在"
+    ],
+    "step": [
+      "触发订单佣金生成"
+    ],
+    "expected_result": [
+      "平台金额=100.00，成本金额=200.00，可分配金额=700.00；直推=350.00，间推1=210.00，间推2=140.00，分配合计与可分配金额一致"
+    ],
+    "Remarks": [
+      "原型未描述：平台、成本与层级金额的后端精确公式",
+      "代码：AgentCommissionRecordServiceImpl.java 先扣平台和成本再分层",
+      "测试数据说明：示例费率与金额仅用于验证公式，不代表生产配置。",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "佣金计算",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "两位小数残差",
+    "title": "验证舍入残差由最后一层吸收且总额守恒",
+    "precondition": [
+      "订单实付 100.01",
+      "测试规则 platform=10%、cost=20%、direct=50%、indirect1=30%、indirect2=20%",
+      "三层受益代理均存在"
+    ],
+    "step": [
+      "触发佣金生成"
+    ],
+    "expected_result": [
+      "平台=10.00、成本=20.00、可分配=70.01；直推=35.01、间推1=21.00、间推2=14.00，三层合计严格等于 70.01"
+    ],
+    "Remarks": [
+      "原型未描述：两位小数与残差分配规则",
+      "代码：AgentCommissionRecordServiceImpl.java scale2 HALF_UP，indirect2 使用残差",
+      "测试数据说明：示例费率与金额仅用于验证公式，不代表生产配置。",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "佣金计算",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "缺失上级",
+    "title": "验证缺失的间推层金额进入总池",
+    "precondition": [
+      "订单实付 1000.00",
+      "测试规则 platform=30%、cost=30%、direct=70%、indirect1=20%、indirect2=10%",
+      "仅直推总代理存在，后两层不存在"
+    ],
+    "step": [
+      "触发佣金生成"
+    ],
+    "expected_result": [
+      "平台=300.00、成本=300.00、直推代理=280.00；缺失两层合计 120.00 进入总池，不凭空消失或错误给直推代理"
+    ],
+    "Remarks": [
+      "原型未描述：缺失层级金额进入总池",
+      "代码：OrderCompletionCommissionServiceTest#generalAgentAtDirectLayerUsesUniversalRateAndMissingLayersFlowIntoPool",
+      "测试数据说明：示例费率与金额仅用于验证公式，不代表生产配置。",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "佣金计算",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "重复任务",
+    "title": "验证同一订单被重复扫描不会重复生成佣金",
+    "precondition": [
+      "某订单已生成完整佣金记录",
+      "定时任务再次扫描同一订单"
+    ],
+    "step": [
+      "再次执行佣金生成任务"
+    ],
+    "expected_result": [
+      "不新增该订单的第二组佣金记录，首页和成长统计不翻倍"
+    ],
+    "Remarks": [
+      "原型未描述：定时任务幂等",
+      "代码：findCommissionableOrders 排除已有 commission records",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "佣金计算",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "批量边界",
+    "title": "验证单轮最多处理 200 笔且后续轮次可继续",
+    "precondition": [
+      "准备 201 笔符合条件且未生成佣金的订单"
+    ],
+    "step": [
+      "执行一次任务",
+      "再执行下一次任务"
+    ],
+    "expected_result": [
+      "第一轮最多生成 200 笔，下一轮处理剩余订单；最终 201 笔各生成一次"
+    ],
+    "Remarks": [
+      "原型未描述：批处理",
+      "代码：AgentCommissionRecordServiceImpl batch size=200；CommissionTask 每分钟执行",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "冻结→发放",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "冻结期内",
+    "title": "验证完成后未满 7 天的佣金保持待发放",
+    "precondition": [
+      "订单完成时间加 7 天尚未到达",
+      "佣金状态 FROZEN"
+    ],
+    "step": [
+      "执行到期结算任务"
+    ],
+    "expected_result": [
+      "佣金仍为 FROZEN，pendingAmount 不变，代理可用余额不增加"
+    ],
+    "Remarks": [
+      "原型有描述：F1 待发放成长值",
+      "代码：AgentCommissionRecordServiceImpl freeze days=7",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "冻结→发放",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "到期发放",
+    "title": "验证满 7 天且订单仍有效时佣金发放到钱包",
+    "precondition": [
+      "佣金冻结截止时间已到",
+      "订单未退款且仍满足佣金资格",
+      "钱包可用余额为 100.00，待发放佣金 35.00"
+    ],
+    "step": [
+      "执行到期结算任务"
+    ],
+    "expected_result": [
+      "佣金变为 RELEASED，releasedAmount=35.00、pendingAmount=0；钱包可用余额变为 135.00"
+    ],
+    "Remarks": [
+      "原型有描述：F1 可用/已发放/待发放",
+      "代码：AgentCommissionRecordServiceImpl settlement；AgentWalletMapper",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "退款→回滚",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "冻结期全额退款",
+    "title": "验证冻结期内全额退款将佣金全部回滚",
+    "precondition": [
+      "订单实付 1000.00 后全额退款 1000.00",
+      "相关佣金仍为 FROZEN"
+    ],
+    "step": [
+      "触发退款回滚或结算扫描"
+    ],
+    "expected_result": [
+      "全部佣金变为 ROLLED_BACK，pendingAmount=0，不增加代理钱包余额，成长统计不再计入"
+    ],
+    "Remarks": [
+      "原型有描述：E4 已退款、F1 成长统计",
+      "代码：AgentCommissionRecordServiceImpl full refund rollback",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "退款→回滚",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "冻结期部分退款",
+    "title": "验证部分退款按未退款比例保留佣金",
+    "precondition": [
+      "订单实付 1000.00，退款 250.00",
+      "某代理原冻结佣金 350.00"
+    ],
+    "step": [
+      "触发退款回滚处理"
+    ],
+    "expected_result": [
+      "退款比例=25%；该代理保留佣金 262.50，减少 87.50，后续只按 262.50 发放且不重复缩放"
+    ],
+    "Remarks": [
+      "原型有描述：E4 部分/已退款状态",
+      "代码：AgentCommissionRecordServiceImpl refund ratio 与 rollbackTime 防重复缩放",
+      "测试数据说明：示例费率与金额仅用于验证公式，不代表生产配置。",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "退款→回滚",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "重复部分退款事件",
+    "title": "验证相同累计退款金额重复通知不会二次缩减佣金",
+    "precondition": [
+      "订单已按累计退款 25% 将佣金 350.00 缩减到 262.50",
+      "重复投递相同退款状态"
+    ],
+    "step": [
+      "再次执行退款回滚处理"
+    ],
+    "expected_result": [
+      "佣金仍为 262.50，不再次乘以 75%"
+    ],
+    "Remarks": [
+      "原型未描述：退款事件幂等",
+      "代码：AgentCommissionRecordServiceImpl 使用 rollbackTime/状态避免重复缩放",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "退款→回滚",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "超额退款防护",
+    "title": "验证退款金额大于等于实付时按全额退款处理",
+    "precondition": [
+      "订单实付 1000.00，累计退款记录为 1000.00 或 1100.00"
+    ],
+    "step": [
+      "执行退款处理"
+    ],
+    "expected_result": [
+      "退款比例封顶为 100%，相关佣金全部回滚，不出现负佣金或负保留额"
+    ],
+    "Remarks": [
+      "原型未描述：异常退款金额",
+      "代码：AgentCommissionRecordServiceImpl refund>=pay -> ratio 1",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "退款→回滚",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "退款后明细",
+    "title": "验证部分退款保留一条成长明细而全额退款金额归零",
+    "precondition": [
+      "分别准备部分退款与全额退款订单"
+    ],
+    "step": [
+      "查看成长明细和客户成长记录"
+    ],
+    "expected_result": [
+      "部分退款订单仍为一条业务成长记录且金额为保留额；全额回滚记录不再贡献成长金额"
+    ],
+    "Remarks": [
+      "原型有描述：F5/E4 退款相关明细",
+      "代码：AgentCommissionRecordMapperXmlTest#keepsOneGrowthRecordForPartialRefundAndZerosOnlyFullRollback",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "冻结→发放",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "并发结算",
+    "title": "验证并发结算同一佣金只入账一次",
+    "precondition": [
+      "一条到期 FROZEN 佣金由两个任务实例同时扫描"
+    ],
+    "step": [
+      "并发执行结算"
+    ],
+    "expected_result": [
+      "佣金最多一次变为 RELEASED，钱包可用余额只增加一次，消息最多产生一次有效发放通知"
+    ],
+    "Remarks": [
+      "原型未描述：任务并发",
+      "代码：CommissionTask Redis 锁与状态更新",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "F1 成长概览",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "钱包与成长口径",
+    "title": "验证成长概览区分可用余额冻结余额已发放和待发放",
+    "precondition": [
+      "钱包 available=700.00、frozen=300.00",
+      "非回滚佣金 RELEASED=450.00、FROZEN=120.00"
+    ],
+    "step": [
+      "进入成长概览"
+    ],
+    "expected_result": [
+      "可用余额=700.00、冻结余额=300.00、已发放=450.00、待发放=120.00、总成长值=570.00"
+    ],
+    "Remarks": [
+      "原型有描述：F1 可用/已发放/待发放",
+      "代码：AgentInfoMapper.xml findGrowthOverview；AgentGrowthOverview 模型",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "F1 成长概览",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "回滚排除",
+    "title": "验证已回滚佣金不进入成长概览",
+    "precondition": [
+      "除正常佣金外存在 ROLLED_BACK 200.00"
+    ],
+    "step": [
+      "进入成长概览"
+    ],
+    "expected_result": [
+      "released、pending 和 total 均不包含该 200.00"
+    ],
+    "Remarks": [
+      "原型有描述：F1 成长值统计",
+      "代码：AgentInfoMapper.xml status<>rolled_back",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "F1 成长概览",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "零值",
+    "title": "验证无钱包和佣金记录时成长概览显示零",
+    "precondition": [
+      "新代理没有 agent_wallet 和 commission record"
+    ],
+    "step": [
+      "进入成长概览"
+    ],
+    "expected_result": [
+      "所有金额与计数为 0，不出现 null 或 NaN"
+    ],
+    "Remarks": [
+      "原型有描述：F1 空数据",
+      "代码：AgentHomeServiceImpl.java 默认空值；AgentGrowthOverview 默认值",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "成长明细",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "直推与间推",
+    "title": "验证成长明细按 layer 区分直推和间推",
+    "precondition": [
+      "当前代理分别有 layer=1、2、3 的佣金记录"
+    ],
+    "step": [
+      "查看全部成长明细并按直推/间推筛选"
+    ],
+    "expected_result": [
+      "直推只包含 layer=1；间推包含 layer=2、3；金额合计与全部明细一致"
+    ],
+    "Remarks": [
+      "原型有描述：F1/F5 直推与间推",
+      "代码：AgentCommissionRecordMapper.java direct layer=1、indirect layer<>1",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "成长明细",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "状态筛选",
+    "title": "验证已发放待发放已退款状态筛选",
+    "precondition": [
+      "准备 RELEASED、FROZEN、全额退款/回滚相关业务记录"
+    ],
+    "step": [
+      "依次选择各状态筛选"
+    ],
+    "expected_result": [
+      "每个筛选仅返回对应业务状态，且退款分支不因缺少佣金记录而漏掉可识别的全额退款订单"
+    ],
+    "Remarks": [
+      "原型有描述：E2/F5 状态筛选",
+      "代码：AgentCommissionRecordMapperXmlTest#filtersCustomerGrowthRecordsByStatusInBothUnionBranches、#customerFullRefundFallback...",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "成长明细",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "间接客户脱敏",
+    "title": "验证间推成长明细不泄露完整客户标识",
+    "precondition": [
+      "存在间接客户成长记录"
+    ],
+    "step": [
+      "查看成长明细"
+    ],
+    "expected_result": [
+      "客户姓名仅首字符可见后缀 **，客户编号最多前 5 个字符后缀 **"
+    ],
+    "Remarks": [
+      "原型有描述：E2 间接客户脱敏",
+      "代码：AgentCommissionRecordMapperXmlTest#mainCommissionDetailMasksIndirectCustomerNamesInSql；AgentCustomerPrivacyUtil",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "成长明细",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "月份筛选",
+    "title": "验证成长明细按月份边界筛选",
+    "precondition": [
+      "准备月初 00:00、月末、下月初 00:00 的佣金/消费记录"
+    ],
+    "step": [
+      "选择目标月份"
+    ],
+    "expected_result": [
+      "包含目标月起始边界至下月起始前记录，不包含下月初记录"
+    ],
+    "Remarks": [
+      "原型有描述：成长明细月份筛选",
+      "代码：AgentCommissionRecordMapper.xml 动态 month 条件",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "成长明细",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "业务订单合并",
+    "title": "验证同一订单多个受益记录在客户明细中只形成一条业务记录",
+    "precondition": [
+      "同一消费订单产生平台、成本、总池和多层代理记录"
+    ],
+    "step": [
+      "查看该客户成长记录"
+    ],
+    "expected_result": [
+      "按真实付款人和业务订单聚合成一条记录，不按受益人行数重复展示消费金额"
+    ],
+    "Remarks": [
+      "原型有描述：E2 客户成长记录",
+      "代码：AgentCommissionRecordMapperXmlTest#customerDetailUsesOneBusinessOrderRowForTheActualPayer",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "日维度补零",
+    "title": "验证日趋势固定返回 60 个连续周期并补零",
+    "precondition": [
+      "60 日窗口内仅 2 天有佣金"
+    ],
+    "step": [
+      "请求 day 维度佣金统计"
+    ],
+    "expected_result": [
+      "返回连续 60 个日周期，缺失日期 directAmount 和 indirectAmount 均为 0，周期按时间升序"
+    ],
+    "Remarks": [
+      "原型有描述：F1 成长趋势",
+      "代码：CommissionController day size=60；AgentCommissionRecordServiceImpl fill missing periods",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "周维度补零",
+    "title": "验证周趋势固定返回 24 个周期",
+    "precondition": [
+      "24 周窗口存在跨年周且部分周无佣金"
+    ],
+    "step": [
+      "请求 week 维度统计"
+    ],
+    "expected_result": [
+      "返回连续 24 周，跨年周不串组，缺失周金额为 0"
+    ],
+    "Remarks": [
+      "原型有描述：F1 成长趋势",
+      "代码：CommissionController week size=24；Mapper 按年+week 分组",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "月年维度数量",
+    "title": "验证月趋势 12 期和年趋势 6 期",
+    "precondition": [
+      "准备跨月跨年的佣金数据"
+    ],
+    "step": [
+      "分别请求 month 和 year 维度"
+    ],
+    "expected_result": [
+      "月维度返回 12 期且 periodStr=yyyy-MM；年维度返回 6 期且按年份连续"
+    ],
+    "Remarks": [
+      "原型有描述：F1 成长趋势",
+      "代码：CommissionController month=12、year=6；AgentCommissionRecordServiceImpl",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "趋势首期",
+    "title": "验证序列首期趋势固定为 0",
+    "precondition": [
+      "统计序列第一期金额大于 0"
+    ],
+    "step": [
+      "请求任一维度统计"
+    ],
+    "expected_result": [
+      "第一期趋势值为 0，不因没有前一期而报错或显示无穷"
+    ],
+    "Remarks": [
+      "原型未描述：趋势计算细节",
+      "代码：AgentCommissionRecordServiceImpl first trend=0",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "前期为零",
+    "title": "验证前期为零且本期有值时趋势为 100%",
+    "precondition": [
+      "前一期总额=0，本期总额=100.00"
+    ],
+    "step": [
+      "请求统计趋势"
+    ],
+    "expected_result": [
+      "本期趋势值为 1.00，即 100%"
+    ],
+    "Remarks": [
+      "原型未描述：零基数趋势",
+      "代码：AgentCommissionRecordServiceImpl previous=0,current>0 ->1",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "常规涨跌",
+    "title": "验证趋势按环比公式四舍五入到两位",
+    "precondition": [
+      "前一期总额=200.00，本期总额=300.00"
+    ],
+    "step": [
+      "请求统计趋势"
+    ],
+    "expected_result": [
+      "本期趋势=(300-200)/200=0.50，按两位小数返回"
+    ],
+    "Remarks": [
+      "原型未描述：趋势公式",
+      "代码：AgentCommissionRecordServiceImpl divide scale4 HALF_UP 后 setScale2",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "回滚数据",
+    "title": "验证趋势统计排除已回滚佣金",
+    "precondition": [
+      "某周期 RELEASED=100.00、ROLLED_BACK=80.00"
+    ],
+    "step": [
+      "请求该周期佣金统计"
+    ],
+    "expected_result": [
+      "该周期总额为 100.00，不包含 80.00 回滚记录"
+    ],
+    "Remarks": [
+      "原型有描述：成长值不含已退款/回滚",
+      "代码：AgentCommissionRecordMapper.java status<>rolled_back",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "客户列表成长值",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "跨页面回滚一致性",
+    "title": "验证客户列表成长汇总与详情均排除已回滚金额",
+    "precondition": [
+      "某客户 RELEASED=100.00、FROZEN=20.00、ROLLED_BACK=80.00"
+    ],
+    "step": [
+      "分别查看客户列表行和客户详情"
+    ],
+    "expected_result": [
+      "两个页面的总成长值均为 120.00，不出现列表 200.00、详情 120.00 的不一致"
+    ],
+    "Remarks": [
+      "原型有描述：E1/E2 成长统计应一致",
+      "代码检查：AgentInfoMapper.xml 客户详情显式排除 rolled_back；客户列表 growth_stat 需重点回归",
+      "待验证：列表聚合 SQL 当前未见显式 rolled_back 过滤",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "申请提现",
+    "title": "验证提现申请将可用余额转为冻结余额",
+    "precondition": [
+      "代理钱包 available=1000.00、frozen=100.00",
+      "使用受支持收款方式",
+      "提交金额 300.00"
+    ],
+    "step": [
+      "确认提现"
+    ],
+    "expected_result": [
+      "生成 PENDING 提现记录；available=700.00、frozen=400.00，钱包总额仍为 1100.00"
+    ],
+    "Remarks": [
+      "原型有描述：F4 提现申请",
+      "代码：AgentWithdrawRecordServiceImpl.java；AgentWalletMapper.applyWithdrawUpdateBalance",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "最小金额",
+    "title": "验证提现金额下限为 0.01",
+    "precondition": [
+      "代理可用余额充足"
+    ],
+    "step": [
+      "分别提交 0、0.001、0.01"
+    ],
+    "expected_result": [
+      "0 和 0.001 被拒绝；0.01 可进入后续收款与余额校验"
+    ],
+    "Remarks": [
+      "原型有描述：F4 提现金额",
+      "代码：ApplyWithdrawInsertRequest @DecimalMin 0.01；客户端同样校验",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "余额不足",
+    "title": "验证提现金额超过可用余额时不冻结资金",
+    "precondition": [
+      "钱包 available=100.00、frozen=20.00"
+    ],
+    "step": [
+      "提交提现 100.01"
+    ],
+    "expected_result": [
+      "请求被拒绝，available 仍为 100.00、frozen 仍为 20.00，不生成 PENDING 记录"
+    ],
+    "Remarks": [
+      "原型有描述：F4 可用余额限制",
+      "代码：AgentWithdrawRecordServiceImpl 余额校验；AgentWalletMapper sufficient balance guard",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "收款方式",
+    "title": "验证不支持的收款方式在变更钱包前被拒绝",
+    "precondition": [
+      "钱包余额充足",
+      "构造非支持 withdrawMethod"
+    ],
+    "step": [
+      "提交提现"
+    ],
+    "expected_result": [
+      "请求在钱包扣减前被拒绝，余额与提现记录均不变化"
+    ],
+    "Remarks": [
+      "原型有描述：F4 收款方式",
+      "代码：AgentWithdrawRecordServiceImplTest#defensivelyRejectsUnsupportedDirectWithdrawMethodBeforeChangingWallet",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "直接收款信息",
+    "title": "验证未选择已保存收款人时姓名和账号必填",
+    "precondition": [
+      "不传 payeeId",
+      "金额与方式有效"
+    ],
+    "step": [
+      "分别缺少 payeeName 或 payeeAccount 提交"
+    ],
+    "expected_result": [
+      "请求被拒绝，不冻结余额；两字段完整时才可创建申请"
+    ],
+    "Remarks": [
+      "原型有描述：F4 收款信息",
+      "代码：ApplyWithdrawInsertRequest；AgentWithdrawRecordServiceImpl",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "收款人归属",
+    "title": "验证不能使用其他代理保存的收款人",
+    "precondition": [
+      "获取另一代理的 payeeId",
+      "当前代理余额充足"
+    ],
+    "step": [
+      "使用该 payeeId 提交提现"
+    ],
+    "expected_result": [
+      "请求被拒绝，不泄露收款人信息且不变更钱包"
+    ],
+    "Remarks": [
+      "原型未描述：收款人跨账号归属",
+      "代码：AgentWithdrawRecordServiceImpl 按当前 agentId 查询 payee",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "最近收款人",
+    "title": "验证按提现方式自动回填上次收款人快照",
+    "precondition": [
+      "当前代理 BANK_CARD 最近一次提现收款人为 A",
+      "EWALLET 最近一次为 B"
+    ],
+    "step": [
+      "选择 BANK_CARD",
+      "再切换 EWALLET"
+    ],
+    "expected_result": [
+      "分别回填 A 和 B，不跨提现方式混用；从未使用的方式返回空"
+    ],
+    "Remarks": [
+      "原型有描述：F4 自动填写上次收款人",
+      "代码：AgentWithdrawRecordServiceImplTest#returnsLastPayeeSnapshotForSelectedMethod/#returnsNull...",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F5 提现详情",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "审核完成",
+    "title": "验证待处理提现完成后扣减冻结余额",
+    "precondition": [
+      "申请后钱包 available=700.00、frozen=400.00",
+      "其中本次 PENDING 金额=300.00"
+    ],
+    "step": [
+      "管理员将该记录审核为 COMPLETED"
+    ],
+    "expected_result": [
+      "记录变为 COMPLETED，frozen=100.00、available=700.00；写入审核时间和到账时间"
+    ],
+    "Remarks": [
+      "原型有描述：F5 提现到账",
+      "代码：admin/.../AgentWithdrawRecordServiceImpl.java；AgentWalletMapper.completeWithdrawUpdateBalance",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F5 提现详情",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "审核拒绝",
+    "title": "验证待处理提现拒绝后冻结金额退回可用余额",
+    "precondition": [
+      "申请后钱包 available=700.00、frozen=400.00",
+      "本次 PENDING 金额=300.00"
+    ],
+    "step": [
+      "管理员填写拒绝原因并审核为 REJECTED"
+    ],
+    "expected_result": [
+      "记录变为 REJECTED；available=1000.00、frozen=100.00，拒绝原因可在详情查看"
+    ],
+    "Remarks": [
+      "原型有描述：F5 提现详情",
+      "代码：admin AgentWithdrawRecordServiceImpl；AgentWalletMapper.rejectWithdrawUpdateBalance",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F5 提现详情",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "拒绝原因",
+    "title": "验证拒绝提现必须填写原因且不会先动余额",
+    "precondition": [
+      "存在 PENDING 提现"
+    ],
+    "step": [
+      "管理员以空拒绝原因提交 REJECTED"
+    ],
+    "expected_result": [
+      "审核被拒绝，提现仍为 PENDING，钱包余额不变化"
+    ],
+    "Remarks": [
+      "原型未描述：拒绝原因必填",
+      "代码：AgentWithdrawRecordServiceImplTest#rejectsBlankRejectionRemarkBeforeChangingWallet",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F5 提现详情",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "重复审核",
+    "title": "验证已完成或已拒绝提现不能再次处理",
+    "precondition": [
+      "提现状态已为 COMPLETED 或 REJECTED"
+    ],
+    "step": [
+      "再次提交完成或拒绝"
+    ],
+    "expected_result": [
+      "请求被拒绝，状态、审核时间和钱包余额保持不变"
+    ],
+    "Remarks": [
+      "原型有描述：F5 状态展示",
+      "代码：admin AgentWithdrawRecordServiceImpl 仅 PENDING 可处理",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "并发申请",
+    "title": "验证并发提现不会透支可用余额",
+    "precondition": [
+      "钱包 available=500.00",
+      "准备两笔各 400.00 的申请"
+    ],
+    "step": [
+      "并发提交两笔提现"
+    ],
+    "expected_result": [
+      "最多一笔成功；最终 available>=0，成功金额进入 frozen，不出现总计冻结 800.00"
+    ],
+    "Remarks": [
+      "原型未描述：并发提现",
+      "代码：AgentWalletMapper optimistic version 与 available>=amount 条件",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F5 提现详情",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "详情归属",
+    "title": "验证不能查看其他代理的提现详情",
+    "precondition": [
+      "获取另一代理的 withdrawId"
+    ],
+    "step": [
+      "当前代理直接请求该提现详情"
+    ],
+    "expected_result": [
+      "返回资源不存在或等价拒绝，不返回收款姓名、账号和金额"
+    ],
+    "Remarks": [
+      "原型有描述：F5 提现详情、K4 无权限",
+      "代码：AgentWithdrawRecordServiceImpl detail constrained by current agent",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "提现记录列表",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "记录字段",
+    "title": "验证提现列表状态金额和收款快照与申请一致",
+    "precondition": [
+      "当前代理存在 PENDING、COMPLETED、REJECTED 记录"
+    ],
+    "step": [
+      "进入提现记录列表并打开详情"
+    ],
+    "expected_result": [
+      "每条记录展示申请时的金额、方式、收款人快照和正确状态；后续修改收款账户不篡改历史记录"
+    ],
+    "Remarks": [
+      "原型有描述：F5 提现详情",
+      "代码：AgentWithdrawRecordServiceImpl page/detail response；客户端 WithdrawRecordModel",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4/F5 提现金额",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "金额精度",
+    "title": "验证超过两位小数的提现金额处理口径",
+    "precondition": [
+      "钱包余额充足"
+    ],
+    "step": [
+      "提交提现金额 10.001"
+    ],
+    "expected_result": [
+      "系统按最终确认的产品口径明确拒绝或统一舍入，且申请记录、钱包扣减和审核金额三者完全一致"
+    ],
+    "Remarks": [
+      "原型未描述：金额小数位",
+      "代码：当前请求仅见最小值校验，未见 @Digits",
+      "待确认：是否强制两位小数以及舍入方式",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4/F5 提现单位",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "币种单位",
+    "title": "验证提现页接口记录和消息使用同一金额单位",
+    "precondition": [
+      "准备可识别金额 123.45"
+    ],
+    "step": [
+      "查看成长概览",
+      "申请提现",
+      "查看提现详情和到账消息"
+    ],
+    "expected_result": [
+      "四处显示数值与单位一致，不发生 100 倍换算或 POC/元混用"
+    ],
+    "Remarks": [
+      "原型有描述：F1/F4 使用 POC",
+      "代码注释：ApplyWithdrawInsertRequest 金额单位写“元”",
+      "待确认：代理成长值与提现的法定单位、兑换关系及展示文案",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "跨页面一致性",
+    "page": "首页→客户列表",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "客户总数",
+    "title": "验证首页累计客户与客户列表总数一致",
+    "precondition": [
+      "当前代理关系树稳定，无并发新增客户"
+    ],
+    "step": [
+      "记录首页累计客户数",
+      "进入客户列表全部标签并记录总数"
+    ],
+    "expected_result": [
+      "两处均按 1 至 3 层 distinct agent_id 统计，数值一致"
+    ],
+    "Remarks": [
+      "原型有描述：D1 首页、E1 客户列表联动",
+      "代码：两处均基于 current agent customer_tree",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "跨页面一致性",
+    "page": "首页→客户详情→订单详情",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "订单数据",
+    "title": "验证订单笔数和金额在三处使用同一业务口径",
+    "precondition": [
+      "客户有正常、部分退款、全额退款和重复流水订单"
+    ],
+    "step": [
+      "记录首页订单数",
+      "查看客户详情订单数和消费额",
+      "打开直接客户订单详情"
+    ],
+    "expected_result": [
+      "订单去重、退款净额和单笔明细可相互核对，不因流水或佣金行数导致统计放大"
+    ],
+    "Remarks": [
+      "原型有描述：D1/E2/E4 跨页链路",
+      "代码：AgentPaidOrderCte、AgentOrderMapper.xml",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "跨页面一致性",
+    "page": "订单→成长概览→客户详情",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "佣金生命周期",
+    "title": "验证订单从冻结到发放后所有页面同步更新",
+    "precondition": [
+      "订单已生成 FROZEN 佣金"
+    ],
+    "step": [
+      "记录首页、成长概览和客户详情的待发放金额",
+      "推进到期结算",
+      "刷新三个页面"
+    ],
+    "expected_result": [
+      "待发放同时减少、已发放和可用余额同时增加；总成长值在状态转换前后保持不变"
+    ],
+    "Remarks": [
+      "原型有描述：D1/F1/E2 数据联动",
+      "代码：佣金状态与钱包更新服务、各查询 Mapper",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "跨页面一致性",
+    "page": "退款→统计回滚",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "全额退款",
+    "title": "验证全额退款后所有成长统计同步剔除",
+    "precondition": [
+      "订单佣金曾出现在首页、客户列表、客户详情和成长趋势"
+    ],
+    "step": [
+      "执行全额退款并完成回滚",
+      "刷新相关页面"
+    ],
+    "expected_result": [
+      "各页面均不再把回滚金额计入成长值，客户历史订单仍按明确口径保留且消费净额为 0"
+    ],
+    "Remarks": [
+      "原型有描述：E4 退款、D1/F1/E2 统计",
+      "代码：ROLLED_BACK 排除逻辑；客户列表聚合需重点回归",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "跨页面一致性",
+    "page": "提现→消息→详情",
+    "type": "业务流程",
+    "priority": "P1",
+    "page_01": "提现通知",
+    "title": "验证提现完成或拒绝后消息和详情状态一致",
+    "precondition": [
+      "存在 PENDING 提现并已加载首页未读数"
+    ],
+    "step": [
+      "管理员完成或拒绝提现",
+      "代理刷新首页并打开消息与提现详情"
+    ],
+    "expected_result": [
+      "消息事件、未读数、提现状态、金额及拒绝原因/到账时间一致，点击消息进入对应详情"
+    ],
+    "Remarks": [
+      "原型有描述：H1 消息中心可跳 F5 提现详情",
+      "代码：提现审核服务写消息；首页按 accountId 统计未读",
+      "验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "身份与会话",
+    "page": "B1 密码登录页",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "协议确认",
+    "title": "验证未勾选协议并取消确认时不发起登录",
+    "precondition": [
+      "代理账号和密码有效",
+      "协议勾选状态为未选中"
+    ],
+    "step": [
+      "点击登录",
+      "在协议确认弹窗点击取消"
+    ],
+    "expected_result": [
+      "停留在登录页且不建立登录会话"
+    ],
+    "Remarks": [
+      "原型有描述：B1 未勾选协议时弹出确认，可取消",
+      "代码：ug-app-agent 登录页面与控制器",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "身份与会话",
+    "page": "代理端受保护接口",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "角色与实体不一致",
+    "title": "验证持有 agent 角色但代理实体不存在时不能读取业务数据",
+    "precondition": [
+      "构造已登录且带 agent 角色的账号",
+      "该账号没有有效 agent_info 记录"
+    ],
+    "step": [
+      "直接请求 /agent/home/overview"
+    ],
+    "expected_result": [
+      "请求失败且不返回其他代理的默认或兜底数据"
+    ],
+    "Remarks": [
+      "原型未描述：网关角色与业务代理实体不一致",
+      "代码：gateway/SaTokenConfig.java；各服务通过 StpUserUtil.getAgentId 获取代理实体",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "姓名必填",
+    "title": "验证姓名为空或纯空格时不能获取验证码",
+    "precondition": [
+      "当前账号为代理"
+    ],
+    "step": [
+      "姓名留空或输入纯空格",
+      "输入格式有效的手机号",
+      "点击获取验证码"
+    ],
+    "expected_result": [
+      "客户端或服务端拒绝请求，不生成验证码记录"
+    ],
+    "Remarks": [
+      "原型有描述：E5 姓名输入项",
+      "代码：AgentCustomerBindSendCodeRequest.realName @NotBlank",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "手机号必填",
+    "title": "验证手机号为空或纯空格时不能获取验证码",
+    "precondition": [
+      "当前账号为代理"
+    ],
+    "step": [
+      "输入姓名",
+      "手机号留空或输入纯空格",
+      "点击获取验证码"
+    ],
+    "expected_result": [
+      "客户端或服务端拒绝请求，不生成验证码记录"
+    ],
+    "Remarks": [
+      "原型有描述：E5 手机号输入项",
+      "代码：AgentCustomerBindSendCodeRequest.phoneFull @NotBlank",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "手机号长度",
+    "title": "验证少于 7 位数字的手机号不能获取验证码",
+    "precondition": [
+      "当前账号为代理"
+    ],
+    "step": [
+      "输入姓名",
+      "输入 6 位数字手机号",
+      "点击获取验证码"
+    ],
+    "expected_result": [
+      "客户端阻止发送，不调用验证码接口"
+    ],
+    "Remarks": [
+      "原型有描述：E5 手机号输入",
+      "代码：ug-app-agent BindCustomerController 校验数字位数不少于 7",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "验证码最小长度",
+    "title": "验证 3 位验证码不能提交绑定",
+    "precondition": [
+      "已针对当前姓名和手机号发送验证码"
+    ],
+    "step": [
+      "输入 3 位数字验证码",
+      "点击确认绑定"
+    ],
+    "expected_result": [
+      "客户端阻止提交，不调用绑定确认接口"
+    ],
+    "Remarks": [
+      "原型有描述：E5 验证码输入",
+      "代码：ug-app-agent BindCustomerController 仅接受 4 至 6 位验证码",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "验证码最大长度",
+    "title": "验证 7 位验证码不能提交绑定",
+    "precondition": [
+      "已针对当前姓名和手机号发送验证码"
+    ],
+    "step": [
+      "输入 7 位数字验证码",
+      "点击确认绑定"
+    ],
+    "expected_result": [
+      "客户端阻止提交，不调用绑定确认接口"
+    ],
+    "Remarks": [
+      "原型有描述：E5 验证码输入",
+      "代码：ug-app-agent BindCustomerController 仅接受 4 至 6 位验证码",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "错误次数未达上限",
+    "title": "验证验证码连续错误 1 至 4 次时不绑定客户",
+    "precondition": [
+      "目标会员可绑定",
+      "账号和手机号尚未进入错误锁定"
+    ],
+    "step": [
+      "连续 4 次提交错误验证码"
+    ],
+    "expected_result": [
+      "四次均不建立 parent_id，错误次数累计但尚未进入第 5 次触发的锁定状态"
+    ],
+    "Remarks": [
+      "原型未描述：验证码错误计数",
+      "代码：AgentCustomerBindServiceImpl 最大失败次数为 5",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "业务流程",
+    "priority": "P1",
+    "page_01": "锁定恢复",
+    "title": "验证验证码错误锁定满 10 分钟后可重新绑定",
+    "precondition": [
+      "同一账号和手机号已因 5 次错误锁定",
+      "锁定时间已满 10 分钟",
+      "目标会员仍可绑定"
+    ],
+    "step": [
+      "重新获取验证码",
+      "提交最新正确验证码"
+    ],
+    "expected_result": [
+      "锁定被视为已过期，客户完成一次绑定并清除失败计数"
+    ],
+    "Remarks": [
+      "原型未描述：验证码锁定恢复",
+      "代码：AgentCustomerBindServiceImpl failure lock=10m，成功后清理失败状态",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "发送间隔边界",
+    "title": "验证验证码发送满 60 秒后允许再次发送",
+    "precondition": [
+      "已成功发送一次验证码",
+      "距上次发送时间等于或略大于 60 秒",
+      "当日发送次数未达上限"
+    ],
+    "step": [
+      "再次点击获取验证码"
+    ],
+    "expected_result": [
+      "生成新的 SENT 验证码并将其作为最新验证码"
+    ],
+    "Remarks": [
+      "原型有描述：E5 60 秒倒计时",
+      "代码：AgentCustomerBindServiceImpl send interval=60s",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "发送次数正向边界",
+    "title": "验证当日第 20 次验证码发送仍按上限口径处理",
+    "precondition": [
+      "同一手机号当日已有 19 次成功发送",
+      "当前不在 60 秒冷却期"
+    ],
+    "step": [
+      "请求第 20 次验证码"
+    ],
+    "expected_result": [
+      "第 20 次发送成功并把当日计数更新为 20；下一次请求由已有上限用例验证拒绝"
+    ],
+    "Remarks": [
+      "原型未描述：每日 20 次边界的包含关系",
+      "代码：AgentCustomerBindServiceImpl daily count>=20 时预检拒绝，19 增加到 20 后允许",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "异常用例",
+    "priority": "P1",
+    "page_01": "短信依赖失败",
+    "title": "验证短信服务失败时不能留下可用于绑定的错误授权状态",
+    "precondition": [
+      "使用需要真实短信发送的非 +86 手机号",
+      "模拟短信提供商返回失败"
+    ],
+    "step": [
+      "点击获取验证码"
+    ],
+    "expected_result": [
+      "页面提示发送失败，目标客户不被绑定；失败请求产生的验证码不得被当作已授权结果使用"
+    ],
+    "Remarks": [
+      "原型未描述：短信外部依赖失败",
+      "代码：AgentCustomerBindServiceImpl 非 +86 分支调用短信服务",
+      "待验证：事务回滚是否覆盖验证码记录",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户·验证码绑定",
+    "type": "功能需求",
+    "priority": "P2",
+    "page_01": "取消绑定",
+    "title": "验证获取验证码后返回不会建立客户关系",
+    "precondition": [
+      "已获取验证码但尚未提交确认"
+    ],
+    "step": [
+      "返回客户列表或关闭当前页面"
+    ],
+    "expected_result": [
+      "目标客户 parent_id 保持为空，客户列表不新增该客户"
+    ],
+    "Remarks": [
+      "原型有描述：E5 绑定需确认提交",
+      "代码：发送验证码与确认绑定为两个独立接口",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "客户绑定",
+    "page": "E5 新增客户→E1 我的客户",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "绑定结果落地",
+    "title": "验证绑定完成后客户列表和首页客户数同步增加",
+    "precondition": [
+      "目标会员可绑定且当前不在代理关系树",
+      "记录绑定前首页客户数"
+    ],
+    "step": [
+      "完成验证码绑定",
+      "返回客户列表",
+      "刷新首页"
+    ],
+    "expected_result": [
+      "客户列表出现一条 relationLayer=1 的新客户，首页累计客户数增加 1"
+    ],
+    "Remarks": [
+      "原型有描述：E5 绑定后返回 E1，D1 统计客户",
+      "代码：绑定写 parent_id；首页与客户列表按关系树查询",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E1 我的客户列表",
+    "type": "功能需求",
+    "priority": "P2",
+    "page_01": "空关键词",
+    "title": "验证清空搜索关键词后恢复当前标签的完整列表",
+    "precondition": [
+      "当前标签下存在多名客户",
+      "已执行一次有结果的关键词搜索"
+    ],
+    "step": [
+      "清空搜索框",
+      "重新触发查询"
+    ],
+    "expected_result": [
+      "列表恢复当前标签对应的全部客户，分页从第一页开始"
+    ],
+    "Remarks": [
+      "原型有描述：E1 客户搜索",
+      "代码：ug-app-agent 客户列表 Controller 查询与分页状态",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E1 我的客户列表",
+    "type": "功能需求",
+    "priority": "P2",
+    "page_01": "无匹配结果",
+    "title": "验证不存在的关键词返回空结果而不是旧列表",
+    "precondition": [
+      "当前标签已加载客户列表"
+    ],
+    "step": [
+      "输入不会匹配任何可见客户的关键词",
+      "执行搜索"
+    ],
+    "expected_result": [
+      "列表进入空结果状态且不继续展示上一次查询的数据"
+    ],
+    "Remarks": [
+      "原型有描述：E1 搜索与空数据",
+      "代码：客户分页接口 keyword 条件",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E1 我的客户列表",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "标签分页重置",
+    "title": "验证切换直接或间接标签后分页从第一页重新加载",
+    "precondition": [
+      "全部客户标签已加载到第二页",
+      "直接和间接客户均有数据"
+    ],
+    "step": [
+      "切换到直接客户标签"
+    ],
+    "expected_result": [
+      "请求页码重置为 1，列表只包含直接客户且不混入旧标签第二页数据"
+    ],
+    "Remarks": [
+      "原型有描述：E1 全部/直接/间接标签",
+      "代码：ug-app-agent 客户列表 Controller 分页状态",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情·成长记录",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "成长记录分页",
+    "title": "验证客户成长记录按每页 30 条连续加载",
+    "precondition": [
+      "直接客户存在 31 条可见成长记录"
+    ],
+    "step": [
+      "进入客户详情",
+      "加载首批记录",
+      "继续加载下一页"
+    ],
+    "expected_result": [
+      "两次加载合计 31 条且 consumeNo 不重复"
+    ],
+    "Remarks": [
+      "原型有描述：E2 客户成长记录",
+      "代码：ug-app-agent 客户详情成长记录 pageSize=30",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E4 订单详情",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "余额支付订单",
+    "title": "验证余额支付流水可关联到对应业务订单详情",
+    "precondition": [
+      "存在 change_type=payment 的负向余额流水",
+      "source_id 与 source_code 对应当前代理可见客户的业务订单"
+    ],
+    "step": [
+      "使用该 balance_log_id 打开订单详情"
+    ],
+    "expected_result": [
+      "返回与 source_id、source_code 一致的订单，不关联到其他同金额订单"
+    ],
+    "Remarks": [
+      "原型有描述：E4 订单详情",
+      "代码：AgentOrderMapper.xml payment CTE 与三类订单分支",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "客户管理",
+    "page": "E2 客户详情",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "短编号脱敏",
+    "title": "验证不足 5 个字符的间接客户编号脱敏后仍追加标记",
+    "precondition": [
+      "间接客户 userCode 长度小于 5"
+    ],
+    "step": [
+      "进入该客户详情"
+    ],
+    "expected_result": [
+      "编号保留现有全部字符并追加 **，不越界、不显示空值"
+    ],
+    "Remarks": [
+      "原型有描述：E2 间接客户脱敏",
+      "代码：AgentCustomerPrivacyUtil.maskUserCode 使用 min(5, codePointCount)",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "绑定后实时统计",
+    "title": "验证新客户绑定后本月新增客户同步增加",
+    "precondition": [
+      "本月内可完成一名新会员绑定",
+      "记录绑定前本月新增客户数"
+    ],
+    "step": [
+      "完成客户绑定",
+      "刷新首页"
+    ],
+    "expected_result": [
+      "本月新增客户数增加 1，累计客户数同步增加 1"
+    ],
+    "Remarks": [
+      "原型有描述：D1 实时统计、E5 客户绑定",
+      "代码：findHomeOverview 按 bind_time 和关系树统计",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "首页统计",
+    "page": "D1 首页总览",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "部分退款后统计",
+    "title": "验证订单部分退款后订单笔数不变且消费净额减少",
+    "precondition": [
+      "一笔已计入首页的订单实付 1000.00",
+      "记录退款前订单数与消费总额"
+    ],
+    "step": [
+      "对该订单退款 250.00",
+      "刷新首页和成长概览"
+    ],
+    "expected_result": [
+      "订单笔数保持不变，累计消费金额减少 250.00"
+    ],
+    "Remarks": [
+      "原型有描述：D1 订单统计、E4 退款状态",
+      "代码：AgentPaidOrderCte 保留订单并使用 GREATEST(pay-refund,0)",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "空团队",
+    "title": "验证没有下级代理时团队概览返回零值",
+    "precondition": [
+      "当前代理没有第 1、2 层 GENERAL/NORMAL 下级"
+    ],
+    "step": [
+      "进入团队页面"
+    ],
+    "expected_result": [
+      "团队人数、贡献、客户数和订单数均为 0，列表为空"
+    ],
+    "Remarks": [
+      "原型有描述：E3 团队空数据",
+      "代码：AgentInfoServiceImpl 对空概览补零；团队查询 CTE",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "零贡献同分",
+    "title": "验证零贡献团队成员仍按稳定规则排名",
+    "precondition": [
+      "两名可见团队代理贡献均为 0",
+      "A.agentId 小于 B.agentId"
+    ],
+    "step": [
+      "打开团队列表"
+    ],
+    "expected_result": [
+      "A 排在 B 前，重复刷新后顺序不变"
+    ],
+    "Remarks": [
+      "原型有描述：E3 团队排名",
+      "代码：AgentInfoMapper.xml 按 contribution DESC、team_agent_id 排序",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "团队统计",
+    "page": "E3 我的团队",
+    "type": "异常用例",
+    "priority": "P2",
+    "page_01": "重复加载",
+    "title": "验证团队分页请求未完成时重复触发不会追加重复行",
+    "precondition": [
+      "团队列表正在加载下一页"
+    ],
+    "step": [
+      "在首个请求返回前再次触发加载更多"
+    ],
+    "expected_result": [
+      "客户端只保留一个有效分页请求，列表不重复追加同一团队成员"
+    ],
+    "Remarks": [
+      "原型未描述：快速滚动重复加载",
+      "代码：ug-app-agent TeamController 有 duplicate-request guard",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "订单完成→佣金生成",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "零实付订单",
+    "title": "验证实付金额为 0 的订单不生成佣金",
+    "precondition": [
+      "订单状态满足类型条件",
+      "pay_amount=0",
+      "订单尚无佣金记录"
+    ],
+    "step": [
+      "运行佣金生成任务"
+    ],
+    "expected_result": [
+      "该订单不进入可佣金订单集合，不生成佣金记录"
+    ],
+    "Remarks": [
+      "原型未描述：零实付佣金资格",
+      "代码：findCommissionableOrders 要求 pay amount>0",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "订单完成→佣金生成",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "待支付或取消订单",
+    "title": "验证待支付和已取消商品订单不生成佣金",
+    "precondition": [
+      "分别准备 WAIT_PAY 与 CANCEL 商品订单",
+      "两笔订单均无佣金记录"
+    ],
+    "step": [
+      "运行佣金生成任务"
+    ],
+    "expected_result": [
+      "两笔订单均不生成冻结佣金"
+    ],
+    "Remarks": [
+      "原型有描述：E4 订单状态",
+      "代码：findCommissionableOrders 仅商品 FINISH 订单",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "订单完成→佣金生成",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "无有效规则",
+    "title": "验证没有生效佣金规则时不生成半成品记录",
+    "precondition": [
+      "存在可佣金订单",
+      "当前没有有效 AgentCommissionRule"
+    ],
+    "step": [
+      "运行佣金生成任务"
+    ],
+    "expected_result": [
+      "订单不产生不完整佣金记录，后续可在规则恢复后重新处理"
+    ],
+    "Remarks": [
+      "原型未描述：佣金规则缺失",
+      "代码：AgentCommissionRecordServiceImpl 获取有效规则后计算",
+      "待验证：无规则时任务返回和日志行为",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "佣金规则",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "分配比例正向边界",
+    "title": "验证三层分配比例合计恰好 100% 时规则可用",
+    "precondition": [
+      "准备 direct=70%、indirect1=20%、indirect2=10%",
+      "平台费率与成本费率合计不超过 100%"
+    ],
+    "step": [
+      "保存并启用规则"
+    ],
+    "expected_result": [
+      "规则通过比例合计与层级递减校验，可被后续订单计算读取"
+    ],
+    "Remarks": [
+      "原型未描述：佣金后台规则保存",
+      "代码：AgentCommissionRuleSaveRequestTest#acceptsPrototypeDistributionRates",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "冻结→发放",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "冻结截止边界",
+    "title": "验证到达冻结截止时间的佣金可进入结算",
+    "precondition": [
+      "佣金状态 FROZEN",
+      "当前时间等于 freezeUntil",
+      "订单未退款且仍有效"
+    ],
+    "step": [
+      "执行到期结算任务"
+    ],
+    "expected_result": [
+      "该佣金完成一次发放，不再继续停留在待发放集合"
+    ],
+    "Remarks": [
+      "原型有描述：F1 待发放转已发放",
+      "代码：AgentCommissionRecordServiceImpl 按 freezeUntil 判断到期",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "佣金结算",
+    "page": "冻结→发放",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "虚拟受益人",
+    "title": "验证平台成本和总池虚拟记录不会增加真实代理钱包",
+    "precondition": [
+      "订单生成平台、成本、总池和真实代理佣金记录",
+      "全部达到结算条件"
+    ],
+    "step": [
+      "执行到期结算任务"
+    ],
+    "expected_result": [
+      "只有真实代理受益记录增加对应钱包余额，虚拟受益人记录不写入真实代理钱包"
+    ],
+    "Remarks": [
+      "原型未描述：虚拟受益人钱包处理",
+      "代码：AgentCommissionRecordServiceImpl 对平台、成本、总池虚拟 ID 分支处理",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "负增长",
+    "title": "验证本期低于前期时返回负的环比趋势",
+    "precondition": [
+      "前一期总额=300.00",
+      "本期总额=200.00"
+    ],
+    "step": [
+      "请求统计趋势"
+    ],
+    "expected_result": [
+      "本期趋势为 -0.33，按两位小数四舍五入"
+    ],
+    "Remarks": [
+      "原型未描述：负增长趋势公式",
+      "代码：AgentCommissionRecordServiceImpl (current-previous)/previous",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "连续零值",
+    "title": "验证前期和本期均为零时趋势为零",
+    "precondition": [
+      "前一期总额=0",
+      "本期总额=0"
+    ],
+    "step": [
+      "请求统计趋势"
+    ],
+    "expected_result": [
+      "本期趋势值为 0，不返回 NaN 或无穷"
+    ],
+    "Remarks": [
+      "原型未描述：零值趋势公式",
+      "代码：AgentCommissionRecordServiceImpl 对 previous=0 分支处理",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "成长明细",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "月份与状态组合",
+    "title": "验证月份和状态组合筛选同时生效",
+    "precondition": [
+      "目标月存在 RELEASED 与 FROZEN 记录",
+      "其他月份也存在 RELEASED 记录"
+    ],
+    "step": [
+      "选择目标月份",
+      "选择已发放状态"
+    ],
+    "expected_result": [
+      "只返回目标月份的 RELEASED 记录，不混入本月待发放或其他月份已发放记录"
+    ],
+    "Remarks": [
+      "原型有描述：成长明细月份和状态筛选",
+      "代码：AgentCommissionRecordMapper.xml 动态 month/status 条件",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "成长统计",
+    "page": "佣金趋势统计",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "直推间推合计",
+    "title": "验证每个周期总额等于直推与间推之和",
+    "precondition": [
+      "某周期 directAmount=120.00、indirectAmount=30.00"
+    ],
+    "step": [
+      "请求该周期统计"
+    ],
+    "expected_result": [
+      "该周期总额为 150.00"
+    ],
+    "Remarks": [
+      "原型有描述：F1 直推与间推统计",
+      "代码：AgentCommissionCountResponse.totalAmount=directAmount+indirectAmount",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "逻辑校验",
+    "priority": "P0",
+    "page_01": "余额上界",
+    "title": "验证提现金额等于可用余额时允许申请",
+    "precondition": [
+      "钱包 available=500.00、frozen=0",
+      "收款信息有效"
+    ],
+    "step": [
+      "提交提现 500.00"
+    ],
+    "expected_result": [
+      "生成 PENDING 记录，available=0、frozen=500.00"
+    ],
+    "Remarks": [
+      "原型有描述：F4 可用余额限制",
+      "代码：AgentWalletMapper 使用 available_balance>=amount",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "重复点击",
+    "title": "验证快速重复点击确认不会生成两笔相同提现",
+    "precondition": [
+      "钱包余额足以覆盖一笔申请",
+      "提现表单已填写完成"
+    ],
+    "step": [
+      "快速连续点击确认两次"
+    ],
+    "expected_result": [
+      "只生成一笔有效提现申请且钱包只冻结一次对应金额"
+    ],
+    "Remarks": [
+      "原型未描述：提现重复点击",
+      "代码：钱包乐观锁可防透支，但请求级幂等入口需验证",
+      "待验证：客户端是否在请求期间禁用提交",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现",
+    "type": "功能需求",
+    "priority": "P1",
+    "page_01": "最近收款人顺序",
+    "title": "验证同一提现方式回填最近一次收款人",
+    "precondition": [
+      "当前代理同一方式存在两次历史提现，旧记录收款人为 A，新记录收款人为 B"
+    ],
+    "step": [
+      "选择该提现方式"
+    ],
+    "expected_result": [
+      "自动回填 B，不回填 A"
+    ],
+    "Remarks": [
+      "原型有描述：F4 自动填充上次收款人",
+      "代码：AgentWithdrawRecordServiceImpl last payee 查询",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F5 提现详情",
+    "type": "逻辑校验",
+    "priority": "P1",
+    "page_01": "历史收款快照",
+    "title": "验证删除保存的收款账户不改变历史提现记录",
+    "precondition": [
+      "已有提现记录保存收款人 A 的快照",
+      "随后删除对应 payee account"
+    ],
+    "step": [
+      "打开历史提现详情"
+    ],
+    "expected_result": [
+      "详情仍展示申请时的收款人 A 快照"
+    ],
+    "Remarks": [
+      "原型有描述：F5 提现详情",
+      "代码：WithdrawRecordModel 保存 payeeName/payeeAccount 快照",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖等价类、边界值、状态或权限。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F5 提现详情",
+    "type": "异常用例",
+    "priority": "P0",
+    "page_01": "冻结余额不足",
+    "title": "验证审核完成时冻结余额不足不会把钱包扣成负数",
+    "precondition": [
+      "存在 PENDING 提现 300.00",
+      "构造钱包 frozen<300.00 的异常数据"
+    ],
+    "step": [
+      "管理员提交 COMPLETED"
+    ],
+    "expected_result": [
+      "钱包条件更新失败，冻结余额不为负，提现不能被错误标记为已完成"
+    ],
+    "Remarks": [
+      "原型未描述：异常钱包数据",
+      "代码：AgentWalletMapper complete guard frozen_balance>=amount",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖失败、恢复、回滚或重复操作。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "提现记录列表",
+    "type": "功能需求",
+    "priority": "P2",
+    "page_01": "空记录",
+    "title": "验证没有提现记录时列表显示空状态",
+    "precondition": [
+      "当前代理从未提交提现"
+    ],
+    "step": [
+      "进入提现记录列表"
+    ],
+    "expected_result": [
+      "列表为空且不展示其他代理记录"
+    ],
+    "Remarks": [
+      "原型有描述：F5/公共空状态",
+      "代码：AgentWithdrawRecordServiceImpl 按 current agent 分页",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖最小功能单元与可观察结果。"
+    ]
+  },
+  {
+    "module": "提现",
+    "page": "F4 成长值提现→F1 成长概览",
+    "type": "业务流程",
+    "priority": "P0",
+    "page_01": "申请后回显",
+    "title": "验证提现申请成功后成长概览余额立即同步",
+    "precondition": [
+      "钱包 available=800.00、frozen=100.00",
+      "提现信息有效"
+    ],
+    "step": [
+      "申请提现 200.00",
+      "返回成长概览并刷新"
+    ],
+    "expected_result": [
+      "成长概览显示 available=600.00、frozen=300.00"
+    ],
+    "Remarks": [
+      "原型有描述：F4 提现与 F1 成长概览联动",
+      "代码：提现申请钱包转移；growth overview 查询钱包",
+      "验证方式：当前版本静态代码与本地原型分析；未连接数据库、Redis、短信、支付或生产环境。",
+      "测试设计方法：Cem Kaner；覆盖真实用户链路与状态落地。"
+    ]
+  }
+]

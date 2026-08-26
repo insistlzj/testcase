@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>直播房型编辑 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub active" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          >
+        </nav>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;直播房型&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >编辑直播房型</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-feature-switch.html"
+            >‹ 返回直播房型</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2>编辑直播房型</h2></div>
+            <form id="switchForm">
+              <div class="admin-form-grid">
+                <div class="admin-form-row">
+                  <label>功能名称</label>
+                  <div class="admin-readonly-value" id="featureName"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label>功能范围</label>
+                  <div class="admin-readonly-value" id="featureCategory"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="audience">开放用户范围</label
+                  ><select class="admin-select" id="audience" required>
+                    <option value="all">全部用户</option>
+                    <option value="test">指定测试用户</option>
+                    <option value="closed">不开放</option>
+                  </select>
+                </div>
+                <div class="admin-form-row">
+                  <label>启用状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="enabled" type="checkbox" /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="enabledText"></span>
+                  </div>
+                </div>
+                <div class="admin-form-row full">
+                  <label for="userIds">指定测试用户 ID</label
+                  ><textarea
+                    class="admin-textarea"
+                    id="userIds"
+                    placeholder="每行输入一个用户 ID"
+                  ></textarea>
+                </div>
+                <div class="admin-form-row">
+                  <label>最后操作人</label>
+                  <div class="admin-readonly-value">后台管理员</div>
+                </div>
+                <div class="admin-form-row">
+                  <label>更新时间</label>
+                  <div class="admin-readonly-value">2026-08-05 09:40</div>
+                </div>
+              </div>
+              <div class="admin-modal-foot">
+                <a class="admin-btn secondary" href="admin-feature-switch.html"
+                  >取消</a
+                ><button class="admin-btn" type="submit">保存</button>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const items = {
+          RT001: ["普通房", "直播功能", "all", true, ""],
+          RT002: ["门票房", "直播功能", "all", true, ""],
+          RT003: ["密码房", "直播功能", "test", false, "88231007\n88229841"],
+        },
+        item =
+          items[new URLSearchParams(location.search).get("id")] || items.RT001;
+      featureName.textContent = item[0];
+      featureCategory.textContent = item[1];
+      audience.value = item[2];
+      enabled.checked = item[3];
+      userIds.value = item[4];
+      function sync() {
+        enabledText.textContent = enabled.checked ? "开启" : "关闭";
+        userIds
+          .closest(".admin-form-row")
+          .classList.toggle("state-hide", audience.value !== "test");
+      }
+      enabled.onchange = sync;
+      audience.onchange = sync;
+      switchForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (audience.value === "test" && !userIds.value.trim())
+          return Luma.toast("请输入测试用户 ID");
+        Luma.toast("直播房型已保存");
+      };
+      sync();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-feature-switch-detail.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

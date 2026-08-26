@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>通知详情 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260818-unified-notifications-v2"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="guild-notifications.html">‹</a>通知详情
+      </header>
+      <div class="guild-page-body">
+        <article class="guild-notification-detail" id="detail"></article>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      const data = {
+        N26082001: {
+          title: "公会分成已入账",
+          time: "2026-08-20 18:06",
+          content: "2026 年 7 月公会分成 $576.458 已发放至公会账户。",
+          action: "../data/guild-share-income.html",
+          actionText: "查看公会分成",
+        },
+        N26081801: {
+          title: "系统消息",
+          time: "2026-08-18 11:30",
+          content:
+            "平台服务将于 25/08/2026 02.00 至 04.00 进行例行维护，维护期间部分功能可能暂不可用。",
+        },
+      };
+      const item =
+        data[new URLSearchParams(location.search).get("id")] || data.N26082001;
+      detail.innerHTML = `<h1>${item.title}</h1><time>${LUMA_FORMAT.dateTime(item.time)}</time><div>${item.content}</div>${item.action ? `<a href="${item.action}">${item.actionText}</a>` : ""}`;
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-notification-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

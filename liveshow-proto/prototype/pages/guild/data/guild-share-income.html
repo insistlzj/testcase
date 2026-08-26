@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会分成记录 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260820-fiat-values-v1"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild-core-data.css?v=20260824-guild-share-list-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          href="../home/guild-home.html"
+          aria-label="返回首页"
+          >‹</a
+        >公会分成记录
+      </header>
+      <div class="guild-page-body guild-share-record-page">
+        <section
+          class="guild-share-record-table is-guild-share"
+          aria-label="公会分成记录列表"
+        >
+          <div class="guild-share-record-head" role="row">
+            <span role="columnheader">分成时间</span>
+            <span role="columnheader">分成金额</span>
+          </div>
+          <div id="list"></div>
+        </section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      const records = [
+        { time: "20/08/2026/18.06", amount: 576458 },
+        { time: "20/08/2026/17.15", amount: -12860 },
+        { time: "19/07/2026/17.46", amount: 573494 },
+        { time: "18/06/2026/15.12", amount: 555129 },
+        { time: "17/05/2026/23.10", amount: 542447 },
+        { time: "16/04/2026/20.36", amount: 528036 },
+        { time: "15/03/2026/22.04", amount: 515353 },
+        { time: "14/02/2026/18.32", amount: 502614 },
+      ];
+      const list = document.getElementById("list");
+      list.innerHTML = records
+        .map((record) => {
+          const negative = record.amount < 0;
+          return `<article class="guild-share-record-row" role="row"><time role="cell">${record.time}</time><strong class="guild-fiat-value ${negative ? "is-negative" : "is-positive"}" role="cell">${negative ? "-" : "+"}${LUMA_FORMAT.money(Math.abs(record.amount))}</strong></article>`;
+        })
+        .join("");
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-share-income.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

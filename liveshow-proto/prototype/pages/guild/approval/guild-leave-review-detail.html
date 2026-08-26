@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>退会申请详情 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260820-fiat-values-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js?v=20260818-person-id-v1"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          id="backLink"
+          href="guild-leave-review.html"
+          aria-label="返回退会申请列表"
+          >‹</a
+        >退会申请详情
+      </header>
+      <div class="guild-page-body">
+        <section class="guild-record-card" id="detailContent"></section>
+        <div class="review-actions" id="reviewActions"></div>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <div class="guild-confirm-mask state-hide" id="rejectDialog">
+      <section
+        class="guild-confirm-dialog guild-message-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="rejectTitle"
+      >
+        <h2 id="rejectTitle">驳回退会申请</h2>
+        <label for="rejectReason">驳回理由（选填）</label>
+        <textarea
+          id="rejectReason"
+          maxlength="200"
+          placeholder="请输入驳回理由"
+        ></textarea>
+        <div class="guild-confirm-actions">
+          <button type="button" id="cancelReject">取消</button
+          ><button class="danger" type="button" id="confirmReject">
+            确认驳回
+          </button>
+        </div>
+      </section>
+    </div>
+    <script>
+      const records = LUMA_MOCK.guildPortal.leaveApplications;
+      const labels = {
+        pending: "待审核",
+        approved: "已通过",
+        rejected: "已驳回",
+      };
+      const params = new URLSearchParams(location.search);
+      const requestedReturnTab = params.get("tab");
+      const returnTab = ["approved", "rejected"].includes(requestedReturnTab)
+        ? requestedReturnTab
+        : requestedReturnTab === "processed"
+          ? "approved"
+          : "reviewing";
+      const selected =
+        records.find((item) => item.id === params.get("id")) || records[0];
+      const storageKey = "luma-guild-leave-review-results-v1";
+      try {
+        Object.assign(
+          selected,
+          JSON.parse(sessionStorage.getItem(storageKey) || "{}")[selected.id] ||
+            {},
+        );
+      } catch (error) {}
+      backLink.href = `guild-leave-review.html${returnTab === "reviewing" ? "" : `?tab=${returnTab}`}`;
+      function saveResult() {
+        let saved = {};
+        try {
+          saved = JSON.parse(sessionStorage.getItem(storageKey) || "{}");
+        } catch (error) {}
+        saved[selected.id] = {
+          status: selected.status,
+          handledAt: selected.handledAt,
+          rejectionReason: selected.rejectionReason || "",
+        };
+        sessionStorage.setItem(storageKey, JSON.stringify(saved));
+      }
+      function handleReview(result, rejectionReason = "") {
+        const wasLive = selected.live;
+        selected.status = result;
+        if (result === "approved") selected.live = false;
+        selected.handledAt = "2026-08-10 11:20";
+        selected.rejectionReason = result === "rejected" ? rejectionReason : "";
+        saveResult();
+        renderDetail();
+        Luma.toast(
+          result === "approved"
+            ? wasLive
+              ? "退会申请已通过，直播间已关停"
+              : "退会申请已通过"
+            : "退会申请已驳回",
+        );
+      }
+      function closeRejectDialog() {
+        rejectDialog.classList.add("state-hide");
+      }
+      function renderDetail() {
+        detailContent.innerHTML = /* HTML */ `<div class="guild-detail-profile">
+            <span class="directory-avatar">${selected.avatar}</span
+            ><span><b>${selected.name}</b><span>${selected.id}</span></span
+            ><span class="review-status ${selected.status}"
+              >${labels[selected.status]}</span
+            >
+          </div>
+          <div class="guild-detail-grid">
+            <div class="guild-detail-item">
+              <span>加入时间</span><b>${LUMA_FORMAT.date(selected.joinedAt)}</b>
+            </div>
+            <div class="guild-detail-item">
+              <span>申请时间</span
+              ><b>${LUMA_FORMAT.dateTime(selected.appliedAt)}</b>
+            </div>
+            ${selected.status === "pending"
+              ? `<div class="guild-detail-item"><span>待结算收益</span><b class="guild-fiat-value">${selected.unsettled}</b></div>`
+              : ""}${selected.handledAt
+              ? `<div class="guild-detail-item"><span>处理时间</span><b>${LUMA_FORMAT.dateTime(selected.handledAt)}</b></div><div class="guild-detail-item"><span>处理结果</span><b>${labels[selected.status]}</b></div>`
+              : ""}
+          </div>
+          <div class="guild-detail-note">退会原因：${selected.reason}</div>
+          ${selected.status === "rejected"
+            ? `<div class="guild-detail-warning">驳回理由：${selected.rejectionReason || "未填写"}</div>`
+            : ""}`;
+        reviewActions.innerHTML =
+          selected.status === "pending"
+            ? '<button class="review-reject" type="button" data-result="rejected">驳回</button><button class="review-approve" type="button" data-result="approved">通过</button>'
+            : "";
+        reviewActions
+          .querySelector('[data-result="approved"]')
+          ?.addEventListener("click", () => handleReview("approved"));
+        reviewActions
+          .querySelector('[data-result="rejected"]')
+          ?.addEventListener("click", () => {
+            rejectReason.value = "";
+            rejectDialog.classList.remove("state-hide");
+            rejectReason.focus();
+          });
+      }
+      cancelReject.onclick = closeRejectDialog;
+      rejectDialog.onclick = (event) => {
+        if (event.target === rejectDialog) closeRejectDialog();
+      };
+      confirmReject.onclick = () => {
+        const reason = rejectReason.value.trim();
+        closeRejectDialog();
+        handleReview("rejected", reason);
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeRejectDialog();
+      });
+      renderDetail();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-leave-review-detail.html",
+          query: `?id=${encodeURIComponent(selected.id)}&tab=${returnTab}`,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

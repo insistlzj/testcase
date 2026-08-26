@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会推荐编辑 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a
+              class="admin-nav-sub active"
+              href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;公会推荐&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              id="pageName"
+            ></strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-guild-recommendation.html"
+            >‹ 返回公会推荐</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2 id="formTitle"></h2></div>
+            <form id="recommendForm">
+              <div class="admin-form-grid">
+                <div class="admin-form-row">
+                  <label for="guild">推荐公会</label
+                  ><select class="admin-select" id="guild" required>
+                    <option value="G100021">Aurora Guild（G100021）</option>
+                    <option value="G100018">Star House（G100018）</option>
+                    <option value="G100014">Blue Ocean（G100014）</option>
+                    <option value="G100009">Moonlight（G100009）</option>
+                    <option value="G100003">Sunrise Club（G100003）</option>
+                  </select>
+                </div>
+                <div class="admin-form-row">
+                  <label for="sort">排序权重</label
+                  ><input
+                    class="admin-input"
+                    id="sort"
+                    type="number"
+                    min="0"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label>最后更新时间</label>
+                  <div class="admin-readonly-value" id="updatedAt">
+                    2026-08-05 10:12
+                  </div>
+                </div>
+              </div>
+              <div class="admin-modal-foot">
+                <a
+                  class="admin-btn secondary"
+                  href="admin-guild-recommendation.html"
+                  >取消</a
+                ><button class="admin-btn" type="submit">保存</button>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const params = new URLSearchParams(location.search),
+        isNew = params.get("new") === "1",
+        title = isNew ? "新增推荐公会" : "编辑推荐公会";
+      pageName.textContent = title;
+      formTitle.textContent = title;
+      guild.value = isNew ? "G100003" : "G100021";
+      sort.value = isNew ? 60 : 100;
+      updatedAt.textContent = isNew ? "保存后生成" : "2026-08-05 10:12";
+      recommendForm.onsubmit = (event) => {
+        event.preventDefault();
+        Luma.toast(isNew ? "推荐公会已新增" : "推荐公会已保存");
+      };
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-guild-recommendation-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        编辑推荐公会: () => {},
+        新增推荐公会: () =>
+          (location.href =
+            "admin-guild-recommendation-detail.html?new=1&edit=1"),
+      });
+    </script>
+  </body>
+</html>

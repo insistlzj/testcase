@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>邀请好友 · 福利 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260807-annotations-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .invite-banner {
+        margin: 16px;
+        padding: 24px 20px;
+        border-radius: 12px;
+        background: var(--g1);
+        color: var(--g7);
+        position: relative;
+        overflow: hidden;
+      }
+      .invite-banner:before,
+      .invite-banner:after {
+        content: "";
+        position: absolute;
+        border: 1px solid var(--g3);
+        border-radius: 50%;
+        opacity: 0.5;
+      }
+      .invite-banner:before {
+        width: 126px;
+        height: 126px;
+        right: -38px;
+        top: -58px;
+      }
+      .invite-banner:after {
+        width: 76px;
+        height: 76px;
+        right: 31px;
+        bottom: -44px;
+      }
+      .invite-banner small,
+      .invite-banner strong,
+      .invite-banner span {
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+      .invite-banner small {
+        color: var(--g5);
+        font-size: 13px;
+      }
+      .invite-banner strong {
+        margin-top: 8px;
+        font-size: 24px;
+        line-height: 1.35;
+      }
+      .invite-banner span {
+        margin-top: 8px;
+        color: var(--g5);
+        font-size: 13px;
+      }
+      .invite-action {
+        display: flex;
+        justify-content: center;
+        margin: 0 16px;
+      }
+      .invite-action .btn {
+        width: 100%;
+      }
+      .tabs {
+        display: flex;
+        gap: 24px;
+        padding: 0 16px;
+        background: var(--g7);
+        border-bottom: 1px solid var(--g6);
+      }
+      .tabs button {
+        height: 48px;
+        padding: 0;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        background: transparent;
+        color: var(--g4);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .tabs button.active {
+        border-color: var(--g1);
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .panel {
+        display: none;
+      }
+      .panel.active {
+        display: block;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 18px 0;
+      }
+      .stats div {
+        text-align: center;
+      }
+      .stats div + div {
+        border-left: 1px solid var(--g6);
+      }
+      .stats b,
+      .stats span {
+        display: block;
+      }
+      .stats b {
+        font-size: 21px;
+      }
+      .stats span {
+        margin-top: 7px;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .record-list {
+        padding: 0 16px;
+      }
+      .record {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--g6);
+      }
+      .record:last-child {
+        border-bottom: 0;
+      }
+      .record-copy {
+        min-width: 0;
+        flex: 1;
+      }
+      .record b,
+      .record small {
+        display: block;
+      }
+      .record small {
+        margin-top: 5px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .pagination {
+        height: 52px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        border-top: 1px solid var(--g6);
+      }
+      .pagination button {
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: var(--g6);
+        color: var(--g2);
+        font: 20px/1 inherit;
+        cursor: pointer;
+      }
+      .pagination button:disabled {
+        color: var(--g4);
+        cursor: default;
+      }
+      .pagination span {
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .activity h2 {
+        margin-bottom: 12px;
+      }
+      .activity ol {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--g2);
+        font-size: 13px;
+        line-height: 1.75;
+      }
+      .activity li + li {
+        margin-top: 4px;
+      }
+      .share-sheet {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: flex-end;
+        background: var(--overlay);
+        z-index: 8;
+      }
+      .share-sheet.show {
+        display: flex;
+      }
+      .share-card {
+        width: 390px;
+        padding: 18px 16px 14px;
+        background: var(--g7);
+        border-radius: 12px 12px 0 0;
+      }
+      .share-card h2 {
+        margin: 0;
+        text-align: center;
+        font-size: 16px;
+      }
+      .share-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 18px 0;
+      }
+      .share-options button {
+        height: 74px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .share-options i,
+      .share-options span {
+        display: block;
+      }
+      .share-options i {
+        margin-bottom: 7px;
+        font-size: 20px;
+        font-style: normal;
+      }
+      .share-cancel {
+        width: 100%;
+        height: 42px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <a href="welfare-center.html" aria-label="返回">‹</a>邀请好友
+      </header>
+      <section class="invite-banner">
+        <small>邀请新朋友加入 Luma Live</small
+        ><strong>邀请好友 获得 10 金币</strong
+        ><span>每成功邀请 1 位好友，可获得 10 金币</span>
+      </section>
+      <div class="invite-action">
+        <button class="btn" id="inviteButton">邀请好友</button>
+      </div>
+      <section class="sec" style="padding: 0; overflow: hidden">
+        <div class="tabs" role="tablist" aria-label="邀请信息">
+          <button
+            class="active"
+            data-tab="reward"
+            role="tab"
+            aria-selected="true"
+          >
+            奖励</button
+          ><button data-tab="record" role="tab" aria-selected="false">
+            邀请记录
+          </button>
+        </div>
+        <div class="panel active" id="rewardPanel" role="tabpanel">
+          <div class="stats">
+            <div><b id="inviteCount"></b><span>已邀请好友（人）</span></div>
+            <div><b id="rewardTotal"></b><span>累计获得金币</span></div>
+          </div>
+        </div>
+        <div class="panel" id="recordPanel" role="tabpanel">
+          <div class="record-list" id="recordList"></div>
+          <div class="pagination" aria-label="邀请记录分页">
+            <button id="previousPage" aria-label="上一页">‹</button
+            ><span id="pageIndicator"></span
+            ><button id="nextPage" aria-label="下一页">›</button>
+          </div>
+        </div>
+      </section>
+      <section class="sec activity">
+        <h2>活动说明</h2>
+        <ol>
+          <li>每成功邀请 1 位好友，可获得 10 金币。</li>
+          <li>邀请奖励以活动页面展示为准。</li>
+        </ol>
+      </section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <div class="share-sheet" id="shareSheet" aria-hidden="true">
+      <div class="share-card">
+        <h2>邀请好友</h2>
+        <div class="share-options">
+          <button data-share="复制邀请链接">
+            <i>⌁</i><span>复制链接</span></button
+          ><button data-share="发送邀请卡片">
+            <i>↗</i><span>发送给好友</span></button
+          ><button data-share="保存图片"><i>▣</i><span>保存图片</span></button>
+        </div>
+        <button class="share-cancel" id="shareCancel">取消</button>
+      </div>
+    </div>
+    <script>
+      const invite = window.LUMA_MOCK.inviteFriends;
+      const tabs = document.querySelectorAll("[data-tab]");
+      const panels = {
+        reward: document.querySelector("#rewardPanel"),
+        record: document.querySelector("#recordPanel"),
+      };
+      const shareSheet = document.querySelector("#shareSheet");
+      const recordList = document.querySelector("#recordList");
+      const previousPage = document.querySelector("#previousPage");
+      const nextPage = document.querySelector("#nextPage");
+      let recordPage = 1;
+
+      document.querySelector("#inviteCount").textContent = invite.invitedCount;
+      document.querySelector("#rewardTotal").innerHTML =
+        '<i class="coin" aria-hidden="true"></i>' + invite.totalReward;
+      function renderRecords() {
+        const totalPages = Math.ceil(invite.records.length / invite.pageSize);
+        const start = (recordPage - 1) * invite.pageSize;
+        recordList.replaceChildren();
+        invite.records
+          .slice(start, start + invite.pageSize)
+          .forEach((record) => {
+            const row = document.createElement("div");
+            row.className = "record";
+            row.innerHTML =
+              '<i class="avatar"></i><span class="record-copy"><b></b><small></small></span>';
+            row.querySelector(".avatar").textContent = record.nickname.slice(
+              0,
+              1,
+            );
+            row.querySelector("b").textContent = record.nickname;
+            row.querySelector("small").textContent =
+              "邀请日期 " + LUMA_FORMAT.date(record.invitedAt);
+            recordList.append(row);
+          });
+        document.querySelector("#pageIndicator").textContent =
+          recordPage + " / " + totalPages;
+        previousPage.disabled = recordPage === 1;
+        nextPage.disabled = recordPage === totalPages;
+      }
+
+      function selectTab(name) {
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.tab === name;
+          tab.classList.toggle("active", selected);
+          tab.setAttribute("aria-selected", String(selected));
+        });
+        Object.entries(panels).forEach(([key, panel]) =>
+          panel.classList.toggle("active", key === name),
+        );
+      }
+      tabs.forEach((tab) =>
+        tab.addEventListener("click", () => selectTab(tab.dataset.tab)),
+      );
+      previousPage.addEventListener("click", () => {
+        recordPage -= 1;
+        renderRecords();
+      });
+      nextPage.addEventListener("click", () => {
+        recordPage += 1;
+        renderRecords();
+      });
+      renderRecords();
+      document.querySelector("#inviteButton").addEventListener("click", () => {
+        shareSheet.classList.add("show");
+        shareSheet.setAttribute("aria-hidden", "false");
+      });
+      function closeShare() {
+        shareSheet.classList.remove("show");
+        shareSheet.setAttribute("aria-hidden", "true");
+      }
+      document
+        .querySelector("#shareCancel")
+        .addEventListener("click", closeShare);
+      shareSheet.addEventListener("click", (event) => {
+        if (event.target === shareSheet) closeShare();
+      });
+      document.querySelectorAll("[data-share]").forEach((button) =>
+        button.addEventListener("click", () => {
+          closeShare();
+          Luma.toast(button.dataset.share + "（原型反馈）");
+        }),
+      );
+      Luma.registerStates({
+        默认奖励: () => {
+          selectTab("reward");
+          closeShare();
+        },
+        邀请记录: () => {
+          selectTab("record");
+          closeShare();
+        },
+        邀请好友选项: () => {
+          selectTab("reward");
+          shareSheet.classList.add("show");
+          shareSheet.setAttribute("aria-hidden", "false");
+        },
+      });
+    </script>
+  </body>
+</html>

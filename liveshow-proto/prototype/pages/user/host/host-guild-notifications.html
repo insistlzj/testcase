@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会通知 · 主播中心 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260819-guild-notifications-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .notice-list {
+        padding: 12px 16px 16px;
+      }
+      .notice {
+        padding: 15px 14px;
+        border-radius: 12px;
+        background: var(--g7);
+      }
+      .notice + .notice {
+        margin-top: 12px;
+      }
+      .notice-head {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .notice-icon {
+        width: 30px;
+        height: 30px;
+        flex: none;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+      }
+      .notice-icon svg {
+        width: 17px;
+        height: 17px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .notice h2 {
+        min-width: 0;
+        flex: 1;
+        margin: 0;
+        color: var(--g1);
+        font-size: 15px;
+      }
+      .unread-dot {
+        width: 6px;
+        height: 6px;
+        flex: none;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+      .notice-content {
+        margin: 11px 0 0;
+        color: var(--g2);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .notice-content.collapsed {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .notice-media {
+        display: flex;
+        gap: 10px;
+        margin-top: 11px;
+      }
+      .notice-media .notice-content {
+        flex: 1;
+        margin: 0;
+      }
+      .notice-media img {
+        width: 78px;
+        height: 78px;
+        flex: none;
+        border-radius: 8px;
+        object-fit: cover;
+        background: var(--g6);
+      }
+      .notice-toggle {
+        margin: 8px 0 0;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g3);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .empty {
+        padding: 52px 16px;
+        color: var(--g4);
+        font-size: 13px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='host-center.html'"
+        >
+          ‹</button
+        >公会通知
+      </header>
+      <section
+        class="notice-list"
+        id="noticeList"
+        aria-label="公会通知列表"
+      ></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const noticeList = document.querySelector("#noticeList");
+      const notifications = window.LUMA_MOCK.guildNotifications;
+      const bellIcon =
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>';
+      function render() {
+        if (!notifications.length) {
+          noticeList.innerHTML = '<p class="empty">暂无公会通知</p>';
+          return;
+        }
+        noticeList.innerHTML = notifications
+          .map((item, index) => {
+            const content = `<p class="notice-content ${item.expanded ? "" : "collapsed"}">${item.content}</p>`,
+              body = item.image
+                ? `<div class="notice-media"><img src="../../../assets/${item.image}" alt="${item.imageAlt}">${content}</div>`
+                : content;
+            return `<article class="notice"><header class="notice-head"><i class="notice-icon">${bellIcon}</i><h2>${item.title}</h2>${item.unread ? '<i class="unread-dot" aria-label="未读"></i>' : ""}</header>${body}<button class="notice-toggle" type="button" data-index="${index}" aria-expanded="${Boolean(item.expanded)}">${item.expanded ? "收起" : "展开全文"}</button></article>`;
+          })
+          .join("");
+        noticeList.querySelectorAll(".notice-toggle").forEach(
+          (button) =>
+            (button.onclick = () => {
+              const item = notifications[Number(button.dataset.index)];
+              item.expanded = !item.expanded;
+              render();
+            }),
+        );
+      }
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "host-guild-notifications.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

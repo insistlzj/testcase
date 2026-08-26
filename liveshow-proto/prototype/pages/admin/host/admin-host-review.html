@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>主播审核 · 主播管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav" aria-label="管理后台一级菜单">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub active" href="admin-host-review.html"
+              >主播审核</a
+            ><a class="admin-nav-sub" href="admin-host-list.html">主播列表</a
+            ><a class="admin-nav-sub" href="admin-live-management.html"
+              >直播场次</a
+            ><a class="admin-nav-sub" href="admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub" href="../content/admin-content-audit.html"
+              >内容审核</a
+            ><a
+              class="admin-nav-sub"
+              href="../content/admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            主播管理&nbsp;&nbsp;/&nbsp;&nbsp;<strong>主播审核</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>主播审核</h1></div>
+          </div>
+          <section class="admin-panel admin-filter" aria-label="认证筛选">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="reviewHost">主播昵称/ID</label
+                ><input
+                  class="admin-input"
+                  id="reviewHost"
+                  placeholder="输入主播昵称或 ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="reviewGuild">公会昵称/ID</label
+                ><input
+                  class="admin-input"
+                  id="reviewGuild"
+                  placeholder="输入公会昵称或 ID"
+                />
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs" aria-label="认证状态">
+                <button class="admin-list-tab active" data-status-tab="">
+                  全部</button
+                ><button class="admin-list-tab" data-status-tab="pending">
+                  待审核</button
+                ><button class="admin-list-tab" data-status-tab="approved">
+                  已通过</button
+                ><button class="admin-list-tab" data-status-tab="rejected">
+                  已驳回
+                </button>
+              </div>
+              <span id="resultCount">共 5 条</span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 980px">
+                <colgroup>
+                  <col style="width: 160px" />
+                  <col style="width: 220px" />
+                  <col style="width: 160px" />
+                  <col style="width: 170px" />
+                  <col style="width: 120px" />
+                  <col style="width: 140px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>申请单号</th>
+                    <th>主播信息</th>
+                    <th>公会信息</th>
+                    <th>提交时间</th>
+                    <th>认证状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="reviewRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const mock = window.LUMA_ADMIN_MOCK,
+        reviews = mock.certifications,
+        statusText = {
+          pending: "待审核",
+          approved: "已通过",
+          rejected: "已驳回",
+        },
+        reviewRows = document.querySelector("#reviewRows"),
+        resultCount = document.querySelector("#resultCount"),
+        pagination = document.querySelector("#pagination");
+      let visibleReviews = reviews,
+        activeStatus = "";
+      function guildOf(item) {
+        return mock.guilds.find((guild) => guild.name === item.guild);
+      }
+      function render(items) {
+        visibleReviews = items;
+        resultCount.textContent = `共 ${items.length} 条`;
+        pagination.classList.toggle("state-hide", !items.length);
+        if (!items.length) {
+          reviewRows.innerHTML =
+            '<tr><td colspan="6"><div class="admin-empty"><strong>未找到认证申请</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        reviewRows.innerHTML = items
+          .map((item) => {
+            const guild = guildOf(item);
+            return /* HTML */ `<tr>
+              <td>${item.applicationNo}</td>
+              <td>
+                <div class="admin-user-cell">
+                  <span class="admin-avatar">${item.initials}</span
+                  ><span class="admin-user-name"
+                    ><b>${item.name}</b><span>${item.hostId}</span></span
+                  >
+                </div>
+              </td>
+              <td>
+                <b>${item.guild}</b
+                ><span class="admin-cell-sub">${guild?.id || "-"}</span>
+              </td>
+              <td>${item.submittedAt}</td>
+              <td>
+                <span class="admin-status ${item.status}"
+                  >${statusText[item.status]}</span
+                >
+              </td>
+              <td>
+                <a
+                  class="admin-action"
+                  href="admin-host-review-detail.html?id=${item.applicationNo}"
+                  >详情</a
+                >
+              </td>
+            </tr>`;
+          })
+          .join("");
+      }
+      function syncStatusTabs() {
+        document
+          .querySelectorAll("[data-status-tab]")
+          .forEach((button) =>
+            button.classList.toggle(
+              "active",
+              button.dataset.statusTab === activeStatus,
+            ),
+          );
+      }
+      function filter() {
+        const hostKey = document
+            .querySelector("#reviewHost")
+            .value.trim()
+            .toLowerCase(),
+          guildKey = document
+            .querySelector("#reviewGuild")
+            .value.trim()
+            .toLowerCase();
+        const items = reviews.filter((x) => {
+          const guild = guildOf(x),
+            hostText = `${x.name} ${x.hostId}`.toLowerCase(),
+            guildText = `${x.guild} ${guild?.id || ""}`.toLowerCase();
+          return (
+            hostText.includes(hostKey) &&
+            guildText.includes(guildKey) &&
+            (!activeStatus || x.status === activeStatus)
+          );
+        });
+        render(items);
+      }
+      searchBtn.onclick = () => {
+        filter();
+        Luma.toast(`已查询到 ${visibleReviews.length} 条认证申请`);
+      };
+      resetBtn.onclick = () => {
+        document
+          .querySelectorAll(".admin-filter input")
+          .forEach((x) => (x.value = ""));
+        document
+          .querySelectorAll(".admin-filter select")
+          .forEach((x) => (x.selectedIndex = 0));
+        activeStatus = "";
+        syncStatusTabs();
+        render(reviews);
+        Luma.toast("筛选条件已重置");
+      };
+      document.addEventListener("click", (e) => {
+        const statusTab = e.target.closest("[data-status-tab]");
+        if (statusTab) {
+          activeStatus = statusTab.dataset.statusTab;
+          syncStatusTabs();
+          filter();
+        }
+        const menu = e.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      render(reviews);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-host-review.html" },
+        "*",
+      );
+      Luma.registerStates({
+        正常列表: () => render(reviews),
+        无查询结果: () => render([]),
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>消费订单 · 订单管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260815-consumption-refund-v1"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            订单管理&nbsp;&nbsp;/&nbsp;&nbsp;<strong>消费订单</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>消费订单</h1></div>
+          </div>
+          <section class="admin-panel admin-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="orderKey">订单号</label
+                ><input
+                  class="admin-input"
+                  id="orderKey"
+                  placeholder="输入消费订单号"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="userKey">消费用户</label
+                ><input
+                  class="admin-input"
+                  id="userKey"
+                  placeholder="输入用户 ID 或昵称"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="typeKey">消费类型</label
+                ><select class="admin-select" id="typeKey">
+                  <option value="">全部类型</option>
+                  <option>普通礼物</option>
+                  <option>定制礼物</option>
+                  <option>幸运礼物</option>
+                  <option>门票</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="statusKey">订单状态</label
+                ><select class="admin-select" id="statusKey">
+                  <option value="">全部状态</option>
+                  <option value="paid">已支付</option>
+                  <option value="refunded">已退款</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="targetKey">消费主播/ID</label
+                ><input
+                  class="admin-input"
+                  id="targetKey"
+                  placeholder="输入主播 ID 或昵称"
+                />
+              </div>
+              <div class="admin-field">
+                <label>消费时间段</label>
+                <div class="admin-range admin-date-range">
+                  <input class="admin-input" id="startDate" type="date" /><span
+                    >至</span
+                  ><input class="admin-input" id="endDate" type="date" />
+                </div>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <strong>消费订单</strong>
+              <div class="admin-toolbar-actions">
+                <span id="resultCount"></span
+                ><button class="admin-btn secondary" id="exportBtn">
+                  导出
+                </button>
+              </div>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1380px">
+                <colgroup>
+                  <col style="width: 146px" />
+                  <col style="width: 166px" />
+                  <col style="width: 170px" />
+                  <col style="width: 100px" />
+                  <col style="width: 170px" />
+                  <col style="width: 90px" />
+                  <col style="width: 100px" />
+                  <col style="width: 110px" />
+                  <col style="width: 190px" />
+                  <col style="width: 80px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>消费时间</th>
+                    <th>订单号</th>
+                    <th>用户信息</th>
+                    <th>消费类型</th>
+                    <th>商品</th>
+                    <th>数量</th>
+                    <th>消费金币</th>
+                    <th>订单状态</th>
+                    <th>主播信息</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="orderRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const orders = window.LUMA_ADMIN_MOCK.consumptionOrders,
+        { coins: formatCoins } = window.LUMA_ADMIN_FORMAT,
+        statusText = { paid: "已支付", refunded: "已退款" },
+        statusClass = { paid: "success", refunded: "banned" };
+      let visible = orders;
+      const rows = document.querySelector("#orderRows"),
+        count = document.querySelector("#resultCount"),
+        pagination = document.querySelector("#pagination");
+      function displayStatus(item) {
+        return item.refund || item.status === "reversed" ? "refunded" : "paid";
+      }
+      function render(items) {
+        visible = items;
+        count.textContent = `共 ${items.length} 条`;
+        pagination.classList.toggle("state-hide", !items.length);
+        if (!items.length) {
+          rows.innerHTML =
+            '<tr><td colspan="10"><div class="admin-empty"><strong>未找到消费订单</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        rows.innerHTML = items
+          .map((item) => {
+            const status = displayStatus(item);
+            return /* HTML */ `<tr>
+              <td>${item.createdAt}</td>
+              <td>${item.orderNo}</td>
+              <td>
+                <div class="admin-user-cell">
+                  <span class="admin-avatar">${item.initials}</span
+                  ><span class="admin-user-name"
+                    ><b>${item.userName}</b>${Luma.id(
+                      item.userId,
+                      "用户ID",
+                    )}</span
+                  >
+                </div>
+              </td>
+              <td>${item.type}</td>
+              <td>
+                <span
+                  class="admin-cell-ellipsis"
+                  title="${item.itemId} · ${item.itemName}"
+                  >${item.itemName}</span
+                >
+              </td>
+              <td>${item.quantity}</td>
+              <td>${formatCoins(item.coins)}</td>
+              <td>
+                <span class="admin-status ${statusClass[status]}"
+                  >${statusText[status]}</span
+                >
+              </td>
+              <td>
+                <b>${item.targetName}</b
+                ><span class="admin-cell-sub">${item.targetId}</span>
+              </td>
+              <td>
+                <a
+                  class="admin-action"
+                  href="admin-consumption-order-detail.html?id=${item.orderNo}"
+                  >详情</a
+                >
+              </td>
+            </tr>`;
+          })
+          .join("");
+      }
+      function filter() {
+        const order = orderKey.value.trim().toLowerCase(),
+          user = userKey.value.trim().toLowerCase(),
+          type = typeKey.value,
+          status = statusKey.value,
+          target = targetKey.value.trim().toLowerCase(),
+          start = startDate.value,
+          end = endDate.value;
+        if (start && end && start > end)
+          return Luma.toast("结束时间不能早于开始时间");
+        const items = orders.filter(
+          (item) =>
+            item.orderNo.toLowerCase().includes(order) &&
+            `${item.userId} ${item.userName}`.toLowerCase().includes(user) &&
+            (!type || item.type === type) &&
+            (!status || displayStatus(item) === status) &&
+            `${item.targetId} ${item.targetName} ${item.roomId} ${item.sessionId}`
+              .toLowerCase()
+              .includes(target) &&
+            (!start || item.createdAt.slice(0, 10) >= start) &&
+            (!end || item.createdAt.slice(0, 10) <= end),
+        );
+        render(items);
+        Luma.toast(`已查询到 ${items.length} 条消费订单`);
+      }
+      searchBtn.onclick = filter;
+      resetBtn.onclick = () => {
+        document
+          .querySelectorAll(".admin-filter input")
+          .forEach((input) => (input.value = ""));
+        document
+          .querySelectorAll(".admin-filter select")
+          .forEach((select) => (select.selectedIndex = 0));
+        render(orders);
+        Luma.toast("筛选条件已重置");
+      };
+      exportBtn.onclick = () =>
+        Luma.toast(`已导出 ${visible.length} 条消费订单`);
+      document.querySelectorAll(".admin-filter input").forEach((input) =>
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") filter();
+        }),
+      );
+      document.addEventListener("click", (event) => {
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      render(orders);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-consumption-order.html" },
+        "*",
+      );
+      Luma.registerStates({
+        正常列表: () => render(orders),
+        无查询结果: () => render([]),
+      });
+    </script>
+  </body>
+</html>

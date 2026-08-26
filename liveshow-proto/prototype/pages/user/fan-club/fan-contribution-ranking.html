@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>贡献榜 · 我的粉丝团 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .rank-page {
+        padding: 12px 16px 94px;
+      }
+      .club-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .club-title .avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+      }
+      .club-title b {
+        color: var(--g1);
+        font-size: 14px;
+      }
+      .period-tabs {
+        height: 38px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 30px;
+        margin: 12px 0 10px;
+        border-bottom: 1px solid var(--g5);
+      }
+      .period-tabs button {
+        height: 38px;
+        padding: 0;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        background: transparent;
+        color: var(--g4);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .period-tabs button.active {
+        border-color: var(--g1);
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .podium {
+        height: 226px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 7px;
+        padding: 0 8px 14px;
+        border-bottom: 1px solid var(--g5);
+      }
+      .podium-item {
+        width: 102px;
+        text-align: center;
+      }
+      .avatar-wrap {
+        position: relative;
+        display: block;
+        width: 54px;
+        margin: 0 auto 7px;
+      }
+      .podium-item .avatar {
+        width: 54px;
+        height: 54px;
+        border: 3px solid var(--g7);
+        font-size: 19px;
+      }
+      .podium-item b,
+      .podium-item small {
+        display: block;
+      }
+      .podium-item b {
+        font-size: 14px;
+      }
+      .podium-item small {
+        margin-top: 4px;
+        color: var(--success);
+        font-size: 12px;
+      }
+      .medal {
+        position: absolute;
+        right: -3px;
+        bottom: -3px;
+        width: 23px;
+        height: 23px;
+        border: 2px solid var(--g7);
+        border-radius: 50%;
+        background: var(--g2);
+        color: var(--g7);
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .podium-base {
+        margin-top: 9px;
+        border-radius: 7px 7px 0 0;
+        background: var(--g6);
+      }
+      .first .podium-base {
+        height: 66px;
+        background: var(--g5);
+      }
+      .second .podium-base {
+        height: 48px;
+      }
+      .third .podium-base {
+        height: 35px;
+      }
+      .ranking-list {
+        margin-top: 12px;
+        background: var(--g7);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .ranking-row {
+        min-height: 68px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        border-bottom: 1px solid var(--g6);
+      }
+      .ranking-row:last-child {
+        border-bottom: 0;
+      }
+      .row-rank {
+        width: 18px;
+        flex: none;
+        color: var(--g3);
+        font-size: 13px;
+        text-align: center;
+      }
+      .ranking-row .avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+      }
+      .member {
+        min-width: 0;
+        flex: 1;
+      }
+      .member b {
+        display: block;
+        font-size: 14px;
+      }
+      .badges {
+        display: flex;
+        gap: 4px;
+        margin-top: 5px;
+      }
+      .badges i {
+        padding: 2px 5px;
+        border-radius: 4px;
+        background: var(--g6);
+        color: var(--g3);
+        font-size: 10px;
+        font-style: normal;
+        white-space: nowrap;
+      }
+      .contribution {
+        flex: none;
+        color: var(--success);
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .contribution i {
+        margin-right: 3px;
+        color: var(--g2);
+        font-style: normal;
+      }
+      .my-ranking {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 390px;
+        min-height: 72px;
+        padding: 10px 16px;
+        background: var(--g7);
+        border-top: 1px solid var(--g5);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 4;
+      }
+      .my-ranking .avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 15px;
+      }
+      .my-rank-number {
+        min-width: 0;
+        flex: 1;
+        color: var(--g1);
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .my-contribution {
+        color: var(--success);
+        font-size: 15px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .my-contribution i {
+        margin-right: 3px;
+        color: var(--g2);
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button class="back" onclick="location.href='my-fan-clubs.html'">
+          ‹</button
+        >贡献榜
+      </header>
+      <section class="rank-page">
+        <span class="club-title"
+          ><i class="avatar">S</i><b>Sari 的粉丝团</b></span
+        >
+        <nav class="period-tabs" aria-label="贡献周期">
+          <button type="button" data-period="week">本周</button
+          ><button type="button" class="active" data-period="month">本月</button
+          ><button type="button" data-period="total">累计</button>
+        </nav>
+        <section class="podium" id="podium" aria-label="贡献榜前三名"></section>
+        <section
+          class="ranking-list"
+          id="rankingList"
+          aria-label="贡献榜列表"
+        ></section>
+      </section>
+      <aside class="my-ranking" id="myRanking">
+        <i class="avatar">安</i><b class="my-rank-number"></b
+        ><strong class="my-contribution"><i>◆</i><span></span></strong>
+      </aside>
+    </main>
+    <script>
+      const ranking = LUMA_MOCK.fanContributionRanking;
+      const periods = LUMA_MOCK.fanContributionRankingPeriods;
+      const podium = document.querySelector("#podium");
+      const rankingList = document.querySelector("#rankingList");
+      const myRanking = document.querySelector("#myRanking");
+      const formatContribution = (value, multiplier) =>
+        Math.round(Number(value.replace(".", "")) * multiplier).toLocaleString(
+          "de-DE",
+        );
+      const render = (periodKey) => {
+        const period = periods[periodKey];
+        const topOrder = [ranking[1], ranking[0], ranking[2]];
+        const podiumClass = ["second", "first", "third"];
+        podium.innerHTML = topOrder
+          .map(
+            (member, index) =>
+              `<article class="podium-item ${podiumClass[index]}"><span class="avatar-wrap"><i class="avatar">${member.avatar}</i><i class="medal">${member.rank}</i></span><b>${member.name}</b><small>◆ ${formatContribution(member.contribution, period.multiplier)}</small><div class="podium-base"></div></article>`,
+          )
+          .join("");
+        rankingList.innerHTML = ranking
+          .slice(3)
+          .map(
+            (member) =>
+              `<article class="ranking-row"><span class="row-rank">${member.rank}</span><i class="avatar">${member.avatar}</i><span class="member"><b>${member.name}</b><span class="badges"><i>${member.wealthLevel}</i><i>${member.fanLevel}</i></span></span><span class="contribution"><i>◆</i>${formatContribution(member.contribution, period.multiplier)}</span></article>`,
+          )
+          .join("");
+        myRanking.setAttribute("aria-label", `我的${period.label}排名`);
+        myRanking.querySelector(".my-rank-number").textContent = period.myRank;
+        myRanking.querySelector(".my-contribution span").textContent =
+          period.myContribution;
+      };
+      document.querySelectorAll("[data-period]").forEach(
+        (tab) =>
+          (tab.onclick = () => {
+            document
+              .querySelectorAll("[data-period]")
+              .forEach((item) => item.classList.toggle("active", item === tab));
+            render(tab.dataset.period);
+          }),
+      );
+      render("month");
+    </script>
+  </body>
+</html>

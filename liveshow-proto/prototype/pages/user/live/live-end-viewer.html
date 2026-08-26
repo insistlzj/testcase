@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>直播结束页（观众） · 用户主播 App · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/common.css?v=p003-end-viewer-v1"
+    />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .ended {
+        width: 390px;
+        min-height: 844px;
+        background: var(--g6);
+        position: relative;
+      }
+      .ended-main {
+        min-height: 756px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 32px;
+        text-align: center;
+      }
+      .ended-main .avatar {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 16px;
+        font-size: 26px;
+        background: var(--g5);
+        color: var(--g2);
+      }
+      .ended-main h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .ended-main p {
+        margin: 10px 0 28px;
+        color: var(--g3);
+        font-size: 14px;
+      }
+      .ended-main .btn {
+        width: 100%;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="ended">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button class="back" onclick="location.href='../home/live-plaza.html'">
+          ‹</button
+        >直播间
+      </header>
+      <section class="ended-main">
+        <i class="avatar">S</i>
+        <h1>Sari 的直播已结束</h1>
+        <p>主播正在整理本场内容</p>
+        <a class="btn" href="../home/live-plaza.html">返回首页</a>
+      </section>
+    </main>
+  </body>
+</html>

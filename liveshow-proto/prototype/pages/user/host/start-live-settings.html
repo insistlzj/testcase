@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>开播设置 · 主播中心 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/start-live-config.js"></script>
+    <style>
+      body {
+        background: var(--g5);
+      }
+      .prelive {
+        width: 390px;
+        min-height: 844px;
+        position: relative;
+        overflow: hidden;
+        background: var(--g5);
+        color: var(--g1);
+      }
+      .prelive > * {
+        position: relative;
+        z-index: 1;
+      }
+      .prelive .sb {
+        background: transparent;
+        color: var(--g1);
+      }
+      .camera-preview {
+        position: absolute !important;
+        inset: 44px 0 0;
+        z-index: 0 !important;
+        display: grid;
+        place-items: center;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .camera-preview span {
+        padding: 7px 10px;
+        border-radius: 6px;
+        background: var(--g6);
+      }
+      .close,
+      .camera-switch {
+        position: absolute;
+        top: 58px;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--g1);
+        cursor: pointer;
+      }
+      .close {
+        left: 16px;
+        font: 38px/1 inherit;
+      }
+      .camera-switch {
+        right: 16px;
+        display: grid;
+        place-items: center;
+      }
+      .camera-switch svg {
+        width: 23px;
+        height: 23px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform 0.16s;
+      }
+      .camera-switch.is-back svg {
+        transform: scaleX(-1);
+      }
+      .center {
+        position: absolute;
+        top: 122px;
+        left: 16px;
+        right: 16px;
+        text-align: center;
+      }
+      .cover-action {
+        display: block;
+        width: 164px;
+        height: 164px;
+        margin: 0 auto 22px;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--g6);
+        color: var(--g3);
+        font: 13px inherit;
+        cursor: pointer;
+        position: relative;
+      }
+      .cover-avatar {
+        position: absolute;
+        top: 30px;
+        left: 46px;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--g5);
+        color: var(--g3);
+        display: grid;
+        place-items: center;
+        font-size: 25px;
+        font-style: normal;
+      }
+      .cover-action span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 34px;
+        background: rgba(51, 51, 51, 0.46);
+        color: var(--g7);
+        display: grid;
+        place-items: center;
+      }
+      .title-action {
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g1);
+        font: 600 25px inherit;
+        cursor: pointer;
+      }
+      .title-action small {
+        display: block;
+        margin-top: 10px;
+        color: var(--g2);
+        font: 16px inherit;
+      }
+      .bottom-tools {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 108px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      .bottom-tools button {
+        height: 34px;
+        padding: 0 13px;
+        border: 0;
+        border-radius: 17px;
+        background: var(--g7);
+        color: var(--g2);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .bottom-tools span {
+        color: var(--g1);
+      }
+      .start {
+        position: absolute;
+        left: 32px;
+        right: 32px;
+        bottom: 28px;
+        height: 50px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 600 19px inherit;
+        cursor: pointer;
+      }
+      .sheet-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 7;
+        background: rgba(51, 51, 51, 0.48);
+      }
+      .sheet {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 20px 16px 18px;
+        border-radius: 14px 14px 0 0;
+        background: var(--g7);
+        color: var(--g1);
+      }
+      .sheet h2 {
+        margin: 0 0 16px;
+        font-size: 17px;
+      }
+      .sheet-close {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 28px/1 inherit;
+        cursor: pointer;
+      }
+      .category-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+      }
+      .category-list button {
+        height: 34px;
+        padding: 0 14px;
+        border: 0;
+        border-radius: 17px;
+        background: var(--g6);
+        color: var(--g3);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .category-list button.active {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .title-input {
+        width: 100%;
+        height: 42px;
+        padding: 0 10px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g1);
+        font: 14px inherit;
+      }
+      .save {
+        width: 100%;
+        height: 42px;
+        margin-top: 14px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .room-types {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .room-type {
+        position: relative;
+        min-width: 0;
+      }
+      .room-type input {
+        position: absolute;
+        opacity: 0;
+      }
+      .room-type span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        height: 42px;
+        padding: 0 6px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        color: var(--g2);
+        font-size: 13px;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .room-type i {
+        font-size: 16px;
+        font-style: normal;
+        line-height: 1;
+      }
+      .room-type input:checked + span {
+        border-color: var(--g1);
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .options {
+        margin-top: 10px;
+      }
+      .options.state-hide {
+        display: none;
+      }
+      .options label {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .inline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .inline .title-input {
+        flex: 1;
+      }
+      .inline em {
+        color: var(--g3);
+        font-size: 12px;
+        font-style: normal;
+      }
+      .switch-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 12px;
+        color: var(--g2);
+        font-size: 13px;
+      }
+      .switch {
+        width: 38px;
+        height: 22px;
+        padding: 2px;
+        border: 0;
+        border-radius: 11px;
+        background: var(--g5);
+        cursor: pointer;
+      }
+      .switch i {
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--g7);
+        transition: transform 0.16s;
+      }
+      .switch.on {
+        background: var(--g1);
+      }
+      .switch.on i {
+        transform: translateX(16px);
+      }
+      .authorized {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--g6);
+      }
+      .authorized.state-hide {
+        display: none;
+      }
+      .authorized p {
+        margin: 0 0 8px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .fans {
+        display: flex;
+        gap: 9px;
+      }
+      .fan {
+        width: 46px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g3);
+        font: 10px inherit;
+        cursor: pointer;
+      }
+      .fan .avatar {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto 4px;
+        border: 2px solid transparent;
+        font-size: 10px;
+      }
+      .fan.selected .avatar {
+        border-color: var(--g1);
+      }
+      .beauty-sheet {
+        padding: 0 16px 20px;
+      }
+      .beauty-head {
+        height: 56px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--g6);
+      }
+      .beauty-tabs {
+        display: flex;
+        align-self: stretch;
+        gap: 24px;
+      }
+      .beauty-tabs button {
+        position: relative;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g3);
+        font: 15px inherit;
+        cursor: pointer;
+      }
+      .beauty-tabs button.active {
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .beauty-tabs button.active:after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        background: var(--g1);
+        content: "";
+      }
+      .beauty-reset {
+        margin-left: auto;
+        padding: 6px 0 6px 12px;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .beauty-content {
+        padding-top: 16px;
+      }
+      .beauty-items {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 9px;
+      }
+      .beauty-items button {
+        height: 36px;
+        padding: 0;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g2);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .beauty-items button.active {
+        border-color: var(--g1);
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .beauty-adjust {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 62px;
+        margin-top: 12px;
+        padding: 0 11px;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 13px;
+      }
+      .beauty-adjust.state-hide {
+        display: none;
+      }
+      .beauty-adjust b {
+        min-width: 32px;
+        color: var(--g1);
+        font-size: 14px;
+      }
+      .beauty-adjust output {
+        width: 25px;
+        text-align: right;
+        color: var(--g1);
+        font-variant-numeric: tabular-nums;
+      }
+      .beauty-range {
+        width: 100%;
+        accent-color: var(--g1);
+        cursor: pointer;
+      }
+      .launch {
+        position: fixed;
+        inset: 0;
+        z-index: 9;
+        display: grid;
+        place-items: center;
+        background: rgba(51, 51, 51, 0.64);
+      }
+      .launch-card {
+        width: 180px;
+        padding: 24px 20px;
+        text-align: center;
+        border-radius: 12px;
+        background: var(--g7);
+        color: var(--g1);
+      }
+      .launch-card b {
+        display: block;
+        font-size: 44px;
+        line-height: 1;
+      }
+      .launch-card p {
+        margin: 11px 0 0;
+        color: var(--g2);
+        font-size: 14px;
+      }
+      .launch-card button {
+        width: 100%;
+        height: 40px;
+        margin-top: 18px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="prelive">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <div class="camera-preview">
+        <span id="cameraState">前置摄像头预览</span>
+      </div>
+      <button
+        class="close"
+        type="button"
+        aria-label="返回主播中心"
+        onclick="location.href='host-center.html'"
+      >
+        ×</button
+      ><button
+        class="camera-switch"
+        id="cameraSwitch"
+        type="button"
+        aria-label="切换摄像头"
+        title="切换摄像头"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 8h11a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H3z" />
+          <path d="m17 12 4-3v8l-4-3zM8 5l2-2 2 2M10 3v6" />
+        </svg>
+      </button>
+      <section class="center">
+        <input id="cover" type="file" accept="image/*" hidden /><button
+          class="cover-action"
+          type="button"
+          aria-label="修改封面"
+          onclick="document.querySelector('#cover').click()"
+        >
+          <i class="cover-avatar">安</i><span>修改封面</span></button
+        ><button class="title-action" id="titleAction" type="button">
+          今晚唱到你睡着<small>修改主题</small>
+        </button>
+      </section>
+      <section class="bottom-tools">
+        <button type="button" id="categoryEntry">
+          <span id="categoryValue">唱歌</span> ›</button
+        ><button type="button" id="roomEntry">
+          <span id="roomValue">普通</span> ›</button
+        ><button type="button" id="beautyEntry">美颜设置</button>
+      </section>
+      <button class="start" id="start" type="button">◉ 开始直播</button>
+    </main>
+    <section class="sheet-mask state-hide" id="titleSheet">
+      <div class="sheet">
+        <button class="sheet-close" type="button" data-close="titleSheet">
+          ×
+        </button>
+        <h2>修改主题</h2>
+        <input
+          class="title-input"
+          id="titleInput"
+          maxlength="40"
+          value="今晚唱到你睡着"
+        /><button class="save" id="saveTitle" type="button">保存</button>
+      </div>
+    </section>
+    <section class="sheet-mask state-hide" id="categorySheet">
+      <div class="sheet">
+        <button class="sheet-close" type="button" data-close="categorySheet">
+          ×
+        </button>
+        <h2>选择分类</h2>
+        <div class="category-list" id="categories"></div>
+      </div>
+    </section>
+    <section class="sheet-mask state-hide" id="roomSheet">
+      <div class="sheet">
+        <button class="sheet-close" type="button" data-close="roomSheet">
+          ×
+        </button>
+        <h2>房型设置</h2>
+        <div class="room-types">
+          <label class="room-type"
+            ><input type="radio" name="roomType" value="normal" checked /><span
+              ><i aria-hidden="true">◉</i>普通房</span
+            ></label
+          ><label class="room-type"
+            ><input type="radio" name="roomType" value="ticket" /><span
+              ><i aria-hidden="true">◆</i>门票房</span
+            ></label
+          ><label class="room-type"
+            ><input type="radio" name="roomType" value="password" /><span
+              ><i aria-hidden="true">⌑</i>密码房</span
+            ></label
+          >
+        </div>
+        <div class="options state-hide" id="ticketOptions">
+          <label for="ticketPrice">门票价格</label
+          ><span class="inline"
+            ><input
+              class="title-input"
+              id="ticketPrice"
+              inputmode="numeric"
+              placeholder="输入金币价格"
+            /><em>◆</em></span
+          >
+        </div>
+        <div class="options state-hide" id="passwordOptions">
+          <label for="roomPassword">房间密码</label
+          ><input
+            class="title-input"
+            id="roomPassword"
+            maxlength="12"
+            placeholder="设置 4-12 位密码"
+          />
+          <div class="switch-row">
+            <span>在广场展示</span
+            ><button class="switch on" id="plazaSwitch" type="button">
+              <i></i>
+            </button>
+          </div>
+          <div class="switch-row">
+            <span>从粉丝中授权可见</span
+            ><button class="switch" id="authorizeSwitch" type="button">
+              <i></i>
+            </button>
+          </div>
+          <section class="authorized state-hide" id="authorized">
+            <p>可见名单</p>
+            <div class="fans" id="fans"></div>
+          </section>
+        </div>
+        <button class="save" id="saveRoom" type="button">确认</button>
+      </div>
+    </section>
+    <section class="sheet-mask state-hide" id="beautySheet">
+      <div class="sheet beauty-sheet">
+        <header class="beauty-head">
+          <nav class="beauty-tabs" aria-label="美颜设置分类">
+            <button class="active" data-beauty-tab="beauty" type="button">
+              美颜</button
+            ><button data-beauty-tab="shape" type="button">美型</button>
+          </nav>
+          <button class="beauty-reset" id="beautyReset" type="button">
+            恢复默认</button
+          ><button class="sheet-close" type="button" data-close="beautySheet">
+            ×
+          </button>
+        </header>
+        <section class="beauty-content">
+          <div class="beauty-items" id="beautyItems"></div>
+          <div class="beauty-adjust state-hide" id="beautyAdjust">
+            <b id="beautyName"></b
+            ><input
+              class="beauty-range"
+              id="beautyRange"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              aria-label="美颜参数"
+            /><output id="beautyOutput" for="beautyRange">50</output>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section class="launch state-hide" id="launch">
+      <div class="launch-card">
+        <b id="countdown">3</b>
+        <p id="launchText">准备开播</p>
+        <button
+          class="state-hide"
+          id="enterRoom"
+          type="button"
+          onclick="location.href='../live/live-room-host.html'"
+        >
+          进入直播间
+        </button>
+      </div>
+    </section>
+    <script>
+      const titleAction = document.querySelector("#titleAction"),
+        titleInput = document.querySelector("#titleInput"),
+        categoryValue = document.querySelector("#categoryValue"),
+        roomValue = document.querySelector("#roomValue"),
+        ticketOptions = document.querySelector("#ticketOptions"),
+        passwordOptions = document.querySelector("#passwordOptions"),
+        authorizeSwitch = document.querySelector("#authorizeSwitch"),
+        authorized = document.querySelector("#authorized"),
+        plazaSwitch = document.querySelector("#plazaSwitch"),
+        fans = document.querySelector("#fans"),
+        cover = document.querySelector("#cover"),
+        cameraSwitch = document.querySelector("#cameraSwitch"),
+        cameraState = document.querySelector("#cameraState"),
+        beautyItems = document.querySelector("#beautyItems"),
+        beautyAdjust = document.querySelector("#beautyAdjust"),
+        beautyName = document.querySelector("#beautyName"),
+        beautyRange = document.querySelector("#beautyRange"),
+        beautyOutput = document.querySelector("#beautyOutput");
+      let category = "唱歌",
+        camera = "front",
+        beautyTab = "beauty";
+      const roomNames = { normal: "普通", ticket: "门票", password: "密码" },
+        beautyOptions = {
+          beauty: ["美白", "磨皮", "锐化", "红润"],
+          shape: ["大眼", "瘦脸", "小嘴", "亮眼", "瘦鼻", "白牙", "瘦下巴"],
+        },
+        beautySelection = { beauty: "", shape: "" },
+        beautyValues = Object.fromEntries(
+          Object.values(beautyOptions)
+            .flat()
+            .map((item) => [item, 50]),
+        );
+      function openSheet(id) {
+        document.querySelector("#" + id).classList.remove("state-hide");
+      }
+      function closeSheet(id) {
+        document.querySelector("#" + id).classList.add("state-hide");
+      }
+      function renderBeauty() {
+        const selected = beautySelection[beautyTab];
+        beautyItems.innerHTML = beautyOptions[beautyTab]
+          .map(
+            (item) =>
+              `<button class="${item === selected ? "active" : ""}" type="button" data-beauty-item="${item}">${item}</button>`,
+          )
+          .join("");
+        beautyAdjust.classList.toggle("state-hide", !selected);
+        if (selected) {
+          beautyName.textContent = selected;
+          beautyRange.value = beautyValues[selected];
+          beautyOutput.value = beautyValues[selected];
+          beautyOutput.textContent = beautyValues[selected];
+        }
+      }
+      titleAction.onclick = () => openSheet("titleSheet");
+      document.querySelector("#categoryEntry").onclick = () =>
+        openSheet("categorySheet");
+      document.querySelector("#roomEntry").onclick = () =>
+        openSheet("roomSheet");
+      document.querySelector("#beautyEntry").onclick = () => {
+        renderBeauty();
+        openSheet("beautySheet");
+      };
+      document
+        .querySelectorAll("[data-close]")
+        .forEach(
+          (button) => (button.onclick = () => closeSheet(button.dataset.close)),
+        );
+      document.querySelectorAll(".sheet-mask").forEach(
+        (mask) =>
+          (mask.onclick = (event) => {
+            if (event.target === mask) closeSheet(mask.id);
+          }),
+      );
+      cameraSwitch.onclick = () => {
+        camera = camera === "front" ? "back" : "front";
+        const isBack = camera === "back";
+        cameraSwitch.classList.toggle("is-back", isBack);
+        cameraState.textContent = `${isBack ? "后置" : "前置"}摄像头预览`;
+        Luma.toast(`已切换至${isBack ? "后置" : "前置"}摄像头`);
+      };
+      document.querySelector("#saveTitle").onclick = () => {
+        const title = titleInput.value.trim();
+        if (!title) return Luma.toast("请设置直播标题");
+        titleAction.childNodes[0].nodeValue = title;
+        closeSheet("titleSheet");
+      };
+      const categories = document.querySelector("#categories");
+      categories.innerHTML = LUMA_MOCK.startLive.categories
+        .map(
+          (item) =>
+            `<button class="${item === category ? "active" : ""}" type="button">${item}</button>`,
+        )
+        .join("");
+      categories.onclick = (event) => {
+        if (event.target.tagName !== "BUTTON") return;
+        category = event.target.textContent;
+        categoryValue.textContent = category;
+        categories
+          .querySelectorAll("button")
+          .forEach((button) =>
+            button.classList.toggle("active", button === event.target),
+          );
+        closeSheet("categorySheet");
+      };
+      cover.onchange = () => {
+        if (cover.files?.[0]) Luma.toast(`已选择封面：${cover.files[0].name}`);
+      };
+      fans.innerHTML = LUMA_MOCK.startLive.authorizedFans
+        .map(
+          (fan, index) =>
+            `<button class="fan ${index < 2 ? "selected" : ""}" type="button"><i class="avatar">${fan.avatar}</i>${fan.name}</button>`,
+        )
+        .join("");
+      fans.onclick = (event) => {
+        const button = event.target.closest(".fan");
+        if (button) button.classList.toggle("selected");
+      };
+      document.querySelectorAll('[name="roomType"]').forEach(
+        (input) =>
+          (input.onchange = () => {
+            ticketOptions.classList.toggle(
+              "state-hide",
+              input.value !== "ticket" || !input.checked,
+            );
+            passwordOptions.classList.toggle(
+              "state-hide",
+              input.value !== "password" || !input.checked,
+            );
+          }),
+      );
+      [plazaSwitch, authorizeSwitch].forEach(
+        (button) =>
+          (button.onclick = () => {
+            button.classList.toggle("on");
+            if (button === authorizeSwitch)
+              authorized.classList.toggle(
+                "state-hide",
+                !button.classList.contains("on"),
+              );
+          }),
+      );
+      document.querySelector("#saveRoom").onclick = () => {
+        const type = document.querySelector('[name="roomType"]:checked').value;
+        if (
+          type === "ticket" &&
+          !document.querySelector("#ticketPrice").value.trim()
+        )
+          return Luma.toast("请设置门票价格");
+        if (
+          type === "password" &&
+          !document.querySelector("#roomPassword").value.trim()
+        )
+          return Luma.toast("请设置房间密码");
+        roomValue.textContent = roomNames[type];
+        closeSheet("roomSheet");
+      };
+      document.querySelectorAll("[data-beauty-tab]").forEach(
+        (button) =>
+          (button.onclick = () => {
+            beautyTab = button.dataset.beautyTab;
+            document
+              .querySelectorAll("[data-beauty-tab]")
+              .forEach((tab) => tab.classList.toggle("active", tab === button));
+            renderBeauty();
+          }),
+      );
+      beautyItems.onclick = (event) => {
+        const button = event.target.closest("[data-beauty-item]");
+        if (!button) return;
+        beautySelection[beautyTab] = button.dataset.beautyItem;
+        renderBeauty();
+      };
+      beautyRange.oninput = () => {
+        const selected = beautySelection[beautyTab];
+        if (!selected) return;
+        beautyValues[selected] = Number(beautyRange.value);
+        beautyOutput.value = beautyValues[selected];
+        beautyOutput.textContent = beautyValues[selected];
+      };
+      document.querySelector("#beautyReset").onclick = () => {
+        Object.keys(beautySelection).forEach(
+          (key) => (beautySelection[key] = ""),
+        );
+        Object.keys(beautyValues).forEach((key) => (beautyValues[key] = 50));
+        renderBeauty();
+        Luma.toast("已恢复默认");
+      };
+      document.querySelector("#start").onclick = () => {
+        const mask = document.querySelector("#launch"),
+          countdown = document.querySelector("#countdown"),
+          launchText = document.querySelector("#launchText"),
+          enterRoom = document.querySelector("#enterRoom");
+        mask.classList.remove("state-hide");
+        enterRoom.classList.add("state-hide");
+        let count = 3;
+        countdown.textContent = count;
+        launchText.textContent = "准备开播";
+        const timer = setInterval(() => {
+          count -= 1;
+          if (count > 0) {
+            countdown.textContent = count;
+            return;
+          }
+          clearInterval(timer);
+          countdown.textContent = "●";
+          launchText.textContent = "开播中";
+          enterRoom.classList.remove("state-hide");
+          Luma.toast("已开始直播");
+        }, 1000);
+      };
+    </script>
+  </body>
+</html>

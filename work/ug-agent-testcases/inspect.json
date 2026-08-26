@@ -1,0 +1,104 @@
+{
+  "workbook": {
+    "ndjson": "{\"kind\":\"workbook\",\"id\":\"wb/wisd2g\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/lds5jt\",\"name\":\"功能测试用例\",\"index\":0,\"range\":\"A1:J113\",\"address\":\"A1:J113\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"功能测试用例\",\"address\":\"A1:J113\",\"rows\":113,\"cols\":10,\"values\":[[\"模块\",\"页面\",\"用例类型\",\"用例优先级\",\"子页面\",\"用例标题\",\"前置条件\",\"操作步骤\",\"预期结果\",\"备注\"],[\"身份与会话\",\"代理端登录/受保护接口\",\"业务流程\",\"P0\",\"代理身份\",\"验证总代理登录后可访问代理商核心数据\",\"1. 存在启用状态的 GENERAL 代理账号\\n2. 账号已完成协议确认并取得 agent 角色会话\",\"1. 使用该账号登录代理端\\n2. 进入首页并请求 /agent/home/overview\",\"1. 登录进入首页，首页概览接口返回该代理自身数据范围，不混入其他代理树数据\",\"1. 原型有描述：B1 密码登录页、D1 首页总览\\n2. 代码：gateway/.../SaTokenConfig.java；common-base/.../AgentLevel.java\\n3. 验证方式：基于当前代码与本地 HTML...\"],[\"身份与会话\",\"代理端登录/受保护接口\",\"业务流程\",\"P0\",\"代理身份\",\"验证普通代理登录后可访问代理商核心数据\",\"1. 存在启用状态的 NORMAL 代理账号\\n2. 账号已取得 agent 角色会话\",\"1. 使用该账号登录代理端\\n2. 进入首页、客户列表和成长概览\",\"1. 首页、客户和成长数据按当前普通代理的下级关系树返回\",\"1. 原型有描述：B1 密码登录页\\n2. 代码：common-base/.../AgentLevel.java 的 isAgent；各 agent Service 的 getCurrentAgentId\\n3. 验证方式：基于当前代码与...\"],[\"身份与会话\",\"代理端登录/受保护接口\",\"逻辑校验\",\"P0\",\"非代理拦截\",\"验证会员或非会员不能调用代理端接口\",\"1. 准备 MEMBER 或 NONMEMBER 账号\\n2. 账号没有 agent 角色\",\"1. 携带该账号会话直接请求 /agent/home/overview\",\"1. 网关拒绝请求并返回无权限响应，代理商数据不返回\",\"1. 原型有描述：B1 会员非代理拦截\\n2. 代码：gateway/.../SaTokenConfig.java 对 /agent/** 校验 agent 角色\\n3. 验证方式：基于当前代码与本地 HTML 原型静态分析生成；未连接数...\"]],\"valuesTruncated\":true,\"valuesPreviewRows\":4,\"valuesPreviewCols\":10,\"valuesPreviewAddress\":\"A1:J4\"}",
+    "truncated": false,
+    "metadata": {
+      "revision": "zzghsq",
+      "target": {
+        "id": "wb/wisd2g",
+        "beforeLines": 0,
+        "afterLines": 0
+      },
+      "kind": {
+        "requested": "workbook,sheet,table",
+        "tokens": [
+          "workbook",
+          "sheet",
+          "table"
+        ]
+      },
+      "include": {
+        "tokens": []
+      },
+      "exclude": {
+        "tokens": []
+      },
+      "notices": []
+    }
+  },
+  "headerAndSample": {
+    "ndjson": "{\"kind\":\"region\",\"sheet\":\"功能测试用例\",\"address\":\"A1:J8\",\"rows\":8,\"cols\":10,\"nonEmpty\":80,\"text\":80,\"maxTextLength\":224,\"preview\":[[\"模块\",\"页面\",\"用例类型\",\"用例优先级\",\"子页面\",\"用例标题\"],[\"身份与会话\",\"代理端登录/受保护接口\",\"业务流程\",\"P0\",\"代理身份\",\"验证总代理登录后可访问代理商核心数据\"],[\"身份与会话\",\"代理端登录/受保护接口\",\"业务流程\",\"P0\",\"代理身份\",\"验证普通代理登录后可访问代理商核心数据\"],[\"身份与会话\",\"代理端登录/受保护接口\",\"逻辑校验\",\"P0\",\"非代理拦截\",\"验证会员或非会员不能调用代理端接口\"],[\"身份与会话\",\"代理端登录/受保护接口\",\"异常用例\",\"P0\",\"会话失效\",\"验证登录失效后受保护页面不保留旧数据\"]],\"previewAddress\":\"A1:F5\",\"previewRows\":5,\"previewCols\":6}",
+    "truncated": false,
+    "metadata": {
+      "revision": "ko8u85",
+      "target": {
+        "id": "wb/uly0hr",
+        "beforeLines": 0,
+        "afterLines": 0
+      },
+      "kind": {
+        "requested": "region",
+        "tokens": [
+          "region"
+        ]
+      },
+      "include": {
+        "tokens": []
+      },
+      "exclude": {
+        "tokens": []
+      },
+      "notices": []
+    }
+  },
+  "styles": {
+    "ndjson": "{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"B1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"C1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"D1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"E1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"F1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"G1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"H1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"I1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"J1\",\"style\":{\"fill\":{\"type\":1,\"color\":{\"type\":1,\"value\":\"1F4E78\"},\"gradientStops\":[],\"pictureEffects\":[]},\"font\":{\"bold\":true,\"fontSize\":11,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"FFFFFF\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"163A5A\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":8}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"A2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":10,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"1F2937\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"D4DEE9\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"D4DEE9\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"D4DEE9\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"D4DEE9\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":9}}\n{\"kind\":\"computedStyle\",\"sheet\":\"功能测试用例\",\"for\":\"B2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":10,\"typeface\":\"Microsoft YaHei\",\"fill\":{\"type\":0,\"color\":{\"type\":1,\"value\":\"1F2937\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{\"top\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"D4DEE9\"}},\"bottom\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"D4DEE9\"}},\"left\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"D4DEE9\"}},\"right\":{\"style\":\"thin\",\"color\":{\"type\":1,\"value\":\"D4DEE9\"}}},\"wrapText\":true,\"horizontalAlignment\":\"center\",\"styleId\":9}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 18 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}",
+    "truncated": true,
+    "metadata": {
+      "revision": "uyo55r",
+      "target": {
+        "id": "wb/mys8y7",
+        "beforeLines": 0,
+        "afterLines": 0
+      },
+      "kind": {
+        "requested": "computedStyle",
+        "tokens": [
+          "computedStyle"
+        ]
+      },
+      "include": {
+        "tokens": []
+      },
+      "exclude": {
+        "tokens": []
+      },
+      "notices": []
+    }
+  },
+  "formulas": {
+    "ndjson": "{\"kind\":\"notice\",\"message\":\"No records matched the requested kinds.\"}",
+    "truncated": false,
+    "metadata": {
+      "revision": "dnn241",
+      "target": {
+        "id": "wb/s3w0nt",
+        "beforeLines": 0,
+        "afterLines": 0
+      },
+      "kind": {
+        "requested": "formula",
+        "tokens": [
+          "formula"
+        ]
+      },
+      "include": {
+        "tokens": []
+      },
+      "exclude": {
+        "tokens": []
+      },
+      "notices": []
+    }
+  }
+}

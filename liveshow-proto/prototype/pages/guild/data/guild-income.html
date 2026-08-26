@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会业绩 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260817-guild-income-flow-v2"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild-core-data.css?v=20260824-income-total-cards-v1"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260818-income-host-metrics-v1"></script>
+    <script src="../../../assets/guild-data-model.js?v=20260817-guild-income-flow-v2"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav guild-income-page-nav">
+        <a
+          class="guild-back"
+          href="../home/guild-home.html"
+          aria-label="返回首页"
+          >‹</a
+        >
+        公会业绩
+      </header>
+      <nav class="guild-income-data-tabs" aria-label="数据维度" role="tablist">
+        <button
+          class="active"
+          type="button"
+          data-mode="day"
+          role="tab"
+          aria-selected="true"
+        >
+          日数据
+        </button>
+        <button
+          type="button"
+          data-mode="month"
+          role="tab"
+          aria-selected="false"
+        >
+          月数据
+        </button>
+      </nav>
+      <div class="guild-page-body guild-income-flow-page">
+        <div class="guild-host-summary-filterbar" id="dayFilterBar">
+          <button
+            class="guild-host-summary-range"
+            id="rangePickerButton"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+              <path d="M8 3v4M16 3v4M4 10h16"></path></svg
+            ><span id="rangePickerValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <button
+            class="guild-host-performance-quick"
+            id="shortcutPicker"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+          >
+            <span id="shortcutPickerValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <div
+            class="guild-host-performance-shortcut-menu"
+            id="shortcutMenu"
+            role="menu"
+            aria-label="快捷日期筛选"
+            hidden
+          >
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="thisMonth"
+            >
+              本月
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="lastMonth"
+            >
+              上月
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="thisWeek"
+            >
+              本周
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="lastWeek"
+            >
+              上周
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-range-shortcut="custom"
+            >
+              自定义
+            </button>
+          </div>
+        </div>
+
+        <section
+          class="guild-income-metric-grid"
+          id="metricGrid"
+          aria-label="业绩指标"
+        ></section>
+
+        <section
+          class="guild-income-card guild-income-trend-card"
+          aria-label="数据趋势"
+        >
+          <div class="guild-income-chart-wrap">
+            <svg
+              class="guild-income-chart guild-income-flow-chart"
+              id="incomeTrend"
+              viewBox="0 0 340 140"
+              role="img"
+              aria-label="收益趋势"
+            ></svg>
+            <div
+              class="guild-income-chart-tooltip"
+              id="incomeTrendTooltip"
+              role="status"
+              hidden
+            >
+              <span id="trendTooltipDate"></span>
+              <b id="trendTooltipValue"></b>
+            </div>
+          </div>
+        </section>
+
+        <section class="guild-income-day-section">
+          <div
+            class="guild-income-day-table"
+            id="dailyTable"
+            role="table"
+            aria-label="每日明细"
+          >
+            <div class="guild-income-day-table-head" role="row">
+              <span role="columnheader">日期</span>
+              <span role="columnheader">直播场次</span>
+              <span role="columnheader">达标主播</span>
+              <span role="columnheader">收益（金币）</span>
+            </div>
+            <div
+              class="guild-income-day-list"
+              id="dailyList"
+              role="rowgroup"
+            ></div>
+          </div>
+          <div
+            class="guild-income-month-table"
+            id="monthlyTable"
+            role="table"
+            aria-label="每月明细"
+            hidden
+          >
+            <div class="guild-income-month-table-head" role="row">
+              <span role="columnheader">月份</span>
+              <span role="columnheader">收益</span>
+              <span role="columnheader">开播人数</span>
+            </div>
+            <div id="monthlyList" role="rowgroup"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+
+    <div class="guild-mask guild-host-date-mask" id="rangeSheet" hidden>
+      <section
+        class="guild-sheet guild-host-range-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="rangeSheetTitle"
+      >
+        <header class="guild-host-month-sheet-head">
+          <button id="rangeSheetCancel" type="button">取消</button>
+          <h2 id="rangeSheetTitle">选择日期范围</h2>
+          <button class="confirm" id="rangeSheetConfirm" type="button">
+            确定
+          </button>
+        </header>
+        <div class="guild-host-performance-calendar">
+          <div class="guild-host-performance-calendar-nav">
+            <button id="calendarPrev" type="button" aria-label="上一个月">
+              ‹</button
+            ><b id="calendarTitle"></b
+            ><button id="calendarNext" type="button" aria-label="下一个月">
+              ›
+            </button>
+          </div>
+          <div class="guild-host-performance-calendar-week" aria-hidden="true">
+            <span>日</span><span>一</span><span>二</span><span>三</span
+            ><span>四</span><span>五</span><span>六</span>
+          </div>
+          <div
+            class="guild-host-performance-calendar-days"
+            id="calendarDays"
+            role="grid"
+          ></div>
+        </div>
+        <p class="guild-host-performance-range-hint" id="rangeSelection"></p>
+      </section>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const completeSummary = LUMA_GUILD_DATA.getGuildSummary();
+      const allDates = completeSummary.days.map((day) => day.date).sort();
+      const allDateSet = new Set(allDates);
+      const latestDate = allDates[allDates.length - 1];
+      const earliestMonth = allDates[0].slice(0, 7);
+      const latestMonth = latestDate.slice(0, 7);
+      const [latestYear, latestMonthNumber] = latestMonth
+        .split("-")
+        .map(Number);
+      const availableMonths = Array.from({ length: 10 }, (_, index) => {
+        const date = new Date(latestYear, latestMonthNumber - 1 - index, 1, 12);
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+      });
+      const shortcutLabels = {
+        thisMonth: "本月",
+        lastMonth: "上月",
+        thisWeek: "本周",
+        lastWeek: "上周",
+      };
+      const shortcutKeys = Object.keys(shortcutLabels);
+      const hasRequestedRange =
+        /^\d{4}-\d{2}-\d{2}$/.test(params.get("rangeStart") || "") &&
+        /^\d{4}-\d{2}-\d{2}$/.test(params.get("rangeEnd") || "");
+      const selectedShortcut = shortcutKeys.includes(params.get("shortcut"))
+        ? params.get("shortcut")
+        : hasRequestedRange
+          ? null
+          : "thisMonth";
+      const defaultRange = shortcutRange(selectedShortcut || "thisMonth");
+      const rangeStart = hasRequestedRange
+        ? params.get("rangeStart")
+        : defaultRange[0];
+      const rangeEnd =
+        hasRequestedRange && params.get("rangeEnd") >= rangeStart
+          ? params.get("rangeEnd")
+          : defaultRange[1];
+      const selectedDays = completeSummary.days
+        .filter((day) => day.date >= rangeStart && day.date <= rangeEnd)
+        .sort((left, right) => right.date.localeCompare(left.date));
+      const metricGrid = document.getElementById("metricGrid");
+      const incomeTrend = document.getElementById("incomeTrend");
+      const incomeTrendTooltip = document.getElementById("incomeTrendTooltip");
+      const trendTooltipDate = document.getElementById("trendTooltipDate");
+      const trendTooltipValue = document.getElementById("trendTooltipValue");
+      const dailyTable = document.getElementById("dailyTable");
+      const monthlyTable = document.getElementById("monthlyTable");
+      const dailyList = document.getElementById("dailyList");
+      const monthlyList = document.getElementById("monthlyList");
+      const dayFilterBar = document.getElementById("dayFilterBar");
+      const rangePickerButton = document.getElementById("rangePickerButton");
+      const rangePickerValue = document.getElementById("rangePickerValue");
+      const shortcutPicker = document.getElementById("shortcutPicker");
+      const shortcutPickerValue = document.getElementById(
+        "shortcutPickerValue",
+      );
+      const shortcutMenu = document.getElementById("shortcutMenu");
+      const rangeSheet = document.getElementById("rangeSheet");
+      const rangeSheetCancel = document.getElementById("rangeSheetCancel");
+      const rangeSheetConfirm = document.getElementById("rangeSheetConfirm");
+      const calendarPrev = document.getElementById("calendarPrev");
+      const calendarNext = document.getElementById("calendarNext");
+      const calendarTitle = document.getElementById("calendarTitle");
+      const calendarDays = document.getElementById("calendarDays");
+      const rangeSelection = document.getElementById("rangeSelection");
+      let currentMode = params.get("mode") === "month" ? "month" : "day";
+      let activeMetric = "income";
+      let trendPlot = [];
+      let pendingRangeStart = rangeStart;
+      let pendingRangeEnd = rangeEnd;
+      let calendarMonth = rangeEnd.slice(0, 7);
+
+      function dateObject(value) {
+        const [year, month, day] = value.split("-").map(Number);
+        return new Date(year, month - 1, day, 12);
+      }
+
+      function dateValue(date) {
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      }
+
+      function offsetDate(date, days) {
+        const value = new Date(date);
+        value.setDate(value.getDate() + days);
+        return value;
+      }
+
+      function shortcutRange(shortcut) {
+        const latest = dateObject(latestDate);
+        const weekdayOffset = (latest.getDay() + 6) % 7;
+        if (shortcut === "thisWeek")
+          return [dateValue(offsetDate(latest, -weekdayOffset)), latestDate];
+        if (shortcut === "lastWeek") {
+          const end = offsetDate(latest, -weekdayOffset - 1);
+          return [dateValue(offsetDate(end, -6)), dateValue(end)];
+        }
+        if (shortcut === "lastMonth") {
+          return [
+            dateValue(
+              new Date(latest.getFullYear(), latest.getMonth() - 1, 1, 12),
+            ),
+            dateValue(new Date(latest.getFullYear(), latest.getMonth(), 0, 12)),
+          ];
+        }
+        return [
+          dateValue(new Date(latest.getFullYear(), latest.getMonth(), 1, 12)),
+          latestDate,
+        ];
+      }
+
+      function monthShortLabel(month) {
+        return `${Number(month.slice(5))}月`;
+      }
+
+      function displayDate(date) {
+        const parts = date.split("-");
+        return `${parts[2]}/${parts[1]}`;
+      }
+
+      function number(value) {
+        return LUMA_FORMAT.integer(value);
+      }
+
+      function coin(value) {
+        return LUMA_FORMAT.coins(value);
+      }
+
+      const latestMonthDays = completeSummary.days.filter((day) =>
+        day.date.startsWith(latestMonth),
+      );
+      const latestMonthTotals = {
+        coins: latestMonthDays.reduce((sum, day) => sum + day.coins, 0),
+        sessions: latestMonthDays.reduce((sum, day) => sum + day.sessions, 0),
+        effectiveDays: latestMonthDays.reduce(
+          (sum, day) => sum + day.effectiveHosts,
+          0,
+        ),
+      };
+      const historyFactors = [
+        1, 0.995, 0.963, 0.941, 0.916, 0.894, 0.872, 0.848, 0.826, 0.801,
+      ];
+      const monthlyRows = availableMonths.map((month, index) => {
+        const days = completeSummary.days.filter((day) =>
+          day.date.startsWith(month),
+        );
+        const hostMetrics =
+          LUMA_MOCK.guildPortal.monthlyHostMetrics[month] || {};
+        const factor = historyFactors[index];
+        return {
+          month,
+          days,
+          coins: days.length
+            ? days.reduce((sum, day) => sum + day.coins, 0)
+            : Math.round((latestMonthTotals.coins * factor) / 10) * 10,
+          sessions: days.length
+            ? days.reduce((sum, day) => sum + day.sessions, 0)
+            : Math.round(latestMonthTotals.sessions * factor),
+          startedHosts:
+            hostMetrics.startedHosts ||
+            (days.length
+              ? Math.max(...days.map((day) => day.startedHosts))
+              : Math.max(98, 118 - index * 2)),
+          effectiveDays: days.length
+            ? days.reduce((sum, day) => sum + day.effectiveHosts, 0)
+            : Math.round(latestMonthTotals.effectiveDays * factor),
+          effectiveDaysMedian:
+            hostMetrics.effectiveDaysMedian ||
+            Math.max(3, 5 - Math.floor(index / 4)),
+        };
+      });
+      const selectedDaySummary = {
+        coins: selectedDays.reduce((sum, day) => sum + day.coins, 0),
+        sessions: selectedDays.reduce((sum, day) => sum + day.sessions, 0),
+        startedHosts: selectedDays.reduce(
+          (sum, day) => sum + day.startedHosts,
+          0,
+        ),
+        effectiveDays: selectedDays.reduce(
+          (sum, day) => sum + day.effectiveHosts,
+          0,
+        ),
+      };
+      const allTimeSummary = monthlyRows.reduce(
+        (totals, row) => ({
+          coins: totals.coins + row.coins,
+          sessions: totals.sessions + row.sessions,
+          startedHosts: totals.startedHosts + row.startedHosts,
+          effectiveDays: totals.effectiveDays + row.effectiveDays,
+        }),
+        { coins: 0, sessions: 0, startedHosts: 0, effectiveDays: 0 },
+      );
+
+      function dailyCard(day) {
+        const query = new URLSearchParams({
+          rangeStart: day.date,
+          rangeEnd: day.date,
+          shortcut: "custom",
+          from: "income",
+        });
+        return `<a class="guild-income-day-row" role="row" href="../people/guild-host-list.html?${query}">
+        <span role="cell">${displayDate(day.date)}</span>
+        <span role="cell">${number(day.sessions)}</span>
+        <span role="cell">${number(day.effectiveHosts)}</span>
+        <strong role="cell"><svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>${coin(day.coins)}</strong>
+        <i aria-hidden="true">›</i>
+      </a>`;
+      }
+
+      function monthlyCard(row) {
+        const [year, month] = row.month.split("-").map(Number);
+        const query = new URLSearchParams({
+          rangeStart: `${row.month}-01`,
+          rangeEnd: dateValue(new Date(year, month, 0, 12)),
+          shortcut: "custom",
+          from: "income",
+          incomeMode: "month",
+        });
+        return `<a class="guild-income-month-row" role="row" href="../people/guild-host-list.html?${query}">
+        <span role="cell">${monthShortLabel(row.month)}</span>
+        <strong role="cell"><svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>${coin(row.coins)}</strong>
+        <span role="cell">${number(row.startedHosts)}</span>
+      </a>`;
+      }
+
+      function currentView() {
+        if (currentMode === "day") {
+          const orderedDays = selectedDays.slice().reverse();
+          return {
+            metrics: [
+              {
+                key: "income",
+                label: "公会收益",
+                value: selectedDaySummary.coins,
+                values: orderedDays.map((day) => day.coins),
+                labels: orderedDays.map((day) => displayDate(day.date)),
+                format: coin,
+                coin: true,
+              },
+              {
+                key: "sessions",
+                label: "直播场次",
+                value: selectedDaySummary.sessions,
+                values: orderedDays.map((day) => day.sessions),
+                labels: orderedDays.map((day) => displayDate(day.date)),
+                format: number,
+              },
+              {
+                key: "startedHosts",
+                label: "开播人数",
+                value: selectedDaySummary.startedHosts,
+                values: orderedDays.map((day) => day.startedHosts),
+                labels: orderedDays.map((day) => displayDate(day.date)),
+                format: number,
+              },
+              {
+                key: "effectiveDays",
+                label: "达成有效天",
+                value: selectedDaySummary.effectiveDays,
+                values: orderedDays.map((day) => day.effectiveHosts),
+                labels: orderedDays.map((day) => displayDate(day.date)),
+                format: number,
+              },
+            ],
+          };
+        }
+        const orderedMonths = monthlyRows.slice(0, 6).reverse();
+        return {
+          metrics: [
+            {
+              key: "income",
+              label: "公会收益",
+              value: allTimeSummary.coins,
+              values: orderedMonths.map((row) => row.coins),
+              labels: orderedMonths.map((row) => monthShortLabel(row.month)),
+              format: coin,
+              coin: true,
+            },
+            {
+              key: "sessions",
+              label: "直播场次",
+              value: allTimeSummary.sessions,
+              values: orderedMonths.map((row) => row.sessions),
+              labels: orderedMonths.map((row) => monthShortLabel(row.month)),
+              format: number,
+            },
+            {
+              key: "startedHosts",
+              label: "开播人数",
+              value: allTimeSummary.startedHosts,
+              values: orderedMonths.map((row) => row.startedHosts),
+              labels: orderedMonths.map((row) => monthShortLabel(row.month)),
+              format: number,
+            },
+            {
+              key: "effectiveDays",
+              label: "达成有效天",
+              value: allTimeSummary.effectiveDays,
+              values: orderedMonths.map((row) => row.effectiveDays),
+              labels: orderedMonths.map((row) => monthShortLabel(row.month)),
+              format: number,
+            },
+          ],
+        };
+      }
+
+      function renderMetrics() {
+        const view = currentView();
+        metricGrid.innerHTML = view.metrics
+          .map((metric) => {
+            const active = metric.key === activeMetric;
+            const value = metric.coin
+              ? `<b><svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>${metric.format(metric.value)}</b>`
+              : `<b>${metric.format(metric.value)}</b>`;
+            return `<button class="guild-income-metric-card${active ? " active" : ""}" type="button" data-metric="${metric.key}" aria-pressed="${active}" aria-label="${metric.label} ${metric.format(metric.value)}"><span>${metric.label}</span>${value}</button>`;
+          })
+          .join("");
+        metricGrid.querySelectorAll("[data-metric]").forEach(
+          (button) =>
+            (button.onclick = () => {
+              activeMetric = button.dataset.metric;
+              renderMetrics();
+              drawTrend();
+            }),
+        );
+      }
+
+      function drawTrend() {
+        const metric = currentView().metrics.find(
+          (item) => item.key === activeMetric,
+        );
+        const values = metric.values;
+        const width = 340,
+          height = 140,
+          left = 42,
+          right = 8,
+          top = 14,
+          bottom = 26;
+        const plotWidth = width - left - right,
+          plotHeight = height - top - bottom;
+        const max = Math.max(...values, 1);
+        const x = (index) =>
+          left + (plotWidth * index) / Math.max(values.length - 1, 1);
+        const y = (value) => top + plotHeight - (value / max) * plotHeight;
+        const grids = [0, 1, 2]
+          .map((index) => {
+            const lineY = top + (plotHeight * index) / 2;
+            const value = max - (max * index) / 2;
+            return `<line class="grid-line" x1="${left}" y1="${lineY}" x2="${width - right}" y2="${lineY}"></line><text class="axis-label" x="${left - 6}" y="${lineY + 3}" text-anchor="end">${metric.format(Math.round(value))}</text>`;
+          })
+          .join("");
+        const points = values
+          .map((value, index) => `${x(index)},${y(value)}`)
+          .join(" ");
+        const every =
+          currentMode === "month"
+            ? 1
+            : Math.max(1, Math.ceil(values.length / 5));
+        const dots = values
+          .map((value, index) =>
+            index % every === 0 || index === values.length - 1
+              ? `<circle class="trend-point" cx="${x(index)}" cy="${y(value)}" r="2.6"></circle>`
+              : "",
+          )
+          .join("");
+        const labels = metric.labels
+          .map((label, index) =>
+            index % every === 0 || index === metric.labels.length - 1
+              ? `<text class="axis-label" x="${x(index)}" y="136" text-anchor="middle">${label}</text>`
+              : "",
+          )
+          .join("");
+        trendPlot = values.map((value, index) => ({
+          label: metric.labels[index],
+          value,
+          x: x(index),
+          y: y(value),
+        }));
+        incomeTrend.setAttribute("aria-label", `${metric.label}趋势`);
+        incomeTrend.innerHTML = `${grids}<line class="trend-hover-line" y1="${top}" y2="${top + plotHeight}" hidden></line><polyline class="trend-line" points="${points}"></polyline>${dots}<circle class="trend-hover-point" r="4" hidden></circle>${labels}`;
+      }
+
+      function showTrendTooltip(event) {
+        const rect = incomeTrend.getBoundingClientRect();
+        const pointerX = ((event.clientX - rect.left) / rect.width) * 340;
+        const nearest = trendPlot.reduce((current, point) => {
+          const distance = Math.abs(point.x - pointerX);
+          return !current || distance < current.distance
+            ? { point, distance }
+            : current;
+        }, null)?.point;
+        if (!nearest) return;
+        const metric = currentView().metrics.find(
+          (item) => item.key === activeMetric,
+        );
+        const line = incomeTrend.querySelector(".trend-hover-line");
+        const point = incomeTrend.querySelector(".trend-hover-point");
+        line.setAttribute("x1", nearest.x);
+        line.setAttribute("x2", nearest.x);
+        line.removeAttribute("hidden");
+        point.setAttribute("cx", nearest.x);
+        point.setAttribute("cy", nearest.y);
+        point.removeAttribute("hidden");
+        trendTooltipDate.textContent = `${currentMode === "day" ? "日期" : "月份"} ${nearest.label}`;
+        trendTooltipValue.textContent = `${metric.label} ${metric.format(nearest.value)}`;
+        incomeTrendTooltip.style.left = `${Math.max(62, Math.min(rect.width - 62, (nearest.x / 340) * rect.width))}px`;
+        incomeTrendTooltip.style.top = `${Math.max(48, (nearest.y / 140) * rect.height)}px`;
+        incomeTrendTooltip.hidden = false;
+      }
+
+      function hideTrendTooltip() {
+        incomeTrendTooltip.hidden = true;
+        incomeTrend
+          .querySelector(".trend-hover-line")
+          ?.setAttribute("hidden", "");
+        incomeTrend
+          .querySelector(".trend-hover-point")
+          ?.setAttribute("hidden", "");
+      }
+
+      function renderDetail() {
+        const isDay = currentMode === "day";
+        dayFilterBar.hidden = !isDay;
+        dailyTable.hidden = !isDay;
+        monthlyTable.hidden = isDay;
+        if (isDay) {
+          dailyList.innerHTML = selectedDays.length
+            ? selectedDays.map(dailyCard).join("")
+            : '<div class="guild-page-empty"><b>当前范围暂无数据</b><span>请选择其他日期范围</span></div>';
+          dailyTable.setAttribute(
+            "aria-label",
+            `${rangePickerValue.textContent}每日明细`,
+          );
+        } else {
+          monthlyList.innerHTML = monthlyRows.map(monthlyCard).join("");
+        }
+      }
+
+      function renderPage() {
+        document.querySelectorAll("[data-mode]").forEach((button) => {
+          const active = button.dataset.mode === currentMode;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-selected", String(active));
+        });
+        hideTrendTooltip();
+        renderMetrics();
+        drawTrend();
+        renderDetail();
+      }
+
+      function applyRange(start, end, shortcut = null) {
+        const nextParams = new URLSearchParams(location.search);
+        nextParams.set("mode", "day");
+        nextParams.set("period", end.slice(0, 7));
+        nextParams.set("rangeStart", start);
+        nextParams.set("rangeEnd", end);
+        if (shortcut) nextParams.set("shortcut", shortcut);
+        else nextParams.delete("shortcut");
+        location.href = `guild-income.html?${nextParams}`;
+      }
+
+      function shiftMonth(month, offset) {
+        const [year, value] = month.split("-").map(Number);
+        return dateValue(new Date(year, value - 1 + offset, 1, 12)).slice(0, 7);
+      }
+
+      function renderCalendar() {
+        const [yearText, monthText] = calendarMonth.split("-");
+        const year = Number(yearText);
+        const month = Number(monthText);
+        const firstWeekday = new Date(year, month - 1, 1).getDay();
+        const dayCount = new Date(year, month, 0).getDate();
+        calendarTitle.textContent = `${month}/${year}`;
+        calendarPrev.disabled = shiftMonth(calendarMonth, -1) < earliestMonth;
+        calendarNext.disabled = shiftMonth(calendarMonth, 1) > latestMonth;
+        const blanks = Array.from(
+          { length: firstWeekday },
+          () => '<span aria-hidden="true"></span>',
+        ).join("");
+        const days = Array.from({ length: dayCount }, (_, index) => {
+          const date = `${yearText}-${monthText}-${String(index + 1).padStart(2, "0")}`;
+          const enabled = allDateSet.has(date);
+          const isStart = date === pendingRangeStart;
+          const isEnd = date === pendingRangeEnd;
+          const inRange =
+            pendingRangeStart &&
+            pendingRangeEnd &&
+            date > pendingRangeStart &&
+            date < pendingRangeEnd;
+          const classes = [
+            isStart ? "range-start" : "",
+            isEnd ? "range-end" : "",
+            inRange ? "in-range" : "",
+          ]
+            .filter(Boolean)
+            .join(" ");
+          return `<button class="${classes}" type="button" role="gridcell" data-date="${date}" aria-selected="${Boolean(isStart || isEnd || inRange)}"${enabled ? "" : " disabled"}>${index + 1}</button>`;
+        }).join("");
+        calendarDays.innerHTML = blanks + days;
+        const end = pendingRangeEnd || pendingRangeStart;
+        rangeSelection.textContent = pendingRangeStart
+          ? `${LUMA_FORMAT.date(pendingRangeStart)}～${LUMA_FORMAT.date(end)}`
+          : "请选择日期";
+      }
+
+      function openRangeSheet() {
+        pendingRangeStart = rangeStart;
+        pendingRangeEnd = rangeEnd;
+        calendarMonth = rangeEnd.slice(0, 7);
+        renderCalendar();
+        rangeSheet.hidden = false;
+        document.body.classList.add("guild-sheet-open");
+      }
+
+      function closeRangeSheet() {
+        rangeSheet.hidden = true;
+        document.body.classList.remove("guild-sheet-open");
+        rangePickerButton.focus();
+      }
+
+      function closeShortcutMenu() {
+        shortcutMenu.hidden = true;
+        shortcutPicker.setAttribute("aria-expanded", "false");
+      }
+
+      rangePickerValue.textContent = `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
+      rangePickerButton.setAttribute(
+        "aria-label",
+        `选择日期范围，当前${rangePickerValue.textContent}`,
+      );
+      shortcutPickerValue.textContent = selectedShortcut
+        ? shortcutLabels[selectedShortcut]
+        : "自定义";
+      document.querySelectorAll("[data-range-shortcut]").forEach((button) => {
+        const active =
+          button.dataset.rangeShortcut === (selectedShortcut || "custom");
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-checked", String(active));
+        button.onclick = () => {
+          const shortcut = button.dataset.rangeShortcut;
+          closeShortcutMenu();
+          if (shortcut === "custom") {
+            openRangeSheet();
+            return;
+          }
+          const [start, end] = shortcutRange(shortcut);
+          applyRange(start, end, shortcut);
+        };
+      });
+
+      document.querySelectorAll("[data-mode]").forEach(
+        (button) =>
+          (button.onclick = () => {
+            currentMode = button.dataset.mode;
+            activeMetric = "income";
+            renderPage();
+          }),
+      );
+      rangePickerButton.onclick = openRangeSheet;
+      shortcutPicker.onclick = (event) => {
+        event.stopPropagation();
+        shortcutMenu.hidden = !shortcutMenu.hidden;
+        shortcutPicker.setAttribute(
+          "aria-expanded",
+          String(!shortcutMenu.hidden),
+        );
+      };
+      shortcutMenu.onclick = (event) => event.stopPropagation();
+      rangeSheetCancel.onclick = closeRangeSheet;
+      rangeSheetConfirm.onclick = () => {
+        if (!pendingRangeStart) return;
+        applyRange(pendingRangeStart, pendingRangeEnd || pendingRangeStart);
+      };
+      rangeSheet.onclick = (event) => {
+        if (event.target === rangeSheet) closeRangeSheet();
+      };
+      calendarPrev.onclick = () => {
+        const next = shiftMonth(calendarMonth, -1);
+        if (next < earliestMonth) return;
+        calendarMonth = next;
+        renderCalendar();
+      };
+      calendarNext.onclick = () => {
+        const next = shiftMonth(calendarMonth, 1);
+        if (next > latestMonth) return;
+        calendarMonth = next;
+        renderCalendar();
+      };
+      calendarDays.onclick = (event) => {
+        const option = event.target.closest("[data-date]");
+        if (!option || option.disabled) return;
+        const date = option.dataset.date;
+        if (!pendingRangeStart || pendingRangeEnd) {
+          pendingRangeStart = date;
+          pendingRangeEnd = null;
+        } else if (date < pendingRangeStart) {
+          pendingRangeEnd = pendingRangeStart;
+          pendingRangeStart = date;
+        } else {
+          pendingRangeEnd = date;
+        }
+        renderCalendar();
+      };
+      document.addEventListener("click", closeShortcutMenu);
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        if (!shortcutMenu.hidden) closeShortcutMenu();
+        else if (!rangeSheet.hidden) closeRangeSheet();
+      });
+      incomeTrend.onpointermove = showTrendTooltip;
+      incomeTrend.onpointerdown = showTrendTooltip;
+      incomeTrend.onpointerleave = hideTrendTooltip;
+
+      renderPage();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-income.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

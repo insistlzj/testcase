@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>直播数据 · 主播中心 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .data-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        background: var(--g7);
+        border-bottom: 1px solid var(--g5);
+      }
+      .data-tabs button {
+        height: 40px;
+        padding: 0 2px;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        background: none;
+        color: var(--g4);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .data-tabs button.active {
+        border-color: var(--g1);
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .data-page {
+        padding: 14px 16px 24px;
+      }
+      .data-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+      .data-head b {
+        font-size: 17px;
+      }
+      .data-head b i {
+        margin-right: 6px;
+        color: var(--g3);
+        font-style: normal;
+      }
+      .data-head span {
+        color: var(--g4);
+        font-size: 12px;
+      }
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .metric-card {
+        min-height: 88px;
+        padding: 11px 9px;
+        border: 1px solid var(--g5);
+        border-radius: 10px;
+        background: var(--g7);
+        color: var(--g3);
+        font: 14px inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .metric-card.active {
+        border-color: var(--g2);
+        color: var(--g1);
+        box-shadow: inset 0 0 0 1px var(--g2);
+      }
+      .metric-card span,
+      .metric-card b {
+        display: block;
+      }
+      .metric-card span {
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .metric-card b {
+        margin-top: 16px;
+        color: var(--g1);
+        font-size: 17px;
+      }
+      .metric-card.active b {
+        color: var(--success);
+      }
+      .metric-card .coin:before {
+        content: "◆";
+        margin-right: 3px;
+        color: var(--g2);
+      }
+      .chart-card {
+        margin-top: 14px;
+        padding: 14px 12px 10px;
+        background: var(--g7);
+        border-radius: 12px;
+      }
+      .chart-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .chart-label i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--success);
+      }
+      .trend {
+        width: 100%;
+        height: 176px;
+        margin-top: 8px;
+        display: block;
+      }
+      .trend .grid-line {
+        stroke: var(--g6);
+        stroke-width: 1;
+        stroke-dasharray: 3 3;
+      }
+      .trend .axis-label {
+        fill: var(--g4);
+        font-size: 10px;
+      }
+      .trend .trend-line {
+        fill: none;
+        stroke: var(--success);
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .trend .trend-point {
+        fill: var(--g7);
+        stroke: var(--success);
+        stroke-width: 2;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 21px 0 8px;
+      }
+      .section-title h2 {
+        margin: 0;
+        font-size: 16px;
+      }
+      .detail-filter {
+        height: 30px;
+        padding: 0 8px;
+        border: 1px solid var(--g5);
+        border-radius: 7px;
+        background: var(--g7);
+        color: var(--g3);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .detail-filter i {
+        margin-left: 4px;
+        color: var(--g4);
+        font-style: normal;
+      }
+      .list {
+        background: var(--g7);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .detail-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+      .detail-table th {
+        height: 36px;
+        border-bottom: 1px solid var(--g6);
+        color: var(--g4);
+        font-size: 11px;
+        font-weight: 400;
+        text-align: center;
+      }
+      .detail-table th:first-child,
+      .detail-table td:first-child {
+        width: 68px;
+        text-align: left;
+        padding-left: 14px;
+      }
+      .detail-table td {
+        height: 48px;
+        border-bottom: 1px solid var(--g6);
+        color: var(--g2);
+        font-size: 12px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .detail-table tbody tr:last-child td {
+        border-bottom: 0;
+      }
+      .detail-table .date {
+        font-size: 13px;
+      }
+      .income {
+        color: var(--success) !important;
+      }
+      .income:before {
+        content: "◆";
+        margin-right: 3px;
+        color: var(--g2);
+      }
+      .picker-mask {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.28);
+        z-index: 8;
+      }
+      .picker-sheet {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--g7);
+        border-radius: 12px 12px 0 0;
+      }
+      .picker-head {
+        height: 52px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--g6);
+      }
+      .picker-head button {
+        border: 0;
+        background: none;
+        color: var(--g3);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .picker-head button:last-child {
+        color: var(--success);
+        font-weight: 600;
+      }
+      .picker-head b {
+        font-size: 16px;
+      }
+      .picker-wheels {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        height: 168px;
+        overflow: hidden;
+      }
+      .picker-wheels:before,
+      .picker-wheels:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 60px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .picker-wheels:before {
+        top: 0;
+        background: linear-gradient(var(--g7), rgba(255, 255, 255, 0.78));
+      }
+      .picker-wheels:after {
+        bottom: 0;
+        background: linear-gradient(rgba(255, 255, 255, 0.78), var(--g7));
+      }
+      .picker-selection {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 60px;
+        height: 48px;
+        border-top: 1px solid var(--g6);
+        border-bottom: 1px solid var(--g6);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .wheel {
+        height: 168px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scroll-snap-type: y mandatory;
+        scrollbar-width: none;
+        padding: 60px 0;
+      }
+      .wheel::-webkit-scrollbar {
+        display: none;
+      }
+      .wheel button {
+        display: block;
+        width: 100%;
+        height: 48px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g4);
+        font: 16px inherit;
+        scroll-snap-align: center;
+        cursor: pointer;
+      }
+      .wheel button.active {
+        color: var(--g1);
+        font-size: 18px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button class="back" onclick="location.href='host-center.html'">
+          ‹</button
+        >直播数据
+      </header>
+      <nav class="data-tabs">
+        <button class="active" data-mode="day">日数据</button
+        ><button data-mode="month">月数据</button>
+      </nav>
+      <section class="data-page">
+        <header class="data-head">
+          <b id="dataTitle"><i>▣</i>近 7 天</b
+          ><span id="updateTime">更新至 2026.08.04</span>
+        </header>
+        <section
+          class="metric-grid"
+          id="metricGrid"
+          aria-label="趋势指标"
+        ></section>
+        <section class="chart-card" aria-label="数据趋势">
+          <div class="chart-label">
+            <i></i><span id="chartLabel">直播收益（金币）</span>
+          </div>
+          <svg
+            class="trend"
+            id="trend"
+            viewBox="0 0 340 176"
+            role="img"
+            aria-label="直播收益趋势"
+          ></svg>
+        </section>
+        <div class="section-title">
+          <h2 id="listTitle">每日明细</h2>
+          <button class="detail-filter" id="detailFilter" type="button">
+            08/2026<i>⌄</i>
+          </button>
+        </div>
+        <section class="list">
+          <table class="detail-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>收益（金币）</th>
+                <th>开播时长</th>
+                <th>观众人数</th>
+              </tr>
+            </thead>
+            <tbody id="list"></tbody>
+          </table>
+        </section>
+      </section>
+      <div class="picker-mask state-hide" id="pickerMask">
+        <section
+          class="picker-sheet"
+          role="dialog"
+          aria-modal="true"
+          aria-label="筛选每日明细"
+        >
+          <header class="picker-head">
+            <button type="button" id="pickerCancel">取消</button><b>选择日期</b
+            ><button type="button" id="pickerConfirm">确定</button>
+          </header>
+          <div class="picker-wheels" id="pickerWheels">
+            <i class="picker-selection"></i>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      function formatHourMinutes(value) {
+        const minutes = Math.round(Number(value) * 60);
+        return `${Math.floor(minutes / 60)}h${minutes % 60}m`;
+      }
+      const datasets = {
+        day: {
+          title: "近 7 天",
+          update: "2026-08-17",
+          labels: [
+            "10/08",
+            "11/08",
+            "12/08",
+            "13/08",
+            "14/08",
+            "15/08",
+            "16/08",
+          ],
+          listTitle: "每日明细",
+          rows: [
+            {
+              date: "2026-08-16",
+              income: "+1.460",
+              duration: "1h32m",
+              viewers: "824",
+            },
+            {
+              date: "2026-08-15",
+              income: "+3.156",
+              duration: "2h18m",
+              viewers: "1.286",
+            },
+            {
+              date: "2026-08-14",
+              income: "+1.904",
+              duration: "1h42m",
+              viewers: "938",
+            },
+            {
+              date: "2026-08-13",
+              income: "+624",
+              duration: "56m",
+              viewers: "316",
+            },
+          ],
+          metrics: [
+            {
+              key: "income",
+              label: "直播收益",
+              value: "13.114",
+              values: [1210, 1840, 920, 3156, 1904, 624, 1460],
+              format: (value) => value.toLocaleString("de-DE"),
+              coin: true,
+            },
+            {
+              key: "duration",
+              label: "开播时长",
+              value: "10h 56m",
+              values: [86, 124, 58, 138, 102, 56, 92],
+              format: (value) => `${Math.floor(value / 60)}h${value % 60}m`,
+            },
+            {
+              key: "viewers",
+              label: "观众人次",
+              value: "6.742",
+              values: [642, 918, 476, 1286, 938, 316, 824],
+              format: (value) => value.toLocaleString("de-DE"),
+            },
+            {
+              key: "followers",
+              label: "新增粉丝",
+              value: "+36",
+              values: [4, 6, 2, 9, 7, 3, 5],
+              format: (value) => `+${value}`,
+            },
+            {
+              key: "givers",
+              label: "送礼人数",
+              value: "286",
+              values: [28, 42, 16, 71, 56, 19, 54],
+              format: (value) => value.toLocaleString("de-DE"),
+            },
+            {
+              key: "gifts",
+              label: "礼物数量",
+              value: "1.482",
+              values: [136, 212, 74, 408, 296, 88, 268],
+              format: (value) => value.toLocaleString("de-DE"),
+            },
+          ],
+        },
+        month: {
+          title: "08/2026",
+          update: "2026-08-17",
+          labels: ["3月", "4月", "5月", "6月", "7月", "8月"],
+          listTitle: "每月明细",
+          rows: [
+            ["8月", "+18.460", "36h30m", "8.462", "22 天"],
+            ["7月", "+15.820", "31h48m", "7.216", "23 天"],
+            ["6月", "+12.340", "28h12m", "5.904", "19 天"],
+          ],
+          metrics: [
+            {
+              key: "income",
+              label: "累计收益",
+              value: "18.460",
+              values: [12340, 13580, 14460, 15820, 16380, 18460],
+              format: (value) => value.toLocaleString("de-DE"),
+              coin: true,
+            },
+            {
+              key: "activeDays",
+              label: "有效天数",
+              value: "22 天",
+              values: [18, 20, 21, 19, 23, 22],
+              format: (value) => `${value} 天`,
+            },
+            {
+              key: "duration",
+              label: "开播时长",
+              value: "36h30m",
+              values: [28.2, 29.6, 31.4, 31.8, 33.1, 36.5],
+              format: formatHourMinutes,
+            },
+            {
+              key: "viewers",
+              label: "观众人次",
+              value: "8.462",
+              values: [5904, 6320, 6840, 7216, 7780, 8462],
+              format: (value) => value.toLocaleString("de-DE"),
+            },
+            {
+              key: "followers",
+              label: "新增粉丝",
+              value: "+128",
+              values: [62, 75, 84, 93, 108, 128],
+              format: (value) => `+${value}`,
+            },
+            {
+              key: "givers",
+              label: "送礼人数",
+              value: "1.126",
+              values: [684, 742, 856, 918, 1038, 1126],
+              format: (value) => value.toLocaleString("de-DE"),
+            },
+          ],
+        },
+      };
+      const metricGrid = document.querySelector("#metricGrid"),
+        trend = document.querySelector("#trend"),
+        chartLabel = document.querySelector("#chartLabel"),
+        list = document.querySelector("#list"),
+        detailFilter = document.querySelector("#detailFilter"),
+        pickerMask = document.querySelector("#pickerMask"),
+        pickerWheels = document.querySelector("#pickerWheels");
+      let currentMode = "day",
+        selectedDetailDate = "all";
+      const pickerColumns = [
+          ["2026", "2026年"],
+          ["08", "08月"],
+          [
+            "all",
+            "全部",
+            "13",
+            "13日",
+            "14",
+            "14日",
+            "15",
+            "15日",
+            "16",
+            "16日",
+          ],
+        ],
+        pickerState = ["2026", "08", "all"];
+      pickerWheels.insertAdjacentHTML(
+        "beforeend",
+        pickerColumns
+          .map((column, columnIndex) => {
+            const options = [];
+            for (let index = 0; index < column.length; index += 2)
+              options.push(
+                `<button type="button" data-value="${column[index]}">${column[index + 1]}</button>`,
+              );
+            return `<div class="wheel" data-wheel="${columnIndex}">${options.join("")}</div>`;
+          })
+          .join(""),
+      );
+      function updateWheel(wheel) {
+        const index = Math.max(
+          0,
+          Math.min(Math.round(wheel.scrollTop / 48), wheel.children.length - 1),
+        );
+        pickerState[wheel.dataset.wheel] = wheel.children[index].dataset.value;
+        [...wheel.children].forEach((button, buttonIndex) =>
+          button.classList.toggle("active", buttonIndex === index),
+        );
+      }
+      document.querySelectorAll(".wheel").forEach((wheel) => {
+        updateWheel(wheel);
+        wheel.addEventListener("scroll", () => updateWheel(wheel));
+        wheel
+          .querySelectorAll("button")
+          .forEach(
+            (button, index) =>
+              (button.onclick = () =>
+                wheel.scrollTo({ top: index * 48, behavior: "smooth" })),
+          );
+      });
+      function renderTrend(key) {
+        const data = datasets[currentMode],
+          metric = data.metrics.find((item) => item.key === key),
+          max = Math.max(...metric.values),
+          points = metric.values.map((value, index) => ({
+            x: 22 + index * (296 / (metric.values.length - 1)),
+            y: 132 - (value / max) * 98,
+          }));
+        chartLabel.textContent = metric.label;
+        trend.setAttribute("aria-label", `${metric.label}趋势`);
+        trend.innerHTML = /* HTML */ `<line
+            class="grid-line"
+            x1="22"
+            y1="34"
+            x2="318"
+            y2="34"
+          /><line class="grid-line" x1="22" y1="83" x2="318" y2="83" /><line
+            class="grid-line"
+            x1="22"
+            y1="132"
+            x2="318"
+            y2="132"
+          /><text class="axis-label" x="0" y="37">${metric.format(max)}</text
+          ><text class="axis-label" x="0" y="135">0</text
+          ><polyline
+            class="trend-line"
+            points="${points.map((point) => `${point.x},${point.y}`).join(" ")}"
+          />${points
+            .map(
+              (point) =>
+                `<circle class="trend-point" cx="${point.x}" cy="${point.y}" r="3"/>`,
+            )
+            .join("")}${data.labels
+            .map(
+              (label, index) =>
+                `<text class="axis-label" x="${22 + index * (296 / (data.labels.length - 1))}" y="156" text-anchor="middle">${label}</text>`,
+            )
+            .join("")}`;
+        document
+          .querySelectorAll("[data-metric]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.metric === key),
+          );
+      }
+      function renderList(data) {
+        if (currentMode === "day") {
+          const rows = data.rows.filter(
+            (row) =>
+              selectedDetailDate === "all" || row.date === selectedDetailDate,
+          );
+          list.innerHTML = rows
+            .map(
+              (row) =>
+                `<tr onclick="location.href='live-records.html'"><td class="date">${row.date.slice(8) + "/" + row.date.slice(5, 7)}</td><td class="income">${row.income}</td><td>${row.duration}</td><td>${row.viewers}</td></tr>`,
+            )
+            .join("");
+          detailFilter.innerHTML = `${selectedDetailDate === "all" ? "08/2026" : LUMA_FORMAT.date(selectedDetailDate)}<i>⌄</i>`;
+        } else
+          list.innerHTML = data.rows
+            .map(
+              (row) =>
+                `<tr onclick="Luma.toast('查看${row[0]}直播数据')"><td class="date">${row[0]}</td><td class="income">${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td><td>${row[4]}</td></tr>`,
+            )
+            .join("");
+      }
+      function render(mode) {
+        currentMode = mode;
+        const data = datasets[mode];
+        document.querySelector("#dataTitle").innerHTML =
+          `<i>▣</i>${data.title}`;
+        document.querySelector("#updateTime").textContent =
+          `更新至 ${LUMA_FORMAT.date(data.update)}`;
+        document.querySelector("#listTitle").textContent = data.listTitle;
+        detailFilter.classList.toggle("state-hide", mode !== "day");
+        document.querySelector(".detail-table thead tr").innerHTML =
+          mode === "day"
+            ? "<th></th><th>收益（金币）</th><th>开播时长</th><th>观众人数</th>"
+            : "<th></th><th>收益（金币）</th><th>开播时长</th><th>观众人数</th><th>有效天数</th>";
+        metricGrid.innerHTML = data.metrics
+          .map(
+            (metric, index) =>
+              `<button class="metric-card${index === 0 ? " active" : ""}" type="button" data-metric="${metric.key}"><span>${metric.label}</span><b${metric.coin ? ' class="coin"' : ""}>${metric.value}</b></button>`,
+          )
+          .join("");
+        renderList(data);
+        document
+          .querySelectorAll("[data-metric]")
+          .forEach(
+            (button) =>
+              (button.onclick = () => renderTrend(button.dataset.metric)),
+          );
+        document
+          .querySelectorAll("[data-mode]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.mode === mode),
+          );
+        renderTrend("income");
+      }
+      detailFilter.onclick = () => pickerMask.classList.remove("state-hide");
+      document.querySelector("#pickerCancel").onclick = () =>
+        pickerMask.classList.add("state-hide");
+      document.querySelector("#pickerConfirm").onclick = () => {
+        selectedDetailDate =
+          pickerState[2] === "all" ? "all" : pickerState.join("-");
+        renderList(datasets.day);
+        pickerMask.classList.add("state-hide");
+      };
+      pickerMask.onclick = (event) => {
+        if (event.target === pickerMask) pickerMask.classList.add("state-hide");
+      };
+      document
+        .querySelectorAll("[data-mode]")
+        .forEach(
+          (button) => (button.onclick = () => render(button.dataset.mode)),
+        );
+      render("day");
+    </script>
+  </body>
+</html>

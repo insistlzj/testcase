@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>1 对 1 私信 · 消息 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .chat-head {
+        height: 52px;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        background: var(--g7);
+      }
+      .chat-head .back {
+        position: static;
+        margin-right: 8px;
+      }
+      .peer {
+        min-width: 0;
+        flex: 1;
+      }
+      .peer b {
+        display: block;
+        font-size: 16px;
+      }
+      .chat {
+        min-height: calc(844px - 44px - 52px - 70px);
+        padding: 18px 16px 82px;
+      }
+      .time {
+        margin: 4px auto 14px;
+        text-align: center;
+        color: var(--g4);
+        font-size: 11px;
+      }
+      .msg {
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+        margin: 0 0 14px;
+      }
+      .msg.me {
+        justify-content: flex-end;
+      }
+      .msg .avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+      }
+      .bubble {
+        max-width: 250px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: var(--g7);
+        color: var(--g2);
+        font-size: 14px;
+        line-height: 1.45;
+      }
+      .me .bubble {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .composer {
+        position: fixed;
+        bottom: 0;
+        width: 390px;
+        min-height: 70px;
+        padding: 10px 16px;
+        background: var(--g7);
+        border-top: 1px solid var(--g5);
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+      }
+      .composer button {
+        width: 34px;
+        height: 34px;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .composer textarea {
+        flex: 1;
+        min-height: 34px;
+        max-height: 80px;
+        padding: 8px 10px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g1);
+        font: 14px inherit;
+        line-height: 18px;
+        resize: none;
+        outline: 0;
+      }
+      .composer .send {
+        width: auto;
+        padding: 0 10px;
+        border-radius: 7px;
+        background: var(--g1);
+        color: var(--g7);
+        font-size: 13px;
+      }
+      .composer .send:disabled {
+        background: var(--g5);
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen" style="padding-bottom: 0">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="chat-head">
+        <button class="back" onclick="location.href='message-center.html'">
+          ‹
+        </button>
+        <div class="peer"><b>Sari</b></div>
+      </header>
+      <section class="chat" id="chat">
+        <p class="time">17/08/2026 19.41</p>
+        <div class="msg">
+          <i class="avatar">S</i>
+          <p class="bubble">谢谢你的礼物，今天直播见！</p>
+        </div>
+        <div class="msg me">
+          <p class="bubble">好呀，晚上见。</p>
+          <i class="avatar">安</i>
+        </div>
+        <p class="time">18/08/2026 10.24</p>
+        <div class="msg">
+          <i class="avatar">S</i>
+          <p class="bubble">我今晚会唱新歌，记得来哦。</p>
+        </div>
+      </section>
+    </main>
+    <div class="composer">
+      <button onclick="Luma.toast('打开表情')">☺</button
+      ><textarea id="input" rows="1" placeholder="发送消息"></textarea
+      ><button class="send" id="send" disabled>发送</button>
+    </div>
+    <script>
+      const input = document.querySelector("#input"),
+        send = document.querySelector("#send"),
+        chat = document.querySelector("#chat");
+      function sync() {
+        send.disabled = !input.value.trim();
+      }
+      function append() {
+        const text = input.value.trim();
+        if (!text) return;
+        const item = document.createElement("div");
+        item.className = "msg me";
+        item.innerHTML = `<p class="bubble"></p><i class="avatar">安</i>`;
+        item.querySelector(".bubble").textContent = text;
+        chat.append(item);
+        input.value = "";
+        sync();
+        input.focus();
+      }
+      input.addEventListener("input", sync);
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          append();
+        }
+      });
+      send.onclick = append;
+    </script>
+    <script src="../../../assets/chat-media.js"></script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>系统通知 · 消息 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260815-profile-audit-notifications-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .notice-list {
+        padding: 12px 16px 16px;
+      }
+      .notice {
+        position: relative;
+        padding: 15px 14px;
+        border-radius: 12px;
+        background: var(--g7);
+        cursor: pointer;
+      }
+      .notice + .notice {
+        margin-top: 12px;
+      }
+      .notice:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+      .notice-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .notice-icon {
+        width: 34px;
+        height: 34px;
+        flex: none;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 15px;
+        font-style: normal;
+      }
+      .notice-head b {
+        min-width: 0;
+        flex: 1;
+        font-size: 15px;
+      }
+      .notice time {
+        color: var(--g4);
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .notice p {
+        margin: 11px 0 0;
+        color: var(--g2);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      .notice-unread {
+        position: absolute;
+        top: 14px;
+        right: 10px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <a href="message-center.html" aria-label="返回">‹</a>系统通知
+      </header>
+      <section
+        class="notice-list"
+        id="noticeList"
+        aria-label="系统通知列表"
+      ></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const noticeList = document.querySelector("#noticeList");
+      const notices = window.LUMA_MOCK.systemNotifications;
+      function render() {
+        noticeList.innerHTML = notices
+          .map(
+            (item, index) =>
+              `<article class="notice" data-index="${index}" tabindex="0"><div class="notice-head"><i class="notice-icon">${item.icon}</i><b>${item.title}</b><time>${LUMA_FORMAT.dateTime(item.time)}</time></div><p>${item.content}</p>${item.unread ? '<i class="notice-unread" aria-label="未读"></i>' : ""}</article>`,
+          )
+          .join("");
+      }
+      function readNotice(index) {
+        const notice = notices[index];
+        if (!notice) return;
+        if (notice.unread) {
+          notice.unread = false;
+          render();
+          Luma.toast("通知已标为已读");
+          return;
+        }
+        Luma.toast("这是系统通知");
+      }
+      noticeList.addEventListener("click", (event) =>
+        readNotice(Number(event.target.closest(".notice")?.dataset.index)),
+      );
+      noticeList.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          readNotice(Number(event.target.closest(".notice")?.dataset.index));
+        }
+      });
+      render();
+    </script>
+  </body>
+</html>

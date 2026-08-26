@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>运营消息 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260824-message-range-v1"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild-core-data.css?v=20260824-message-range-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js?v=20260818-person-id-v1"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="../home/guild-home.html">‹</a>运营消息<a
+          class="guild-nav-action"
+          href="guild-message-compose.html"
+          >新建</a
+        >
+      </header>
+      <div class="guild-page-body">
+        <div class="guild-host-summary-filterbar guild-message-range-filter">
+          <button
+            class="guild-host-summary-range"
+            id="messageRangeButton"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+              <path d="M8 3v4M16 3v4M4 10h16"></path></svg
+            ><span id="messageRangeValue"></span
+            ><i aria-hidden="true">⌄</i></button
+          ><button
+            class="guild-host-performance-quick"
+            id="thisMonthButton"
+            type="button"
+          >
+            <span>本月</span><i aria-hidden="true">⌄</i>
+          </button>
+        </div>
+        <div class="guild-list-summary">
+          <strong id="summary">发送记录</strong>
+        </div>
+        <section class="guild-message-records" id="list"></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <div class="guild-confirm-mask state-hide" id="messageRangeDialog">
+      <section
+        class="guild-confirm-dialog guild-message-range-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="messageRangeTitle"
+      >
+        <h2 id="messageRangeTitle">选择日期范围</h2>
+        <div class="guild-message-range-fields">
+          <label
+            >开始日期<input
+              id="startDate"
+              type="date"
+              value="2026-08-01" /></label
+          ><label
+            >结束日期<input id="endDate" type="date" value="2026-08-24"
+          /></label>
+        </div>
+        <div class="guild-confirm-actions">
+          <button id="cancelRange" type="button">取消</button
+          ><button class="primary" id="confirmRange" type="button">确定</button>
+        </div>
+      </section>
+    </div>
+    <script>
+      const seed = [
+        {
+          id: "M26081001",
+          audience: "全体成员",
+          recipientCount: 268,
+          content: "请各位成员关注本周公会活动安排，主播报名请于周五前完成。",
+          hasImage: true,
+          sentAt: "2026-08-10 10:20",
+          sender: "Rizky",
+        },
+        {
+          id: "M26080902",
+          audience: "指定主播",
+          recipientCount: 1,
+          recipientId: "H102938",
+          recipients: ["Sari"],
+          content: "明晚 20:00 进行新人培训，请提前十分钟进入培训直播间。",
+          hasImage: false,
+          sentAt: "2026-08-09 18:35",
+          sender: "Rizky",
+        },
+      ];
+      function records() {
+        const saved = JSON.parse(
+          localStorage.getItem("luma-guild-message-records") || "[]",
+        );
+        return [...saved, ...seed];
+      }
+      function audienceLabel(item) {
+        if (item.audience !== "指定主播") return item.audience;
+        const recipientName = item.recipients?.[0] || "";
+        const host = LUMA_MOCK.guildPortal.guildHosts.find(
+          (candidate) =>
+            candidate.id === item.recipientId ||
+            candidate.name === recipientName,
+        );
+        return host
+          ? `${host.name} · ${host.id}`
+          : recipientName || item.audience;
+      }
+      let rangeStart = "2026-08-01",
+        rangeEnd = "2026-08-24";
+      function render() {
+        messageRangeValue.textContent = `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
+        messageRangeButton.setAttribute(
+          "aria-label",
+          `选择日期范围，当前${messageRangeValue.textContent}`,
+        );
+        const items = records().filter(
+          (item) =>
+            item.sentAt.slice(0, 10) >= rangeStart &&
+            item.sentAt.slice(0, 10) <= rangeEnd,
+        );
+        summary.textContent = `发送记录 ${items.length} 条`;
+        list.innerHTML = items.length
+          ? items
+              .map(
+                (item) =>
+                  `<a class="guild-message-record" href="guild-message-detail.html?id=${item.id}"><div class="guild-message-record-head"><b>${audienceLabel(item)}</b><span>${LUMA_FORMAT.dateTime(item.sentAt)}</span></div><p>${item.content}</p></a>`,
+              )
+              .join("")
+          : '<div class="guild-page-empty"><b>暂无消息</b><span>当前日期范围内没有发送记录</span></div>';
+      }
+      function closeRangeDialog() {
+        messageRangeDialog.classList.add("state-hide");
+      }
+      messageRangeButton.onclick = () => {
+        startDate.value = rangeStart;
+        endDate.value = rangeEnd;
+        messageRangeDialog.classList.remove("state-hide");
+      };
+      thisMonthButton.onclick = () => {
+        rangeStart = "2026-08-01";
+        rangeEnd = "2026-08-24";
+        render();
+      };
+      cancelRange.onclick = closeRangeDialog;
+      messageRangeDialog.onclick = (event) => {
+        if (event.target === messageRangeDialog) closeRangeDialog();
+      };
+      confirmRange.onclick = () => {
+        if (!startDate.value || !endDate.value)
+          return Luma.toast("请选择完整日期范围");
+        if (startDate.value > endDate.value)
+          return Luma.toast("结束日期不能早于开始日期");
+        rangeStart = startDate.value;
+        rangeEnd = endDate.value;
+        closeRangeDialog();
+        render();
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeRangeDialog();
+      });
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-messages.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

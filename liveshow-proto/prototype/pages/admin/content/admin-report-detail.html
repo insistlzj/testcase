@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>举报详情 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <style>
+      .admin-report-inline-id {
+        white-space: nowrap;
+        overflow-wrap: normal !important;
+      }
+      .admin-detail-item .admin-report-inline-id .admin-hover-tip {
+        display: inline;
+        margin: 0;
+        color: inherit;
+        font-size: inherit;
+      }
+    </style>
+    <script src="../../../assets/common.js?v=20260821-report-menu-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260821-report-scope-v1"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="../host/admin-host-review.html"
+              >主播审核</a
+            ><a class="admin-nav-sub" href="../host/admin-host-list.html"
+              >主播列表</a
+            ><a class="admin-nav-sub" href="../host/admin-live-management.html"
+              >直播场次</a
+            ><a
+              class="admin-nav-sub"
+              href="../host/admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub" href="admin-content-audit.html"
+              >内容审核</a
+            ><a class="admin-nav-sub active" href="admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            举报处理&nbsp;&nbsp;/&nbsp;&nbsp;<strong id="scopeTitle"></strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" id="backLink"></a>
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-profile-summary">
+              <span class="admin-avatar" id="avatar"></span>
+              <div>
+                <h2 id="name"></h2>
+                <div class="admin-profile-meta">
+                  <span id="subjectId"></span><span id="liveSessionId"></span
+                  ><span id="status"></span>
+                </div>
+              </div>
+              <div class="admin-profile-summary-actions" id="actions"></div>
+            </div>
+            <div class="admin-detail-grid" id="baseInfo"></div>
+          </section>
+          <section class="admin-panel admin-tabs-panel">
+            <div class="admin-detail-tabs">
+              <button class="admin-detail-tab active" data-tab="content">
+                举报内容与证据</button
+              ><button class="admin-detail-tab" data-tab="record">
+                处理记录
+              </button>
+            </div>
+            <div class="admin-detail-panel" id="detailPanel"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="processOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2>处理举报</h2>
+          <button class="admin-icon-btn" data-close="processOverlay">×</button>
+        </div>
+        <form id="processForm">
+          <div class="admin-modal-body">
+            <p id="processTarget"></p>
+            <div class="admin-form-row">
+              <label for="processAction">处置类型</label
+              ><select class="admin-select" id="processAction" required>
+                <option value="无处置">无处置</option>
+                <option value="警告">警告</option>
+                <option value="强制关播">强制关播</option>
+                <option value="封禁">封禁</option>
+                <option value="内容下架">内容下架</option>
+              </select>
+            </div>
+            <div class="admin-form-row">
+              <label for="processReason">处置原因</label
+              ><textarea
+                class="admin-textarea"
+                id="processReason"
+                required
+              ></textarea>
+            </div>
+            <div class="admin-form-row">
+              <label for="processResult">处理结果</label
+              ><select class="admin-select" id="processResult" required>
+                <option>举报成立</option>
+                <option>部分成立</option>
+                <option>举报不成立</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="processOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" type="submit">确认</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const reports = window.LUMA_ADMIN_MOCK.reports,
+        params = new URLSearchParams(location.search),
+        id = params.get("id"),
+        item =
+          reports.find((report) => report.reportNo === id) ||
+          reports.find(
+            (report) =>
+              report.violationScope === (params.get("scope") || "live"),
+          ) ||
+          reports[0],
+        isAccount = item.violationScope === "account",
+        statusText = {
+          pending: "待处理",
+          processing: "处理中",
+          resolved: "已处理",
+        },
+        statusClass = {
+          pending: "pending",
+          processing: "muted",
+          resolved: "success",
+        },
+        avatarEl = document.querySelector("#avatar"),
+        nameEl = document.querySelector("#name"),
+        subjectIdEl = document.querySelector("#subjectId"),
+        liveSessionIdEl = document.querySelector("#liveSessionId"),
+        statusEl = document.querySelector("#status"),
+        actionsEl = document.querySelector("#actions"),
+        baseInfoEl = document.querySelector("#baseInfo"),
+        detailPanelEl = document.querySelector("#detailPanel");
+      scopeTitle.textContent = isAccount ? "账号违规" : "直播间违规";
+      backLink.href = isAccount
+        ? "admin-account-violation.html"
+        : "admin-report-handling.html";
+      backLink.textContent = `‹ 返回${scopeTitle.textContent}`;
+      processAction.innerHTML = isAccount
+        ? '<option value="无处置">无处置</option><option value="警告">警告</option><option value="禁言">禁言</option><option value="封禁">封禁</option>'
+        : '<option value="无处置">无处置</option><option value="警告">警告</option><option value="强制关播">强制关播</option><option value="封禁">封禁</option><option value="内容下架">内容下架</option>';
+      function renderBase() {
+        avatarEl.textContent = item.hostInitials;
+        nameEl.innerHTML = Luma.tip(
+          isAccount ? item.targetName : item.hostName,
+          isAccount ? "被举报用户昵称" : "被举报主播昵称",
+        );
+        subjectIdEl.classList.remove("state-hide");
+        subjectIdEl.innerHTML = Luma.id(
+          isAccount ? item.targetId : item.hostId,
+          isAccount ? "被举报用户ID" : "被举报主播ID",
+        );
+        liveSessionIdEl.classList.toggle("state-hide", isAccount);
+        liveSessionIdEl.innerHTML = isAccount
+          ? ""
+          : `直播场次 ID：${item.targetId}`;
+        statusEl.className = `admin-status ${statusClass[item.status]}`;
+        statusEl.classList.toggle("state-hide", !isAccount);
+        Luma.setTip(statusEl, statusText[item.status], "处理状态");
+        actionsEl.innerHTML =
+          item.status === "resolved"
+            ? ""
+            : '<button class="admin-btn" id="processBtn">处理</button>';
+        const processBtn = document.querySelector("#processBtn");
+        if (processBtn) processBtn.onclick = openProcess;
+        baseInfoEl.innerHTML = isAccount
+          ? `<div class="admin-detail-item"><span>举报单号</span><b>${item.reportNo}</b></div><div class="admin-detail-item"><span>举报类型</span><b>${item.reportType}</b></div><div class="admin-detail-item"><span>举报人昵称/ID</span><b class="admin-report-inline-id">${item.reporterName}（${Luma.id(item.reporterId, "举报人ID")}）</b></div><div class="admin-detail-item"><span>提交时间</span><b>${item.submittedAt}</b></div>`
+          : /* HTML */ `<div class="admin-detail-item">
+                <span>举报单号</span><b>${item.reportNo}</b>
+              </div>
+              <div class="admin-detail-item">
+                <span>举报类型</span><b>${item.reportType}</b>
+              </div>
+              <div class="admin-detail-item">
+                <span>举报人昵称/ID</span
+                ><b class="admin-report-inline-id"
+                  >${item.reporterName}（${Luma.id(
+                    item.reporterId,
+                    "举报人ID",
+                  )}）</b
+                >
+              </div>
+              <div class="admin-detail-item">
+                <span>被举报对象类型</span><b>${item.targetType}</b>
+              </div>
+              <div class="admin-detail-item">
+                <span>处理状态</span
+                ><b
+                  ><span class="admin-status ${statusClass[item.status]}"
+                    >${statusText[item.status]}</span
+                  ></b
+                >
+              </div>
+              <div class="admin-detail-item">
+                <span>提交时间</span><b>${item.submittedAt}</b>
+              </div>`;
+      }
+      function renderTab(tab) {
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.tab === tab),
+          );
+        if (tab === "content")
+          detailPanelEl.innerHTML = `<section class="admin-detail-section"><h4>举报说明</h4><p>${item.description}</p></section><section class="admin-detail-section"><h4>举报证据</h4><div class="admin-evidence-list">${item.evidence.map((file) => `<div class="admin-evidence"><span>${file}</span><button data-file="${file}">查看</button></div>`).join("")}</div></section>`;
+        if (tab === "record")
+          detailPanelEl.innerHTML = item.record
+            ? `<div class="admin-detail-grid"><div class="admin-detail-item"><span>处置类型</span><b>${item.record.action}</b></div><div class="admin-detail-item"><span>处置原因</span><b>${item.record.reason}</b></div><div class="admin-detail-item"><span>处理结果</span><b>${item.record.result}</b></div><div class="admin-detail-item"><span>处理人</span><b>${item.record.operator}</b></div><div class="admin-detail-item"><span>处理时间</span><b>${item.record.time}</b></div></div>`
+            : '<div class="admin-record-empty"><strong>暂无处理记录</strong><span>该举报尚未完成处理</span></div>';
+      }
+      function openProcess() {
+        processTarget.textContent = `${item.reportNo} · ${item.targetType} ${item.targetName}`;
+        processForm.reset();
+        processOverlay.classList.add("show");
+      }
+      document.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-tab]");
+        if (tab) renderTab(tab.dataset.tab);
+        const file = event.target.closest("[data-file]");
+        if (file) Luma.toast(`查看举报证据：${file.dataset.file}`);
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      processForm.onsubmit = (event) => {
+        event.preventDefault();
+        item.status = "resolved";
+        item.result =
+          processAction.value === "无处置"
+            ? processResult.value
+            : processAction.value;
+        item.record = {
+          action: processAction.value,
+          reason: processReason.value.trim(),
+          result: processResult.value,
+          operator: "后台管理员",
+          time: "2026-08-04 12:45",
+        };
+        processOverlay.classList.remove("show");
+        renderBase();
+        renderTab("record");
+        Luma.toast("举报处理已提交");
+      };
+      renderBase();
+      renderTab("content");
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-report-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        举报内容: () => renderTab("content"),
+        处理记录: () => renderTab("record"),
+        处理举报: openProcess,
+      });
+    </script>
+  </body>
+</html>

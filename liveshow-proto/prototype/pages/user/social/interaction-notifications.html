@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>互动通知 · 消息 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .notice-list {
+        margin-top: 12px;
+        background: var(--g7);
+      }
+      .notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--g6);
+      }
+      .notice:last-child {
+        border-bottom: 0;
+      }
+      .notice-avatar {
+        flex: none;
+        text-decoration: none;
+      }
+      .notice-copy {
+        min-width: 0;
+        flex: 1;
+        padding-top: 2px;
+      }
+      .notice-copy p {
+        margin: 0;
+        font-size: 15px;
+        color: var(--g1);
+      }
+      .notice-copy b {
+        font-weight: 600;
+      }
+      .notice-message {
+        margin-top: 5px !important;
+        color: var(--g3) !important;
+        font-size: 13px !important;
+      }
+      .notice-side {
+        display: flex;
+        min-width: 70px;
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .notice time {
+        color: var(--g4);
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .notice-actions {
+        display: flex;
+        gap: 8px;
+      }
+      .notice-actions button {
+        padding: 5px 8px;
+        border: 0;
+        border-radius: var(--radius-sm);
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 12px;
+      }
+      .notice-actions .accept {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .notice-result {
+        color: var(--g4);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <a href="message-center.html" aria-label="返回">‹</a>互动通知
+      </header>
+      <section
+        class="notice-list"
+        id="noticeList"
+        aria-label="互动通知列表"
+      ></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const noticeList = document.querySelector("#noticeList");
+      const notifications = window.LUMA_MOCK.interactionNotifications.map(
+        (notice) => ({ ...notice }),
+      );
+      const profileHref = (notice) =>
+        notice.profileType === "host"
+          ? `host-home.html?host=${encodeURIComponent(notice.userKey)}`
+          : `user-home.html?user=${encodeURIComponent(notice.userKey)}`;
+      function render() {
+        noticeList.innerHTML = notifications
+          .map((notice, index) => {
+            const action =
+              notice.type === "friendRequest" && !notice.result
+                ? `<div class="notice-actions"><button type="button" data-reject="${index}">拒绝</button><button class="accept" type="button" data-accept="${index}">同意</button></div>`
+                : notice.result
+                  ? `<span class="notice-result">${notice.result}</span>`
+                  : "";
+            return `<article class="notice"><a class="avatar notice-avatar" href="${profileHref(notice)}" aria-label="查看${notice.name}主页">${notice.avatar}</a><div class="notice-copy"><p><b>${notice.name}</b></p><p class="notice-message">${notice.message}</p></div><div class="notice-side"><time>${LUMA_FORMAT.dateTime(notice.time)}</time>${action}</div></article>`;
+          })
+          .join("");
+      }
+      noticeList.addEventListener("click", (event) => {
+        const button = event.target.closest(
+          "button[data-accept],button[data-reject]",
+        );
+        if (!button) return;
+        const notice =
+          notifications[Number(button.dataset.accept ?? button.dataset.reject)];
+        const accepted = button.dataset.accept !== undefined;
+        notice.result = accepted ? "已同意" : "已拒绝";
+        Luma.toast(accepted ? "已添加为好友" : "已拒绝好友申请");
+        render();
+      });
+      render();
+    </script>
+  </body>
+</html>

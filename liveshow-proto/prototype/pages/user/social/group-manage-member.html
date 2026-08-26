@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>群管理（成员）· 粉丝团群聊 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .notice,
+      .setting,
+      .section {
+        margin: 12px 16px 0;
+        padding: 14px 16px;
+        background: var(--g7);
+        border-radius: 12px;
+      }
+      .notice b,
+      .setting b {
+        font-size: 15px;
+      }
+      .notice p {
+        margin: 7px 0 0;
+        color: var(--g3);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .setting {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .switch {
+        position: relative;
+        width: 42px;
+        height: 24px;
+        padding: 0;
+        border: 0;
+        border-radius: 12px;
+        background: var(--g5);
+        cursor: pointer;
+      }
+      .switch i {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--g7);
+        transition: left 0.15s;
+      }
+      .switch.on {
+        background: var(--g1);
+      }
+      .switch.on i {
+        left: 21px;
+      }
+      .section {
+        padding: 0;
+        overflow: hidden;
+      }
+      .action {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        border: 0;
+        border-bottom: 1px solid var(--g6);
+        background: var(--g7);
+        color: var(--g1);
+        font: 15px inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .action:last-child {
+        border: 0;
+      }
+      .action span:last-child {
+        color: var(--g4);
+      }
+      .action.danger {
+        color: #c43131;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(51, 51, 51, 0.38);
+      }
+      .dialog {
+        width: 300px;
+        padding: 20px;
+        background: var(--g7);
+        border-radius: 12px;
+      }
+      .dialog h2 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .dialog p {
+        margin: 10px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .dialog-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .dialog-actions button {
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .dialog-actions button:first-child {
+        background: var(--g6);
+        color: var(--g2);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <div class="nav">
+        <a href="fan-group-chat.html" aria-label="返回">‹</a>群管理
+      </div>
+      <section class="notice">
+        <b>群公告</b>
+        <p>今晚 8 点专场，记得来！</p>
+      </section>
+      <section class="setting">
+        <b>群消息免打扰</b
+        ><button class="switch" id="dnd" aria-label="群消息免打扰">
+          <i></i>
+        </button>
+      </section>
+      <section class="section">
+        <button class="action" id="report">
+          <span>举报</span><span>›</span></button
+        ><button class="action danger" id="exitGroup">
+          <span>退出粉丝群</span><span>›</span>
+        </button>
+      </section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <section class="modal state-hide" id="modal">
+      <div class="dialog">
+        <h2 id="dialogTitle"></h2>
+        <p id="dialogText"></p>
+        <div class="dialog-actions">
+          <button id="cancel" type="button">取消</button
+          ><button id="confirm" type="button"></button>
+        </div>
+      </div>
+    </section>
+    <script>
+      const dnd = document.querySelector("#dnd"),
+        exitGroup = document.querySelector("#exitGroup"),
+        modal = document.querySelector("#modal"),
+        dialogTitle = document.querySelector("#dialogTitle"),
+        dialogText = document.querySelector("#dialogText"),
+        confirm = document.querySelector("#confirm");
+      let step = 0;
+      dnd.onclick = () => dnd.classList.toggle("on");
+      report.onclick = () => Luma.toast("打开举报");
+      exitGroup.onclick = () => {
+        step = 1;
+        dialogTitle.textContent = "退出粉丝群";
+        dialogText.textContent = "退出粉丝群将解除团籍、去掉身份标识。";
+        confirm.textContent = "继续退出";
+        modal.classList.remove("state-hide");
+      };
+      cancel.onclick = () => modal.classList.add("state-hide");
+      confirm.onclick = () => {
+        if (step === 1) {
+          step = 2;
+          dialogTitle.textContent = "再次确认退出";
+          dialogText.textContent = "确认退出后，将不再显示粉丝团身份标识。";
+          confirm.textContent = "确认退出";
+          return;
+        }
+        modal.classList.add("state-hide");
+        Luma.toast("已退出粉丝群");
+        location.href = "message-center.html";
+      };
+    </script>
+  </body>
+</html>

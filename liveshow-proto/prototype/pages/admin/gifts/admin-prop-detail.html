@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>道具详情 · 礼物道具 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>礼物道具</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-gift-list.html">普通礼物</a
+            ><a class="admin-nav-sub" href="admin-custom-gift.html">定制礼物</a
+            ><a class="admin-nav-sub" href="admin-lucky-gift-config.html"
+              >幸运礼物</a
+            ><a class="admin-nav-sub active" href="admin-prop-list.html"
+              >道具配置</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            <strong id="pageName">道具详情</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-prop-list.html"
+            >‹ 返回道具配置</a
+          >
+          <div id="viewContent">
+            <section class="admin-panel admin-profile-panel">
+              <div class="admin-profile-summary">
+                <div class="admin-media" id="propIcon"></div>
+                <div>
+                  <h2 id="propName"></h2>
+                  <span id="propStatus"></span>
+                </div>
+                <div class="admin-profile-summary-actions" id="actions"></div>
+              </div>
+              <div class="admin-detail-grid" id="baseInfo"></div>
+            </section>
+            <section class="admin-panel admin-tabs-panel">
+              <div class="admin-detail-tabs">
+                <button class="admin-detail-tab active" data-tab="names">
+                  多语言名称</button
+                ><button class="admin-detail-tab" data-tab="resources">
+                  资源信息</button
+                ><button class="admin-detail-tab" data-tab="records">
+                  操作记录
+                </button>
+              </div>
+              <div class="admin-detail-panel" id="detailPanel"></div>
+            </section>
+          </div>
+          <section
+            class="admin-panel admin-profile-panel state-hide"
+            id="editContent"
+          >
+            <div class="admin-section-head">
+              <strong>编辑道具</strong>
+              <div class="admin-page-actions">
+                <button
+                  class="admin-btn secondary"
+                  id="cancelBtn"
+                  type="button"
+                >
+                  取消</button
+                ><button class="admin-btn" type="submit" form="editorForm">
+                  保存
+                </button>
+              </div>
+            </div>
+            <form class="admin-resource-form" id="editorForm">
+              <div class="admin-form-grid admin-basic-form-grid">
+                <div class="admin-form-row" id="propIdRow">
+                  <label>道具 ID</label>
+                  <div class="admin-readonly-value" id="editIdText"></div>
+                  <input id="editId" type="hidden" />
+                </div>
+                <div class="admin-form-row full admin-form-row-top">
+                  <label>道具名称</label>
+                  <div class="admin-localized-inputs">
+                    <label for="nameEn"
+                      ><span>英语</span
+                      ><input class="admin-input" id="nameEn" required /></label
+                    ><label for="nameId"
+                      ><span>印尼语</span
+                      ><input class="admin-input" id="nameId" required /></label
+                    ><label for="nameMs"
+                      ><span>马来语</span
+                      ><input class="admin-input" id="nameMs" required
+                    /></label>
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="editType">道具类型</label
+                  ><select class="admin-select" id="editType"></select>
+                </div>
+                <div class="admin-form-row">
+                  <label for="editSort">排序权重</label
+                  ><input
+                    class="admin-input"
+                    id="editSort"
+                    type="number"
+                    min="0"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="editStatus">上下架状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="editStatus" type="checkbox" /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="editStatusText"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-media-upload-grid">
+                <div class="admin-media-upload">
+                  <h4>道具图标</h4>
+                  <div class="admin-media-upload-preview-wrap">
+                    <button
+                      class="admin-media-upload-preview"
+                      type="button"
+                      data-preview-media="icon"
+                      id="editIconPreview"
+                    ></button
+                    ><button
+                      class="admin-media-delete"
+                      type="button"
+                      data-delete-media="icon"
+                      aria-label="删除道具图标"
+                      title="删除道具图标"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <input
+                    class="admin-file-input"
+                    id="iconFile"
+                    type="file"
+                    accept="image/*"
+                  />
+                </div>
+                <div class="admin-media-upload">
+                  <h4>道具素材</h4>
+                  <div class="admin-media-upload-preview-wrap">
+                    <button
+                      class="admin-media-upload-preview"
+                      type="button"
+                      data-preview-media="material"
+                      id="editMaterialPreview"
+                    ></button
+                    ><button
+                      class="admin-media-delete"
+                      type="button"
+                      data-delete-media="material"
+                      aria-label="删除道具素材"
+                      title="删除道具素材"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <input
+                    class="admin-file-input"
+                    id="materialFile"
+                    type="file"
+                    accept="image/*,.svga,.webm,.mp4,.json,.gif"
+                  />
+                </div>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="mediaPreviewOverlay">
+      <section class="admin-modal admin-media-preview-modal">
+        <div class="admin-modal-head">
+          <h2 id="mediaPreviewTitle"></h2>
+          <button class="admin-icon-btn" data-close="mediaPreviewOverlay">
+            ×
+          </button>
+        </div>
+        <div class="admin-modal-body">
+          <div class="admin-media-full-preview" id="mediaPreviewContent"></div>
+        </div>
+      </section>
+    </div>
+    <div class="admin-overlay" id="confirmOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2 id="confirmTitle">道具操作</h2>
+          <button class="admin-icon-btn" data-close="confirmOverlay">×</button>
+        </div>
+        <form id="confirmForm">
+          <div class="admin-modal-body"><p id="confirmText"></p></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="confirmOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" id="confirmSubmit" type="submit">
+              确认
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const props = window.LUMA_ADMIN_MOCK.propItems,
+        params = new URLSearchParams(location.search),
+        id = params.get("id"),
+        requestedType = params.get("type"),
+        defaultPropTypes = [
+          { key: "light", name: "灯牌" },
+          { key: "title", name: "头衔" },
+          { key: "medal", name: "勋章" },
+          { key: "vehicle", name: "座驾" },
+          { key: "bubble", name: "气泡" },
+          { key: "avatar", name: "头像框" },
+        ];
+      function sharedPropStorage() {
+        try {
+          return window.parent && window.parent !== window
+            ? window.parent.localStorage
+            : localStorage;
+        } catch (error) {
+          return localStorage;
+        }
+      }
+      function readPropTypes() {
+        try {
+          const saved = JSON.parse(
+            sharedPropStorage().getItem("luma-admin-prop-types-v1") || "null",
+          );
+          if (Array.isArray(saved) && saved.length) return saved;
+        } catch (error) {}
+        return defaultPropTypes;
+      }
+      const propTypes = readPropTypes(),
+        typeText = Object.fromEntries(
+          propTypes.map((type) => [type.key, type.name]),
+        );
+      let isNew = params.get("new") === "1",
+        item = isNew
+          ? blankProp()
+          : props.find((prop) => prop.id === id) || props[0],
+        directEdit = params.get("edit") === "1" || isNew,
+        activeTab = "names",
+        confirmAction = "",
+        editorIcon = item.icon,
+        editorMaterial = item.material;
+      function blankProp() {
+        const next =
+          Math.max(...props.map((prop) => Number(prop.id.replace(/\D/g, "")))) +
+          1;
+        return {
+          id: `PRP${next}`,
+          names: { en: "", id: "", ms: "" },
+          icon: "未上传",
+          material: "未上传",
+          type: typeText[requestedType] ? requestedType : "light",
+          sort: 50,
+          status: "online",
+          updatedAt: "2026-08-05 14:20",
+          changes: [],
+        };
+      }
+      function renderBase() {
+        propIcon.innerHTML = `<span class="admin-media-placeholder">${item.icon === "未上传" ? "未上传" : "图标 占位"}</span>`;
+        propName.innerHTML = `${Luma.tip(item.names.id, "道具名称")}（${Luma.id(item.id, "道具ID")}）`;
+        propStatus.className = "admin-switch-control";
+        propStatus.innerHTML = `<label class="admin-switch"><input type="checkbox" data-detail-status-toggle aria-label="${item.names.id} 上下架状态" ${item.status === "online" ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${item.status === "online" ? "上架" : "下架"}</span>`;
+        actions.innerHTML = `<a class="admin-btn secondary" href="admin-prop-detail.html?id=${item.id}&edit=1">编辑</a><button class="admin-btn danger" id="deleteBtn">删除</button>`;
+        baseInfo.innerHTML = `<div class="admin-detail-item"><span>道具类型</span><b>${typeText[item.type]}</b></div><div class="admin-detail-item"><span>排序权重</span><b>${item.sort}</b></div><div class="admin-detail-item"><span>更新时间</span><b>${item.updatedAt}</b></div>`;
+        deleteBtn.onclick = () => openConfirm();
+      }
+      function renderTab(tab = activeTab) {
+        activeTab = tab;
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.tab === tab),
+          );
+        if (tab === "names")
+          detailPanel.innerHTML = `<div class="admin-detail-grid"><div class="admin-detail-item"><span>英文</span><b>${item.names.en}</b></div><div class="admin-detail-item"><span>印尼语</span><b>${item.names.id}</b></div><div class="admin-detail-item"><span>马来语</span><b>${item.names.ms}</b></div></div>`;
+        if (tab === "resources")
+          detailPanel.innerHTML = `<div class="admin-detail-grid"><div class="admin-detail-item"><span>道具图标</span><b>${item.icon}</b></div><div class="admin-detail-item"><span>道具素材</span><b>${item.material}</b></div></div>`;
+        if (tab === "records")
+          detailPanel.innerHTML = `<div class="admin-table-wrap"><table class="admin-record-table"><thead><tr><th>操作</th><th>说明</th><th>操作人</th><th>操作时间</th></tr></thead><tbody>${item.changes.map((record) => `<tr><td>${record.action}</td><td>${record.detail}</td><td>${record.operator}</td><td>${record.time}</td></tr>`).join("")}</tbody></table></div>`;
+      }
+      function renderMediaEditor() {
+        [
+          [editIconPreview, editorIcon],
+          [editMaterialPreview, editorMaterial],
+        ].forEach(([preview, value]) => {
+          const empty = value === "未上传";
+          preview.textContent = empty ? "点击上传" : value;
+          preview.classList.toggle("is-empty", empty);
+          preview.parentElement
+            .querySelector("[data-delete-media]")
+            .classList.toggle("state-hide", empty);
+        });
+      }
+      function syncEditStatus() {
+        editStatusText.textContent = editStatus.checked ? "上架" : "下架";
+      }
+      function openEditor() {
+        pageName.textContent = `${isNew ? "新增" : "编辑"}道具`;
+        editId.value = item.id;
+        editIdText.textContent = item.id;
+        propIdRow.classList.toggle("state-hide", isNew);
+        nameEn.value = item.names.en;
+        nameId.value = item.names.id;
+        nameMs.value = item.names.ms;
+        editType.innerHTML = propTypes
+          .map((type) => `<option value="${type.key}">${type.name}</option>`)
+          .join("");
+        editType.value = item.type;
+        editSort.value = item.sort;
+        editStatus.checked = item.status === "online";
+        editorIcon = item.icon;
+        editorMaterial = item.material;
+        renderMediaEditor();
+        syncEditStatus();
+        viewContent.classList.add("state-hide");
+        editContent.classList.remove("state-hide");
+      }
+      function closeEditor() {
+        location.href = "admin-prop-list.html";
+      }
+      function openConfirm() {
+        confirmAction = "delete";
+        confirmTitle.textContent = "删除道具";
+        confirmText.textContent = `确认删除 ${item.names.id}（${item.id}）？`;
+        confirmSubmit.className = "admin-btn danger";
+        confirmOverlay.classList.add("show");
+      }
+      document
+        .querySelectorAll("[data-tab]")
+        .forEach(
+          (button) => (button.onclick = () => renderTab(button.dataset.tab)),
+        );
+      cancelBtn.onclick = closeEditor;
+      editStatus.onchange = syncEditStatus;
+      document.addEventListener("click", (event) => {
+        const remove = event.target.closest("[data-delete-media]");
+        if (remove) {
+          if (remove.dataset.deleteMedia === "icon") editorIcon = "未上传";
+          else editorMaterial = "未上传";
+          renderMediaEditor();
+        }
+        const preview = event.target.closest("[data-preview-media]");
+        if (preview) {
+          const icon = preview.dataset.previewMedia === "icon",
+            value = icon ? editorIcon : editorMaterial;
+          if (value === "未上传")
+            return (icon ? iconFile : materialFile).click();
+          mediaPreviewTitle.textContent = icon
+            ? "道具图标预览"
+            : "道具素材预览";
+          mediaPreviewContent.textContent = value;
+          mediaPreviewOverlay.classList.add("show");
+        }
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      document.addEventListener("change", (event) => {
+        if (event.target.matches("[data-detail-status-toggle]")) {
+          item.status = event.target.checked ? "online" : "offline";
+          item.updatedAt = "2026-08-05 14:30";
+          item.changes.unshift({
+            action: event.target.checked ? "上架" : "下架",
+            detail: "通过开关调整道具状态",
+            operator: "后台管理员",
+            time: item.updatedAt,
+          });
+          renderBase();
+          renderTab("records");
+          Luma.toast("道具状态已更新");
+        }
+      });
+      iconFile.onchange = () => {
+        if (iconFile.files[0]) {
+          editorIcon = iconFile.files[0].name;
+          renderMediaEditor();
+        }
+      };
+      materialFile.onchange = () => {
+        if (materialFile.files[0]) {
+          editorMaterial = materialFile.files[0].name;
+          renderMediaEditor();
+        }
+      };
+      editorForm.onsubmit = (event) => {
+        event.preventDefault();
+        const created = isNew,
+          idValue = editId.value.trim();
+        if (created && props.some((prop) => prop.id === idValue))
+          return Luma.toast("道具 ID 已存在");
+        Object.assign(item, {
+          id: idValue,
+          names: {
+            en: nameEn.value.trim(),
+            id: nameId.value.trim(),
+            ms: nameMs.value.trim(),
+          },
+          icon: editorIcon,
+          material: editorMaterial,
+          type: editType.value,
+          sort: Number(editSort.value),
+          status: editStatus.checked ? "online" : "offline",
+          updatedAt: "2026-08-05 14:20",
+        });
+        item.changes.unshift({
+          action: created ? "新建道具" : "编辑道具",
+          detail: created ? "创建道具基础配置" : "更新道具基础配置",
+          operator: "后台管理员",
+          time: item.updatedAt,
+        });
+        if (created) {
+          props.unshift(item);
+          isNew = false;
+          history.replaceState(
+            null,
+            "",
+            `admin-prop-detail.html?id=${item.id}&edit=1`,
+          );
+          openEditor();
+        }
+        renderBase();
+        renderTab(activeTab);
+        renderMediaEditor();
+        Luma.toast(created ? "道具已新增" : "道具配置已保存");
+      };
+      confirmForm.onsubmit = (event) => {
+        event.preventDefault();
+        const index = props.indexOf(item);
+        if (index >= 0) props.splice(index, 1);
+        location.href = "admin-prop-list.html";
+      };
+      renderBase();
+      renderTab("names");
+      if (directEdit) openEditor();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-prop-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        多语言名称: () => renderTab("names"),
+        资源信息: () => renderTab("resources"),
+        操作记录: () => renderTab("records"),
+        编辑: () =>
+          (location.href = `admin-prop-detail.html?id=${item.id}&edit=1`),
+        删除: openConfirm,
+      });
+    </script>
+  </body>
+</html>

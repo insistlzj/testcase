@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>充值套餐 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub active" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>充值套餐</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <h1>充值套餐</h1>
+            <a
+              class="admin-btn"
+              id="createPackageBtn"
+              href="admin-recharge-package-detail.html?new=1&edit=1"
+              >新增套餐</a
+            >
+          </div>
+          <section class="admin-panel admin-filter" aria-label="充值套餐筛选">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="packageKeyword">套餐 ID</label
+                ><input
+                  class="admin-input"
+                  id="packageKeyword"
+                  placeholder="输入套餐 ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="packageType">套餐类型</label
+                ><select class="admin-select" id="packageType">
+                  <option value="">全部类型</option>
+                  <option value="regular">常规</option>
+                  <option value="activity">活动</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="coinAmount">充值金币</label
+                ><input
+                  class="admin-input"
+                  id="coinAmount"
+                  type="number"
+                  min="1"
+                  placeholder="输入金币数量"
+                />
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div
+                class="admin-list-tabs"
+                id="statusTabs"
+                aria-label="上下架状态"
+              >
+                <button class="admin-list-tab active" data-status="">
+                  全部</button
+                ><button class="admin-list-tab" data-status="online">
+                  上架</button
+                ><button class="admin-list-tab" data-status="offline">
+                  下架
+                </button>
+              </div>
+              <span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1440px">
+                <colgroup>
+                  <col style="width: 110px" />
+                  <col style="width: 130px" />
+                  <col style="width: 100px" />
+                  <col style="width: 130px" />
+                  <col style="width: 130px" />
+                  <col style="width: 120px" />
+                  <col style="width: 110px" />
+                  <col style="width: 130px" />
+                  <col style="width: 100px" />
+                  <col style="width: 170px" />
+                  <col style="width: 100px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>套餐 ID</th>
+                    <th>套餐封面</th>
+                    <th>套餐类型</th>
+                    <th>销售价格（USD）</th>
+                    <th>充值金币</th>
+                    <th>赠送金币</th>
+                    <th>单用户限购次数</th>
+                    <th>上下架状态</th>
+                    <th>排序权重</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="packageRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="deleteOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2>删除充值套餐</h2>
+          <button class="admin-icon-btn" data-close="deleteOverlay">×</button>
+        </div>
+        <form id="deleteForm">
+          <div class="admin-modal-body"><p id="deleteText"></p></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="deleteOverlay"
+            >
+              取消</button
+            ><button class="admin-btn danger" type="submit">确认删除</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const packages = window.LUMA_ADMIN_MOCK.rechargePackageItems,
+        typeText = { regular: "常规", activity: "活动" },
+        typeClass = { regular: "offline", activity: "pending" };
+      let activeStatus = "",
+        deleting = null;
+      function money(value) {
+        return LUMA_FORMAT.money(value);
+      }
+      function filtered() {
+        const keyword = packageKeyword.value.trim().toLowerCase(),
+          type = packageType.value,
+          coins = coinAmount.value.trim();
+        return packages.filter(
+          (item) =>
+            (!keyword || item.id.toLowerCase().includes(keyword)) &&
+            (!type || item.type === type) &&
+            (!coins || item.coins === Number(coins)) &&
+            (!activeStatus || (activeStatus === "online") === item.enabled),
+        );
+      }
+      function render() {
+        const items = filtered();
+        resultCount.textContent = `共 ${items.length} 条`;
+        packageRows.innerHTML = items.length
+          ? items
+              .map(
+                (item) =>
+                  /* HTML */ `<tr>
+                    <td>${item.id}</td>
+                    <td>
+                      <div class="admin-media">
+                        <span class="admin-media-placeholder"
+                          >${item.cover === "未上传"
+                            ? "未上传"
+                            : "封面预览"}</span
+                        >
+                      </div>
+                    </td>
+                    <td>
+                      <span class="admin-status ${typeClass[item.type]}"
+                        >${typeText[item.type]}</span
+                      >
+                    </td>
+                    <td>${money(item.price)}</td>
+                    <td><b>${LUMA_FORMAT.coins(item.coins)} 金币</b></td>
+                    <td>${LUMA_FORMAT.coins(item.bonus)} 金币</td>
+                    <td>
+                      ${item.purchaseLimit
+                        ? `${item.purchaseLimit} 次/人`
+                        : "不限"}
+                    </td>
+                    <td>
+                      <div class="admin-switch-control">
+                        <label class="admin-switch"
+                          ><input
+                            type="checkbox"
+                            data-toggle="${item.id}"
+                            ${item.enabled ? "checked" : ""} /><span
+                            class="admin-switch-track"
+                          ></span></label
+                        ><span>${item.enabled ? "上架" : "下架"}</span>
+                      </div>
+                    </td>
+                    <td>${item.sort}</td>
+                    <td>${item.updatedAt}</td>
+                    <td>
+                      <a
+                        class="admin-action"
+                        href="admin-recharge-package-detail.html?id=${item.id}&edit=1"
+                        >编辑</a
+                      ><button class="admin-action" data-delete="${item.id}">
+                        删除
+                      </button>
+                    </td>
+                  </tr>`,
+              )
+              .join("")
+          : '<tr><td colspan="11"><div class="admin-empty"><strong>未找到充值套餐</strong><span>请调整筛选条件</span></div></td></tr>';
+      }
+      statusTabs.onclick = (event) => {
+        const tab = event.target.closest("[data-status]");
+        if (!tab) return;
+        activeStatus = tab.dataset.status;
+        statusTabs
+          .querySelectorAll(".admin-list-tab")
+          .forEach((item) => item.classList.toggle("active", item === tab));
+        render();
+      };
+      searchBtn.onclick = render;
+      resetBtn.onclick = () => {
+        packageKeyword.value = "";
+        packageType.value = "";
+        coinAmount.value = "";
+        activeStatus = "";
+        statusTabs
+          .querySelectorAll(".admin-list-tab")
+          .forEach((item, index) =>
+            item.classList.toggle("active", index === 0),
+          );
+        render();
+        Luma.toast("筛选条件已重置");
+      };
+      packageRows.onchange = (event) => {
+        const input = event.target.closest("[data-toggle]");
+        if (!input) return;
+        const item = packages.find(
+          (entry) => entry.id === input.dataset.toggle,
+        );
+        item.enabled = input.checked;
+        render();
+        Luma.toast(item.enabled ? "套餐已上架" : "套餐已下架");
+      };
+      document.addEventListener("click", (event) => {
+        const remove = event.target.closest("[data-delete]");
+        if (remove) {
+          deleting = packages.find((item) => item.id === remove.dataset.delete);
+          deleteText.textContent = `确认删除${typeText[deleting.type]}套餐 ${deleting.id}？`;
+          deleteOverlay.classList.add("show");
+        }
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+      });
+      deleteForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (!deleting) return;
+        const index = packages.indexOf(deleting);
+        if (index >= 0) packages.splice(index, 1);
+        deleteOverlay.classList.remove("show");
+        render();
+        Luma.toast("充值套餐已删除");
+      };
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-recharge-package.html" },
+        "*",
+      );
+      Luma.registerStates({
+        全部套餐: () => {
+          packageType.value = "";
+          render();
+        },
+        常规套餐: () => {
+          packageType.value = "regular";
+          render();
+        },
+        活动套餐: () => {
+          packageType.value = "activity";
+          render();
+        },
+      });
+    </script>
+  </body>
+</html>

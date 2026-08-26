@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>巡房排班 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-inspection-schedule-v1"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-host-review.html">主播审核</a
+            ><a class="admin-nav-sub" href="admin-host-list.html">主播列表</a
+            ><a class="admin-nav-sub" href="admin-live-management.html"
+              >直播场次</a
+            ><a
+              class="admin-nav-sub active"
+              href="admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub" href="../content/admin-content-audit.html"
+              >内容审核</a
+            ><a
+              class="admin-nav-sub"
+              href="../content/admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            主播管理&nbsp;&nbsp;/&nbsp;&nbsp;<strong>巡房排班</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>巡房排班</h1></div>
+            <a
+              class="admin-btn"
+              id="openCreateBtn"
+              href="admin-inspection-schedule-create.html"
+              >新建排班</a
+            >
+          </div>
+          <section class="admin-panel admin-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="dateFilter">排班日期</label
+                ><input class="admin-input" id="dateFilter" type="date" />
+              </div>
+              <div class="admin-field">
+                <label for="userFilter">巡房人员</label
+                ><input
+                  class="admin-input"
+                  id="userFilter"
+                  placeholder="输入姓名、账号或 ID"
+                />
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs" aria-label="排班状态">
+                <button class="admin-list-tab active" data-status="">
+                  全部</button
+                ><button class="admin-list-tab" data-status="pending">
+                  待生效</button
+                ><button class="admin-list-tab" data-status="active">
+                  生效中</button
+                ><button class="admin-list-tab" data-status="disabled">
+                  已停用</button
+                ><button class="admin-list-tab" data-status="ended">
+                  已结束
+                </button>
+              </div>
+              <span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1080px">
+                <thead>
+                  <tr>
+                    <th>排班编号</th>
+                    <th>日期</th>
+                    <th>时间段</th>
+                    <th>排班人数</th>
+                    <th>状态</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="scheduleRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const users = LUMA_ADMIN_MOCK.users;
+      let activeStatus = "",
+        visible = [];
+      const schedules = [
+        {
+          id: "PS20260821003",
+          date: "2026-08-21",
+          start: "08:00",
+          end: "12:00",
+          userIds: ["88231007", "88229841"],
+          status: "active",
+          createdAt: "21/8/2026 07.42",
+        },
+        {
+          id: "PS20260821002",
+          date: "2026-08-21",
+          start: "12:00",
+          end: "18:00",
+          userIds: ["88227653"],
+          status: "pending",
+          createdAt: "20/8/2026 16.30",
+        },
+        {
+          id: "PS20260820001",
+          date: "2026-08-20",
+          start: "18:00",
+          end: "23:00",
+          userIds: ["88220472", "88218339"],
+          status: "ended",
+          createdAt: "20/8/2026 10.05",
+        },
+      ];
+      const createdSchedule = JSON.parse(
+        sessionStorage.getItem("lumaInspectionScheduleDraft") || "null",
+      );
+      if (createdSchedule) {
+        schedules.unshift(createdSchedule);
+        sessionStorage.setItem(
+          `lumaInspectionSchedule:${createdSchedule.id}`,
+          JSON.stringify(createdSchedule),
+        );
+        sessionStorage.removeItem("lumaInspectionScheduleDraft");
+      }
+      const statusMap = {
+        pending: ["待生效", "pending"],
+        active: ["生效中", "enabled"],
+        ended: ["已结束", "muted"],
+        disabled: ["已停用", "disabled"],
+      };
+      function formatDate(value) {
+        const [year, month, day] = value.split("-");
+        return `${Number(day)}/${Number(month)}/${year}`;
+      }
+      function selectedUsers(schedule) {
+        return schedule.userIds
+          .map((id) => users.find((item) => item.id === id))
+          .filter(Boolean);
+      }
+      function matches(item) {
+        const key = userFilter.value.trim().toLowerCase(),
+          assignedUsers = selectedUsers(item);
+        return (
+          (!dateFilter.value || item.date === dateFilter.value) &&
+          (!key ||
+            assignedUsers.some((user) =>
+              `${user.name} ${user.login} ${user.id}`
+                .toLowerCase()
+                .includes(key),
+            )) &&
+          (!activeStatus || item.status === activeStatus)
+        );
+      }
+      function render() {
+        visible = schedules.filter(matches);
+        resultCount.textContent = `共 ${visible.length} 条`;
+        pagination.classList.toggle("state-hide", !visible.length);
+        scheduleRows.innerHTML = visible
+          .map((item) => {
+            const status = statusMap[item.status],
+              toggleAction =
+                item.status === "active" || item.status === "pending"
+                  ? `<button class="admin-action" data-toggle="${item.id}">停用</button>`
+                  : item.status === "disabled"
+                    ? `<button class="admin-action" data-toggle="${item.id}">启用</button>`
+                    : "";
+            return `<tr><td>${item.id}</td><td><b>${formatDate(item.date)}</b></td><td>${item.start} - ${item.end}</td><td>${item.userIds.length}</td><td><span class="admin-status ${status[1]}">${status[0]}</span></td><td>${item.createdAt}</td><td><a class="admin-action" href="admin-inspection-schedule-detail.html?id=${item.id}">详情</a>${toggleAction}</td></tr>`;
+          })
+          .join("");
+        if (!visible.length)
+          scheduleRows.innerHTML =
+            '<tr><td colspan="7"><div class="admin-empty"><strong>未找到排班记录</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+      }
+      function syncTabs() {
+        document
+          .querySelectorAll("[data-status]")
+          .forEach((button) =>
+            button.classList.toggle(
+              "active",
+              button.dataset.status === activeStatus,
+            ),
+          );
+      }
+      searchBtn.onclick = () => {
+        render();
+        Luma.toast(`已查询到 ${visible.length} 条排班记录`);
+      };
+      resetBtn.onclick = () => {
+        dateFilter.value = "";
+        userFilter.value = "";
+        activeStatus = "";
+        syncTabs();
+        render();
+        Luma.toast("筛选条件已重置");
+      };
+      document.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-status]");
+        if (tab) {
+          activeStatus = tab.dataset.status;
+          syncTabs();
+          render();
+        }
+        const toggle = event.target.closest("[data-toggle]");
+        if (toggle) {
+          const item = schedules.find(
+            (schedule) => schedule.id === toggle.dataset.toggle,
+          );
+          if (item.status === "disabled") {
+            item.status = item.previousStatus || "pending";
+            Luma.toast("排班已启用");
+          } else {
+            item.previousStatus = item.status;
+            item.status = "disabled";
+            Luma.toast("排班已停用");
+          }
+          render();
+        }
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-inspection-schedule.html" },
+        "*",
+      );
+      Luma.registerStates({
+        新建排班: () =>
+          (location.href = "admin-inspection-schedule-create.html"),
+        生效中: () => {
+          activeStatus = "active";
+          syncTabs();
+          render();
+        },
+        无查询结果: () => {
+          userFilter.value = "不存在";
+          render();
+        },
+      });
+    </script>
+  </body>
+</html>

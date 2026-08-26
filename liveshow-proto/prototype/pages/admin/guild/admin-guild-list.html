@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会列表 · 公会管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav" aria-label="管理后台一级菜单">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>公会管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub active" href="admin-guild-list.html"
+              >公会列表</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            公会管理&nbsp;&nbsp;/&nbsp;&nbsp;<strong>公会列表</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>公会列表</h1></div>
+            <button class="admin-btn" id="newGuildBtn">新建公会</button>
+          </div>
+          <section class="admin-panel admin-filter" aria-label="公会筛选">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="guildId">公会 ID</label
+                ><input
+                  class="admin-input"
+                  id="guildId"
+                  placeholder="输入公会 ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="guildName">公会名称</label
+                ><input
+                  class="admin-input"
+                  id="guildName"
+                  placeholder="输入公会名称"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="guildLeader">公会长昵称/账号</label
+                ><input
+                  class="admin-input"
+                  id="guildLeader"
+                  placeholder="输入公会长昵称或账号"
+                />
+              </div>
+              <div class="admin-field">
+                <label>创建时间段</label>
+                <div class="admin-range admin-date-range">
+                  <input
+                    class="admin-input"
+                    id="guildStart"
+                    type="date"
+                    data-luma-date-placeholder="日/月/年"
+                  /><span>至</span
+                  ><input
+                    class="admin-input"
+                    id="guildEnd"
+                    type="date"
+                    data-luma-date-placeholder="日/月/年"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs" aria-label="公会状态">
+                <button class="admin-list-tab active" data-status-tab="">
+                  全部</button
+                ><button class="admin-list-tab" data-status-tab="enabled">
+                  启用</button
+                ><button class="admin-list-tab" data-status-tab="disabled">
+                  停用
+                </button>
+              </div>
+              <span id="resultCount">共 5 条</span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions">
+                <colgroup>
+                  <col style="width: 190px" />
+                  <col style="width: 160px" />
+                  <col style="width: 92px" />
+                  <col style="width: 82px" />
+                  <col style="width: 130px" />
+                  <col style="width: 92px" />
+                  <col style="width: 130px" />
+                  <col style="width: 124px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>公会信息</th>
+                    <th>公会长信息</th>
+                    <th>主播人数</th>
+                    <th>普通成员人数</th>
+                    <th>累计分成（USD）</th>
+                    <th>公会状态</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="guildRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="guildActionOverlay">
+      <section class="admin-modal" role="dialog" aria-modal="true">
+        <div class="admin-modal-head">
+          <h2 id="guildActionTitle">公会操作</h2>
+          <button class="admin-icon-btn" data-close="guildActionOverlay">
+            ×
+          </button>
+        </div>
+        <form id="guildActionForm">
+          <div class="admin-modal-body" id="guildActionBody"></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="guildActionOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" id="guildActionSubmit" type="submit">
+              确认
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const mock = window.LUMA_ADMIN_MOCK,
+        guilds = mock.guilds,
+        empty = {
+          hosts: [],
+          members: [],
+          income: [],
+          shares: [],
+          settlements: [],
+        },
+        statusText = { enabled: "启用", disabled: "停用", unopened: "未开通" };
+      const guildRows = document.querySelector("#guildRows"),
+        resultCount = document.querySelector("#resultCount"),
+        pagination = document.querySelector("#pagination");
+      let visibleGuilds = guilds,
+        detailGuild = null,
+        currentGuild = null,
+        currentAction = "",
+        activeStatus = "";
+      const { coins: formatCoins, money: formatMoney } =
+          window.LUMA_ADMIN_FORMAT,
+        formatMoneyParts = (value) =>
+          (Array.isArray(value) ? value : [value]).map(formatMoney).join(" / ");
+      function render(items) {
+        visibleGuilds = items;
+        resultCount.textContent = `共 ${items.length} 条`;
+        pagination.classList.toggle("state-hide", !items.length);
+        if (!items.length) {
+          guildRows.innerHTML =
+            '<tr><td colspan="8"><div class="admin-empty"><strong>未找到匹配公会</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        guildRows.innerHTML = items
+          .map(
+            (guild) =>
+              `<tr><td><b>${guild.name}</b><span class="admin-cell-sub">${guild.id}</span></td><td>${guild.leaderName}<br><span class="admin-muted">${Luma.id(guild.leaderId, "公会长账号")}</span></td><td>${guild.hostCount}</td><td>${guild.memberCount}</td><td>${formatMoney(guild.earnings)}</td><td><span class="admin-status ${guild.status}">${statusText[guild.status]}</span></td><td>${guild.createdAt}</td><td><a class="admin-action" href="admin-guild-detail.html?id=${guild.id}">详情</a></td></tr>`,
+          )
+          .join("");
+      }
+      function filter() {
+        const id = document
+            .querySelector("#guildId")
+            .value.trim()
+            .toLowerCase(),
+          name = document
+            .querySelector("#guildName")
+            .value.trim()
+            .toLowerCase(),
+          leader = document
+            .querySelector("#guildLeader")
+            .value.trim()
+            .toLowerCase(),
+          start = document.querySelector("#guildStart").value,
+          end = document.querySelector("#guildEnd").value;
+        if (start && end && start > end)
+          return Luma.toast("创建结束时间不能早于开始时间");
+        const items = guilds.filter(
+          (x) =>
+            x.id.toLowerCase().includes(id) &&
+            x.name.toLowerCase().includes(name) &&
+            `${x.leaderId} ${x.leaderName}`.toLowerCase().includes(leader) &&
+            (!activeStatus || x.status === activeStatus) &&
+            (!start || x.createdAt.slice(0, 10) >= start) &&
+            (!end || x.createdAt.slice(0, 10) <= end),
+        );
+        render(items);
+        Luma.toast(`已查询到 ${items.length} 个公会`);
+      }
+      function table(columns, items) {
+        if (!items.length)
+          return '<div class="admin-record-empty"><strong>暂无记录</strong><span>该公会当前没有相关数据</span></div>';
+        return `<div class="admin-record-scroll"><table class="admin-record-table"><thead><tr>${columns.map((c) => `<th>${c[0]}</th>`).join("")}</tr></thead><tbody>${items.map((item) => `<tr>${columns.map((c) => `<td>${c[1](item)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      }
+      function renderTab(tab) {
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((b) => b.classList.toggle("active", b.dataset.tab === tab));
+        const data = mock.guildRecords[detailGuild.id] || empty,
+          panel = document.querySelector("#detailPanel");
+        if (tab === "profile")
+          panel.innerHTML = /* HTML */ `<div class="admin-metrics">
+              <div class="admin-metric">
+                <span>名下主播数</span><b>${detailGuild.hostCount}</b>
+              </div>
+              <div class="admin-metric">
+                <span>成员数</span><b>${detailGuild.memberCount}</b>
+              </div>
+              <div class="admin-metric">
+                <span>累计收益（USD）</span
+                ><b>${formatMoney(detailGuild.earnings)}</b>
+              </div>
+            </div>
+            <div class="admin-detail-grid">
+              <div class="admin-detail-item">
+                <span>公会 ID</span><b>${detailGuild.id}</b>
+              </div>
+              <div class="admin-detail-item">
+                <span>公会名称</span><b>${detailGuild.name}</b>
+              </div>
+              <div class="admin-detail-item">
+                <span>公会状态</span><b>${statusText[detailGuild.status]}</b>
+              </div>
+              <div class="admin-detail-item">
+                <span>公会长 ID / 昵称</span
+                ><b>${detailGuild.leaderId} / ${detailGuild.leaderName}</b>
+              </div>
+              <div class="admin-detail-item">
+                <span>公会端账号状态</span
+                ><b>${statusText[detailGuild.accountStatus]}</b>
+              </div>
+              <div class="admin-detail-item">
+                <span>创建时间</span><b>${detailGuild.createdAt}</b>
+              </div>
+              <div class="admin-detail-item" style="grid-column:1/-1">
+                <span>公会简介</span><b>${detailGuild.description}</b>
+              </div>
+            </div>`;
+        if (tab === "hosts")
+          panel.innerHTML = table(
+            [
+              ["主播 ID", (i) => i.id],
+              ["昵称", (i) => i.name],
+              ["直播权限状态", (i) => i.permission],
+              ["累计收益（金币）", (i) => formatCoins(i.earnings)],
+              ["账号状态", (i) => i.status],
+            ],
+            data.hosts,
+          );
+        if (tab === "members")
+          panel.innerHTML = table(
+            [
+              ["用户 ID", (i) => i.id],
+              ["昵称", (i) => i.name],
+              ["加入时间", (i) => i.joinedAt],
+              ["成员状态", (i) => i.status],
+            ],
+            data.members,
+          );
+        if (tab === "income")
+          panel.innerHTML = table(
+            [
+              ["流水号", (i) => i.flowNo],
+              ["收益类型", (i) => i.type],
+              ["收益金额（USD）", (i) => formatMoney(i.amount)],
+              ["发生时间", (i) => i.time],
+            ],
+            data.income,
+          );
+        if (tab === "shares")
+          panel.innerHTML = table(
+            [
+              ["台账单号", (i) => i.ledgerNo],
+              ["分成基数（USD）", (i) => formatMoney(i.base)],
+              ["三方比例", (i) => i.ratio],
+              ["三方应付额（USD）", (i) => formatMoneyParts(i.payable)],
+              ["分成状态", (i) => i.status],
+            ],
+            data.shares,
+          );
+        if (tab === "settlements")
+          panel.innerHTML = table(
+            [
+              ["分成单号", (i) => i.settlementNo],
+              ["分成周期", (i) => i.period],
+              ["分成金额（USD）", (i) => formatMoney(i.amount)],
+              ["分成状态", (i) => i.status],
+            ],
+            data.settlements,
+          );
+      }
+      function detail(guild) {
+        detailGuild = guild;
+        guildDetailBody.innerHTML = /* HTML */ `<div class="admin-detail-user">
+            <span class="admin-avatar">${guild.name[0]}</span>
+            <div>
+              <h3>${guild.name}</h3>
+              <span class="admin-status ${guild.status}"
+                >${statusText[guild.status]}</span
+              >
+            </div>
+          </div>
+          <div class="admin-detail-tabs">
+            <button class="admin-detail-tab active" data-tab="profile">
+              基础信息</button
+            ><button class="admin-detail-tab" data-tab="hosts">主播列表</button
+            ><button class="admin-detail-tab" data-tab="members">
+              成员列表</button
+            ><button class="admin-detail-tab" data-tab="income">收益台账</button
+            ><button class="admin-detail-tab" data-tab="shares">分成记录</button
+            ><button class="admin-detail-tab" data-tab="settlements">
+              分成记录
+            </button>
+          </div>
+          <div class="admin-detail-panel" id="detailPanel"></div>`;
+        guildDetailOverlay.classList.add("show");
+        renderTab("profile");
+      }
+      function action(type, guild) {
+        currentAction = type;
+        currentGuild = guild;
+        guildActionSubmit.className = "admin-btn";
+        guildActionSubmit.disabled = false;
+        if (type === "account") {
+          guildActionTitle.textContent =
+            guild.accountStatus === "enabled"
+              ? "停用公会端账号"
+              : "开通公会端账号";
+          guildActionBody.innerHTML = `<p>确认${guild.accountStatus === "enabled" ? "停用" : "开通"} ${guild.name} 的公会端账号？</p>`;
+        }
+        if (type === "status") {
+          guildActionTitle.textContent =
+            guild.status === "enabled" ? "停用公会" : "启用公会";
+          guildActionBody.innerHTML = `<p>确认${guild.status === "enabled" ? "停用" : "启用"} ${guild.name}？停用后公会长不可登录公会端。</p>`;
+        }
+        guildActionOverlay.classList.add("show");
+      }
+      function closeAll() {
+        document
+          .querySelectorAll(".admin-overlay")
+          .forEach((x) => x.classList.remove("show"));
+        document
+          .querySelectorAll(".admin-popover")
+          .forEach((x) => x.classList.add("state-hide"));
+      }
+      searchBtn.onclick = filter;
+      resetBtn.onclick = () => {
+        document
+          .querySelectorAll(".admin-filter input")
+          .forEach((x) => (x.value = ""));
+        document
+          .querySelectorAll(".admin-filter select")
+          .forEach((x) => (x.selectedIndex = 0));
+        activeStatus = "";
+        document
+          .querySelectorAll("[data-status-tab]")
+          .forEach((button) =>
+            button.classList.toggle(
+              "active",
+              button.dataset.statusTab === activeStatus,
+            ),
+          );
+        render(guilds);
+        Luma.toast("筛选条件已重置");
+      };
+      newGuildBtn.onclick = () => {
+        location.href = "admin-guild-detail.html?new=1&edit=1";
+      };
+      document.addEventListener("click", (e) => {
+        const statusTab = e.target.closest("[data-status-tab]");
+        if (statusTab) {
+          activeStatus = statusTab.dataset.statusTab;
+          document
+            .querySelectorAll("[data-status-tab]")
+            .forEach((button) =>
+              button.classList.toggle(
+                "active",
+                button.dataset.statusTab === activeStatus,
+              ),
+            );
+          filter();
+        }
+        const d = e.target.closest("[data-detail]");
+        if (d) detail(guilds.find((x) => x.id === d.dataset.detail));
+        const tab = e.target.closest("[data-tab]");
+        if (tab) renderTab(tab.dataset.tab);
+        const a = e.target.closest("[data-action]");
+        if (a) {
+          const guild = guilds.find((x) => x.id === a.dataset.guild);
+          if (a.dataset.action === "leader")
+            location.href = `admin-guild-detail.html?id=${guild.id}&edit=1`;
+          else action(a.dataset.action, guild);
+        }
+        const c = e.target.closest("[data-close]");
+        if (c)
+          document
+            .querySelector(`#${c.dataset.close}`)
+            .classList.remove("show");
+        if (e.target.classList.contains("admin-overlay"))
+          e.target.classList.remove("show");
+        const menu = e.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      guildActionForm.onsubmit = (e) => {
+        e.preventDefault();
+        if (currentAction === "account")
+          currentGuild.accountStatus =
+            currentGuild.accountStatus === "enabled" ? "disabled" : "enabled";
+        if (currentAction === "status") {
+          currentGuild.status =
+            currentGuild.status === "enabled" ? "disabled" : "enabled";
+          if (currentGuild.status === "disabled")
+            currentGuild.accountStatus = "disabled";
+        }
+        guildActionOverlay.classList.remove("show");
+        render(visibleGuilds);
+        Luma.toast("公会操作已提交");
+      };
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeAll();
+      });
+      render(guilds);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-guild-list.html" },
+        "*",
+      );
+      Luma.registerStates({
+        正常列表: () => {
+          closeAll();
+          render(guilds);
+        },
+        无查询结果: () => {
+          closeAll();
+          render([]);
+        },
+        新建公会: () => {
+          location.href = "admin-guild-detail.html?new=1&edit=1";
+        },
+      });
+    </script>
+  </body>
+</html>

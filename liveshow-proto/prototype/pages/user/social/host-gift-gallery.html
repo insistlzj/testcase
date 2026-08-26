@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>礼物展馆 · 主播主页 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .summary {
+        margin: 12px 16px 0;
+        padding: 16px;
+        background: var(--g7);
+        border-radius: 12px;
+      }
+      .summary b,
+      .summary span {
+        display: block;
+      }
+      .summary b {
+        font-size: 17px;
+      }
+      .summary span {
+        margin-top: 6px;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .summary strong {
+        color: var(--g1);
+        font-size: 20px;
+      }
+      .gifts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin: 12px 16px;
+      }
+      .gift {
+        min-height: 112px;
+        padding: 12px 6px;
+        background: var(--g7);
+        border-radius: 8px;
+        text-align: center;
+      }
+      .gift i {
+        width: 42px;
+        height: 42px;
+        margin: auto;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        display: grid;
+        place-items: center;
+        font-size: 20px;
+        font-style: normal;
+      }
+      .gift b,
+      .gift span {
+        display: block;
+      }
+      .gift b {
+        margin-top: 8px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .gift span {
+        margin-top: 4px;
+        color: var(--g3);
+        font-size: 11px;
+      }
+      .gift.is-unreceived {
+        background: var(--g6);
+        color: var(--g4);
+      }
+      .gift.is-unreceived i {
+        background: var(--g5);
+        color: var(--g4);
+      }
+      .gift.is-unreceived span {
+        color: var(--g4);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav"><a id="back" aria-label="返回">‹</a>礼物展馆</header>
+      <section class="summary">
+        <b id="name"></b
+        ><span>累计收到 <strong id="giftTotal"></strong> 件礼物</span>
+      </section>
+      <section class="gifts" id="gifts" aria-label="礼物图鉴"></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const hostKey =
+        new URLSearchParams(location.search).get("host") || "sari";
+      const host =
+        window.LUMA_MOCK.hostProfiles[hostKey] ||
+        window.LUMA_MOCK.hostProfiles.sari;
+      document.querySelector("#name").textContent = `${host.name} 的礼物展馆`;
+      document.querySelector("#giftTotal").textContent = host.giftTotal;
+      document.querySelector("#back").href =
+        `host-home.html?host=${encodeURIComponent(host.key)}`;
+      document.querySelector("#gifts").innerHTML = window.LUMA_MOCK.giftCatalog
+        .map((gift) => {
+          const count =
+            gift.receivedBy?.[host.key] ||
+            host.gifts.find((item) => item.name === gift.name)?.count;
+          return `<article class="gift${count ? "" : " is-unreceived"}"><i>${gift.icon}</i><b>${gift.name}</b><span>${count ? `× ${count}` : "未收到"}</span></article>`;
+        })
+        .join("");
+      window.parent.postMessage(
+        { type: "luma-page", file: "host-gift-gallery.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

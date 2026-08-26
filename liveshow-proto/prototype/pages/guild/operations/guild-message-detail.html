@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>运营消息详情 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260818-single-column-info-v2"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="guild-messages.html">‹</a>消息详情
+      </header>
+      <div class="guild-page-body" id="detail"></div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      const seed = [
+        {
+          id: "M26081001",
+          audience: "全体成员",
+          recipientCount: 268,
+          content: "请各位成员关注本周公会活动安排，主播报名请于周五前完成。",
+          hasImage: true,
+          sentAt: "2026-08-10 10:20",
+          sender: "Rizky",
+        },
+        {
+          id: "M26080902",
+          audience: "指定主播",
+          recipientCount: 1,
+          recipientId: "H102938",
+          recipients: ["Sari"],
+          content: "明晚 20:00 进行新人培训，请提前十分钟进入培训直播间。",
+          hasImage: false,
+          sentAt: "2026-08-09 18:35",
+          sender: "Rizky",
+        },
+      ];
+      const id = new URLSearchParams(location.search).get("id");
+      const saved = JSON.parse(
+        localStorage.getItem("luma-guild-message-records") || "[]",
+      );
+      const item =
+        [...saved, ...seed].find((record) => record.id === id) || seed[0];
+      detail.innerHTML = /* HTML */ `<section class="guild-form-card">
+        <div class="guild-message-detail-meta">
+          <span
+            ><small>发送对象</small
+            ><b>${item.audience} · ${item.recipientCount} 人</b></span
+          ><span
+            ><small>发送时间</small
+            ><b>${LUMA_FORMAT.dateTime(item.sentAt)}</b></span
+          ><span><small>发送人</small><b>${item.sender}</b></span>
+        </div>
+        ${item.recipients?.length
+          ? `<div class="guild-message-recipients">${item.recipients.map((name) => `<span>${name}</span>`).join("")}</div>`
+          : ""}
+        <div class="guild-message-detail-content">${item.content}</div>
+        ${item.hasImage
+          ? item.image
+            ? `<img class="guild-message-detail-image" src="${item.image}" alt="消息图片">`
+            : '<div class="guild-message-image-placeholder">消息配图</div>'
+          : ""}
+      </section>`;
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-message-detail.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

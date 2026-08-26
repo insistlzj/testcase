@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>添加银行卡 · 主播中心 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        min-height: 844px;
+        padding-bottom: 34px;
+      }
+      .content {
+        padding: 16px;
+      }
+      .field {
+        display: block;
+        margin-top: 20px;
+      }
+      .field:first-child {
+        margin-top: 0;
+      }
+      .field-label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--g2);
+        font-size: 14px;
+      }
+      .field-label small {
+        margin-left: 4px;
+        color: var(--g4);
+        font-size: 11px;
+      }
+      .field select,
+      .field input {
+        box-sizing: border-box;
+        width: 100%;
+        height: 44px;
+        padding: 0 11px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g1);
+        font: 14px inherit;
+        outline: 0;
+      }
+      .field select:focus,
+      .field input:focus {
+        border-color: var(--g2);
+      }
+      .field input:disabled {
+        color: var(--g2);
+        opacity: 1;
+        -webkit-text-fill-color: var(--g2);
+        cursor: default;
+      }
+      .submit {
+        width: 100%;
+        height: 44px;
+        margin-top: 28px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 15px inherit;
+        cursor: pointer;
+      }
+      .submit:disabled {
+        background: var(--g5);
+        color: var(--g4);
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='my-bank-cards.html'"
+        >
+          ‹</button
+        >添加银行卡
+      </header>
+      <form class="content" id="bankForm">
+        <label class="field"
+          ><span class="field-label">银行 <small>Bank</small></span
+          ><select id="bankName" required></select
+        ></label>
+        <label class="field"
+          ><span class="field-label"
+            >账号 <small>Nomor Rekening / Account Number</small></span
+          ><input
+            id="accountNumber"
+            inputmode="numeric"
+            autocomplete="off"
+            maxlength="20"
+            placeholder="请输入账号"
+            required
+        /></label>
+        <label class="field"
+          ><span class="field-label"
+            >收款人姓名 <small>Recipient Name</small></span
+          ><input
+            id="recipientName"
+            type="text"
+            placeholder="填写账号后自动回显"
+            disabled
+        /></label>
+        <button class="submit" id="saveBank" type="submit" disabled>
+          确认添加
+        </button>
+      </form>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const bankMock = window.LUMA_MOCK.withdrawalBank;
+      const bankForm = document.querySelector("#bankForm"),
+        bankName = document.querySelector("#bankName"),
+        accountNumber = document.querySelector("#accountNumber"),
+        recipientName = document.querySelector("#recipientName"),
+        saveBank = document.querySelector("#saveBank");
+      bankName.innerHTML = `<option value="">请选择银行</option>${bankMock.banks.map((bank) => `<option value="${bank}">${bank}</option>`).join("")}`;
+      function resolveRecipient() {
+        const number = accountNumber.value.replace(/\D/g, "");
+        accountNumber.value = number;
+        const recipient =
+          number.length >= 10 ? bankMock.sampleAccount.recipientName : "";
+        recipientName.value = recipient;
+        saveBank.disabled = !(bankName.value && recipient);
+      }
+      function resetForm() {
+        bankForm.reset();
+        recipientName.value = "";
+        saveBank.disabled = true;
+      }
+      function fillSample() {
+        bankName.value = bankMock.sampleAccount.bank;
+        accountNumber.value = bankMock.sampleAccount.number;
+        resolveRecipient();
+      }
+      bankName.onchange = resolveRecipient;
+      accountNumber.oninput = resolveRecipient;
+      bankForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (!saveBank.disabled)
+          location.href = "my-bank-cards.html?status=added";
+      };
+      Luma.registerStates({
+        页面状态: { 填写: resetForm, 已回显收款人姓名: fillSample },
+      });
+      resetForm();
+    </script>
+  </body>
+</html>

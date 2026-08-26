@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>后台账号 · 系统配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body class="admin-monochrome">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../analytics/admin-report-center.html"
+            ><span>数据分析</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            系统配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>后台账号</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>后台账号</h1></div>
+            <a class="admin-btn" href="admin-system-account-detail.html?new=1"
+              >新建账号</a
+            >
+          </div>
+          <section class="system-summary-strip">
+            <article class="admin-panel system-summary-item">
+              <span>账号总数</span><b id="totalCount">6</b
+              ><small>含启用与停用账号</small>
+            </article>
+            <article class="admin-panel system-summary-item">
+              <span>启用账号</span><b id="enabledCount">5</b
+              ><small>当前可登录后台</small>
+            </article>
+            <article class="admin-panel system-summary-item">
+              <span>停用账号</span><b id="disabledCount">1</b
+              ><small>当前禁止登录</small>
+            </article>
+            <article class="admin-panel system-summary-item">
+              <span>从未登录</span><b id="neverCount">1</b
+              ><small>已创建但未登录</small>
+            </article>
+          </section>
+          <section class="admin-panel admin-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="accountKey">后台账号</label
+                ><input
+                  class="admin-input"
+                  id="accountKey"
+                  placeholder="输入账号或姓名"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="roleFilter">所属角色</label
+                ><select class="admin-select" id="roleFilter">
+                  <option value="">全部角色</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="statusFilter">账号状态</label
+                ><select class="admin-select" id="statusFilter">
+                  <option value="">全部状态</option>
+                  <option value="enabled">启用</option>
+                  <option value="disabled">停用</option>
+                </select>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs">
+                <button class="admin-list-tab active" data-status="">
+                  全部</button
+                ><button class="admin-list-tab" data-status="enabled">
+                  启用</button
+                ><button class="admin-list-tab" data-status="disabled">
+                  停用
+                </button>
+              </div>
+              <span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1080px">
+                <thead>
+                  <tr>
+                    <th>账号 ID</th>
+                    <th>后台账号</th>
+                    <th>姓名</th>
+                    <th>所属角色</th>
+                    <th>账号状态</th>
+                    <th>最后登录时间</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="rows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="statusOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2 id="statusTitle">账号状态</h2>
+          <button class="admin-icon-btn" data-close="statusOverlay">×</button>
+        </div>
+        <div class="admin-modal-body">
+          <p id="statusText"></p>
+          <div class="admin-form-row">
+            <label for="statusReason">操作原因</label
+            ><textarea
+              class="admin-textarea"
+              id="statusReason"
+              maxlength="100"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <div class="admin-modal-foot">
+          <button class="admin-btn secondary" data-close="statusOverlay">
+            取消</button
+          ><button class="admin-btn" id="statusConfirm">确认</button>
+        </div>
+      </section>
+    </div>
+    <script>
+      const data = LUMA_ADMIN_MOCK.system.accounts,
+        roles = LUMA_ADMIN_MOCK.system.roles;
+      let activeStatus = "",
+        visible = data,
+        current = null;
+      roleFilter.innerHTML += [...new Set(roles.map((x) => x.name))]
+        .map((x) => `<option>${x}</option>`)
+        .join("");
+      function syncSummary() {
+        totalCount.textContent = data.length;
+        enabledCount.textContent = data.filter(
+          (x) => x.status === "enabled",
+        ).length;
+        disabledCount.textContent = data.filter(
+          (x) => x.status === "disabled",
+        ).length;
+        neverCount.textContent = data.filter(
+          (x) => x.lastLoginAt === "从未登录",
+        ).length;
+      }
+      function render(items) {
+        visible = items;
+        resultCount.textContent = `共 ${items.length} 条`;
+        pagination.classList.toggle("state-hide", !items.length);
+        if (!items.length) {
+          rows.innerHTML =
+            '<tr><td colspan="8"><div class="admin-empty"><strong>未找到后台账号</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        rows.innerHTML = items
+          .map(
+            (x) =>
+              /* HTML */ `<tr>
+                <td>${x.id}</td>
+                <td><b>${x.username}</b></td>
+                <td>${x.name}</td>
+                <td>${x.role}</td>
+                <td>
+                  <span class="admin-status ${x.status}"
+                    >${x.status === "enabled" ? "启用" : "停用"}</span
+                  >
+                </td>
+                <td>${x.lastLoginAt}</td>
+                <td>${x.updatedAt}</td>
+                <td>
+                  <a
+                    class="admin-action"
+                    href="admin-system-account-detail.html?id=${x.id}"
+                    >编辑</a
+                  >${x.locked
+                    ? '<span class="admin-muted">系统内置</span>'
+                    : /* HTML */ `<button
+                        class="admin-action"
+                        data-status-action="${x.id}"
+                      >
+                        ${x.status === "enabled" ? "停用" : "启用"}
+                      </button>`}
+                </td>
+              </tr>`,
+          )
+          .join("");
+      }
+      function filter() {
+        const key = accountKey.value.trim().toLowerCase(),
+          status = statusFilter.value || activeStatus;
+        render(
+          data.filter(
+            (x) =>
+              (!key ||
+                x.username.toLowerCase().includes(key) ||
+                x.name.toLowerCase().includes(key)) &&
+              (!roleFilter.value || x.role === roleFilter.value) &&
+              (!status || x.status === status),
+          ),
+        );
+        Luma.toast(`已查询到 ${visible.length} 个后台账号`);
+      }
+      function syncTabs() {
+        document
+          .querySelectorAll("[data-status]")
+          .forEach((x) =>
+            x.classList.toggle("active", x.dataset.status === activeStatus),
+          );
+      }
+      function openStatus(item) {
+        current = item;
+        statusTitle.textContent =
+          item.status === "enabled" ? "停用账号" : "启用账号";
+        statusText.textContent =
+          item.status === "enabled"
+            ? `停用后，“${item.username}”将无法登录管理后台。`
+            : `启用后，“${item.username}”可恢复登录管理后台。`;
+        statusReason.value = "";
+        statusOverlay.classList.add("show");
+      }
+      document.addEventListener("click", (e) => {
+        const tab = e.target.closest("[data-status]");
+        if (tab) {
+          activeStatus = tab.dataset.status;
+          statusFilter.value = "";
+          syncTabs();
+          filter();
+        }
+        const action = e.target.closest("[data-status-action]");
+        if (action)
+          openStatus(data.find((x) => x.id === action.dataset.statusAction));
+        const close = e.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (e.target.classList.contains("admin-overlay"))
+          e.target.classList.remove("show");
+      });
+      statusConfirm.onclick = () => {
+        if (!statusReason.value.trim()) return Luma.toast("请填写操作原因");
+        current.status = current.status === "enabled" ? "disabled" : "enabled";
+        current.updatedAt = "2026-08-07 10:30";
+        statusOverlay.classList.remove("show");
+        syncSummary();
+        filter();
+        Luma.toast(`账号已${current.status === "enabled" ? "启用" : "停用"}`);
+      };
+      searchBtn.onclick = filter;
+      resetBtn.onclick = () => {
+        accountKey.value = "";
+        roleFilter.value = "";
+        statusFilter.value = "";
+        activeStatus = "";
+        syncTabs();
+        render(data);
+        Luma.toast("筛选条件已重置");
+      };
+      syncSummary();
+      render(data);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-system-account.html" },
+        "*",
+      );
+      Luma.registerStates({
+        全部账号: () => render(data),
+        停用账号: () => render(data.filter((x) => x.status === "disabled")),
+        停用确认: () => openStatus(data[1]),
+        无查询结果: () => render([]),
+      });
+    </script>
+  </body>
+</html>

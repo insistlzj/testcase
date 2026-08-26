@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>余额明细 · 用户主播 App · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .diamond-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        background: currentColor;
+        vertical-align: -0.12em;
+        -webkit-mask: url("../../../assets/diamond.svg") center/contain
+          no-repeat;
+        mask: url("../../../assets/diamond.svg") center/contain no-repeat;
+      }
+      .record {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 13px 16px;
+        background: var(--g7);
+        border-bottom: 1px solid var(--g6);
+        cursor: pointer;
+      }
+      .record-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g3);
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+        font-style: normal;
+      }
+      .record-copy {
+        min-width: 0;
+        flex: 1;
+      }
+      .record-copy b {
+        display: block;
+        font-size: 15px;
+      }
+      .amount {
+        text-align: right;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .amount .diamond-icon {
+        margin-right: 3px;
+        font-size: 14px;
+      }
+      .amount small {
+        display: block;
+        margin-top: 4px;
+        color: var(--g4);
+        font-size: 11px;
+        font-weight: 400;
+      }
+      .amount.in {
+        color: #16803a;
+      }
+      .amount.out {
+        color: #c43131;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <div class="nav">
+        <a href="recharge.html" aria-label="返回">‹</a>余额明细
+      </div>
+      <section id="records"></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const icons = {
+        recharge: "↑",
+        rechargeRefund: "↩",
+        gift: "◇",
+        giftRefund: "↩",
+        ticket: "◉",
+      };
+      const labels = {
+        recharge: "充值",
+        rechargeRefund: "充值退款",
+        gift: "礼物打赏",
+        giftRefund: "礼物退款",
+        ticket: "购买门票",
+      };
+      const orderPages = {
+        recharge: "order-income-detail.html",
+        rechargeRefund: "order-expense-detail.html",
+        gift: "order-expense-detail.html",
+        giftRefund: "order-expense-detail.html",
+        ticket: "order-expense-detail.html",
+      };
+      records.innerHTML = window.LUMA_MOCK.balanceRecords
+        .map(
+          (item) =>
+            `<article class="record" onclick="location.href='${orderPages[item.type]}'"><i class="record-icon">${icons[item.type]}</i><div class="record-copy"><b>${labels[item.type]}</b></div><div class="amount ${item.amount.startsWith("+") ? "in" : "out"}"><i class="diamond-icon" aria-hidden="true"></i>${item.amount}<small>${LUMA_FORMAT.dateTime(`${item.date} ${item.time}`)}</small></div></article>`,
+        )
+        .join("");
+    </script>
+  </body>
+</html>

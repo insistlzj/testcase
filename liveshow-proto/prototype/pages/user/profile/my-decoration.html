@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>我的装扮 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .section {
+        margin-top: 12px;
+        padding: 0 16px;
+      }
+      .category {
+        display: block;
+        margin-bottom: 10px;
+        padding: 14px 12px;
+        border-radius: 12px;
+        background: var(--g7);
+        color: var(--g1);
+        text-decoration: none;
+      }
+      .category-top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .preview {
+        width: 46px;
+        height: 38px;
+        flex: none;
+        border-radius: 8px;
+        background: var(--g6);
+      }
+      .category-info {
+        min-width: 0;
+        flex: 1;
+      }
+      .category-info b {
+        font-size: 16px;
+      }
+      .arrow {
+        color: var(--g4);
+        font-size: 22px;
+      }
+      .profile-summary {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 12px 16px 0;
+        padding: 14px;
+        border-radius: 12px;
+        background: var(--g7);
+      }
+      .profile-summary .avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+      }
+      .medal-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        min-width: 0;
+      }
+      .medal-list i {
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 11px;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='profile.html'"
+        >
+          ‹</button
+        >我的装扮
+      </header>
+      <section class="profile-summary" aria-label="当前已佩戴勋章">
+        <i class="avatar" id="avatar"></i>
+        <div class="medal-list" id="medals"></div>
+      </section>
+      <section class="section" id="categories" aria-label="当前装扮"></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const decoration = LUMA_MOCK.myDecorations;
+      const categories = [
+        { title: "头像框", file: "my-decoration-avatar-frame.html" },
+        { title: "聊天气泡", file: "my-decoration-chat-bubble.html" },
+        { title: "勋章", file: "my-decoration-medal.html" },
+      ];
+      const categoriesBox = document.querySelector("#categories");
+      document.querySelector("#avatar").textContent =
+        LUMA_MOCK.myProfile.avatar;
+      document.querySelector("#medals").innerHTML = decoration.medals
+        .filter((item) => item.equipped)
+        .map((item, index) => `<i title="${item.name}">勋章 ${index + 1}</i>`)
+        .join("");
+      categoriesBox.innerHTML = categories
+        .map(
+          (category) =>
+            `<a class="category" href="${category.file}"><span class="category-top"><i class="preview"></i><span class="category-info"><b>${category.title}</b></span><i class="arrow">›</i></span></a>`,
+        )
+        .join("");
+    </script>
+  </body>
+</html>

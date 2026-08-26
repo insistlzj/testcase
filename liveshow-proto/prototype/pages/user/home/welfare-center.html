@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>充值福利 · 用户主播端 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .hero {
+        display: flex;
+        gap: 12px;
+        padding: 4px 16px 0;
+      }
+      .hero button,
+      .hero a {
+        flex: 1;
+        border: 0;
+        background: var(--g7);
+        border-radius: 12px;
+        padding: 14px;
+        text-align: left;
+        color: var(--g1);
+        font: 600 15px inherit;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .hero small {
+        display: block;
+        margin-top: 5px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .days {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .day {
+        flex: 1;
+        background: var(--g6);
+        border-radius: 8px;
+        padding: 8px 0;
+        text-align: center;
+        color: var(--g4);
+        font-size: 11px;
+      }
+      .day b {
+        display: block;
+        color: var(--g2);
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+      .day.today {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .day.today b {
+        color: var(--g7);
+      }
+      .sign {
+        width: 100%;
+        margin-top: 16px;
+      }
+      .task {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--g6);
+      }
+      .task:last-child {
+        border: 0;
+      }
+      .task i {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: var(--g6);
+        display: grid;
+        place-items: center;
+        font-style: normal;
+      }
+      .task div {
+        flex: 1;
+      }
+      .task b,
+      .task small {
+        display: block;
+      }
+      .progress {
+        height: 4px;
+        margin: 8px 0;
+        background: var(--g6);
+        border-radius: 2px;
+      }
+      .progress i {
+        display: block;
+        height: 4px;
+        background: var(--g1);
+        border-radius: 2px;
+      }
+      .claim {
+        min-height: 32px;
+        padding: 0 10px;
+        font-size: 12px;
+        border-radius: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <div class="nav">充值福利</div>
+      <div class="hero">
+        <a href="invite-friends.html">邀请好友<small>+ ◎ 10</small></a>
+        <button type="button" onclick="Luma.toast('打开充值福利')">
+          充值福利<small>+ ◎ 10%</small>
+        </button>
+      </div>
+      <section class="sec">
+        <div class="head">
+          <h2>每日签到</h2>
+          <small>已连续签到 3 天</small>
+        </div>
+        <div class="days">
+          <div class="day"><b>✓</b>第1天</div>
+          <div class="day"><b>✓</b>第2天</div>
+          <div class="day"><b>✓</b>第3天</div>
+          <div class="day today"><b>+30</b>今天</div>
+          <div class="day"><b>+40</b>第5天</div>
+          <div class="day"><b>+50</b>第6天</div>
+          <div class="day"><b>礼包</b>第7天</div>
+        </div>
+        <button class="btn sign" id="signButton" type="button">
+          签到 ◎ 30
+        </button>
+      </section>
+      <section class="sec">
+        <div class="head">
+          <h2>任务中心</h2>
+          <small>全部 ›</small>
+        </div>
+        <div class="task">
+          <i>◷</i>
+          <div>
+            <b>观看直播 30 分钟</b>
+            <p class="progress"><i style="width: 70%"></i></p>
+            <small>21 / 30 分钟</small>
+          </div>
+          <button
+            class="btn sub claim"
+            type="button"
+            onclick="Luma.toast('任务尚未完成')"
+          >
+            <i class="coin" aria-hidden="true"></i>20
+          </button>
+        </div>
+        <div class="task">
+          <i>♧</i>
+          <div>
+            <b>送出任意 1 个礼物</b>
+            <p class="progress"><i style="width: 100%"></i></p>
+            <small>1 / 1 · 可领取</small>
+          </div>
+          <button class="btn claim" id="taskClaimButton" type="button">
+            <i class="coin" aria-hidden="true"></i>10
+          </button>
+        </div>
+        <div class="task">
+          <i>↗</i>
+          <div>
+            <b>分享 1 个直播间</b>
+            <p class="progress"><i style="width: 0"></i></p>
+            <small>0 / 1</small>
+          </div>
+          <button
+            class="btn sub claim"
+            type="button"
+            onclick="Luma.toast('前往直播间分享')"
+          >
+            <i class="coin" aria-hidden="true"></i>15
+          </button>
+        </div>
+      </section>
+    </main>
+    <nav class="tabbar">
+      <a class="tab" href="live-plaza.html">⌂<br />首页</a
+      ><a class="tab active" href="welfare-center.html">♧<br />福利</a
+      ><a class="tab" href="../social/message-center.html">◌<br />消息</a
+      ><a class="tab" href="../profile/profile.html">♙<br />我的</a>
+    </nav>
+    <div class="homebar"><i></i></div>
+    <script>
+      const signButton = document.querySelector("#signButton");
+      const taskClaimButton = document.querySelector("#taskClaimButton");
+      let welfareState = { signedIn: false, taskClaimed: false };
+
+      function renderWelfareState(nextState = {}) {
+        welfareState = { ...welfareState, ...nextState };
+        signButton.textContent = welfareState.signedIn ? "已签到" : "签到 ◎ 30";
+        signButton.disabled = welfareState.signedIn;
+        taskClaimButton.innerHTML = welfareState.taskClaimed
+          ? "已领取"
+          : '<i class="coin" aria-hidden="true"></i>10';
+      }
+
+      signButton.onclick = () => {
+        if (welfareState.signedIn) return;
+        renderWelfareState({ signedIn: true });
+        Luma.toast("已领取 ◎ 30");
+      };
+      taskClaimButton.onclick = () => {
+        if (welfareState.taskClaimed) return;
+        renderWelfareState({ taskClaimed: true });
+        Luma.toast("已领取 ◎ 10");
+      };
+      Luma.registerStates({
+        已领取: () => {
+          welfareState = { signedIn: false, taskClaimed: false };
+          renderWelfareState({ signedIn: true, taskClaimed: true });
+        },
+      });
+    </script>
+  </body>
+</html>

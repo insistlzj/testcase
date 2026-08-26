@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>排班详情 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-inspection-schedule-v2"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-host-review.html">主播审核</a
+            ><a class="admin-nav-sub" href="admin-host-list.html">主播列表</a
+            ><a class="admin-nav-sub" href="admin-live-management.html"
+              >直播场次</a
+            ><a
+              class="admin-nav-sub active"
+              href="admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub" href="../content/admin-content-audit.html"
+              >内容审核</a
+            ><a
+              class="admin-nav-sub"
+              href="../content/admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            主播管理&nbsp;&nbsp;/&nbsp;&nbsp;巡房排班&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >排班详情</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-inspection-schedule.html"
+            >‹ 返回巡房排班</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head">
+              <h2>排班详情</h2>
+              <span id="scheduleStatus"></span>
+            </div>
+            <div class="admin-detail-grid" id="scheduleInfo"></div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <strong>巡房人员</strong><span id="userCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>用户头像 / 昵称 / ID</th>
+                    <th>用户等级</th>
+                  </tr>
+                </thead>
+                <tbody id="userRows"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const params = new URLSearchParams(location.search),
+        scheduleId = params.get("id") || "PS20260821003",
+        users = LUMA_ADMIN_MOCK.users;
+      const schedules = {
+        PS20260821003: {
+          id: "PS20260821003",
+          date: "2026-08-21",
+          start: "08:00",
+          end: "12:00",
+          userIds: ["88231007", "88229841"],
+          status: "active",
+          createdAt: "21/8/2026 07.42",
+        },
+        PS20260821002: {
+          id: "PS20260821002",
+          date: "2026-08-21",
+          start: "12:00",
+          end: "18:00",
+          userIds: ["88227653"],
+          status: "pending",
+          createdAt: "20/8/2026 16.30",
+        },
+        PS20260820001: {
+          id: "PS20260820001",
+          date: "2026-08-20",
+          start: "18:00",
+          end: "23:00",
+          userIds: ["88220472", "88218339"],
+          status: "ended",
+          createdAt: "20/8/2026 10.05",
+        },
+      };
+      const stored = JSON.parse(
+          sessionStorage.getItem(`lumaInspectionSchedule:${scheduleId}`) ||
+            "null",
+        ),
+        item = stored || schedules[scheduleId] || schedules.PS20260821003,
+        statusMap = {
+          pending: ["待生效", "pending"],
+          active: ["生效中", "enabled"],
+          ended: ["已结束", "muted"],
+          disabled: ["已停用", "disabled"],
+        },
+        status = statusMap[item.status],
+        assignedUsers = item.userIds
+          .map((id) => users.find((user) => user.id === id))
+          .filter(Boolean);
+      function formatDate(value) {
+        const [year, month, day] = value.split("-");
+        return `${Number(day)}/${Number(month)}/${year}`;
+      }
+      scheduleStatus.innerHTML = `<span class="admin-status ${status[1]}">${status[0]}</span>`;
+      scheduleInfo.innerHTML = `<div class="admin-detail-item"><span>排班编号</span><b>${item.id}</b></div><div class="admin-detail-item"><span>排班日期</span><b>${formatDate(item.date)}</b></div><div class="admin-detail-item"><span>时间段</span><b>${item.start} - ${item.end}</b></div><div class="admin-detail-item"><span>排班人数</span><b>${item.userIds.length}</b></div><div class="admin-detail-item"><span>创建时间</span><b>${item.createdAt}</b></div>`;
+      userCount.textContent = `共 ${assignedUsers.length} 人`;
+      userRows.innerHTML = assignedUsers
+        .map(
+          (user) =>
+            `<tr><td><div class="admin-user-cell"><span class="admin-avatar">${user.initials}</span><span class="admin-user-name"><b>${user.name}</b><span>${user.id}</span></span></div></td><td>等级 ${user.level}</td></tr>`,
+        )
+        .join("");
+      document.addEventListener("click", (event) => {
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-inspection-schedule-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

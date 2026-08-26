@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>充值订单详情 · 余额 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .nav a {
+        position: absolute;
+        left: 16px;
+        color: var(--g2);
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .order {
+        margin-top: 12px;
+        background: var(--g7);
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 15px 16px;
+        border-bottom: 1px solid var(--g6);
+      }
+      .row span {
+        color: var(--g4);
+        font-size: 14px;
+      }
+      .row b {
+        color: var(--g1);
+        font-size: 14px;
+        font-weight: 500;
+        text-align: right;
+      }
+      .row b.coin {
+        color: var(--g1);
+        font-size: 14px;
+      }
+      .row b.money {
+        font-size: 16px;
+      }
+      .row:last-child {
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <div class="nav">
+        <a href="balance-detail.html" aria-label="返回">‹</a>订单详情
+      </div>
+      <section class="order" id="order"></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const data = window.LUMA_MOCK.orderDetails.income;
+      const fields = [
+        ["购买套餐名称", data.packageName],
+        ["数量", data.quantity],
+        ["支付时间", LUMA_FORMAT.dateTime(data.paidAt)],
+        ["套餐金币", data.packageCoins, "coin"],
+        ["赠送金币", data.bonusCoins, "coin"],
+        ["支付渠道", data.channel],
+        ["支付金额", data.amount, "money"],
+      ];
+      order.innerHTML = fields
+        .map(
+          ([label, value, className = ""]) =>
+            `<div class="row"><span>${label}</span><b class="${className}">${value}</b></div>`,
+        )
+        .join("");
+    </script>
+  </body>
+</html>

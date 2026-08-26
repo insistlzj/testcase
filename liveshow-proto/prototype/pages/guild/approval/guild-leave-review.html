@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>退会申请 · 待办审批 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260820-fiat-values-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js?v=20260818-person-id-v1"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="../home/guild-home.html" aria-label="返回"
+          >‹</a
+        >退会申请
+      </header>
+      <div class="guild-page-body">
+        <nav
+          class="guild-segments guild-review-status-segments"
+          aria-label="审核状态"
+        >
+          <button class="active" type="button" data-tab="reviewing">审核中</button
+          ><button type="button" data-tab="approved">已通过</button
+          ><button type="button" data-tab="rejected">已驳回</button>
+        </nav>
+        <section
+          class="review-list"
+          id="reviewList"
+          aria-label="退会申请列表"
+        ></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      const records = LUMA_MOCK.guildPortal.leaveApplications;
+      const labels = {
+        pending: "待审核",
+        approved: "已通过",
+        rejected: "已驳回",
+      };
+      try {
+        const savedResults = JSON.parse(
+          sessionStorage.getItem("luma-guild-leave-review-results-v1") || "{}",
+        );
+        records.forEach((item) =>
+          Object.assign(item, savedResults[item.id] || {}),
+        );
+      } catch (error) {}
+      const requestedTab = new URLSearchParams(location.search).get("tab");
+      const validTabs = ["reviewing", "approved", "rejected"];
+      let currentTab = validTabs.includes(requestedTab)
+        ? requestedTab
+        : requestedTab === "processed"
+          ? "approved"
+          : "reviewing";
+      function visibleRecords() {
+        return records.filter((item) =>
+          currentTab === "reviewing"
+            ? item.status === "pending"
+            : item.status === currentTab,
+        );
+      }
+      function renderList() {
+        const items = visibleRecords();
+        document.querySelector('[data-tab="reviewing"]').textContent =
+          `审核中 ${records.filter((item) => item.status === "pending").length}`;
+        document.querySelector('[data-tab="approved"]').textContent =
+          `已通过 ${records.filter((item) => item.status === "approved").length}`;
+        document.querySelector('[data-tab="rejected"]').textContent =
+          `已驳回 ${records.filter((item) => item.status === "rejected").length}`;
+        reviewList.innerHTML = items.length
+          ? items
+              .map(
+                (item) =>
+                  /* HTML */ `<article class="review-card">
+                    <span class="review-card-head"
+                      ><a
+                        class="review-user review-member-link"
+                        href="../people/guild-host-detail.html?id=${encodeURIComponent(
+                          item.id,
+                        )}&from=roster"
+                        ><span class="review-avatar">${item.avatar}</span
+                        ><span class="review-user-copy"
+                          ><b>${item.name}</b><span>${item.id}</span></span
+                        ></a
+                      ><span class="review-status ${item.status}"
+                        >${labels[item.status]}</span
+                      ></span
+                    ><a
+                      class="review-card-foot review-detail-link"
+                      href="guild-leave-review-detail.html?id=${encodeURIComponent(
+                        item.id,
+                      )}&tab=${currentTab}"
+                      ><strong>${LUMA_FORMAT.dateTime(item.appliedAt)}</strong
+                      ><i class="review-arrow" aria-hidden="true">›</i></a
+                    >
+                  </article>`,
+              )
+              .join("")
+          : '<div class="guild-page-empty"><b>暂无申请</b><span>当前状态下没有退会申请</span></div>';
+      }
+      function setTab(tab) {
+        currentTab = tab;
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((item) =>
+            item.classList.toggle("active", item.dataset.tab === tab),
+          );
+        const query = tab === "reviewing" ? "" : `?tab=${tab}`;
+        history.replaceState(null, "", `guild-leave-review.html${query}`);
+        renderList();
+        window.parent.postMessage(
+          { type: "luma-page", file: "guild-leave-review.html", query },
+          "*",
+        );
+      }
+      document
+        .querySelectorAll("[data-tab]")
+        .forEach(
+          (button) => (button.onclick = () => setTab(button.dataset.tab)),
+        );
+      document
+        .querySelectorAll("[data-tab]")
+        .forEach((button) =>
+          button.classList.toggle("active", button.dataset.tab === currentTab),
+        );
+      renderList();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "guild-leave-review.html",
+          query: currentTab === "reviewing" ? "" : `?tab=${currentTab}`,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

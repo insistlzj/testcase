@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>退款订单 · 订单管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260819-business-statistics-v1"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            订单管理&nbsp;&nbsp;/&nbsp;&nbsp;<strong>退款订单</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>退款订单</h1></div>
+          </div>
+          <section class="admin-panel admin-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="refundKey">退款单号</label
+                ><input
+                  class="admin-input"
+                  id="refundKey"
+                  placeholder="输入退款单号"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="orderKey">原充值订单号</label
+                ><input
+                  class="admin-input"
+                  id="orderKey"
+                  placeholder="输入原充值订单号"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="userKey">用户</label
+                ><input
+                  class="admin-input"
+                  id="userKey"
+                  placeholder="输入用户 ID 或昵称"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="typeKey">退款类型</label
+                ><select class="admin-select" id="typeKey">
+                  <option value="">全部类型</option>
+                  <option>手动退款</option>
+                  <option>被动退款</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="channelKey">支付渠道</label
+                ><select class="admin-select" id="channelKey">
+                  <option value="">全部渠道</option>
+                  <option>Google Play</option>
+                  <option>App Store</option>
+                  <option>DANA</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label>退款时间段</label>
+                <div class="admin-range admin-date-range">
+                  <input class="admin-input" id="startDate" type="date" /><span
+                    >至</span
+                  ><input class="admin-input" id="endDate" type="date" />
+                </div>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <strong>退款订单</strong>
+              <div class="admin-toolbar-actions">
+                <span id="resultCount"></span
+                ><button class="admin-btn secondary" id="exportBtn">
+                  导出
+                </button>
+              </div>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1300px">
+                <colgroup>
+                  <col style="width: 170px" />
+                  <col style="width: 170px" />
+                  <col style="width: 180px" />
+                  <col style="width: 100px" />
+                  <col style="width: 120px" />
+                  <col style="width: 130px" />
+                  <col style="width: 120px" />
+                  <col style="width: 150px" />
+                  <col style="width: 80px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>退款单号</th>
+                    <th>原充值订单号</th>
+                    <th>用户信息</th>
+                    <th>退款类型</th>
+                    <th>退款金额（USD）</th>
+                    <th>支付渠道</th>
+                    <th>退款状态</th>
+                    <th>退款时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="refundRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const refunds = window.LUMA_ADMIN_MOCK.rechargeOrders
+          .filter((item) => item.refund)
+          .map((item) => ({ ...item, refund: item.refund })),
+        { money: formatMoney } = window.LUMA_ADMIN_FORMAT;
+      let visible = refunds;
+      const rows = document.querySelector("#refundRows"),
+        count = document.querySelector("#resultCount"),
+        pagination = document.querySelector("#pagination");
+      function render(items) {
+        visible = items;
+        count.textContent = `共 ${items.length} 条`;
+        pagination.classList.toggle("state-hide", !items.length);
+        if (!items.length) {
+          rows.innerHTML =
+            '<tr><td colspan="9"><div class="admin-empty"><strong>未找到退款订单</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        rows.innerHTML = items
+          .map(
+            (item) =>
+              /* HTML */ `<tr>
+                <td>${item.refund.refundNo}</td>
+                <td>${item.orderNo}</td>
+                <td>
+                  <div class="admin-user-cell">
+                    <span class="admin-avatar">${item.initials}</span
+                    ><span class="admin-user-name"
+                      ><b>${item.userName}</b>${Luma.id(
+                        item.userId,
+                        "用户ID",
+                      )}</span
+                    >
+                  </div>
+                </td>
+                <td>${item.refund.type}</td>
+                <td>
+                  <span
+                    style="color:${window.LUMA_ADMIN_TOKENS
+                      .success};font-weight:700"
+                    >${formatMoney(item.refund.amount)}</span
+                  >
+                </td>
+                <td>${item.refund.channel}</td>
+                <td>
+                  <span class="admin-status success"
+                    >${item.refund.cashStatus}</span
+                  >
+                </td>
+                <td>${item.refund.createdAt}</td>
+                <td>
+                  <a
+                    class="admin-action"
+                    href="admin-recharge-order-detail.html?id=${item.orderNo}"
+                    >详情</a
+                  >
+                </td>
+              </tr>`,
+          )
+          .join("");
+      }
+      function query() {
+        const refund = refundKey.value.trim().toLowerCase(),
+          order = orderKey.value.trim().toLowerCase(),
+          user = userKey.value.trim().toLowerCase(),
+          type = typeKey.value,
+          channel = channelKey.value,
+          start = startDate.value,
+          end = endDate.value;
+        if (start && end && start > end) {
+          Luma.toast("结束时间不能早于开始时间");
+          return;
+        }
+        const items = refunds.filter(
+          (item) =>
+            item.refund.refundNo.toLowerCase().includes(refund) &&
+            item.orderNo.toLowerCase().includes(order) &&
+            `${item.userId} ${item.userName}`.toLowerCase().includes(user) &&
+            (!type || item.refund.type === type) &&
+            (!channel || item.refund.channel === channel) &&
+            (!start || item.refund.createdAt.slice(0, 10) >= start) &&
+            (!end || item.refund.createdAt.slice(0, 10) <= end),
+        );
+        render(items);
+        Luma.toast(`已查询到 ${items.length} 条退款订单`);
+      }
+      searchBtn.onclick = query;
+      resetBtn.onclick = () => {
+        document
+          .querySelectorAll(".admin-filter input")
+          .forEach((input) => (input.value = ""));
+        document
+          .querySelectorAll(".admin-filter select")
+          .forEach((select) => (select.selectedIndex = 0));
+        render(refunds);
+        Luma.toast("筛选条件已重置");
+      };
+      exportBtn.onclick = () =>
+        Luma.toast(`已导出 ${visible.length} 条退款订单`);
+      document.querySelectorAll(".admin-filter input").forEach((input) =>
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") query();
+        }),
+      );
+      render(refunds);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-refund-order.html" },
+        "*",
+      );
+      Luma.registerStates({
+        正常列表: () => render(refunds),
+        无查询结果: () => render([]),
+      });
+    </script>
+  </body>
+</html>

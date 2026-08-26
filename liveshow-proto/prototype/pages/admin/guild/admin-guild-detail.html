@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会详情 · 公会管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-inline-metrics-v1"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav" aria-label="管理后台一级菜单">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>公会管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub active" href="admin-guild-list.html"
+              >公会列表</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            <strong id="pageName">公会详情</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-guild-list.html"
+            >‹ 返回公会列表</a
+          >
+          <section class="admin-panel admin-profile-panel" id="viewProfile">
+            <div class="admin-profile-summary">
+              <span class="admin-avatar" id="avatar"></span>
+              <div>
+                <h2 id="name"></h2>
+                <div class="admin-profile-meta">
+                  <span id="guildId"></span><span id="status"></span>
+                </div>
+              </div>
+              <div
+                class="admin-profile-summary-actions"
+                id="profileActions"
+              ></div>
+            </div>
+            <div class="admin-metrics admin-inline-metrics" id="metrics"></div>
+            <div class="admin-detail-grid" id="baseInfo"></div>
+          </section>
+          <section class="admin-panel admin-tabs-panel" id="viewTabs">
+            <div class="admin-detail-tabs">
+              <button class="admin-detail-tab active" data-tab="members">
+                成员列表</button
+              ><button class="admin-detail-tab" data-tab="settlements">
+                分成记录</button
+              ><button class="admin-detail-tab" data-tab="account">
+                管理账号
+              </button>
+            </div>
+            <div class="admin-detail-panel" id="detailPanel"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="guildEditorOverlay">
+      <section
+        class="admin-modal wide"
+        id="guildEditorPanel"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class="admin-modal-head">
+          <h2 id="guildEditorTitle">编辑公会</h2>
+          <button
+            class="admin-icon-btn"
+            id="guildEditorClose"
+            data-close="guildEditorOverlay"
+          >
+            ×
+          </button>
+        </div>
+        <form class="admin-resource-form" id="guildEditorForm">
+          <div class="admin-modal-body">
+            <div
+              class="admin-resource-section"
+              role="group"
+              aria-labelledby="guildBasicInfoTitle"
+            >
+              <h3 class="admin-resource-section-title" id="guildBasicInfoTitle">
+                基本信息
+              </h3>
+              <div class="admin-form-grid admin-basic-form-grid">
+                <div class="admin-form-row" id="guildIdRow">
+                  <label>公会 ID</label>
+                  <div class="admin-readonly-value" id="editGuildIdText"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="editGuildName">公会名称</label
+                  ><input class="admin-input" id="editGuildName" required />
+                </div>
+              </div>
+              <div class="admin-media-upload-grid">
+                <div class="admin-media-upload">
+                  <h4>公会 Logo</h4>
+                  <div class="admin-media-upload-preview-wrap">
+                    <button
+                      class="admin-media-upload-preview"
+                      id="guildLogoPreview"
+                      type="button"
+                    ></button
+                    ><button
+                      class="admin-media-delete"
+                      id="deleteGuildLogo"
+                      type="button"
+                      aria-label="删除公会 Logo"
+                      title="删除公会 Logo"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <input
+                    class="admin-file-input"
+                    id="guildLogoFile"
+                    type="file"
+                    accept="image/*"
+                  />
+                </div>
+              </div>
+              <div class="admin-form-grid">
+                <div class="admin-form-row full admin-form-row-top">
+                  <label for="editGuildDescription">公会简介</label
+                  ><textarea
+                    class="admin-textarea"
+                    id="editGuildDescription"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div
+              class="admin-resource-section state-hide"
+              id="guildLeaderAccountSection"
+              role="group"
+              aria-labelledby="guildLeaderAccountTitle"
+            >
+              <h3
+                class="admin-resource-section-title"
+                id="guildLeaderAccountTitle"
+              >
+                公会长账号
+              </h3>
+              <div class="admin-form-grid">
+                <div class="admin-form-row">
+                  <label for="editGuildLeaderName">公会长昵称</label
+                  ><input
+                    class="admin-input"
+                    id="editGuildLeaderName"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="editGuildLeaderAccount">公会长账号</label
+                  ><input
+                    class="admin-input"
+                    id="editGuildLeaderAccount"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row" id="initialPasswordRow">
+                  <label for="editGuildInitialPassword">初始密码</label
+                  ><input
+                    class="admin-input"
+                    id="editGuildInitialPassword"
+                    type="password"
+                    minlength="8"
+                    autocomplete="new-password"
+                    placeholder="至少 8 位"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="guildEditorOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" type="submit">保存</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <div class="admin-overlay" id="guildActionOverlay">
+      <section class="admin-modal" role="dialog" aria-modal="true">
+        <div class="admin-modal-head">
+          <h2 id="guildActionTitle">公会操作</h2>
+          <button class="admin-icon-btn" data-close="guildActionOverlay">
+            ×
+          </button>
+        </div>
+        <form id="guildActionForm">
+          <div class="admin-modal-body" id="guildActionBody"></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="guildActionOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" id="guildActionSubmit" type="submit">
+              确认
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const mock = window.LUMA_ADMIN_MOCK,
+        params = new URLSearchParams(location.search),
+        id = params.get("id");
+      let isNew = params.get("new") === "1";
+      const blankGuild = () => ({
+        id: `G${100001 + mock.guilds.length}`,
+        name: "",
+        logo: "未上传",
+        description: "",
+        leaderId: "",
+        leaderName: "",
+        leaderAccount: "",
+        accountStatus: "enabled",
+        hostCount: 0,
+        memberCount: 0,
+        earnings: 0,
+        status: "enabled",
+        createdAt: "2026-08-05 14:30",
+        dissolutionCheck: {
+          pendingHostCount: 0,
+          unsettledShareCount: 0,
+          unnotifiedMemberCount: 0,
+        },
+      });
+      let guild = isNew
+        ? blankGuild()
+        : mock.guilds.find((item) => item.id === id) || mock.guilds[0];
+      let editorLogo = guild.logo || "已上传 Logo";
+      const directEdit = params.get("edit") === "1" || isNew,
+        records = mock.guildRecords[guild.id] || {
+          hosts: [],
+          members: [],
+          settlements: [],
+        };
+      const statusText = { enabled: "正常", disabled: "已停用" };
+      const { money: formatMoney } = window.LUMA_ADMIN_FORMAT;
+      const avatarEl = document.querySelector("#avatar"),
+        nameEl = document.querySelector("#name"),
+        guildIdEl = document.querySelector("#guildId"),
+        statusEl = document.querySelector("#status"),
+        profileActionsEl = document.querySelector("#profileActions"),
+        metricsEl = document.querySelector("#metrics"),
+        baseInfoEl = document.querySelector("#baseInfo"),
+        detailPanelEl = document.querySelector("#detailPanel");
+      let currentAction = "";
+      function table(columns, items) {
+        if (!items.length)
+          return '<div class="admin-record-empty"><strong>暂无记录</strong><span>该公会当前没有相关数据</span></div>';
+        return `<div class="admin-record-scroll"><table class="admin-record-table"><thead><tr>${columns.map((item) => `<th>${item[0]}</th>`).join("")}</tr></thead><tbody>${items.map((row) => `<tr>${columns.map((item) => `<td>${item[1](row)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      }
+      function renderTab(tab) {
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.tab === tab),
+          );
+        if (tab === "members") {
+          const members = [
+            ...records.hosts.map((item) => ({ ...item, identity: "主播" })),
+            ...records.members.map((item) => ({
+              ...item,
+              identity: "普通成员",
+            })),
+          ];
+          detailPanelEl.innerHTML = table(
+            [
+              ["用户 ID", (i) => i.id],
+              ["昵称", (i) => i.name],
+              ["身份", (i) => i.identity],
+              ["加入时间", (i) => i.joinedAt],
+              ["状态", (i) => i.status],
+            ],
+            members,
+          );
+        }
+        if (tab === "settlements")
+          detailPanelEl.innerHTML = table(
+            [
+              ["分成单号", (i) => i.settlementNo],
+              ["分成周期", (i) => i.period],
+              ["分成金额（USD）", (i) => formatMoney(i.amount)],
+              ["状态", (i) => i.status],
+            ],
+            records.settlements,
+          );
+        if (tab === "account")
+          detailPanelEl.innerHTML = /* HTML */ `<div
+            class="admin-record-scroll"
+          >
+            <table class="admin-record-table">
+              <thead>
+                <tr>
+                  <th>身份</th>
+                  <th>公会长昵称</th>
+                  <th>管理账号</th>
+                  <th>账号状态</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>公会长</td>
+                  <td>${guild.leaderName}</td>
+                  <td>${guild.leaderAccount || guild.leaderId}</td>
+                  <td>
+                    <span class="admin-status ${guild.accountStatus}"
+                      >${guild.accountStatus === "enabled"
+                        ? "已启用"
+                        : "已禁用"}</span
+                    >
+                  </td>
+                  <td>
+                    <button class="admin-action" data-leader-action="edit">
+                      编辑</button
+                    ><button class="admin-action" data-leader-action="password">
+                      重置密码
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>`;
+      }
+      function renderBase() {
+        avatarEl.textContent = guild.name[0];
+        Luma.setTip(nameEl, guild.name, "公会名称");
+        guildIdEl.innerHTML = Luma.id(guild.id, "公会ID");
+        statusEl.className = `admin-status ${guild.status}`;
+        Luma.setTip(statusEl, statusText[guild.status], "公会状态");
+        profileActionsEl.innerHTML = `<a class="admin-btn secondary" href="admin-guild-detail.html?id=${guild.id}&edit=1">编辑</a><button class="admin-btn secondary" data-action="status">${guild.status === "enabled" ? "停用" : "启用"}</button>`;
+        metricsEl.innerHTML = `<div class="admin-metric"><span>主播人数</span><b>${guild.hostCount}</b></div><div class="admin-metric"><span>普通成员人数</span><b>${guild.memberCount}</b></div><div class="admin-metric"><span>累计收益</span><b>${formatMoney(guild.earnings)}</b></div>`;
+        baseInfoEl.innerHTML = `<div class="admin-detail-item"><span>创建时间</span><b>${guild.createdAt}</b></div><div class="admin-detail-item"><span>公会简介</span><b>${guild.description}</b></div>`;
+      }
+      function updateLogoPreview() {
+        const empty = editorLogo === "未上传";
+        guildLogoPreview.textContent = empty ? "点击上传" : editorLogo;
+        guildLogoPreview.classList.toggle("is-empty", empty);
+        deleteGuildLogo.classList.toggle("state-hide", empty);
+      }
+      function openEditor() {
+        guildEditorForm.reset();
+        editorLogo = guild.logo || (isNew ? "未上传" : "已上传 Logo");
+        guildIdRow.classList.toggle("state-hide", isNew);
+        document
+          .querySelector("#guildLeaderAccountSection")
+          .classList.toggle("state-hide", !isNew);
+        initialPasswordRow.classList.toggle("state-hide", !isNew);
+        editGuildLeaderName.required = isNew;
+        editGuildLeaderAccount.required = isNew;
+        editGuildInitialPassword.required = isNew;
+        guildEditorTitle.textContent = isNew ? "新建公会" : "编辑公会";
+        editGuildIdText.textContent = guild.id;
+        editGuildName.value = guild.name;
+        editGuildDescription.value = guild.description;
+        editGuildLeaderName.value = guild.leaderName;
+        editGuildLeaderAccount.value = guild.leaderAccount || guild.leaderId;
+        updateLogoPreview();
+        pageName.textContent = isNew ? "新建公会" : "编辑公会";
+        viewProfile.classList.add("state-hide");
+        viewTabs.classList.add("state-hide");
+        document
+          .querySelector(".admin-content")
+          .appendChild(guildEditorOverlay);
+        guildEditorOverlay.className = "admin-panel admin-profile-panel";
+        guildEditorPanel.className = "";
+        guildEditorClose.classList.add("state-hide");
+      }
+      function openAction(type) {
+        currentAction = type;
+        guildActionSubmit.className = "admin-btn";
+        guildActionSubmit.disabled = false;
+        guildActionSubmit.textContent = "确认";
+        if (type === "status") {
+          guildActionTitle.textContent =
+            guild.status === "enabled" ? "停用公会" : "启用公会";
+          guildActionBody.innerHTML = `<p>确认${guild.status === "enabled" ? "停用" : "启用"} ${guild.name}？</p>`;
+        }
+        if (type === "leader-edit") {
+          guildActionTitle.textContent = "编辑管理账号";
+          guildActionSubmit.textContent = "保存";
+          guildActionBody.innerHTML = `<div class="admin-form-row"><label for="leaderNameInput">公会长昵称</label><input class="admin-input" id="leaderNameInput" value="${guild.leaderName}" required></div><div class="admin-form-row"><label for="leaderAccountInput">管理账号</label><input class="admin-input" id="leaderAccountInput" value="${guild.leaderAccount || guild.leaderId}" required></div>`;
+        }
+        if (type === "leader-password") {
+          guildActionTitle.textContent = "重置密码";
+          guildActionSubmit.textContent = "确认重置";
+          guildActionBody.innerHTML = `<div class="admin-form-row"><label for="leaderPasswordInput">新密码</label><input class="admin-input" id="leaderPasswordInput" type="password" minlength="8" autocomplete="new-password" placeholder="至少 8 位" required></div>`;
+        }
+        guildActionOverlay.classList.add("show");
+      }
+      document.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-tab]");
+        if (tab) renderTab(tab.dataset.tab);
+        const action = event.target.closest("[data-action]");
+        if (action) openAction(action.dataset.action);
+        const leaderAction = event.target.closest("[data-leader-action]");
+        if (leaderAction)
+          openAction(`leader-${leaderAction.dataset.leaderAction}`);
+        if (event.target === guildLogoPreview) guildLogoFile.click();
+        if (event.target === deleteGuildLogo) {
+          editorLogo = "未上传";
+          guildLogoFile.value = "";
+          updateLogoPreview();
+        }
+        const close = event.target.closest("[data-close]");
+        if (close && close.dataset.close === "guildEditorOverlay") {
+          location.href = "admin-guild-list.html";
+          return;
+        }
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      guildLogoFile.onchange = () => {
+        if (guildLogoFile.files[0]) {
+          editorLogo = guildLogoFile.files[0].name;
+          updateLogoPreview();
+        }
+      };
+      guildEditorForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (editorLogo === "未上传") return Luma.toast("请上传公会 Logo");
+        const created = isNew;
+        guild.name = editGuildName.value.trim();
+        guild.logo = editorLogo;
+        guild.description = editGuildDescription.value.trim();
+        if (created) {
+          guild.leaderName = editGuildLeaderName.value.trim();
+          guild.leaderAccount = editGuildLeaderAccount.value.trim();
+          guild.leaderId = guild.leaderAccount;
+          mock.guilds.unshift(guild);
+          isNew = false;
+          history.replaceState(
+            null,
+            "",
+            `admin-guild-detail.html?id=${guild.id}`,
+          );
+          guildEditorOverlay.classList.add("state-hide");
+          viewProfile.classList.remove("state-hide");
+          viewTabs.classList.remove("state-hide");
+          pageName.textContent = "公会详情";
+          renderBase();
+          renderTab("members");
+          Luma.toast("公会已新建");
+          return;
+        }
+        renderBase();
+        Luma.toast("公会资料已保存");
+      };
+      guildActionForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (currentAction === "leader-edit") {
+          guild.leaderName = leaderNameInput.value.trim();
+          guild.leaderAccount = leaderAccountInput.value.trim();
+          guild.leaderId = guild.leaderAccount;
+        }
+        if (currentAction === "status") {
+          guild.status = guild.status === "enabled" ? "disabled" : "enabled";
+          guild.accountStatus = guild.status;
+        }
+        guildActionOverlay.classList.remove("show");
+        renderBase();
+        if (currentAction.startsWith("leader-")) renderTab("account");
+        Luma.toast(
+          currentAction === "leader-password" ? "密码已重置" : "操作已保存",
+        );
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape")
+          document
+            .querySelectorAll(".admin-overlay")
+            .forEach((item) => item.classList.remove("show"));
+      });
+      renderBase();
+      renderTab("members");
+      if (directEdit) openEditor();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-guild-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        编辑: () => {
+          location.href = `admin-guild-detail.html?id=${guild.id}&edit=1`;
+        },
+      });
+    </script>
+  </body>
+</html>

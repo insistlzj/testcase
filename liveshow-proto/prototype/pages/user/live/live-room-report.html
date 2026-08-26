@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>举报直播间 · 用户主播 App · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .report-page {
+        width: 390px;
+        min-height: 844px;
+        background: var(--g6);
+        color: var(--g1);
+      }
+      .report-page .sb {
+        background: var(--g7);
+      }
+      .report-header {
+        height: 56px;
+        padding: 0 16px;
+        background: var(--g7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border-bottom: 1px solid var(--g6);
+      }
+      .report-header h1 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .report-back {
+        position: absolute;
+        left: 16px;
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        color: var(--g1);
+        font-size: 27px;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .report-main {
+        padding: 12px 16px 98px;
+      }
+      .room-summary,
+      .report-form {
+        background: var(--g7);
+        border-radius: 8px;
+      }
+      .room-summary {
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .room-summary i {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        background: var(--g5);
+        display: grid;
+        place-items: center;
+        color: var(--g3);
+        font-style: normal;
+        font-size: 12px;
+      }
+      .room-summary div {
+        min-width: 0;
+        flex: 1;
+      }
+      .room-summary b {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 15px;
+      }
+      .room-summary span {
+        display: block;
+        margin-top: 5px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .report-form {
+        margin-top: 12px;
+        padding: 2px 14px 14px;
+      }
+      .form-label {
+        display: block;
+        margin: 14px 0 8px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .reason-list {
+        border-top: 1px solid var(--g6);
+      }
+      .reason-item {
+        min-height: 48px;
+        border-bottom: 1px solid var(--g6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        cursor: pointer;
+      }
+      .reason-item input {
+        position: absolute;
+        opacity: 0;
+      }
+      .reason-item i {
+        width: 20px;
+        height: 20px;
+        border: 1px solid var(--g5);
+        border-radius: 50%;
+        position: relative;
+        flex: none;
+      }
+      .reason-item input:checked + i {
+        border: 6px solid var(--g1);
+      }
+      .report-text {
+        width: 100%;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        resize: none;
+        color: var(--g1);
+        font: 14px inherit;
+        outline: none;
+      }
+      .report-text:focus {
+        border-color: var(--g2);
+      }
+      .report-text::placeholder {
+        color: var(--g4);
+      }
+      .report-actions {
+        position: fixed;
+        bottom: 0;
+        width: 390px;
+        padding: 12px 16px;
+        background: var(--g7);
+        border-top: 1px solid var(--g5);
+        display: flex;
+        gap: 10px;
+      }
+      .report-actions a,
+      .report-actions button {
+        height: 44px;
+        border: 0;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        font: 15px inherit;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .report-actions a {
+        flex: 1;
+        background: var(--g6);
+        color: var(--g2);
+      }
+      .report-actions button {
+        flex: 2;
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .report-actions button:disabled {
+        background: var(--g5);
+        color: var(--g4);
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="report-page">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="report-header">
+        <a class="report-back" href="live-room.html" aria-label="返回直播间"
+          >‹</a
+        >
+        <h1>举报直播间</h1>
+      </header>
+      <section class="report-main">
+        <article class="room-summary" aria-label="当前直播间">
+          <i>直播间</i>
+          <div><b data-room-title></b><span data-room-meta></span></div>
+        </article>
+        <form class="report-form" id="reportForm">
+          <span class="form-label">举报原因</span>
+          <div class="reason-list" id="reasonList"></div>
+          <label class="form-label" for="detail">补充说明</label>
+          <textarea
+            class="report-text"
+            id="detail"
+            maxlength="200"
+            placeholder="请填写补充说明（选填）"
+          ></textarea>
+        </form>
+      </section>
+      <footer class="report-actions">
+        <a href="live-room.html">取消</a
+        ><button type="submit" form="reportForm" disabled>提交</button>
+      </footer>
+    </main>
+    <script>
+      const room = LUMA_MOCK.liveRoom;
+      const reasonList = document.querySelector("#reasonList");
+      const submit = document.querySelector('[type="submit"]');
+      document.querySelector("[data-room-title]").textContent = room.title;
+      document.querySelector("[data-room-meta]").textContent =
+        room.host + " · ID " + room.hostId;
+      reasonList.innerHTML = room.reportReasons
+        .map(
+          (reason) =>
+            '<label class="reason-item"><span>' +
+            reason +
+            '</span><input type="radio" name="reason" value="' +
+            reason +
+            '"><i></i></label>',
+        )
+        .join("");
+      reasonList.addEventListener("change", () => {
+        submit.disabled = !reasonList.querySelector("input:checked");
+      });
+      document
+        .querySelector("#reportForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (submit.disabled) return;
+          Luma.toast("举报已提交");
+          setTimeout(() => {
+            location.href = "live-room.html";
+          }, 650);
+        });
+    </script>
+  </body>
+</html>

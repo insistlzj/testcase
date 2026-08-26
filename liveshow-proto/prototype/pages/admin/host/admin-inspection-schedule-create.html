@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>新建排班 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-inspection-schedule-v3"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-host-review.html">主播审核</a
+            ><a class="admin-nav-sub" href="admin-host-list.html">主播列表</a
+            ><a class="admin-nav-sub" href="admin-live-management.html"
+              >直播场次</a
+            ><a
+              class="admin-nav-sub active"
+              href="admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub" href="../content/admin-content-audit.html"
+              >内容审核</a
+            ><a
+              class="admin-nav-sub"
+              href="../content/admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            主播管理&nbsp;&nbsp;/&nbsp;&nbsp;巡房排班&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >新建排班</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-inspection-schedule.html"
+            >‹ 返回巡房排班</a
+          >
+          <section class="admin-panel admin-profile-panel admin-create-page">
+            <div class="admin-section-head"><h2>新建排班</h2></div>
+            <form id="scheduleForm">
+              <div class="inspection-schedule-form inspection-create-form">
+                <div class="admin-form-row">
+                  <label for="scheduleDate">日期</label
+                  ><input
+                    class="admin-input"
+                    id="scheduleDate"
+                    type="date"
+                    min="2026-08-21"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="startTime">时间段</label>
+                  <div class="inspection-time-range">
+                    <input
+                      class="admin-input"
+                      id="startTime"
+                      type="time"
+                      required
+                    /><span>至</span
+                    ><input
+                      class="admin-input"
+                      id="endTime"
+                      type="time"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="admin-form-row inspection-users-row">
+                  <label>巡房人员</label>
+                  <div class="inspection-selection-field">
+                    <div class="inspection-selection-head">
+                      <span
+                        class="inspection-selection-count"
+                        id="selectionCount"
+                        >已选择 0 个用户</span
+                      ><button
+                        class="admin-btn secondary"
+                        id="addUsersBtn"
+                        type="button"
+                      >
+                        添加
+                      </button>
+                    </div>
+                    <div class="inspection-selected-users" id="selectedUsers">
+                      <span class="inspection-selection-empty"
+                        >暂未添加用户</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-modal-foot">
+                <a
+                  class="admin-btn secondary"
+                  href="admin-inspection-schedule.html"
+                  >取消</a
+                ><button class="admin-btn" type="submit">保存</button>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="userPickerOverlay">
+      <section
+        class="admin-modal wide inspection-picker-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="userPickerTitle"
+      >
+        <div class="admin-modal-head">
+          <h2 id="userPickerTitle">添加巡房人员</h2>
+          <button
+            class="admin-icon-btn"
+            type="button"
+            data-close-picker
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </div>
+        <div class="admin-modal-body">
+          <div class="inspection-picker-search">
+            <div class="admin-field">
+              <label for="userSearch">用户昵称/ID</label
+              ><input
+                class="admin-input"
+                id="userSearch"
+                placeholder="输入用户昵称或 ID"
+              />
+            </div>
+            <div class="inspection-picker-search-actions">
+              <button
+                class="admin-btn secondary"
+                id="resetSearchBtn"
+                type="button"
+              >
+                重置</button
+              ><button class="admin-btn" id="searchUsersBtn" type="button">
+                查询
+              </button>
+            </div>
+          </div>
+          <div class="inspection-user-picker">
+            <div class="inspection-user-picker-head">
+              <input
+                id="selectAllUsers"
+                type="checkbox"
+                aria-label="全选当前筛选结果"
+              /><span>用户信息</span><span>财富等级</span>
+            </div>
+            <div id="userPicker"></div>
+          </div>
+          <div class="inspection-selection-summary" id="draftCount">
+            已选择 0 个用户
+          </div>
+        </div>
+        <div class="admin-modal-foot">
+          <button class="admin-btn secondary" type="button" data-close-picker>
+            取消</button
+          ><button class="admin-btn" id="confirmUsersBtn" type="button">
+            确认添加
+          </button>
+        </div>
+      </section>
+    </div>
+    <script>
+      const users = LUMA_ADMIN_MOCK.users;
+      let selectedUserIds = new Set(),
+        draftUserIds = new Set(),
+        visibleUserIds = [];
+      scheduleDate.value = "2026-08-21";
+      startTime.value = "09:00";
+      endTime.value = "18:00";
+      function renderSelectedUsers() {
+        const selected = users.filter((user) => selectedUserIds.has(user.id));
+        selectionCount.textContent = `已选择 ${selected.length} 个用户`;
+        selectedUsers.innerHTML = selected.length
+          ? selected
+              .map(
+                (user) =>
+                  `<div class="inspection-selected-user"><span class="admin-avatar">${user.initials}</span><span class="inspection-user-meta"><b>${user.name}</b><span>${user.id}</span></span><span class="inspection-user-level">等级 ${user.level}</span><button class="inspection-remove-user" type="button" data-remove-user="${user.id}" aria-label="移除 ${user.name}" title="移除">×</button></div>`,
+              )
+              .join("")
+          : '<span class="inspection-selection-empty">暂未添加用户</span>';
+      }
+      function syncSelectAll() {
+        const selectedVisible = visibleUserIds.filter((id) =>
+          draftUserIds.has(id),
+        ).length;
+        selectAllUsers.checked =
+          visibleUserIds.length > 0 &&
+          selectedVisible === visibleUserIds.length;
+        selectAllUsers.indeterminate =
+          selectedVisible > 0 && selectedVisible < visibleUserIds.length;
+        selectAllUsers.disabled = !visibleUserIds.length;
+      }
+      function renderUserPicker() {
+        const key = userSearch.value.trim().toLowerCase(),
+          filtered = users.filter(
+            (user) =>
+              !key || `${user.name} ${user.id}`.toLowerCase().includes(key),
+          );
+        visibleUserIds = filtered.map((user) => user.id);
+        userPicker.innerHTML = filtered.length
+          ? filtered
+              .map(
+                (user) =>
+                  `<label class="inspection-user-option"><input type="checkbox" value="${user.id}" ${draftUserIds.has(user.id) ? "checked" : ""}><span class="admin-avatar">${user.initials}</span><span class="inspection-user-meta"><b>${user.name}</b><span>${user.id}</span></span><small>等级 ${user.level}</small></label>`,
+              )
+              .join("")
+          : '<div class="inspection-picker-empty">未找到用户</div>';
+        draftCount.textContent = `已选择 ${draftUserIds.size} 个用户`;
+        syncSelectAll();
+      }
+      function openUserPicker() {
+        draftUserIds = new Set(selectedUserIds);
+        userSearch.value = "";
+        renderUserPicker();
+        userPickerOverlay.classList.add("show");
+        userSearch.focus();
+      }
+      function closeUserPicker() {
+        userPickerOverlay.classList.remove("show");
+      }
+      addUsersBtn.onclick = openUserPicker;
+      searchUsersBtn.onclick = renderUserPicker;
+      resetSearchBtn.onclick = () => {
+        userSearch.value = "";
+        renderUserPicker();
+      };
+      userSearch.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          renderUserPicker();
+        }
+      });
+      selectAllUsers.onchange = () => {
+        visibleUserIds.forEach((id) =>
+          selectAllUsers.checked
+            ? draftUserIds.add(id)
+            : draftUserIds.delete(id),
+        );
+        renderUserPicker();
+      };
+      userPicker.addEventListener("change", (event) => {
+        if (!event.target.matches('input[type="checkbox"]')) return;
+        event.target.checked
+          ? draftUserIds.add(event.target.value)
+          : draftUserIds.delete(event.target.value);
+        draftCount.textContent = `已选择 ${draftUserIds.size} 个用户`;
+        syncSelectAll();
+      });
+      confirmUsersBtn.onclick = () => {
+        selectedUserIds = new Set(draftUserIds);
+        renderSelectedUsers();
+        closeUserPicker();
+      };
+      selectedUsers.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-remove-user]");
+        if (!button) return;
+        selectedUserIds.delete(button.dataset.removeUser);
+        renderSelectedUsers();
+      });
+      document.addEventListener("click", (event) => {
+        if (event.target.closest("[data-close-picker]")) closeUserPicker();
+        if (event.target === userPickerOverlay) closeUserPicker();
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      scheduleForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (startTime.value >= endTime.value)
+          return Luma.toast("结束时间需晚于开始时间");
+        if (!selectedUserIds.size) return Luma.toast("请添加巡房人员");
+        const datePart = scheduleDate.value.replaceAll("-", "");
+        sessionStorage.setItem(
+          "lumaInspectionScheduleDraft",
+          JSON.stringify({
+            id: `PS${datePart}004`,
+            date: scheduleDate.value,
+            start: startTime.value,
+            end: endTime.value,
+            userIds: [...selectedUserIds],
+            status: "pending",
+            createdAt: "21/8/2026 14.30",
+          }),
+        );
+        location.href = "admin-inspection-schedule.html";
+      };
+      renderSelectedUsers();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-inspection-schedule-create.html" },
+        "*",
+      );
+      Luma.registerStates({
+        已选择用户: () => {
+          selectedUserIds = new Set(["88231007", "88229841"]);
+          renderSelectedUsers();
+        },
+        用户选择弹窗: openUserPicker,
+      });
+    </script>
+  </body>
+</html>

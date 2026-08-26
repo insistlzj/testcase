@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>审计日志详情 · 系统配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body class="admin-monochrome">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../analytics/admin-report-center.html"
+            ><span>数据分析</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            系统配置&nbsp;&nbsp;/&nbsp;&nbsp;操作审计&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >日志详情</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-system-audit.html"
+            >‹ 返回操作审计</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-profile-summary">
+              <span class="admin-account-avatar">审</span>
+              <div>
+                <h2 id="actionTitle"></h2>
+                <div class="admin-profile-meta">
+                  <span id="logId"></span
+                  ><span class="admin-tag" id="moduleTag"></span>
+                </div>
+              </div>
+            </div>
+            <div class="admin-detail-grid" id="baseInfo"></div>
+          </section>
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2>操作内容</h2></div>
+            <div class="system-log-content" id="logContent"></div>
+          </section>
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2>字段变更</h2></div>
+            <table class="system-change-table">
+              <thead>
+                <tr>
+                  <th>变更字段</th>
+                  <th>变更前</th>
+                  <th>变更后</th>
+                </tr>
+              </thead>
+              <tbody id="changeRows"></tbody>
+            </table>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const data = LUMA_ADMIN_MOCK.system.auditLogs,
+        params = new URLSearchParams(location.search),
+        item = data.find((x) => x.id === params.get("id")) || data[0];
+      actionTitle.textContent = item.action;
+      logId.textContent = item.id;
+      moduleTag.textContent = item.module;
+      baseInfo.innerHTML = /* HTML */ `<div class="admin-detail-item">
+          <span>操作账号</span><b>${item.account}</b>
+        </div>
+        <div class="admin-detail-item">
+          <span>操作人</span><b>${item.operator}</b>
+        </div>
+        <div class="admin-detail-item">
+          <span>业务模块</span><b>${item.module}</b>
+        </div>
+        <div class="admin-detail-item">
+          <span>业务对象类型</span><b>${item.objectType}</b>
+        </div>
+        <div class="admin-detail-item">
+          <span>业务对象</span><b>${item.objectName} · ${item.objectId}</b>
+        </div>
+        <div class="admin-detail-item">
+          <span>操作时间</span><b>${item.time}</b>
+        </div>`;
+      logContent.textContent = item.content;
+      changeRows.innerHTML = item.changes
+        .map(
+          (x) =>
+            `<tr><td>${x.field}</td><td>${x.before}</td><td>${x.after}</td></tr>`,
+        )
+        .join("");
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-system-audit-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        角色权限变更: () =>
+          (location.href = "admin-system-audit-detail.html?id=LOG2608070098"),
+        参数变更: () =>
+          (location.href = "admin-system-audit-detail.html?id=LOG2608060216"),
+        账号创建: () =>
+          (location.href = "admin-system-audit-detail.html?id=LOG2608060106"),
+      });
+    </script>
+  </body>
+</html>

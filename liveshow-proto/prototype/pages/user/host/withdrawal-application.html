@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>提现填写 · 主播中心 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        min-height: 844px;
+        padding-bottom: 34px;
+      }
+      .content {
+        padding: 16px;
+      }
+      .field {
+        display: block;
+        margin-top: 20px;
+      }
+      .field:first-child {
+        margin-top: 0;
+      }
+      .field-label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--g2);
+        font-size: 14px;
+      }
+      .field input {
+        box-sizing: border-box;
+        width: 100%;
+        height: 44px;
+        padding: 0 11px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g1);
+        font: 14px inherit;
+        outline: 0;
+      }
+      .field input:focus {
+        border-color: var(--g2);
+      }
+      #amount {
+        font-size: 18px;
+      }
+      .balance {
+        margin: 8px 0 0;
+        color: var(--g4);
+        font-size: 12px;
+      }
+      .balance b {
+        margin-left: 4px;
+        color: var(--g2);
+        font-weight: 500;
+      }
+      .withdraw-all {
+        margin-left: 10px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .bank-picker {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 86px;
+        padding: 12px 42px 12px 11px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g1);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .bank-picker span,
+      .bank-choice span {
+        display: block;
+      }
+      .bank-number {
+        font-size: 15px;
+      }
+      .bank-name,
+      .bank-holder {
+        margin-top: 4px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .bank-chevron {
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        color: var(--g3);
+        font-size: 23px;
+        font-style: normal;
+        transform: translateY(-50%);
+      }
+      .submit {
+        width: 100%;
+        height: 44px;
+        margin-top: 28px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 15px inherit;
+        cursor: pointer;
+      }
+      .submit:disabled {
+        background: var(--g5);
+        color: var(--g4);
+        cursor: default;
+      }
+      .sheet-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: flex;
+        align-items: flex-end;
+        background: var(--overlay);
+      }
+      .sheet {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 18px 16px 30px;
+        border-radius: 8px 8px 0 0;
+        background: var(--g7);
+      }
+      .sheet h2 {
+        margin: 0 0 16px;
+        font-size: 17px;
+        text-align: center;
+      }
+      .bank-choice {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 86px;
+        padding: 12px 42px 12px 11px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g1);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .bank-choice.active:after {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        color: var(--g2);
+        content: "✓";
+        font-size: 16px;
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='income-withdrawal.html'"
+        >
+          ‹</button
+        >提现填写
+      </header>
+      <form class="content" id="withdrawForm">
+        <label class="field"
+          ><span class="field-label">提现金额</span
+          ><input id="amount" inputmode="decimal" autocomplete="off" required
+        /></label>
+        <p class="balance">
+          可提现余额 <b>$128,40</b
+          ><button class="withdraw-all" id="withdrawAll" type="button">
+            全部提现
+          </button>
+        </p>
+        <section class="field">
+          <span class="field-label">到账银行卡</span
+          ><button
+            class="bank-picker"
+            id="bankPicker"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            <span class="bank-number" id="selectedNumber"></span
+            ><span class="bank-name" id="selectedBankName"></span
+            ><span class="bank-holder" id="selectedHolder"></span
+            ><i class="bank-chevron">›</i>
+          </button>
+        </section>
+        <button class="submit" id="submitWithdrawal" type="submit" disabled>
+          确认提现
+        </button>
+      </form>
+    </main>
+    <section
+      class="sheet-mask state-hide"
+      id="bankSheet"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="sheet">
+        <h2>选择到账银行卡</h2>
+        <button class="bank-choice active" id="bankChoice" type="button">
+          <span class="bank-number" id="choiceNumber"></span
+          ><span class="bank-name" id="choiceBankName"></span
+          ><span class="bank-holder" id="choiceHolder"></span>
+        </button>
+      </div>
+    </section>
+    <div class="homebar"><i></i></div>
+    <script>
+      const bankMock = window.LUMA_MOCK.withdrawalBank;
+      const amount = document.querySelector("#amount"),
+        submitWithdrawal = document.querySelector("#submitWithdrawal"),
+        bankSheet = document.querySelector("#bankSheet");
+      const selectedNumber = document.querySelector("#selectedNumber"),
+        selectedBankName = document.querySelector("#selectedBankName"),
+        selectedHolder = document.querySelector("#selectedHolder"),
+        choiceNumber = document.querySelector("#choiceNumber"),
+        choiceBankName = document.querySelector("#choiceBankName"),
+        choiceHolder = document.querySelector("#choiceHolder");
+      let selectedBank = bankMock.sampleAccount;
+      function maskAccount(number) {
+        return `${number.slice(0, 4)}****${number.slice(-4)}`;
+      }
+      function renderBank(account) {
+        selectedBank = account;
+        const masked = maskAccount(account.number);
+        selectedNumber.textContent = masked;
+        selectedBankName.textContent = account.bank;
+        selectedHolder.textContent = account.recipientName;
+        choiceNumber.textContent = masked;
+        choiceBankName.textContent = account.bank;
+        choiceHolder.textContent = account.recipientName;
+      }
+      function closeBankSheet() {
+        bankSheet.classList.add("state-hide");
+      }
+      function openBankSheet() {
+        bankSheet.classList.remove("state-hide");
+      }
+      function normalizeAmount(value) {
+        const [integer, ...decimals] = value.replace(/[^\d,]/g, "").split(",");
+        return decimals.length
+          ? `${integer},${decimals.join("").slice(0, 2)}`
+          : integer;
+      }
+      function checkForm() {
+        const value = Number(amount.value.replace(",", "."));
+        submitWithdrawal.disabled = !(
+          value > 0 &&
+          value <= 128.4 &&
+          selectedBank
+        );
+      }
+      amount.oninput = () => {
+        amount.value = normalizeAmount(amount.value);
+        checkForm();
+      };
+      document.querySelector("#withdrawAll").onclick = () => {
+        amount.value = "128,40";
+        checkForm();
+      };
+      document.querySelector("#bankPicker").onclick = openBankSheet;
+      document.querySelector("#bankChoice").onclick = () => {
+        renderBank(bankMock.sampleAccount);
+        closeBankSheet();
+        checkForm();
+      };
+      bankSheet.onclick = (event) => {
+        if (event.target === bankSheet) closeBankSheet();
+      };
+      document.querySelector("#withdrawForm").onsubmit = (event) => {
+        event.preventDefault();
+        if (!submitWithdrawal.disabled) Luma.toast("提现申请已提交");
+      };
+      Luma.registerStates({
+        页面状态: { 填写: closeBankSheet, 选择到账银行卡: openBankSheet },
+      });
+      renderBank(bankMock.sampleAccount);
+      checkForm();
+    </script>
+  </body>
+</html>

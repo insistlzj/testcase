@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>直播类型 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js"></script>
+    <style>
+      .live-type-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .live-type-action {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--admin-ink);
+        font-size: var(--admin-font-sm);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub active" href="admin-live-type.html"
+              >直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>直播类型</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <h1>直播类型</h1>
+            <button class="admin-btn" id="createBtn" type="button">
+              新建直播类型
+            </button>
+          </div>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <strong>直播类型配置</strong><span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 860px">
+                <thead>
+                  <tr>
+                    <th>类型 ID</th>
+                    <th>直播类型</th>
+                    <th>状态</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="typeRows"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="typeOverlay">
+      <section
+        class="admin-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <div class="admin-modal-head">
+          <h2 id="modalTitle"></h2>
+          <button class="admin-icon-btn" type="button" data-close="typeOverlay">
+            ×
+          </button>
+        </div>
+        <form id="typeForm">
+          <div class="admin-modal-body">
+            <div class="admin-form-row">
+              <label for="typeName">直播类型</label
+              ><input
+                class="admin-input"
+                id="typeName"
+                maxlength="20"
+                required
+              />
+            </div>
+            <div class="admin-form-row">
+              <label>状态</label>
+              <div class="admin-switch-control">
+                <label class="admin-switch"
+                  ><input id="typeEnabled" type="checkbox" checked /><span
+                    class="admin-switch-track"
+                  ></span></label
+                ><span id="typeEnabledText"></span>
+              </div>
+            </div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="typeOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" type="submit">保存</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <div class="admin-overlay" id="deleteOverlay">
+      <section
+        class="admin-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="deleteTitle"
+      >
+        <div class="admin-modal-head">
+          <h2 id="deleteTitle">删除直播类型</h2>
+          <button
+            class="admin-icon-btn"
+            type="button"
+            data-close="deleteOverlay"
+          >
+            ×
+          </button>
+        </div>
+        <form id="deleteForm">
+          <div class="admin-modal-body"><p id="deleteText"></p></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="deleteOverlay"
+            >
+              取消</button
+            ><button class="admin-btn danger" type="submit">确认删除</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const storageKey = "luma-admin-live-types-v1",
+        defaults = [
+          {
+            id: "LT001",
+            name: "唱歌",
+            enabled: true,
+            updatedAt: "2026-08-12 10:20",
+          },
+          {
+            id: "LT002",
+            name: "聊天",
+            enabled: true,
+            updatedAt: "2026-08-12 10:18",
+          },
+          {
+            id: "LT003",
+            name: "舞蹈",
+            enabled: true,
+            updatedAt: "2026-08-12 10:16",
+          },
+          {
+            id: "LT004",
+            name: "才艺",
+            enabled: true,
+            updatedAt: "2026-08-12 10:14",
+          },
+        ],
+        presetIds = new Set(defaults.map((item) => item.id));
+      let items = readItems(),
+        editingId = null,
+        deletingId = null;
+      function sharedStorage() {
+        try {
+          return window.parent && window.parent !== window
+            ? window.parent.localStorage
+            : localStorage;
+        } catch (error) {
+          return localStorage;
+        }
+      }
+      function readItems() {
+        try {
+          const saved = JSON.parse(
+            sharedStorage().getItem(storageKey) || "null",
+          );
+          if (Array.isArray(saved)) return saved;
+        } catch (error) {}
+        return defaults.map((item) => ({ ...item }));
+      }
+      function saveItems() {
+        try {
+          sharedStorage().setItem(storageKey, JSON.stringify(items));
+        } catch (error) {}
+      }
+      function nextId() {
+        return `LT${String(Math.max(0, ...items.map((item) => Number(item.id.replace(/\D/g, "")) || 0)) + 1).padStart(3, "0")}`;
+      }
+      function render() {
+        resultCount.textContent = `共 ${items.length} 条`;
+        typeRows.innerHTML = items
+          .map(
+            (item) =>
+              /* HTML */ `<tr>
+                <td>${item.id}</td>
+                <td><b>${item.name}</b></td>
+                <td>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input
+                        type="checkbox"
+                        data-toggle="${item.id}"
+                        ${item.enabled ? "checked" : ""} /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span>${item.enabled ? "启用" : "停用"}</span>
+                  </div>
+                </td>
+                <td>${item.updatedAt}</td>
+                <td>
+                  <div class="live-type-actions">
+                    <button
+                      class="live-type-action"
+                      type="button"
+                      data-edit="${item.id}"
+                    >
+                      编辑</button
+                    >${presetIds.has(item.id)
+                      ? ""
+                      : /* HTML */ `<button
+                          class="live-type-action"
+                          type="button"
+                          data-delete="${item.id}"
+                        >
+                          删除
+                        </button>`}
+                  </div>
+                </td>
+              </tr>`,
+          )
+          .join("");
+      }
+      function syncModal() {
+        typeEnabledText.textContent = typeEnabled.checked ? "启用" : "停用";
+      }
+      function openModal(id) {
+        editingId = id || null;
+        const item = items.find((entry) => entry.id === id);
+        modalTitle.textContent = item ? "编辑直播类型" : "新建直播类型";
+        typeName.value = item?.name || "";
+        typeEnabled.checked = item?.enabled ?? true;
+        syncModal();
+        typeOverlay.classList.add("show");
+        typeName.focus();
+      }
+      createBtn.onclick = () => openModal();
+      typeEnabled.onchange = syncModal;
+      typeRows.onclick = (event) => {
+        const edit = event.target.closest("[data-edit]");
+        if (edit) {
+          openModal(edit.dataset.edit);
+          return;
+        }
+        const remove = event.target.closest("[data-delete]");
+        if (!remove) return;
+        deletingId = remove.dataset.delete;
+        const item = items.find((entry) => entry.id === deletingId);
+        deleteText.textContent = `确认删除直播类型“${item.name}”？`;
+        deleteOverlay.classList.add("show");
+      };
+      typeRows.onchange = (event) => {
+        const input = event.target.closest("[data-toggle]");
+        if (!input) return;
+        const item = items.find((entry) => entry.id === input.dataset.toggle);
+        item.enabled = input.checked;
+        item.updatedAt = "2026-08-15 10:30";
+        saveItems();
+        render();
+        Luma.toast(`${item.name}已${item.enabled ? "启用" : "停用"}`);
+      };
+      typeForm.onsubmit = (event) => {
+        event.preventDefault();
+        const name = typeName.value.trim();
+        if (!name) return;
+        if (items.some((item) => item.id !== editingId && item.name === name))
+          return Luma.toast("直播类型名称已存在");
+        if (editingId) {
+          const item = items.find((entry) => entry.id === editingId);
+          item.name = name;
+          item.enabled = typeEnabled.checked;
+          item.updatedAt = "2026-08-15 10:30";
+        } else
+          items.push({
+            id: nextId(),
+            name,
+            enabled: typeEnabled.checked,
+            updatedAt: "2026-08-15 10:30",
+          });
+        saveItems();
+        typeOverlay.classList.remove("show");
+        render();
+        Luma.toast(editingId ? "直播类型已保存" : "直播类型已新建");
+      };
+      deleteForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (presetIds.has(deletingId)) return;
+        items = items.filter((item) => item.id !== deletingId);
+        saveItems();
+        deleteOverlay.classList.remove("show");
+        render();
+        Luma.toast("直播类型已删除");
+      };
+      document.addEventListener("click", (event) => {
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+      });
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-live-type.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

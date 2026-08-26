@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>充值套餐编辑 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <style>
+      .admin-field-hint {
+        display: block;
+        margin-top: 6px;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub active" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;充值套餐&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              id="pageName"
+            ></strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-recharge-package.html"
+            >‹ 返回充值套餐</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2 id="formTitle"></h2></div>
+            <form class="admin-resource-form" id="packageForm">
+              <div class="admin-form-grid admin-basic-form-grid">
+                <div class="admin-form-row">
+                  <label>套餐 ID</label>
+                  <div class="admin-readonly-value" id="packageId"></div>
+                </div>
+                <div class="admin-form-row" id="typeRow">
+                  <label for="typeValue">套餐类型</label
+                  ><select class="admin-select" id="typeValue">
+                    <option value="regular">常规</option>
+                    <option value="activity">活动</option>
+                  </select>
+                </div>
+                <div class="admin-form-row" id="sortRow">
+                  <label for="sort">排序权重</label
+                  ><input
+                    class="admin-input"
+                    id="sort"
+                    type="number"
+                    min="0"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label>上下架状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="enabled" type="checkbox" checked /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="enabledText"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-media-upload-grid">
+                <div class="admin-media-upload">
+                  <h4>套餐封面</h4>
+                  <div class="admin-media-upload-preview-wrap">
+                    <button
+                      class="admin-media-upload-preview"
+                      id="coverPreview"
+                      type="button"
+                    ></button
+                    ><button
+                      class="admin-media-delete"
+                      id="deleteCoverBtn"
+                      type="button"
+                      aria-label="删除套餐封面"
+                      title="删除套餐封面"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <input
+                    class="admin-file-input"
+                    id="coverFile"
+                    type="file"
+                    accept="image/*"
+                  />
+                </div>
+              </div>
+              <div class="admin-form-grid">
+                <div class="admin-form-row">
+                  <label for="price">销售价格（USD）</label
+                  ><input
+                    class="admin-input"
+                    id="price"
+                    type="text"
+                    inputmode="decimal"
+                    data-luma-decimal
+                    min="0.01"
+                    step="0.01"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="coins">充值金币</label
+                  ><input
+                    class="admin-input"
+                    id="coins"
+                    type="number"
+                    min="1"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="bonus">赠送金币</label
+                  ><input
+                    class="admin-input"
+                    id="bonus"
+                    type="number"
+                    min="0"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row" id="purchaseLimitRow">
+                  <label for="purchaseLimit">单用户限购次数</label
+                  ><input
+                    class="admin-input"
+                    id="purchaseLimit"
+                    type="number"
+                    min="1"
+                    step="1"
+                  />
+                  <div
+                    class="admin-readonly-value state-hide"
+                    id="purchaseLimitUnlimited"
+                  >
+                    不限
+                  </div>
+                </div>
+                <div class="admin-form-row" id="timeRow">
+                  <label>有效时间</label>
+                  <div class="admin-range" id="timeRange">
+                    <input
+                      class="admin-input"
+                      id="startAt"
+                      type="datetime-local"
+                    /><span>至</span
+                    ><input
+                      class="admin-input"
+                      id="endAt"
+                      type="datetime-local"
+                    />
+                  </div>
+                  <div
+                    class="admin-readonly-value state-hide"
+                    id="timeUnlimited"
+                  >
+                    不限
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <label>最后更新时间</label>
+                  <div class="admin-readonly-value" id="updatedAt"></div>
+                </div>
+              </div>
+              <div class="admin-modal-foot">
+                <a
+                  class="admin-btn secondary"
+                  href="admin-recharge-package.html"
+                  >取消</a
+                ><button class="admin-btn" type="submit">保存</button>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const packages = window.LUMA_ADMIN_MOCK.rechargePackageItems,
+        params = new URLSearchParams(location.search);
+      let isNew = params.get("new") === "1",
+        item = isNew
+          ? blankItem()
+          : packages.find((entry) => entry.id === params.get("id")) ||
+            packages[0],
+        editorCover = item.cover;
+      function blankItem() {
+        return {
+          id: "",
+          cover: "未上传",
+          type: "activity",
+          coins: 600,
+          price: 1.5,
+          bonus: 0,
+          purchaseLimit: 1,
+          startAt: "",
+          endAt: "",
+          sort: 50,
+          enabled: true,
+          updatedAt: "-",
+        };
+      }
+      function nextId() {
+        return `RCP${String(Math.max(...packages.map((entry) => Number(entry.id.replace(/\D/g, "")))) + 1).padStart(4, "0")}`;
+      }
+      function syncEnabled() {
+        enabledText.textContent = enabled.checked ? "上架" : "下架";
+      }
+      function syncType() {
+        item.type = typeValue.value;
+        const activity = item.type === "activity";
+        purchaseLimit.classList.toggle("state-hide", !activity);
+        purchaseLimitUnlimited.classList.toggle("state-hide", activity);
+        timeRange.classList.toggle("state-hide", !activity);
+        timeUnlimited.classList.toggle("state-hide", activity);
+        purchaseLimit.required = activity;
+        startAt.required = activity;
+        endAt.required = activity;
+        if (!activity) {
+          purchaseLimit.value = "";
+          startAt.value = "";
+          endAt.value = "";
+        } else if (!purchaseLimit.value) {
+          purchaseLimit.value = "1";
+        }
+      }
+      function renderCover() {
+        const empty = editorCover === "未上传";
+        coverPreview.textContent = empty ? "点击上传" : editorCover;
+        coverPreview.classList.toggle("is-empty", empty);
+        deleteCoverBtn.classList.toggle("state-hide", empty);
+      }
+      function render() {
+        const title = isNew ? "新增充值套餐" : "编辑充值套餐";
+        pageName.textContent = title;
+        formTitle.textContent = title;
+        packageId.textContent = isNew ? "保存后由系统生成" : item.id;
+        typeValue.value = item.type;
+        price.value = LUMA_FORMAT.decimalInput(item.price);
+        coins.value = item.coins;
+        bonus.value = item.bonus;
+        purchaseLimit.value = item.purchaseLimit || 1;
+        sort.value = item.sort;
+        startAt.value = item.startAt.replace(" ", "T");
+        endAt.value = item.endAt.replace(" ", "T");
+        enabled.checked = item.enabled;
+        updatedAt.textContent = item.updatedAt;
+        syncEnabled();
+        syncType();
+        renderCover();
+      }
+      enabled.onchange = syncEnabled;
+      typeValue.onchange = syncType;
+      coverPreview.onclick = () => coverFile.click();
+      coverFile.onchange = () => {
+        if (coverFile.files[0]) {
+          editorCover = coverFile.files[0].name;
+          renderCover();
+        }
+      };
+      deleteCoverBtn.onclick = () => {
+        editorCover = "未上传";
+        coverFile.value = "";
+        renderCover();
+      };
+      packageForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (editorCover === "未上传") return Luma.toast("请上传套餐封面");
+        if (item.type === "activity" && startAt.value >= endAt.value)
+          return Luma.toast("有效时间的结束时间必须晚于开始时间");
+        const created = isNew;
+        Object.assign(item, {
+          id: created ? nextId() : item.id,
+          cover: editorCover,
+          type: typeValue.value,
+          coins: Number(coins.value),
+          price: LUMA_FORMAT.parseDecimal(price.value),
+          bonus: Number(bonus.value),
+          purchaseLimit:
+            item.type === "activity" ? Number(purchaseLimit.value) : 0,
+          startAt:
+            item.type === "activity" ? startAt.value.replace("T", " ") : "",
+          endAt: item.type === "activity" ? endAt.value.replace("T", " ") : "",
+          sort: Number(sort.value),
+          enabled: enabled.checked,
+          updatedAt: "2026-08-06 15:00",
+        });
+        if (created) {
+          packages.push(item);
+          isNew = false;
+          history.replaceState(
+            null,
+            "",
+            `admin-recharge-package-detail.html?id=${item.id}&edit=1`,
+          );
+        }
+        render();
+        Luma.toast(created ? "充值套餐已新增" : "充值套餐已保存");
+      };
+      render();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-recharge-package-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        活动套餐: () => {
+          if (item.type === "activity") {
+            startAt.value = "2026-08-10T00:00";
+            endAt.value = "2026-08-18T23:59";
+            syncType();
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>头像框 · 我的装扮 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .items {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        padding: 12px 16px 0;
+      }
+      .item {
+        min-width: 0;
+        padding: 11px 5px 9px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--g7);
+        color: var(--g1);
+        font: inherit;
+        text-align: center;
+        cursor: pointer;
+      }
+      .visual {
+        width: 72px;
+        height: 72px;
+        margin: auto;
+        display: grid;
+        place-items: center;
+        border: 4px double var(--g2);
+        border-radius: 50%;
+        background: var(--g7);
+      }
+      .visual .avatar {
+        width: 48px;
+        height: 48px;
+        background: var(--g5);
+        color: var(--g2);
+        font-size: 18px;
+      }
+      .item b,
+      .item small {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .item b {
+        margin-top: 9px;
+        font-size: 12px;
+      }
+      .item small {
+        margin-top: 4px;
+        color: var(--g4);
+        font-size: 10px;
+      }
+      .item.equipped .visual {
+        background: var(--g6);
+      }
+      .item.equipped small {
+        color: var(--success);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='my-decoration.html'"
+        >
+          ‹</button
+        >头像框
+      </header>
+      <section class="items" id="items" aria-label="头像框列表"></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const props = LUMA_MOCK.myDecorations.avatarFrames;
+      let equipped = props.find((item) => item.equipped)?.id || "";
+      const items = document.querySelector("#items");
+      function render() {
+        items.innerHTML = props
+          .map(
+            (item) =>
+              `<button class="item ${item.id === equipped ? "equipped" : ""}" type="button" data-id="${item.id}"><i class="visual"><i class="avatar">${LUMA_MOCK.myProfile.avatar}</i></i><b>${item.name}</b><small>${item.id === equipped ? "已佩戴" : "佩戴"}</small></button>`,
+          )
+          .join("");
+        items.querySelectorAll("button").forEach(
+          (button) =>
+            (button.onclick = () => {
+              const next = button.dataset.id;
+              equipped = equipped === next ? "" : next;
+              render();
+              Luma.toast(equipped ? "已佩戴头像框" : "已卸下头像框");
+            }),
+        );
+      }
+      render();
+    </script>
+  </body>
+</html>

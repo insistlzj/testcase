@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>搜索 · 用户端 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js?v=20260817-manager-v3"></script>
+    <style>
+      .screen {
+        min-height: 844px;
+        padding-bottom: 34px;
+      }
+      .search-nav {
+        height: 56px;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--g7);
+      }
+      .search-nav .back {
+        position: static;
+        flex: none;
+        padding: 0;
+        font-size: 28px;
+      }
+      .search-form {
+        min-width: 0;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 40px;
+        padding: 0 12px;
+        border-radius: 8px;
+        background: var(--g6);
+      }
+      .search-form svg {
+        width: 18px;
+        height: 18px;
+        flex: none;
+        fill: none;
+        stroke: var(--g3);
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .search-form input {
+        min-width: 0;
+        flex: 1;
+        height: 100%;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--g1);
+        font: 14px inherit;
+      }
+      .search-form input::placeholder {
+        color: var(--g4);
+      }
+      .search-form button {
+        height: 30px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--g2);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="search-nav">
+        <button class="back" type="button" aria-label="返回首页" id="back">
+          ‹
+        </button>
+        <form class="search-form" id="searchForm">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+          <input
+            id="keyword"
+            autocomplete="off"
+            placeholder="搜索房间号、主播 ID 或主播昵称"
+          />
+          <button type="submit">搜索</button>
+        </form>
+      </header>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const managerMode = params.get("mode") === "manager";
+      const returnTarget =
+        managerMode &&
+        params.get("return") === "../host/moderator-management.html"
+          ? "../host/moderator-management.html"
+          : "";
+      const form = document.querySelector("#searchForm");
+      const input = document.querySelector("#keyword");
+      input.value = params.get("keyword") || "";
+      if (managerMode) {
+        input.placeholder = "搜索用户 ID";
+        document.querySelector("#back").onclick = () => {
+          location.href = returnTarget;
+        };
+      } else
+        document.querySelector("#back").onclick = () => {
+          location.href = "live-plaza.html";
+        };
+      requestAnimationFrame(() => input.focus());
+      form.onsubmit = (event) => {
+        event.preventDefault();
+        const keyword = input.value.trim();
+        if (!keyword) {
+          Luma.toast("请输入搜索内容");
+          input.focus();
+          return;
+        }
+        const query = new URLSearchParams({ keyword });
+        if (managerMode) {
+          query.set("mode", "manager");
+          query.set("return", returnTarget);
+        }
+        location.href = `search-results.html?${query}`;
+      };
+      Luma.registerStates({
+        页面状态: {
+          未输入: () => {
+            input.value = "";
+          },
+          已输入: () => {
+            input.value = "Sari";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

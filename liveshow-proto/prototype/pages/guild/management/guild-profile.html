@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>公会资料 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260814-guild-profile-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="../home/guild-home.html">‹</a>公会资料
+      </header>
+      <div class="guild-page-body">
+        <section class="guild-form-card">
+          <div class="guild-logo-editor">
+            <span class="guild-mark">JS</span
+            ><button id="logo">更换公会 Logo</button>
+          </div>
+          <div class="guild-profile-readonly">
+            <span>公会 ID</span><b id="guildProfileId">G10021</b>
+          </div>
+          <label class="guild-field"
+            ><span>公会名称</span
+            ><input
+              id="name"
+              value="Jakarta Star Guild"
+              maxlength="40" /></label
+          ><label class="guild-field"
+            ><span>公会简介</span
+            ><textarea id="intro" maxlength="200">
+专注音乐、聊天和才艺主播运营，提供培训及活动支持。</textarea
+            ></label
+          ><button class="guild-primary-action" id="save">保存资料</button>
+        </section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      logo.onclick = () => Luma.toast("已选择新的公会 Logo");
+      save.onclick = () => {
+        if (!name.value.trim()) {
+          Luma.toast("请输入公会名称");
+          return;
+        }
+        Luma.toast("公会资料已保存");
+      };
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-profile.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

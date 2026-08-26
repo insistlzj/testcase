@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>直播记录 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260819-all-records-v1"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild-core-data.css?v=20260820-picker-no-avatars-v1"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js?v=20260819-all-records-v1"></script>
+    <script src="../../../assets/guild-data-model.js?v=20260819-all-records-v2"></script>
+  </head>
+  <body data-record-overview="live">
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="../home/guild-home.html" aria-label="返回"
+          >‹</a
+        >直播记录
+      </header>
+      <div class="guild-page-body guild-record-overview-page">
+        <div class="guild-host-summary-filterbar">
+          <button
+            class="guild-host-summary-range"
+            id="rangePickerButton"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+              <path d="M8 3v4M16 3v4M4 10h16"></path></svg
+            ><span id="rangePickerValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <button
+            class="guild-host-performance-quick"
+            id="shortcutPicker"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+          >
+            <span id="shortcutPickerValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <div
+            class="guild-host-performance-shortcut-menu"
+            id="shortcutMenu"
+            role="menu"
+            aria-label="快捷日期筛选"
+            hidden
+          ></div>
+        </div>
+        <section
+          class="guild-record-overview-table is-live"
+          aria-label="直播记录列表"
+        >
+          <div class="guild-record-overview-head" role="row">
+            <span>主播</span><span>直播次数</span><span>有效天</span
+            ><span>直播时长</span>
+          </div>
+          <div id="recordList" role="rowgroup"></div>
+        </section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <div class="guild-mask guild-host-date-mask" id="rangeSheet" hidden>
+      <section
+        class="guild-sheet guild-host-range-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="rangeSheetTitle"
+      >
+        <header class="guild-host-month-sheet-head">
+          <button id="rangeSheetCancel" type="button">取消</button>
+          <h2 id="rangeSheetTitle">选择日期范围</h2>
+          <button class="confirm" id="rangeSheetConfirm" type="button">
+            确定
+          </button>
+        </header>
+        <div class="guild-host-performance-calendar">
+          <div class="guild-host-performance-calendar-nav">
+            <button id="calendarPrev" type="button" aria-label="上一个月">
+              ‹</button
+            ><b id="calendarTitle"></b
+            ><button id="calendarNext" type="button" aria-label="下一个月">
+              ›
+            </button>
+          </div>
+          <div class="guild-host-performance-calendar-week" aria-hidden="true">
+            <span>日</span><span>一</span><span>二</span><span>三</span
+            ><span>四</span><span>五</span><span>六</span>
+          </div>
+          <div
+            class="guild-host-performance-calendar-days"
+            id="calendarDays"
+            role="grid"
+          ></div>
+        </div>
+        <p class="guild-host-performance-range-hint" id="rangeSelection"></p>
+      </section>
+    </div>
+    <script src="../../../assets/guild-record-overviews.js?v=20260820-single-selected-count-v1"></script>
+  </body>
+</html>

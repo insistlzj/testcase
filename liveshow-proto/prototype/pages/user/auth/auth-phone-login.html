@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>手机号登录 · 账号 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      body {
+        background: var(--g7);
+      }
+      .auth-page {
+        width: 390px;
+        min-height: 844px;
+        padding: 34px 24px 28px;
+        background: var(--g7);
+        display: flex;
+        flex-direction: column;
+      }
+      .sb {
+        margin-bottom: 42px;
+      }
+      .page-head {
+        height: 30px;
+        margin-bottom: 34px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .back {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 24px/1 inherit;
+        cursor: pointer;
+      }
+      .page-head h1 {
+        margin: 0;
+        font-size: 22px;
+      }
+      .field {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .field > span {
+        display: block;
+        margin-bottom: 7px;
+      }
+      .input-row {
+        height: 46px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        display: flex !important;
+        align-items: center;
+        overflow: hidden;
+      }
+      .input-row:focus-within {
+        border-color: var(--g2);
+      }
+      .prefix {
+        height: 24px;
+        flex: 0 0 auto;
+        padding: 0 10px;
+        border-right: 1px solid var(--g5);
+        color: var(--g2);
+        display: flex;
+        align-items: center;
+      }
+      .input-row input {
+        display: block;
+        min-width: 0;
+        flex: 1;
+        height: 44px;
+        padding: 0 12px;
+        border: 0;
+        background: transparent;
+        color: var(--g1);
+        font: 14px inherit;
+        outline: 0;
+      }
+      .input-row button {
+        height: 32px;
+        flex: 0 0 auto;
+        margin-right: 6px;
+        padding: 0 10px;
+        border: 0;
+        border-radius: 7px;
+        background: var(--g6);
+        color: var(--g2);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .input-row button:disabled {
+        color: var(--g4);
+        cursor: default;
+      }
+      .method-switch {
+        width: 100%;
+        margin: -2px 0 16px;
+        padding: 3px 0;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 12px inherit;
+        text-align: right;
+        cursor: pointer;
+      }
+      .agreement {
+        margin: 2px 0 14px;
+        color: var(--g3);
+        font-size: 11px;
+        line-height: 1.5;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .agreement input {
+        margin: 2px 0 0;
+        accent-color: var(--g1);
+      }
+      .agreement a {
+        color: var(--g1);
+      }
+      .submit {
+        width: 100%;
+        height: 46px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 600 15px inherit;
+        cursor: pointer;
+      }
+      .submit:disabled {
+        background: var(--g5);
+        cursor: default;
+      }
+      .form-error {
+        min-height: 18px;
+        margin: 10px 0 0;
+        color: var(--danger);
+        font-size: 12px;
+        text-align: center;
+      }
+      .result-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--overlay);
+      }
+      .result-card {
+        width: 300px;
+        padding: 22px 18px 18px;
+        border-radius: 8px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .result-card i {
+        width: 42px;
+        height: 42px;
+        margin: 0 auto 12px;
+        border-radius: 50%;
+        background: var(--g1);
+        color: var(--g7);
+        display: grid;
+        place-items: center;
+        font: 20px inherit;
+      }
+      .result-card b {
+        display: block;
+        font-size: 17px;
+      }
+      .result-card p {
+        margin: 8px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .result-card button {
+        width: 100%;
+        height: 42px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="auth-page">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="page-head">
+        <button class="back" id="backEntry" type="button" aria-label="返回登录">
+          &#8249;
+        </button>
+        <h1>手机号登录</h1>
+      </header>
+      <form id="phoneForm" novalidate>
+        <label class="field"
+          ><span>手机号</span>
+          <div class="input-row">
+            <i class="prefix">+62</i
+            ><input
+              id="phone"
+              autocomplete="tel"
+              inputmode="tel"
+              placeholder="输入手机号"
+            /></div></label
+        ><label class="field" id="codeField"
+          ><span>验证码</span>
+          <div class="input-row">
+            <input
+              id="code"
+              inputmode="numeric"
+              maxlength="6"
+              placeholder="输入 6 位验证码"
+            /><button id="sendCode" type="button" disabled>获取验证码</button>
+          </div></label
+        ><label class="field state-hide" id="passwordField"
+          ><span>密码</span>
+          <div class="input-row">
+            <input
+              id="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="输入密码"
+            /></div></label
+        ><button class="method-switch" id="methodSwitch" type="button">
+          使用密码登录</button
+        ><label class="agreement"
+          ><input id="agreement" type="checkbox" /><span
+            >我已阅读并同意
+            <a href="#" data-policy="用户协议">《用户协议》</a> 与
+            <a href="#" data-policy="隐私政策">《隐私政策》</a></span
+          ></label
+        ><button class="submit" id="submit" type="submit" disabled>继续</button>
+      </form>
+      <p class="form-error" id="formError"></p>
+    </main>
+    <section
+      class="result-mask state-hide"
+      id="resultMask"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="result-card">
+        <i>✓</i><b id="resultTitle"></b>
+        <p id="resultText"></p>
+        <button id="enterApp" type="button">进入首页</button>
+      </div>
+    </section>
+    <div class="homebar"><i></i></div>
+    <script>
+      const authMock = window.LUMA_MOCK.auth,
+        phoneForm = document.querySelector("#phoneForm"),
+        phone = document.querySelector("#phone"),
+        code = document.querySelector("#code"),
+        password = document.querySelector("#password"),
+        agreement = document.querySelector("#agreement"),
+        sendCode = document.querySelector("#sendCode"),
+        submit = document.querySelector("#submit");
+      let countdownTimer,
+        loginMethod = "code";
+      function phoneValid() {
+        return /^\d{8,15}$/.test(phone.value.trim());
+      }
+      function syncSubmit() {
+        const credentialValid =
+          loginMethod === "code"
+            ? /^\d{6}$/.test(code.value.trim())
+            : Boolean(password.value);
+        submit.disabled = !(
+          phoneValid() &&
+          credentialValid &&
+          agreement.checked
+        );
+        sendCode.disabled =
+          loginMethod !== "code" || !phoneValid() || Boolean(countdownTimer);
+      }
+      function setLoginMethod(method) {
+        loginMethod = method;
+        document
+          .querySelector("#codeField")
+          .classList.toggle("state-hide", method !== "code");
+        document
+          .querySelector("#passwordField")
+          .classList.toggle("state-hide", method !== "password");
+        document.querySelector("#methodSwitch").textContent =
+          method === "code" ? "使用密码登录" : "使用短信验证码登录";
+        syncSubmit();
+      }
+      document.querySelector("#backEntry").onclick = () => {
+        window.parent.postMessage(
+          { type: "luma-page", file: "auth-login-register.html" },
+          "*",
+        );
+        location.href = "auth-login-register.html";
+      };
+      document.querySelector("#methodSwitch").onclick = () =>
+        setLoginMethod(loginMethod === "code" ? "password" : "code");
+      [phone, code, password, agreement].forEach((element) =>
+        element.addEventListener("input", syncSubmit),
+      );
+      sendCode.onclick = () => {
+        let left = 60;
+        sendCode.disabled = true;
+        sendCode.textContent = `${left}s`;
+        Luma.toast("验证码已发送");
+        countdownTimer = setInterval(() => {
+          left -= 1;
+          if (left > 0) {
+            sendCode.textContent = `${left}s`;
+            return;
+          }
+          clearInterval(countdownTimer);
+          countdownTimer = null;
+          sendCode.textContent = "获取验证码";
+          syncSubmit();
+        }, 1000);
+      };
+      document.querySelectorAll("[data-policy]").forEach(
+        (link) =>
+          (link.onclick = (event) => {
+            event.preventDefault();
+            Luma.toast(`打开${link.dataset.policy}`);
+          }),
+      );
+      function showResult(title, text) {
+        document.querySelector("#resultTitle").textContent = title;
+        document.querySelector("#resultText").textContent = text;
+        document.querySelector("#resultMask").classList.remove("state-hide");
+      }
+      phoneForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (!submit.disabled)
+          showResult("登录成功", `欢迎回来，${authMock.userName}。`);
+      };
+      document.querySelector("#enterApp").onclick = () => {
+        window.parent.postMessage(
+          { type: "luma-page", file: "../home/live-plaza.html" },
+          "*",
+        );
+        location.href = "../home/live-plaza.html";
+      };
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "auth-phone-login.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        登录方式: {
+          短信验证码: () => setLoginMethod("code"),
+          密码: () => setLoginMethod("password"),
+        },
+      });
+    </script>
+  </body>
+</html>

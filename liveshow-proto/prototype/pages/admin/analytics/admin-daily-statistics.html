@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>每日统计 · 数据分析 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/admin-reporting.js?v=20260814-card-help-v2"></script>
+    <script src="../../../assets/admin-mock.js?v=20260819-business-statistics-v1"></script>
+    <style></style>
+  </head>
+  <body class="admin-monochrome analytics-report-page daily-statistics-page">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            数据分析&nbsp;&nbsp;/&nbsp;&nbsp;基础数据&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >每日统计</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <h1>每日统计</h1>
+            <button class="admin-btn secondary" id="exportBtn">导出报表</button>
+          </div>
+          <section class="admin-panel admin-filter statistics-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label>时段</label>
+                <div class="admin-range admin-date-range">
+                  <input
+                    class="admin-input"
+                    id="startDate"
+                    type="date"
+                    value="2026-08-13"
+                  /><span>至</span
+                  ><input
+                    class="admin-input"
+                    id="endDate"
+                    type="date"
+                    value="2026-08-19"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-wrap">
+              <table
+                class="admin-table statistics-table"
+                style="min-width: 1820px"
+              >
+                <thead>
+                  <tr>
+                    <th>日期</th>
+                    <th>活跃用户</th>
+                    <th>新增用户</th>
+                    <th>总充值金额</th>
+                    <th>总充值人数</th>
+                    <th>新用户充值人数</th>
+                    <th>新用户充值金额</th>
+                    <th>新用户ARPU</th>
+                    <th>开播人数</th>
+                    <th>达成有效天主播</th>
+                    <th>开播时长中位数</th>
+                    <th>退款订单数</th>
+                    <th>退款金额</th>
+                  </tr>
+                </thead>
+                <tbody id="rows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const R = LUMA_REPORTING,
+        F = LUMA_FORMAT,
+        DATA = LUMA_ADMIN_MOCK.analytics.dailyStatistics;
+      let visible = DATA;
+      const duration = (value) => {
+        const hours = Math.floor(value / 60),
+          minutes = value % 60;
+        return `${hours ? `${hours}h ` : ""}${minutes}m`;
+      };
+      const money = (value) =>
+        `<span class="statistics-recharge-money" style="color:${window.LUMA_ADMIN_TOKENS.success};font-weight:700">${F.money(value)}</span>`;
+      function render(items) {
+        visible = items;
+        pagination.classList.toggle("state-hide", !items.length);
+        rows.innerHTML = items.length
+          ? items
+              .map(
+                (item) =>
+                  /* HTML */ `<tr>
+                    <td><b>${F.date(item.date)}</b></td>
+                    <td>${F.integer(item.activeUsers)}</td>
+                    <td>${F.integer(item.newUsers)}</td>
+                    <td>${money(item.rechargeAmount)}</td>
+                    <td>${F.integer(item.rechargeUsers)}</td>
+                    <td>${F.integer(item.newRechargeUsers)}</td>
+                    <td>${money(item.newRechargeAmount)}</td>
+                    <td>${money(item.newUserArpu)}</td>
+                    <td>${F.integer(item.liveHosts)}</td>
+                    <td>${F.integer(item.effectiveHosts)}</td>
+                    <td>${duration(item.medianLiveMinutes)}</td>
+                    <td>${F.integer(item.refundOrderCount)}</td>
+                    <td>${money(item.refundAmount)}</td>
+                  </tr>`,
+              )
+              .join("")
+          : '<tr><td colspan="13"><div class="admin-empty"><strong>暂无每日统计数据</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+      }
+      function query() {
+        if (!R.validateDates(startDate.value, endDate.value)) return;
+        const items = DATA.filter(
+          (item) =>
+            (!startDate.value || item.date >= startDate.value) &&
+            (!endDate.value || item.date <= endDate.value),
+        );
+        render(items);
+        Luma.toast("已更新每日统计");
+      }
+      searchBtn.onclick = query;
+      resetBtn.onclick = () => {
+        startDate.value = "2026-08-13";
+        endDate.value = "2026-08-19";
+        render(DATA);
+        Luma.toast("筛选条件已重置");
+      };
+      exportBtn.onclick = () => R.exportReport("每日统计", visible.length);
+      render(DATA);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-daily-statistics.html" },
+        "*",
+      );
+      Luma.registerStates({
+        默认: () => {
+          startDate.value = "2026-08-13";
+          endDate.value = "2026-08-19";
+          render(DATA);
+        },
+        单日数据: () => {
+          startDate.value = "2026-08-19";
+          endDate.value = "2026-08-19";
+          query();
+        },
+        无查询结果: () => render([]),
+      });
+    </script>
+  </body>
+</html>

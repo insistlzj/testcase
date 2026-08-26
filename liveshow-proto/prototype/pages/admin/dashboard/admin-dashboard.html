@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>工作台 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-reporting.js?v=20260814-card-help-v2"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <style>
+      .dashboard-section-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        margin-bottom: 11px;
+      }
+      .dashboard-section-heading .dashboard-section-title {
+        margin: 0;
+      }
+      .dashboard-section-updated {
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+      }
+      .data-overview-kpis {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .data-overview-kpi {
+        min-width: 0;
+        min-height: 112px;
+        padding: 16px;
+        border: 1px solid var(--admin-border);
+        border-radius: var(--admin-radius-md);
+        background: var(--admin-surface);
+        color: var(--admin-ink);
+        text-align: left;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s,
+          background 0.15s;
+      }
+      .data-overview-kpi:hover {
+        border-color: var(--admin-primary);
+      }
+      .data-overview-kpi:focus-visible {
+        outline: 2px solid var(--admin-primary);
+        outline-offset: 2px;
+      }
+      .data-overview-kpi.is-selected {
+        border-color: var(--admin-primary);
+        background: var(--admin-primary-soft);
+        box-shadow: var(--admin-focus-ring);
+      }
+      .data-overview-kpi-label {
+        display: block;
+        min-height: 32px;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+        line-height: 1.45;
+      }
+      .data-overview-kpi-value {
+        display: block;
+        margin-top: 13px;
+        overflow: hidden;
+        font-size: 22px;
+        font-weight: 650;
+        line-height: 1.1;
+        letter-spacing: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .data-overview-trend {
+        min-height: 344px;
+        padding: 18px;
+        margin-bottom: 16px;
+      }
+      .data-overview-trend .analytics-legend {
+        margin-bottom: 6px;
+      }
+      .dashboard-head {
+        align-items: center;
+      }
+      .dashboard-head-meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+      }
+      .dashboard-refresh {
+        width: 36px;
+        padding: 0;
+        font-size: 18px;
+      }
+      .dashboard-section {
+        margin-bottom: 16px;
+      }
+      .dashboard-section-title {
+        margin: 0 0 11px;
+        font-size: var(--admin-font-md);
+        font-weight: 600;
+      }
+      .dashboard-kpis {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .dashboard-kpi {
+        min-width: 0;
+        height: 106px;
+        padding: 16px;
+        border: 1px solid var(--admin-border);
+        border-radius: var(--admin-radius-md);
+        background: var(--admin-surface);
+        color: inherit;
+        text-align: left;
+        text-decoration: none;
+      }
+      .dashboard-kpi:hover {
+        border-color: var(--admin-ink);
+      }
+      .dashboard-kpi-label {
+        display: block;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+        white-space: nowrap;
+      }
+      .dashboard-kpi-value {
+        display: block;
+        margin: 10px 0 6px;
+        font-size: 24px;
+        line-height: 1;
+        font-weight: 650;
+        white-space: nowrap;
+      }
+      .dashboard-kpi-unit {
+        font-size: var(--admin-font-xs);
+        font-weight: 400;
+      }
+      .dashboard-kpi-note {
+        display: block;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .dashboard-kpi.alert .dashboard-kpi-value,
+      .dashboard-kpi.alert .dashboard-kpi-note {
+        color: var(--admin-danger);
+      }
+      .dashboard-main-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.65fr) minmax(340px, 1fr);
+        gap: 16px;
+      }
+      .dashboard-panel {
+        min-width: 0;
+      }
+      .dashboard-panel-head {
+        height: 48px;
+        padding: 0 16px;
+        border-bottom: 1px solid var(--admin-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .dashboard-panel-head h2 {
+        margin: 0;
+        font-size: var(--admin-font-base);
+        font-weight: 600;
+      }
+      .dashboard-panel-head span {
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+      }
+      .dashboard-todos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .dashboard-todo {
+        min-width: 0;
+        height: 68px;
+        padding: 0 16px;
+        border: 0;
+        border-bottom: 1px solid var(--admin-border);
+        background: var(--admin-surface);
+        color: inherit;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+        text-decoration: none;
+      }
+      .dashboard-todo:nth-child(odd) {
+        border-right: 1px solid var(--admin-border);
+      }
+      .dashboard-todo:nth-last-child(-n + 2) {
+        border-bottom: 0;
+      }
+      .dashboard-todo:hover {
+        background: var(--admin-canvas);
+      }
+      .dashboard-todo b {
+        display: block;
+        font-size: var(--admin-font-sm);
+        font-weight: 500;
+      }
+      .dashboard-todo small {
+        display: block;
+        margin-top: 5px;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .dashboard-count {
+        min-width: 28px;
+        height: 28px;
+        padding: 0 8px;
+        border-radius: var(--admin-radius-pill);
+        background: var(--admin-primary-soft);
+        display: grid;
+        place-items: center;
+        font-size: var(--admin-font-sm);
+        font-weight: 600;
+      }
+      .dashboard-count.urgent {
+        background: var(--admin-danger-soft);
+        color: var(--admin-danger);
+      }
+      .dashboard-risks {
+        padding: 0 16px;
+      }
+      .dashboard-risk {
+        min-height: 67px;
+        border-bottom: 1px solid var(--admin-border);
+        display: grid;
+        grid-template-columns: 8px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 11px;
+        color: inherit;
+        text-decoration: none;
+      }
+      .dashboard-risk:last-child {
+        border-bottom: 0;
+      }
+      .dashboard-risk:hover b {
+        text-decoration: underline;
+      }
+      .dashboard-risk-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: var(--admin-radius-round);
+        background: var(--admin-warning);
+      }
+      .dashboard-risk.high .dashboard-risk-dot {
+        background: var(--admin-danger);
+      }
+      .dashboard-risk b {
+        display: block;
+        font-size: var(--admin-font-sm);
+        font-weight: 500;
+      }
+      .dashboard-risk small {
+        display: block;
+        margin-top: 4px;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .dashboard-risk time {
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+        white-space: nowrap;
+      }
+      .dashboard-shortcuts {
+        padding: 16px;
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .dashboard-shortcut {
+        height: 64px;
+        padding: 0 10px;
+        border: 1px solid var(--admin-border);
+        border-radius: var(--admin-radius-sm);
+        background: var(--admin-surface);
+        color: var(--admin-ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        font-size: var(--admin-font-sm);
+        font-weight: 500;
+      }
+      .dashboard-shortcut:hover {
+        border-color: var(--admin-ink);
+        background: var(--admin-canvas);
+      }
+      .dashboard-refund-panel {
+        margin-bottom: 16px;
+        border: 1px solid var(--admin-danger);
+        border-left-width: 4px;
+        background: var(--admin-surface);
+        overflow: hidden;
+      }
+      .dashboard-refund-head {
+        height: 48px;
+        padding: 0 16px;
+        background: var(--admin-danger-soft);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .dashboard-refund-head h2 {
+        margin: 0;
+        color: var(--admin-danger);
+        font-size: var(--admin-font-base);
+        font-weight: 600;
+      }
+      .dashboard-refund-head span {
+        color: var(--admin-danger);
+        font-size: var(--admin-font-xs);
+      }
+      .dashboard-refund-list {
+        padding: 0 16px;
+      }
+      .dashboard-refund-row {
+        min-height: 64px;
+        border-bottom: 1px solid var(--admin-border);
+        color: var(--admin-ink);
+        display: grid;
+        grid-template-columns:
+          minmax(260px, 1.3fr) minmax(210px, 1fr)
+          120px 24px;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+      }
+      .dashboard-refund-row:last-child {
+        border-bottom: 0;
+      }
+      .dashboard-refund-row:hover {
+        background: var(--admin-canvas);
+      }
+      .dashboard-refund-order {
+        min-width: 0;
+      }
+      .dashboard-refund-order b {
+        display: block;
+        font-size: var(--admin-font-sm);
+        font-weight: 500;
+      }
+      .dashboard-refund-order small,
+      .dashboard-refund-meta small {
+        display: block;
+        margin-top: 4px;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .dashboard-refund-meta b {
+        display: block;
+        font-size: var(--admin-font-sm);
+        font-weight: 400;
+      }
+      .dashboard-refund-amount {
+        text-align: right;
+        color: var(--admin-danger);
+        font-size: 18px;
+        font-weight: 650;
+        white-space: nowrap;
+      }
+      .dashboard-refund-arrow {
+        color: var(--admin-danger);
+        font-size: 20px;
+        text-align: right;
+      }
+      @media (max-width: 1320px) {
+        .dashboard-kpis {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .data-overview-kpis {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .dashboard-main-grid {
+          grid-template-columns: 1fr;
+        }
+        .dashboard-shortcuts {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item active" href="admin-dashboard.html"
+            ><span>工作台</span><span>›</span></a
+          ><a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb"><strong>工作台</strong></div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head dashboard-head">
+            <div><h1>工作台</h1></div>
+            <div class="dashboard-head-meta">
+              <span id="updatedAt">数据更新于 12:05</span
+              ><button
+                class="admin-btn secondary dashboard-refresh"
+                id="refreshBtn"
+                type="button"
+                title="刷新数据"
+                aria-label="刷新数据"
+              >
+                ↻
+              </button>
+            </div>
+          </div>
+          <section class="dashboard-section" aria-labelledby="realtimeTitle">
+            <h2 class="dashboard-section-title" id="realtimeTitle">
+              今日实时数据
+            </h2>
+            <div
+              class="data-overview-kpis"
+              id="metricCards"
+              aria-label="今日实时数据指标"
+            ></div>
+            <section
+              class="admin-panel data-overview-trend"
+              aria-labelledby="trendTitle"
+            >
+              <div class="analytics-panel-head">
+                <div><h2 id="trendTitle">近 7 日指标趋势</h2></div>
+              </div>
+              <div class="analytics-legend" id="trendLegend"></div>
+              <div class="analytics-chart" id="trendChart"></div>
+            </section>
+          </section>
+          <section
+            class="admin-panel dashboard-refund-panel"
+            id="passiveRefundPanel"
+            aria-labelledby="passiveRefundTitle"
+          >
+            <header class="dashboard-refund-head">
+              <h2 id="passiveRefundTitle">被动退款订单</h2>
+              <span id="passiveRefundCount"></span>
+            </header>
+            <div class="dashboard-refund-list" id="passiveRefundList"></div>
+          </section>
+          <section class="dashboard-section">
+            <h2 class="dashboard-section-title">快捷操作</h2>
+            <div class="admin-panel dashboard-shortcuts">
+              <a
+                class="dashboard-shortcut"
+                href="../host/admin-live-management.html"
+                >实时直播</a
+              ><a
+                class="dashboard-shortcut"
+                href="../content/admin-content-audit.html"
+                >内容告警</a
+              ><a
+                class="dashboard-shortcut"
+                href="../content/admin-report-handling.html"
+                >举报处理</a
+              ><a
+                class="dashboard-shortcut"
+                href="../host/admin-host-review.html"
+                >主播审核</a
+              ><a
+                class="dashboard-shortcut"
+                href="../operations/admin-push-detail.html?new=1"
+                >新建推送</a
+              ><a
+                class="dashboard-shortcut"
+                href="../operations/admin-placement-detail.html?new=1"
+                >配置展示位</a
+              ><a
+                class="dashboard-shortcut"
+                href="../system/admin-system-audit.html"
+                >操作审计</a
+              >
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const D = window.LUMA_ADMIN_MOCK,
+        F = window.LUMA_ADMIN_FORMAT,
+        R = window.LUMA_REPORTING,
+        T = window.LUMA_ADMIN_TOKENS;
+      const passiveRefunds = D.rechargeOrders
+        .filter((item) => item.refund?.type === "被动退款")
+        .sort((a, b) => b.refund.createdAt.localeCompare(a.refund.createdAt));
+      const metrics = [
+        { key: "activeUsers", label: "活跃用户" },
+        { key: "newUsers", label: "新增用户" },
+        { key: "rechargeAmount", label: "总充值金额", money: true },
+        { key: "rechargeUsers", label: "总充值人数" },
+        { key: "newRechargeAmount", label: "新用户充值金额", money: true },
+        { key: "newUserArpu", label: "新用户 ARPU", money: true },
+        { key: "effectiveHosts", label: "达成有效天主播" },
+      ];
+      const dailyStatistics = D.analytics.dailyStatistics
+          .slice()
+          .sort((a, b) => a.date.localeCompare(b.date)),
+        trendData = dailyStatistics.slice(-7),
+        todayData = dailyStatistics.at(-1) || {};
+      let selectedMetric = "activeUsers";
+      function formatMetric(metric, value) {
+        return metric.money ? F.money(value) : F.integer(value);
+      }
+      function renderMetrics() {
+        metricCards.innerHTML = metrics
+          .map((metric) => {
+            const selected = selectedMetric === metric.key;
+            return `<button class="data-overview-kpi${selected ? " is-selected" : ""}" type="button" data-metric="${metric.key}" aria-pressed="${selected}" aria-label="${metric.label}"><span class="data-overview-kpi-label">${metric.label}</span><b class="data-overview-kpi-value"${metric.money ? ` style="color:${T.success}"` : ""}>${formatMetric(metric, todayData[metric.key] || 0)}</b></button>`;
+          })
+          .join("");
+        metricCards.querySelectorAll("[data-metric]").forEach(
+          (button) =>
+            (button.onclick = () => {
+              selectedMetric = button.dataset.metric;
+              renderMetrics();
+              renderTrend();
+            }),
+        );
+      }
+      function renderTrend() {
+        const metric = metrics.find((item) => item.key === selectedMetric);
+        const series = [
+          {
+            name: metric.label,
+            values: trendData.map((item) => item[metric.key] || 0),
+            color: T.primary,
+            format: (value) => formatMetric(metric, value),
+          },
+        ];
+        R.lineChart(
+          trendChart,
+          trendData.map((item) => F.date(item.date)),
+          series,
+        );
+      }
+      function renderPassiveRefund() {
+        passiveRefundPanel.classList.toggle(
+          "state-hide",
+          !passiveRefunds.length,
+        );
+        passiveRefundCount.textContent = `${passiveRefunds.length} 笔`;
+        passiveRefundList.innerHTML = passiveRefunds
+          .map(
+            (item) =>
+              `<a class="dashboard-refund-row" href="../orders/admin-recharge-order-detail.html?id=${item.orderNo}" aria-label="查看被动退款订单 ${item.orderNo}"><span class="dashboard-refund-order"><b>${item.userName}</b><small>${item.orderNo}</small></span><span class="dashboard-refund-meta"><b>${item.channel}</b><small>${item.refund.createdAt}</small></span><strong class="dashboard-refund-amount">${F.money(item.refund.amount)}</strong><span class="dashboard-refund-arrow">›</span></a>`,
+          )
+          .join("");
+      }
+      function positionUpdatedAt() {
+        updatedAt.textContent = "最后更新 12.05";
+        updatedAt.className = "dashboard-section-updated";
+        const heading = document.createElement("div");
+        heading.className = "dashboard-section-heading";
+        realtimeTitle.before(heading);
+        heading.append(realtimeTitle, updatedAt);
+      }
+      refreshBtn.onclick = () => {
+        updatedAt.textContent = "最后更新 12.06";
+        renderMetrics();
+        renderTrend();
+        renderPassiveRefund();
+        Luma.toast("工作台数据已刷新");
+      };
+      positionUpdatedAt();
+      renderMetrics();
+      renderTrend();
+      renderPassiveRefund();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-dashboard.html" },
+        "*",
+      );
+      Luma.registerStates({
+        默认状态: () => {
+          selectedMetric = "activeUsers";
+          renderMetrics();
+          renderTrend();
+          renderPassiveRefund();
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>主播列表 · 主播管理 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260818-member-status-v3"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js?v=20260818-person-id-v1"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="../home/guild-home.html" aria-label="返回"
+          >‹</a
+        >主播列表
+      </header>
+      <div class="guild-page-body">
+        <label class="guild-search" for="memberSearch"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="m16 16 4 4"></path></svg
+          ><input
+            id="memberSearch"
+            type="search"
+            placeholder="搜索主播昵称或 ID"
+        /></label>
+        <div
+          class="guild-member-status-tabs"
+          role="tablist"
+          aria-label="主播状态"
+        >
+          <button
+            class="active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-status="active"
+          >
+            在会 <span id="activeCount"></span>
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-status="departed"
+          >
+            已退会 <span id="departedCount"></span>
+          </button>
+        </div>
+        <section
+          class="directory-list"
+          id="memberList"
+          aria-label="主播列表"
+        ></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      const currentHosts = LUMA_MOCK.guildPortal.guildHosts;
+      const formerHosts = LUMA_MOCK.guildPortal.formerGuildHosts;
+      const approvedDepartures = LUMA_MOCK.guildPortal.leaveApplications
+        .filter((item) => item.status === "approved")
+        .map((item) => ({
+          ...item,
+          departedAt: item.handledAt,
+        }));
+      let removedHostIds = new Set();
+      try {
+        removedHostIds = new Set(
+          JSON.parse(
+            sessionStorage.getItem("luma-guild-removed-hosts-v1") || "[]",
+          ),
+        );
+      } catch (error) {}
+      let activeStatus = "active";
+      function departedIds() {
+        return new Set([
+          ...approvedDepartures.map((item) => item.id),
+          ...formerHosts.map((item) => item.id),
+          ...removedHostIds,
+        ]);
+      }
+      function statusHosts() {
+        const ids = departedIds();
+        if (activeStatus === "active")
+          return currentHosts.filter((item) => !ids.has(item.id));
+        const departed = new Map(
+          formerHosts.map((item) => [item.id, item]),
+        );
+        approvedDepartures.forEach((item) => departed.set(item.id, item));
+        currentHosts
+          .filter((item) => ids.has(item.id))
+          .forEach((item) => departed.set(item.id, item));
+        return [...departed.values()];
+      }
+      function filteredHosts() {
+        const query = memberSearch.value.trim().toLowerCase();
+        return statusHosts()
+          .filter(
+            (item) =>
+              !query ||
+              item.name.toLowerCase().includes(query) ||
+              item.id.toLowerCase().includes(query),
+          )
+          .sort((a, b) => (b.joinedAt || "").localeCompare(a.joinedAt || ""));
+      }
+      function renderList() {
+        const items = filteredHosts();
+        const ids = departedIds();
+        activeCount.textContent = String(
+          currentHosts.filter((item) => !ids.has(item.id)).length,
+        );
+        departedCount.textContent = String(statusHostsForCount(ids).size);
+        memberList.innerHTML = items.length
+          ? items
+              .map((item) => {
+                const href = `guild-host-detail.html?id=${encodeURIComponent(item.id)}&from=roster${activeStatus === "departed" ? "&state=departed" : ""}`;
+                return /* HTML */ `<a class="directory-row" href="${href}"
+                  ><span class="directory-person"
+                    ><span
+                      class="directory-avatar${item.live &&
+                      activeStatus === "active"
+                        ? " is-live"
+                        : ""}"
+                      >${item.avatar}</span
+                    ><span class="directory-copy"
+                      ><span class="guild-member-name-line"
+                        ><b>${item.name}</b></span
+                      ><span>${item.id}</span></span
+                    ></span
+                  ><span class="directory-meta guild-member-joined-meta"
+                    ><span>${item.joinedAt}</span></span
+                  ><span class="review-arrow">›</span></a
+                >`;
+              })
+              .join("")
+          : `<div class="guild-page-empty"><b>${memberSearch.value.trim() ? "未找到主播" : activeStatus === "active" ? "暂无在会主播" : "暂无已退会主播"}</b>${memberSearch.value.trim() ? "<span>请调整搜索词</span>" : ""}</div>`;
+      }
+      function statusHostsForCount(ids) {
+        return new Set([
+          ...formerHosts.map((item) => item.id),
+          ...approvedDepartures.map((item) => item.id),
+          ...currentHosts.filter((item) => ids.has(item.id)).map((item) => item.id),
+        ]);
+      }
+      memberSearch.oninput = renderList;
+      document
+        .querySelectorAll(".guild-member-status-tabs button")
+        .forEach((button) => {
+          button.onclick = () => {
+            activeStatus = button.dataset.status;
+            document
+              .querySelectorAll(".guild-member-status-tabs button")
+              .forEach((item) => {
+                const selected = item === button;
+                item.classList.toggle("active", selected);
+                item.setAttribute("aria-selected", String(selected));
+              });
+            renderList();
+          };
+        });
+      renderList();
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-member-list.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

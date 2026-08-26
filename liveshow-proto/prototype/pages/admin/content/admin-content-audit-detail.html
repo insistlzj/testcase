@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>内容审核详情 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="../host/admin-host-review.html"
+              >主播审核</a
+            ><a class="admin-nav-sub" href="../host/admin-host-list.html"
+              >主播列表</a
+            ><a class="admin-nav-sub" href="../host/admin-live-management.html"
+              >直播场次</a
+            ><a
+              class="admin-nav-sub"
+              href="../host/admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub active" href="admin-content-audit.html"
+              >内容审核</a
+            ><a class="admin-nav-sub" href="admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb"><strong>内容审核</strong></div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-content-audit.html"
+            >‹ 返回内容审核</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-profile-summary">
+              <span class="admin-avatar" id="avatar"></span>
+              <div>
+                <h2 id="name"></h2>
+                <div class="admin-profile-meta">
+                  <span id="hostId"></span><span id="status"></span>
+                </div>
+              </div>
+              <div class="admin-profile-summary-actions" id="actions"></div>
+            </div>
+            <div class="admin-detail-grid" id="baseInfo"></div>
+          </section>
+          <section class="admin-panel admin-tabs-panel">
+            <div class="admin-detail-tabs">
+              <button class="admin-detail-tab active" data-tab="materials">
+                告警材料</button
+              ><button class="admin-detail-tab" data-tab="review">
+                复审与处置记录
+              </button>
+            </div>
+            <div class="admin-detail-panel" id="detailPanel"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="reviewOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2>复审与处置</h2>
+          <button class="admin-icon-btn" data-close="reviewOverlay">×</button>
+        </div>
+        <form id="reviewForm">
+          <div class="admin-modal-body">
+            <p id="reviewTarget"></p>
+            <div class="admin-form-row">
+              <label for="reviewResult">复审结果</label
+              ><select class="admin-select" id="reviewResult" required>
+                <option value="误报">误报</option>
+                <option value="违规成立">违规成立</option>
+                <option value="轻微违规">轻微违规</option>
+              </select>
+            </div>
+            <div class="admin-form-row">
+              <label for="reviewAction">处置类型</label
+              ><select class="admin-select" id="reviewAction" required>
+                <option value="忽略">忽略</option>
+                <option value="转人工复审">转人工复审</option>
+                <option value="警告">警告</option>
+                <option value="强制关播">强制关播</option>
+                <option value="封禁">封禁</option>
+                <option value="内容下架">内容下架</option>
+              </select>
+            </div>
+            <div class="admin-form-row">
+              <label for="reviewReason">处置原因</label
+              ><textarea
+                class="admin-textarea"
+                id="reviewReason"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="reviewOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" type="submit">确认</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const items = window.LUMA_ADMIN_MOCK.contentAudits,
+        id = new URLSearchParams(location.search).get("id"),
+        item = items.find((x) => x.auditNo === id) || items[0],
+        riskText = { high: "高风险", medium: "中风险", low: "低风险" },
+        statusText = {
+          pending: "待处理",
+          reviewing: "人工复审中",
+          ignored: "已忽略",
+          resolved: "已处置",
+        },
+        statusClass = {
+          pending: "pending",
+          reviewing: "muted",
+          ignored: "offline",
+          resolved: "success",
+        },
+        avatarEl = document.querySelector("#avatar"),
+        nameEl = document.querySelector("#name"),
+        hostIdEl = document.querySelector("#hostId"),
+        statusEl = document.querySelector("#status"),
+        actionsEl = document.querySelector("#actions"),
+        baseInfoEl = document.querySelector("#baseInfo"),
+        detailPanelEl = document.querySelector("#detailPanel");
+      function renderBase() {
+        avatarEl.textContent = item.initials;
+        nameEl.innerHTML = Luma.tip(item.name, "主播昵称");
+        hostIdEl.innerHTML = Luma.id(item.hostId, "主播ID");
+        statusEl.className = `admin-status ${statusClass[item.status]}`;
+        Luma.setTip(statusEl, statusText[item.status], "审核状态");
+        actionsEl.innerHTML = `<button class="admin-btn secondary" id="ignoreBtn">忽略</button><button class="admin-btn" id="reviewBtn">${item.status === "reviewing" ? "继续复审" : "处理"}</button>`;
+        document.querySelector("#ignoreBtn").onclick = quickIgnore;
+        document.querySelector("#reviewBtn").onclick = openReview;
+        baseInfoEl.innerHTML = `<div class="admin-detail-item"><span>审核单号</span><b>${item.auditNo}</b></div><div class="admin-detail-item"><span>直播场次 ID</span><b>${item.sessionId}</b></div><div class="admin-detail-item"><span>机审命中类型</span><b>${item.hitType}</b></div><div class="admin-detail-item"><span>风险等级</span><b>${riskText[item.risk]}</b></div><div class="admin-detail-item"><span>告警时间</span><b>${item.alertAt}</b></div>`;
+      }
+      function renderTab(tab) {
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.tab === tab),
+          );
+        if (tab === "materials")
+          detailPanelEl.innerHTML = `<div class="admin-media-grid"><div><h4>告警截图</h4><div class="admin-media large"><span class="admin-media-placeholder">截图 占位</span></div></div><div><h4>告警视频</h4><div class="admin-media large"><span class="admin-media-placeholder">视频 占位</span></div></div></div>`;
+        if (tab === "review")
+          detailPanelEl.innerHTML = item.review
+            ? `<div class="admin-detail-grid"><div class="admin-detail-item"><span>复审结果</span><b>${item.review.result}</b></div><div class="admin-detail-item"><span>处置类型</span><b>${item.review.action}</b></div><div class="admin-detail-item"><span>处置原因</span><b>${item.review.reason}</b></div><div class="admin-detail-item"><span>审核人</span><b>${item.review.operator}</b></div><div class="admin-detail-item"><span>审核时间</span><b>${item.review.time}</b></div></div>`
+            : '<div class="admin-record-empty"><strong>暂无复审记录</strong><span>该告警尚未完成人工处理</span></div>';
+      }
+      function openReview() {
+        reviewTarget.textContent = `告警 ${item.auditNo} · 直播场次 ${item.sessionId} · ${item.name}`;
+        reviewForm.reset();
+        reviewOverlay.classList.add("show");
+      }
+      function quickIgnore() {
+        item.status = "ignored";
+        item.result = "已忽略";
+        item.review = {
+          result: "误报",
+          action: "忽略",
+          reason: "人工判断为误报",
+          operator: "后台管理员",
+          time: "2026-08-04 12:40",
+        };
+        renderBase();
+        renderTab("review");
+        Luma.toast("告警已忽略");
+      }
+      document.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-tab]");
+        if (tab) renderTab(tab.dataset.tab);
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      reviewForm.onsubmit = (event) => {
+        event.preventDefault();
+        const action = reviewAction.value;
+        item.status =
+          action === "转人工复审"
+            ? "reviewing"
+            : action === "忽略"
+              ? "ignored"
+              : "resolved";
+        item.result =
+          action === "转人工复审"
+            ? "人工复审中"
+            : action === "忽略"
+              ? "已忽略"
+              : action;
+        item.review = {
+          result: reviewResult.value,
+          action,
+          reason: reviewReason.value.trim(),
+          operator: "后台管理员",
+          time: "2026-08-04 12:40",
+        };
+        reviewOverlay.classList.remove("show");
+        renderBase();
+        renderTab("review");
+        Luma.toast("审核处理已提交");
+      };
+      renderBase();
+      renderTab("materials");
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-content-audit-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        告警材料: () => renderTab("materials"),
+        复审记录: () => renderTab("review"),
+        复审与处置: openReview,
+      });
+    </script>
+  </body>
+</html>

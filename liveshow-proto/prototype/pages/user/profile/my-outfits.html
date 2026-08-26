@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>我的装扮 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      body {
+        background: var(--g6);
+      }
+      .screen {
+        padding-bottom: 34px;
+      }
+      .tabs {
+        display: flex;
+        padding: 0 16px;
+        background: var(--g7);
+        border-bottom: 1px solid var(--g6);
+      }
+      .tabs button {
+        flex: 1;
+        height: 44px;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        background: none;
+        color: var(--g3);
+        font: 13px inherit;
+      }
+      .tabs button.active {
+        border-color: var(--g1);
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .outfit-list {
+        display: grid;
+        gap: 10px;
+        padding: 14px 16px;
+      }
+      .outfit {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+        background: var(--g7);
+        border-radius: 8px;
+      }
+      .preview {
+        width: 62px;
+        height: 62px;
+        flex: none;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g6);
+        display: grid;
+        place-items: center;
+        color: var(--g2);
+        font-size: 12px;
+      }
+      .copy {
+        flex: 1;
+        min-width: 0;
+      }
+      .copy b,
+      .copy span {
+        display: block;
+      }
+      .copy b {
+        font-size: 14px;
+      }
+      .copy span {
+        margin-top: 5px;
+        color: var(--g3);
+        font-size: 11px;
+      }
+      .wear {
+        height: 32px;
+        padding: 0 11px;
+        border: 1px solid var(--g4);
+        border-radius: 7px;
+        background: var(--g7);
+        color: var(--g1);
+        font: 12px inherit;
+      }
+      .wear.active {
+        border-color: var(--g1);
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .empty {
+        padding: 80px 20px;
+        color: var(--g4);
+        font-size: 13px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='profile.html'"
+        >
+          ‹</button
+        >我的装扮
+      </header>
+      <nav class="tabs" id="tabs">
+        <button class="active" data-type="all">全部</button
+        ><button data-type="avatarFrame">头像框</button
+        ><button data-type="medal">勋章</button
+        ><button data-type="bubble">气泡</button>
+      </nav>
+      <section class="outfit-list" id="outfitList"></section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const outfits = LUMA_MOCK.myOutfits,
+        outfitList = document.querySelector("#outfitList"),
+        tabs = document.querySelector("#tabs");
+      let currentType = "all";
+      function render() {
+        const visible = outfits.filter(
+          (item) => currentType === "all" || item.type === currentType,
+        );
+        outfitList.innerHTML = visible.length
+          ? visible
+              .map(
+                (item) =>
+                  `<article class="outfit"><div class="preview">${item.typeName}</div><div class="copy"><b>${item.name}</b><span>${item.typeName} · 有效期至 ${item.validUntil === "永久" ? item.validUntil : LUMA_FORMAT.date(item.validUntil)}</span></div><button class="wear ${item.status === "穿戴中" ? "active" : ""}" data-id="${item.id}" type="button">${item.status === "穿戴中" ? "已穿戴" : "穿戴"}</button></article>`,
+              )
+              .join("")
+          : '<div class="empty">暂无该类装扮</div>';
+      }
+      tabs.onclick = (event) => {
+        const button = event.target.closest("[data-type]");
+        if (!button) return;
+        currentType = button.dataset.type;
+        tabs
+          .querySelectorAll("button")
+          .forEach((item) => item.classList.toggle("active", item === button));
+        render();
+      };
+      outfitList.onclick = (event) => {
+        const button = event.target.closest("[data-id]");
+        if (!button) return;
+        const item = outfits.find((outfit) => outfit.id === button.dataset.id),
+          equipped = item.status === "穿戴中";
+        outfits
+          .filter((outfit) => outfit.type === item.type)
+          .forEach((outfit) => (outfit.status = "未穿戴"));
+        item.status = equipped ? "未穿戴" : "穿戴中";
+        render();
+        Luma.toast(equipped ? "已取消穿戴" : "已穿戴");
+      };
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "my-outfits.html" },
+        "*",
+      );
+      Luma.registerStates({
+        装扮类型: {
+          全部: () => {
+            currentType = "all";
+            render();
+          },
+          头像框: () => {
+            currentType = "avatarFrame";
+            render();
+          },
+          勋章: () => {
+            currentType = "medal";
+            render();
+          },
+          气泡: () => {
+            currentType = "bubble";
+            render();
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

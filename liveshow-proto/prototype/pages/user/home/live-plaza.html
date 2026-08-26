@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>首页 · 用户主播端 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css?v=p001-ticket-v5" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .rank {
+        display: grid;
+        grid-template-columns: 44px 1fr 1fr;
+        gap: 8px;
+        padding: 0 16px 12px;
+      }
+      .rank button {
+        height: 44px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g7);
+        font: 600 15px inherit;
+        text-align: center;
+        padding: 0 8px;
+        color: var(--g1);
+        cursor: pointer;
+      }
+      .rank .rank-search {
+        padding: 0;
+        display: grid;
+        place-items: center;
+      }
+      .rank .rank-search svg {
+        width: 21px;
+        height: 21px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .following,
+      .chips,
+      .tabs {
+        display: flex;
+        gap: 10px;
+        padding: 0 16px 12px;
+        overflow: auto;
+      }
+      .person {
+        width: 56px;
+        text-align: center;
+        flex: none;
+        font-size: 12px;
+        color: var(--g2);
+      }
+      .person .avatar {
+        width: 54px;
+        height: 54px;
+        margin: auto;
+        border: 2px solid var(--g1);
+      }
+      .operation-banner .cover {
+        background: var(--g1);
+        height: auto;
+        flex: 1;
+      }
+      .operation-banner {
+        display: flex;
+        background: var(--g1);
+      }
+      .tabs {
+        gap: 20px;
+      }
+      .tabs button {
+        border: 0;
+        background: none;
+        color: var(--g4);
+        font: 15px inherit;
+        padding: 0;
+        cursor: pointer;
+      }
+      .tabs button.active {
+        font-size: 17px;
+        color: var(--g1);
+        font-weight: 600;
+        border-bottom: 3px solid var(--g1);
+        padding-bottom: 5px;
+      }
+      .chips button {
+        flex: none;
+        padding: 6px 14px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g3);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .chips button.active {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 0 16px;
+      }
+      .grid.new {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .card {
+        background: var(--g7);
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .card.followed {
+        outline: 1.5px solid var(--g1);
+      }
+      .cover {
+        height: 164px;
+        background: var(--g5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--g3);
+        font-size: 12px;
+        position: relative;
+      }
+      .new .cover {
+        height: 108px;
+      }
+      .viewer {
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        background: var(--g7);
+        color: var(--g2);
+        padding: 2px 7px;
+        border-radius: 8px;
+        font-size: 11px;
+      }
+      .meta {
+        padding: 8px 12px 12px;
+      }
+      .meta b,
+      .meta span {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .meta b {
+        font-size: 16px;
+      }
+      .meta span {
+        font-size: 13px;
+        color: var(--g3);
+        margin-top: 2px;
+      }
+      .new .meta {
+        padding: 6px 8px 10px;
+      }
+      .new .meta b {
+        font-size: 13px;
+      }
+    </style>
+    <style>
+      .room-badge {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        min-height: 22px;
+        padding: 3px 7px;
+        background: var(--g7);
+        border-radius: 8px;
+        color: var(--g2);
+        font-size: 11px;
+        font-style: normal;
+      }
+      .room-badge svg {
+        width: 13px;
+        height: 13px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+      }
+      .room-badge.lock {
+        padding: 4px 6px;
+      }
+    </style>
+    <style>
+      .room-badge.ticket b {
+        margin-right: 3px;
+        font-size: 12px;
+      }
+      .ticket-sheet {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        min-height: 286px;
+        padding: 20px 16px 14px;
+        background: var(--g7);
+        border-top: 1px solid var(--g5);
+        z-index: 5;
+      }
+      .ticket-sheet-close {
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 28px/1 inherit;
+        cursor: pointer;
+      }
+      .ticket-sheet h2 {
+        margin: 0 0 16px;
+        font-size: 17px;
+      }
+      .ticket-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border-radius: 8px;
+        background: var(--g6);
+      }
+      .ticket-item > i {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: var(--g5);
+        display: grid;
+        place-items: center;
+        color: var(--g2);
+        font-style: normal;
+      }
+      .ticket-item div {
+        flex: 1;
+      }
+      .ticket-item b,
+      .ticket-item span {
+        display: block;
+      }
+      .ticket-item span {
+        margin-top: 4px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .ticket-item strong {
+        font-size: 15px;
+      }
+      .ticket-footer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 12px 16px;
+        border-top: 1px solid var(--g5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .ticket-balance {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .ticket-balance .coin {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--g1);
+      }
+      .ticket-balance button {
+        width: 34px;
+        height: 30px;
+        border: 0;
+        border-radius: 15px;
+        background: var(--g6);
+        font: 20px/1 inherit;
+        cursor: pointer;
+      }
+      .ticket-footer [data-buy-ticket] {
+        height: 34px;
+        padding: 0 18px;
+        border: 0;
+        border-radius: 17px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+    </style>
+    <style>
+      .password-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 6;
+        display: grid;
+        place-items: center;
+        background: var(--overlay);
+      }
+      .password-card {
+        width: 294px;
+        padding: 22px 16px 16px;
+        border-radius: 8px;
+        background: var(--g7);
+        position: relative;
+      }
+      .password-card h2 {
+        margin: 0;
+        text-align: center;
+        font-size: 17px;
+      }
+      .password-card p {
+        margin: 8px 0 16px;
+        color: var(--g3);
+        font-size: 13px;
+        text-align: center;
+      }
+      .password-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 28px/1 inherit;
+        cursor: pointer;
+      }
+      .password-card input {
+        width: 100%;
+        height: 42px;
+        padding: 0 12px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        color: var(--g1);
+        font: 14px inherit;
+        outline: none;
+      }
+      .password-card input:focus {
+        border-color: var(--g2);
+      }
+      .password-error {
+        min-height: 18px;
+        margin: 6px 0 0 !important;
+        color: var(--danger) !important;
+        text-align: left !important;
+        font-size: 12px !important;
+      }
+      .password-submit {
+        width: 100%;
+        height: 40px;
+        margin-top: 8px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .password-submit:disabled {
+        background: var(--g5);
+        color: var(--g4);
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <div class="rank">
+        <button
+          class="rank-search"
+          onclick="Luma.toast('打开搜索')"
+          aria-label="搜索"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg></button
+        ><button onclick="location.href='host-ranking.html'">主播榜</button
+        ><button onclick="location.href='contribution-ranking.html'">
+          贡献榜
+        </button>
+      </div>
+      <div class="following" id="following"></div>
+      <div class="tabs">
+        <button class="active" data-tab="hot">热门</button
+        ><button data-tab="new">新人</button>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="grid" id="grid"></div>
+    </main>
+    <section
+      class="ticket-sheet state-hide"
+      id="ticketSheet"
+      role="dialog"
+      aria-modal="true"
+    >
+      <button
+        type="button"
+        class="ticket-sheet-close"
+        aria-label="关闭购买门票"
+      >
+        ×
+      </button>
+      <h2>购买门票</h2>
+      <div class="ticket-item">
+        <i>◆</i>
+        <div><b data-ticket-name>Maya 的专场</b><span>入场门票 × 1</span></div>
+        <strong class="coin" data-ticket-price>10</strong>
+      </div>
+      <footer class="ticket-footer">
+        <div class="ticket-balance">
+          <span class="coin">12.580</span
+          ><button type="button" data-ticket-recharge aria-label="充值">
+            +
+          </button>
+        </div>
+        <button type="button" data-buy-ticket>购买</button>
+      </footer>
+    </section>
+    <section
+      class="password-mask state-hide"
+      id="passwordDialog"
+      role="dialog"
+      aria-modal="true"
+    >
+      <form class="password-card" id="passwordForm">
+        <button type="button" class="password-close" aria-label="关闭输入密码">
+          ×
+        </button>
+        <h2>输入房间密码</h2>
+        <p id="passwordRoomName"></p>
+        <input
+          id="roomPassword"
+          type="password"
+          inputmode="numeric"
+          maxlength="8"
+          placeholder="请输入密码"
+          autocomplete="off"
+        />
+        <p class="password-error" id="passwordError"></p>
+        <button
+          class="password-submit"
+          id="passwordSubmit"
+          type="submit"
+          disabled
+        >
+          进入直播间
+        </button>
+      </form>
+    </section>
+    <nav class="tabbar">
+      <a class="tab active" href="live-plaza.html">⌂<br />首页</a
+      ><a class="tab" href="welfare-center.html">♧<br />福利</a
+      ><a class="tab" href="../social/message-center.html">◌<br />消息</a
+      ><a class="tab" href="../profile/profile.html">♙<br />我的</a>
+    </nav>
+    <div class="homebar"><i></i></div>
+    <script>
+      const d = window.LUMA_MOCK,
+        grid = document.querySelector("#grid"),
+        chips = document.querySelector("#chips");
+      document.querySelector("#following").innerHTML = [
+        "Sari",
+        "Dewi",
+        "Ayu",
+        "Putri",
+        "Nadia",
+      ]
+        .map(
+          (x) =>
+            `<div class="person tap" onclick="Luma.toast('进入 ${x} 的直播间')"><i class="avatar">${x[0]}</i>${x}</div>`,
+        )
+        .join("");
+      function render(kind = "hot") {
+        const arr = kind === "new" ? d.newcomerHosts : d.hosts;
+        grid.className = "grid " + (kind === "new" ? "new" : "");
+        grid.innerHTML = arr
+          .map((x) => {
+            let h =
+              typeof x === "string"
+                ? { name: x, title: "新人主播", meta: "新人" }
+                : x;
+            let badge = h.ticket
+              ? `<i class="room-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M9.5 9.5h3.8a1.8 1.8 0 0 1 0 3.6H10a2 2 0 0 0 0 4h4.5"/></svg>${h.ticket}</i>`
+              : h.locked
+                ? `<i class="room-badge lock"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></i>`
+                : "";
+            const normalRoom = !h.ticket && !h.locked;
+            const action = normalRoom
+              ? "location.href='../live/live-room.html'"
+              : h.locked
+                ? `openPasswordRoom('${h.name}')`
+                : `Luma.toast('进入 ${h.name} 的直播间')`;
+            return /* HTML */ `<div
+              class="card ${h.followed ? "followed" : ""}"
+              data-room="${h.name}"
+              role="link"
+              tabindex="0"
+              onclick="${action}"
+              onkeydown="if(event.key==='Enter')${action}"
+            >
+              <div class="cover">
+                封面
+                1:1${badge}${h.viewers && !h.locked
+                  ? `<i class="viewer"><svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-5.5 9.5-5.5 9.5 5.5 9.5 5.5-3.5 5.5-9.5 5.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.5"/></svg>${h.viewers}</i>`
+                  : ""}
+              </div>
+              <div class="meta">
+                <b>${h.name}${h.title ? " · " + h.title : ""}</b>${kind ===
+                "hot"
+                  ? `<span>${h.meta}</span>`
+                  : ""}
+              </div>
+            </div>`;
+          })
+          .join("");
+        chips.classList.toggle("state-hide", kind === "new");
+      }
+      chips.innerHTML = ["全部", "唱歌", "跳舞", "聊天", "游戏", "才艺"]
+        .map(
+          (x, i) =>
+            `<button class="${i ? "" : "active"}" onclick="chips.querySelectorAll('button').forEach(b=>b.classList.remove('active'));this.classList.add('active');Luma.toast('筛选 '+this.textContent)">${x}</button>`,
+        )
+        .join("");
+      document.querySelectorAll("[data-tab]").forEach(
+        (b) =>
+          (b.onclick = () => {
+            document
+              .querySelectorAll("[data-tab]")
+              .forEach((x) => x.classList.remove("active"));
+            b.classList.add("active");
+            render(b.dataset.tab);
+          }),
+      );
+      render();
+      Luma.registerStates({
+        热门: () => {
+          document.querySelector("[data-tab=hot]").click();
+        },
+        新人: () => {
+          document.querySelector("[data-tab=new]").click();
+        },
+      });
+    </script>
+    <script>
+      var ticketSheet = document.querySelector("#ticketSheet");
+      function openTicketRoom(name, price) {
+        ticketSheet.querySelector("[data-ticket-name]").textContent =
+          name + " 的专场";
+        ticketSheet.querySelector("[data-ticket-price]").textContent = price;
+        ticketSheet.classList.remove("state-hide");
+      }
+      function setupTicketRooms() {
+        grid
+          .querySelectorAll(".room-badge:not(.lock)")
+          .forEach(function (badge) {
+            var card = badge.closest(".card"),
+              room = d.hosts.find(function (item) {
+                return item.name === card.dataset.room;
+              }),
+              price = badge.textContent.trim();
+            badge.classList.add("ticket");
+            badge.innerHTML = "<b>◆</b>" + price;
+            card.onclick = function () {
+              openTicketRoom(room.name, price);
+            };
+            card.onkeydown = function (event) {
+              if (event.key === "Enter") openTicketRoom(room.name, price);
+            };
+          });
+      }
+      var originalRender = render;
+      render = function (kind) {
+        originalRender(kind);
+        setupTicketRooms();
+      };
+      setupTicketRooms();
+      ticketSheet.querySelector(".ticket-sheet-close").onclick = function () {
+        ticketSheet.classList.add("state-hide");
+      };
+      ticketSheet.querySelector("[data-ticket-recharge]").onclick =
+        function () {
+          Luma.toast("打开充值");
+        };
+      ticketSheet.querySelector("[data-buy-ticket]").onclick = function () {
+        ticketSheet.classList.add("state-hide");
+        Luma.toast("购买门票成功");
+        location.href = "../live/live-room.html";
+      };
+    </script>
+    <script>
+      var passwordDialog = document.querySelector("#passwordDialog"),
+        passwordInput = document.querySelector("#roomPassword"),
+        passwordSubmit = document.querySelector("#passwordSubmit"),
+        passwordError = document.querySelector("#passwordError"),
+        passwordRoom;
+      function openPasswordRoom(name) {
+        passwordRoom = d.hosts.find(function (room) {
+          return room.name === name;
+        });
+        passwordInput.value = "";
+        passwordSubmit.disabled = true;
+        passwordError.textContent = "";
+        document.querySelector("#passwordRoomName").textContent =
+          passwordRoom.name + " · " + passwordRoom.title;
+        passwordDialog.classList.remove("state-hide");
+        passwordInput.focus();
+      }
+      passwordInput.oninput = function () {
+        passwordSubmit.disabled = !passwordInput.value.trim();
+        passwordError.textContent = "";
+      };
+      document.querySelector(".password-close").onclick = function () {
+        passwordDialog.classList.add("state-hide");
+      };
+      document.querySelector("#passwordForm").onsubmit = function (event) {
+        event.preventDefault();
+        if (passwordInput.value !== passwordRoom.password) {
+          passwordError.textContent = "密码错误，请重新输入";
+          return;
+        }
+        passwordDialog.classList.add("state-hide");
+        Luma.toast("密码验证成功");
+        location.href = "../live/live-room.html";
+      };
+    </script>
+    <script>
+      var plazaRender = render;
+      function placeOperationBanner(kind) {
+        if (kind !== "hot") return;
+        var thirdRoom = grid.children[2];
+        if (!thirdRoom) return;
+        var operationBanner = document.createElement("div");
+        operationBanner.className = "card operation-banner tap";
+        operationBanner.setAttribute("role", "link");
+        operationBanner.setAttribute("tabindex", "0");
+        var operationCover = document.createElement("div");
+        operationCover.className = "cover";
+        operationCover.textContent = "运营 banner 图";
+        operationBanner.append(operationCover);
+        operationBanner.onclick = function () {
+          Luma.toast("跳转运营配置目标");
+        };
+        operationBanner.onkeydown = function (event) {
+          if (event.key === "Enter") operationBanner.onclick();
+        };
+        thirdRoom.replaceWith(operationBanner);
+      }
+      render = function (kind) {
+        plazaRender(kind);
+        placeOperationBanner(kind);
+      };
+      placeOperationBanner("hot");
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () =>
+        document.querySelectorAll(".rank button").forEach((button) => {
+          button.style.setProperty("background", "var(--g5)", "important");
+          button
+            .querySelectorAll(".rank-avatars b")
+            .forEach((avatar) =>
+              avatar.style.setProperty("background", "var(--g6)", "important"),
+            );
+        }),
+      );
+    </script>
+  </body>
+</html>

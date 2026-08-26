@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>资料补全 · 账号 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260815-profile-completion-v1"></script>
+    <script src="../../../assets/mock.js?v=20260815-profile-completion-v1"></script>
+    <style>
+      body {
+        background: var(--g7);
+      }
+      .screen {
+        width: 390px;
+        min-height: 844px;
+        padding: 34px 24px 28px;
+        background: var(--g7);
+        display: flex;
+        flex-direction: column;
+      }
+      .title {
+        margin: 90px 0 8px;
+        text-align: center;
+        font-size: 22px;
+      }
+      .subtitle {
+        margin: 0;
+        color: var(--g3);
+        font-size: 13px;
+        text-align: center;
+      }
+      .avatar-area {
+        margin: 46px 0 40px;
+        text-align: center;
+      }
+      .avatar {
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 12px;
+        border: 0;
+        border-radius: 50%;
+        background: var(--g1);
+        color: var(--g7);
+        font: 36px inherit;
+        cursor: pointer;
+      }
+      .change-avatar {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--g2);
+        font: 13px inherit;
+        cursor: pointer;
+      }
+      .field {
+        display: block;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .field span {
+        display: block;
+        margin-bottom: 8px;
+      }
+      .field input {
+        width: 100%;
+        height: 48px;
+        padding: 0 14px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g1);
+        font: 14px inherit;
+        outline: 0;
+      }
+      .field input:focus {
+        border-color: var(--g2);
+      }
+      .error {
+        min-height: 18px;
+        margin: 8px 0 0;
+        color: var(--danger);
+        font-size: 12px;
+      }
+      .actions {
+        margin-top: auto;
+      }
+      .save,
+      .skip {
+        width: 100%;
+        height: 48px;
+        border-radius: 8px;
+        font: 600 15px inherit;
+        cursor: pointer;
+      }
+      .save {
+        border: 0;
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .save:disabled {
+        background: var(--g5);
+        cursor: default;
+      }
+      .skip {
+        margin-top: 12px;
+        border: 0;
+        background: transparent;
+        color: var(--g2);
+      }
+      .avatar-picker {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: flex;
+        align-items: flex-end;
+        background: var(--overlay);
+      }
+      .picker-card {
+        width: 100%;
+        padding: 20px 24px 28px;
+        border-radius: 8px 8px 0 0;
+        background: var(--g7);
+      }
+      .picker-title {
+        margin: 0 0 16px;
+        text-align: center;
+        font-size: 15px;
+      }
+      .avatar-options {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+      }
+      .avatar-option {
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        background: var(--g6);
+        color: var(--g1);
+        font: 20px inherit;
+        cursor: pointer;
+      }
+      .avatar-option.selected {
+        border-color: var(--g1);
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .picker-cancel {
+        width: 100%;
+        height: 44px;
+        margin-top: 20px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <h1 class="title">补全资料</h1>
+      <section class="avatar-area">
+        <button
+          class="avatar"
+          id="avatar"
+          type="button"
+          aria-label="更换头像"
+        ></button
+        ><button class="change-avatar" id="changeAvatar" type="button">
+          更换头像
+        </button>
+      </section>
+      <form id="profileForm" novalidate>
+        <label class="field"
+          ><span>昵称</span
+          ><input
+            id="nickname"
+            maxlength="20"
+            autocomplete="nickname"
+            placeholder="输入昵称"
+        /></label>
+        <p class="error" id="error" role="alert"></p>
+        <div class="actions">
+          <button class="save" id="save" type="submit">保存并进入首页</button
+          ><button class="skip" id="skip" type="button">先跳过 以后再改</button>
+        </div>
+      </form>
+    </main>
+    <section
+      class="avatar-picker state-hide"
+      id="avatarPicker"
+      role="dialog"
+      aria-modal="true"
+      aria-label="选择头像"
+    >
+      <div class="picker-card">
+        <p class="picker-title">选择头像</p>
+        <div class="avatar-options" id="avatarOptions"></div>
+        <button class="picker-cancel" id="cancelPicker" type="button">
+          取消
+        </button>
+      </div>
+    </section>
+    <div class="homebar"><i></i></div>
+    <script>
+      const completion = window.LUMA_MOCK.auth.profileCompletion,
+        avatar = document.querySelector("#avatar"),
+        nickname = document.querySelector("#nickname"),
+        save = document.querySelector("#save"),
+        error = document.querySelector("#error"),
+        avatarPicker = document.querySelector("#avatarPicker"),
+        avatarOptions = document.querySelector("#avatarOptions");
+      let selectedAvatar = completion.defaultAvatar;
+      function renderAvatar() {
+        avatar.textContent = selectedAvatar.text;
+        avatarOptions.replaceChildren(
+          ...completion.avatarOptions.map((option) => {
+            const button = document.createElement("button");
+            button.className =
+              "avatar-option" +
+              (option.id === selectedAvatar.id ? " selected" : "");
+            button.type = "button";
+            button.textContent = option.text;
+            button.setAttribute("aria-label", `选择头像 ${option.text}`);
+            button.onclick = () => {
+              selectedAvatar = option;
+              renderAvatar();
+              avatarPicker.classList.add("state-hide");
+            };
+            return button;
+          }),
+        );
+      }
+      function syncForm() {
+        const empty = !nickname.value.trim();
+        save.disabled = empty;
+        error.textContent = empty ? "请输入昵称后保存" : "";
+      }
+      function goHome() {
+        window.parent.postMessage(
+          { type: "luma-page", file: "../home/live-plaza.html" },
+          "*",
+        );
+        location.href = "../home/live-plaza.html";
+      }
+      document.querySelector("#changeAvatar").onclick = avatar.onclick = () =>
+        avatarPicker.classList.remove("state-hide");
+      document.querySelector("#cancelPicker").onclick = () =>
+        avatarPicker.classList.add("state-hide");
+      nickname.oninput = syncForm;
+      document.querySelector("#profileForm").onsubmit = (event) => {
+        event.preventDefault();
+        if (!save.disabled) goHome();
+      };
+      document.querySelector("#skip").onclick = goHome;
+      nickname.value = completion.defaultNickname;
+      renderAvatar();
+      syncForm();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "auth-profile-completion.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

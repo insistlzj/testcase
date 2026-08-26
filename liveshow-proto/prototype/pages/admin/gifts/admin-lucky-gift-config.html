@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>幸运礼物 · 礼物道具 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>礼物道具</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-gift-list.html">普通礼物</a
+            ><a class="admin-nav-sub" href="admin-custom-gift.html">定制礼物</a
+            ><a class="admin-nav-sub active" href="admin-lucky-gift-config.html"
+              >幸运礼物</a
+            ><a class="admin-nav-sub" href="admin-prop-list.html">道具配置</a>
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb"><strong>幸运礼物</strong></div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>幸运礼物</h1></div>
+            <button class="admin-btn" id="newLuckyGiftBtn">新增幸运礼物</button>
+          </div>
+          <section class="admin-panel admin-filter" aria-label="幸运礼物筛选">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="giftId">礼物 ID</label
+                ><input
+                  class="admin-input"
+                  id="giftId"
+                  placeholder="输入礼物 ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="giftName">礼物名称</label
+                ><input
+                  class="admin-input"
+                  id="giftName"
+                  placeholder="输入礼物名称"
+                />
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs" aria-label="上下架状态">
+                <button class="admin-list-tab active" data-status-tab="">
+                  全部</button
+                ><button class="admin-list-tab" data-status-tab="online">
+                  上架</button
+                ><button class="admin-list-tab" data-status-tab="offline">
+                  下架
+                </button>
+              </div>
+              <span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1120px">
+                <thead>
+                  <tr>
+                    <th>礼物 ID</th>
+                    <th>名称</th>
+                    <th>单次消耗金币</th>
+                    <th>开奖次数</th>
+                    <th>RTP</th>
+                    <th>礼物图标</th>
+                    <th>排序权重</th>
+                    <th>上下架状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="luckyRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const allGifts = window.LUMA_ADMIN_MOCK.giftItems,
+        gifts = () => allGifts.filter((item) => item.category === "lucky"),
+        { coins: formatCoins } = window.LUMA_ADMIN_FORMAT;
+      let visible = gifts(),
+        activeStatus = "";
+      function render(items) {
+        visible = items;
+        resultCount.textContent = `共 ${items.length} 条`;
+        pagination.classList.toggle("state-hide", !items.length);
+        if (!items.length) {
+          luckyRows.innerHTML =
+            '<tr><td colspan="9"><div class="admin-empty"><strong>未找到幸运礼物</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        luckyRows.innerHTML = items
+          .map(
+            (item) =>
+              /* HTML */ `<tr>
+                <td>${item.id}</td>
+                <td><b>${item.names.id}</b></td>
+                <td>${formatCoins(item.price)}</td>
+                <td>${item.comboCount || 1}</td>
+                <td>${item.targetRtp ?? "-"}%</td>
+                <td>
+                  <div class="admin-media">
+                    <span class="admin-media-placeholder"
+                      >${item.icon === "未上传" ? "未上传" : "图标 占位"}</span
+                    >
+                  </div>
+                </td>
+                <td>${item.sort}</td>
+                <td>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input
+                        type="checkbox"
+                        data-status-toggle="${item.id}"
+                        aria-label="${item.names.id} 上下架状态"
+                        ${item.status === "online" ? "checked" : ""} /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span>${item.status === "online" ? "上架" : "下架"}</span>
+                  </div>
+                </td>
+                <td>
+                  <a
+                    class="admin-action"
+                    href="admin-lucky-gift-detail.html?id=${item.id}&edit=1"
+                    >编辑</a
+                  ><button
+                    class="admin-action"
+                    data-action="delete"
+                    data-id="${item.id}"
+                  >
+                    删除
+                  </button>
+                </td>
+              </tr>`,
+          )
+          .join("");
+      }
+      function filter() {
+        const id = giftId.value.trim().toLowerCase(),
+          name = giftName.value.trim().toLowerCase(),
+          items = gifts().filter(
+            (item) =>
+              item.id.toLowerCase().includes(id) &&
+              Object.values(item.names)
+                .join(" ")
+                .toLowerCase()
+                .includes(name) &&
+              (!activeStatus || item.status === activeStatus),
+          );
+        render(items);
+        Luma.toast(`已查询到 ${items.length} 条幸运礼物`);
+      }
+      searchBtn.onclick = filter;
+      resetBtn.onclick = () => {
+        giftId.value = "";
+        giftName.value = "";
+        activeStatus = "";
+        document
+          .querySelectorAll("[data-status-tab]")
+          .forEach((button) =>
+            button.classList.toggle(
+              "active",
+              button.dataset.statusTab === activeStatus,
+            ),
+          );
+        render(gifts());
+        Luma.toast("筛选条件已重置");
+      };
+      newLuckyGiftBtn.onclick = () => {
+        location.href = "admin-lucky-gift-detail.html?new=1";
+      };
+      document.addEventListener("click", (event) => {
+        const statusTab = event.target.closest("[data-status-tab]");
+        if (statusTab) {
+          activeStatus = statusTab.dataset.statusTab;
+          document
+            .querySelectorAll("[data-status-tab]")
+            .forEach((button) =>
+              button.classList.toggle(
+                "active",
+                button.dataset.statusTab === activeStatus,
+              ),
+            );
+          filter();
+        }
+        const action = event.target.closest("[data-action]");
+        if (action) {
+          const item = allGifts.find((gift) => gift.id === action.dataset.id),
+            index = allGifts.indexOf(item);
+          if (index >= 0) allGifts.splice(index, 1);
+          Luma.toast("幸运礼物已删除");
+          render(gifts());
+        }
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      document.addEventListener("change", (event) => {
+        const toggle = event.target.closest("[data-status-toggle]");
+        if (toggle) {
+          const item = allGifts.find(
+            (gift) => gift.id === toggle.dataset.statusToggle,
+          );
+          item.status = toggle.checked ? "online" : "offline";
+          item.updatedAt = "2026-08-05 14:30";
+          item.changes.unshift({
+            action: toggle.checked ? "上架" : "下架",
+            detail: "通过列表开关调整礼物状态",
+            operator: "后台管理员",
+            time: item.updatedAt,
+          });
+          render(gifts());
+          Luma.toast("礼物状态已更新");
+        }
+      });
+      render(gifts());
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-lucky-gift-config.html" },
+        "*",
+      );
+      Luma.registerStates({
+        正常列表: () => render(gifts()),
+        无查询结果: () => render([]),
+      });
+    </script>
+  </body>
+</html>

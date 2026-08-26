@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>主播分成记录 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild.css?v=20260820-fiat-values-v1"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/guild-core-data.css?v=20260824-share-ledger-calendar-v2"
+    />
+    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/mock.js?v=20260819-share-records-v1"></script>
+    <script src="../../../assets/guild-data-model.js?v=20260819-all-records-v4"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a
+          class="guild-back"
+          id="backLink"
+          href="../home/guild-home.html"
+          aria-label="返回首页"
+          >‹</a
+        >主播分成记录
+      </header>
+      <div class="guild-page-body guild-share-record-page">
+        <div class="guild-record-overview-host-filter">
+          <a
+            id="memberPickerButton"
+            href="guild-violation-host-select.html"
+          ></a>
+        </div>
+        <div class="guild-host-summary-filterbar guild-share-range-filter">
+          <button
+            class="guild-host-summary-range"
+            id="shareRangePicker"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+              <path d="M8 3v4M16 3v4M4 10h16"></path>
+            </svg>
+            <span id="shareRangeValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <button
+            class="guild-host-performance-quick"
+            id="shareShortcutPicker"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+          >
+            <span id="shareShortcutValue">本月</span><i aria-hidden="true">⌄</i>
+          </button>
+          <div
+            class="guild-host-performance-shortcut-menu"
+            id="shareShortcutMenu"
+            role="menu"
+            aria-label="快捷日期筛选"
+            hidden
+          >
+            <button
+              type="button"
+              role="menuitemradio"
+              data-share-shortcut="today"
+              aria-checked="false"
+            >
+              今日
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-share-shortcut="yesterday"
+              aria-checked="false"
+            >
+              昨日
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-share-shortcut="thisWeek"
+              aria-checked="false"
+            >
+              本周
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-share-shortcut="lastWeek"
+              aria-checked="false"
+            >
+              上周
+            </button>
+            <button
+              class="active"
+              type="button"
+              role="menuitemradio"
+              data-share-shortcut="thisMonth"
+              aria-checked="true"
+            >
+              本月
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-share-shortcut="lastMonth"
+              aria-checked="false"
+            >
+              上月
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-share-shortcut="custom"
+              aria-checked="false"
+            >
+              自定义
+            </button>
+          </div>
+        </div>
+        <section class="guild-share-record-table" aria-label="主播分成记录列表">
+          <div class="guild-share-record-head" role="row">
+            <span role="columnheader">主播</span>
+            <span role="columnheader">分成时间</span>
+            <span role="columnheader">分成金额</span>
+          </div>
+          <div id="list"></div>
+        </section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+
+    <div class="guild-mask guild-host-date-mask" id="shareRangeSheet" hidden>
+      <section
+        class="guild-sheet guild-host-range-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="shareRangeSheetTitle"
+      >
+        <header class="guild-host-month-sheet-head">
+          <button id="shareRangeCancel" type="button">取消</button>
+          <h2 id="shareRangeSheetTitle">选择日期范围</h2>
+          <button class="confirm" id="shareRangeConfirm" type="button">
+            确定
+          </button>
+        </header>
+        <div class="guild-host-performance-calendar">
+          <div class="guild-host-performance-calendar-nav">
+            <button id="shareCalendarPrev" type="button" aria-label="上一个月">
+              ‹</button
+            ><b id="shareCalendarTitle"></b
+            ><button id="shareCalendarNext" type="button" aria-label="下一个月">
+              ›
+            </button>
+          </div>
+          <div class="guild-host-performance-calendar-week" aria-hidden="true">
+            <span>日</span><span>一</span><span>二</span><span>三</span
+            ><span>四</span><span>五</span><span>六</span>
+          </div>
+          <div
+            class="guild-host-performance-calendar-days"
+            id="shareCalendarDays"
+            role="grid"
+          ></div>
+        </div>
+        <p
+          class="guild-host-performance-range-hint"
+          id="shareRangeSelection"
+        ></p>
+      </section>
+    </div>
+    <script src="../../../assets/guild-share-records.js?v=20260824-share-ledger-calendar-v2"></script>
+  </body>
+</html>

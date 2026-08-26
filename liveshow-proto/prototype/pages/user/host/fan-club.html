@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>粉丝团 · 主播中心 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css?v=p014-fans-v6" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .edit {
+        position: absolute;
+        right: 16px;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .club-head {
+        margin: 12px 16px 0;
+        padding: 14px;
+        background: var(--g7);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .club-head .avatar {
+        width: 42px;
+        height: 42px;
+      }
+      .club-head b,
+      .club-head span {
+        display: block;
+      }
+      .club-head b {
+        font-size: 16px;
+      }
+      .club-head span {
+        margin-top: 4px;
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .club-level {
+        display: inline-block !important;
+        margin: 0 0 0 5px !important;
+        padding: 2px 6px;
+        border-radius: 5px;
+        background: var(--g6);
+        color: var(--g2) !important;
+        font-size: 10px !important;
+        font-style: normal;
+        font-weight: 500;
+        vertical-align: 2px;
+      }
+      .sort-tabs {
+        display: flex;
+        gap: 8px;
+        margin: 14px 16px 8px;
+      }
+      .sort-tabs button {
+        padding: 5px 9px;
+        border: 0;
+        border-radius: 6px;
+        background: var(--g6);
+        color: var(--g3);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .sort-tabs button.active {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .members {
+        margin: 0 16px;
+        background: var(--g7);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .member {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 92px;
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--g6);
+        cursor: pointer;
+      }
+      .member:last-child {
+        border: 0;
+      }
+      .member .avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 13px;
+      }
+      .info {
+        min-width: 0;
+        flex: 1;
+      }
+      .info b {
+        display: block;
+        font-size: 14px;
+      }
+      .badges {
+        display: flex;
+        gap: 4px;
+        margin-top: 5px;
+      }
+      .badge {
+        padding: 2px 5px;
+        border-radius: 5px;
+        background: var(--g6);
+        color: var(--g3);
+        font-size: 10px;
+        white-space: nowrap;
+      }
+      .member-meta {
+        display: block;
+        margin-top: 6px;
+        color: var(--g4);
+        font-size: 10px;
+        line-height: 1.45;
+      }
+      .member-meta span + span {
+        margin-left: 8px;
+      }
+      .stats {
+        display: flex;
+        flex: 0 0 72px;
+        align-self: stretch;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 8px;
+        background: var(--g6);
+        text-align: center;
+      }
+      .stats i {
+        color: var(--g3);
+        font-size: 12px;
+        font-style: normal;
+        line-height: 1;
+      }
+      .stats b {
+        margin-top: 6px;
+        color: var(--g1);
+        font-size: 14px;
+      }
+      body:has(.members) .stats b:before {
+        content: none !important;
+        display: none !important;
+      }
+      .remove {
+        display: none;
+        margin-left: 4px;
+        padding: 7px 9px;
+        border: 0;
+        border-radius: 7px;
+        background: var(--g6);
+        color: var(--g2);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .members.editing .remove {
+        display: block;
+      }
+      .members.editing .member {
+        cursor: default;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(51, 51, 51, 0.38);
+      }
+      .dialog {
+        width: 300px;
+        padding: 20px;
+        background: var(--g7);
+        border-radius: 12px;
+      }
+      .dialog h2 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .dialog p {
+        margin: 10px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .dialog-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .dialog-actions button {
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .dialog-actions button:first-child {
+        background: var(--g6);
+        color: var(--g2);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button class="back" onclick="location.href='host-center.html'">
+          ‹</button
+        >粉丝团<button class="edit" id="edit">编辑</button>
+      </header>
+      <section class="club-head">
+        <i class="avatar">S</i
+        ><span
+          ><b>Sari 的粉丝团 <i class="club-level">Lv.8</i></b
+          ><span id="memberCount">184 名成员</span></span
+        >
+      </section>
+      <nav class="sort-tabs" aria-label="成员排序">
+        <button class="active" type="button" data-sort="total">累计最多</button
+        ><button type="button" data-sort="month">本月最多</button
+        ><button type="button" data-sort="joined">最新加入</button>
+      </nav>
+      <section class="members" id="members">
+        <article
+          class="member"
+          data-name="Rina"
+          data-total="25600"
+          data-month="2150"
+          data-joined="2026-06-18"
+          onclick="Luma.toast('查看 Rina 的资料')"
+        >
+          <i class="avatar">R</i
+          ><span class="info"
+            ><b>Rina</b
+            ><span class="badges"
+              ><i class="badge">Lv.18</i><i class="badge">Sari 灯牌 8</i
+              ><i class="badge">粉丝 Lv.11</i></span
+            ><small class="member-meta"
+              ><span>亲密度 8.860</span><span>加入 2026.06.18</span></small
+            ></span
+          ><span class="stats"><i>◆</i><b>25.600</b></span
+          ><button class="remove" type="button">移除</button>
+        </article>
+        <article
+          class="member"
+          data-name="Maya"
+          data-total="18240"
+          data-month="3460"
+          data-joined="2026-06-26"
+          onclick="Luma.toast('查看 Maya 的资料')"
+        >
+          <i class="avatar">M</i
+          ><span class="info"
+            ><b>Maya</b
+            ><span class="badges"
+              ><i class="badge">Lv.15</i><i class="badge">Sari 灯牌 6</i
+              ><i class="badge">粉丝 Lv.9</i></span
+            ><small class="member-meta"
+              ><span>亲密度 6.480</span><span>加入 2026.06.26</span></small
+            ></span
+          ><span class="stats"><i>◆</i><b>18.240</b></span
+          ><button class="remove" type="button">移除</button>
+        </article>
+        <article
+          class="member"
+          data-name="Dewi"
+          data-total="9860"
+          data-month="1680"
+          data-joined="2026-07-04"
+          onclick="Luma.toast('查看 Dewi 的资料')"
+        >
+          <i class="avatar">D</i
+          ><span class="info"
+            ><b>Dewi</b
+            ><span class="badges"
+              ><i class="badge">Lv.12</i><i class="badge">Sari 灯牌 5</i
+              ><i class="badge">粉丝 Lv.7</i></span
+            ><small class="member-meta"
+              ><span>亲密度 4.260</span><span>加入 2026.07.04</span></small
+            ></span
+          ><span class="stats"><i>◆</i><b>9.860</b></span
+          ><button class="remove" type="button">移除</button>
+        </article>
+        <article
+          class="member"
+          data-name="Andi"
+          data-total="4820"
+          data-month="2920"
+          data-joined="2026-07-13"
+          onclick="Luma.toast('查看 Andi 的资料')"
+        >
+          <i class="avatar">安</i
+          ><span class="info"
+            ><b>Andi</b
+            ><span class="badges"
+              ><i class="badge">Lv.12</i><i class="badge">Sari 灯牌 3</i
+              ><i class="badge">粉丝 Lv.3</i></span
+            ><small class="member-meta"
+              ><span>亲密度 1.860</span><span>加入 2026.07.13</span></small
+            ></span
+          ><span class="stats"><i>◆</i><b>4.820</b></span
+          ><button class="remove" type="button">移除</button>
+        </article>
+      </section>
+    </main>
+    <section class="modal state-hide" id="modal">
+      <div class="dialog">
+        <h2>移除成员</h2>
+        <p id="modalText"></p>
+        <div class="dialog-actions">
+          <button id="cancel" type="button">取消</button
+          ><button id="confirm" type="button">确认移除</button>
+        </div>
+      </div>
+    </section>
+    <script>
+      const edit = document.querySelector("#edit"),
+        members = document.querySelector("#members"),
+        modal = document.querySelector("#modal"),
+        modalText = document.querySelector("#modalText"),
+        memberCount = document.querySelector("#memberCount"),
+        sortTabs = document.querySelectorAll(".sort-tabs button");
+      let editing = false,
+        target = null,
+        count = 184;
+      edit.onclick = () => {
+        editing = !editing;
+        members.classList.toggle("editing", editing);
+        edit.textContent = editing ? "完成" : "编辑";
+      };
+      sortTabs.forEach(
+        (button) =>
+          (button.onclick = () => {
+            const key = button.dataset.sort;
+            [...members.children]
+              .sort((a, b) =>
+                key === "joined"
+                  ? b.dataset[key].localeCompare(a.dataset[key])
+                  : Number(b.dataset[key]) - Number(a.dataset[key]),
+              )
+              .forEach((member) => members.append(member));
+            sortTabs.forEach((tab) =>
+              tab.classList.toggle("active", tab === button),
+            );
+          }),
+      );
+      document.querySelectorAll(".remove").forEach(
+        (button) =>
+          (button.onclick = (event) => {
+            event.stopPropagation();
+            target = button.closest(".member");
+            modalText.textContent = `确认将 ${target.dataset.name} 移出粉丝团？该成员将同时退出粉丝团群。`;
+            modal.classList.remove("state-hide");
+          }),
+      );
+      document.querySelector("#cancel").onclick = () => {
+        target = null;
+        modal.classList.add("state-hide");
+      };
+      document.querySelector("#confirm").onclick = () => {
+        if (!target) return;
+        const name = target.dataset.name;
+        target.remove();
+        count -= 1;
+        memberCount.textContent = `${count} 名成员`;
+        target = null;
+        modal.classList.add("state-hide");
+        Luma.toast(`已移除 ${name}`);
+      };
+    </script>
+    <script>
+      const clubHead = document.querySelector(".club-head"),
+        memberTotal = document.querySelector("#memberCount"),
+        joinRule = document.createElement("small"),
+        settingsLink = document.createElement("a"),
+        clubStyle = document.createElement("style"),
+        memberIcon = document.createElement("i");
+      joinRule.className = "join-rule";
+      joinRule.textContent = "加入方式：关注、贡献 2000";
+      settingsLink.className = "club-settings";
+      settingsLink.href = "fan-club-settings.html";
+      settingsLink.textContent = "编辑";
+      memberIcon.className = "member-icon";
+      memberIcon.setAttribute("aria-hidden", "true");
+      clubStyle.textContent = [
+        `.club-head{position:relative;padding-right:58px}`,
+        `.member-count{display:flex!important;align-items:center;gap:4px}`,
+        `.member-icon{position:relative;width:13px;height:13px;flex:none}`,
+        `.member-icon:before,.member-icon:after{content:"";position:absolute;background:currentColor}`,
+        `.member-icon:before{top:0;left:4px;width:5px;height:5px;border-radius:50%}`,
+        `.member-icon:after{bottom:0;left:1px;width:11px;height:7px;border-radius:6px 6px 2px 2px}`,
+        `.join-rule{display:block;margin-top:6px;color:var(--g2);font-size:12px}`,
+        `.club-settings{position:absolute;top:50%;right:14px;transform:translateY(-50%);padding:7px 9px;border:1px solid var(--g5);border-radius:7px;background:var(--g7);color:var(--g2);font-size:12px;line-height:1;text-decoration:none}`,
+      ].join("");
+      function renderMemberTotal() {
+        if (memberTotal.querySelector(".member-icon")) return;
+        const value = memberTotal.textContent.match(/\d+/)?.[0] || "184";
+        memberTotal.textContent = value + "人";
+        memberTotal.prepend(memberIcon.cloneNode());
+      }
+      document.head.append(clubStyle);
+      memberTotal.classList.add("member-count");
+      renderMemberTotal();
+      new MutationObserver(renderMemberTotal).observe(memberTotal, {
+        childList: true,
+      });
+      memberTotal.after(joinRule);
+      clubHead.append(settingsLink);
+    </script>
+    <script>
+      const joinTag = document.createElement("i");
+      joinTag.className = "join-tag";
+      joinTag.textContent = "条件";
+      joinRule.textContent = "关注、贡献 2000";
+      joinRule.prepend(joinTag);
+      clubStyle.textContent +=
+        ".join-rule{display:flex;align-items:center;gap:5px}.join-tag{height:18px;padding:0 5px;border-radius:5px;background:var(--g6);color:var(--g3);display:inline-flex;align-items:center;font-size:10px;font-style:normal;line-height:1;white-space:nowrap}";
+    </script>
+    <script>
+      document.querySelector(".nav .edit").remove();
+      clubStyle.textContent += [
+        `.member{position:relative;overflow:hidden}`,
+        `.member>*:not(.remove){transition:transform .18s ease}`,
+        `.remove{position:absolute;top:0;right:0;bottom:0;width:64px;margin:0!important;padding:0!important;border-radius:0!important;background:var(--g1)!important;color:var(--g7)!important;display:flex!important;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .18s ease}`,
+        `.member.swiped>*:not(.remove){transform:translateX(-64px)}`,
+        `.member.swiped .remove{opacity:1;pointer-events:auto}`,
+      ].join("");
+      let swipeStartX = 0,
+        swipeStartY = 0;
+      function closeSwiped(except) {
+        members.querySelectorAll(".member.swiped").forEach((member) => {
+          if (member !== except) member.classList.remove("swiped");
+        });
+      }
+      members.querySelectorAll(".member").forEach((member) => {
+        member.removeAttribute("onclick");
+        member.onclick = () => {
+          if (!member.classList.contains("swiped"))
+            Luma.toast(`查看 ${member.dataset.name} 的资料`);
+        };
+        member.addEventListener(
+          "touchstart",
+          (event) => {
+            if (event.target.closest(".remove")) return;
+            swipeStartX = event.touches[0].clientX;
+            swipeStartY = event.touches[0].clientY;
+          },
+          { passive: true },
+        );
+        member.addEventListener(
+          "touchend",
+          (event) => {
+            if (event.target.closest(".remove")) return;
+            const deltaX = event.changedTouches[0].clientX - swipeStartX,
+              deltaY = event.changedTouches[0].clientY - swipeStartY;
+            if (Math.abs(deltaX) <= Math.abs(deltaY) || Math.abs(deltaX) < 36)
+              return;
+            if (deltaX < 0) {
+              closeSwiped(member);
+              member.classList.add("swiped");
+            } else member.classList.remove("swiped");
+          },
+          { passive: true },
+        );
+      });
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".member")) closeSwiped();
+      });
+    </script>
+    <script>
+      members.querySelectorAll(".member").forEach((member) => {
+        member.addEventListener("pointerdown", (event) => {
+          if (event.target.closest(".remove")) return;
+          swipeStartX = event.clientX;
+          swipeStartY = event.clientY;
+        });
+        member.addEventListener("pointerup", (event) => {
+          if (event.target.closest(".remove")) return;
+          const deltaX = event.clientX - swipeStartX,
+            deltaY = event.clientY - swipeStartY;
+          if (Math.abs(deltaX) <= Math.abs(deltaY) || Math.abs(deltaX) < 36)
+            return;
+          if (deltaX < 0) {
+            closeSwiped(member);
+            member.classList.add("swiped");
+          } else member.classList.remove("swiped");
+        });
+      });
+      document.querySelectorAll(".sort-tabs button").forEach((tab) =>
+        tab.addEventListener("pointerup", () => {
+          const key = tab.dataset.sort;
+          [...members.children]
+            .sort((a, b) =>
+              key === "joined"
+                ? b.dataset.joined.localeCompare(a.dataset.joined)
+                : Number(b.dataset[key]) - Number(a.dataset[key]),
+            )
+            .forEach((member) => members.append(member));
+          document
+            .querySelectorAll(".sort-tabs button")
+            .forEach((item) => item.classList.toggle("active", item === tab));
+        }),
+      );
+    </script>
+    <script>
+      clubStyle.textContent +=
+        ".sort-tabs{gap:24px;margin:14px 16px 0;border-bottom:1px solid var(--g5)}.sort-tabs button{height:36px;padding:0!important;border:0!important;border-bottom:2px solid transparent!important;border-radius:0!important;background:transparent!important;color:var(--g4)!important;margin-bottom:-1px}.sort-tabs button.active{border-bottom-color:var(--g1)!important;background:transparent!important;color:var(--g1)!important}";
+      document
+        .querySelectorAll(".sort-tabs button")
+        .forEach((tab) =>
+          tab.setAttribute(
+            "onclick",
+            '(function(tab){var list=document.querySelector("#members"),key=tab.dataset.sort;Array.prototype.slice.call(list.children).sort(function(a,b){return key==="joined"?b.dataset.joined.localeCompare(a.dataset.joined):Number(b.dataset[key])-Number(a.dataset[key])}).forEach(function(member){list.append(member)});document.querySelectorAll(".sort-tabs button").forEach(function(item){item.classList.toggle("active",item===tab)});})(this)',
+          ),
+        );
+    </script>
+    <script>
+      (function () {
+        var style = document.createElement("style"),
+          targetWrap = document.createElement("span"),
+          hashes = {
+            total: "fan-club-total",
+            month: "fan-club-month",
+            joined: "fan-club-joined",
+          };
+        style.textContent = [
+          `.sort-tabs a{height:36px;padding:0;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;color:var(--g4);display:flex;align-items:center;font:12px inherit;text-decoration:none;margin-bottom:-1px}`,
+          `.sort-tabs a.active{border-bottom-color:var(--g1);color:var(--g1)}`,
+          `.tab-target{position:fixed;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}`,
+          `body:has(#fan-club-month:target) .sort-tabs a,body:has(#fan-club-joined:target) .sort-tabs a{border-bottom-color:transparent;color:var(--g4)}`,
+          `body:has(#fan-club-month:target) .sort-tabs a[href="#fan-club-month"],body:has(#fan-club-joined:target) .sort-tabs a[href="#fan-club-joined"]{border-bottom-color:var(--g1);color:var(--g1)}`,
+        ].join("");
+        targetWrap.className = "tab-target";
+        Object.keys(hashes).forEach(function (key) {
+          var target = document.createElement("i");
+          target.id = hashes[key];
+          targetWrap.append(target);
+        });
+        document.body.append(targetWrap);
+        document
+          .querySelectorAll(".sort-tabs button")
+          .forEach(function (button) {
+            var link = document.createElement("a");
+            link.className = button.className;
+            link.href = "#" + hashes[button.dataset.sort];
+            link.textContent = button.textContent;
+            link.dataset.sort = button.dataset.sort;
+            button.replaceWith(link);
+          });
+        document.head.append(style);
+      })();
+    </script>
+    <script>
+      clubStyle.textContent += ".modal.state-hide{display:none!important}";
+    </script>
+  </body>
+</html>

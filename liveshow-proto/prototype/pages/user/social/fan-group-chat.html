@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>粉丝团群聊 · 消息 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .chat-head {
+        height: 52px;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        background: var(--g7);
+      }
+      .chat-head .back {
+        position: static;
+        margin-right: 8px;
+      }
+      .group-title {
+        min-width: 0;
+        flex: 1;
+      }
+      .group-title b,
+      .group-title span {
+        display: block;
+      }
+      .group-title b {
+        font-size: 16px;
+      }
+      .group-title span {
+        margin-top: 2px;
+        color: var(--g4);
+        font-size: 11px;
+      }
+      .members {
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .notice {
+        display: block;
+        width: 100%;
+        height: 38px;
+        padding: 0;
+        border: 0;
+        background: var(--g6);
+        color: var(--g2);
+        font: 13px inherit;
+        text-align: left;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .notice-copy {
+        display: inline-block;
+        min-width: max-content;
+        padding: 11px 0;
+        white-space: nowrap;
+        animation: notice-scroll 12s linear infinite;
+      }
+      .notice:hover .notice-copy {
+        animation-play-state: paused;
+      }
+      @keyframes notice-scroll {
+        from {
+          transform: translateX(390px);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+      .chat {
+        min-height: calc(844px - 44px - 52px - 38px - 70px);
+        padding: 16px 16px 82px;
+      }
+      .time {
+        margin: 4px auto 14px;
+        text-align: center;
+        color: var(--g4);
+        font-size: 11px;
+      }
+      .msg {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin: 0 0 14px;
+      }
+      .msg.me {
+        justify-content: flex-end;
+      }
+      .msg .avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+      }
+      .message {
+        max-width: 250px;
+      }
+      .message b {
+        display: block;
+        margin: 0 0 4px;
+        color: var(--g3);
+        font-size: 11px;
+        font-weight: 500;
+      }
+      .bubble {
+        margin: 0;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: var(--g7);
+        color: var(--g2);
+        font-size: 14px;
+        line-height: 1.45;
+      }
+      .me .bubble {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .composer {
+        position: fixed;
+        bottom: 0;
+        width: 390px;
+        min-height: 70px;
+        padding: 10px 16px;
+        background: var(--g7);
+        border-top: 1px solid var(--g5);
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+      }
+      .composer button {
+        width: 34px;
+        height: 34px;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .composer textarea {
+        flex: 1;
+        min-height: 34px;
+        max-height: 80px;
+        padding: 8px 10px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g1);
+        font: 14px inherit;
+        line-height: 18px;
+        resize: none;
+        outline: 0;
+      }
+      .composer .send {
+        width: auto;
+        padding: 0 10px;
+        border-radius: 7px;
+        background: var(--g1);
+        color: var(--g7);
+        font-size: 13px;
+      }
+      .composer .send:disabled {
+        background: var(--g5);
+        cursor: default;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--overlay);
+      }
+      .dialog {
+        width: 300px;
+        padding: 20px;
+        background: var(--g7);
+        border-radius: 12px;
+      }
+      .dialog h2 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .dialog p {
+        margin: 12px 0 18px;
+        color: var(--g2);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .dialog button {
+        width: 100%;
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .live-share-card {
+        display: block;
+        width: 168px;
+        overflow: hidden;
+        padding: 0;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g1);
+        font: inherit;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .live-share-card:hover {
+        border-color: var(--g3);
+      }
+      .live-share-cover {
+        position: relative;
+        width: 100%;
+        height: 158px;
+        background: var(--g5);
+        color: var(--g3);
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+      }
+      .live-share-status {
+        position: absolute;
+        top: 7px;
+        left: 7px;
+        max-width: calc(100% - 14px);
+        padding: 3px 6px;
+        border: 1px solid var(--g5);
+        border-radius: 5px;
+        background: var(--g7);
+        color: var(--g1);
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .live-share-card.is-live .live-share-status {
+        border-color: var(--danger);
+        background: var(--danger);
+        color: var(--g7);
+      }
+      .live-share-copy {
+        display: block;
+        padding: 8px 9px 9px;
+      }
+      .live-share-copy b,
+      .live-share-copy span {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .live-share-copy b {
+        font-size: 12px;
+        line-height: 1.3;
+      }
+      .live-share-copy span {
+        margin-top: 3px;
+        color: var(--g4);
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen" style="padding-bottom: 0">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="chat-head">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='message-center.html'"
+        >
+          ‹
+        </button>
+        <div class="group-title">
+          <b>Sari 的粉丝团</b><span>184 名成员</span>
+        </div>
+        <button
+          class="members"
+          type="button"
+          onclick="Luma.toast('查看群成员')"
+        >
+          成员 ›
+        </button>
+      </header>
+      <button
+        class="notice"
+        id="notice"
+        type="button"
+        aria-label="查看完整公告"
+      >
+        <span class="notice-copy"
+          >今晚 8
+          点专场，记得来！本场将开放点歌互动，提前进入直播间领取专属灯牌。</span
+        >
+      </button>
+      <section class="chat" id="chat">
+        <p class="time">18/08/2026 19.52</p>
+        <div class="msg">
+          <i class="avatar">R</i>
+          <div class="message">
+            <b>Rina</b>
+            <p class="bubble">上次的歌太好听了，今晚还会唱吗？</p>
+          </div>
+        </div>
+        <div class="msg">
+          <i class="avatar">S</i>
+          <div class="message">
+            <b>Sari · 群主</b>
+            <p class="bubble">会的，晚上见。</p>
+          </div>
+        </div>
+        <div class="msg">
+          <i class="avatar">S</i>
+          <div class="message">
+            <b>Sari · 群主</b>
+            <div id="liveShareCard"></div>
+          </div>
+        </div>
+        <div class="msg me">
+          <div class="message"><p class="bubble">我已经设好提醒啦。</p></div>
+          <i class="avatar">安</i>
+        </div>
+      </section>
+    </main>
+    <div class="composer">
+      <button type="button" onclick="Luma.toast('打开表情')">☺</button
+      ><textarea id="input" rows="1" placeholder="发送消息"></textarea
+      ><button class="send" id="send" type="button" disabled>发送</button>
+    </div>
+    <section class="modal state-hide" id="modal">
+      <div class="dialog">
+        <h2>公告</h2>
+        <p>
+          今晚 8
+          点专场，记得来！本场将开放点歌互动，提前进入直播间领取专属灯牌。
+        </p>
+        <button id="closeModal" type="button">知道了</button>
+      </div>
+    </section>
+    <script>
+      const input = document.querySelector("#input"),
+        send = document.querySelector("#send"),
+        chat = document.querySelector("#chat"),
+        notice = document.querySelector("#notice"),
+        modal = document.querySelector("#modal"),
+        liveShareCard = document.querySelector("#liveShareCard");
+      function sync() {
+        send.disabled = !input.value.trim();
+      }
+      function append() {
+        const text = input.value.trim();
+        if (!text) return;
+        const item = document.createElement("div");
+        item.className = "msg me";
+        item.innerHTML =
+          '<div class="message"><p class="bubble"></p></div><i class="avatar">安</i>';
+        item.querySelector(".bubble").textContent = text;
+        chat.append(item);
+        input.value = "";
+        sync();
+        input.focus();
+      }
+      function renderLiveShare(state) {
+        const liveRoom = window.LUMA_MOCK.fanGroupLiveRoomCard[state],
+          card = document.createElement(state === "live" ? "a" : "button");
+        card.className = `live-share-card${state === "live" ? " is-live" : ""}`;
+        if (state === "live") card.href = "../live/live-room.html";
+        else card.type = "button";
+        const cover = document.createElement("span"),
+          placeholder = document.createElement("span"),
+          status = document.createElement("span"),
+          copy = document.createElement("span"),
+          title = document.createElement("b"),
+          host = document.createElement("span");
+        cover.className = "live-share-cover";
+        placeholder.textContent = "房间封面图";
+        status.className = "live-share-status";
+        status.textContent = liveRoom.action
+          ? `${liveRoom.status} · ${liveRoom.action}`
+          : liveRoom.status;
+        cover.append(placeholder, status);
+        copy.className = "live-share-copy";
+        title.textContent = liveRoom.title;
+        host.textContent = `${liveRoom.host} 的直播间`;
+        copy.append(title, host);
+        card.append(cover, copy);
+        if (state === "ended") card.onclick = () => Luma.toast("直播已结束");
+        liveShareCard.replaceChildren(card);
+      }
+      input.addEventListener("input", sync);
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
+          append();
+        }
+      });
+      send.onclick = append;
+      notice.onclick = () => modal.classList.remove("state-hide");
+      document.querySelector("#closeModal").onclick = () =>
+        modal.classList.add("state-hide");
+      renderLiveShare("ended");
+      Luma.registerStates({
+        直播房间: {
+          已结束: () => renderLiveShare("ended"),
+          直播中: () => renderLiveShare("live"),
+        },
+      });
+    </script>
+    <script src="../../../assets/chat-media.js"></script>
+  </body>
+</html>

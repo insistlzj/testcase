@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>分成记录 · 主播中心 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .tabs {
+        margin: 12px 16px 8px;
+        border-bottom: 1px solid var(--g5);
+      }
+      .tabs button {
+        padding: 0 0 9px;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        background: none;
+        color: var(--g4);
+        font: 15px inherit;
+        cursor: pointer;
+      }
+      .tabs button.active {
+        border-color: var(--g1);
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .list {
+        margin: 0 16px;
+        background: var(--g7);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .income-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 15px 14px;
+        border: 0;
+        border-bottom: 1px solid var(--g6);
+        background: var(--g7);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .income-row:last-child {
+        border-bottom: 0;
+      }
+      .income-body {
+        min-width: 0;
+        flex: 1;
+      }
+      .income-body b {
+        display: block;
+        font-size: 14px;
+      }
+      .income {
+        color: var(--success);
+        font-size: 14px;
+      }
+      .income:before {
+        content: none !important;
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button class="back" onclick="location.href='host-center.html'">
+          ‹</button
+        >分成记录
+      </header>
+      <nav class="tabs">
+        <button class="active" type="button" disabled>分成记录</button>
+      </nav>
+      <section class="list">
+        <button
+          class="income-row"
+          onclick="Luma.toast('查看 03/08/2026 分成记录')"
+        >
+          <span class="income-body"><b>03/08/2026</b></span
+          ><b class="income">$3.156,00</b></button
+        ><button
+          class="income-row"
+          onclick="Luma.toast('查看 02/08/2026 分成记录')"
+        >
+          <span class="income-body"><b>02/08/2026</b></span
+          ><b class="income">$1.904,00</b></button
+        ><button
+          class="income-row"
+          onclick="Luma.toast('查看 01/08/2026 分成记录')"
+        >
+          <span class="income-body"><b>01/08/2026</b></span
+          ><b class="income">$624,00</b>
+        </button>
+      </section>
+    </main>
+  </body>
+</html>

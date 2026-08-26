@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>直播详情 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <style>
+      #metrics .admin-metric {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+      }
+      #metrics .admin-metric span {
+        margin-bottom: 0;
+      }
+      #metrics .admin-metric b {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-host-review.html">主播审核</a
+            ><a class="admin-nav-sub" href="admin-host-list.html">主播列表</a
+            ><a class="admin-nav-sub active" href="admin-live-management.html"
+              >直播场次</a
+            ><a class="admin-nav-sub" href="admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub" href="../content/admin-content-audit.html"
+              >内容审核</a
+            ><a
+              class="admin-nav-sub"
+              href="../content/admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb"><strong>直播场次</strong></div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-live-management.html"
+            >‹ 返回直播场次</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-profile-summary">
+              <span class="admin-avatar" id="avatar"></span>
+              <div>
+                <h2 id="name"></h2>
+                <span id="status"></span>
+              </div>
+              <div class="admin-profile-summary-actions" id="actions"></div>
+            </div>
+            <div class="admin-metrics" id="metrics"></div>
+            <div class="admin-detail-grid" id="baseInfo"></div>
+          </section>
+          <section class="admin-panel admin-tabs-panel">
+            <div class="admin-detail-tabs">
+              <button class="admin-detail-tab active" data-tab="screen">
+                直播画面</button
+              ><button class="admin-detail-tab" data-tab="inspections">
+                巡房记录
+              </button>
+            </div>
+            <div class="admin-detail-panel" id="detailPanel"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="actionOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head">
+          <h2 id="actionTitle">直播处置</h2>
+          <button class="admin-icon-btn" data-close="actionOverlay">×</button>
+        </div>
+        <form id="actionForm">
+          <div class="admin-modal-body">
+            <p id="actionTarget"></p>
+            <div class="admin-form-row">
+              <label for="actionReason">处置原因</label
+              ><textarea
+                class="admin-textarea"
+                id="actionReason"
+                required
+              ></textarea>
+            </div>
+            <div class="admin-note" id="actionNote"></div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="actionOverlay"
+            >
+              取消</button
+            ><button class="admin-btn danger" type="submit">确认</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const sessions = window.LUMA_ADMIN_MOCK.liveSessions,
+        id = new URLSearchParams(location.search).get("id");
+      const item = sessions.find((x) => x.sessionId === id) || sessions[0],
+        { coins: formatCoins, integer: formatInteger } =
+          window.LUMA_ADMIN_FORMAT;
+      let currentAction = "",
+        currentTab = "screen";
+      const statusText = {
+          live: "直播中",
+          ended: "已结束",
+          stopped: "强制结束",
+        },
+        avatarEl = document.querySelector("#avatar"),
+        nameEl = document.querySelector("#name"),
+        statusEl = document.querySelector("#status"),
+        actionsEl = document.querySelector("#actions"),
+        metricsEl = document.querySelector("#metrics"),
+        baseInfoEl = document.querySelector("#baseInfo"),
+        detailPanelEl = document.querySelector("#detailPanel"),
+        metaEl = document.createElement("div");
+      metaEl.className = "admin-profile-meta";
+      nameEl.after(metaEl);
+      metaEl.innerHTML = '<span id="hostId"></span>';
+      metaEl.append(statusEl);
+      metaEl.insertAdjacentHTML(
+        "beforeend",
+        '<span class="admin-tag" id="roomTypeTag"></span><span class="admin-tag" id="contentTag"></span>',
+      );
+      function table(columns, items) {
+        if (!items.length)
+          return '<div class="admin-record-empty"><strong>暂无记录</strong><span>该场次当前没有相关记录</span></div>';
+        return `<div class="admin-record-scroll"><table class="admin-record-table"><thead><tr>${columns.map((x) => `<th>${x[0]}</th>`).join("")}</tr></thead><tbody>${items.map((row) => `<tr>${columns.map((x) => `<td>${x[1](row)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      }
+      function renderBase() {
+        avatarEl.textContent = item.initials;
+        nameEl.innerHTML = Luma.tip(item.name, "主播昵称");
+        document.querySelector("#hostId").innerHTML = Luma.id(
+          item.hostId,
+          "主播ID",
+        );
+        document.querySelector("#roomTypeTag").textContent = item.roomType;
+        document.querySelector("#contentTag").textContent = item.tag;
+        statusEl.className = `admin-status ${item.status === "stopped" ? "banned" : item.status}`;
+        Luma.setTip(statusEl, statusText[item.status], "场次状态");
+        actionsEl.innerHTML =
+          item.status === "live"
+            ? '<button class="admin-btn secondary" data-action="警告">警告</button><button class="admin-btn secondary" data-action="断流">断流</button><button class="admin-btn danger" data-action="强制关播">关播</button>'
+            : "";
+        metricsEl.innerHTML = `<div class="admin-metric"><span>观众人数</span><b>${formatInteger(item.totalViewers)}</b></div><div class="admin-metric"><span>金币收益</span><b>${formatCoins(item.consumptionCoins)}</b></div><div class="admin-metric"><span>收礼数量</span><b>${formatInteger(item.gifts)}</b></div>`;
+        baseInfoEl.innerHTML = `<div class="admin-detail-item"><span>直播场次 ID</span><b>${item.sessionId}</b></div><div class="admin-detail-item"><span>直播标题</span><b>${item.title}</b></div><div class="admin-detail-item"><span>开播时间</span><b>${item.startedAt}</b></div><div class="admin-detail-item"><span>结束时间</span><b>${item.endedAt}</b></div><div class="admin-detail-item"><span>直播时长</span><b>${item.duration}</b></div>`;
+      }
+      function renderTab(tab) {
+        currentTab = tab;
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.tab === tab),
+          );
+        if (tab === "screen")
+          detailPanelEl.innerHTML = `<div class="admin-media-grid"><div><h4>直播封面</h4><div class="admin-media large"><span class="admin-media-placeholder">封面 占位</span></div></div><div><h4>直播画面</h4><div class="admin-media large"><span class="admin-media-placeholder">截图 占位</span></div></div></div>`;
+        if (tab === "inspections")
+          detailPanelEl.innerHTML = table(
+            [
+              ["巡房人员", (x) => x.inspector],
+              ["巡房时间", (x) => x.time],
+              ["巡房结果", (x) => x.result],
+              ["处置记录", (x) => x.action],
+            ],
+            item.inspections,
+          );
+      }
+      function openAction(type) {
+        currentAction = type;
+        actionTitle.textContent = type;
+        actionTarget.textContent = `${item.name}（${item.hostId}）· 直播间 ${item.roomId}`;
+        actionReason.value = "";
+        actionNote.textContent =
+          type === "强制关播"
+            ? "提交后直播立即结束。"
+            : type === "断流"
+              ? "提交后中断当前直播流。"
+              : "警告内容将记录在处置记录中。";
+        actionOverlay.classList.add("show");
+      }
+      document.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-tab]");
+        if (tab) renderTab(tab.dataset.tab);
+        const action = event.target.closest("[data-action]");
+        if (action) openAction(action.dataset.action);
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      actionForm.onsubmit = (event) => {
+        event.preventDefault();
+        item.actions.unshift({
+          type: currentAction,
+          reason: actionReason.value.trim(),
+          operator: "后台管理员",
+          time: "2026-08-04 12:35",
+        });
+        if (currentAction === "强制关播" || currentAction === "断流") {
+          item.status = "stopped";
+          item.endedAt = "2026-08-04 12:35";
+        }
+        actionOverlay.classList.remove("show");
+        renderBase();
+        renderTab(currentTab);
+        Luma.toast(`${currentAction}已执行`);
+      };
+      renderBase();
+      renderTab("screen");
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-live-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        直播画面: () => renderTab("screen"),
+        巡房记录: () => renderTab("inspections"),
+        直播处置: () => openAction("强制关播"),
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>申请加入公会 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+      }
+      .form {
+        margin: 12px 16px 0;
+        border-radius: 12px;
+        background: var(--g7);
+        overflow: hidden;
+      }
+      .row {
+        min-height: 58px;
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--g6);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .row:last-child {
+        border: 0;
+      }
+      .row > label {
+        width: 76px;
+        flex: none;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .row input {
+        min-width: 0;
+        flex: 1;
+        border: 0;
+        background: transparent;
+        color: var(--g1);
+        font: 14px inherit;
+        outline: 0;
+      }
+      .row input::placeholder {
+        color: var(--g4);
+      }
+      .required {
+        color: var(--danger);
+        font-style: normal;
+      }
+      .change {
+        height: 30px;
+        padding: 0 10px;
+        border: 1px solid var(--g5);
+        border-radius: 7px;
+        background: var(--g7);
+        color: var(--g2);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .upload-section {
+        margin: 12px 16px 0;
+        padding: 14px;
+        border-radius: 12px;
+        background: var(--g7);
+      }
+      .section-title {
+        margin: 0 0 12px;
+        font-size: 14px;
+      }
+      .section-title .required {
+        margin-left: 3px;
+      }
+      .upload-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .upload {
+        position: relative;
+        display: flex;
+        min-width: 0;
+        height: 104px;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed var(--g4);
+        border-radius: 8px;
+        color: var(--g3);
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.45;
+        cursor: pointer;
+      }
+      .upload input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+      }
+      .upload span {
+        padding: 8px;
+      }
+      .upload.has-file {
+        border-style: solid;
+        border-color: var(--g2);
+        color: var(--g1);
+      }
+      .upload.has-file span::before {
+        content: "已上传";
+        display: block;
+        margin-bottom: 4px;
+        color: var(--g2);
+        font-size: 12px;
+      }
+      .hint {
+        margin: 12px 16px 0;
+        color: var(--g4);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .submit {
+        width: calc(100% - 32px);
+        height: 46px;
+        margin: 14px 16px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 600 15px inherit;
+        cursor: pointer;
+      }
+      .submit:disabled {
+        background: var(--g5);
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='guild-management.html'"
+        >
+          ‹</button
+        >申请加入公会
+      </header>
+      <section class="form">
+        <div class="row">
+          <label>申请公会</label><b id="guildName"></b
+          ><button
+            class="change"
+            type="button"
+            onclick="location.href='guild-management.html'"
+          >
+            更换
+          </button>
+        </div>
+        <div class="row">
+          <label for="name">姓名 <i class="required">*</i></label
+          ><input id="name" autocomplete="name" placeholder="请输入真实姓名" />
+        </div>
+        <div class="row">
+          <label for="phone">电话 <i class="required">*</i></label
+          ><input
+            id="phone"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="+62 手机号"
+          />
+        </div>
+      </section>
+      <section class="upload-section">
+        <h2 class="section-title">上传认证材料<i class="required">*</i></h2>
+        <div class="upload-grid">
+          <label class="upload"
+            ><input id="portrait" type="file" accept="image/*" /><span
+              >本人照片</span
+            ></label
+          >
+          <label class="upload"
+            ><input id="idFront" type="file" accept="image/*" /><span
+              >证件正面</span
+            ></label
+          >
+          <label class="upload"
+            ><input id="idBack" type="file" accept="image/*" /><span
+              >证件反面</span
+            ></label
+          >
+        </div>
+      </section>
+      <p class="hint">请上传清晰、完整的材料。提交后由公会审核。</p>
+      <button class="submit" id="submit" type="button" disabled>
+        提交申请
+      </button>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const query = new URLSearchParams(location.search);
+      const guild =
+        window.LUMA_MOCK.guilds.find(
+          (item) => item.id === query.get("guild"),
+        ) ||
+        window.LUMA_MOCK.guilds.find(
+          (item) => item.applicationState === "apply",
+        );
+      document.querySelector("#guildName").textContent = guild.name;
+      const nameInput = document.querySelector("#name");
+      const phoneInput = document.querySelector("#phone");
+      const uploadInputs = [...document.querySelectorAll(".upload input")];
+      const submit = document.querySelector("#submit");
+      function validate() {
+        submit.disabled = !(
+          nameInput.value.trim() &&
+          phoneInput.value.trim() &&
+          uploadInputs.every((input) => input.files.length)
+        );
+      }
+      [nameInput, phoneInput].forEach((input) =>
+        input.addEventListener("input", validate),
+      );
+      uploadInputs.forEach((input) =>
+        input.addEventListener("change", () => {
+          input
+            .closest(".upload")
+            .classList.toggle("has-file", input.files.length > 0);
+          validate();
+        }),
+      );
+      submit.onclick = () => {
+        submit.disabled = true;
+        const submittedAt = "2026-08-19 10:06";
+        Luma.toast("已提交公会申请");
+        setTimeout(
+          () =>
+            (location.href = `guild-detail.html?guild=${encodeURIComponent(guild.id)}&joinPending=1&submittedAt=${encodeURIComponent(submittedAt)}`),
+          500,
+        );
+      };
+      window.parent.postMessage(
+        { type: "luma-page", file: "guild-application-form.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

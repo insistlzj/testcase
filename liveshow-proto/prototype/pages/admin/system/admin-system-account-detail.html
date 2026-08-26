@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>账号编辑 · 系统配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body class="admin-monochrome">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../analytics/admin-report-center.html"
+            ><span>数据分析</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            系统配置&nbsp;&nbsp;/&nbsp;&nbsp;后台账号&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              id="crumb"
+              >账号编辑</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-system-account.html"
+            >‹ 返回后台账号</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head">
+              <h2 id="pageTitle">账号编辑</h2>
+              <div class="admin-page-actions">
+                <a class="admin-btn secondary" href="admin-system-account.html"
+                  >取消</a
+                ><button class="admin-btn" type="submit" form="accountForm">
+                  保存
+                </button>
+              </div>
+            </div>
+            <form id="accountForm">
+              <div class="admin-form-grid">
+                <div class="admin-form-row">
+                  <label>账号 ID</label>
+                  <div class="admin-readonly-value" id="accountId"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="username">后台账号</label
+                  ><input
+                    class="admin-input"
+                    id="username"
+                    maxlength="32"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="displayName">姓名</label
+                  ><input
+                    class="admin-input"
+                    id="displayName"
+                    maxlength="30"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="roleId">所属角色</label
+                  ><select class="admin-select" id="roleId" required></select>
+                </div>
+                <div class="admin-form-row" id="passwordRow">
+                  <label for="password">初始密码</label
+                  ><input
+                    class="admin-input"
+                    id="password"
+                    type="password"
+                    minlength="8"
+                    maxlength="32"
+                    placeholder="至少 8 位字符"
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label>账号状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="enabled" type="checkbox" /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="enabledText"></span>
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <label>创建时间</label>
+                  <div class="admin-readonly-value" id="createdAt"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label>最后登录时间</label>
+                  <div class="admin-readonly-value" id="lastLoginAt"></div>
+                </div>
+              </div>
+              <div class="admin-note" id="lockedNote">
+                超级管理员为系统内置账号，不允许修改账号、角色和状态。
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const data = LUMA_ADMIN_MOCK.system.accounts,
+        roles = LUMA_ADMIN_MOCK.system.roles,
+        params = new URLSearchParams(location.search);
+      let isNew = params.get("new") === "1",
+        item = isNew
+          ? {
+              id: "系统生成",
+              username: "",
+              name: "",
+              roleId: "",
+              role: "",
+              status: "enabled",
+              lastLoginAt: "从未登录",
+              createdAt: "保存后生成",
+              updatedAt: "-",
+            }
+          : data.find((x) => x.id === params.get("id")) || data[1];
+      roleId.innerHTML =
+        '<option value="">请选择角色</option>' +
+        roles
+          .filter((x) => x.status === "enabled")
+          .map((x) => `<option value="${x.id}">${x.name}</option>`)
+          .join("");
+      function render() {
+        crumb.textContent = pageTitle.textContent = isNew
+          ? "新建账号"
+          : "账号编辑";
+        accountId.textContent = item.id;
+        username.value = item.username;
+        displayName.value = item.name;
+        roleId.value = item.roleId;
+        enabled.checked = item.status === "enabled";
+        enabledText.textContent = enabled.checked ? "启用" : "停用";
+        createdAt.textContent = item.createdAt;
+        lastLoginAt.textContent = item.lastLoginAt;
+        passwordRow.classList.toggle("state-hide", !isNew);
+        password.required = isNew;
+        lockedNote.classList.toggle("state-hide", !item.locked);
+        [username, displayName, roleId, enabled].forEach(
+          (x) => (x.disabled = Boolean(item.locked)),
+        );
+      }
+      enabled.onchange = () =>
+        (enabledText.textContent = enabled.checked ? "启用" : "停用");
+      accountForm.onsubmit = (e) => {
+        e.preventDefault();
+        if (item.locked) return Luma.toast("系统内置账号不可修改");
+        if (
+          data.some(
+            (x) =>
+              x !== item &&
+              x.username.toLowerCase() === username.value.trim().toLowerCase(),
+          )
+        )
+          return Luma.toast("后台账号已存在");
+        const role = roles.find((x) => x.id === roleId.value);
+        Object.assign(item, {
+          username: username.value.trim(),
+          name: displayName.value.trim(),
+          roleId: role.id,
+          role: role.name,
+          status: enabled.checked ? "enabled" : "disabled",
+          updatedAt: "2026-08-07 10:30",
+        });
+        if (isNew) {
+          item.id = `ADM${10000 + data.length + 1}`;
+          item.createdAt = "2026-08-07 10:30";
+          data.push(item);
+          isNew = false;
+          history.replaceState(
+            null,
+            "",
+            `admin-system-account-detail.html?id=${item.id}`,
+          );
+        }
+        render();
+        Luma.toast("后台账号已保存");
+      };
+      render();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-system-account-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        编辑账号: () => {},
+        新建账号: () =>
+          (location.href = "admin-system-account-detail.html?new=1"),
+        系统内置账号: () =>
+          (location.href = "admin-system-account-detail.html?id=ADM10001"),
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>我的银行卡 · 主播中心 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        min-height: 844px;
+        padding-bottom: 34px;
+      }
+      .content {
+        padding: 16px;
+      }
+      .add-entry {
+        width: 100%;
+        height: 52px;
+        border: 1px dashed var(--g3);
+        border-radius: 8px;
+        background: transparent;
+        color: var(--g2);
+        font: 15px inherit;
+        cursor: pointer;
+      }
+      .add-entry b {
+        margin-right: 7px;
+        font-size: 19px;
+        font-weight: 400;
+        vertical-align: -1px;
+      }
+      .bank-card {
+        position: relative;
+        margin-top: 12px;
+        padding: 16px 56px 16px 16px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        background: var(--g7);
+      }
+      .bank-account {
+        display: block;
+        color: var(--g1);
+        font-size: 16px;
+        line-height: 1.3;
+      }
+      .bank-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .bank-name {
+        display: inline-flex;
+        align-items: center;
+        min-height: 22px;
+        padding: 0 7px;
+        border-radius: 6px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 11px;
+        font-style: normal;
+        white-space: nowrap;
+      }
+      .bank-recipient {
+        min-width: 0;
+        color: var(--g2);
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .remove {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--danger);
+        font: 22px/1 inherit;
+        cursor: pointer;
+      }
+      .remove:hover {
+        background: var(--g6);
+      }
+      .dialog-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--overlay);
+      }
+      .dialog {
+        width: 300px;
+        padding: 20px 16px 16px;
+        border-radius: 8px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .dialog h2 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .dialog p {
+        margin: 10px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .dialog footer {
+        display: flex;
+        gap: 10px;
+      }
+      .dialog footer button {
+        flex: 1;
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .dialog footer button:first-child {
+        background: var(--g6);
+        color: var(--g2);
+      }
+      .dialog .danger {
+        background: var(--danger);
+        color: var(--g7);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          onclick="location.href='income-withdrawal.html'"
+        >
+          ‹</button
+        >我的银行卡
+      </header>
+      <section class="content">
+        <button class="add-entry" id="addEntry" type="button">
+          <b>＋</b>添加银行卡
+        </button>
+        <section class="state-hide" id="bankPanel"></section>
+      </section>
+    </main>
+    <section
+      class="dialog-mask state-hide"
+      id="removeDialog"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="dialog">
+        <h2>移除银行卡？</h2>
+        <p>移除后无法用于后续提现收款。</p>
+        <footer>
+          <button id="cancelRemove" type="button">取消</button
+          ><button class="danger" id="confirmRemove" type="button">移除</button>
+        </footer>
+      </div>
+    </section>
+    <div class="homebar"><i></i></div>
+    <script>
+      const bankMock = window.LUMA_MOCK.withdrawalBank;
+      const bankPanel = document.querySelector("#bankPanel"),
+        removeDialog = document.querySelector("#removeDialog");
+      let boundAccounts = [],
+        removingIndex = null;
+      function formatAccount(number) {
+        return number.replace(/(\d{4})(?=\d)/g, "$1 ");
+      }
+      function renderEmpty() {
+        boundAccounts = [];
+        bankPanel.replaceChildren();
+        bankPanel.classList.add("state-hide");
+        removeDialog.classList.add("state-hide");
+      }
+      function renderCards(accounts) {
+        boundAccounts = accounts.map((account) => ({ ...account }));
+        bankPanel.innerHTML = boundAccounts
+          .map(
+            (account, index) =>
+              `<article class="bank-card"><b class="bank-account">${formatAccount(account.number)}</b><div class="bank-meta"><i class="bank-name">${account.bank}</i><span class="bank-recipient">${account.recipientName}</span></div><button class="remove" data-remove-bank="${index}" type="button" aria-label="删除银行卡" title="删除银行卡">×</button></article>`,
+          )
+          .join("");
+        bankPanel.classList.toggle("state-hide", !boundAccounts.length);
+        removeDialog.classList.add("state-hide");
+      }
+      document.querySelector("#addEntry").onclick = () => {
+        location.href = "add-bank-card.html";
+      };
+      bankPanel.onclick = (event) => {
+        const button = event.target.closest("[data-remove-bank]");
+        if (!button) return;
+        removingIndex = Number(button.dataset.removeBank);
+        removeDialog.classList.remove("state-hide");
+      };
+      document.querySelector("#cancelRemove").onclick = () => {
+        removingIndex = null;
+        removeDialog.classList.add("state-hide");
+      };
+      document.querySelector("#confirmRemove").onclick = () => {
+        if (removingIndex === null) return;
+        boundAccounts.splice(removingIndex, 1);
+        removingIndex = null;
+        renderCards(boundAccounts);
+        Luma.toast("银行卡已移除");
+      };
+      removeDialog.onclick = (event) => {
+        if (event.target === removeDialog)
+          removeDialog.classList.add("state-hide");
+      };
+      Luma.registerStates({
+        银行卡状态: {
+          默认空白: renderEmpty,
+          已绑定: () => renderCards(bankMock.boundAccounts),
+        },
+      });
+      new URLSearchParams(location.search).get("status") === "added"
+        ? renderCards(bankMock.boundAccounts)
+        : renderEmpty();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>数据概览 · 数据分析 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/admin-reporting.js?v=20260814-card-help-v2"></script>
+    <script src="../../../assets/admin-mock.js?v=20260819-business-statistics-v1"></script>
+    <style>
+      .data-overview-kpis {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .data-overview-kpi {
+        min-width: 0;
+        min-height: 112px;
+        padding: 16px;
+        border: 1px solid var(--admin-border);
+        border-radius: var(--admin-radius-md);
+        background: var(--admin-surface);
+        color: var(--admin-ink);
+        text-align: left;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s,
+          background 0.15s;
+      }
+      .data-overview-kpi:hover {
+        border-color: var(--admin-primary);
+      }
+      .data-overview-kpi:focus-visible {
+        outline: 2px solid var(--admin-primary);
+        outline-offset: 2px;
+      }
+      .data-overview-kpi.is-selected {
+        border-color: var(--admin-primary);
+        background: var(--admin-primary-soft);
+        box-shadow: var(--admin-focus-ring);
+      }
+      .data-overview-kpi-label {
+        display: block;
+        min-height: 32px;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+        line-height: 1.45;
+      }
+      .data-overview-kpi-value {
+        display: block;
+        margin-top: 13px;
+        overflow: hidden;
+        font-size: 22px;
+        font-weight: 650;
+        line-height: 1.1;
+        letter-spacing: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .data-overview-trend {
+        min-height: 344px;
+        padding: 18px;
+      }
+      .data-overview-trend .analytics-legend {
+        margin-bottom: 6px;
+      }
+      .data-overview-empty {
+        height: 250px;
+        display: grid;
+        place-items: center;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-sm);
+      }
+      @media (max-width: 1320px) {
+        .data-overview-kpis {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body class="admin-monochrome analytics-report-page data-overview-page">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            数据分析&nbsp;&nbsp;/&nbsp;&nbsp;<strong>数据概览</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head"><h1>数据概览</h1></div>
+          <section class="admin-panel admin-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label>时段</label>
+                <div class="admin-range admin-date-range">
+                  <input
+                    class="admin-input"
+                    id="startDate"
+                    type="date"
+                    value="2026-08-13"
+                  /><span>至</span
+                  ><input
+                    class="admin-input"
+                    id="endDate"
+                    type="date"
+                    value="2026-08-19"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section
+            class="data-overview-kpis"
+            id="metricCards"
+            aria-label="数据指标"
+          ></section>
+          <section class="admin-panel data-overview-trend">
+            <div class="analytics-panel-head">
+              <div><h2>指标趋势</h2></div>
+            </div>
+            <div class="analytics-legend" id="trendLegend"></div>
+            <div class="analytics-chart" id="trendChart"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const R = LUMA_REPORTING,
+        F = LUMA_FORMAT,
+        DATA = LUMA_ADMIN_MOCK.analytics.dailyStatistics,
+        DEFAULT_START = "2026-08-13",
+        DEFAULT_END = "2026-08-19";
+      const T = window.LUMA_ADMIN_TOKENS;
+      const metrics = [
+        { key: "activeUsers", label: "活跃用户" },
+        { key: "newUsers", label: "新增用户" },
+        { key: "rechargeAmount", label: "总充值金额", money: true },
+        { key: "rechargeUsers", label: "总充值人数" },
+        { key: "newRechargeAmount", label: "新用户充值金额", money: true },
+        {
+          key: "newUserArpu",
+          label: "新用户 ARPU",
+          money: true,
+          derive: (items) => {
+            const users = items.reduce(
+              (sum, item) => sum + item.newRechargeUsers,
+              0,
+            );
+            return users
+              ? items.reduce((sum, item) => sum + item.newRechargeAmount, 0) /
+                  users
+              : 0;
+          },
+        },
+        { key: "effectiveHosts", label: "达成有效天主播" },
+      ];
+      let visible = DATA,
+        selectedKey = "activeUsers";
+      const sum = (items, key) =>
+        items.reduce((total, item) => total + Number(item[key] || 0), 0);
+      const valueFor = (metric, items) =>
+        metric.derive ? metric.derive(items) : sum(items, metric.key);
+      const formatValue = (metric, value) =>
+        metric.money ? F.money(value) : F.integer(value);
+      function renderCards() {
+        metricCards.innerHTML = metrics
+          .map((metric) => {
+            const value = visible.length
+              ? formatValue(metric, valueFor(metric, visible))
+              : "-";
+            const selected = selectedKey === metric.key;
+            return `<button class="data-overview-kpi${selected ? " is-selected" : ""}" type="button" data-metric="${metric.key}" aria-pressed="${selected}" aria-label="${metric.label}"><span class="data-overview-kpi-label">${metric.label}</span><b class="data-overview-kpi-value"${metric.money ? ` style="color:${T.success}"` : ""}>${value}</b></button>`;
+          })
+          .join("");
+        metricCards
+          .querySelectorAll("[data-metric]")
+          .forEach(
+            (button) =>
+              (button.onclick = () => selectMetric(button.dataset.metric)),
+          );
+      }
+      function renderTrend() {
+        if (!visible.length) {
+          trendLegend.innerHTML = "";
+          trendChart.innerHTML =
+            '<div class="data-overview-empty">暂无数据</div>';
+          return;
+        }
+        const metric = metrics.find((item) => item.key === selectedKey);
+        const series = [
+          {
+            name: metric.label,
+            values: visible.map((item) =>
+              metric.key === "newUserArpu"
+                ? item.newUserArpu
+                : item[metric.key],
+            ),
+            color: T.primary,
+            format: (value) => formatValue(metric, value),
+          },
+        ];
+        R.lineChart(
+          trendChart,
+          visible.map((item) => F.date(item.date)),
+          series,
+        );
+      }
+      function render() {
+        renderCards();
+        renderTrend();
+      }
+      function selectMetric(key) {
+        selectedKey = key;
+        render();
+      }
+      function query(showToast = true) {
+        if (!R.validateDates(startDate.value, endDate.value)) return;
+        visible = DATA.filter(
+          (item) =>
+            (!startDate.value || item.date >= startDate.value) &&
+            (!endDate.value || item.date <= endDate.value),
+        );
+        render();
+        if (showToast) Luma.toast("已更新数据概览");
+      }
+      searchBtn.onclick = () => query();
+      resetBtn.onclick = () => {
+        startDate.value = DEFAULT_START;
+        endDate.value = DEFAULT_END;
+        selectedKey = "activeUsers";
+        query(false);
+        Luma.toast("筛选条件已重置");
+      };
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-data-overview.html" },
+        "*",
+      );
+      Luma.registerStates({
+        默认: () => {
+          startDate.value = DEFAULT_START;
+          endDate.value = DEFAULT_END;
+          selectedKey = "activeUsers";
+          query(false);
+        },
+        单日数据: () => {
+          startDate.value = "2026-08-19";
+          endDate.value = "2026-08-19";
+          query(false);
+        },
+        无查询结果: () => {
+          startDate.value = "2026-08-01";
+          endDate.value = "2026-08-01";
+          query(false);
+        },
+      });
+    </script>
+  </body>
+</html>

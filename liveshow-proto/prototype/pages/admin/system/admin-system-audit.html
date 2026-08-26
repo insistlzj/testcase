@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>操作审计 · 系统配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body class="admin-monochrome">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../analytics/admin-report-center.html"
+            ><span>数据分析</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            系统配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>操作审计</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>操作审计</h1></div>
+          </div>
+          <section class="admin-panel admin-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="accountKey">操作账号</label
+                ><input
+                  class="admin-input"
+                  id="accountKey"
+                  placeholder="输入账号或操作人"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="moduleFilter">业务模块</label
+                ><select class="admin-select" id="moduleFilter">
+                  <option value="">全部模块</option>
+                  <option>系统配置</option>
+                  <option>运营配置</option>
+                  <option>财务分成</option>
+                  <option>主播管理</option>
+                  <option>公会管理</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="objectKey">业务对象</label
+                ><input
+                  class="admin-input"
+                  id="objectKey"
+                  placeholder="输入对象 ID 或名称"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="actionKey">操作类型</label
+                ><input
+                  class="admin-input"
+                  id="actionKey"
+                  placeholder="输入操作类型"
+                />
+              </div>
+              <div class="admin-field">
+                <label>操作时间段</label>
+                <div class="admin-range admin-date-range">
+                  <input
+                    class="admin-input"
+                    id="startDate"
+                    type="date"
+                    value="2026-08-01"
+                  /><span>至</span
+                  ><input
+                    class="admin-input"
+                    id="endDate"
+                    type="date"
+                    value="2026-08-07"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <strong>关键操作日志</strong><span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1320px">
+                <thead>
+                  <tr>
+                    <th>日志 ID</th>
+                    <th>操作账号</th>
+                    <th>业务模块</th>
+                    <th>业务对象</th>
+                    <th>操作类型</th>
+                    <th>操作内容</th>
+                    <th>操作时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="rows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const data = LUMA_ADMIN_MOCK.system.auditLogs;
+      let visible = data;
+      function render(items) {
+        visible = items;
+        resultCount.textContent = `共 ${items.length} 条日志`;
+        pagination.classList.toggle("state-hide", !items.length);
+        if (!items.length) {
+          rows.innerHTML =
+            '<tr><td colspan="8"><div class="admin-empty"><strong>未找到操作日志</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        rows.innerHTML = items
+          .map(
+            (x) =>
+              /* HTML */ `<tr>
+                <td>${x.id}</td>
+                <td>
+                  <div class="admin-user-name">
+                    <b>${x.operator}</b><span>${x.account}</span>
+                  </div>
+                </td>
+                <td><span class="admin-tag">${x.module}</span></td>
+                <td>
+                  <div class="admin-user-name">
+                    <b>${x.objectName}</b
+                    ><span>${x.objectType} · ${x.objectId}</span>
+                  </div>
+                </td>
+                <td>${x.action}</td>
+                <td>
+                  <span class="admin-cell-ellipsis" title="${x.content}"
+                    >${x.content}</span
+                  >
+                </td>
+                <td>${x.time}</td>
+                <td>
+                  <a
+                    class="admin-action"
+                    href="admin-system-audit-detail.html?id=${x.id}"
+                    >查看详情</a
+                  >
+                </td>
+              </tr>`,
+          )
+          .join("");
+      }
+      function filter() {
+        if (startDate.value && endDate.value && startDate.value > endDate.value)
+          return Luma.toast("结束日期不能早于开始日期");
+        const account = accountKey.value.trim().toLowerCase(),
+          object = objectKey.value.trim().toLowerCase(),
+          action = actionKey.value.trim().toLowerCase();
+        render(
+          data.filter(
+            (x) =>
+              (!account ||
+                x.account.toLowerCase().includes(account) ||
+                x.operator.toLowerCase().includes(account)) &&
+              (!moduleFilter.value || x.module === moduleFilter.value) &&
+              (!object ||
+                x.objectId.toLowerCase().includes(object) ||
+                x.objectName.toLowerCase().includes(object)) &&
+              (!action || x.action.toLowerCase().includes(action)) &&
+              (!startDate.value || x.time.slice(0, 10) >= startDate.value) &&
+              (!endDate.value || x.time.slice(0, 10) <= endDate.value),
+          ),
+        );
+        Luma.toast(`已查询到 ${visible.length} 条日志`);
+      }
+      searchBtn.onclick = filter;
+      resetBtn.onclick = () => {
+        accountKey.value = "";
+        moduleFilter.value = "";
+        objectKey.value = "";
+        actionKey.value = "";
+        startDate.value = "2026-08-01";
+        endDate.value = "2026-08-07";
+        render(data);
+        Luma.toast("筛选条件已重置");
+      };
+      render(data);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-system-audit.html" },
+        "*",
+      );
+      Luma.registerStates({
+        全部日志: () => render(data),
+        系统配置日志: () => {
+          moduleFilter.value = "系统配置";
+          filter();
+        },
+        无查询结果: () => render([]),
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>幸运礼物详情 · 礼物道具 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260818-decimal-input-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>礼物道具</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-gift-list.html">普通礼物</a
+            ><a class="admin-nav-sub" href="admin-custom-gift.html">定制礼物</a
+            ><a class="admin-nav-sub active" href="admin-lucky-gift-config.html"
+              >幸运礼物</a
+            ><a class="admin-nav-sub" href="admin-prop-list.html">道具配置</a>
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            <strong id="topbarTitle">幸运礼物详情</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-lucky-gift-config.html"
+            >‹ 返回幸运礼物</a
+          >
+          <div id="viewContent">
+            <section class="admin-panel admin-profile-panel">
+              <div class="admin-profile-summary">
+                <div class="admin-media" id="giftIcon"></div>
+                <div>
+                  <h2 id="giftName"></h2>
+                  <span id="giftStatus"></span>
+                </div>
+                <div class="admin-profile-summary-actions">
+                  <button class="admin-btn secondary" id="editBtn">编辑</button
+                  ><button class="admin-btn danger" id="deleteBtn">删除</button>
+                </div>
+              </div>
+              <div class="admin-detail-grid" id="baseInfo"></div>
+            </section>
+            <section class="admin-panel admin-tabs-panel">
+              <div class="admin-detail-tabs">
+                <button class="admin-detail-tab active" data-tab="names">
+                  多语言名称</button
+                ><button class="admin-detail-tab" data-tab="effect">
+                  特效信息</button
+                ><button class="admin-detail-tab" data-tab="probability">
+                  概率配置</button
+                ><button class="admin-detail-tab" data-tab="records">
+                  操作记录
+                </button>
+              </div>
+              <div class="admin-detail-panel" id="detailPanel"></div>
+            </section>
+          </div>
+          <section
+            class="admin-panel admin-profile-panel state-hide"
+            id="editContent"
+          >
+            <div class="admin-section-head">
+              <strong id="editTitle"></strong>
+              <div class="admin-page-actions">
+                <button
+                  class="admin-btn secondary"
+                  id="cancelBtn"
+                  type="button"
+                >
+                  取消</button
+                ><button class="admin-btn" type="submit" form="editForm">
+                  保存
+                </button>
+              </div>
+            </div>
+            <form class="admin-resource-form" id="editForm">
+              <div class="admin-form-grid admin-basic-form-grid">
+                <div class="admin-form-row" id="giftIdRow">
+                  <label>礼物 ID</label>
+                  <div class="admin-readonly-value" id="editIdText"></div>
+                  <input id="editId" type="hidden" />
+                </div>
+                <div class="admin-form-row full admin-form-row-top">
+                  <label>礼物名称</label>
+                  <div class="admin-localized-inputs">
+                    <label for="nameEn"
+                      ><span>英语</span
+                      ><input class="admin-input" id="nameEn" required /></label
+                    ><label for="nameId"
+                      ><span>印尼语</span
+                      ><input class="admin-input" id="nameId" required /></label
+                    ><label for="nameMs"
+                      ><span>马来语</span
+                      ><input class="admin-input" id="nameMs" required
+                    /></label>
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="editSort">排序权重</label
+                  ><input
+                    class="admin-input"
+                    id="editSort"
+                    type="number"
+                    min="0"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="editStatus">上下架状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="editStatus" type="checkbox" /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="editStatusText"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-media-upload-grid">
+                <div class="admin-media-upload">
+                  <h4>礼物图标</h4>
+                  <div class="admin-media-upload-preview-wrap">
+                    <button
+                      class="admin-media-upload-preview"
+                      type="button"
+                      data-preview-media="icon"
+                      id="editIconPreview"
+                    ></button
+                    ><button
+                      class="admin-media-delete"
+                      type="button"
+                      data-delete-media="icon"
+                      aria-label="删除礼物图标"
+                      title="删除礼物图标"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <input
+                    class="admin-file-input"
+                    id="iconFile"
+                    type="file"
+                    accept="image/*"
+                  />
+                </div>
+                <div class="admin-media-upload">
+                  <h4>礼物特效</h4>
+                  <div class="admin-media-upload-preview-wrap">
+                    <button
+                      class="admin-media-upload-preview"
+                      type="button"
+                      data-preview-media="effect"
+                      id="editEffectPreview"
+                    ></button
+                    ><button
+                      class="admin-media-delete"
+                      type="button"
+                      data-delete-media="effect"
+                      aria-label="删除礼物特效"
+                      title="删除礼物特效"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <input
+                    class="admin-file-input"
+                    id="effectFile"
+                    type="file"
+                    accept=".svga,.webm,.mp4,.json,.gif"
+                  />
+                </div>
+              </div>
+              <div class="admin-form-grid">
+                <div class="admin-form-row">
+                  <label for="editPrice">单次消耗金币</label
+                  ><input
+                    class="admin-input"
+                    id="editPrice"
+                    type="number"
+                    min="1"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label for="editComboCount">开奖次数</label
+                  ><input
+                    class="admin-input"
+                    id="editComboCount"
+                    type="number"
+                    min="1"
+                    step="1"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row admin-form-row-top">
+                  <label>RTP</label>
+                  <div class="admin-calculated-field" id="editRtpField">
+                    <strong id="editCalculatedRtp">0%</strong
+                    ><span
+                      class="admin-rtp-warning state-hide"
+                      id="editRtpWarning"
+                      >建议调低理论返奖率</span
+                    ><span
+                      >计算方式：Σ（奖励金币 × 中奖概率）÷（单次消耗金币 ×
+                      开奖次数）</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="admin-table-wrap admin-probability-editor"
+                id="probabilityEditor"
+              >
+                <table class="admin-record-table">
+                  <thead>
+                    <tr>
+                      <th>档位</th>
+                      <th>单次奖励金币</th>
+                      <th>单次中奖概率（%）</th>
+                    </tr>
+                  </thead>
+                  <tbody id="editorRows"></tbody>
+                </table>
+              </div>
+              <div
+                class="admin-validation-error state-hide"
+                id="editorValidation"
+                role="alert"
+              ></div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="mediaPreviewOverlay">
+      <section class="admin-modal admin-media-preview-modal">
+        <div class="admin-modal-head">
+          <h2 id="mediaPreviewTitle"></h2>
+          <button class="admin-icon-btn" data-close="mediaPreviewOverlay">
+            ×
+          </button>
+        </div>
+        <div class="admin-modal-body">
+          <div class="admin-media-full-preview" id="mediaPreviewContent"></div>
+        </div>
+      </section>
+    </div>
+    <script>
+      const allGifts = window.LUMA_ADMIN_MOCK.giftItems,
+        luckyGifts = () => allGifts.filter((gift) => gift.category === "lucky"),
+        params = new URLSearchParams(location.search),
+        legacyIds = {
+          LGF0001: "GFT1003",
+          LGF0002: "GFT1007",
+          LGF0003: "GFT1008",
+        },
+        requestedId = legacyIds[params.get("id")] || params.get("id"),
+        directEdit = params.get("edit") === "1";
+      let isNew = params.get("new") === "1",
+        item =
+          luckyGifts().find((gift) => gift.id === requestedId) ||
+          luckyGifts()[0],
+        draft = null,
+        editorIcon = item.icon,
+        editorEffect = item.effect;
+      const { coins: formatCoins } = window.LUMA_ADMIN_FORMAT,
+        formatDecimal = (value) =>
+          new Intl.NumberFormat("id-ID", { maximumFractionDigits: 1 }).format(
+            Number(value),
+          );
+      function nextGiftId() {
+        return `GFT${Math.max(...allGifts.map((gift) => Number(gift.id.replace(/\D/g, "")))) + 1}`;
+      }
+      function probabilitySum(config) {
+        return config.rewards.reduce(
+          (total, reward) => total + Number(reward.probability),
+          0,
+        );
+      }
+      function actualRtp(config) {
+        const cost = Number(config.price) * Number(config.comboCount || 1);
+        if (!cost) return 0;
+        const expected = config.rewards.reduce(
+          (total, reward) =>
+            total + (Number(reward.coins) * Number(reward.probability)) / 100,
+          0,
+        );
+        return (expected / cost) * 100;
+      }
+      function validationState(config) {
+        const total = probabilitySum(config),
+          rtp = actualRtp(config),
+          probabilityValid = Math.abs(total - 100) < 0.0001;
+        return { total, rtp, probabilityValid, valid: probabilityValid };
+      }
+      function probabilityTable(config, editable = false) {
+        const rows = config.rewards
+          .map(
+            (reward, index) =>
+              /* HTML */ `<tr>
+                <th>${index + 1}</th>
+                <td>
+                  ${editable
+                    ? `<input class="admin-input admin-number-input" type="number" min="0" step="1" data-row="${index}" data-key="coins" value="${reward.coins}" required>`
+                    : formatCoins(reward.coins)}
+                </td>
+                <td>
+                  ${editable
+                    ? `<input class="admin-input admin-number-input" type="text" inputmode="decimal" data-luma-decimal min="0" max="100" step="0.1" data-row="${index}" data-key="probability" value="${formatDecimal(reward.probability)}" required>`
+                    : `${formatDecimal(reward.probability)}%`}
+                </td>
+              </tr>`,
+          )
+          .join("");
+        return {
+          body: rows,
+          table: `<div class="admin-table-wrap admin-probability-editor"><table class="admin-record-table"><thead><tr><th>档位</th><th>单次奖励金币</th><th>单次中奖概率（%）</th></tr></thead><tbody>${rows}</tbody></table></div>`,
+        };
+      }
+      function recordTable(records) {
+        if (!records.length)
+          return '<div class="admin-record-empty"><strong>暂无记录</strong></div>';
+        return `<div class="admin-record-scroll"><table class="admin-record-table"><thead><tr><th>操作类型</th><th>操作说明</th><th>操作人</th><th>操作时间</th></tr></thead><tbody>${records.map((record) => `<tr><td>${record.action}</td><td>${record.detail}</td><td>${record.operator}</td><td>${record.time}</td></tr>`).join("")}</tbody></table></div>`;
+      }
+      function renderTab(tab) {
+        document
+          .querySelectorAll("[data-tab]")
+          .forEach((button) =>
+            button.classList.toggle("active", button.dataset.tab === tab),
+          );
+        if (tab === "names")
+          detailPanel.innerHTML = `<div class="admin-detail-grid"><div class="admin-detail-item"><span>英文</span><b>${item.names.en}</b></div><div class="admin-detail-item"><span>印尼语</span><b>${item.names.id}</b></div><div class="admin-detail-item"><span>马来语</span><b>${item.names.ms}</b></div></div>`;
+        if (tab === "effect")
+          detailPanel.innerHTML = `<div class="admin-media-grid"><div><h4>礼物图标</h4><div class="admin-media large"><span class="admin-media-placeholder">${item.icon === "未上传" ? "未上传" : "图标 占位"}</span></div></div><div><h4>礼物特效</h4><div class="admin-media large"><span class="admin-media-placeholder">${item.effect === "未上传" ? "未上传" : "特效 占位"}</span></div></div></div>`;
+        if (tab === "probability")
+          detailPanel.innerHTML = probabilityTable(item).table;
+        if (tab === "records")
+          detailPanel.innerHTML = recordTable(item.changes);
+      }
+      function render() {
+        const rtp = actualRtp(item);
+        giftIcon.innerHTML = `<span class="admin-media-placeholder">${item.icon === "未上传" ? "未上传" : "图标 占位"}</span>`;
+        giftName.innerHTML = `${Luma.tip(item.names.id, "礼物名称")}（${Luma.id(item.id, "礼物ID")}）`;
+        giftStatus.className = "admin-switch-control";
+        giftStatus.innerHTML = `<label class="admin-switch"><input type="checkbox" data-detail-status-toggle aria-label="${item.names.id} 上下架状态" ${item.status === "online" ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${item.status === "online" ? "上架" : "下架"}</span>`;
+        baseInfo.innerHTML = /* HTML */ `<div class="admin-detail-item">
+            <span>单次消耗金币</span><b>${formatCoins(item.price)}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>开奖次数</span><b>${item.comboCount || 1}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>RTP</span><b>${formatDecimal(rtp)}%</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>礼物图标</span><b>${item.icon}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>礼物特效</span><b>${item.effect}</b>
+          </div>
+          <div class="admin-detail-item">
+            <span>排序权重</span><b>${item.sort}</b>
+          </div>`;
+        renderTab("names");
+      }
+      function blankItem() {
+        return {
+          id: nextGiftId(),
+          names: { en: "", id: "", ms: "" },
+          icon: "未上传",
+          category: "lucky",
+          price: 10,
+          comboCount: 1,
+          targetRtp: 96,
+          effect: "未上传",
+          sort: 50,
+          status: "online",
+          effectiveAt: "-",
+          expiredAt: "-",
+          updatedAt: "2026-08-05 10:20",
+          rewards: [
+            { coins: 0, probability: 10.4 },
+            { coins: 5, probability: 32 },
+            { coins: 10, probability: 55 },
+            { coins: 50, probability: 2 },
+            { coins: 100, probability: 0.5 },
+            { coins: 1000, probability: 0.1 },
+          ],
+          changes: [],
+        };
+      }
+      function updateValidation() {
+        draft.price = Number(editPrice.value);
+        draft.comboCount = Number(editComboCount.value);
+        const state = validationState(draft),
+          errors = [],
+          rtpRisk = state.rtp >= 100;
+        draft.targetRtp = state.rtp;
+        editCalculatedRtp.textContent = `${formatDecimal(state.rtp)}%`;
+        editRtpField.classList.toggle("is-risk", rtpRisk);
+        editRtpWarning.classList.toggle("state-hide", !rtpRisk);
+        if (!state.probabilityValid)
+          errors.push(
+            `中奖概率合计为 ${formatDecimal(state.total)}%，必须等于 100%`,
+          );
+        probabilityEditor.classList.toggle("admin-input-error", !state.valid);
+        editorValidation.textContent = errors.join("；");
+        editorValidation.classList.toggle("state-hide", state.valid);
+        return state;
+      }
+      function renderMediaEditor() {
+        [
+          [editIconPreview, editorIcon],
+          [editEffectPreview, editorEffect],
+        ].forEach(([preview, value]) => {
+          const empty = value === "未上传";
+          preview.textContent = empty ? "点击上传" : value;
+          preview.classList.toggle("is-empty", empty);
+          preview.parentElement
+            .querySelector("[data-delete-media]")
+            .classList.toggle("state-hide", empty);
+        });
+      }
+      function syncEditStatus() {
+        editStatusText.textContent = editStatus.checked ? "上架" : "下架";
+      }
+      function openEditor() {
+        draft = isNew
+          ? blankItem()
+          : {
+              ...item,
+              comboCount: item.comboCount || 1,
+              targetRtp: item.targetRtp ?? actualRtp(item),
+              names: { ...item.names },
+              rewards: item.rewards.map((reward) => ({ ...reward })),
+              changes: [...item.changes],
+            };
+        editorIcon = draft.icon;
+        editorEffect = draft.effect;
+        editTitle.textContent = isNew ? "新增幸运礼物" : "编辑幸运礼物";
+        topbarTitle.textContent = editTitle.textContent;
+        editId.value = draft.id;
+        editIdText.textContent = draft.id;
+        giftIdRow.classList.toggle("state-hide", isNew);
+        nameEn.value = draft.names.en;
+        nameId.value = draft.names.id;
+        nameMs.value = draft.names.ms;
+        editPrice.value = draft.price;
+        editComboCount.value = draft.comboCount;
+        editSort.value = draft.sort;
+        editStatus.checked = draft.status === "online";
+        editorRows.innerHTML = probabilityTable(draft, true).body;
+        renderMediaEditor();
+        syncEditStatus();
+        updateValidation();
+        viewContent.classList.add("state-hide");
+        editContent.classList.remove("state-hide");
+      }
+      function closeEditor() {
+        if (isNew || directEdit) {
+          location.href = "admin-lucky-gift-config.html";
+          return;
+        }
+        draft = null;
+        editContent.classList.add("state-hide");
+        viewContent.classList.remove("state-hide");
+        topbarTitle.textContent = "幸运礼物详情";
+      }
+      editorRows.addEventListener("input", (event) => {
+        const input = event.target;
+        if (!input.dataset.key) return;
+        draft.rewards[Number(input.dataset.row)][input.dataset.key] =
+          input.dataset.key === "probability"
+            ? LUMA_FORMAT.parseDecimal(input.value)
+            : Number(input.value);
+        updateValidation();
+      });
+      [editPrice, editComboCount].forEach((input) =>
+        input.addEventListener("input", updateValidation),
+      );
+      editStatus.onchange = syncEditStatus;
+      editBtn.onclick = () => {
+        location.href = `admin-lucky-gift-detail.html?id=${item.id}&edit=1`;
+      };
+      cancelBtn.onclick = closeEditor;
+      deleteBtn.onclick = () => {
+        const index = allGifts.indexOf(item);
+        if (index >= 0) allGifts.splice(index, 1);
+        location.href = "admin-lucky-gift-config.html";
+      };
+      editForm.onsubmit = (event) => {
+        event.preventDefault();
+        const state = updateValidation();
+        if (!state.probabilityValid)
+          return Luma.toast("中奖概率合计必须为 100%");
+        const id = editId.value.trim();
+        if (isNew && allGifts.some((gift) => gift.id === id))
+          return Luma.toast("礼物 ID 已存在");
+        Object.assign(draft, {
+          id,
+          names: {
+            en: nameEn.value.trim(),
+            id: nameId.value.trim(),
+            ms: nameMs.value.trim(),
+          },
+          icon: editorIcon,
+          price: Number(editPrice.value),
+          comboCount: Number(editComboCount.value),
+          targetRtp: state.rtp,
+          effect: editorEffect,
+          sort: Number(editSort.value),
+          status: editStatus.checked ? "online" : "offline",
+          updatedAt: "2026-08-05 10:20",
+        });
+        const created = isNew;
+        draft.changes.unshift({
+          action: created ? "新建礼物" : "编辑礼物",
+          detail: created
+            ? "创建幸运礼物及 RTP 配置"
+            : "更新幸运礼物及 RTP 配置",
+          operator: "后台管理员",
+          time: draft.updatedAt,
+        });
+        if (created) allGifts.unshift(draft);
+        item = draft;
+        isNew = false;
+        if (created)
+          history.replaceState(
+            null,
+            "",
+            `admin-lucky-gift-detail.html?id=${item.id}`,
+          );
+        render();
+        if (created || !directEdit) {
+          editContent.classList.add("state-hide");
+          viewContent.classList.remove("state-hide");
+          topbarTitle.textContent = "幸运礼物详情";
+        }
+        Luma.toast(created ? "幸运礼物已新增" : "幸运礼物已保存");
+      };
+      document.addEventListener("click", (event) => {
+        const tab = event.target.closest("[data-tab]");
+        if (tab) renderTab(tab.dataset.tab);
+        const remove = event.target.closest("[data-delete-media]");
+        if (remove) {
+          if (remove.dataset.deleteMedia === "icon") editorIcon = "未上传";
+          else editorEffect = "未上传";
+          renderMediaEditor();
+        }
+        const preview = event.target.closest("[data-preview-media]");
+        if (preview) {
+          const icon = preview.dataset.previewMedia === "icon",
+            value = icon ? editorIcon : editorEffect;
+          if (value === "未上传") return (icon ? iconFile : effectFile).click();
+          mediaPreviewTitle.textContent = icon
+            ? "礼物图标预览"
+            : "礼物特效预览";
+          mediaPreviewContent.textContent = value;
+          mediaPreviewOverlay.classList.add("show");
+        }
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      document.addEventListener("change", (event) => {
+        if (event.target.matches("[data-detail-status-toggle]")) {
+          item.status = event.target.checked ? "online" : "offline";
+          item.updatedAt = "2026-08-05 14:30";
+          item.changes.unshift({
+            action: event.target.checked ? "上架" : "下架",
+            detail: "通过开关调整礼物状态",
+            operator: "后台管理员",
+            time: item.updatedAt,
+          });
+          render();
+          Luma.toast("礼物状态已更新");
+        }
+      });
+      iconFile.onchange = () => {
+        if (iconFile.files[0]) {
+          editorIcon = iconFile.files[0].name;
+          renderMediaEditor();
+        }
+      };
+      effectFile.onchange = () => {
+        if (effectFile.files[0]) {
+          editorEffect = effectFile.files[0].name;
+          renderMediaEditor();
+        }
+      };
+      render();
+      if (isNew || directEdit) openEditor();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-lucky-gift-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        多语言名称: () => renderTab("names"),
+        特效信息: () => renderTab("effect"),
+        概率配置: () => renderTab("probability"),
+        操作记录: () => renderTab("records"),
+        编辑: () => {
+          location.href = `admin-lucky-gift-detail.html?id=${item.id}&edit=1`;
+        },
+        "RTP 校验失败": () => {
+          openEditor();
+          draft.rewards[0].probability = 9;
+          editorRows.querySelector('[data-key="probability"]').value = 9;
+          updateValidation();
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>主播列表 · 主播管理 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260821-host-fans-v1"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav" aria-label="管理后台一级菜单">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          >
+          <button class="admin-nav-item active">
+            <span>主播管理</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-host-review.html">主播审核</a
+            ><a class="admin-nav-sub active" href="admin-host-list.html"
+              >主播列表</a
+            ><a class="admin-nav-sub" href="admin-live-management.html"
+              >直播场次</a
+            ><a class="admin-nav-sub" href="admin-inspection-schedule.html"
+              >巡房排班</a
+            ><a class="admin-nav-sub" href="../content/admin-content-audit.html"
+              >内容审核</a
+            ><a
+              class="admin-nav-sub"
+              href="../content/admin-report-handling.html"
+              >举报处理</a
+            >
+          </div>
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          >
+          <a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          ><a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            主播管理&nbsp;&nbsp;/&nbsp;&nbsp;<strong>主播列表</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>主播列表</h1></div>
+            <div class="admin-page-actions">
+              <button class="admin-btn secondary" id="exportBtn">导出</button>
+            </div>
+          </div>
+          <section
+            class="admin-panel admin-filter"
+            id="hostFilter"
+            aria-label="主播筛选"
+          >
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="hostKey">主播昵称/ID</label
+                ><input
+                  class="admin-input"
+                  id="hostKey"
+                  placeholder="输入主播昵称或 ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="guild">公会昵称/ID</label
+                ><input
+                  class="admin-input"
+                  id="guild"
+                  placeholder="输入公会昵称或 ID"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="accountStatus">账号状态</label
+                ><select class="admin-select" id="accountStatus">
+                  <option value="">全部状态</option>
+                  <option value="normal">正常</option>
+                  <option value="muted">禁言中</option>
+                  <option value="banned">已封禁</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="permission">开播权限</label
+                ><select class="admin-select" id="permission">
+                  <option value="">全部状态</option>
+                  <option value="enabled">已开通</option>
+                  <option value="disabled">已关闭</option>
+                </select>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs" aria-label="开播状态">
+                <button class="admin-list-tab active" data-status-tab="">
+                  全部</button
+                ><button class="admin-list-tab" data-status-tab="live">
+                  直播中</button
+                ><button class="admin-list-tab" data-status-tab="offline">
+                  未开播
+                </button>
+              </div>
+              <span id="resultCount">共 6 条</span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1420px">
+                <colgroup>
+                  <col style="width: 150px" />
+                  <col style="width: 84px" />
+                  <col style="width: 112px" />
+                  <col style="width: 76px" />
+                  <col style="width: 150px" />
+                  <col style="width: 88px" />
+                  <col style="width: 106px" />
+                  <col style="width: 106px" />
+                  <col style="width: 100px" />
+                  <col style="width: 72px" />
+                  <col style="width: 116px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>主播信息</th>
+                    <th>账号状态</th>
+                    <th>公会信息</th>
+                    <th>开播状态</th>
+                    <th>开播权限（平台 / 公会）</th>
+                    <th>粉丝数量</th>
+                    <th>金币收益</th>
+                    <th>可提现余额（USD）</th>
+                    <th>冻结中金额（USD）</th>
+                    <th>违规次数</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="hostRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="actionOverlay">
+      <section
+        class="admin-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="actionTitle"
+      >
+        <div class="admin-modal-head">
+          <h2 id="actionTitle">主播处置</h2>
+          <button class="admin-icon-btn" data-close="actionOverlay">×</button>
+        </div>
+        <form id="actionForm">
+          <div class="admin-modal-body" id="actionBody"></div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              type="button"
+              data-close="actionOverlay"
+            >
+              取消</button
+            ><button class="admin-btn" id="actionSubmit" type="submit">
+              确认
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const mock = window.LUMA_ADMIN_MOCK,
+        hosts = mock.hosts,
+        permissions = mock.livePermissions,
+        presetGuild = new URLSearchParams(location.search).get("guild") || "";
+      const fanCounts = {
+        77210411: 486,
+        77208635: 368,
+        77209318: 295,
+        77207152: 142,
+        77206508: 216,
+        77205884: 97,
+      };
+      hosts.forEach((host) => {
+        if (typeof host.withdrawalEnabled !== "boolean")
+          host.withdrawalEnabled = true;
+      });
+      const rows = document.querySelector("#hostRows"),
+        resultCount = document.querySelector("#resultCount"),
+        pagination = document.querySelector("#pagination");
+      const labels = {
+        live: "直播中",
+        offline: "未开播",
+        enabled: "已开通",
+        disabled: "已关闭",
+        normal: "正常",
+        muted: "禁言中",
+        banned: "已封禁",
+      };
+      let visibleHosts = hosts,
+        currentHost = null,
+        currentAction = "",
+        activeStatus = "";
+      const {
+        coins: formatCoins,
+        integer: formatInteger,
+        money: formatMoney,
+      } = window.LUMA_ADMIN_FORMAT;
+      function render(items) {
+        visibleHosts = items;
+        resultCount.textContent = `共 ${items.length} 条`;
+        pagination.classList.toggle("state-hide", !items.length);
+        if (!items.length) {
+          rows.innerHTML =
+            '<tr><td colspan="11"><div class="admin-empty"><strong>未找到匹配主播</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+          return;
+        }
+        rows.innerHTML = items
+          .map((host) => {
+            const access = permissions.find((item) => item.hostId === host.id),
+              guildRecord = mock.guilds.find(
+                (item) => item.name === host.guild,
+              ),
+              permissionMark = (value) => (value === "enabled" ? "✅" : "❌");
+            return /* HTML */ `<tr>
+              <td>
+                <div class="admin-user-cell">
+                  <span class="admin-avatar">${host.initials}</span
+                  ><span class="admin-user-name"
+                    ><b>${host.name}</b>${Luma.id(host.id, "主播ID")}</span
+                  >
+                </div>
+              </td>
+              <td>
+                <span class="admin-status ${host.accountStatus}"
+                  >${labels[host.accountStatus]}</span
+                >
+              </td>
+              <td>
+                <b>${host.guild}</b
+                ><span class="admin-cell-sub">${guildRecord?.id || "-"}</span>
+              </td>
+              <td>
+                <span class="admin-status ${host.liveStatus}"
+                  >${labels[host.liveStatus]}</span
+                >
+              </td>
+              <td>
+                ${permissionMark(access.platformPermission)} ｜
+                ${permissionMark(access.guildPermission)}
+              </td>
+              <td>${formatInteger(fanCounts[host.id] || 0)}</td>
+              <td>${formatCoins(host.earnings)}</td>
+              <td>${formatMoney(host.withdrawable)}</td>
+              <td>${formatMoney(host.frozen)}</td>
+              <td>${host.violations}</td>
+              <td>
+                <a
+                  class="admin-action"
+                  href="admin-host-detail.html?id=${host.id}"
+                  >详情</a
+                ><span class="admin-action-menu"
+                  ><button class="admin-action" data-more="${host.id}">
+                    更多</button
+                  ><span class="admin-popover state-hide"
+                    ><button data-action="permission" data-host="${host.id}">
+                      直播权限</button
+                    ><button data-action="warn" data-host="${host.id}">
+                      警告</button
+                    >${host.accountStatus === "banned"
+                      ? `<button data-action="unban" data-host="${host.id}">解封</button>`
+                      : `<button data-action="ban" data-host="${host.id}">封禁</button>`}</span
+                  ></span
+                >
+              </td>
+            </tr>`;
+          })
+          .join("");
+      }
+      function filterHosts() {
+        const hostKeyword = hostKey.value.trim().toLowerCase(),
+          guildKeyword = guild.value.trim().toLowerCase();
+        const items = hosts.filter((host) => {
+          const access = permissions.find((item) => item.hostId === host.id),
+            guildRecord = mock.guilds.find((item) => item.name === host.guild),
+            hostText = `${host.name} ${host.id}`.toLowerCase(),
+            guildText = `${host.guild} ${guildRecord?.id || ""}`.toLowerCase();
+          return (
+            hostText.includes(hostKeyword) &&
+            guildText.includes(guildKeyword) &&
+            (!activeStatus || host.liveStatus === activeStatus) &&
+            (!permission.value ||
+              access.platformPermission === permission.value) &&
+            (!accountStatus.value || host.accountStatus === accountStatus.value)
+          );
+        });
+        render(items);
+        Luma.toast(`已查询到 ${items.length} 条主播数据`);
+      }
+      function openAction(action, host) {
+        currentHost = host;
+        currentAction = action;
+        actionTitle.textContent = {
+          permission: "变更直播权限",
+          warn: "警告主播",
+          ban: "封禁主播",
+          unban: "解封主播",
+        }[action];
+        actionSubmit.className = `admin-btn ${action === "ban" ? "danger" : ""}`;
+        const access = permissions.find((item) => item.hostId === host.id);
+        if (action === "permission")
+          actionBody.innerHTML = /* HTML */ `<p>${host.name}（${host.id}）</p>
+            <div class="admin-form-row">
+              <label for="platformPermission">直播权限</label
+              ><label class="admin-switch-control"
+                ><span class="admin-switch"
+                  ><input
+                    id="platformPermission"
+                    type="checkbox"
+                    ${access.platformPermission === "enabled"
+                      ? "checked"
+                      : ""} /><span class="admin-switch-track"></span></span
+                ><span id="platformPermissionText"
+                  >${access.platformPermission === "enabled"
+                    ? "开启"
+                    : "关闭"}</span
+                ></label
+              >
+            </div>
+            <div class="admin-form-row">
+              <label for="platformLock">公会管理权限</label
+              ><label class="admin-switch-control"
+                ><span class="admin-switch"
+                  ><input
+                    id="platformLock"
+                    type="checkbox"
+                    ${access.locked ? "" : "checked"} /><span
+                    class="admin-switch-track"
+                  ></span></span
+                ><span id="platformLockText"
+                  >${access.locked ? "关闭" : "开启"}</span
+                ></label
+              >
+            </div>
+            <div class="admin-form-row">
+              <label for="permissionReason">变更原因</label
+              ><textarea
+                class="admin-textarea"
+                id="permissionReason"
+                required
+              ></textarea>
+            </div>
+            <div class="admin-note">
+              关闭公会管理权限后，公会不可修改直播权限
+            </div>`;
+        if (action === "warn")
+          actionBody.innerHTML = `<p>${host.name}（${host.id}）</p><div class="admin-form-row"><label for="warnReason">警告原因</label><textarea class="admin-textarea" id="warnReason" required></textarea></div>`;
+        if (action === "ban")
+          actionBody.innerHTML = /* HTML */ `<p>${host.name}（${host.id}）</p>
+            <div class="admin-form-row">
+              <label for="banReason">封禁原因</label
+              ><textarea
+                class="admin-textarea"
+                id="banReason"
+                required
+              ></textarea>
+            </div>
+            <div class="admin-form-row">
+              <label for="banDuration">封禁时长</label
+              ><select class="admin-select" id="banDuration" required>
+                <option value="">请选择</option>
+                <option>1 天</option>
+                <option>7 天</option>
+                <option>30 天</option>
+                <option>永久</option>
+              </select>
+            </div>
+            <div class="admin-note">
+              封禁后将关闭平台直播权限并锁定，同时暂停提现。
+            </div>`;
+        if (action === "unban")
+          actionBody.innerHTML = `<p>${host.name}（${host.id}）</p><div class="admin-form-row"><label for="unbanReason">解封原因</label><textarea class="admin-textarea" id="unbanReason" required></textarea></div><div class="admin-note">解封仅恢复账号状态，直播权限需单独变更。</div>`;
+        actionOverlay.classList.add("show");
+      }
+      function closeAll() {
+        document
+          .querySelectorAll(".admin-overlay")
+          .forEach((x) => x.classList.remove("show"));
+        document
+          .querySelectorAll(".admin-popover")
+          .forEach((x) => x.classList.add("state-hide"));
+      }
+      function syncPermissionSwitches() {
+        const live = document.querySelector("#platformPermission"),
+          guildPermission = document.querySelector("#platformLock");
+        if (!live || !guildPermission) return;
+        document.querySelector("#platformPermissionText").textContent =
+          live.checked ? "开启" : "关闭";
+        document.querySelector("#platformLockText").textContent =
+          guildPermission.checked ? "开启" : "关闭";
+      }
+      searchBtn.onclick = filterHosts;
+      resetBtn.onclick = () => {
+        document
+          .querySelectorAll(".admin-filter input")
+          .forEach((x) => (x.value = ""));
+        document
+          .querySelectorAll(".admin-filter select")
+          .forEach((x) => (x.selectedIndex = 0));
+        activeStatus = "";
+        document
+          .querySelectorAll("[data-status-tab]")
+          .forEach((button) =>
+            button.classList.toggle(
+              "active",
+              button.dataset.statusTab === activeStatus,
+            ),
+          );
+        render(hosts);
+        Luma.toast("筛选条件已重置");
+      };
+      exportBtn.onclick = () => Luma.toast("主播数据已导出");
+      document.addEventListener("click", (event) => {
+        const statusTab = event.target.closest("[data-status-tab]");
+        if (statusTab) {
+          activeStatus = statusTab.dataset.statusTab;
+          document
+            .querySelectorAll("[data-status-tab]")
+            .forEach((button) =>
+              button.classList.toggle(
+                "active",
+                button.dataset.statusTab === activeStatus,
+              ),
+            );
+          filterHosts();
+        }
+        const more = event.target.closest("[data-more]");
+        document.querySelectorAll(".admin-popover").forEach((x) => {
+          if (!more || x !== more.nextElementSibling)
+            x.classList.add("state-hide");
+        });
+        if (more) {
+          const pop = more.nextElementSibling,
+            r = more.getBoundingClientRect();
+          pop.style.left = `${r.right - 112}px`;
+          pop.style.top = `${r.bottom + 140 > innerHeight ? r.top - 140 : r.bottom + 4}px`;
+          pop.classList.toggle("state-hide");
+        }
+        const action = event.target.closest("[data-action]");
+        if (action)
+          openAction(
+            action.dataset.action,
+            hosts.find((x) => x.id === action.dataset.host),
+          );
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+        const menu = event.target.closest("[data-menu]");
+        if (menu) Luma.toast(menu.dataset.menu);
+      });
+      document.addEventListener("change", (event) => {
+        if (
+          event.target.id === "platformPermission" ||
+          event.target.id === "platformLock"
+        )
+          syncPermissionSwitches();
+      });
+      actionForm.onsubmit = (event) => {
+        event.preventDefault();
+        const reasonField = document.querySelector(
+            "#permissionReason,#warnReason,#banReason,#unbanReason",
+          ),
+          reason = reasonField ? reasonField.value.trim() : "";
+        if (!reason) return Luma.toast("请填写操作原因");
+        const record =
+            mock.hostRecords[currentHost.id] ||
+            (mock.hostRecords[currentHost.id] = {
+              lives: [],
+              earnings: [],
+              withdrawals: [],
+              fanClub: null,
+              violations: [],
+            }),
+          access = permissions.find((item) => item.hostId === currentHost.id),
+          time = "2026-08-04 12:00";
+        if (currentAction === "permission") {
+          const before = `${labels[access.platformPermission]} / ${access.locked ? "已锁定" : "未锁定"}`;
+          access.platformPermission = platformPermission.checked
+            ? "enabled"
+            : "disabled";
+          access.locked = !platformLock.checked;
+          access.reason = reason;
+          access.changedAt = time;
+          access.changes.unshift({
+            before,
+            after: `${labels[access.platformPermission]} / ${access.locked ? "已锁定" : "未锁定"}`,
+            reason,
+            operator: "后台管理员",
+            time,
+          });
+          currentHost.permission = access.platformPermission;
+        }
+        if (currentAction === "warn") {
+          currentHost.violations += 1;
+          record.violations.unshift({
+            type: "平台巡查",
+            action: "警告",
+            reason,
+            time,
+          });
+        }
+        if (currentAction === "ban") {
+          const before = `${labels[access.platformPermission]} / ${access.locked ? "已锁定" : "未锁定"}`;
+          currentHost.accountStatus = "banned";
+          currentHost.permission = "disabled";
+          currentHost.withdrawalEnabled = false;
+          currentHost.frozen += currentHost.withdrawable;
+          currentHost.withdrawable = 0;
+          access.platformPermission = "disabled";
+          access.locked = true;
+          access.reason = reason;
+          access.changedAt = time;
+          access.changes.unshift({
+            before,
+            after: "已关闭 / 已锁定",
+            reason,
+            operator: "后台管理员",
+            time,
+          });
+          currentHost.violations += 1;
+          record.violations.unshift({
+            type: "严重违规",
+            action: `封禁 ${banDuration.value}`,
+            reason,
+            time,
+          });
+        }
+        if (currentAction === "unban") {
+          currentHost.accountStatus = "normal";
+          record.violations.unshift({
+            type: "账号处置",
+            action: "解除封禁",
+            reason,
+            time,
+          });
+        }
+        actionOverlay.classList.remove("show");
+        render(visibleHosts);
+        Luma.toast("操作已提交");
+      };
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeAll();
+      });
+      if (presetGuild) {
+        guild.value = presetGuild;
+        render(
+          hosts.filter((host) =>
+            host.guild.toLowerCase().includes(presetGuild.toLowerCase()),
+          ),
+        );
+      } else render(hosts);
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-host-list.html" },
+        "*",
+      );
+      Luma.registerStates({
+        正常列表: () => {
+          closeAll();
+          render(hosts);
+        },
+        无查询结果: () => {
+          closeAll();
+          render([]);
+        },
+        变更直播权限: () => {
+          render(hosts);
+          openAction("permission", hosts[0]);
+        },
+        封禁主播: () => {
+          render(hosts);
+          openAction("ban", hosts[0]);
+        },
+        解封主播: () => {
+          const banned =
+            hosts.find((item) => item.accountStatus === "banned") || hosts[0];
+          render(hosts);
+          openAction("unban", banned);
+        },
+      });
+    </script>
+  </body>
+</html>

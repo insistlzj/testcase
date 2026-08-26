@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>主播礼物打赏明细报表 · 财务对账 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260820-date-range-v2"></script>
+    <script src="../../../assets/admin-reporting.js?v=20260814-card-help-v2"></script>
+    <script src="../../../assets/admin-mock.js?v=20260821-host-earnings-v1"></script>
+  </head>
+  <body
+    class="admin-monochrome analytics-report-page"
+    data-finance-report="monthlyHostEarnings"
+  >
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            数据分析&nbsp;&nbsp;/&nbsp;&nbsp;财务对账&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >主播礼物打赏明细报表</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content" id="financeReportRoot"></main>
+      </div>
+    </div>
+    <script src="../../../assets/admin-finance-reconciliation-page.js?v=20260821-report-format-v2"></script>
+  </body>
+</html>

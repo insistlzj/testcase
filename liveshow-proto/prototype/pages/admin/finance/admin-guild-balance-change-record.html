@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>余额变更记录 · 公会账户余额 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-balance-change-colors-v11"
+    />
+    <script src="../../../assets/common.js?v=20260821-account-balance-v3"></script>
+    <script src="../../../assets/admin-mock.js?v=20260821-account-balance-v3"></script>
+  </head>
+  <body class="admin-monochrome" data-account-balance="guild-changes">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            财务分成&nbsp;&nbsp;/&nbsp;&nbsp;公会账户余额&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              >余额变更记录</strong
+            >
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content" id="accountBalanceRoot"></main>
+      </div>
+    </div>
+    <script src="../../../assets/admin-account-balance-page.js?v=20260821-account-balance-v11"></script>
+  </body>
+</html>

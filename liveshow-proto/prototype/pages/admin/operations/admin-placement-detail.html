@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>展示素材编辑 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub active" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;展位配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              id="pageName"
+            ></strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-placement-config.html"
+            >‹ 返回展位配置</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2 id="formTitle"></h2></div>
+            <form class="admin-resource-form" id="placementForm">
+              <div class="admin-form-grid admin-basic-form-grid">
+                <div class="admin-form-row">
+                  <label for="position">展示位置</label
+                  ><select class="admin-select" id="position" required>
+                    <option value="home_banner">首页轮播</option>
+                    <option value="live_top">直播广场顶部</option>
+                    <option value="welfare_focus">福利中心焦点位</option>
+                    <option value="profile_operation">个人中心运营位</option>
+                  </select>
+                </div>
+                <div class="admin-form-row">
+                  <label>状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="enabled" type="checkbox" /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="enabledText"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-media-upload-grid">
+                <div class="admin-media-upload">
+                  <h4>展示素材</h4>
+                  <div class="admin-media-upload-preview-wrap">
+                    <button
+                      class="admin-media-upload-preview"
+                      type="button"
+                      id="materialPreview"
+                    >
+                      点击上传</button
+                    ><button
+                      class="admin-media-delete state-hide"
+                      type="button"
+                      id="deleteMaterial"
+                      aria-label="删除展示素材"
+                      title="删除展示素材"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <input
+                    class="admin-file-input"
+                    id="materialFile"
+                    type="file"
+                    accept="image/*,.webp,.gif"
+                  />
+                </div>
+              </div>
+              <div class="admin-form-grid admin-basic-form-grid">
+                <div class="admin-form-row">
+                  <label for="jumpType">点击后跳转</label
+                  ><select class="admin-select" id="jumpType" required>
+                    <option value="app_page">APP 已有页面</option>
+                    <option value="activity_image">活动长图页面</option>
+                  </select>
+                </div>
+                <div class="admin-form-row" id="targetPageRow">
+                  <label for="targetPage">目标页面</label
+                  ><select class="admin-select" id="targetPage">
+                    <option value="recharge">充值页面</option>
+                    <option value="welfare">福利中心</option>
+                    <option value="task">任务中心</option>
+                    <option value="live_plaza">直播广场</option>
+                    <option value="guild">公会页面</option>
+                    <option value="profile">个人中心</option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="admin-media-upload-grid state-hide"
+                id="detailImageWrap"
+              >
+                <div class="admin-media-upload">
+                  <h4>活动详情长图</h4>
+                  <div class="admin-media-upload-preview-wrap">
+                    <button
+                      class="admin-media-upload-preview"
+                      type="button"
+                      id="detailImagePreview"
+                    >
+                      点击上传</button
+                    ><button
+                      class="admin-media-delete state-hide"
+                      type="button"
+                      id="deleteDetailImage"
+                      aria-label="删除活动详情长图"
+                      title="删除活动详情长图"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <input
+                    class="admin-file-input"
+                    id="detailImageFile"
+                    type="file"
+                    accept="image/*,.webp,.gif"
+                  />
+                </div>
+              </div>
+              <div class="admin-form-grid">
+                <div class="admin-form-row full">
+                  <label>展示周期</label>
+                  <div class="admin-range">
+                    <input
+                      class="admin-input"
+                      id="periodStart"
+                      type="date"
+                      required
+                    /><span>至</span
+                    ><input
+                      class="admin-input"
+                      id="periodEnd"
+                      type="date"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="admin-form-row full">
+                  <label>展示时间</label>
+                  <div class="admin-range">
+                    <input
+                      class="admin-input"
+                      id="timeStart"
+                      type="time"
+                      required
+                    /><span>至</span
+                    ><input
+                      class="admin-input"
+                      id="timeEnd"
+                      type="time"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="admin-modal-foot">
+                <a
+                  class="admin-btn secondary"
+                  href="admin-placement-config.html"
+                  >取消</a
+                ><button class="admin-btn" type="submit">保存</button>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="mediaPreviewOverlay">
+      <section class="admin-modal admin-media-preview-modal">
+        <div class="admin-modal-head">
+          <h2 id="mediaPreviewTitle">展示素材预览</h2>
+          <button class="admin-icon-btn" data-close="mediaPreviewOverlay">
+            ×
+          </button>
+        </div>
+        <div class="admin-modal-body">
+          <div class="admin-media-full-preview" id="mediaPreviewContent"></div>
+        </div>
+      </section>
+    </div>
+    <script>
+      const placements = window.LUMA_ADMIN_MOCK.placementItems,
+        params = new URLSearchParams(location.search);
+      let isNew = params.get("new") === "1",
+        item = isNew
+          ? blankItem()
+          : placements.find((entry) => entry.id === params.get("id")) ||
+            placements[0],
+        editorMaterial = item.material,
+        editorDetailImage = item.detailImage || "未上传";
+      function nextId() {
+        return `DSP${String(Math.max(...placements.map((entry) => Number(entry.id.replace(/\D/g, "")))) + 1).padStart(4, "0")}`;
+      }
+      function blankItem() {
+        return {
+          id: nextId(),
+          position: "profile_operation",
+          material: "未上传",
+          jumpType: "app_page",
+          targetPage: "recharge",
+          detailImage: "未上传",
+          startAt: "2026-08-06 00:00",
+          endAt: "2026-08-31 23:59",
+          enabled: true,
+        };
+      }
+      function dateOf(value) {
+        return value.slice(0, 10);
+      }
+      function timeOf(value) {
+        return value.slice(11, 16);
+      }
+      function renderMaterial() {
+        const empty = editorMaterial === "未上传";
+        materialPreview.textContent = empty ? "点击上传" : editorMaterial;
+        materialPreview.classList.toggle("is-empty", empty);
+        deleteMaterial.classList.toggle("state-hide", empty);
+      }
+      function renderDetailImage() {
+        const empty = editorDetailImage === "未上传";
+        detailImagePreview.textContent = empty ? "点击上传" : editorDetailImage;
+        detailImagePreview.classList.toggle("is-empty", empty);
+        deleteDetailImage.classList.toggle("state-hide", empty);
+      }
+      function syncEnabled() {
+        enabledText.textContent = enabled.checked ? "展示" : "隐藏";
+      }
+      function syncJumpType() {
+        const isAppPage = jumpType.value === "app_page";
+        targetPageRow.classList.toggle("state-hide", !isAppPage);
+        detailImageWrap.classList.toggle("state-hide", isAppPage);
+        targetPage.required = isAppPage;
+      }
+      function showPreview(title, file) {
+        mediaPreviewTitle.textContent = title;
+        mediaPreviewContent.textContent = file;
+        mediaPreviewOverlay.classList.add("show");
+      }
+      function renderForm() {
+        const title = isNew ? "新建展示素材" : "编辑展示素材";
+        pageName.textContent = title;
+        formTitle.textContent = title;
+        position.value = item.position;
+        jumpType.value = item.jumpType || "app_page";
+        targetPage.value = item.targetPage || "recharge";
+        periodStart.value = dateOf(item.startAt);
+        periodEnd.value = dateOf(item.endAt);
+        timeStart.value = timeOf(item.startAt);
+        timeEnd.value = timeOf(item.endAt);
+        enabled.checked = item.enabled;
+        renderMaterial();
+        renderDetailImage();
+        syncJumpType();
+        syncEnabled();
+      }
+      function hasConflict() {
+        return placements.some(
+          (existing) =>
+            existing.id !== item.id &&
+            existing.position === position.value &&
+            periodStart.value <= dateOf(existing.endAt) &&
+            periodEnd.value >= dateOf(existing.startAt) &&
+            timeStart.value < timeOf(existing.endAt) &&
+            timeEnd.value > timeOf(existing.startAt),
+        );
+      }
+      enabled.onchange = syncEnabled;
+      jumpType.onchange = syncJumpType;
+      materialPreview.onclick = () => {
+        if (editorMaterial === "未上传") materialFile.click();
+        else showPreview("展示素材预览", editorMaterial);
+      };
+      deleteMaterial.onclick = () => {
+        editorMaterial = "未上传";
+        renderMaterial();
+      };
+      materialFile.onchange = () => {
+        if (materialFile.files[0]) {
+          editorMaterial = materialFile.files[0].name;
+          renderMaterial();
+        }
+      };
+      detailImagePreview.onclick = () => {
+        if (editorDetailImage === "未上传") detailImageFile.click();
+        else showPreview("活动详情长图预览", editorDetailImage);
+      };
+      deleteDetailImage.onclick = () => {
+        editorDetailImage = "未上传";
+        renderDetailImage();
+      };
+      detailImageFile.onchange = () => {
+        if (detailImageFile.files[0]) {
+          editorDetailImage = detailImageFile.files[0].name;
+          renderDetailImage();
+        }
+      };
+      placementForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (editorMaterial === "未上传") return Luma.toast("请上传展示素材");
+        if (
+          jumpType.value === "activity_image" &&
+          editorDetailImage === "未上传"
+        )
+          return Luma.toast("请上传活动详情长图");
+        if (periodStart.value > periodEnd.value)
+          return Luma.toast("展示周期结束日期不能早于开始日期");
+        if (timeStart.value >= timeEnd.value)
+          return Luma.toast("展示结束时间必须晚于开始时间");
+        if (hasConflict())
+          return Luma.toast("该展示位置的展示时间与已有素材冲突");
+        const created = isNew;
+        Object.assign(item, {
+          position: position.value,
+          material: editorMaterial,
+          jumpType: jumpType.value,
+          targetPage: jumpType.value === "app_page" ? targetPage.value : "",
+          detailImage:
+            jumpType.value === "activity_image" ? editorDetailImage : "未上传",
+          startAt: `${periodStart.value} ${timeStart.value}`,
+          endAt: `${periodEnd.value} ${timeEnd.value}`,
+          enabled: enabled.checked,
+        });
+        if (created) {
+          placements.unshift(item);
+          isNew = false;
+          history.replaceState(
+            null,
+            "",
+            `admin-placement-detail.html?id=${item.id}&edit=1`,
+          );
+        }
+        renderForm();
+        Luma.toast(created ? "展示素材已新建" : "展示素材已保存");
+      };
+      document.addEventListener("click", (event) => {
+        const close = event.target.closest("[data-close]");
+        if (close)
+          document
+            .querySelector(`#${close.dataset.close}`)
+            .classList.remove("show");
+        if (event.target.classList.contains("admin-overlay"))
+          event.target.classList.remove("show");
+      });
+      renderForm();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-placement-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        编辑素材: renderForm,
+        时间冲突: () => {
+          position.value = "home_banner";
+          periodStart.value = "2026-08-06";
+          periodEnd.value = "2026-08-10";
+          timeStart.value = "01:00";
+          timeEnd.value = "10:00";
+        },
+        隐藏状态: () => {
+          enabled.checked = false;
+          syncEnabled();
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>任务配置 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub active" href="admin-task-config.html"
+              >任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>任务配置</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <div><h1>任务配置</h1></div>
+            <a class="admin-btn" href="admin-task-detail.html?new=1&edit=1"
+              >新建任务</a
+            >
+          </div>
+          <section class="admin-panel admin-filter" aria-label="任务筛选">
+            <div class="admin-filter-grid">
+              <div class="admin-field">
+                <label for="taskKeyword">任务名称</label
+                ><input
+                  class="admin-input"
+                  id="taskKeyword"
+                  placeholder="输入任务 ID 或名称"
+                />
+              </div>
+              <div class="admin-field">
+                <label for="taskAction">用户动作</label
+                ><select class="admin-select" id="taskAction">
+                  <option value="">全部动作</option>
+                  <option value="login_app">登录 App</option>
+                  <option value="watch_live">观看直播</option>
+                  <option value="send_gift">赠送礼物</option>
+                  <option value="share_live">分享直播间</option>
+                  <option value="invite_user">邀请拉新</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="taskCycle">统计周期</label
+                ><select class="admin-select" id="taskCycle">
+                  <option value="">全部周期</option>
+                  <option value="daily">每日</option>
+                  <option value="weekly">每周</option>
+                  <option value="monthly">每月</option>
+                  <option value="task_period">无周期（数据持续累计）</option>
+                </select>
+              </div>
+              <div class="admin-field">
+                <label for="taskStatus">状态</label
+                ><select class="admin-select" id="taskStatus">
+                  <option value="">全部状态</option>
+                  <option value="enabled">开启</option>
+                  <option value="disabled">关闭</option>
+                </select>
+              </div>
+            </div>
+            <div class="admin-filter-actions">
+              <button class="admin-btn secondary" id="resetBtn">重置</button
+              ><button class="admin-btn" id="searchBtn">查询</button>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <strong>任务数据</strong><span id="resultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 960px">
+                <colgroup>
+                  <col style="width: 90px" />
+                  <col style="width: 150px" />
+                  <col style="width: 100px" />
+                  <col style="width: 280px" />
+                  <col style="width: 110px" />
+                  <col style="width: 140px" />
+                  <col style="width: 60px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>任务 ID</th>
+                    <th>任务名称</th>
+                    <th>状态</th>
+                    <th>生效时间</th>
+                    <th>用户动作</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="taskRows"></tbody>
+              </table>
+            </div>
+            <div class="admin-pagination" id="pagination">
+              <span>20 条 / 页</span
+              ><button class="admin-page-btn" disabled>‹</button
+              ><button class="admin-page-btn active" disabled>1</button
+              ><button class="admin-page-btn" disabled>›</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const taskStorageKey = "luma-admin-task-config-v2";
+      const defaultTasks = [
+        {
+          id: "TSK1001",
+          name: "连续登录奖励",
+          action: "login_app",
+          metric: "consecutive_login_days",
+          cycle: "task_period",
+          rules: [
+            { threshold: 1, coins: 10 },
+            { threshold: 3, coins: 30 },
+            { threshold: 7, coins: 70 },
+            { threshold: 15, coins: 150 },
+            { threshold: 30, coins: 300 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:20",
+        },
+        {
+          id: "TSK1002",
+          name: "单日观看直播奖励",
+          action: "watch_live",
+          metric: "watch_duration",
+          cycle: "daily",
+          rules: [
+            { threshold: 10, coins: 5 },
+            { threshold: 60, coins: 10 },
+            { threshold: 120, coins: 20 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:15",
+        },
+        {
+          id: "TSK1003",
+          name: "累计赠礼次数奖励",
+          action: "send_gift",
+          metric: "gift_count",
+          cycle: "task_period",
+          rules: [
+            { threshold: 1, coins: 10 },
+            { threshold: 3, coins: 30 },
+            { threshold: 7, coins: 70 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:10",
+        },
+        {
+          id: "TSK1004",
+          name: "累计赠礼金币奖励",
+          action: "send_gift",
+          metric: "gift_coins",
+          cycle: "task_period",
+          rules: [
+            { threshold: 100, coins: 10 },
+            { threshold: 300, coins: 30 },
+            { threshold: 700, coins: 70 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:05",
+        },
+        {
+          id: "TSK1005",
+          name: "分享直播间奖励",
+          action: "share_live",
+          metric: "share_count",
+          cycle: "task_period",
+          rules: [
+            { threshold: 1, coins: 10 },
+            { threshold: 3, coins: 30 },
+            { threshold: 7, coins: 70 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:00",
+        },
+        {
+          id: "TSK1006",
+          name: "邀请拉新奖励",
+          action: "invite_user",
+          metric: "valid_invite_count",
+          cycle: "task_period",
+          rules: [
+            { threshold: 1, coins: 20 },
+            { threshold: 3, coins: 60 },
+            { threshold: 7, coins: 140 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 09:55",
+        },
+      ];
+      const actionText = {
+          login_app: "登录 App",
+          watch_live: "观看直播",
+          send_gift: "赠送礼物",
+          share_live: "分享直播间",
+          invite_user: "邀请拉新",
+        },
+        statusText = { enabled: "开启", disabled: "关闭" };
+      function sharedTaskStorage() {
+        try {
+          return window.parent && window.parent !== window
+            ? window.parent.localStorage
+            : localStorage;
+        } catch (error) {
+          return localStorage;
+        }
+      }
+      function normalizeTask(item) {
+        const action =
+            item.action === "login_success" ? "login_app" : item.action,
+          metric =
+            { gift_value: "gift_coins" }[item.metric] ||
+            item.metric ||
+            {
+              login_app: "consecutive_login_days",
+              watch_live: "watch_duration",
+              send_gift: "gift_coins",
+              share_live: "share_count",
+              invite_user: "valid_invite_count",
+            }[action] ||
+            "consecutive_login_days",
+          cycle =
+            item.cycle || { watch_live: "daily" }[action] || "task_period";
+        return {
+          ...item,
+          action,
+          metric,
+          cycle,
+          rules: Array.isArray(item.rules)
+            ? item.rules.map((rule) => ({
+                threshold: Number(rule.threshold) || 0,
+                coins: Number(rule.coins) || 0,
+              }))
+            : [],
+        };
+      }
+      function readTasks() {
+        try {
+          const saved = JSON.parse(
+            sharedTaskStorage().getItem(taskStorageKey) || "null",
+          );
+          if (Array.isArray(saved)) return saved.map(normalizeTask);
+        } catch (error) {}
+        return defaultTasks.map((item) => ({
+          ...item,
+          rules: item.rules.map((rule) => ({ ...rule })),
+        }));
+      }
+      function saveTasks() {
+        try {
+          sharedTaskStorage().setItem(taskStorageKey, JSON.stringify(tasks));
+        } catch (error) {}
+      }
+      function formatTime(value) {
+        return value ? String(value).replace("T", " ") : "-";
+      }
+      let tasks = readTasks();
+      function filteredTasks(items = tasks) {
+        const keyword = taskKeyword.value.trim().toLowerCase(),
+          action = taskAction.value,
+          cycle = taskCycle.value,
+          status = taskStatus.value;
+        return items.filter(
+          (item) =>
+            (!keyword ||
+              `${item.id} ${item.name}`.toLowerCase().includes(keyword)) &&
+            (!action || item.action === action) &&
+            (!cycle || item.cycle === cycle) &&
+            (!status || item.status === status),
+        );
+      }
+      function render(items = tasks) {
+        const visible = filteredTasks(items);
+        resultCount.textContent = `共 ${visible.length} 条`;
+        pagination.classList.toggle("state-hide", !visible.length);
+        taskRows.innerHTML = visible.length
+          ? visible
+              .map(
+                (item) =>
+                  /* HTML */ `<tr>
+                    <td>${item.id}</td>
+                    <td><b>${item.name}</b></td>
+                    <td>
+                      <div class="admin-switch-control">
+                        <label class="admin-switch"
+                          ><input
+                            type="checkbox"
+                            data-toggle-status="${item.id}"
+                            ${item.status === "enabled"
+                              ? "checked"
+                              : ""} /><span
+                            class="admin-switch-track"
+                          ></span></label
+                        ><span>${statusText[item.status]}</span>
+                      </div>
+                    </td>
+                    <td>
+                      ${formatTime(item.startAt)} 至 ${formatTime(item.endAt)}
+                    </td>
+                    <td>${actionText[item.action] || "-"}</td>
+                    <td>${item.updatedAt}</td>
+                    <td>
+                      <a
+                        class="admin-action"
+                        href="admin-task-detail.html?id=${item.id}&edit=1"
+                        >编辑</a
+                      >
+                    </td>
+                  </tr>`,
+              )
+              .join("")
+          : '<tr><td colspan="7"><div class="admin-empty"><strong>未找到任务</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+      }
+      taskRows.onchange = (event) => {
+        const toggle = event.target.closest("[data-toggle-status]");
+        if (!toggle) return;
+        const task = tasks.find(
+          (item) => item.id === toggle.dataset.toggleStatus,
+        );
+        if (!task) return;
+        task.status = toggle.checked ? "enabled" : "disabled";
+        saveTasks();
+        render();
+        Luma.toast(task.status === "enabled" ? "任务已开启" : "任务已关闭");
+      };
+      searchBtn.onclick = () => {
+        render();
+        Luma.toast(`已查询到 ${filteredTasks().length} 条任务`);
+      };
+      resetBtn.onclick = () => {
+        taskKeyword.value = "";
+        taskAction.value = "";
+        taskCycle.value = "";
+        taskStatus.value = "";
+        render();
+        Luma.toast("筛选条件已重置");
+      };
+      document.querySelectorAll(".admin-filter input").forEach((input) =>
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") render();
+        }),
+      );
+      render();
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-task-config.html" },
+        "*",
+      );
+      Luma.registerStates({
+        全部任务: () => render(tasks),
+        开启: () => render(tasks.filter((item) => item.status === "enabled")),
+        关闭: () => render(tasks.filter((item) => item.status === "disabled")),
+        无查询结果: () => render([]),
+      });
+    </script>
+  </body>
+</html>

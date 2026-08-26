@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>通用任务编辑 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
+    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <style>
+      .task-single-column {
+        grid-template-columns: minmax(0, 760px);
+      }
+      .task-single-column .admin-form-row {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        align-items: center;
+        gap: 16px;
+      }
+      .task-single-column .admin-form-row > label:first-child {
+        margin: 0;
+      }
+      .task-rule-table-wrap,
+      .task-rule-actions {
+        width: 624px;
+        margin-left: 136px;
+      }
+      .task-rule-table-wrap {
+        margin-top: 18px;
+      }
+      .task-rule-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 12px;
+      }
+      .task-rule-table {
+        min-width: 0;
+      }
+      .task-rule-table .admin-input {
+        min-width: 0;
+      }
+      .task-rule-table td:last-child {
+        width: 70px;
+      }
+      .task-reward-field {
+        position: relative;
+        display: block;
+      }
+      .task-reward-field span {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: var(--admin-muted);
+        font-size: var(--admin-font-xs);
+        pointer-events: none;
+      }
+      .task-reward-field .admin-input {
+        padding-left: 44px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub active" href="admin-task-config.html"
+              >任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item" data-menu="数据分析">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;任务配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              id="pageName"
+            ></strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-task-config.html"
+            >‹ 返回任务配置</a
+          >
+          <form id="taskForm">
+            <section class="admin-panel admin-profile-panel">
+              <div class="admin-section-head"><h2>基础信息</h2></div>
+              <div class="admin-form-grid task-single-column">
+                <div class="admin-form-row">
+                  <label>任务 ID</label>
+                  <div class="admin-readonly-value" id="taskId"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="taskName">任务名称</label
+                  ><input
+                    class="admin-input"
+                    id="taskName"
+                    maxlength="30"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label>状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="taskEnabled" type="checkbox" /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="taskEnabledText"></span>
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <label>生效时间</label>
+                  <div class="admin-range">
+                    <input
+                      class="admin-input"
+                      id="startAt"
+                      type="datetime-local"
+                      required
+                    /><span>至</span
+                    ><input
+                      class="admin-input"
+                      id="endAt"
+                      type="datetime-local"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="admin-panel admin-profile-panel">
+              <div class="admin-section-head"><h2>动作、条件与奖励</h2></div>
+              <div class="admin-form-grid task-single-column">
+                <div class="admin-form-row">
+                  <label for="taskAction">用户动作</label
+                  ><select class="admin-select" id="taskAction" required>
+                    <option value="login_app">登录 App</option>
+                    <option value="watch_live">观看直播</option>
+                    <option value="send_gift">赠送礼物</option>
+                    <option value="share_live">分享直播间</option>
+                    <option value="invite_user">邀请拉新</option>
+                  </select>
+                </div>
+                <div class="admin-form-row">
+                  <label for="taskMetric">统计维度</label
+                  ><select
+                    class="admin-select"
+                    id="taskMetric"
+                    required
+                  ></select>
+                </div>
+                <div class="admin-form-row">
+                  <label for="taskCycle">统计周期</label
+                  ><select
+                    class="admin-select"
+                    id="taskCycle"
+                    required
+                  ></select>
+                </div>
+              </div>
+              <div class="admin-table-wrap task-rule-table-wrap">
+                <table class="admin-table task-rule-table">
+                  <colgroup>
+                    <col style="width: 38%" />
+                    <col style="width: 52%" />
+                    <col style="width: 10%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th id="conditionHeader">达成条件</th>
+                      <th>达成奖励</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ruleRows"></tbody>
+                </table>
+              </div>
+              <div class="task-rule-actions">
+                <button
+                  class="admin-btn secondary"
+                  id="addRuleBtn"
+                  type="button"
+                >
+                  添加条件
+                </button>
+              </div>
+            </section>
+            <div class="admin-modal-foot">
+              <a class="admin-btn secondary" href="admin-task-config.html"
+                >取消</a
+              ><button class="admin-btn" type="submit">保存</button>
+            </div>
+          </form>
+        </main>
+      </div>
+    </div>
+    <script>
+      const params = new URLSearchParams(location.search),
+        taskStorageKey = "luma-admin-task-config-v2";
+      let isNew = params.get("new") === "1";
+      const actionMetrics = {
+        login_app: ["consecutive_login_days"],
+        watch_live: ["watch_duration"],
+        send_gift: ["gift_count", "gift_coins"],
+        share_live: ["share_count"],
+        invite_user: ["valid_invite_count"],
+      };
+      const metricMeta = {
+        consecutive_login_days: {
+          label: "连续登录天数",
+          unit: "天",
+          start: 1,
+          step: 1,
+          cycles: ["task_period"],
+        },
+        watch_duration: {
+          label: "累计观看时长",
+          unit: "分钟",
+          start: 10,
+          step: 10,
+          cycles: ["daily", "weekly", "monthly", "task_period"],
+        },
+        gift_count: {
+          label: "累计赠送次数",
+          unit: "次",
+          start: 1,
+          step: 1,
+          cycles: ["daily", "weekly", "monthly", "task_period"],
+        },
+        gift_coins: {
+          label: "累计赠送金币",
+          unit: "金币",
+          start: 100,
+          step: 100,
+          cycles: ["daily", "weekly", "monthly", "task_period"],
+        },
+        share_count: {
+          label: "累计分享次数",
+          unit: "次",
+          start: 1,
+          step: 1,
+          cycles: ["daily", "weekly", "monthly", "task_period"],
+        },
+        valid_invite_count: {
+          label: "累计有效邀请人数",
+          unit: "人",
+          start: 1,
+          step: 1,
+          cycles: ["weekly", "monthly", "task_period"],
+        },
+      };
+      const cycleText = {
+        daily: "每日",
+        weekly: "每周",
+        monthly: "每月",
+        task_period: "无周期（数据持续累计）",
+      };
+      const defaultTasks = [
+        {
+          id: "TSK1001",
+          name: "连续登录奖励",
+          action: "login_app",
+          metric: "consecutive_login_days",
+          cycle: "task_period",
+          rules: [
+            { threshold: 1, coins: 10 },
+            { threshold: 3, coins: 30 },
+            { threshold: 7, coins: 70 },
+            { threshold: 15, coins: 150 },
+            { threshold: 30, coins: 300 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:20",
+        },
+        {
+          id: "TSK1002",
+          name: "单日观看直播奖励",
+          action: "watch_live",
+          metric: "watch_duration",
+          cycle: "daily",
+          rules: [
+            { threshold: 10, coins: 5 },
+            { threshold: 60, coins: 10 },
+            { threshold: 120, coins: 20 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:15",
+        },
+        {
+          id: "TSK1003",
+          name: "累计赠礼次数奖励",
+          action: "send_gift",
+          metric: "gift_count",
+          cycle: "task_period",
+          rules: [
+            { threshold: 1, coins: 10 },
+            { threshold: 3, coins: 30 },
+            { threshold: 7, coins: 70 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:10",
+        },
+        {
+          id: "TSK1004",
+          name: "累计赠礼金币奖励",
+          action: "send_gift",
+          metric: "gift_coins",
+          cycle: "task_period",
+          rules: [
+            { threshold: 100, coins: 10 },
+            { threshold: 300, coins: 30 },
+            { threshold: 700, coins: 70 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:05",
+        },
+        {
+          id: "TSK1005",
+          name: "分享直播间奖励",
+          action: "share_live",
+          metric: "share_count",
+          cycle: "task_period",
+          rules: [
+            { threshold: 1, coins: 10 },
+            { threshold: 3, coins: 30 },
+            { threshold: 7, coins: 70 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 10:00",
+        },
+        {
+          id: "TSK1006",
+          name: "邀请拉新奖励",
+          action: "invite_user",
+          metric: "valid_invite_count",
+          cycle: "task_period",
+          rules: [
+            { threshold: 1, coins: 20 },
+            { threshold: 3, coins: 60 },
+            { threshold: 7, coins: 140 },
+          ],
+          status: "enabled",
+          startAt: "2026-08-01T00:00",
+          endAt: "2026-12-31T23:59",
+          updatedAt: "2026-08-07 09:55",
+        },
+      ];
+      function sharedTaskStorage() {
+        try {
+          return window.parent && window.parent !== window
+            ? window.parent.localStorage
+            : localStorage;
+        } catch (error) {
+          return localStorage;
+        }
+      }
+      function normalizeTask(item) {
+        const action =
+            item.action === "login_success" ? "login_app" : item.action,
+          metric =
+            { gift_value: "gift_coins" }[item.metric] ||
+            item.metric ||
+            {
+              login_app: "consecutive_login_days",
+              watch_live: "watch_duration",
+              send_gift: "gift_coins",
+              share_live: "share_count",
+              invite_user: "valid_invite_count",
+            }[action] ||
+            "consecutive_login_days",
+          cycle =
+            item.cycle || { watch_live: "daily" }[action] || "task_period";
+        return {
+          ...item,
+          action,
+          metric,
+          cycle,
+          rules: Array.isArray(item.rules)
+            ? item.rules.map((rule) => ({
+                threshold: Number(rule.threshold) || 0,
+                coins: Number(rule.coins) || 0,
+              }))
+            : [],
+        };
+      }
+      function readTasks() {
+        try {
+          const saved = JSON.parse(
+            sharedTaskStorage().getItem(taskStorageKey) || "null",
+          );
+          if (Array.isArray(saved)) return saved.map(normalizeTask);
+        } catch (error) {}
+        return defaultTasks.map((item) => ({
+          ...item,
+          rules: item.rules.map((rule) => ({ ...rule })),
+        }));
+      }
+      function saveTasks() {
+        try {
+          sharedTaskStorage().setItem(taskStorageKey, JSON.stringify(tasks));
+        } catch (error) {}
+      }
+      function nextId() {
+        const highest = Math.max(
+          1000,
+          ...tasks.map(
+            (item) => Number(String(item.id).replace(/\D/g, "")) || 0,
+          ),
+        );
+        return `TSK${highest + 1}`;
+      }
+      function updatedNow() {
+        const value = new Date(),
+          pad = (part) => String(part).padStart(2, "0");
+        return `${value.getFullYear()}-${pad(value.getMonth() + 1)}-${pad(value.getDate())} ${pad(value.getHours())}:${pad(value.getMinutes())}`;
+      }
+      let tasks = readTasks(),
+        editData =
+          tasks.find((item) => item.id === params.get("id")) || defaultTasks[0],
+        rules = [];
+      function renderMetricOptions(selected) {
+        const metrics = actionMetrics[taskAction.value];
+        taskMetric.innerHTML = metrics
+          .map(
+            (value) =>
+              `<option value="${value}">${metricMeta[value].label}</option>`,
+          )
+          .join("");
+        taskMetric.value = metrics.includes(selected) ? selected : metrics[0];
+      }
+      function renderCycleOptions(selected) {
+        const cycles = metricMeta[taskMetric.value].cycles;
+        taskCycle.innerHTML = cycles
+          .map(
+            (value) => `<option value="${value}">${cycleText[value]}</option>`,
+          )
+          .join("");
+        taskCycle.value = cycles.includes(selected) ? selected : cycles[0];
+      }
+      function renderRules() {
+        const meta = metricMeta[taskMetric.value];
+        conditionHeader.textContent = `${meta.label}（${meta.unit}）`;
+        ruleRows.innerHTML = rules
+          .map(
+            (rule, index) =>
+              `<tr data-rule-row><td><input class="admin-input" data-threshold type="number" min="1" step="1" value="${rule.threshold}" required></td><td><label class="task-reward-field"><span>金币</span><input class="admin-input" data-coins type="number" min="1" step="1" value="${rule.coins || ""}" placeholder="0" required></label></td><td><button class="admin-action" data-remove-rule="${index}" type="button">删除</button></td></tr>`,
+          )
+          .join("");
+      }
+      function resetRules() {
+        const meta = metricMeta[taskMetric.value];
+        rules = [{ threshold: meta.start, coins: 10 }];
+        renderRules();
+      }
+      function syncAction(selectedMetric, selectedCycle) {
+        renderMetricOptions(selectedMetric);
+        renderCycleOptions(selectedCycle);
+      }
+      function syncTaskEnabled() {
+        taskEnabledText.textContent = taskEnabled.checked ? "开启" : "关闭";
+      }
+      function loadForm() {
+        const title = isNew ? "新建任务" : "编辑任务";
+        pageName.textContent = title;
+        taskId.textContent = isNew ? "保存后由系统生成" : editData.id;
+        taskName.value = isNew ? "" : editData.name;
+        taskAction.value = isNew ? "login_app" : editData.action;
+        syncAction(
+          isNew ? "consecutive_login_days" : editData.metric,
+          isNew ? "task_period" : editData.cycle,
+        );
+        taskEnabled.checked = isNew ? true : editData.status === "enabled";
+        startAt.value = isNew ? "2026-08-07T00:00" : editData.startAt;
+        endAt.value = isNew ? "2026-12-31T23:59" : editData.endAt;
+        rules = isNew
+          ? [{ threshold: 1, coins: 10 }]
+          : editData.rules.map((rule) => ({ ...rule }));
+        syncTaskEnabled();
+        renderRules();
+      }
+      taskEnabled.onchange = syncTaskEnabled;
+      taskAction.onchange = () => {
+        syncAction();
+        resetRules();
+        Luma.toast("已更新可配置的统计维度");
+      };
+      taskMetric.onchange = () => {
+        renderCycleOptions();
+        resetRules();
+        Luma.toast("已更新达成条件的单位");
+      };
+      addRuleBtn.onclick = () => {
+        const meta = metricMeta[taskMetric.value],
+          highest = Math.max(
+            0,
+            ...rules.map((rule) => Number(rule.threshold) || 0),
+          );
+        rules.push({
+          threshold: highest ? highest + meta.step : meta.start,
+          coins: 10,
+        });
+        renderRules();
+      };
+      ruleRows.oninput = (event) => {
+        const row = event.target.closest("[data-rule-row]");
+        if (!row) return;
+        const index = Array.from(ruleRows.children).indexOf(row);
+        rules[index].threshold = Number(
+          row.querySelector("[data-threshold]").value,
+        );
+        rules[index].coins =
+          Number(row.querySelector("[data-coins]").value) || 0;
+      };
+      ruleRows.onchange = ruleRows.oninput;
+      ruleRows.onclick = (event) => {
+        const button = event.target.closest("[data-remove-rule]");
+        if (!button) return;
+        if (rules.length === 1) return Luma.toast("至少保留一个达成条件");
+        rules.splice(Number(button.dataset.removeRule), 1);
+        renderRules();
+      };
+      taskForm.onsubmit = (event) => {
+        event.preventDefault();
+        rules = [...ruleRows.querySelectorAll("[data-rule-row]")].map(
+          (row) => ({
+            threshold: Number(row.querySelector("[data-threshold]").value),
+            coins: Number(row.querySelector("[data-coins]").value) || 0,
+          }),
+        );
+        const thresholds = rules.map((rule) => Number(rule.threshold));
+        if (
+          rules.some(
+            (rule) => !Number.isInteger(rule.threshold) || rule.threshold < 1,
+          )
+        )
+          return Luma.toast("请填写正确的达成条件");
+        if (new Set(thresholds).size !== thresholds.length)
+          return Luma.toast("达成条件不能重复");
+        if (startAt.value >= endAt.value)
+          return Luma.toast("结束时间必须晚于开始时间");
+        if (
+          rules.some((rule) => !Number.isInteger(rule.coins) || rule.coins < 1)
+        )
+          return Luma.toast("请填写正确的奖励金币");
+        const created = isNew,
+          item = {
+            id: created ? nextId() : editData.id,
+            name: taskName.value.trim(),
+            action: taskAction.value,
+            metric: taskMetric.value,
+            cycle: taskCycle.value,
+            rules: rules.slice().sort((a, b) => a.threshold - b.threshold),
+            status: taskEnabled.checked ? "enabled" : "disabled",
+            startAt: startAt.value,
+            endAt: endAt.value,
+            updatedAt: updatedNow(),
+          };
+        if (created) tasks.push(item);
+        else tasks = tasks.map((task) => (task.id === item.id ? item : task));
+        saveTasks();
+        editData = item;
+        isNew = false;
+        taskId.textContent = item.id;
+        pageName.textContent = "编辑任务";
+        const nextQuery = `?id=${item.id}&edit=1`;
+        history.replaceState(null, "", `admin-task-detail.html${nextQuery}`);
+        window.parent.postMessage(
+          {
+            type: "luma-page",
+            file: "admin-task-detail.html",
+            query: nextQuery,
+          },
+          "*",
+        );
+        Luma.toast(created ? "任务已创建" : "任务配置已保存");
+      };
+      loadForm();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-task-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+      Luma.registerStates({
+        编辑任务: () => {},
+        新增任务: () => (location.href = "admin-task-detail.html?new=1&edit=1"),
+        "赠送礼物-金币": () => {
+          taskAction.value = "send_gift";
+          syncAction("gift_coins", "task_period");
+          resetRules();
+        },
+        邀请拉新: () => {
+          taskAction.value = "invite_user";
+          syncAction("valid_invite_count", "task_period");
+          resetRules();
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>报表中心 · 数据分析 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260820-finance-nav-v2"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+  </head>
+  <body class="admin-monochrome">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav" aria-label="管理后台一级菜单">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          >
+          <a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          >
+          <a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          >
+          <a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          >
+          <a
+            class="admin-nav-item"
+            href="../operations/admin-placement-config.html"
+            ><span>运营配置</span><span>›</span></a
+          >
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          >
+          <button class="admin-nav-item" type="button" data-menu="数据分析">
+            <span>数据分析</span><span>›</span>
+          </button>
+          <button class="admin-nav-item" type="button" data-menu="系统配置">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            数据分析&nbsp;&nbsp;/&nbsp;&nbsp;<strong>报表中心</strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+
+        <main class="admin-content report-center">
+          <div class="admin-page-head"><h1>报表中心</h1></div>
+
+          <section
+            class="report-center-section"
+            aria-labelledby="statisticEntries"
+          >
+            <h2 id="statisticEntries">基础数据</h2>
+            <div class="report-statistic-grid">
+              <a
+                class="report-entry"
+                href="admin-daily-statistics.html"
+                data-report="每日统计"
+                ><span class="report-entry-mark" aria-hidden="true">日</span
+                ><span class="report-entry-label">每日统计</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-user-active-statistics.html"
+                data-report="用户活跃汇总（每日）"
+                ><span class="report-entry-mark" aria-hidden="true">活</span
+                ><span class="report-entry-label">用户活跃汇总（每日）</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-host-statistics.html"
+                data-report="主播活跃汇总（每日）"
+                ><span class="report-entry-mark" aria-hidden="true">播</span
+                ><span class="report-entry-label">主播活跃汇总（每日）</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-live-statistics.html"
+                data-report="直播间互动汇总（每日）"
+                ><span class="report-entry-mark" aria-hidden="true">互</span
+                ><span class="report-entry-label">直播间互动汇总（每日）</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-recharge-statistics.html"
+                data-report="充值消费汇总（每日）"
+                ><span class="report-entry-mark" aria-hidden="true">充</span
+                ><span class="report-entry-label">充值消费汇总（每日）</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-user-activity-statistics.html"
+                data-report="充值用户分层汇总（每日）"
+                ><span class="report-entry-mark" aria-hidden="true">统</span
+                ><span class="report-entry-label">充值用户分层汇总（每日）</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+            </div>
+          </section>
+
+          <section
+            class="report-center-section"
+            aria-labelledby="financeEntries"
+          >
+            <h2 id="financeEntries">财务对账</h2>
+            <div class="report-statistic-grid">
+              <a
+                class="report-entry"
+                href="admin-monthly-income-expense.html"
+                data-report="月度收益支出汇总"
+                ><span class="report-entry-mark" aria-hidden="true">汇</span
+                ><span class="report-entry-label">月度收益支出汇总</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-host-live-record-report.html"
+                data-report="直播记录明细报表"
+                ><span class="report-entry-mark" aria-hidden="true">录</span
+                ><span class="report-entry-label">直播记录明细报表</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-monthly-host-share.html"
+                data-report="主播业绩分成报表"
+                ><span class="report-entry-mark" aria-hidden="true">绩</span
+                ><span class="report-entry-label">主播业绩分成报表</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-monthly-host-earnings.html"
+                data-report="主播礼物打赏明细报表"
+                ><span class="report-entry-mark" aria-hidden="true">赏</span
+                ><span class="report-entry-label">主播礼物打赏明细报表</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-monthly-viewer-consumption.html"
+                data-report="用户消费汇总报表"
+                ><span class="report-entry-mark" aria-hidden="true">消</span
+                ><span class="report-entry-label">用户消费汇总报表</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-monthly-gift-sales.html"
+                data-report="礼物消费汇总报表"
+                ><span class="report-entry-mark" aria-hidden="true">礼</span
+                ><span class="report-entry-label">礼物消费汇总报表</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-consumption-order-detail-report.html"
+                data-report="消费订单明细"
+                ><span class="report-entry-mark" aria-hidden="true">单</span
+                ><span class="report-entry-label">消费订单明细</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-refund-order-detail-report.html"
+                data-report="退款订单明细"
+                ><span class="report-entry-mark" aria-hidden="true">退</span
+                ><span class="report-entry-label">退款订单明细</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+              <a
+                class="report-entry"
+                href="admin-recharge-order-detail-report.html"
+                data-report="充值订单明细"
+                ><span class="report-entry-mark" aria-hidden="true">充</span
+                ><span class="report-entry-label">充值订单明细</span
+                ><span class="report-entry-arrow" aria-hidden="true">›</span></a
+              >
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll("[data-report]").forEach((entry) => {
+        entry.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-report]")
+            .forEach((item) => item.classList.remove("is-selected"));
+          entry.classList.add("is-selected");
+          Luma.toast(`已选择：${entry.dataset.report}`);
+        });
+      });
+      window.parent.postMessage(
+        { type: "luma-page", file: "admin-report-center.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>
