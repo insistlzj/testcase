@@ -56,7 +56,7 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        min-height: 68px;
+        min-height: 56px;
         padding: 12px 14px;
         border-bottom: 1px solid var(--g6);
       }
@@ -267,32 +267,32 @@
         guild: {
           notice: "加入公会后即可提交直播权限申请。",
           steps: [
-            ["加入公会", "选择公会并提交申请", "action", "去加入"],
-            ["申请直播权限", "未申请", "status", "未申请"],
+            ["加入公会", "", "action", "去加入"],
+            ["申请直播权限", "", "status", "未申请"],
             ["开始直播", "", "status", "未开通"],
           ],
         },
         guildPending: {
           notice: "公会审核通过后，才能提交直播权限申请。",
           steps: [
-            ["加入公会", "申请正在审核", "action muted", "审核中"],
-            ["申请直播权限", "未申请", "status", "未申请"],
+            ["加入公会", "", "action muted", "审核中"],
+            ["申请直播权限", "", "status", "未申请"],
             ["开始直播", "", "status", "未开通"],
           ],
         },
         apply: {
           notice: "提交资料后，平台将审核主播认证与直播权限。",
           steps: [
-            ["加入公会", "Jakarta Star Guild", "done", "已加入"],
-            ["申请直播权限", "提交证件与认证资料", "action", "提交申请"],
+            ["加入公会", "", "done", "已同意"],
+            ["申请直播权限", "", "action", "提交申请"],
             ["开始直播", "", "status", "未开通"],
           ],
         },
         permissionPending: {
           notice: "直播权限申请正在审核，请留意审核结果。",
           steps: [
-            ["加入公会", "Jakarta Star Guild", "done", "已加入"],
-            ["申请直播权限", "平台正在审核", "status", "申请中"],
+            ["加入公会", "", "done", "已同意"],
+            ["申请直播权限", "", "status", "申请中"],
             ["开始直播", "", "status", "未开通"],
           ],
         },
@@ -308,7 +308,7 @@
         steps.innerHTML = state.steps
           .map(
             (item, index) =>
-              `<article class="step ${item[2] === "done" ? "done" : ""}"><i class="dot">${item[2] === "done" ? "✓" : index + 1}</i><div class="step-copy"><b>${item[0]}</b><span>${item[1]}</span></div>${item[2].includes("action") ? `<button class="step-action ${item[2].includes("muted") ? "muted" : ""}" type="button" data-action="${index}">${item[3]}</button>` : `<em class="step-status">${item[3]}</em>`}</article>`,
+              `<article class="step ${item[2] === "done" ? "done" : ""}"><i class="dot">${item[2] === "done" ? "✓" : index + 1}</i><div class="step-copy"><b>${item[0]}</b>${item[1] ? `<span>${item[1]}</span>` : ""}</div>${item[2].includes("action") ? `<button class="step-action ${item[2].includes("muted") ? "muted" : ""}" type="button" data-action="${index}">${item[3]}</button>` : `<em class="step-status">${item[3]}</em>`}</article>`,
           )
           .join("");
         steps.querySelectorAll("[data-action]").forEach(

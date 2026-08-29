@@ -651,6 +651,15 @@
           id: 'profile:host', title: '视图-观众资料卡-主播', state: { group: '资料卡权限', name: '主播' }, selectors: ['#chat .chat-meta b']
         },
         { id: 'focus-viewers', title: '视图-重点观众', selectors: ['.focus-entry'] },
+        {
+          id: 'cohost-hosts',
+          title: '视图-连麦主播',
+          selectors: ['[data-host-pk]'],
+          children: [
+            { id: 'cohost-hosts:search-result', title: '视图-连麦主播-搜索结果', state: { group: '连麦主播', name: '搜索结果' } }
+          ]
+        },
+        { id: 'share-recipient', title: '视图-选择分享对象', selectors: ['#moreActions', '[data-host-setting="share"]'] },
         { id: 'more-actions', title: '视图-更多功能', selectors: ['#moreActions'] },
         { id: 'end-confirm', title: '视图-结束直播确认', selectors: ['#exit'] }
       ],
@@ -770,7 +779,7 @@
     let activeReviewId = '';
 
     function pageUrl(page, query = '') {
-      const version = !query && page.file === 'profile.html' ? '?v=20260815-profile-host-link-v1' : !query && page.file === 'guild-management.html' ? '?v=20260815-p030-host-icon-v3' : !query && page.file === 'host-center.html' ? '?v=20260815-p024-guild-tag-v2' : page.file === 'host-center-pending.html' && !query ? '?v=20260808-p014-state-v2' : !query && page.file === 'guild-host-list.html' ? '?v=20260820-host-performance-summary-v2' : !query && page.file === 'guild-host-data.html' ? '?v=20260820-guild-live-records-v2' : '';
+      const version = !query && page.file === 'profile.html' ? '?v=20260815-profile-host-link-v1' : !query && page.file === 'guild-management.html' ? '?v=20260815-p030-host-icon-v3' : !query && page.file === 'host-center.html' ? '?v=20260815-p024-guild-tag-v2' : page.file === 'host-center-pending.html' && !query ? '?v=20260826-p014-approved-copy-v4' : !query && page.file === 'guild-host-list.html' ? '?v=20260820-host-performance-summary-v2' : !query && page.file === 'guild-host-data.html' ? '?v=20260820-guild-live-records-v2' : '';
       return `pages/${page.path || page.file}${query || version}`;
     }
 
