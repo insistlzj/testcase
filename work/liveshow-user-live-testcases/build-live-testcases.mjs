@@ -5,8 +5,8 @@ import { SpreadsheetFile, Workbook } from "@oai/artifact-tool";
 
 const workDir = path.resolve("work/liveshow-user-live-testcases");
 const outputDir = path.resolve("outputs/Luma Live-case");
-const outputPath = path.join(outputDir, "用户App-直播模块-260827-003.xlsx");
-const jsonPath = path.join(workDir, "用户App-直播模块-测试用例-单预期结果版.json");
+const outputPath = path.join(outputDir, "用户App-直播模块-260828-012.xlsx");
+const jsonPath = path.join(workDir, "用户App-直播模块-测试用例-260828.json");
 
 const MODULE = "用户App-直播模块";
 const REQ = "来源：context/01-用户主播App-项目需求清单.md";
@@ -893,6 +893,147 @@ addCase({
   notes: [SPEC, STATIC],
 });
 
+addCase({
+  structure: "开播设置", type: "业务流程", priority: "P1",
+  description: "验证主播保存有效门票房设置",
+  point: "门票房有效设置",
+  pre: ["主播具备直播权限", "门票房灰度开关已开启"],
+  steps: ["进入开播设置", "打开房型设置", "选择“门票”", "填写门票价格 10 金币", "保存房型设置"],
+  expected: ["房型设置保存为门票房并回显门票价格 10 金币"],
+  notes: [REQ, ANNO, STATIC],
+});
+addCase({
+  structure: "开播设置", type: "业务流程", priority: "P1",
+  description: "验证主播保存有效密码房设置",
+  point: "密码房有效设置",
+  pre: ["主播具备直播权限", "密码房灰度开关已开启", "使用符合当前原型 4 至 12 位提示的测试密码"],
+  steps: ["进入开播设置", "打开房型设置", "选择“密码”", "填写有效密码", "设置广场展示范围和粉丝授权名单", "保存房型设置"],
+  expected: ["房型设置保存为密码房并回显本次可见范围配置"],
+  notes: [REQ, ANNO, STATIC, "说明：密码精确长度与字符类型仍以 Q-003 确认为准。"],
+});
+addCase({
+  structure: "观众互动", type: "功能需求", priority: "P2",
+  description: "验证观众清屏仅清除本地互动展示",
+  point: "观众端清屏",
+  pre: ["观众正在直播间观看", "当前公屏已有评论和礼物消息"],
+  steps: ["打开“全部功能”", "点击“清屏”"],
+  expected: ["当前观众端的互动消息区域被清空，直播播放保持进行中"],
+  notes: [ANNO, STATIC],
+});
+addCase({
+  structure: "主播直播间", type: "功能需求", priority: "P1",
+  description: "验证普通房主播打开直播设置",
+  point: "普通房直播设置菜单",
+  pre: ["主播正在普通房直播"],
+  steps: ["点击直播间底部“…”"],
+  expected: ["直播设置菜单提供美颜设置、禁用用户、清屏和转发操作，房间密码入口为不可用状态"],
+  notes: [ANNO, STATIC],
+});
+addCase({
+  structure: "主播直播间", type: "功能需求", priority: "P1",
+  description: "验证主播查看本场禁用用户",
+  point: "禁用用户列表",
+  pre: ["主播正在直播", "当前场次已有被禁言或被踢出的用户"],
+  steps: ["打开直播设置", "点击“禁用用户”"],
+  expected: ["禁用用户列表展示当前场次受限制的用户及其限制状态"],
+  notes: [ANNO, "来源：prototype/assets/live-muted-users.js", STATIC],
+});
+addCase({
+  structure: "主播直播间", type: "业务流程", priority: "P1",
+  description: "验证主播二次确认后解除用户禁言",
+  point: "解除禁言确认",
+  pre: ["主播正在直播", "目标用户处于当前场次禁言状态"],
+  steps: ["进入禁用用户列表", "点击目标用户的解除禁言操作", "完成两次确认"],
+  expected: ["目标用户的当前场次禁言状态被解除"],
+  notes: [ANNO, "来源：prototype/assets/live-muted-users.js", STATIC],
+});
+addCase({
+  structure: "主播直播间", type: "业务流程", priority: "P1",
+  description: "验证密码房主播修改房间密码",
+  point: "直播中修改密码",
+  pre: ["主播正在密码房直播", "准备符合最终密码规则的新密码"],
+  steps: ["打开直播设置", "进入房间密码设置", "输入新密码", "确认修改"],
+  expected: ["密码房保存新密码，后续进房校验使用新密码"],
+  notes: [ROLE, ANNO, STATIC, "说明：密码精确长度与字符类型仍以 Q-003 确认为准。"],
+});
+addCase({
+  structure: "主播直播间", type: "业务流程", priority: "P2",
+  description: "验证主播确认转发直播间给粉丝群",
+  point: "转发至粉丝群",
+  pre: ["主播正在直播", "主播已创建粉丝群"],
+  steps: ["打开直播设置", "点击“转发”", "选择置顶的粉丝群", "确认转发"],
+  expected: ["目标粉丝群收到可进入当前直播间的直播房间卡片"],
+  notes: [ANNO, STATIC],
+});
+addCase({
+  structure: "主播直播间", type: "功能需求", priority: "P1",
+  description: "验证主播查看本场贡献和收到礼物",
+  point: "本场贡献与收礼入口",
+  pre: ["主播正在直播", "当前场次已有观众送礼数据"],
+  steps: ["点击直播间顶部的本场贡献数值"],
+  expected: ["页面展示当前场次的贡献榜和收到礼物记录"],
+  notes: [ANNO, STATIC],
+});
+addCase({
+  structure: "主播连麦", type: "功能需求", priority: "P1",
+  description: "验证主播按 ID 或名字搜索连麦对象",
+  point: "连麦主播搜索",
+  pre: ["主播正在普通房直播", "目标主播在线且具备连麦权限"],
+  steps: ["打开连麦主播面板", "分别按目标主播 ID 和名字搜索"],
+  expected: ["两种搜索方式均返回身份与目标主播一致的可邀请记录"],
+  notes: [REQ, ANNO, STATIC],
+});
+addCase({
+  structure: "主播连麦", type: "业务流程", priority: "P2",
+  description: "验证主播取消已发出的连麦请求",
+  point: "取消发出请求",
+  pre: ["主播 A 已向主播 B 发出连麦请求", "主播 B 尚未处理"],
+  steps: ["在发出的请求中选择主播 B", "点击取消请求"],
+  expected: ["主播 B 对应的待处理连麦请求被取消"],
+  notes: [ANNO, STATIC],
+});
+addCase({
+  structure: "主播连麦", type: "逻辑校验", priority: "P1",
+  description: "验证被邀请主播可同时收到多条连麦邀请",
+  point: "多条收到邀请",
+  pre: ["主播 B 正在普通房直播且未连麦", "主播 A 和主播 C 均满足连麦条件"],
+  steps: ["由主播 A 向主播 B 发起邀请", "由主播 C 向主播 B 发起邀请", "查看主播 B 的收到邀请列表"],
+  expected: ["主播 B 的收到邀请列表同时保留主播 A 和主播 C 的两条待处理邀请"],
+  notes: [ANNO, STATIC],
+});
+addCase({
+  structure: "主播直播间", type: "逻辑校验", priority: "P2",
+  description: "验证普通房房间密码入口不可用",
+  point: "普通房密码入口限制",
+  pre: ["主播正在普通房直播"],
+  steps: ["打开直播设置", "查看并点击房间密码入口"],
+  expected: ["房间密码入口保持置灰且不打开密码编辑面板"],
+  notes: [ANNO, STATIC],
+});
+addCase({
+  structure: "主播连麦", type: "逻辑校验", priority: "P1",
+  description: "验证密码房 PK 入口不可用",
+  point: "密码房 PK 限制",
+  pre: ["主播正在密码房直播"],
+  steps: ["点击 PK 入口"],
+  expected: ["页面不发起连麦并提示“密码房无法发起连麦”"],
+  notes: [REQ, ANNO, STATIC],
+});
+addCase({
+  structure: "主播连麦", type: "逻辑校验", priority: "P2",
+  description: "验证连麦中房间密码入口不可用",
+  point: "连麦中密码入口限制",
+  pre: ["主播正在普通房两人连麦中"],
+  steps: ["打开直播设置", "查看并点击房间密码入口"],
+  expected: ["房间密码入口保持置灰且不打开密码编辑面板"],
+  notes: [ANNO, STATIC],
+});
+
+const sourceCases = cases.map((item) => ({ ...item }));
+
+// Legacy mechanical splitting is intentionally disabled. Delivery compilation below
+// requires explicit child-case metadata and never derives titles from expected results.
+if (false) {
 const atomicExpectedOverrides = new Map([
   ["选择“新人”后展示新人直播数据且“新人”处于选中状态", ["选择“新人”后展示新人直播数据", "“新人”处于选中状态"]],
   ["选择“热门”后展示按后台热门权重返回的直播数据且“热门”处于选中状态", ["选择“热门”后展示按后台热门权重返回的直播数据", "“热门”处于选中状态"]],
@@ -1072,6 +1213,368 @@ cases.forEach((item, index) => {
   item.序号 = index + 1;
   item.用例编号 = `LIVE-${String(index + 1).padStart(3, "0")}`;
 });
+}
+
+// Rebuild from the business-level source cases. The earlier mechanical splitter is
+// kept only for historical comparison; delivery uses these semantically grouped results.
+const semanticSplitGroups = new Map([
+  ["LIVE-002", [[0], [1]]], ["LIVE-003", [[0], [1], [2]]],
+  ["LIVE-008", [[0], [1]]], ["LIVE-010", [[0], [1]]],
+  ["LIVE-011", [[0], [1], [2], [3]]], ["LIVE-012", [[0], [1], [2]]],
+  ["LIVE-013", [[0], [1], [2]]], ["LIVE-015", [[0], [1], [2]]],
+  ["LIVE-017", [[0], [1]]], ["LIVE-019", [[0], [1]]],
+  ["LIVE-022", [[0, 1], [2]]], ["LIVE-024", [[0], [1]]],
+  ["LIVE-025", [[0, 1], [2]]], ["LIVE-029", [[0], [1]]],
+  ["LIVE-031", [[0, 1], [2], [3], [4]]], ["LIVE-032", [[0, 1], [2], [3]]],
+  ["LIVE-033", [[0, 1], [2], [3]]], ["LIVE-034", [[0, 1, 2], [3]]],
+  ["LIVE-035", [[0, 1], [2]]], ["LIVE-037", [[0], [1], [2]]],
+  ["LIVE-038", [[0], [1], [2]]], ["LIVE-040", [[0], [1]]],
+  ["LIVE-041", [[0], [1], [2]]], ["LIVE-043", [[0], [1], [2]]],
+  ["LIVE-045", [[0, 1], [2], [3]]], ["LIVE-047", [[0], [1], [2]]],
+  ["LIVE-050", [[0], [1]]], ["LIVE-052", [[0], [1]]],
+  ["LIVE-056", [[0, 1], [2]]], ["LIVE-057", [[0], [1]]],
+  ["LIVE-058", [[0], [1]]], ["LIVE-060", [[0], [1]]],
+  ["LIVE-063", [[0], [1]]], ["LIVE-065", [[0], [1], [2]]],
+  ["LIVE-066", [[0], [1]]], ["LIVE-068", [[0], [1, 2]]],
+  ["LIVE-069", [[0], [1, 2]]], ["LIVE-071", [[0], [1]]],
+  ["LIVE-072", [[0, 1], [2]]], ["LIVE-074", [[0], [1], [0], [1]]],
+  ["LIVE-076", [[0], [1], [2]]], ["LIVE-077", [[0], [1]]],
+  ["LIVE-078", [[0], [1]]], ["LIVE-080", [[0], [1], [2]]],
+  ["LIVE-081", [[0], [1], [2]]], ["LIVE-084", [[0], [1], [2], [3]]],
+  ["LIVE-088", [[0], [1], [2]]], ["LIVE-089", [[0, 2], [1], [1]]],
+  ["LIVE-090", [[0], [1], [1], [2], [3]]], ["LIVE-091", [[0, 1], [0, 1]]],
+  ["LIVE-093", [[0], [1], [0], [1]]],
+]);
+
+const semanticP0Part = new Map([
+  ["LIVE-001", 1], ["LIVE-007", 1], ["LIVE-011", 2], ["LIVE-016", 1],
+  ["LIVE-021", 1], ["LIVE-022", 1], ["LIVE-031", 1], ["LIVE-046", 1],
+  ["LIVE-060", 1], ["LIVE-084", 1],
+]);
+
+const semanticExpectedOverrides = new Map([
+  ["LIVE-007#1", "用户无需支付金币或输入密码即可进入目标普通房，直播画面自动开始播放"],
+  ["LIVE-014#1", "场次 A 结束后原门票失效，进入场次 B 时重新展示场次 B 的购票信息"],
+  ["LIVE-015#1", "用户被踢出门票房后离开当前直播间，本场次不可重新进入"],
+  ["LIVE-016#1", "当前密码验证通过后进入目标密码房，直播画面开始播放"],
+  ["LIVE-018#1", "密码输入面板关闭，用户停留在原页面且未进入目标直播间"],
+  ["LIVE-020#1", "隐藏密码房的可见入口不能绕过进房密码校验，未验证用户无法观看直播"],
+  ["LIVE-021#1", "当前用户与主播建立关注关系，直播间关注按钮回显已关注状态"],
+  ["LIVE-023#1", "空白内容不能提交，公屏不新增消息"],
+  ["LIVE-028#1", "贡献榜仅展示当前直播场次的用户贡献数据和对应数值"],
+  ["LIVE-031#1", "用户消费金额 = 20 × 1 = 20 金币，余额 = 100 - 20 = 80 金币"],
+  ["LIVE-032#1", "余额 19 金币小于礼物价格 20 金币时，目标礼物不送出，用户余额保持 19 金币"],
+  ["LIVE-033#1", "连续赠送 5 个单价 20 金币的礼物，本次消耗 = 20 × 5 = 100 金币，余额 = 200 - 100 = 100 金币"],
+  ["LIVE-034#1", "用户净消耗 = 1,000 - 200 = 800 金币，主播收益 = 800 × 1% = 8 金币，结算周期汇总舍去小数后的最终值为 8 金币"],
+  ["LIVE-036#1", "未选择举报原因时提交按钮不可用，系统不生成举报工单"],
+  ["LIVE-042#1", "房管资料卡仅提供禁言、踢出和有依据的评论处置能力，不提供房管授权或结束直播能力"],
+  ["LIVE-044#1", "取消房管禁言确认后目标用户状态不变，系统不新增禁言操作记录"],
+  ["LIVE-046#1", "具备权限的主播进入开播设置页，可见摄像头预览、标题、封面、分类、房型和美颜入口"],
+  ["LIVE-048#1", "有效直播标题保存后在开播设置页回显，本次开播使用该标题"],
+  ["LIVE-049#1", "空标题无法保存，标题面板保持打开并提示“请设置直播标题”"],
+  ["LIVE-053#1", "普通房设置保存后回显为“普通”，无需填写门票价格或房间密码"],
+  ["LIVE-054#1", "门票价格为空时房型设置无法保存，页面提示“请设置门票价格”"],
+  ["LIVE-055#1", "房间密码为空时房型设置无法保存，页面提示“请设置房间密码”"],
+  ["LIVE-059#1", "恢复默认后美颜与美型均清空选中项目，全部参数重置为 50"],
+  ["LIVE-061#1", "开播成功后直播广场出现本场观看入口，卡片的主播、标题、封面、分类和房型与开播设置一致"],
+  ["LIVE-062#1", "仅已关注目标主播的用户 A 收到本场开播提醒，未关注的用户 B 不收到该提醒"],
+  ["LIVE-064#1", "在线用户列表按实际用户状态展示新用户、关注或老粉、粉丝团、贡献、财富等级和限制标识"],
+  ["LIVE-067#1", "公屏新增由当前主播发送且包含目标用户标识的欢迎消息"],
+  ["LIVE-070#1", "直播结束后非好友观众不能回复历史直播间私信，双方不会因此建立好友关系"],
+  ["LIVE-073#1", "已有 3 名房管时第 4 名用户不能获得房管权限，现有房管关系保持不变"],
+  ["LIVE-075#1", "取消房管后目标用户失去长期房管权限，后续场次不再获得房管操作"],
+  ["LIVE-079#1", "解除直播间黑名单后对应记录被移除，目标用户恢复进入该主播直播间的资格"],
+  ["LIVE-082#1", "主播清屏后当前公屏消息被清除，直播场次保持进行中"],
+  ["LIVE-083#1", "取消结束直播后确认提示关闭，当前场次和观众观看均保持进行中"],
+  ["LIVE-085#1", "主播结束页的直播时长、观看人数和本场收益分别与当前场次记录一致"],
+  ["LIVE-089#1", "系统建立主播 A 与主播 B 的两人连麦关系，参与主播数量为 2"],
+  ["LIVE-089#2", "主播 A 的直播间展示主播 A 与主播 B 的左右分屏画面"],
+  ["LIVE-089#3", "主播 B 的直播间展示主播 A 与主播 B 的左右分屏画面"],
+  ["LIVE-090#2", "主播 A 的直播间恢复主播 A 的单人直播画面"],
+  ["LIVE-090#3", "主播 B 的直播间恢复主播 B 的单人直播画面"],
+  ["LIVE-091#1", "门票房不提供可用的连麦或 PK 入口，系统不生成连麦邀请"],
+  ["LIVE-091#2", "密码房不提供可用的连麦或 PK 入口，系统不生成连麦邀请"],
+  ["LIVE-092#1", "两人连麦中主播 C 不能加入，当前连麦关系仍仅包含主播 A 和主播 B"],
+  ["LIVE-074#1", "直播间黑名单内的目标用户未获得房管权限"],
+  ["LIVE-074#2", "目标用户原有的直播间黑名单关系保持不变"],
+  ["LIVE-074#3", "与主播存在账号拉黑关系的目标用户未获得房管权限"],
+  ["LIVE-074#4", "主播与目标用户原有的账号拉黑关系保持不变"],
+  ["LIVE-093#1", "目标主播离线时系统不生成有效连麦邀请"],
+  ["LIVE-093#2", "邀请离线主播后发起方保持原直播状态"],
+  ["LIVE-093#3", "目标主播无连麦权限时系统不生成有效连麦邀请"],
+  ["LIVE-093#4", "邀请无连麦权限主播后发起方保持原直播状态"],
+  ["LIVE-094#1", "主播结束直播后观众进入对应结束页，页面展示“Sari 的直播已结束”"],
+]);
+
+function childCase(description, point) {
+  return { description, point };
+}
+
+const semanticCaseDefinitions = new Map([
+  ["LIVE-002#1", childCase("验证切换至新人直播列表", "新人直播列表切换")],
+  ["LIVE-002#2", childCase("验证切换至热门直播列表", "热门直播列表切换")],
+  ["LIVE-003#1", childCase("验证直播分类来源", "直播分类选项")],
+  ["LIVE-003#2", childCase("验证分类 A 的直播筛选", "分类 A 直播筛选")],
+  ["LIVE-003#3", childCase("验证分类 B 的直播筛选", "分类 B 直播筛选")],
+  ["LIVE-008#1", childCase("验证直播断流时展示重连提示", "断流重连提示")],
+  ["LIVE-008#2", childCase("验证直播流中断后的自动恢复", "断流恢复播放")],
+  ["LIVE-010#1", childCase("验证直播画面切换为横屏", "横屏切换")],
+  ["LIVE-010#2", childCase("验证直播画面恢复为竖屏", "竖屏恢复")],
+  ["LIVE-011#1", childCase("验证门票购买信息展示", "门票购买信息")],
+  ["LIVE-011#2", childCase("验证购买门票后进入直播间", "购票成功进房")],
+  ["LIVE-011#3", childCase("验证购买门票扣减用户余额", "购票余额扣减")],
+  ["LIVE-011#4", childCase("验证购买门票生成消费流水", "购票流水记录")],
+  ["LIVE-012#1", childCase("验证余额不足时不能购买门票", "余额不足购票拦截")],
+  ["LIVE-012#2", childCase("验证购票失败后用户余额不变", "购票失败余额")],
+  ["LIVE-012#3", childCase("验证余额不足时提供充值入口", "购票充值入口")],
+  ["LIVE-013#1", childCase("验证已购票用户再次进入同一场次", "已购票再次进房")],
+  ["LIVE-013#2", childCase("验证重复进房不重复扣费", "重复进房扣费")],
+  ["LIVE-013#3", childCase("验证重复进房不生成重复流水", "重复进房流水")],
+  ["LIVE-015#1", childCase("验证门票房被踢后的进房限制", "被踢后进房限制")],
+  ["LIVE-015#2", childCase("验证门票房被踢后不退款", "被踢后门票退款")],
+  ["LIVE-015#3", childCase("验证门票房被踢后的消费流水", "被踢后门票流水")],
+  ["LIVE-017#1", childCase("验证错误密码无法进入直播间", "错误密码进房拦截")],
+  ["LIVE-017#2", childCase("验证错误密码校验提示", "错误密码提示")],
+  ["LIVE-019#1", childCase("验证重置密码后旧密码失效", "旧密码失效")],
+  ["LIVE-019#2", childCase("验证重置密码后新密码生效", "新密码生效")],
+  ["LIVE-022#1", childCase("验证公屏文字消息展示", "公屏文字展示")],
+  ["LIVE-022#2", childCase("验证消息发送后的输入区状态", "发送后输入区复位")],
+  ["LIVE-024#1", childCase("验证 80 字评论可以发送", "评论 80 字边界")],
+  ["LIVE-024#2", childCase("验证评论输入长度上限", "评论超长限制")],
+  ["LIVE-025#1", childCase("验证禁言用户无法发送评论", "禁言发送限制")],
+  ["LIVE-025#2", childCase("验证禁言不删除历史消息", "禁言历史消息")],
+  ["LIVE-029#1", childCase("验证观众主动退出后返回直播广场", "观众退出返回")],
+  ["LIVE-029#2", childCase("验证观众退出不结束直播场次", "观众退出场次状态")],
+  ["LIVE-031#1", childCase("验证普通礼物扣费和用户余额", "用户扣费与余额")],
+  ["LIVE-031#2", childCase("验证普通礼物计入主播实时收益", "主播实时收益")],
+  ["LIVE-031#3", childCase("验证普通礼物生成公屏播报", "公屏送礼播报")],
+  ["LIVE-031#4", childCase("验证普通礼物生成消费流水", "礼物消费流水")],
+  ["LIVE-032#1", childCase("验证余额不足时拒绝送礼", "余额不足送礼拦截")],
+  ["LIVE-032#2", childCase("验证送礼失败不增加主播收益", "送礼失败主播收益")],
+  ["LIVE-032#3", childCase("验证送礼余额不足时提供充值入口", "送礼充值入口")],
+  ["LIVE-033#1", childCase("验证连送礼物累计扣费", "连送扣费与余额")],
+  ["LIVE-033#2", childCase("验证连送礼物累计主播收益", "连送主播收益")],
+  ["LIVE-033#3", childCase("验证连送礼物累计公屏数量", "连送公屏播报")],
+  ["LIVE-034#1", childCase("验证幸运礼物主播收益计算", "幸运礼物收益计算")],
+  ["LIVE-034#2", childCase("验证幸运礼物收益流水可追溯", "幸运礼物收益追溯")],
+  ["LIVE-035#1", childCase("验证加入粉丝团后建立团籍和群籍", "粉丝团与群籍建立")],
+  ["LIVE-035#2", childCase("验证加入粉丝团后的身份权益", "入团身份权益")],
+  ["LIVE-037#1", childCase("验证提交直播间举报生成工单", "直播间举报工单")],
+  ["LIVE-037#2", childCase("验证提交直播间举报的成功提示", "直播间举报提示")],
+  ["LIVE-037#3", childCase("验证提交直播间举报后返回直播间", "直播间举报返回")],
+  ["LIVE-038#1", childCase("验证提交用户举报生成工单", "用户举报工单")],
+  ["LIVE-038#2", childCase("验证提交用户举报的成功提示", "用户举报提示")],
+  ["LIVE-038#3", childCase("验证提交用户举报后返回直播间", "用户举报返回")],
+  ["LIVE-040#1", childCase("验证取消举报后返回直播间", "取消举报返回")],
+  ["LIVE-040#2", childCase("验证取消举报不生成工单", "取消举报工单")],
+  ["LIVE-041#1", childCase("验证补充说明可以输入 200 字", "补充说明 200 字边界")],
+  ["LIVE-041#2", childCase("验证补充说明第 201 字被限制", "补充说明超长限制")],
+  ["LIVE-041#3", childCase("验证 200 字补充说明可以提交", "补充说明提交")],
+  ["LIVE-043#1", childCase("验证房管禁言限制用户发言", "房管禁言生效")],
+  ["LIVE-043#2", childCase("验证房管禁言保留历史消息", "房管禁言历史消息")],
+  ["LIVE-043#3", childCase("验证房管禁言操作留痕", "房管禁言记录")],
+  ["LIVE-045#1", childCase("验证房管踢人限制本场重进", "房管踢人当前场次")],
+  ["LIVE-045#2", childCase("验证房管踢人不影响下一场直播", "房管踢人跨场恢复")],
+  ["LIVE-045#3", childCase("验证房管踢人操作留痕", "房管踢人记录")],
+  ["LIVE-047#1", childCase("验证平台关闭直播权限后不能开播", "平台直播权限限制")],
+  ["LIVE-047#2", childCase("验证直播权限关闭原因展示", "直播权限关闭原因")],
+  ["LIVE-047#3", childCase("验证工会不能覆盖平台直播权限", "直播权限优先级")],
+  ["LIVE-050#1", childCase("验证 40 字直播标题可以保存", "标题 40 字边界")],
+  ["LIVE-050#2", childCase("验证直播标题输入长度上限", "标题超长限制")],
+  ["LIVE-052#1", childCase("验证直播分类仅使用后台启用项", "启用分类范围")],
+  ["LIVE-052#2", childCase("验证保存并回显直播分类", "分类选择保存")],
+  ["LIVE-056#1", childCase("验证密码房广场展示范围", "密码房可见范围")],
+  ["LIVE-056#2", childCase("验证授权名单不能绕过房间密码", "授权用户密码校验")],
+  ["LIVE-057#1", childCase("验证摄像头从前置切换为后置", "后置摄像头切换")],
+  ["LIVE-057#2", childCase("验证摄像头从后置切换回前置", "前置摄像头恢复")],
+  ["LIVE-058#1", childCase("验证美颜参数切换后保留", "美颜参数记忆")],
+  ["LIVE-058#2", childCase("验证美型参数切换后保留", "美型参数记忆")],
+  ["LIVE-060#1", childCase("验证开播时创建直播场次", "直播场次创建")],
+  ["LIVE-060#2", childCase("验证开播后进入主播直播间", "开播页面跳转")],
+  ["LIVE-063#1", childCase("验证灰度关闭时不能保存特殊房型", "特殊房型灰度限制")],
+  ["LIVE-063#2", childCase("验证特殊房型关闭不影响普通房", "普通房灰度隔离")],
+  ["LIVE-065#1", childCase("验证普通礼物计入本场收礼", "本场收礼金额")],
+  ["LIVE-065#2", childCase("验证普通礼物计入实时收益", "实时收益金额")],
+  ["LIVE-065#3", childCase("验证礼物消费和收益流水关联", "消费收益流水关联")],
+  ["LIVE-066#1", childCase("验证在线观众按贡献排序", "观众贡献排序")],
+  ["LIVE-066#2", childCase("验证在线观众按停留时长排序", "观众停留时长排序")],
+  ["LIVE-068#1", childCase("验证单场前三条直播间私信可以发送", "前三条私信发送")],
+  ["LIVE-068#2", childCase("验证单场第四条直播间私信被拦截", "第四条私信拦截")],
+  ["LIVE-069#1", childCase("验证观众可以回复直播间私信", "观众回复私信")],
+  ["LIVE-069#2", childCase("验证回复直播间私信后建立好友关系", "回复后建立好友关系")],
+  ["LIVE-071#1", childCase("验证主播答谢礼物送达观众", "答谢礼物送达")],
+  ["LIVE-071#2", childCase("验证主播答谢礼物生成记录", "答谢礼物记录")],
+  ["LIVE-072#1", childCase("验证长期房管授权生效", "长期房管权限")],
+  ["LIVE-072#2", childCase("验证房管授权关系留存", "房管授权记录")],
+  ["LIVE-074#1", childCase("验证直播间黑名单用户不能设为房管", "黑名单用户房管限制")],
+  ["LIVE-074#2", childCase("验证房管设置失败不改变直播间黑名单", "黑名单关系保持")],
+  ["LIVE-074#3", childCase("验证账号拉黑用户不能设为房管", "账号拉黑房管限制")],
+  ["LIVE-074#4", childCase("验证房管设置失败不改变账号拉黑关系", "账号拉黑关系保持")],
+  ["LIVE-076#1", childCase("验证主播禁言限制用户发言", "主播禁言生效")],
+  ["LIVE-076#2", childCase("验证主播禁言保留历史消息", "主播禁言历史消息")],
+  ["LIVE-076#3", childCase("验证主播禁言操作留痕", "主播禁言记录")],
+  ["LIVE-077#1", childCase("验证主播踢人限制本场重进", "主播踢人当前场次")],
+  ["LIVE-077#2", childCase("验证主播踢人不影响下一场直播", "主播踢人跨场恢复")],
+  ["LIVE-078#1", childCase("验证直播间黑名单持续限制进房", "直播间黑名单进房限制")],
+  ["LIVE-078#2", childCase("验证直播间黑名单不影响账号互动", "直播间黑名单作用域")],
+  ["LIVE-080#1", childCase("验证账号拉黑限制进入主播直播间", "账号拉黑进房限制")],
+  ["LIVE-080#2", childCase("验证账号拉黑限制私信和好友申请", "账号拉黑社交限制")],
+  ["LIVE-080#3", childCase("验证账号拉黑不改变既有粉丝团团籍", "账号拉黑团籍保持")],
+  ["LIVE-081#1", childCase("验证解除账号拉黑恢复账号互动", "解除拉黑社交恢复")],
+  ["LIVE-081#2", childCase("验证解除账号拉黑恢复进房资格", "解除拉黑进房恢复")],
+  ["LIVE-081#3", childCase("验证解除账号拉黑不清除其他限制", "解除拉黑限制隔离")],
+  ["LIVE-084#1", childCase("验证主播结束直播后关闭场次", "直播场次关闭")],
+  ["LIVE-084#2", childCase("验证主播结束直播后观众进入结束页", "观众端结束页")],
+  ["LIVE-084#3", childCase("验证结束直播后的主播端落点", "主播端结束页")],
+  ["LIVE-084#4", childCase("验证结束直播后生成场次数据", "直播结束数据生成")],
+  ["LIVE-088#1", childCase("验证主播发起连麦请求", "连麦请求创建")],
+  ["LIVE-088#2", childCase("验证被邀请主播收到连麦请求", "连麦邀请接收")],
+  ["LIVE-088#3", childCase("验证连麦接受前发起方保持单人直播", "连麦等待状态")],
+  ["LIVE-089#1", childCase("验证受邀主播接受后建立两人连麦", "两人连麦关系")],
+  ["LIVE-089#2", childCase("验证主播 A 进入两人分屏画面", "主播 A 连麦分屏")],
+  ["LIVE-089#3", childCase("验证主播 B 进入两人分屏画面", "主播 B 连麦分屏")],
+  ["LIVE-090#1", childCase("验证退出连麦后的会话状态", "连麦退出结果")],
+  ["LIVE-090#2", childCase("验证主播 A 退出连麦后恢复单人画面", "主播 A 单人画面恢复")],
+  ["LIVE-090#3", childCase("验证主播 B 退出连麦后恢复单人画面", "主播 B 单人画面恢复")],
+  ["LIVE-090#4", childCase("验证退出连麦后恢复连麦入口", "连麦入口恢复")],
+  ["LIVE-090#5", childCase("验证退出连麦不结束双方直播场次", "连麦退出场次状态")],
+  ["LIVE-091#1", childCase("验证门票房禁用连麦和 PK", "门票房连麦限制")],
+  ["LIVE-091#2", childCase("验证密码房禁用连麦和 PK", "密码房连麦限制")],
+  ["LIVE-093#1", childCase("验证不能向离线主播创建连麦邀请", "离线主播邀请限制")],
+  ["LIVE-093#2", childCase("验证邀请离线主播不改变发起方直播状态", "离线邀请状态保持")],
+  ["LIVE-093#3", childCase("验证不能向无权限主播创建连麦邀请", "无权限主播邀请限制")],
+  ["LIVE-093#4", childCase("验证邀请无权限主播不改变发起方直播状态", "无权限邀请状态保持")],
+]);
+
+const semanticStepOverrides = new Map([
+  ["LIVE-002#1", ["进入直播广场", "点击“新人”"]], ["LIVE-002#2", ["进入直播广场", "点击“热门”"]],
+  ["LIVE-003#1", ["进入直播广场", "查看分类选项"]], ["LIVE-003#2", ["选择分类 A", "查看直播列表"]], ["LIVE-003#3", ["选择分类 B", "查看直播列表"]],
+  ["LIVE-011#3", ["记录购票前余额", "购买门票", "进入金币钱包查看余额"]],
+  ["LIVE-011#4", ["购买门票", "进入金币消费明细", "查看本场门票记录"]],
+  ["LIVE-013#2", ["记录当前余额", "退出并重新进入同一门票场次", "再次查看余额"]],
+  ["LIVE-013#3", ["记录购票流水数量", "退出并重新进入同一门票场次", "再次查看消费明细"]],
+  ["LIVE-015#2", ["记录被踢前余额", "由主播踢出用户", "查看用户金币余额"]],
+  ["LIVE-015#3", ["由主播踢出用户", "进入金币消费明细", "查看原门票流水和退款流水"]],
+  ["LIVE-019#1", ["使用旧密码尝试进入"]], ["LIVE-019#2", ["使用新密码尝试进入"]],
+  ["LIVE-024#1", ["输入 80 个字符", "点击“发送”"]], ["LIVE-024#2", ["输入超过 80 个字符的内容"]],
+  ["LIVE-031#2", ["记录主播当前实时收益", "观众赠送 1 个鲜花", "切换到主播端查看实时收益"]],
+  ["LIVE-031#3", ["观众赠送 1 个鲜花", "查看直播间公屏"]],
+  ["LIVE-031#4", ["观众赠送 1 个鲜花", "进入用户金币消费明细", "查看本次礼物流水"]],
+  ["LIVE-037#1", ["选择任一举报原因", "点击“提交”", "检查举报记录"]],
+  ["LIVE-037#2", ["选择任一举报原因", "点击“提交”", "查看页面反馈"]],
+  ["LIVE-038#1", ["打开目标用户资料卡", "点击举报", "选择任一原因并提交", "检查举报记录"]],
+  ["LIVE-038#2", ["打开目标用户资料卡", "点击举报", "选择任一原因并提交", "查看页面反馈"]],
+  ["LIVE-041#1", ["在补充说明输入 200 个字符"]], ["LIVE-041#2", ["在补充说明输入 200 个字符", "继续输入第 201 个字符"]], ["LIVE-041#3", ["选择举报原因", "输入 200 个字符", "点击“提交”"]],
+  ["LIVE-057#1", ["点击切换摄像头"]], ["LIVE-057#2", ["点击切换摄像头", "再次点击切换摄像头"]],
+  ["LIVE-058#1", ["选择“磨皮”并调至 70", "切换分类后返回“美颜”"]], ["LIVE-058#2", ["选择“大眼”并调至 30", "切换分类后返回“美型”"]],
+  ["LIVE-065#1", ["记录本场收礼值", "观众赠送 100 金币普通礼物", "查看本场收礼"]],
+  ["LIVE-065#2", ["记录主播实时收益 500 金币", "观众赠送 100 金币普通礼物", "查看实时收益"]],
+  ["LIVE-065#3", ["观众赠送 100 金币普通礼物", "分别查看消费流水和收益流水"]],
+  ["LIVE-066#1", ["打开在线观众", "选择按贡献排序"]], ["LIVE-066#2", ["打开在线观众", "选择按停留时长排序"]],
+  ["LIVE-074#1", ["将目标用户加入直播间黑名单", "尝试将其设置为房管"]],
+  ["LIVE-074#2", ["将目标用户加入直播间黑名单", "尝试将其设置为房管", "查看直播间黑名单"]],
+  ["LIVE-074#3", ["建立任一方向账号拉黑关系", "尝试将目标用户设置为房管"]],
+  ["LIVE-074#4", ["建立任一方向账号拉黑关系", "尝试将目标用户设置为房管", "查看账号拉黑关系"]],
+  ["LIVE-084#1", ["主播点击结束直播", "确认结束", "查询本场场次状态"]], ["LIVE-084#2", ["主播确认结束直播", "查看在线观众页面"]],
+  ["LIVE-084#3", ["主播确认结束直播", "查看主播端页面"]], ["LIVE-084#4", ["主播确认结束直播", "查看本场直播记录和数据概览"]],
+  ["LIVE-088#1", ["主播 A 搜索主播 B", "点击发起连麦", "查看发出请求"]], ["LIVE-088#2", ["主播 A 向主播 B 发起连麦", "切换到主播 B 查看收到邀请"]],
+  ["LIVE-088#3", ["主播 A 向主播 B 发起连麦", "在主播 B 接受前查看主播 A 的直播画面"]],
+  ["LIVE-089#2", ["主播 B 接受主播 A 的邀请", "查看主播 A 的直播画面"]],
+  ["LIVE-089#3", ["主播 B 接受主播 A 的邀请", "查看主播 B 的直播画面"]],
+  ["LIVE-090#1", ["连麦主播点击退出", "确认退出", "查询连麦关系"]],
+  ["LIVE-090#2", ["连麦主播确认退出", "查看主播 A 的直播画面"]],
+  ["LIVE-090#3", ["连麦主播确认退出", "查看主播 B 的直播画面"]],
+  ["LIVE-090#4", ["连麦主播确认退出", "查看普通房连麦入口"]],
+  ["LIVE-090#5", ["连麦主播确认退出", "查看主播 A 和主播 B 的直播场次状态"]],
+  ["LIVE-091#1", ["进入门票房主播端", "查看并尝试连麦或 PK 入口"]], ["LIVE-091#2", ["进入密码房主播端", "查看并尝试连麦或 PK 入口"]],
+  ["LIVE-093#1", ["向离线主播发起连麦邀请", "查询连麦邀请记录"]],
+  ["LIVE-093#2", ["向离线主播发起连麦邀请", "查看发起方直播状态"]],
+  ["LIVE-093#3", ["向无连麦权限的主播发起连麦邀请", "查询连麦邀请记录"]],
+  ["LIVE-093#4", ["向无连麦权限的主播发起连麦邀请", "查看发起方直播状态"]],
+]);
+
+const semanticFlows = new Map([
+  ["LIVE-060#1", ["FLOW-LIVE-001", "阶段 01：主播创建普通直播场次；共同业务对象：LIVE-SESSION-N01。"]],
+  ["LIVE-061#1", ["FLOW-LIVE-001", "阶段 02：直播广场出现观看入口；共同业务对象：LIVE-SESSION-N01。"]],
+  ["LIVE-007#1", ["FLOW-LIVE-001", "阶段 03：观众进入直播间；共同业务对象：LIVE-SESSION-N01。"]],
+  ["LIVE-084#1", ["FLOW-LIVE-001", "阶段 04：主播关闭场次；共同业务对象：LIVE-SESSION-N01。"]],
+  ["LIVE-094#1", ["FLOW-LIVE-001", "阶段 05：观众进入结束页；共同业务对象：LIVE-SESSION-N01。"]],
+  ["LIVE-085#1", ["FLOW-LIVE-001", "阶段 06：主播核对结束页数据；共同业务对象：LIVE-SESSION-N01。"]],
+  ["LIVE-096#1", ["FLOW-LIVE-002", "阶段 01：主播保存门票房设置；共同业务对象：LIVE-SESSION-T01。"]],
+  ["LIVE-011#2", ["FLOW-LIVE-002", "阶段 02：观众购票进入；共同业务对象：LIVE-SESSION-T01、USER-T01。"]],
+  ["LIVE-011#3", ["FLOW-LIVE-002", "阶段 03：核对购票后余额；共同业务对象：LIVE-SESSION-T01、USER-T01。"]],
+  ["LIVE-011#4", ["FLOW-LIVE-002", "阶段 04：核对门票消费流水；共同业务对象：LIVE-SESSION-T01、USER-T01。"]],
+  ["LIVE-013#1", ["FLOW-LIVE-002", "阶段 05：观众重复进入同一场次；共同业务对象：LIVE-SESSION-T01、USER-T01。"]],
+  ["LIVE-015#1", ["FLOW-LIVE-002", "阶段 06：观众被踢后限制重进；共同业务对象：LIVE-SESSION-T01、USER-T01。"]],
+  ["LIVE-015#2", ["FLOW-LIVE-002", "阶段 07：核对被踢后余额；共同业务对象：LIVE-SESSION-T01、USER-T01。"]],
+  ["LIVE-015#3", ["FLOW-LIVE-002", "阶段 08：核对被踢后流水；共同业务对象：LIVE-SESSION-T01、USER-T01。"]],
+  ["LIVE-097#1", ["FLOW-LIVE-003", "阶段 01：主播保存密码房设置；共同业务对象：LIVE-SESSION-P01。"]],
+  ["LIVE-016#1", ["FLOW-LIVE-003", "阶段 02：观众使用当前密码进房；共同业务对象：LIVE-SESSION-P01、USER-P01。"]],
+  ["LIVE-102#1", ["FLOW-LIVE-003", "阶段 03：主播直播中修改密码；共同业务对象：LIVE-SESSION-P01。"]],
+  ["LIVE-019#1", ["FLOW-LIVE-003", "阶段 04：观众使用旧密码验证；共同业务对象：LIVE-SESSION-P01、USER-P01。"]],
+  ["LIVE-019#2", ["FLOW-LIVE-003", "阶段 05：观众使用新密码验证；共同业务对象：LIVE-SESSION-P01、USER-P01。"]],
+  ["LIVE-031#1", ["FLOW-LIVE-004", "阶段 01：观众送礼并核对余额；共同业务对象：GIFT-TXN-01。"]],
+  ["LIVE-031#2", ["FLOW-LIVE-004", "阶段 02：主播核对实时收益；共同业务对象：GIFT-TXN-01。"]],
+  ["LIVE-031#3", ["FLOW-LIVE-004", "阶段 03：直播间核对礼物播报；共同业务对象：GIFT-TXN-01。"]],
+  ["LIVE-031#4", ["FLOW-LIVE-004", "阶段 04：用户核对消费流水；共同业务对象：GIFT-TXN-01。"]],
+  ["LIVE-088#1", ["FLOW-LIVE-005", "阶段 01：主播 A 发起邀请；共同业务对象：COHOST-SESSION-01。"]],
+  ["LIVE-088#2", ["FLOW-LIVE-005", "阶段 02：主播 B 收到邀请；共同业务对象：COHOST-SESSION-01。"]],
+  ["LIVE-089#1", ["FLOW-LIVE-005", "阶段 03：双方建立连麦关系；共同业务对象：COHOST-SESSION-01。"]],
+  ["LIVE-089#2", ["FLOW-LIVE-005", "阶段 04：主播 A 进入分屏；共同业务对象：COHOST-SESSION-01。"]],
+  ["LIVE-089#3", ["FLOW-LIVE-005", "阶段 05：主播 B 进入分屏；共同业务对象：COHOST-SESSION-01。"]],
+  ["LIVE-090#1", ["FLOW-LIVE-005", "阶段 06：解除连麦关系；共同业务对象：COHOST-SESSION-01。"]],
+  ["LIVE-090#2", ["FLOW-LIVE-005", "阶段 07：主播 A 恢复单人画面；共同业务对象：COHOST-SESSION-01。"]],
+  ["LIVE-090#3", ["FLOW-LIVE-005", "阶段 08：主播 B 恢复单人画面；共同业务对象：COHOST-SESSION-01。"]],
+  ["LIVE-090#4", ["FLOW-LIVE-005", "阶段 09：恢复普通房连麦入口；共同业务对象：COHOST-SESSION-01。"]],
+  ["LIVE-090#5", ["FLOW-LIVE-005", "阶段 10：双方直播场次继续；共同业务对象：COHOST-SESSION-01。"]],
+]);
+
+const semanticCases = [];
+const usedCaseDefinitions = new Set();
+for (const source of sourceCases) {
+  const groups = semanticSplitGroups.get(source.用例编号) ?? [source.预期结果.map((_, index) => index)];
+  groups.forEach((indexes, groupIndex) => {
+    const part = groupIndex + 1;
+    const traceKey = `${source.用例编号}#${part}`;
+    const expected = semanticExpectedOverrides.get(traceKey) ?? indexes.map((index) => source.预期结果[index]).join("，");
+    const flow = semanticFlows.get(traceKey);
+    const split = groups.length > 1;
+    const definition = semanticCaseDefinitions.get(traceKey);
+    if (indexes.some((index) => !Number.isInteger(index) || index < 0 || index >= source.预期结果.length)) {
+      throw new Error(`${traceKey} 引用了不存在的预期结果索引`);
+    }
+    if (split && !definition) {
+      throw new Error(`${traceKey} 缺少显式子用例定义；禁止根据预期结果生成标题`);
+    }
+    if (definition) usedCaseDefinitions.add(traceKey);
+    semanticCases.push({
+      序号: 0,
+      用例编号: "",
+      功能模块: source.功能模块,
+      功能结构: source.功能结构,
+      用例类型: source.用例类型,
+      优先级: source.优先级 === "P0" && semanticP0Part.get(source.用例编号) !== part ? "P1" : source.优先级,
+      用例描述: split ? definition.description : source.用例描述,
+      验证用例子项: split ? definition.point : source.验证用例子项,
+      前置条件: [...source.前置条件],
+      操作步骤: semanticStepOverrides.get(traceKey) ?? [...source.操作步骤],
+      预期结果: [expected],
+      流程编号: flow?.[0] ?? "",
+      测试结果: source.测试结果,
+      测试人员: source.测试人员,
+      备注: [...source.备注, `追溯：业务底稿 ${source.用例编号}。`, ...(flow ? [`流程：${flow[1]}`] : [])],
+    });
+  });
+}
+const unusedCaseDefinitions = [...semanticCaseDefinitions.keys()].filter((key) => !usedCaseDefinitions.has(key));
+if (unusedCaseDefinitions.length > 0) {
+  throw new Error(`存在未使用的显式子用例定义：${unusedCaseDefinitions.join(", ")}`);
+}
+cases.splice(0, cases.length, ...semanticCases);
+cases.forEach((item, index) => {
+  item.序号 = index + 1;
+  item.用例编号 = `LIVE-${String(index + 1).padStart(3, "0")}`;
+});
 
 const questions = [];
 function addQuestion(structure, item, basis, missing, impact) {
@@ -1105,17 +1608,58 @@ addQuestion("主播连麦", "确认主播连麦/PK 是否纳入当前一期验�
 addQuestion("主播直播间", "确认删除好友后主播能否在后续直播场次再次向该用户发起直播间私信。", "角色与用例文档已将此项保留为待确认，建议需要完全阻断时使用账号拉黑。", "后续场次是否重置发起资格及历史删除关系的判断条件。", "删除好友后的后续场次私信");
 addQuestion("开播设置", "确认直播封面的文件格式、大小、尺寸和违规内容处理。", "需求要求设置直播封面；静态原型仅限制选择 image/*，未给出业务校验。", "支持格式、文件大小、尺寸比例、压缩和审核失败结果。", "封面格式、大小、尺寸和审核异常");
 
+const testHeaders = ["序号", "用例编号", "功能模块", "功能结构", "用例类型", "优先级", "用例描述", "验证用例子项", "前置条件", "操作步骤", "预期结果", "流程编号", "测试结果", "测试人员", "备注"];
+const questionHeaders = [
+  "问题编号", "需求组编号", "父问题编号", "追问触发条件", "阻塞等级", "功能模块", "具体场景", "问题分类",
+  "待决策问题", "可选方案", "测试建议", "产品结论", "结论补充", "已知依据", "影响范围", "已有用例编号",
+  "确认后待补用例", "负责人", "期望确认时间", "确认状态",
+];
+try {
+  const existingPayload = JSON.parse(await fs.readFile(jsonPath, "utf8"));
+  if (Array.isArray(existingPayload.测试用例)
+      && existingPayload.测试用例.length > 0
+      && JSON.stringify(Object.keys(existingPayload.测试用例[0])) === JSON.stringify(testHeaders)) {
+    cases.splice(0, cases.length, ...existingPayload.测试用例);
+  }
+  if (Array.isArray(existingPayload.需求待确认)
+      && existingPayload.需求待确认.length > 0
+      && JSON.stringify(Object.keys(existingPayload.需求待确认[0])) === JSON.stringify(questionHeaders)) {
+    questions.splice(0, questions.length, ...existingPayload.需求待确认);
+  }
+} catch (error) {
+  if (error.code !== "ENOENT") throw error;
+}
+
 const payload = { 测试用例: cases, 需求待确认: questions };
 
-const testHeaders = ["序号", "用例编号", "功能模块", "功能结构", "用例类型", "优先级", "用例描述", "验证用例子项", "前置条件", "操作步骤", "预期结果", "测试结果", "测试人员", "备注"];
-const questionHeaders = ["问题编号", "功能模块", "功能结构", "待确认事项", "已知依据", "缺失信息", "影响用例", "确认状态"];
 const validTypes = new Set(["功能需求", "业务流程", "逻辑校验", "异常用例"]);
 const validPriorities = new Set(["P0", "P1", "P2", "P3"]);
 const validResults = new Set(["未测", "通过", "不通过", "阻塞", "不适用"]);
-const validQuestionStatus = new Set(["待确认", "已确认", "无需处理"]);
+const validQuestionStatus = new Set(["待前置结论", "待确认", "确认中", "已确认", "无需处理"]);
+const validQuestionBlocks = new Set(["阻塞测试", "部分阻塞", "不阻塞"]);
+const validQuestionCategories = new Set(["需求范围", "业务规则", "角色与权限", "流程与状态", "字段与数据校验", "计算与统计口径", "异常处理", "跨端与跨模块一致性", "配置和历史数据影响", "交互与文案规则"]);
+const validQuestionOwners = new Set(["产品", "交互", "技术", "多方确认"]);
+const validQuestionConclusions = new Set(["", "A", "B", "C", "D", "其他"]);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
+}
+
+function normalizedText(value) {
+  return String(value)
+    .replace(/^验证/, "")
+    .replace(/[\s，。；：、“”‘’（）()\-_/]/g, "")
+    .toLowerCase();
+}
+
+function copiesExpected(fieldValue, expectedValue) {
+  const field = normalizedText(fieldValue);
+  const expected = normalizedText(expectedValue);
+  if (!field || !expected) return false;
+  if (field === expected) return true;
+  const shorter = field.length <= expected.length ? field : expected;
+  const longer = field.length <= expected.length ? expected : field;
+  return shorter.length >= 8 && longer.includes(shorter) && shorter.length / longer.length >= 0.65;
 }
 
 function validatePayload() {
@@ -1135,7 +1679,9 @@ function validatePayload() {
     assert(item.验证用例子项.trim(), `point empty ${item.用例编号}`);
     [item.前置条件, item.操作步骤, item.预期结果, item.备注].forEach((value) => assert(Array.isArray(value) && value.length > 0 && value.every((part) => String(part).trim()), `array field invalid ${item.用例编号}`));
     assert(item.预期结果.length === 1, `expected result count must be 1 at ${item.用例编号}`);
-    assert(!/[；\n]|且|同时/.test(item.预期结果[0]), `compound expected result at ${item.用例编号}`);
+    assert(normalizedText(item.用例描述) !== normalizedText(item.验证用例子项), `description repeats point ${item.用例编号}`);
+    assert(!copiesExpected(item.用例描述, item.预期结果[0]), `description copies expected result ${item.用例编号}`);
+    assert(!copiesExpected(item.验证用例子项, item.预期结果[0]), `point copies expected result ${item.用例编号}`);
     assert(validResults.has(item.测试结果), `result invalid ${item.用例编号}`);
     assert(item.备注.some((note) => note.startsWith("来源：")), `source missing ${item.用例编号}`);
     const semanticKey = [item.功能模块, item.功能结构, item.验证用例子项, item.前置条件.join("|"), item.操作步骤.join("|")].join("||");
@@ -1143,19 +1689,102 @@ function validatePayload() {
     semanticKeys.add(semanticKey);
   });
   const questionIds = new Set();
+  const questionById = new Map();
   questions.forEach((item, index) => {
     assert(JSON.stringify(Object.keys(item)) === JSON.stringify(questionHeaders), `question fields invalid at ${index + 1}`);
-    assert(item.问题编号 === `Q-${String(index + 1).padStart(3, "0")}`, `question id invalid at ${index + 1}`);
+    assert(/^Q-\d{3}(?:-\d{2}){0,2}$/.test(item.问题编号), `question id invalid at ${index + 1}`);
+    assert(/^RQ-\d{3}$/.test(item.需求组编号), `question group invalid ${item.问题编号}`);
     assert(!questionIds.has(item.问题编号), `duplicate question ${item.问题编号}`);
     questionIds.add(item.问题编号);
+    questionById.set(item.问题编号, item);
+    assert(validQuestionBlocks.has(item.阻塞等级), `question block invalid ${item.问题编号}`);
+    assert(validQuestionCategories.has(item.问题分类), `question category invalid ${item.问题编号}`);
+    assert(validQuestionOwners.has(item.负责人), `question owner invalid ${item.问题编号}`);
     assert(validQuestionStatus.has(item.确认状态), `question status invalid ${item.问题编号}`);
-    questionHeaders.forEach((field) => assert(String(item[field] ?? "").trim(), `question field empty ${item.问题编号}:${field}`));
+    ["问题编号", "需求组编号", "阻塞等级", "功能模块", "具体场景", "问题分类", "待决策问题", "测试建议", "已知依据", "影响范围", "负责人", "期望确认时间", "确认状态"].forEach((field) => {
+      const value = item[field];
+      assert(Array.isArray(value) ? value.length > 0 && value.every((part) => String(part).trim()) : String(value ?? "").trim(), `question field empty ${item.问题编号}:${field}`);
+    });
+    assert(Array.isArray(item.可选方案) && item.可选方案.length >= 2 && item.可选方案.length <= 4, `question options invalid ${item.问题编号}`);
+    item.可选方案.forEach((option, optionIndex) => assert(option.startsWith(`${String.fromCharCode(65 + optionIndex)}.`), `question option label invalid ${item.问题编号}`));
+    assert(Array.isArray(item.已有用例编号) && Array.isArray(item.确认后待补用例), `question impact fields invalid ${item.问题编号}`);
+    assert(item.已有用例编号.length + item.确认后待补用例.length > 0, `question impact empty ${item.问题编号}`);
+    const productText = [item.具体场景, item.待决策问题, ...item.可选方案, item.测试建议].join(" | ");
+    assert(!/(各功能单独定义|另行定义|视情况处理|固定时间后|统一大小上限|中间档|短暂时间窗|短暂撤销|设置上限|超过等待时限|长时间没有|操作令牌|跨端生效模型|关键写操作|所有写操作|终态|幂等)/.test(productText), `question contains abstract wording or placeholder ${item.问题编号}`);
+    assert(item.影响范围.every((value) => !/^(相关功能|所有操作|关键操作|写操作|直播模块所有功能)$/.test(String(value).trim())), `question scope too broad ${item.问题编号}`);
+    item.已有用例编号.forEach((reference) => {
+      const match = reference.match(/^([A-Z][A-Z0-9]*-\d{3})(?:\s+至\s+([A-Z][A-Z0-9]*-\d{3}))?$/);
+      assert(match && ids.has(match[1]) && (!match[2] || ids.has(match[2])), `question case reference invalid ${item.问题编号}:${reference}`);
+    });
+    assert(item.确认后待补用例.every((value) => !/^[A-Z][A-Z0-9]*-\d{3}/.test(value)), `question pending case contains existing id ${item.问题编号}`);
+    assert(validQuestionConclusions.has(item.产品结论), `question conclusion invalid ${item.问题编号}`);
+    assert(typeof item.结论补充 === "string", `question conclusion supplement invalid ${item.问题编号}`);
+    assert(item.产品结论 !== "其他" || item.结论补充.trim(), `question conclusion supplement required ${item.问题编号}`);
+  });
+  const questionPosition = new Map(questions.map((item, index) => [item.问题编号, index]));
+  const depthOf = (item, stack = new Set()) => {
+    if (!item.父问题编号) return 0;
+    assert(!stack.has(item.问题编号), `question cycle ${item.问题编号}`);
+    const parent = questionById.get(item.父问题编号);
+    assert(parent, `orphan parent ${item.问题编号}`);
+    assert(parent.需求组编号 === item.需求组编号, `cross-group parent ${item.问题编号}`);
+    assert(questionPosition.get(parent.问题编号) < questionPosition.get(item.问题编号), `child before parent ${item.问题编号}`);
+    assert(String(item.追问触发条件).trim(), `trigger missing ${item.问题编号}`);
+    assert(!/(确认后|范围明确后|规则明确后)$/.test(item.追问触发条件), `trigger is not tied to a parent option or business condition ${item.问题编号}`);
+    assert(item.确认状态 === "待前置结论", `child status invalid ${item.问题编号}`);
+    const next = new Set(stack);
+    next.add(item.问题编号);
+    return 1 + depthOf(parent, next);
+  };
+  questions.forEach((item) => {
+    if (!item.父问题编号) {
+      assert(item.追问触发条件 === "", `root has trigger ${item.问题编号}`);
+      assert(item.确认状态 === "待确认", `root status invalid ${item.问题编号}`);
+    }
+    assert(depthOf(item) <= 2, `question depth invalid ${item.问题编号}`);
+  });
+  const blockOrder = new Map(["阻塞测试", "部分阻塞", "不阻塞"].map((value, index) => [value, index]));
+  const grouped = new Map();
+  questions.forEach((item) => {
+    if (!grouped.has(item.需求组编号)) grouped.set(item.需求组编号, []);
+    grouped.get(item.需求组编号).push(item);
+  });
+  const expectedGroups = [...grouped.entries()].map(([id, items]) => ({
+    id,
+    severity: Math.min(...items.map((item) => blockOrder.get(item.阻塞等级))),
+    items,
+  })).sort((left, right) => left.severity - right.severity || left.id.localeCompare(right.id));
+  const seenGroups = [];
+  questions.forEach((item) => {
+    if (seenGroups.at(-1) !== item.需求组编号) seenGroups.push(item.需求组编号);
+  });
+  assert(new Set(seenGroups).size === seenGroups.length, "question group is not contiguous");
+  assert(JSON.stringify(seenGroups) === JSON.stringify(expectedGroups.map((group) => group.id)), "question group order invalid");
+  expectedGroups.forEach((group) => {
+    const children = new Map();
+    group.items.forEach((item) => {
+      const parentId = item.父问题编号 || "";
+      if (!children.has(parentId)) children.set(parentId, []);
+      children.get(parentId).push(item);
+    });
+    children.forEach((items) => items.sort((left, right) => left.问题编号.localeCompare(right.问题编号)));
+    const expectedIds = [];
+    const visit = (item) => {
+      expectedIds.push(item.问题编号);
+      (children.get(item.问题编号) ?? []).forEach(visit);
+    };
+    (children.get("") ?? []).forEach(visit);
+    assert(JSON.stringify(expectedIds) === JSON.stringify(group.items.map((item) => item.问题编号)), `question tree order invalid ${group.id}`);
   });
   const p0Count = cases.filter((item) => item.优先级 === "P0").length;
   assert(p0Count >= 5 && p0Count <= 10, `P0 is not a minimal smoke set: ${p0Count}`);
 }
 
 validatePayload();
+if (process.argv.includes("--validate-only")) {
+  console.log(JSON.stringify({ cases: cases.length, questions: questions.length, childQuestions: questions.filter((item) => item.父问题编号).length }, null, 2));
+  process.exit(0);
+}
 await fs.mkdir(workDir, { recursive: true });
 await fs.mkdir(outputDir, { recursive: true });
 await fs.writeFile(jsonPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
@@ -1165,10 +1794,14 @@ function numbered(items) {
   return items.map((item, index) => `${index + 1}. ${item}`).join("\n");
 }
 function caseRow(item) {
-  return [item.序号, item.用例编号, item.功能模块, item.功能结构, item.用例类型, item.优先级, item.用例描述, item.验证用例子项, numbered(item.前置条件), numbered(item.操作步骤), item.预期结果[0], item.测试结果, item.测试人员, numbered(item.备注)];
+  return [item.序号, item.用例编号, item.功能模块, item.功能结构, item.用例类型, item.优先级, item.用例描述, item.验证用例子项, numbered(item.前置条件), numbered(item.操作步骤), item.预期结果[0], item.流程编号, item.测试结果, item.测试人员, numbered(item.备注)];
 }
 function questionRow(item) {
-  return questionHeaders.map((header) => item[header]);
+  return questionHeaders.map((header) => {
+    if (header === "可选方案") return item[header].join("\n");
+    if (["已知依据", "影响范围", "已有用例编号", "确认后待补用例"].includes(header)) return numbered(item[header]);
+    return item[header];
+  });
 }
 function columnName(index) {
   let value = index + 1;
@@ -1238,12 +1871,12 @@ const main = buildSheet(workbook, {
   name: "功能测试用例",
   headers: testHeaders,
   rows: cases.map(caseRow),
-  widths: [8, 15, 18, 26, 13, 9, 36, 28, 42, 48, 54, 12, 14, 48],
+  widths: [8, 15, 18, 26, 13, 9, 36, 28, 42, 48, 54, 18, 12, 14, 48],
   tableName: "FunctionalTestCases",
   validations: [
     { column: "E", values: [...validTypes] },
     { column: "F", values: [...validPriorities] },
-    { column: "L", values: [...validResults] },
+    { column: "M", values: [...validResults] },
   ],
   priorityColumn: "F",
 });
@@ -1251,23 +1884,157 @@ const pending = buildSheet(workbook, {
   name: "需求待确认",
   headers: questionHeaders,
   rows: questions.map(questionRow),
-  widths: [14, 20, 28, 52, 58, 48, 38, 14],
+  widths: [15, 15, 16, 38, 14, 20, 34, 22, 44, 58, 48, 15, 34, 52, 38, 26, 38, 16, 20, 16],
   tableName: "PendingRequirements",
-  validations: [{ column: "H", values: [...validQuestionStatus] }],
+  validations: [
+    { column: "E", values: [...validQuestionBlocks] },
+    { column: "H", values: [...validQuestionCategories] },
+    { column: "L", values: ["A", "B", "C", "D", "其他"] },
+    { column: "R", values: [...validQuestionOwners] },
+    { column: "T", values: [...validQuestionStatus] },
+  ],
+});
+pending.sheet.freezePanes.freezeColumns(3);
+pending.sheet.getRange(`A2:C${pending.lastRow}`).format.horizontalAlignment = "center";
+pending.sheet.getRange(`E2:F${pending.lastRow}`).format.horizontalAlignment = "center";
+pending.sheet.getRange(`H2:H${pending.lastRow}`).format.horizontalAlignment = "center";
+pending.sheet.getRange(`R2:T${pending.lastRow}`).format.horizontalAlignment = "center";
+pending.sheet.getRange(`I2:I${pending.lastRow}`).format.font = { name: "Microsoft YaHei", size: 10, bold: true, color: "#172033" };
+pending.sheet.getRange(`K2:K${pending.lastRow}`).format.fill = "#EAF4EA";
+pending.sheet.getRange(`L2:M${pending.lastRow}`).format = { fill: "#FFF4CC", font: { name: "Microsoft YaHei", size: 10, bold: true, color: "#6B4F00" }, horizontalAlignment: "left", verticalAlignment: "center", wrapText: true, borders: { preset: "all", style: "thin", color: "#D6B656" } };
+const pendingBlockRange = pending.sheet.getRange(`E2:E${pending.lastRow}`);
+pendingBlockRange.conditionalFormats.add("containsText", { text: "阻塞测试", format: { fill: "#FDE8E8", font: { bold: true, color: "#9B1C1C" } } });
+pendingBlockRange.conditionalFormats.add("containsText", { text: "部分阻塞", format: { fill: "#FFF4D6", font: { bold: true, color: "#8A4B08" } } });
+pendingBlockRange.conditionalFormats.add("containsText", { text: "不阻塞", format: { fill: "#E7F5EC", font: { bold: true, color: "#166534" } } });
+const pendingStatusRange = pending.sheet.getRange(`T2:T${pending.lastRow}`);
+pendingStatusRange.conditionalFormats.add("containsText", { text: "待前置结论", format: { fill: "#EEF2F7", font: { bold: true, color: "#475569" } } });
+pendingStatusRange.conditionalFormats.add("containsText", { text: "确认中", format: { fill: "#E8F1FB", font: { bold: true, color: "#1D4E89" } } });
+pendingStatusRange.conditionalFormats.add("containsText", { text: "已确认", format: { fill: "#E7F5EC", font: { bold: true, color: "#166534" } } });
+let previousQuestionGroup = "";
+questions.forEach((item, index) => {
+  const rowNumber = index + 2;
+  if (item.需求组编号 !== previousQuestionGroup) {
+    pending.sheet.getRange(`A${rowNumber}:T${rowNumber}`).format.borders = { top: { style: "medium", color: "#6B879F" } };
+    previousQuestionGroup = item.需求组编号;
+  }
+  if (item.父问题编号) {
+    pending.sheet.getRange(`A${rowNumber}:D${rowNumber}`).format.fill = "#EAF2F8";
+    pending.sheet.getRange(`C${rowNumber}:D${rowNumber}`).format.font = { name: "Microsoft YaHei", size: 10, bold: true, color: "#24557A" };
+  } else {
+    pending.sheet.getRange(`B${rowNumber}`).format.fill = "#DDEBF7";
+  }
 });
 
+const overview = workbook.worksheets.add("产品决策概览");
+overview.showGridLines = false;
+overview.mergeCells("A1:H1");
+overview.getRange("A1").values = [["产品决策概览"]];
+overview.getRange("A1:H1").format = {
+  fill: "#1F4E78",
+  font: { name: "Microsoft YaHei", size: 18, bold: true, color: "#FFFFFF" },
+  horizontalAlignment: "left",
+  verticalAlignment: "center",
+  rowHeightPx: 52,
+};
+overview.mergeCells("A2:H2");
+overview.getRange("A2").values = [["决策明细以“需求待确认”为准；产品选择 A/B/C/D/其他，选择“其他”时填写结论补充。"]];
+overview.getRange("A2:H2").format = {
+  fill: "#EAF2F8",
+  font: { name: "Microsoft YaHei", size: 10, color: "#334155" },
+  horizontalAlignment: "left",
+  verticalAlignment: "center",
+  rowHeightPx: 34,
+};
+
+overview.getRange("A4:H4").values = [["问题总数", "", "当前可回答", "", "待前置结论", "", "已确认", ""]];
+overview.getRange("A5:H5").values = [["", "", "", "", "", "", "", ""]];
+for (const range of ["A4:B4", "C4:D4", "E4:F4", "G4:H4"]) {
+  overview.getRange(range).format = {
+    fill: "#DDEBF7",
+    font: { name: "Microsoft YaHei", size: 10, bold: true, color: "#1F3A52" },
+    horizontalAlignment: "center",
+    verticalAlignment: "center",
+    borders: { preset: "all", style: "thin", color: "#B8C7D5" },
+    rowHeightPx: 30,
+  };
+}
+for (const range of ["A5:B5", "C5:D5", "E5:F5", "G5:H5"]) {
+  overview.getRange(range).format = {
+    fill: "#FFFFFF",
+    font: { name: "Microsoft YaHei", size: 18, bold: true, color: "#1F4E78" },
+    horizontalAlignment: "center",
+    verticalAlignment: "center",
+    borders: { preset: "all", style: "thin", color: "#B8C7D5" },
+    rowHeightPx: 42,
+  };
+}
+for (const range of ["A4:B4", "A5:B5", "C4:D4", "C5:D5", "E4:F4", "E5:F5", "G4:H4", "G5:H5"]) overview.mergeCells(range);
+overview.getRange("A5").formulas = [[`=COUNTA('需求待确认'!$A$2:$A$${pending.lastRow})`]];
+overview.getRange("C5").formulas = [[`=COUNTIF('需求待确认'!$T$2:$T$${pending.lastRow},"待确认")`]];
+overview.getRange("E5").formulas = [[`=COUNTIF('需求待确认'!$T$2:$T$${pending.lastRow},"待前置结论")`]];
+overview.getRange("G5").formulas = [[`=COUNTIF('需求待确认'!$T$2:$T$${pending.lastRow},"已确认")`]];
+
+overview.getRange("A7:H7").values = [["按状态", "数量", "按阻塞等级", "待确认", "按负责人", "待确认", "结构检查", "数量"]];
+overview.getRange("A7:H7").format = {
+  fill: "#1F4E78",
+  font: { name: "Microsoft YaHei", size: 10, bold: true, color: "#FFFFFF" },
+  horizontalAlignment: "center",
+  verticalAlignment: "center",
+  borders: { preset: "all", style: "thin", color: "#163A5A" },
+  rowHeightPx: 32,
+};
+const statusValues = ["待前置结论", "待确认", "确认中", "已确认", "无需处理"];
+const blockValues = ["阻塞测试", "部分阻塞", "不阻塞"];
+const ownerValues = ["产品", "交互", "技术", "多方确认"];
+overview.getRange("A8:A12").values = statusValues.map((value) => [value]);
+overview.getRange("C8:C10").values = blockValues.map((value) => [value]);
+overview.getRange("E8:E11").values = ownerValues.map((value) => [value]);
+overview.getRange("G8:G11").values = [["需求组"], ["追问子问题"], ["未填写产品结论"], ["选其他但未补充"]];
+statusValues.forEach((status, index) => { overview.getRange(`B${index + 8}`).formulas = [[`=COUNTIF('需求待确认'!$T$2:$T$${pending.lastRow},"${status}")`]]; });
+blockValues.forEach((level, index) => { overview.getRange(`D${index + 8}`).formulas = [[`=COUNTIFS('需求待确认'!$E$2:$E$${pending.lastRow},"${level}",'需求待确认'!$T$2:$T$${pending.lastRow},"待确认")`]]; });
+ownerValues.forEach((owner, index) => { overview.getRange(`F${index + 8}`).formulas = [[`=COUNTIFS('需求待确认'!$R$2:$R$${pending.lastRow},"${owner}",'需求待确认'!$T$2:$T$${pending.lastRow},"待确认")`]]; });
+overview.getRange("H8").values = [[new Set(questions.map((item) => item.需求组编号)).size]];
+overview.getRange("H9").formulas = [[`=COUNTA('需求待确认'!$A$2:$A$${pending.lastRow})-COUNTBLANK('需求待确认'!$C$2:$C$${pending.lastRow})`]];
+overview.getRange("H10").formulas = [[`=COUNTBLANK('需求待确认'!$L$2:$L$${pending.lastRow})`]];
+overview.getRange("H11").formulas = [[`=COUNTIFS('需求待确认'!$L$2:$L$${pending.lastRow},"其他",'需求待确认'!$M$2:$M$${pending.lastRow},"")`]];
+overview.getRange("A8:H12").format = {
+  font: { name: "Microsoft YaHei", size: 10, color: "#1F2937" },
+  horizontalAlignment: "center",
+  verticalAlignment: "center",
+  wrapText: true,
+  borders: { preset: "all", style: "thin", color: "#D6DEE8" },
+  rowHeightPx: 31,
+};
+for (const range of ["A8:A12", "C8:C10", "E8:E11", "G8:G11"]) overview.getRange(range).format.horizontalAlignment = "left";
+for (const range of ["B8:B12", "D8:D10", "F8:F11", "H8:H11"]) overview.getRange(range).format.font = { name: "Microsoft YaHei", size: 11, bold: true, color: "#1F4E78" };
+overview.mergeCells("A14:H14");
+overview.getRange("A14").values = [["处理顺序：先回答当前可回答的问题；展开父问题左侧分级按钮后，再处理由该结论触发的追问。"]];
+overview.getRange("A14:H14").format = {
+  fill: "#F8FAFC",
+  font: { name: "Microsoft YaHei", size: 10, color: "#475569" },
+  horizontalAlignment: "left",
+  verticalAlignment: "center",
+  wrapText: true,
+  rowHeightPx: 34,
+  borders: { preset: "all", style: "thin", color: "#D6DEE8" },
+};
+[22, 11, 22, 11, 22, 11, 24, 11].forEach((width, index) => { overview.getRange(`${columnName(index)}1`).format.columnWidth = width; });
+overview.freezePanes.freezeRows(2);
+
 const inspection = {
-  summary: (await workbook.inspect({ kind: "workbook,sheet,table", maxChars: 8000, tableMaxRows: 4, tableMaxCols: 14, tableMaxCellChars: 120 })).ndjson,
-  mainHead: (await workbook.inspect({ kind: "region", sheetId: "功能测试用例", range: "A1:N6", maxChars: 12000 })).ndjson,
-  mainTail: (await workbook.inspect({ kind: "region", sheetId: "功能测试用例", range: `A${Math.max(2, main.lastRow - 3)}:N${main.lastRow}`, maxChars: 10000 })).ndjson,
-  pendingHead: (await workbook.inspect({ kind: "region", sheetId: "需求待确认", range: `A1:H${Math.min(6, pending.lastRow)}`, maxChars: 10000 })).ndjson,
+  summary: (await workbook.inspect({ kind: "workbook,sheet,table", maxChars: 8000, tableMaxRows: 4, tableMaxCols: 20, tableMaxCellChars: 120 })).ndjson,
+  mainHead: (await workbook.inspect({ kind: "region", sheetId: "功能测试用例", range: "A1:O6", maxChars: 12000 })).ndjson,
+  mainTail: (await workbook.inspect({ kind: "region", sheetId: "功能测试用例", range: `A${Math.max(2, main.lastRow - 3)}:O${main.lastRow}`, maxChars: 10000 })).ndjson,
+  pendingHead: (await workbook.inspect({ kind: "region", sheetId: "需求待确认", range: `A1:T${Math.min(6, pending.lastRow)}`, maxChars: 12000 })).ndjson,
+  overview: (await workbook.inspect({ kind: "region", sheetId: "产品决策概览", range: "A1:H14", maxChars: 12000 })).ndjson,
   formulaErrors: (await workbook.inspect({ kind: "match", searchTerm: "#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A", options: { useRegex: true, maxResults: 300 }, summary: "final formula error scan" })).ndjson,
 };
 await fs.writeFile(path.join(workDir, "inspection.json"), `${JSON.stringify(inspection, null, 2)}\n`, "utf8");
 
 for (const [sheetName, range, fileName] of [
-  ["功能测试用例", "A1:N9", "preview-main.png"],
-  ["需求待确认", `A1:H${Math.min(9, pending.lastRow)}`, "preview-pending.png"],
+  ["功能测试用例", "A1:O9", "preview-main.png"],
+  ["需求待确认", `A1:I${Math.min(9, pending.lastRow)}`, "preview-pending.png"],
+  ["产品决策概览", "A1:H14", "preview-product-overview.png"],
 ]) {
   const preview = await workbook.render({ sheetName, range, scale: 1, format: "png" });
   await fs.writeFile(path.join(workDir, fileName), new Uint8Array(await preview.arrayBuffer()));
@@ -1276,21 +2043,86 @@ for (const [sheetName, range, fileName] of [
 const exported = await SpreadsheetFile.exportXlsx(workbook);
 await exported.save(outputPath);
 
+function setOrReplaceXmlAttribute(tag, name, value) {
+  const pattern = new RegExp(`\\s${name}="[^"]*"`);
+  if (pattern.test(tag)) return tag.replace(pattern, ` ${name}="${value}"`);
+  if (/\s*\/>$/.test(tag)) return tag.replace(/\s*\/>$/, ` ${name}="${value}" />`);
+  return tag.replace(/>$/, ` ${name}="${value}">`);
+}
+function patchXmlFreeze(xml, freeze) {
+  if (/<x:pane[^>]*\/>/.test(xml)) return xml.replace(/<x:pane[^>]*\/>/, freeze.split("<x:selection")[0]);
+  if (/<x:sheetView([^>]*)\/>/.test(xml)) return xml.replace(/<x:sheetView([^>]*)\/>/, `<x:sheetView$1>${freeze}</x:sheetView>`);
+  return xml.replace(/(<x:sheetView[^>]*>)/, `$1${freeze}`);
+}
+function patchXmlRow(xml, rowNumber, attributes) {
+  const pattern = new RegExp(`<x:row\\s+([^>]*\\br="${rowNumber}"[^>]*)>`);
+  return xml.replace(pattern, (tag) => Object.entries(attributes).reduce(
+    (updated, [name, value]) => setOrReplaceXmlAttribute(updated, name, value),
+    tag,
+  ));
+}
+
 const zip = await JSZip.loadAsync(await fs.readFile(outputPath));
-for (const sheetNumber of [1, 2]) {
+for (const [sheetNumber, freeze] of [
+  [1, '<x:pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen" /><x:selection pane="bottomLeft" activeCell="A2" sqref="A2" />'],
+  [2, '<x:pane xSplit="3" ySplit="1" topLeftCell="D2" activePane="bottomRight" state="frozen" /><x:selection pane="bottomRight" activeCell="D2" sqref="D2" />'],
+  [3, '<x:pane ySplit="2" topLeftCell="A3" activePane="bottomLeft" state="frozen" /><x:selection pane="bottomLeft" activeCell="A3" sqref="A3" />'],
+]) {
   const entryName = `xl/worksheets/sheet${sheetNumber}.xml`;
   const entry = zip.file(entryName);
   assert(entry, `missing ${entryName}`);
-  let xml = await entry.async("string");
-  xml = xml.replace(
-    /<x:sheetView([^>]*)\/>/,
-    '<x:sheetView$1><x:pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen" /><x:selection pane="bottomLeft" activeCell="A2" sqref="A2" /></x:sheetView>',
-  );
+  let xml = patchXmlFreeze(await entry.async("string"), freeze);
+  if (sheetNumber === 2) {
+    if (!/<x:sheetPr>/.test(xml)) xml = xml.replace(/(<x:sheetViews>)/, '<x:sheetPr><x:outlinePr summaryBelow="0" summaryRight="1" /></x:sheetPr>$1');
+    else if (!/<x:outlinePr/.test(xml)) xml = xml.replace(/(<x:sheetPr>)/, '$1<x:outlinePr summaryBelow="0" summaryRight="1" />');
+    [6, 8, 14, 15, 16, 17].forEach((column) => {
+      const pattern = new RegExp(`<x:col\\s+[^>]*\\bmin="${column}"[^>]*\\bmax="${column}"[^>]*/>`);
+      xml = xml.replace(pattern, (tag) => setOrReplaceXmlAttribute(tag, "hidden", "1"));
+    });
+    const questionById = new Map(questions.map((item) => [item.问题编号, item]));
+    const questionDepth = (item, stack = new Set()) => {
+      if (!item.父问题编号) return 0;
+      assert(!stack.has(item.问题编号), `question cycle ${item.问题编号}`);
+      const next = new Set(stack);
+      next.add(item.问题编号);
+      return 1 + questionDepth(questionById.get(item.父问题编号), next);
+    };
+    const parentIds = new Set(questions.filter((item) => item.父问题编号).map((item) => item.父问题编号));
+    questions.forEach((item, index) => {
+      const attributes = {};
+      const depth = questionDepth(item);
+      if (depth > 0) {
+        attributes.hidden = "1";
+        attributes.outlineLevel = String(depth);
+      }
+      if (parentIds.has(item.问题编号)) attributes.collapsed = "1";
+      if (Object.keys(attributes).length > 0) xml = patchXmlRow(xml, index + 2, attributes);
+    });
+    xml = xml.replace(/<x:sheetFormatPr([^>]*)\/>/, (tag) => setOrReplaceXmlAttribute(tag, "outlineLevelRow", "2"));
+  }
   assert(xml.includes('state="frozen"'), `freeze pane patch failed for ${entryName}`);
   zip.file(entryName, xml);
 }
+
+const workbookEntry = zip.file("xl/workbook.xml");
+assert(workbookEntry, "missing xl/workbook.xml");
+let workbookXml = await workbookEntry.async("string");
+if (/<x:workbookView[^>]*\/>/.test(workbookXml)) workbookXml = workbookXml.replace(/<x:workbookView[^>]*\/>/, '<x:workbookView activeTab="2" />');
+else if (/<x:bookViews>/.test(workbookXml)) workbookXml = workbookXml.replace(/<x:bookViews>/, '<x:bookViews><x:workbookView activeTab="2" />');
+else workbookXml = workbookXml.replace(/(<x:sheets>)/, '<x:bookViews><x:workbookView activeTab="2" /></x:bookViews>$1');
+if (!/<x:calcPr/.test(workbookXml)) workbookXml = workbookXml.replace(/<\/x:workbook>/, '<x:calcPr calcMode="auto" fullCalcOnLoad="1" forceFullCalc="1" /></x:workbook>');
+zip.file("xl/workbook.xml", workbookXml);
 await fs.writeFile(outputPath, await zip.generateAsync({ type: "nodebuffer" }));
+
+const finalZip = await JSZip.loadAsync(await fs.readFile(outputPath));
+const pendingTableXml = await finalZip.file("xl/tables/table2.xml").async("string");
+const pendingSheetXml = await finalZip.file("xl/worksheets/sheet2.xml").async("string");
+const finalWorkbookXml = await finalZip.file("xl/workbook.xml").async("string");
+assert(pendingTableXml.includes(`ref="A1:T${pending.lastRow}"`), "pending table range invalid");
+assert((pendingTableXml.match(/<x:tableColumn /g) ?? []).length === 20, "pending table column count invalid");
+assert((pendingSheetXml.match(/hidden="1" outlineLevel="[12]"/g) ?? []).length === questions.filter((item) => item.父问题编号).length, "collapsed child count invalid");
+assert(finalWorkbookXml.includes('activeTab="2"'), "overview is not active by default");
 const stat = await fs.stat(outputPath);
 assert(stat.size > 0, "exported workbook is empty");
 
-console.log(JSON.stringify({ outputPath, jsonPath, cases: cases.length, questions: questions.length, p0: cases.filter((item) => item.优先级 === "P0").length, bytes: stat.size }, null, 2));
+console.log(JSON.stringify({ outputPath, jsonPath, sheets: ["功能测试用例", "需求待确认", "产品决策概览"], cases: cases.length, questions: questions.length, childQuestions: questions.filter((item) => item.父问题编号).length, p0: cases.filter((item) => item.优先级 === "P0").length, bytes: stat.size }, null, 2));

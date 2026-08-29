@@ -1145,7 +1145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .cohost-sheet.state-hide{display:none!important}
         .cohost-sheet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.cohost-sheet-head b{font-size:17px}.cohost-sheet-close{width:32px;height:32px;padding:0;border:0;background:transparent;color:var(--g2);font:26px/1 inherit;cursor:pointer}
         .cohost-search{display:flex;align-items:center;height:42px;padding:0 12px;border-radius:8px;background:var(--g6);color:var(--g3)}.cohost-search span{margin-right:7px;font-size:16px}.cohost-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--g1);font:14px inherit}.cohost-search input::placeholder{color:var(--g4)}
-        .cohost-section{margin-top:18px}.cohost-section h2{display:flex;align-items:center;justify-content:space-between;margin:0 0 8px;font-size:14px}.cohost-section h2 small{color:var(--g3);font-size:11px;font-weight:400}.cohost-row{display:flex;align-items:center;gap:10px;min-height:58px;padding:8px 0;border-bottom:1px solid var(--g6)}.cohost-row:last-child{border-bottom:0}.cohost-avatar{width:38px;height:38px;flex:none;border-radius:50%;background:var(--g5);color:var(--g1);display:grid;place-items:center;font-size:13px;font-style:normal}.cohost-copy{min-width:0;flex:1}.cohost-copy b{display:block;overflow:hidden;font-size:14px;white-space:nowrap;text-overflow:ellipsis}.cohost-copy small{display:block;margin-top:3px;color:var(--g3);font-size:11px}.cohost-action{height:30px;padding:0 12px;border:0;border-radius:8px;background:var(--g1);color:var(--g7);font:12px inherit;cursor:pointer}.cohost-action.secondary{background:var(--g6);color:var(--g2)}.cohost-invite-actions{display:flex;gap:7px}.cohost-empty{margin:14px 0 0;color:var(--g3);font-size:13px;text-align:center}[data-host-pk].is-disabled{background:var(--g5);color:var(--g4);cursor:not-allowed}
+        .cohost-section{margin-top:18px}.cohost-section h2{display:flex;align-items:center;justify-content:space-between;margin:0 0 8px;font-size:14px}.cohost-section h2 small{color:var(--g3);font-size:11px;font-weight:400}.cohost-row{display:flex;align-items:center;gap:10px;min-height:58px;padding:8px 0;border-bottom:1px solid var(--g6)}.cohost-row:last-child{border-bottom:0}.cohost-avatar{width:38px;height:38px;flex:none;border-radius:50%;background:var(--g5);color:var(--g1);display:grid;place-items:center;font-size:13px;font-style:normal}.cohost-copy{min-width:0;flex:1}.cohost-copy b{display:block;overflow:hidden;font-size:14px;white-space:nowrap;text-overflow:ellipsis}.cohost-copy small{display:block;margin-top:3px;color:var(--g3);font-size:11px}.cohost-action{height:30px;padding:0 12px;border:0;border-radius:8px;background:var(--g1);color:var(--g7);font:12px inherit;cursor:pointer}.cohost-action.secondary{background:var(--g6);color:var(--g2)}.cohost-action.icon{width:30px;padding:0;border-radius:50%;font:18px/1 inherit}.cohost-invite-actions{display:flex;gap:7px}.cohost-empty{margin:14px 0 0;color:var(--g3);font-size:13px;text-align:center}[data-host-pk].is-disabled{background:var(--g5);color:var(--g4);cursor:not-allowed}
       `;
       document.head.append(cohostStyle);
       const cohostSheet = document.createElement('section');
@@ -1155,8 +1155,10 @@ document.addEventListener('DOMContentLoaded', () => {
       cohostSheet.setAttribute('aria-label', '连麦主播');
       cohostSheet.innerHTML = `
         <header class="cohost-sheet-head"><b>连麦主播</b><button type="button" class="cohost-sheet-close" data-close-cohost aria-label="关闭连麦主播">×</button></header>
-        <label class="cohost-search"><span>⌕</span><input type="search" data-cohost-search placeholder="搜索主播 ID、名字" aria-label="搜索主播 ID、名字"></label>
-        <section class="cohost-section"><h2>收到的邀请 <small data-invite-count></small></h2><div data-cohost-invites></div></section>
+        <label class="cohost-search"><span>⌕</span><input type="search" data-cohost-search placeholder="搜索 ID、名字" aria-label="搜索 ID、名字"></label>
+        <section class="cohost-section state-hide" data-cohost-search-results><div data-cohost-search-hosts></div></section>
+        <section class="cohost-section" data-cohost-outgoing-section><h2>发出的请求</h2><div data-cohost-outgoing></div></section>
+        <section class="cohost-section" data-cohost-invite-section><h2>收到的邀请</h2><div data-cohost-invites></div></section>
       `;
       cohostRoom.append(cohostSheet);
       const incomingInvites = [
@@ -1164,13 +1166,29 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Lina', id: '71249663', avatar: 'L' },
         { name: 'Ayu', id: '62874015', avatar: 'A' }
       ];
+      const searchableHosts = [
+        { name: 'Zara', id: '62389741', avatar: 'Z' },
+        { name: 'Putri', id: '69017245', avatar: 'P' },
+        { name: 'Fajar', id: '69736281', avatar: 'F' }
+      ];
+      let outgoingInvite = { name: 'Sinta', id: '69427158', avatar: 'S' };
+      const searchResults = cohostSheet.querySelector('[data-cohost-search-results]');
+      const searchHostList = cohostSheet.querySelector('[data-cohost-search-hosts]');
+      const outgoingSection = cohostSheet.querySelector('[data-cohost-outgoing-section]');
+      const inviteSection = cohostSheet.querySelector('[data-cohost-invite-section]');
+      const outgoingList = cohostSheet.querySelector('[data-cohost-outgoing]');
       const inviteList = cohostSheet.querySelector('[data-cohost-invites]');
-      const inviteCount = cohostSheet.querySelector('[data-invite-count]');
       const renderInvites = (keyword = '') => {
         const normalized = keyword.trim().toLowerCase();
         const items = incomingInvites.filter((host) => !normalized || host.name.toLowerCase().includes(normalized) || host.id.includes(normalized));
-        inviteCount.textContent = incomingInvites.length ? `${incomingInvites.length} 条` : '';
-        inviteList.innerHTML = items.length ? items.map((host) => `<article class="cohost-row"><i class="cohost-avatar">${host.avatar}</i><span class="cohost-copy"><b>${host.name}</b><small>主播 ID：${host.id}</small></span><span class="cohost-invite-actions"><button type="button" class="cohost-action secondary" data-decline-invite="${host.name}">拒绝</button><button type="button" class="cohost-action" data-accept-invite="${host.name}">接受</button></span></article>`).join('') : '<p class="cohost-empty">暂无收到的邀请</p>';
+        const outgoingMatches = outgoingInvite && (!normalized || outgoingInvite.name.toLowerCase().includes(normalized) || outgoingInvite.id.includes(normalized));
+        const matchedHosts = normalized ? searchableHosts.filter((host) => host.name.toLowerCase().includes(normalized) || host.id.includes(normalized)) : [];
+        searchResults.classList.toggle('state-hide', !normalized);
+        outgoingSection.classList.toggle('state-hide', Boolean(normalized));
+        inviteSection.classList.toggle('state-hide', Boolean(normalized));
+        searchHostList.innerHTML = matchedHosts.length ? matchedHosts.map((host) => `<article class="cohost-row"><i class="cohost-avatar">${host.avatar}</i><span class="cohost-copy"><b>${host.name}</b><small>ID：${host.id}</small></span><button type="button" class="cohost-action icon" data-start-cohost="${host.name}" aria-label="向 ${host.name} 发起连麦" title="发起连麦">↗</button></article>`).join('') : '<p class="cohost-empty">暂无匹配主播</p>';
+        outgoingList.innerHTML = outgoingMatches ? `<article class="cohost-row"><i class="cohost-avatar">${outgoingInvite.avatar}</i><span class="cohost-copy"><b>${outgoingInvite.name}</b><small>ID：${outgoingInvite.id}</small></span><button type="button" class="cohost-action secondary" data-cancel-outgoing>取消</button></article>` : '<p class="cohost-empty">暂无发出的请求</p>';
+        inviteList.innerHTML = items.length ? items.map((host) => `<article class="cohost-row"><i class="cohost-avatar">${host.avatar}</i><span class="cohost-copy"><b>${host.name}</b><small>ID：${host.id}</small></span><span class="cohost-invite-actions"><button type="button" class="cohost-action secondary" data-decline-invite="${host.name}">拒绝</button><button type="button" class="cohost-action" data-accept-invite="${host.name}">接受</button></span></article>`).join('') : '<p class="cohost-empty">暂无收到的邀请</p>';
       };
       const closeCohostSheet = () => cohostSheet.classList.add('state-hide');
       if (isPasswordHostRoom) {
@@ -1184,6 +1202,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       cohostSheet.querySelector('[data-close-cohost]').onclick = closeCohostSheet;
       cohostSheet.querySelector('[data-cohost-search]').oninput = (event) => renderInvites(event.currentTarget.value);
+      searchHostList.onclick = (event) => {
+        const button = event.target.closest('[data-start-cohost]');
+        if (!button) return;
+        const host = searchableHosts.find((item) => item.name === button.dataset.startCohost);
+        if (!host) return;
+        if (outgoingInvite) {
+          window.Luma.toast('已有发出的连麦请求');
+          return;
+        }
+        outgoingInvite = host;
+        const searchInput = cohostSheet.querySelector('[data-cohost-search]');
+        searchInput.value = '';
+        renderInvites();
+        window.Luma.toast(`已向 ${host.name} 发起连麦请求`);
+      };
+      outgoingList.onclick = (event) => {
+        if (!event.target.closest('[data-cancel-outgoing]') || !outgoingInvite) return;
+        const name = outgoingInvite.name;
+        outgoingInvite = null;
+        renderInvites(cohostSheet.querySelector('[data-cohost-search]').value);
+        window.Luma.toast(`已取消向 ${name} 发出的连麦请求`);
+      };
       inviteList.onclick = (event) => {
         const button = event.target.closest('[data-accept-invite],[data-decline-invite]');
         if (!button) return;
@@ -1194,6 +1234,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (accepted) { closeCohostSheet(); window.Luma.toast(`已接受 ${name} 的连麦邀请`); }
         else window.Luma.toast(`已拒绝 ${name} 的连麦邀请`);
       };
+      window.Luma.registerStates({
+        连麦主播: {
+          搜索结果: () => {
+            const searchInput = cohostSheet.querySelector('[data-cohost-search]');
+            searchInput.value = 'Zara';
+            renderInvites(searchInput.value);
+            cohostSheet.classList.remove('state-hide');
+          }
+        }
+      });
 
       const hostSettingsButton = cohostRoom.querySelector('[data-host-settings]');
       const hostMoreButton = cohostRoom.querySelector('#moreActions');
@@ -1251,8 +1301,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const fanGroupSetting = document.createElement('button');
         fanGroupSetting.type = 'button';
-        fanGroupSetting.dataset.hostSetting = 'fan-group';
-        fanGroupSetting.innerHTML = '<i>群</i><span>转至粉丝群</span>';
+        fanGroupSetting.dataset.hostSetting = 'share';
+        fanGroupSetting.innerHTML = '<i>转</i><span>转发</span>';
         hostSettingsSheet.querySelector('.host-settings-grid').append(fanGroupSetting);
         const fanGroupLiveCard = window.LUMA_MOCK?.fanGroupLiveRoomCard?.live || {};
         const fanGroupCoverUrl = new URL(`../../../assets/${fanGroupLiveCard.coverAsset || 'live-room-cover.svg'}`, location.href).href;
@@ -1260,17 +1310,41 @@ document.addEventListener('DOMContentLoaded', () => {
         fanGroupForwardConfirm.className = 'fan-group-forward-confirm state-hide';
         fanGroupForwardConfirm.setAttribute('role', 'dialog');
         fanGroupForwardConfirm.setAttribute('aria-modal', 'true');
-        fanGroupForwardConfirm.setAttribute('aria-label', '转发粉丝群确认');
+        fanGroupForwardConfirm.setAttribute('aria-label', '转发确认');
         fanGroupForwardConfirm.innerHTML = `<div><p class="fan-group-forward-title">转发至粉丝群</p><article class="fan-group-forward-card"><span class="fan-group-forward-cover"><img src="${fanGroupCoverUrl}" alt="${fanGroupLiveCard.host || 'Sari'} 的直播间封面"><i>${fanGroupLiveCard.status || '直播中'}</i></span><span class="fan-group-forward-copy"><b>${fanGroupLiveCard.title || '今晚唱到你睡着'}</b><span>${fanGroupLiveCard.host || 'Sari'} 的直播间</span></span></article><footer><button type="button" data-cancel-fan-group-forward>取消</button><button type="button" data-confirm-fan-group-forward>发送</button></footer></div>`;
         const fanGroupForwardStyle = document.createElement('style');
         fanGroupForwardStyle.textContent = '.fan-group-forward-confirm{position:absolute;inset:0;z-index:28;display:grid;place-items:center;background:color-mix(in srgb,var(--g1) 36%,transparent)}.fan-group-forward-confirm.state-hide{display:none!important}.fan-group-forward-confirm>div{width:290px;padding:20px 16px 16px;box-sizing:border-box;border-radius:8px;background:var(--g7);text-align:center}.fan-group-forward-title{margin:0 0 16px;color:var(--g3);font-size:13px}.fan-group-forward-card{width:168px;overflow:hidden;margin:0 auto;border:1px solid var(--g5);border-radius:8px;background:var(--g7);color:var(--g1);text-align:left}.fan-group-forward-cover{position:relative;display:block;width:100%;height:158px;background:var(--g5)}.fan-group-forward-cover img{display:block;width:100%;height:100%;object-fit:cover}.fan-group-forward-cover i{position:absolute;top:7px;left:7px;max-width:calc(100% - 14px);padding:3px 6px;border-radius:5px;background:var(--danger);color:var(--g7);font-size:10px;font-style:normal;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fan-group-forward-copy{display:block;padding:8px 9px 9px}.fan-group-forward-copy b,.fan-group-forward-copy span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fan-group-forward-copy b{font-size:12px;line-height:1.3}.fan-group-forward-copy span{margin-top:3px;color:var(--g4);font-size:10px}.fan-group-forward-confirm footer{display:flex;gap:10px;margin-top:20px}.fan-group-forward-confirm footer button{height:38px;flex:1;border:0;border-radius:8px;font:14px inherit;cursor:pointer}.fan-group-forward-confirm [data-cancel-fan-group-forward]{background:var(--g6);color:var(--g2)}.fan-group-forward-confirm [data-confirm-fan-group-forward]{background:var(--g1);color:var(--g7)}';
         document.head.append(fanGroupForwardStyle);
         cohostRoom.append(fanGroupForwardConfirm);
+        const shareRecipientSheet = document.createElement('section');
+        shareRecipientSheet.className = 'share-recipient-sheet state-hide';
+        shareRecipientSheet.setAttribute('role', 'dialog');
+        shareRecipientSheet.setAttribute('aria-modal', 'true');
+        shareRecipientSheet.setAttribute('aria-label', '选择分享对象');
+        shareRecipientSheet.innerHTML = '<header><b>选择分享对象</b><button type="button" data-close-share-recipient aria-label="关闭选择分享对象">×</button></header><button type="button" class="share-recipient-row fan-group" data-share-recipient="Sari 粉丝团"><i>群</i><span><b>Sari 粉丝团</b><small>356 人</small></span></button><button type="button" class="share-recipient-row" data-share-recipient="Rina"><i>R</i><span><b>Rina</b><small>财富 Lv.18</small></span></button><button type="button" class="share-recipient-row" data-share-recipient="Maya"><i>M</i><span><b>Maya</b><small>财富 Lv.15</small></span></button><button type="button" class="share-recipient-row" data-share-recipient="Dewi"><i>D</i><span><b>Dewi</b><small>财富 Lv.12</small></span></button>';
+        const shareRecipientStyle = document.createElement('style');
+        shareRecipientStyle.textContent = '.share-recipient-sheet{position:absolute;right:0;bottom:0;left:0;z-index:27;min-height:520px;max-height:86%;padding:16px 16px 20px;border-top:1px solid var(--g5);border-radius:12px 12px 0 0;background:var(--g7);box-shadow:0 -10px 24px rgba(0,0,0,.12);overflow:auto}.share-recipient-sheet.state-hide{display:none!important}.share-recipient-sheet header{display:flex;align-items:center;justify-content:space-between;height:32px;margin-bottom:12px}.share-recipient-sheet header b{font-size:17px}.share-recipient-sheet header button{width:32px;height:32px;padding:0;border:0;background:transparent;color:var(--g2);font:26px/1 inherit;cursor:pointer}.share-recipient-row{display:flex;width:100%;min-height:58px;align-items:center;gap:10px;padding:8px 0;border:0;border-bottom:1px solid var(--g6);background:transparent;color:var(--g1);font:14px inherit;text-align:left;cursor:pointer}.share-recipient-row.fan-group{margin-bottom:8px;padding:8px;border:1px solid var(--g5);border-radius:8px;background:var(--g6)}.share-recipient-row>i{display:grid;width:38px;height:38px;flex:none;border-radius:50%;background:var(--g5);color:var(--g2);place-items:center;font-size:13px;font-style:normal}.share-recipient-row>span{min-width:0;flex:1}.share-recipient-row b,.share-recipient-row small{display:block}.share-recipient-row b{overflow:hidden;font-size:14px;white-space:nowrap;text-overflow:ellipsis}.share-recipient-row small{margin-top:3px;color:var(--g3);font-size:11px}.share-recipient-row:hover{background:var(--g6)}';
+        document.head.append(shareRecipientStyle);
+        cohostRoom.append(shareRecipientSheet);
+        let shareRecipient = fanGroupLiveCard.fanGroupName || 'Sari 粉丝团';
+        const openShareConfirm = (recipient) => {
+          shareRecipient = recipient;
+          fanGroupForwardConfirm.querySelector('.fan-group-forward-title').textContent = `转发至 ${recipient}`;
+          fanGroupForwardConfirm.setAttribute('aria-label', `转发至 ${recipient} 确认`);
+          fanGroupForwardConfirm.classList.remove('state-hide');
+        };
         fanGroupForwardConfirm.querySelector('[data-cancel-fan-group-forward]').onclick = () => fanGroupForwardConfirm.classList.add('state-hide');
         fanGroupForwardConfirm.querySelector('[data-confirm-fan-group-forward]').onclick = () => {
           fanGroupForwardConfirm.classList.add('state-hide');
-          window.Luma.toast(`已转发至 ${fanGroupLiveCard.fanGroupName || 'Sari 粉丝团'}`);
+          window.Luma.toast(`已转发至 ${shareRecipient}`);
         };
+        shareRecipientSheet.querySelector('[data-close-share-recipient]').onclick = () => shareRecipientSheet.classList.add('state-hide');
+        shareRecipientSheet.querySelectorAll('[data-share-recipient]').forEach((item) => {
+          item.onclick = () => {
+            shareRecipientSheet.classList.add('state-hide');
+            openShareConfirm(item.dataset.shareRecipient);
+          };
+        });
         const passwordSetting = hostSettingsSheet.querySelector('[data-host-setting="password"]');
         passwordSetting.disabled = !isPasswordHostRoom;
         if (!isPasswordHostRoom) passwordSetting.setAttribute('aria-label', '房间密码，仅密码房可修改');
@@ -1309,8 +1383,8 @@ document.addEventListener('DOMContentLoaded', () => {
               roomPasswordSheet.classList.remove('state-hide');
               return;
             }
-            if (item.dataset.hostSetting === 'fan-group') {
-              fanGroupForwardConfirm.classList.remove('state-hide');
+            if (item.dataset.hostSetting === 'share') {
+              shareRecipientSheet.classList.remove('state-hide');
               return;
             }
             if (item.dataset.hostSetting === 'muted') {

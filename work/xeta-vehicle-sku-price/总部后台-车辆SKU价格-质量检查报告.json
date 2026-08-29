@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "summary": {
+    "cases": 79,
+    "questions": 23,
+    "evidence": 13,
+    "requirements": 44,
+    "coverage": 26,
+    "p0": 6,
+    "errors": 0,
+    "warnings": 0
+  },
+  "errors": [],
+  "warnings": []
+}
