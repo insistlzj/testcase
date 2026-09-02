@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../../assets/common.css" />
     <link
       rel="stylesheet"
-      href="../../../assets/guild.css?v=20260820-fiat-values-v1"
+      href="../../../assets/guild.css?v=20260829-filter-zone-v1"
     />
     <link
       rel="stylesheet"
@@ -32,13 +32,14 @@
         >主播分成记录
       </header>
       <div class="guild-page-body guild-share-record-page">
-        <div class="guild-record-overview-host-filter">
-          <a
-            id="memberPickerButton"
-            href="guild-violation-host-select.html"
-          ></a>
-        </div>
-        <div class="guild-host-summary-filterbar guild-share-range-filter">
+        <div class="guild-filter-zone">
+          <div class="guild-record-overview-host-filter">
+            <a
+              id="memberPickerButton"
+              href="guild-violation-host-select.html"
+            ></a>
+          </div>
+          <div class="guild-host-summary-filterbar guild-share-range-filter">
           <button
             class="guild-host-summary-range"
             id="shareRangePicker"
@@ -124,6 +125,7 @@
             >
               自定义
             </button>
+          </div>
           </div>
         </div>
         <section class="guild-share-record-table" aria-label="主播分成记录列表">

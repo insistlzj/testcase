@@ -1,0 +1,1170 @@
+{
+  "项目名称": "Luma Live",
+  "来源策略": "prototype-primary",
+  "同步状态": "有非阻塞待确认",
+  "执行时间": "2026-09-01T19:01:52+08:00",
+  "原型基线": [
+    {
+      "相对路径": "prototype/assets/admin-account-balance-page.js",
+      "修改时间": "2026-08-31T01:48:29.100Z",
+      "SHA-256": "f7fa0143d0e859022567f2f9dc08106348680709cc1f666c63e83176d6fa1d37"
+    },
+    {
+      "相对路径": "prototype/assets/admin-finance-reconciliation-page.js",
+      "修改时间": "2026-08-31T01:48:29.100Z",
+      "SHA-256": "52aee0b6356366119fc2b7e65db3e0df8413d6aede8f1f8731cc54cc58539d37"
+    },
+    {
+      "相对路径": "prototype/assets/admin-mock.js",
+      "修改时间": "2026-08-31T01:48:29.101Z",
+      "SHA-256": "a10007c6b685109c152d90575d6c9f5cabd44f78ee319addfb8988905ff0a2c6"
+    },
+    {
+      "相对路径": "prototype/assets/admin-reporting.js",
+      "修改时间": "2026-08-31T01:48:29.101Z",
+      "SHA-256": "afba2a0df2d4813f63704ae48eae9f9a40a26b32b143625df0223f374a15af04"
+    },
+    {
+      "相对路径": "prototype/assets/admin-settlement-upload-page.js",
+      "修改时间": "2026-08-31T01:48:29.102Z",
+      "SHA-256": "7f537fa939f7bc9a5ff9b529d82f23175a82015d64f8e6ac33d5d7d635ae259b"
+    },
+    {
+      "相对路径": "prototype/assets/admin-statistics-page.js",
+      "修改时间": "2026-08-31T01:48:29.102Z",
+      "SHA-256": "b400fa074282ea0a9ff3f50c04430b7c98740e68735c4d1e1ce71f24c89b1fbc"
+    },
+    {
+      "相对路径": "prototype/assets/admin-tokens.js",
+      "修改时间": "2026-08-31T01:48:29.102Z",
+      "SHA-256": "350d1e2c7c0686ef1719613ef173e31ab5b9c2f2666324a0c9daa87cf2cf65ce"
+    },
+    {
+      "相对路径": "prototype/assets/admin.css",
+      "修改时间": "2026-08-31T01:48:29.103Z",
+      "SHA-256": "f14c571723c4aec5c3132c2047452bf42be9ad158a405cac791bd061c73c349d"
+    },
+    {
+      "相对路径": "prototype/assets/annotations.js",
+      "修改时间": "2026-08-31T01:48:29.103Z",
+      "SHA-256": "977d534fe16237db6c28db6bf6cd30acd4d07650b992743a20ae0e2f251d5a53"
+    },
+    {
+      "相对路径": "prototype/assets/chat-media.js",
+      "修改时间": "2026-08-31T01:48:29.103Z",
+      "SHA-256": "7e97e065b2bb6045d7426b7272a562a439c9c8b7854399af07f9177c7f871049"
+    },
+    {
+      "相对路径": "prototype/assets/common.css",
+      "修改时间": "2026-08-31T01:48:29.104Z",
+      "SHA-256": "40848b711d4fec7fbfc84bfb71c0322845869a401dd29ef3726736b049a590ae"
+    },
+    {
+      "相对路径": "prototype/assets/common.js",
+      "修改时间": "2026-08-31T01:48:29.105Z",
+      "SHA-256": "bd5f519fa6e614525038f903716e48830dfdc4b9b616befd42094532bd1ea9c2"
+    },
+    {
+      "相对路径": "prototype/assets/diamond.svg",
+      "修改时间": "2026-08-31T01:48:29.106Z",
+      "SHA-256": "b45ceb511c616e77d7a57d3f2d427702fcf43ffff35e524df9a3c1c194d9b77e"
+    },
+    {
+      "相对路径": "prototype/assets/guild-core-data.css",
+      "修改时间": "2026-08-31T01:48:29.106Z",
+      "SHA-256": "f70af4a72743e0fa3d9bc31c4a34b8cb85add002082f4570296ef0170581892f"
+    },
+    {
+      "相对路径": "prototype/assets/guild-data-model.js",
+      "修改时间": "2026-08-31T01:48:29.106Z",
+      "SHA-256": "0b2ad8cb4bb8a6e0a115a5bdb4348c3628781b56e1c72975fbcca7564337de25"
+    },
+    {
+      "相对路径": "prototype/assets/guild-date-range.js",
+      "修改时间": "2026-08-31T01:48:29.107Z",
+      "SHA-256": "7ee3acd664b137055faa75313a34d041028d1945b8c117f37820eb0f7302eb36"
+    },
+    {
+      "相对路径": "prototype/assets/guild-live-night.svg",
+      "修改时间": "2026-08-31T01:48:29.107Z",
+      "SHA-256": "057f19558ac591229cb0dab1fbdb97b8158d1966ecc0d81eb5a8361c9dbdf750"
+    },
+    {
+      "相对路径": "prototype/assets/guild-live-stage.svg",
+      "修改时间": "2026-08-31T01:48:29.107Z",
+      "SHA-256": "c41487e9c551ae8fd9f966271e571ee7e3280fc0434569ca2d7fe8d9fec6f0bf"
+    },
+    {
+      "相对路径": "prototype/assets/guild-live-studio.svg",
+      "修改时间": "2026-08-31T01:48:29.107Z",
+      "SHA-256": "92d9395aa241e98fefad3f2b8b14a995191a9a7b886925bc5b72adfa9f9a16d1"
+    },
+    {
+      "相对路径": "prototype/assets/guild-record-overviews.js",
+      "修改时间": "2026-08-31T01:48:29.108Z",
+      "SHA-256": "347b29385325dd914d1b6355d64024ccace629a934b4ccb496812cec3ffc5c46"
+    },
+    {
+      "相对路径": "prototype/assets/guild-share-records.js",
+      "修改时间": "2026-08-31T01:48:29.108Z",
+      "SHA-256": "2e045d2ca5bb07e4fc37fa95e6b458946666b13e7cfd03c94b22b7a32682b33b"
+    },
+    {
+      "相对路径": "prototype/assets/guild-withdrawal-review.css",
+      "修改时间": "2026-08-31T01:48:29.108Z",
+      "SHA-256": "88d535937f4df1f7cdf4d6c521bbf6efa951bd0bb6718a2c18e6b2dc3a8f2186"
+    },
+    {
+      "相对路径": "prototype/assets/guild-withdrawal-review.js",
+      "修改时间": "2026-08-31T01:48:29.109Z",
+      "SHA-256": "e9c2129c7b16a821d1b5ddf94849f2845a4d7c0a0aac272493e2a980d2efe6a0"
+    },
+    {
+      "相对路径": "prototype/assets/guild.css",
+      "修改时间": "2026-08-31T01:48:29.109Z",
+      "SHA-256": "ed0c1f09206c55fedde65da48e294f461764de3ff8569ecaabc64b5416807476"
+    },
+    {
+      "相对路径": "prototype/assets/live-muted-users.js",
+      "修改时间": "2026-08-31T01:48:29.110Z",
+      "SHA-256": "c54d29eb6ff959390b316cc337f90eee24baa63765352931b5a75edd84943dcc"
+    },
+    {
+      "相对路径": "prototype/assets/live-room-cover.svg",
+      "修改时间": "2026-08-31T01:48:29.110Z",
+      "SHA-256": "8ade172e1c50636bcbb247b309ec3b851a710881a1c38ab32c71ca1f5bb52984"
+    },
+    {
+      "相对路径": "prototype/assets/mock.js",
+      "修改时间": "2026-08-31T01:48:29.110Z",
+      "SHA-256": "89be5292b2862865ca970383ae1351248e7915f074fc9548b29c35adf4924abf"
+    },
+    {
+      "相对路径": "prototype/assets/operation-accounts.js",
+      "修改时间": "2026-08-31T01:48:29.111Z",
+      "SHA-256": "e766214af3ea9885795ab0608f35572a68b5a7b2d100f62b9c6db99aaae82155"
+    },
+    {
+      "相对路径": "prototype/assets/start-live-config.js",
+      "修改时间": "2026-08-31T01:48:29.111Z",
+      "SHA-256": "c9648538539c3e50a44caf48dd500985163e6e76e80c3c06001b57c76bf55a23"
+    },
+    {
+      "相对路径": "prototype/assets/tailwind.js",
+      "修改时间": "2026-08-31T01:48:29.111Z",
+      "SHA-256": "5c5de4bbb668f6d6fe2179373687434e043ba8d0e6877ee004d7c14b712618f6"
+    },
+    {
+      "相对路径": "prototype/assets/tokens.js",
+      "修改时间": "2026-08-31T01:48:29.111Z",
+      "SHA-256": "ea674526cee1c918f9be061b4968e2b71f09bbd2470bf8852c12e0ac160635de"
+    },
+    {
+      "相对路径": "prototype/index.html",
+      "修改时间": "2026-08-31T01:48:29.112Z",
+      "SHA-256": "a21ae7398b215ace03275f116c926ecb07526d85b62aca8823c960b29b40e0bc"
+    },
+    {
+      "相对路径": "prototype/Luma Live-原型说明.md",
+      "修改时间": "2026-08-31T01:48:29.099Z",
+      "SHA-256": "db96e32c1f7cbbf0638a8daf6de0e97c66f5874a942423f14fd403541f904724"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-account-create.html",
+      "修改时间": "2026-08-31T01:48:29.112Z",
+      "SHA-256": "a2206dc8095123c535ba92418baeebb21ade880fb51ac442f1982042d3285a33"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-account-detail.html",
+      "修改时间": "2026-08-31T01:48:29.113Z",
+      "SHA-256": "a295aca3507ced0d6629b197116afaa87fbd79779bc103f166208348e4421341"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-accounts.html",
+      "修改时间": "2026-08-31T01:48:29.113Z",
+      "SHA-256": "880989a5940a87d7c206a90aa8995569a0f5027d25c207b968e753e27134a876"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-gift-records.html",
+      "修改时间": "2026-08-31T01:48:29.113Z",
+      "SHA-256": "871b85a37c4789f11bd2f1222177657572634784c0840207ce3b759406416c72"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+      "修改时间": "2026-08-31T01:48:29.114Z",
+      "SHA-256": "e10a682dfbdd4017b29b54a7ac0720125817ce705bfb127295f5229438156fba"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-issue-records.html",
+      "修改时间": "2026-08-31T01:48:29.114Z",
+      "SHA-256": "043bc69a943c338faec9f2f120f550fc56acb974f2e9c2232b72eb062ce318fa"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+      "修改时间": "2026-08-31T01:48:29.114Z",
+      "SHA-256": "0c1c4690829c9bacdccbd2cc01f689460728508b852440e479b2c2bdec1da051"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-daily-statistics.html",
+      "修改时间": "2026-08-31T01:48:29.114Z",
+      "SHA-256": "8536c6806a374c6f55693674ce96f820b88e9bbd66bb8094891972d154f3ee98"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-data-overview.html",
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "93a0ab4141316c5da6e2cbe0e23ed62d4fbb378db4c198b2eae6db6c9a5d988c"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-host-live-record-report.html",
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "16b6dd33e19fc73e2ca6a7af43954d1adde8f6071352a2008f664a4d5ceb2299"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-host-statistics.html",
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "51caaf7d64118e7150d252a51d0bf3efd58005a071a7491e487badeb16ccc929"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-live-statistics.html",
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "c00a8d786ab97a772d7b6183e928010be1842a283af7b2fef29bc28d83f133a4"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "aca5e6416fce409995771b87694a9603f2346c6514c2e65648b79ef39402d081"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+      "修改时间": "2026-08-31T01:48:29.116Z",
+      "SHA-256": "6c97a6c304f45768f9771812961f3f8f5d8cd308dd06f91d1156cd8bfa2b3d30"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-host-share.html",
+      "修改时间": "2026-08-31T01:48:29.116Z",
+      "SHA-256": "e4af1c251c2369e0ab8cf3097d61df7543e5b6bd4592448840d15f45a3f631bc"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+      "修改时间": "2026-08-31T01:48:29.116Z",
+      "SHA-256": "61cf6a67d3b4ff70a05c67cf60fd5b9abbd7cd6ce903fecdbed6d11682c504aa"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+      "修改时间": "2026-08-31T01:48:29.116Z",
+      "SHA-256": "4093ce1ef6cc540c36bacd63296f70c2d38b75d1d11e6e49dfff113a0db1a8fe"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+      "修改时间": "2026-08-31T01:48:29.117Z",
+      "SHA-256": "f6a2c8244c25f9412e8179add285b996050baea502814edd9880aaa69f08f7fe"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-recharge-statistics.html",
+      "修改时间": "2026-08-31T01:48:29.117Z",
+      "SHA-256": "116e1a6cd9ea5b8a35cc0784616b1406756d9e5df3aea06985262c4a228005a5"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+      "修改时间": "2026-08-31T01:48:29.117Z",
+      "SHA-256": "8bdef6efd8536d2acd842afcd2b7899437414a56c9f443c3bdd86aa4f6fd1164"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-report-center.html",
+      "修改时间": "2026-08-31T01:48:29.117Z",
+      "SHA-256": "4af3f08f9e56ce18497f3a2b307ae7be24b011fd35c601882e6f45f33be7a318"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-user-active-statistics.html",
+      "修改时间": "2026-08-31T01:48:29.118Z",
+      "SHA-256": "71c9c07ee6b10e7cf0ddf8ae8fae34be90572a2687df5afa2ba0b8448157b4e9"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+      "修改时间": "2026-08-31T01:48:29.118Z",
+      "SHA-256": "56c1974815b7fb6a475573fff69da98f0d55221acb6c64573e6164dedb977b72"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-account-violation.html",
+      "修改时间": "2026-08-31T01:48:29.118Z",
+      "SHA-256": "a825a37362b52885d1119328aae19d02fc5667130b596b44661a74ba3bd40036"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-content-audit-detail.html",
+      "修改时间": "2026-08-31T01:48:29.119Z",
+      "SHA-256": "43cb871134e77b0b0cc08d8d084db9269b253737d998dde81f23d41346571934"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-content-audit.html",
+      "修改时间": "2026-08-31T01:48:29.119Z",
+      "SHA-256": "4efc80809f041062d05850563b7aa12f51ec33f75eec918ffd0d5d9c7ac18fcd"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-detail.html",
+      "修改时间": "2026-08-31T01:48:29.119Z",
+      "SHA-256": "a90479193e808ccb45a1ce83a8538ce9164b0c227f6e5d1b3960f22d3a7f49f6"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-handling.html",
+      "修改时间": "2026-08-31T01:48:29.120Z",
+      "SHA-256": "731e83acb998032d756f8e8f772fbf54e96aae3da52d9cb0c61186c428c61d66"
+    },
+    {
+      "相对路径": "prototype/pages/admin/dashboard/admin-dashboard.html",
+      "修改时间": "2026-08-31T01:48:29.120Z",
+      "SHA-256": "f62168602f50918046afd03e5a76f3d1767746e2390f7b825599d78449c8bfb8"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-account-balance.html",
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "8618db074253c91e9af7e79a71b4efae107413e2a3a590cc27531a8b9a761ca7"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "7024974c14207d6b4e48d5724b973b1a400772d132132303976fda2d6f272b0e"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "fabb706d45673797b8033f16515b5f6bcaf6a89ec6b6710805dd7d0c3ce1399e"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-settlement-record.html",
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "1076f4a2f5c36debef005bad429e8af1828377ec04c0aa96a3fc43dc4cc0fe68"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-host-account-balance.html",
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "b5ac70e82dacfc5dda965a29a149eda88d2225f3c33b5db5af8c679f2143fcf3"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-host-balance-change-record.html",
+      "修改时间": "2026-08-31T01:48:29.122Z",
+      "SHA-256": "17da03bf6e34be417818dff402d0c6fbdb49e07b6a433a11e478f7efb60f6cd0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-settlement-record-detail.html",
+      "修改时间": "2026-08-31T01:48:29.122Z",
+      "SHA-256": "e33302a195eb07f6f8ab468ef960d3501ca721b510f16ec83751414e891bd849"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-settlement-record.html",
+      "修改时间": "2026-08-31T01:48:29.122Z",
+      "SHA-256": "0d1a0380f73d96727cd4e566c8b3c37a85fa56748ef4f706b6aa8da107576551"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-custom-gift.html",
+      "修改时间": "2026-08-31T01:48:29.122Z",
+      "SHA-256": "e9790599f46ff7d533c145e00bf1c083c52fa556fff4334b0715ef73e9bd1798"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-detail.html",
+      "修改时间": "2026-08-31T01:48:29.123Z",
+      "SHA-256": "108444d39d4bfbb8a9c2000569f324cbe2b62f099e675fa45d7ba4d3abd043d3"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-list.html",
+      "修改时间": "2026-08-31T01:48:29.123Z",
+      "SHA-256": "c848047178708a472f11c0c9a201a32bb33075acc021ff02043bed2089848728"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+      "修改时间": "2026-08-31T01:48:29.124Z",
+      "SHA-256": "32adab0f21d784627e396f375d67ae936a5a5846e0c0a23cba098ab3d30033ce"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+      "修改时间": "2026-08-31T01:48:29.124Z",
+      "SHA-256": "9eb2e695eb46e862d51c00ec6c23e8be297bd502dff48e0171dd3c93e0398088"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+      "修改时间": "2026-08-31T01:48:29.124Z",
+      "SHA-256": "c6dee7c9b37baa03204c31906824a0e34267d64fd8b8c05f7a5566a998dc1b48"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+      "修改时间": "2026-08-31T01:48:29.125Z",
+      "SHA-256": "3e0e386fe557b33612296cd6e376e71842ddbec6fda25d34e647c43177e68265"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-prop-detail.html",
+      "修改时间": "2026-08-31T01:48:29.125Z",
+      "SHA-256": "2f023774286c01ba075d5a1bd41e51735f7464d97ce18e34567094529c04937a"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-prop-list.html",
+      "修改时间": "2026-08-31T01:48:29.125Z",
+      "SHA-256": "8808bd0ef972ea55d7226800ac1e86eda2469dd64d54d0f06699d7e69203cf4d"
+    },
+    {
+      "相对路径": "prototype/pages/admin/guild/admin-guild-detail.html",
+      "修改时间": "2026-08-31T01:48:29.126Z",
+      "SHA-256": "958f022857813b36493501ee214641227209c047bca370b13c3347fbef011c68"
+    },
+    {
+      "相对路径": "prototype/pages/admin/guild/admin-guild-list.html",
+      "修改时间": "2026-08-31T01:48:29.126Z",
+      "SHA-256": "d4cabff102ed14a71b5c5cabae286b719db528c8a4de8c9bd9650a4e39167150"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-detail.html",
+      "修改时间": "2026-08-31T01:48:29.127Z",
+      "SHA-256": "67b5c303c3d86066cb57988f75790bb3bf6f9f48e68d04206a7a504aa15cb907"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-list.html",
+      "修改时间": "2026-08-31T01:48:29.127Z",
+      "SHA-256": "97f8009a5d3a43dced8d389ea0b1be6ac5b24ac4626d069efb80155c9d40f5f2"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-review-detail.html",
+      "修改时间": "2026-08-31T01:48:29.127Z",
+      "SHA-256": "f379f686c1b915bea42bc3ff1a019ed05e6202516c03586ab98afb0a92a7952c"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-review.html",
+      "修改时间": "2026-08-31T01:48:29.127Z",
+      "SHA-256": "2311d751157f5565eb5808a125eed871fca42504a67ffc9b69501de258b61b34"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-inspection-schedule-create.html",
+      "修改时间": "2026-08-31T01:48:29.128Z",
+      "SHA-256": "6a2316bba4747fbf8ba83d76adeca2631ccc441a0941a7abcc274c8754d69b6c"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+      "修改时间": "2026-08-31T01:48:29.128Z",
+      "SHA-256": "bb76e731fb37aa36c6d7f77672202985d258d81700e6d4879d2c09a2f776d622"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-inspection-schedule.html",
+      "修改时间": "2026-08-31T01:48:29.129Z",
+      "SHA-256": "6cd25154b61ff8808eede1157afa09be4e052df88a4fe2b57e26081b0113c72e"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-detail.html",
+      "修改时间": "2026-08-31T01:48:29.129Z",
+      "SHA-256": "054538d6af4f4c636f27952ee51bdda6f9ad740de83e905e7dacd4ab167f26d4"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-management.html",
+      "修改时间": "2026-08-31T01:48:29.129Z",
+      "SHA-256": "053cdb112c6c1a2bbd04f7639a126ae1ee78ccfbf7ee574ab7da8ad291ddc38d"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch-detail.html",
+      "修改时间": "2026-08-31T01:48:29.130Z",
+      "SHA-256": "abe89a8e9b9a433cebbbb17c6a9b1621d2817c98b7f98e0ad1f5d4a8b4b6dca0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch.html",
+      "修改时间": "2026-08-31T01:48:29.130Z",
+      "SHA-256": "83032fab0db3e3ae77391c66d455cc351089e86c474c7264dcecef0d3456aacd"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+      "修改时间": "2026-08-31T01:48:29.130Z",
+      "SHA-256": "bd4a01b1ade7b3f6a8e42ab239a6b29af1844d528d00919b920d0092b7e14351"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-guild-recommendation.html",
+      "修改时间": "2026-08-31T01:48:29.131Z",
+      "SHA-256": "4b2968437cd2792379a3f163cb45b4a6f21001a779fa564b359eec925828c988"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-live-type.html",
+      "修改时间": "2026-08-31T01:48:29.131Z",
+      "SHA-256": "2251c4d8806f550b660c718e69ddabd2d9d53bba931c4166e670a44a778dbaa0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-placement-config.html",
+      "修改时间": "2026-08-31T01:48:29.131Z",
+      "SHA-256": "e5db21819bc0e32e1d46d5d693012d4f6628e60efd6e0f1f98fa47762cd09d02"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-placement-detail.html",
+      "修改时间": "2026-08-31T01:48:29.132Z",
+      "SHA-256": "23389d323946064c22c1f4617d8c1b47f4c997506711cbe6f6210a867e5d7e48"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-push-detail.html",
+      "修改时间": "2026-08-31T01:48:29.132Z",
+      "SHA-256": "c0fabf436af0c04244f03751e238bce5a8a9ec1220774e63581e78eea4050e08"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-push-management.html",
+      "修改时间": "2026-08-31T01:48:29.132Z",
+      "SHA-256": "3fc206accf4ffdff688a77af521b32f6b3f4fe44d536d0d2fc239361514141db"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-recharge-package-detail.html",
+      "修改时间": "2026-08-31T01:48:29.133Z",
+      "SHA-256": "3ee600a71bd51aea25a11dd4757ff58333e8e5b5978e971709906fdeef22436d"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-recharge-package.html",
+      "修改时间": "2026-08-31T01:48:29.133Z",
+      "SHA-256": "cd7feb990db416ecc0103a5d840a818fcead18db626d2d4cc0036fd40f033ad5"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+      "修改时间": "2026-08-31T01:48:29.133Z",
+      "SHA-256": "ef1f16f08c5d999cb681f58cfcf87f21d41945b5b89acf7f1398ef151aa9bfc0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words.html",
+      "修改时间": "2026-08-31T01:48:29.134Z",
+      "SHA-256": "e86b0df7b25735c32148155e09e72f2fe4d32b452300c0365de4cb254b08b427"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-task-config.html",
+      "修改时间": "2026-08-31T01:48:29.134Z",
+      "SHA-256": "4b87443ada2324be145d6d5e85881e52a55c26d33182b871122473c8f4f4fe3f"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-task-detail.html",
+      "修改时间": "2026-08-31T01:48:29.134Z",
+      "SHA-256": "aa0208273e848be784047f55fec74804cd0f8bc31dc640ac58fbe46788b53964"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+      "修改时间": "2026-08-31T01:48:29.134Z",
+      "SHA-256": "d084cab3970cf3512564f6ab79bfcb65745b396e40212f9c2230d53398791ef4"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level.html",
+      "修改时间": "2026-08-31T01:48:29.135Z",
+      "SHA-256": "90530695c657c973a9a5cd414940f0cc92c4fddee3156c5f40e86108abe99efb"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-consumption-order-detail.html",
+      "修改时间": "2026-08-31T01:48:29.135Z",
+      "SHA-256": "d0096e36eb073d281d773e049cefe23f3ca5327c5eaf6f246d54fddf1e6816f7"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-consumption-order.html",
+      "修改时间": "2026-08-31T01:48:29.136Z",
+      "SHA-256": "4a367c26e14fd72199a2e197e5afd60979589b1dccfb0b312a09464660fa28b3"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-recharge-order-detail.html",
+      "修改时间": "2026-08-31T01:48:29.136Z",
+      "SHA-256": "6fe3812eb81f30177fed4e3d19fe9996b23ada51ea41599efe54ba0cc742cbb2"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-recharge-order.html",
+      "修改时间": "2026-08-31T01:48:29.136Z",
+      "SHA-256": "771f86c73055394c5c4b49ebaecc33ecd732e6df20fabd65ddf79ef0a0322d8b"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-refund-order.html",
+      "修改时间": "2026-08-31T01:48:29.137Z",
+      "SHA-256": "465f28018e9770d0d65fff9071859b3059ea463c17ae25bb0e43157531d0c1c5"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-account-detail.html",
+      "修改时间": "2026-08-31T01:48:29.137Z",
+      "SHA-256": "65aa00475db8f040270016431abf51e9deaef45e5e3612b6b171aa6341da59b6"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-account.html",
+      "修改时间": "2026-08-31T01:48:29.138Z",
+      "SHA-256": "db98a57f22d2f401815ee78d8a343faf7c66ca443d5069518634f09e47c3c692"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-audit-detail.html",
+      "修改时间": "2026-08-31T01:48:29.138Z",
+      "SHA-256": "bf45b187ec4fecbaace41dec3b6f4cb3b9b5ba60d6690f675729544029805141"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-audit.html",
+      "修改时间": "2026-08-31T01:48:29.138Z",
+      "SHA-256": "e550600b0dee8afb9851aa31740d86b8ad78fc474b9ce584fa81f34fa55e56cd"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-parameter-detail.html",
+      "修改时间": "2026-08-31T01:48:29.139Z",
+      "SHA-256": "23f75535d9f94434e66be8b4ade55ba223a4b3546863dfe16fbf22c9f91f8f1f"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-parameter.html",
+      "修改时间": "2026-08-31T01:48:29.139Z",
+      "SHA-256": "2e661b207c45df156ccf40302dc003417bad92bbd3723c11ae754211ea99f979"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-role-detail.html",
+      "修改时间": "2026-08-31T01:48:29.139Z",
+      "SHA-256": "45e0df77fe41d1a17671c9be67a6dbcc2b51c1e82dfc6eccdff4d5794ba1f235"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-role.html",
+      "修改时间": "2026-08-31T01:48:29.139Z",
+      "SHA-256": "db1718bfe421d62b76f91290e40452d1fecc10a09c183741ace69f6a254870cf"
+    },
+    {
+      "相对路径": "prototype/pages/admin/user/admin-user-detail.html",
+      "修改时间": "2026-08-31T01:48:29.140Z",
+      "SHA-256": "eba51947e63e9916a0b2ed8ea3194591f868129d4f2c70e4c2566299e6ad2765"
+    },
+    {
+      "相对路径": "prototype/pages/admin/user/admin-user-list.html",
+      "修改时间": "2026-08-31T01:48:29.140Z",
+      "SHA-256": "1df95161604fa1d1d3519fc6fb327313fdbea0a0ab7daa39c53d65d64c440d0a"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-join-review-detail.html",
+      "修改时间": "2026-08-31T01:48:29.141Z",
+      "SHA-256": "feba2f0f4586db411d9f674fc541b3b6cd4fc28a316c238800f952f6cd85844e"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-join-review.html",
+      "修改时间": "2026-08-31T01:48:29.141Z",
+      "SHA-256": "36e24fa89bb6349e4be1dd0ff3445c9dd5268bb251fdb2526bd3192f5d90e802"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-leave-review-detail.html",
+      "修改时间": "2026-08-31T01:48:29.141Z",
+      "SHA-256": "d7c5d4aeff6035264ccce4fe889ec060f79afd31f31fa3c677288891c51ec9ab"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-leave-review.html",
+      "修改时间": "2026-08-31T01:48:29.142Z",
+      "SHA-256": "cce93f505182d196b05357c9f10759e1dcdbd39c0c567cc33f77e593b9f1844a"
+    },
+    {
+      "相对路径": "prototype/pages/guild/auth/guild-login.html",
+      "修改时间": "2026-08-31T01:48:29.142Z",
+      "SHA-256": "87cfafc8525b71a9bf720a06b6bfdda1eeca4836c0514eb7a2947059bf2880cb"
+    },
+    {
+      "相对路径": "prototype/pages/guild/auth/guild-switch.html",
+      "修改时间": "2026-08-31T01:48:29.142Z",
+      "SHA-256": "f551e39216ccfbb84923f3024b5b8078cacf0ad4db6ee9f6fda63ed20aea8cbd"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-all-live.html",
+      "修改时间": "2026-08-31T01:48:29.142Z",
+      "SHA-256": "f7b0b3166efe2f0e06fdb5477df8a059f40f2fdf3cc2a0969585e997cdf1fac5"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-all-violations.html",
+      "修改时间": "2026-08-31T01:48:29.143Z",
+      "SHA-256": "6a65bf869575a6ac237268c8a1c1b931315916af1918579122655df07a71eac4"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-host-data.html",
+      "修改时间": "2026-08-31T01:48:29.143Z",
+      "SHA-256": "f0ad36b52b13cc9a647934d63c6e00c9c34e6bc38b61f07cbec1252f4bac25e9"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-host-summary.html",
+      "修改时间": "2026-08-31T01:48:29.143Z",
+      "SHA-256": "4cd8205aa9e5049f29434038a2fc0c249cb8ee16482e9b92fa069847721fd856"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-income-day-detail.html",
+      "修改时间": "2026-08-31T01:48:29.143Z",
+      "SHA-256": "70773f7454a66242836a8eeeecc5a6baac6c96f92bba3793ad71cc69c82c00c6"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-income.html",
+      "修改时间": "2026-08-31T01:48:29.144Z",
+      "SHA-256": "e099ef1d128ae56e8a017b606e4c0f388716edf2cf2abfc10abcec722cca32cd"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-live-gift-detail.html",
+      "修改时间": "2026-08-31T01:48:29.144Z",
+      "SHA-256": "c6dabdd4483079e4c36b391580480d0cd0c2a8a7b32d9cb824c1ab55b2466aee"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-share-income.html",
+      "修改时间": "2026-08-31T01:48:29.144Z",
+      "SHA-256": "4e31fcdbfe9264446d6b6ba10a52b44f565ecb77d9a6ab1a87f6d879db8396f5"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-share-ledger.html",
+      "修改时间": "2026-08-31T01:48:29.144Z",
+      "SHA-256": "4c7f85d80ae406b5c81c07f117847cb4b7002020d6c000e7d1b76d4c37298af6"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-violation-host-select.html",
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "d47b5117ea829a5f857ada77a63984c240d647ed9c14034afeeda44777411850"
+    },
+    {
+      "相对路径": "prototype/pages/guild/home/guild-home.html",
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "744e60b6e4aba3acc939601ce1dc70b70822a2b688eb835db6841a9982915a9c"
+    },
+    {
+      "相对路径": "prototype/pages/guild/home/guild-notification-detail.html",
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "a64a2bda584e26cb24cee712d04b794bf7dd26b67aedb59ab003c4565a33f495"
+    },
+    {
+      "相对路径": "prototype/pages/guild/home/guild-notifications.html",
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "12e9da2f95fa47b0d43ce11caa934cee472458290b8c2b192130a72a5ea65d30"
+    },
+    {
+      "相对路径": "prototype/pages/guild/management/guild-password.html",
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "2da9cfd319a1a5a7c0852b25a8f75deea15a8b35fa2da53a43efff0315ab89b3"
+    },
+    {
+      "相对路径": "prototype/pages/guild/management/guild-profile.html",
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "9787e68e968f0e97e75259edf7dfa7688373e13fe3463e62eff405701f81089a"
+    },
+    {
+      "相对路径": "prototype/pages/guild/management/guild-settings.html",
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "e97e6ca25db224b617dc4a60ef2734dbce4f56a84edd8a3e34b59e3026c7dd56"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-host-select.html",
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "244d3b1050058e59480d071abf469200b96e97a5d0003a7a927e2d8d58b366b5"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-message-compose.html",
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "aa5b37a86990d58d5002fb9563077c605694a242599c4b5d613c71f47ae50bda"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-message-detail.html",
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "effc73e2f44d1490ad91ddf38d0a01273fcfa42bd89821f5782c0d080aaf1c58"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-messages.html",
+      "修改时间": "2026-08-31T01:48:29.147Z",
+      "SHA-256": "cffb1f05d56f505cddcd108d76b09c21f510197f3ad4b566bbcb77b0221cf989"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-account-compose.html",
+      "修改时间": "2026-08-31T01:48:29.147Z",
+      "SHA-256": "b8a52016fd4cb0a7d780d8cf80b450d9a109f7402c3219c22b7ddc551b7ae9a6"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-account-detail.html",
+      "修改时间": "2026-08-31T01:48:29.147Z",
+      "SHA-256": "8345971a8464ef537a47d945ff4ed0da53841c6d58d7482046062d019993887f"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-account-select.html",
+      "修改时间": "2026-08-31T01:48:29.147Z",
+      "SHA-256": "805669bbf906a0853520be1312c9bb47b1bf0e36a3b7d4c97ede53255d1114ef"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-accounts.html",
+      "修改时间": "2026-08-31T01:48:29.148Z",
+      "SHA-256": "c311bae5e9a1aa48546baf47b7321ac4241a351e6202137162856fd1c6c3b7b3"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-gift-records.html",
+      "修改时间": "2026-08-31T01:48:29.148Z",
+      "SHA-256": "bd60d716b24a1ccb13a698e8deaadaeb9cdade44c2a6e1937436febb215734c2"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-host-detail.html",
+      "修改时间": "2026-08-31T01:48:29.148Z",
+      "SHA-256": "9ba7f620cc98b21c5ab9a4e3683b452b76dce763dd5e339c0c34e6fbee796464"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-host-list.html",
+      "修改时间": "2026-08-31T01:48:29.149Z",
+      "SHA-256": "70ca3b4e8430a464a1fe2b622dcfdeb69962765a4439c03b73d84f9868799168"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-member-list.html",
+      "修改时间": "2026-08-31T01:48:29.149Z",
+      "SHA-256": "756f0ab52c7c0a6663afbd7de4e9e0ec1ef6d153ddfa65cfba65110c2ec1e2b3"
+    },
+    {
+      "相对路径": "prototype/pages/user/auth/auth-login-register.html",
+      "修改时间": "2026-08-31T01:48:29.149Z",
+      "SHA-256": "45fabd004395588668eebf77c9bf34da4ac382302fe9c6f28bce2618e255cbe2"
+    },
+    {
+      "相对路径": "prototype/pages/user/auth/auth-phone-login.html",
+      "修改时间": "2026-08-31T01:48:29.150Z",
+      "SHA-256": "1d9d12eef65754d4f49293aff04eb096b883d30b8bd25560a7b3ddcb4207e1d2"
+    },
+    {
+      "相对路径": "prototype/pages/user/auth/auth-profile-completion.html",
+      "修改时间": "2026-08-31T01:48:29.150Z",
+      "SHA-256": "8bcb85b7fa3e6e9e517c756a7cee95b77788e422b2927d60c935ce3e55949445"
+    },
+    {
+      "相对路径": "prototype/pages/user/fan-club/fan-contribution-ranking.html",
+      "修改时间": "2026-08-31T01:48:29.150Z",
+      "SHA-256": "5918a3a355c782c37c8931183f4f1f8e6f0b926a6d9ad17cf67ba1d2ae1fc2a9"
+    },
+    {
+      "相对路径": "prototype/pages/user/fan-club/my-fan-clubs.html",
+      "修改时间": "2026-08-31T01:48:29.151Z",
+      "SHA-256": "f5921ec74d9470356fbdb86bc64784021dba8e3d1a59d8c8637ab9e9dd3fe547"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-application-form.html",
+      "修改时间": "2026-08-31T01:48:29.151Z",
+      "SHA-256": "b7a889f5a94272f384b0749bf26aa922412773171327b92e16f8aefc88517bf7"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-application-records.html",
+      "修改时间": "2026-08-31T01:48:29.151Z",
+      "SHA-256": "b257a1f0f3b87b3d49fcdbc0f1ae1c6364dc9a6d51690a68496b09154dda3926"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-detail.html",
+      "修改时间": "2026-08-31T01:48:29.151Z",
+      "SHA-256": "5f2e8885848492c8d9261d97d2a0c8e164fe8cc1c349d0713eb93eb853ae4f57"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-leave-application.html",
+      "修改时间": "2026-08-31T01:48:29.152Z",
+      "SHA-256": "d31546e4bf5747b7f047605a3cc0a63623fef4934314aa89435a65d57cda4ec4"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-management.html",
+      "修改时间": "2026-08-31T01:48:29.152Z",
+      "SHA-256": "8292d07c88340396123fc78eac0dc8db6603bb6fa9e4a31613ba7ae66d99b738"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/contribution-ranking.html",
+      "修改时间": "2026-08-31T01:48:29.152Z",
+      "SHA-256": "7647c1165803ea50da08f10446479739b85746ed6fbe115e24d9fb7a01c83e24"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/host-ranking.html",
+      "修改时间": "2026-08-31T01:48:29.152Z",
+      "SHA-256": "b21d1b6443d41eca113a8f7c7f9122a6fa1bccbd42bca5b63fb5e1ac4d4f2429"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/invite-friends.html",
+      "修改时间": "2026-08-31T01:48:29.153Z",
+      "SHA-256": "e6323bf8b3bb8fe63790e25399425854903f4b0857a2730597532885c8a001ed"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/live-plaza.html",
+      "修改时间": "2026-08-31T01:48:29.153Z",
+      "SHA-256": "3331a090d1936ad0765ec6957df1270d9fcb223a0b8b26b765f58f7b6ea05e4c"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/search-results.html",
+      "修改时间": "2026-08-31T01:48:29.153Z",
+      "SHA-256": "d6909d4e4f7f1a69d85079158c01f2088bda2772f460b65b3381cd4d776c9241"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/search.html",
+      "修改时间": "2026-08-31T01:48:29.153Z",
+      "SHA-256": "1c03c1c37affcb1b77db5c0574210d6b8223ed9f099c4ed460171f5fc6a2f820"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/welfare-center.html",
+      "修改时间": "2026-08-31T01:48:29.154Z",
+      "SHA-256": "584602d3cc3b89ad4bd6ecb9b391f50857cd9fa2d1f99f4cf191b90e1f3a2e4e"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/add-bank-card.html",
+      "修改时间": "2026-08-31T01:48:29.154Z",
+      "SHA-256": "91968cdfd578d79e858171e0a3a3336ba835ca66a2fcb018886f6ef7f0ec6cb4"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/fan-club-settings.html",
+      "修改时间": "2026-08-31T01:48:29.154Z",
+      "SHA-256": "0563f7f97941dcdcfb6ad6c10fb181202152e1a5bdc856fc807ab5aa2c2f93ae"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/fan-club.html",
+      "修改时间": "2026-08-31T01:48:29.154Z",
+      "SHA-256": "9acac6d4280d06123cb638a77f5b5eb94ece2f8cb66c492e1fdd0780f1656ee4"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/fan-list.html",
+      "修改时间": "2026-08-31T01:48:29.155Z",
+      "SHA-256": "6a9629fd4d93cd552fea90e62b1eaa6df4480831a2c4eda15fcaed89f3392839"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center-pending.html",
+      "修改时间": "2026-08-31T01:48:29.155Z",
+      "SHA-256": "ed284094d00464443994a575e99a5884ade487b05e4cde159c7edd89485b662c"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center.html",
+      "修改时间": "2026-08-31T01:48:29.155Z",
+      "SHA-256": "0ae81f0738ac4f0bf6b35813587274b7c87ca52223658b5eb22f65888834bdec"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-guild-notifications.html",
+      "修改时间": "2026-08-31T01:48:29.155Z",
+      "SHA-256": "67203032c390eea531bd5499f9e1fc6be9ab3d4620605ccfb585fb21aad519af"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/income-withdrawal.html",
+      "修改时间": "2026-08-31T01:48:29.156Z",
+      "SHA-256": "9748d142223d019dbb89c73c55207e74c3e83db2839dbf75bcbe3f65f41e5d2d"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-data.html",
+      "修改时间": "2026-08-31T01:48:29.156Z",
+      "SHA-256": "b3bbd1941b5f42a449f562d0e05891ec3a4a23d0848d726e4f8e84ae7af900dc"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-records.html",
+      "修改时间": "2026-08-31T01:48:29.156Z",
+      "SHA-256": "2c191aa0ebeb10ff5a6fc958640527a169092f16345fd341b141642e1d404d1b"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/moderator-management.html",
+      "修改时间": "2026-08-31T01:48:29.157Z",
+      "SHA-256": "c77f08ae7c6c7999c109e7078c0d8fdbb982751697c05c96ef592517580d9bb0"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/my-bank-cards.html",
+      "修改时间": "2026-08-31T01:48:29.157Z",
+      "SHA-256": "74e88786fb7b79796e1540baa6818df4e7408f95559ca0638e5b5f4e84321b4f"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/start-live-settings.html",
+      "修改时间": "2026-08-31T01:48:29.157Z",
+      "SHA-256": "beaf63128336c30ae2e96e9f1dcf506f91a21e70b2bc5d2388481f385eb8c513"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/withdrawal-application.html",
+      "修改时间": "2026-08-31T01:48:29.157Z",
+      "SHA-256": "f2fcacf880882698aba39079b086f525d50bb8d6b498268f50e1339fbcdf1515"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-host.html",
+      "修改时间": "2026-08-31T01:48:29.158Z",
+      "SHA-256": "f293b002b331a918e6ec2b106360ec5860f7da5022bb9ca05efffbdc504676b2"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-viewer.html",
+      "修改时间": "2026-08-31T01:48:29.158Z",
+      "SHA-256": "b96e1ff6a67f03429a07d6119c220cd5519ee252beac503fdc30190890333e21"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-cohost-active.html",
+      "修改时间": "2026-08-31T01:48:29.158Z",
+      "SHA-256": "1d0e414e724f1f4340374bf411a6a31bf0a9391e19be72a74d9a672d94529e44"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host-password.html",
+      "修改时间": "2026-08-31T01:48:29.159Z",
+      "SHA-256": "e49dd5deb65ae2b952ad6bf1d3e455d8308b4abdf4aa54e7fbc355798a653322"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host.html",
+      "修改时间": "2026-08-31T01:48:29.160Z",
+      "SHA-256": "aebfc99c263e1ee8cd1108390f83de6461056bd3d1b81663396bea2d2f823e0d"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-report.html",
+      "修改时间": "2026-08-31T01:48:29.160Z",
+      "SHA-256": "78c465e079329c50bd1b503101f321bd6e837c6bc1064364d8e356ebf875f218"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-user-report.html",
+      "修改时间": "2026-08-31T01:48:29.160Z",
+      "SHA-256": "f7cfba0d268391d312ea947a0f14d726c17f784502be816c89fbad453326a73c"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room.html",
+      "修改时间": "2026-08-31T01:48:29.160Z",
+      "SHA-256": "72b07df3b7c9f3f7d723aa2c06d902a8aea3c551ba7ac4a15b07f27388fc4110"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/blacklist-management.html",
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "6100b50a2edaca52ff11f7af4bf10380b70af37511a0db5cab17ae2403194570"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration-avatar-frame.html",
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "c65ce2c12163adbb5d3d7dea57ac4dad0891659433848c1563740af05e04f04f"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration-chat-bubble.html",
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "27c066d775de4b51f0f032ea20a78194fa2d3e9d0f567951f837a1e304c7c8de"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration-medal.html",
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "19c22efd36af5885b1979f2ad3150eed0eb3b21debf898746534d048145e1e18"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration.html",
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "5ffc061f8399567ec6a7735ce56e698b91409ac1a32aa11b68aa248b012ca6f7"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-following.html",
+      "修改时间": "2026-08-31T01:48:29.162Z",
+      "SHA-256": "0351bdb3cfa502704d95c3444895f2d2d94bc59b1f97550d7fdfdb78d9f2a87a"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-outfits.html",
+      "修改时间": "2026-08-31T01:48:29.162Z",
+      "SHA-256": "09b0241053afdad64a5fa508297b3f1e0a045522b71940b3aaf10556d491207c"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/profile-edit.html",
+      "修改时间": "2026-08-31T01:48:29.162Z",
+      "SHA-256": "62fb53e831fe3724d04e68a0b79760a968438ac9414f8216a62fb628817293e4"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/profile.html",
+      "修改时间": "2026-08-31T01:48:29.162Z",
+      "SHA-256": "bd41d732e3c6baaa7912658f307010498ba49df9e95f85471fe2d24797995510"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/settings.html",
+      "修改时间": "2026-08-31T01:48:29.163Z",
+      "SHA-256": "0a22419a9c5eba04856292b99780541c6f9b58d21cd18874c0d7e07990d243c3"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/chat-settings.html",
+      "修改时间": "2026-08-31T01:48:29.163Z",
+      "SHA-256": "1c29d07630b984b935d921c4becab835360f2af8565235c5e6669926352fafb8"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/direct-message.html",
+      "修改时间": "2026-08-31T01:48:29.163Z",
+      "SHA-256": "d73b840feb5c344238c963cda2af7ded5a04995f4b6a6d946a2ede85477743c2"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/fan-group-chat.html",
+      "修改时间": "2026-08-31T01:48:29.163Z",
+      "SHA-256": "303a639b11cebec963b751c1d019d3ec464e89f7b881827f2ed53edea26e0f50"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/friend-list.html",
+      "修改时间": "2026-08-31T01:48:29.164Z",
+      "SHA-256": "7b754c40b6dc24aded8e8d5a47f66d04bf688b495c2293b4271b82661b7c42c5"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/group-manage-member.html",
+      "修改时间": "2026-08-31T01:48:29.164Z",
+      "SHA-256": "b7a901ec9b72607a13fbda84707ab9ff62e8f31111c4fd9e45cb124a1fab0be5"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/group-manage-owner.html",
+      "修改时间": "2026-08-31T01:48:29.164Z",
+      "SHA-256": "cee52e65a755a4aee6053c0f28af7c126afcc6d3920fd307f419bb2360acf23e"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/host-gift-gallery.html",
+      "修改时间": "2026-08-31T01:48:29.164Z",
+      "SHA-256": "1a327a6761e78c616631e98b4b1da5e4f1f72efae3fbfaaa945d6f24bb4a3f75"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/host-home.html",
+      "修改时间": "2026-08-31T01:48:29.165Z",
+      "SHA-256": "41647b83a0cd25b0c13e31cfc635bd78dfa5408355bd3f4a5123c326ebb248b6"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/interaction-notifications.html",
+      "修改时间": "2026-08-31T01:48:29.165Z",
+      "SHA-256": "597d21bd4f20d3a31b160de698299857a05f16defef7024181afa96324210abe"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/message-center.html",
+      "修改时间": "2026-08-31T01:48:29.165Z",
+      "SHA-256": "67547b09973958fb6cc0accb03eb6e5ddd0aa6d27e5e73c40e6363fefa13ea28"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/system-notifications.html",
+      "修改时间": "2026-08-31T01:48:29.165Z",
+      "SHA-256": "535f43d1b661f8798aa04f84fca9ad6b70908baad32c8e378bae377faa7493a5"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/user-home.html",
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "c14006cfea899256f4519ced32156164c7978c40a44ef9cfa1053ee44cee2fde"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/balance-detail.html",
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/order-expense-detail.html",
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "607a491f9ca9ea62ce391a88bd40ca6b45f403902d8249661a5eab901a63b135"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/order-income-detail.html",
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "e60470d31a1444584352c58a92029120b691807ebe4a71363c8a161afef74a19"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/recharge.html",
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "b532101e37f5376679dd28401e4f1d901bee19dabe80ce7d866e62c2dc51a6fd"
+    },
+    {
+      "相对路径": "prototype/原型规范.md",
+      "修改时间": "2026-08-31T01:48:29.167Z",
+      "SHA-256": "cb40096d644d10f08cda06933b4679cd665aff78cd897779443e18412e0b9ceb"
+    },
+    {
+      "相对路径": "prototype/批注核对清单.md",
+      "修改时间": "2026-08-31T01:48:29.167Z",
+      "SHA-256": "927745f891a3d12471f62cd3b0a0d0d6327632c6ca79ef0f1bb89d6cbce1cea9"
+    },
+    {
+      "相对路径": "prototype/页面视图规范.md",
+      "修改时间": "2026-08-31T01:48:29.167Z",
+      "SHA-256": "2df50ad43b8262c850d829afb7080d257a1efdf9f5eba1c5cb9a7674a007ea39"
+    }
+  ],
+  "扫描范围": [
+    "用户/主播 App 全部 65 个页面",
+    "全部 context 文件",
+    "公共批注、Mock 与共享脚本",
+    "公会端入退会与主播权限依赖",
+    "管理后台配置、审核、风控、订单与结算依赖"
+  ],
+  "目标需求清单": [
+    "context/01-用户主播App-项目需求清单.md"
+  ],
+  "差异统计": {
+    "新增": 0,
+    "修改": 0,
+    "明确删除": 0,
+    "原型未覆盖": 75,
+    "来源冲突": 15,
+    "无法定位": 0
+  },
+  "需求清单变更日志编号": [],
+  "受影响用例": [
+    {
+      "范围": "用户App-直播模块-260901-004.xlsx / 旧 LIVE-253",
+      "状态": "应当废弃",
+      "原因": "连麦面板并非只展示收到的邀请"
+    },
+    {
+      "范围": "用户App-直播模块-260901-004.xlsx / 旧 LIVE-254",
+      "状态": "应当废弃",
+      "原因": "原型和共享脚本明确提供搜索、发起和取消邀请"
+    },
+    {
+      "范围": "用户App-直播模块-260901-004.xlsx 其他正式用例",
+      "状态": "继续有效并重新编号"
+    }
+  ],
+  "阻塞异常": [],
+  "同步摘要": [
+    "本次未修改 context 或 prototype。",
+    "完整读取全部用户端页面后，页面与需求章节均可定位。",
+    "旧版两条连麦主动入口误判已在新工作簿中移除并以正确用例替代。",
+    "线上提现与线下结算、账号拉黑关系、非好友私信等冲突进入需求待确认。"
+  ]
+}

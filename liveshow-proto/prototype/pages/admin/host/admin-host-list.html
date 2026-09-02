@@ -109,7 +109,6 @@
                 ><select class="admin-select" id="accountStatus">
                   <option value="">全部状态</option>
                   <option value="normal">正常</option>
-                  <option value="muted">禁言中</option>
                   <option value="banned">已封禁</option>
                 </select>
               </div>
@@ -236,7 +235,6 @@
         enabled: "已开通",
         disabled: "已关闭",
         normal: "正常",
-        muted: "禁言中",
         banned: "已封禁",
       };
       let visibleHosts = hosts,
@@ -407,19 +405,7 @@
                 required
               ></textarea>
             </div>
-            <div class="admin-form-row">
-              <label for="banDuration">封禁时长</label
-              ><select class="admin-select" id="banDuration" required>
-                <option value="">请选择</option>
-                <option>1 天</option>
-                <option>7 天</option>
-                <option>30 天</option>
-                <option>永久</option>
-              </select>
-            </div>
-            <div class="admin-note">
-              封禁后将关闭平台直播权限并锁定，同时暂停提现。
-            </div>`;
+            <div class="admin-note">封禁后账号将立即下线并禁止登录。</div>`;
         if (action === "unban")
           actionBody.innerHTML = `<p>${host.name}（${host.id}）</p><div class="admin-form-row"><label for="unbanReason">解封原因</label><textarea class="admin-textarea" id="unbanReason" required></textarea></div><div class="admin-note">解封仅恢复账号状态，直播权限需单独变更。</div>`;
         actionOverlay.classList.add("show");
@@ -576,7 +562,7 @@
           currentHost.violations += 1;
           record.violations.unshift({
             type: "严重违规",
-            action: `封禁 ${banDuration.value}`,
+            action: "封禁",
             reason,
             time,
           });

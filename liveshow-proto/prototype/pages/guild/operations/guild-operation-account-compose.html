@@ -1,67 +1,11 @@
 <!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>添加运营账号 · 公会 APP</title>
-    <script src="../../../assets/tailwind.js"></script>
-    <script src="../../../assets/tokens.js"></script>
-    <link rel="stylesheet" href="../../../assets/common.css" />
-    <link
-      rel="stylesheet"
-      href="../../../assets/guild.css?v=20260815-operation-account-page-v1"
-    />
-    <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
-    <script src="../../../assets/mock.js"></script>
-  </head>
-  <body>
-    <main class="guild-sub-screen">
-      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
-      <header class="guild-page-nav">
-        <a
-          class="guild-back"
-          href="guild-operation-accounts.html"
-          aria-label="返回运营账号"
-          >‹</a
-        >添加运营账号
-      </header>
-      <div class="guild-page-body">
-        <form id="accountForm">
-          <section class="guild-form-card">
-            <label class="guild-field"
-              ><span>选择成员</span
-              ><select id="member" required>
-                <option>Dimas · U88231506</option>
-                <option>Wulan · U88232016</option>
-              </select></label
-            ><label class="guild-field"
-              ><span>分配直播间</span
-              ><select id="room" required>
-                <option>暂不分配</option>
-                <option>Sari · LS260810001</option>
-                <option>Dewi · LS260810002</option>
-              </select></label
-            >
-          </section>
-          <button class="guild-primary-action" type="submit">确认添加</button>
-        </form>
-      </div>
-    </main>
-    <div class="guild-homebar"><i></i></div>
-    <script>
-      accountForm.onsubmit = (event) => {
-        event.preventDefault();
-        const result = new URLSearchParams({
-          action: "create",
-          member: member.value,
-          room: room.value,
-        });
-        location.href = `guild-operation-accounts.html?${result}`;
-      };
-      window.parent.postMessage(
-        { type: "luma-page", file: "guild-operation-account-compose.html" },
-        "*",
-      );
-    </script>
-  </body>
-</html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>创建运营账号 · 公会 APP</title><script src="../../../assets/tailwind.js"></script><script src="../../../assets/tokens.js"></script><link rel="stylesheet" href="../../../assets/common.css"><link rel="stylesheet" href="../../../assets/guild.css?v=20260829-operation-accounts-v8"><script src="../../../assets/common.js?v=20260829-operation-accounts-v3"></script><script src="../../../assets/operation-accounts.js?v=20260829-v4"></script></head>
+<body><main class="guild-sub-screen"><div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div><header class="guild-page-nav"><a class="guild-back" href="guild-operation-accounts.html">‹</a>创建运营账号</header><div class="guild-page-body"><form id="accountForm"><section class="guild-form-card">
+  <div class="guild-field"><span>头像</span><label class="guild-account-avatar-upload" for="avatarInput" aria-label="上传头像"><input id="avatarInput" type="file" accept="image/png,image/jpeg,image/webp" required><span id="avatarPreview"><b>＋</b></span></label></div>
+  <label class="guild-field"><span>名称</span><input id="name" value="Nadia Official" maxlength="30" required></label>
+  <label class="guild-field"><span>账号</span><input id="account" value="nadia_ops" maxlength="30" required><small class="guild-field-hint">账号只支持用户端进行邮箱登录</small></label>
+  <label class="guild-field"><span>初始密码</span><input id="password" value="123456" minlength="6" required></label>
+  <label class="guild-field"><span>发放金币</span><input id="coins" type="number" min="0" max="10000" value="0" required><small class="guild-field-hint"><span>最多可发放 </span><b id="maxCoinsHint">10.000</b><span> 金币</span></small></label>
+  <div class="guild-field guild-operation-create-status"><span>账号状态</span><div><button class="guild-inline-switch active" id="statusSwitch" type="button" role="switch" aria-label="账号状态" aria-checked="true"></button><b id="statusText">启用</b></div></div>
+</section><button class="guild-primary-action" type="submit">确认创建</button></form></div></main><div class="guild-homebar"><i></i></div>
+<script>const store=LUMA_OPERATION_ACCOUNTS,guild=store.guilds[0],maxGrant=Math.min(10000,guild.monthlyQuota-guild.issued);let enabled=true,avatarData='';function renderStatus(){statusSwitch.classList.toggle('active',enabled);statusSwitch.setAttribute('aria-checked',String(enabled));statusText.textContent=enabled?'启用':'禁用';statusText.classList.toggle('disabled',!enabled)}coins.max=maxGrant;maxCoinsHint.textContent=store.formatCoins(maxGrant);statusSwitch.onclick=()=>{enabled=!enabled;renderStatus()};avatarInput.onchange=()=>{const file=avatarInput.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{avatarData=reader.result;avatarPreview.innerHTML=`<img src="${avatarData}" alt="头像预览">`};reader.readAsDataURL(file)};accountForm.onsubmit=e=>{e.preventDefault();const amount=Number(coins.value);if(amount>maxGrant)return Luma.toast(`最多可发放 ${store.formatCoins(maxGrant)} 金币`);const query=new URLSearchParams({created:'1',name:name.value.trim(),account:account.value.trim(),coins:String(amount),status:enabled?'enabled':'disabled'});location.href=`guild-operation-accounts.html?${query}`};window.parent.postMessage({type:'luma-page',file:'guild-operation-account-compose.html'},'*');Luma.registerStates({'账号状态':{'启用':()=>{enabled=true;renderStatus()},'禁用':()=>{enabled=false;renderStatus()}}});</script></body></html>

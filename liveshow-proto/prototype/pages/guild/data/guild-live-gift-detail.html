@@ -96,42 +96,36 @@
           type: "普通礼物",
           userName: "Andi Pratama",
           userId: "U90328411",
-          level: "Lv.28",
         },
         {
           name: "音乐皇冠",
           type: "定制礼物",
           userName: "Nadia Putri",
           userId: "U90328176",
-          level: "Lv.24",
         },
         {
           name: "幸运礼盒",
           type: "幸运礼物",
           userName: "Rizky Maulana",
           userId: "U90327703",
-          level: "Lv.31",
         },
         {
           name: "玫瑰花束",
           type: "普通礼物",
           userName: "Siti Rahma",
           userId: "U90327125",
-          level: "Lv.18",
         },
         {
           name: "闪耀舞台",
           type: "定制礼物",
           userName: "Fajar Nugroho",
           userId: "U90326842",
-          level: "Lv.22",
         },
         {
           name: "咖啡",
           type: "普通礼物",
           userName: "Bima Saputra",
           userId: "U90326198",
-          level: "Lv.16",
         },
       ];
       const giftRatios = [0.28, 0.22, 0.18, 0.14, 0.1];
@@ -152,12 +146,18 @@
         0,
         session.coins - giftCoins.reduce((sum, value) => sum + value, 0),
       );
-      const giftRecords = giftProfiles.map((profile, index) => ({
-        ...profile,
-        id: `GF${session.id.slice(2)}${String(index + 1).padStart(2, "0")}`,
-        time: giftTime(8 + index * 11),
-        coins: giftCoins[index],
-      }));
+      const giftRecords = giftProfiles.map((profile, index) => {
+        const coins = giftCoins[index];
+        const quantity = [10, 5, 4, 2].find((value) => coins % value === 0) || 1;
+        return {
+          ...profile,
+          id: `GF${session.id.slice(2)}${String(index + 1).padStart(2, "0")}`,
+          time: giftTime(8 + index * 11),
+          coins,
+          unitPrice: coins / quantity,
+          quantity,
+        };
+      });
 
       const sessionFields = [
         ["直播主题", session.theme],
@@ -194,14 +194,15 @@
           ["赠送时间", record.time.display],
           ["礼物名称", record.name],
           [
-            "金币",
+            "消费金币",
             `${coinIcon}${LUMA_FORMAT.coins(record.coins)}`,
             "guild-gift-sheet-value guild-gift-coin-value",
           ],
-          ["类型", record.type],
+          ["礼物单价", `${coinIcon}${LUMA_FORMAT.coins(record.unitPrice)}`, "guild-gift-sheet-value guild-gift-coin-value"],
+          ["礼物类型", record.type],
+          ["赠送数量", LUMA_FORMAT.integer(record.quantity)],
           ["用户名称", record.userName],
           ["用户ID", record.userId],
-          ["用户等级", record.level],
         ];
         giftDetailGrid.innerHTML = fields
           .map(

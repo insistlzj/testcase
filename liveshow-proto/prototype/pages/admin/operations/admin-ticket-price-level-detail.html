@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>门票价格档位编辑 · 直播房型 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260827-ticket-price-v1"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
+        </div>
+        <nav class="admin-nav">
+          <a class="admin-nav-item" href="../user/admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../host/admin-host-list.html"
+            ><span>主播管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
+            ><span>公会管理</span><span>›</span></a
+          ><a class="admin-nav-item" href="../gifts/admin-gift-list.html"
+            ><span>礼物道具</span><span>›</span></a
+          ><button class="admin-nav-item active">
+            <span>运营配置</span><span>⌄</span>
+          </button>
+          <div class="admin-nav-submenu">
+            <a class="admin-nav-sub" href="admin-placement-config.html"
+              >展位配置</a
+            ><a class="admin-nav-sub" href="admin-push-management.html"
+              >推送管理</a
+            ><a class="admin-nav-sub" href="admin-recharge-package.html"
+              >充值套餐</a
+            ><a class="admin-nav-sub" href="admin-task-config.html">任务配置</a
+            ><a class="admin-nav-sub" href="admin-guild-recommendation.html"
+              >公会推荐</a
+            ><a class="admin-nav-sub" href="admin-live-type.html">直播类型</a
+            ><a class="admin-nav-sub active" href="admin-feature-switch.html"
+              >直播房型</a
+            ><a class="admin-nav-sub" href="admin-sensitive-words.html"
+              >敏感词库</a
+            >
+          </div>
+          <a
+            class="admin-nav-item"
+            href="../finance/admin-settlement-record.html"
+            ><span>财务分成</span><span>›</span></a
+          ><button class="admin-nav-item">
+            <span>数据分析</span><span>›</span></button
+          ><button class="admin-nav-item">
+            <span>系统配置</span><span>›</span>
+          </button>
+        </nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">
+            运营配置&nbsp;&nbsp;/&nbsp;&nbsp;直播房型&nbsp;&nbsp;/&nbsp;&nbsp;门票价格档位&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+              id="pageName"
+            ></strong>
+          </div>
+          <div class="admin-account">
+            <span class="admin-account-avatar">管</span><span>后台管理员</span
+            ><span>⌄</span>
+          </div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-ticket-price-level.html"
+            >‹ 返回门票价格档位</a
+          >
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2 id="formTitle"></h2></div>
+            <form class="admin-resource-form" id="levelForm">
+              <div class="admin-form-grid admin-basic-form-grid">
+                <div class="admin-form-row">
+                  <label>档位 ID</label>
+                  <div class="admin-readonly-value" id="levelId"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="price">门票价格</label>
+                  <div class="admin-setting-control">
+                    <input
+                      class="admin-input admin-number-input"
+                      id="price"
+                      type="number"
+                      min="1"
+                      step="1"
+                      required
+                    /><span>金币</span>
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="sort">排序</label
+                  ><input
+                    class="admin-input admin-number-input"
+                    id="sort"
+                    type="number"
+                    min="1"
+                    step="1"
+                    required
+                  />
+                </div>
+                <div class="admin-form-row">
+                  <label>启用状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch"
+                      ><input id="enabled" type="checkbox" /><span
+                        class="admin-switch-track"
+                      ></span></label
+                    ><span id="enabledText"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-modal-foot">
+                <a
+                  class="admin-btn secondary"
+                  href="admin-ticket-price-level.html"
+                  >取消</a
+                ><button class="admin-btn" type="submit">保存</button>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const storageKey = "luma-admin-ticket-price-levels-v1",
+        params = new URLSearchParams(location.search);
+      let isNew = params.get("new") === "1";
+      function sharedStorage() {
+        try {
+          return window.parent && window.parent !== window
+            ? window.parent.localStorage
+            : localStorage;
+        } catch (error) {
+          return localStorage;
+        }
+      }
+      function readLevels() {
+        try {
+          const saved = JSON.parse(
+            sharedStorage().getItem(storageKey) || "null",
+          );
+          if (Array.isArray(saved)) return saved;
+        } catch (error) {}
+        return LUMA_ADMIN_MOCK.ticketPriceLevels.map((entry) => ({ ...entry }));
+      }
+      function saveLevels() {
+        try {
+          sharedStorage().setItem(storageKey, JSON.stringify(levels));
+        } catch (error) {}
+      }
+      function nextId() {
+        const number =
+          Math.max(
+            0,
+            ...levels.map(
+              (entry) => Number(entry.id.replace(/\D/g, "")) || 0,
+            ),
+          ) + 1;
+        return `TP${String(number).padStart(3, "0")}`;
+      }
+      const levels = readLevels();
+      let item = isNew
+        ? {
+            id: "",
+            price: "",
+            sort: Math.max(0, ...levels.map((entry) => entry.sort)) + 1,
+            enabled: true,
+            operator: "后台管理员",
+            updatedAt: "",
+          }
+        : levels.find((entry) => entry.id === params.get("id")) || levels[0];
+      function syncEnabled() {
+        enabledText.textContent = enabled.checked ? "启用" : "停用";
+      }
+      function render() {
+        const title = isNew ? "新增价格档位" : "编辑价格档位";
+        pageName.textContent = title;
+        formTitle.textContent = title;
+        levelId.textContent = isNew ? "保存后由系统生成" : item.id;
+        price.value = item.price;
+        sort.value = item.sort;
+        enabled.checked = item.enabled;
+        syncEnabled();
+      }
+      enabled.onchange = syncEnabled;
+      levelForm.onsubmit = (event) => {
+        event.preventDefault();
+        const nextPrice = Number(price.value),
+          nextSort = Number(sort.value),
+          repeated = levels.some(
+            (entry) => entry.id !== item.id && entry.price === nextPrice,
+          );
+        if (!Number.isInteger(nextPrice) || nextPrice < 1)
+          return Luma.toast("门票价格必须为正整数");
+        if (repeated) return Luma.toast("该门票价格档位已存在");
+        if (!Number.isInteger(nextSort) || nextSort < 1)
+          return Luma.toast("排序必须为正整数");
+        if (
+          !enabled.checked &&
+          item.enabled &&
+          levels.filter((entry) => entry.id !== item.id && entry.enabled)
+            .length === 0
+        )
+          return Luma.toast("门票房至少保留一个启用档位");
+        const created = isNew;
+        Object.assign(item, {
+          id: created ? nextId() : item.id,
+          price: nextPrice,
+          sort: nextSort,
+          enabled: enabled.checked,
+          operator: "后台管理员",
+          updatedAt: "27/8/2026 11.30",
+        });
+        if (created) {
+          levels.push(item);
+          isNew = false;
+          history.replaceState(
+            null,
+            "",
+            `admin-ticket-price-level-detail.html?id=${item.id}`,
+          );
+        }
+        saveLevels();
+        render();
+        Luma.toast(created ? "价格档位已新增" : "价格档位已保存");
+      };
+      render();
+      window.parent.postMessage(
+        {
+          type: "luma-page",
+          file: "admin-ticket-price-level-detail.html",
+          query: location.search,
+        },
+        "*",
+      );
+    </script>
+  </body>
+</html>

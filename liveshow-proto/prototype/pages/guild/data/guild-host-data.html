@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../../assets/common.css" />
     <link
       rel="stylesheet"
-      href="../../../assets/guild.css?v=20260820-fiat-values-v1"
+      href="../../../assets/guild.css?v=20260829-filter-zone-v1"
     />
     <link
       rel="stylesheet"
@@ -37,10 +37,11 @@
           id="summaryCard"
           aria-label="主播直播记录"
         >
-          <div class="guild-record-overview-host-filter">
-            <a id="hostSwitchLink" href="guild-violation-host-select.html"></a>
-          </div>
-          <div class="guild-host-record-filters">
+          <div class="guild-filter-zone">
+            <div class="guild-record-overview-host-filter">
+              <a id="hostSwitchLink" href="guild-violation-host-select.html"></a>
+            </div>
+            <div class="guild-host-record-filters">
             <button
               class="guild-host-range-trigger"
               id="rangePickerButton"
@@ -114,6 +115,7 @@
               >
                 自定义
               </button>
+            </div>
             </div>
           </div>
           <div class="guild-host-record-summary" id="summaryMetrics"></div>

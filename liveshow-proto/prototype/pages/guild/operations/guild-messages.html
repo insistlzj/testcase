@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="../../../assets/common.css" />
     <link
       rel="stylesheet"
-      href="../../../assets/guild.css?v=20260824-message-range-v1"
+      href="../../../assets/guild.css?v=20260829-filter-zone-v1"
     />
     <link
       rel="stylesheet"
       href="../../../assets/guild-core-data.css?v=20260824-message-range-v1"
     />
     <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
+    <script src="../../../assets/guild-date-range.js?v=20260829-v1"></script>
     <script src="../../../assets/mock.js?v=20260818-person-id-v1"></script>
   </head>
   <body>
@@ -29,7 +30,7 @@
         >
       </header>
       <div class="guild-page-body">
-        <div class="guild-host-summary-filterbar guild-message-range-filter">
+        <div class="guild-host-summary-filterbar guild-message-range-filter guild-filter-zone">
           <button
             class="guild-host-summary-range"
             id="messageRangeButton"
@@ -56,30 +57,7 @@
       </div>
     </main>
     <div class="guild-homebar"><i></i></div>
-    <div class="guild-confirm-mask state-hide" id="messageRangeDialog">
-      <section
-        class="guild-confirm-dialog guild-message-range-dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="messageRangeTitle"
-      >
-        <h2 id="messageRangeTitle">选择日期范围</h2>
-        <div class="guild-message-range-fields">
-          <label
-            >开始日期<input
-              id="startDate"
-              type="date"
-              value="2026-08-01" /></label
-          ><label
-            >结束日期<input id="endDate" type="date" value="2026-08-24"
-          /></label>
-        </div>
-        <div class="guild-confirm-actions">
-          <button id="cancelRange" type="button">取消</button
-          ><button class="primary" id="confirmRange" type="button">确定</button>
-        </div>
-      </section>
-    </div>
+    <div id="rangeSheet"></div>
     <script>
       const seed = [
         {
@@ -123,6 +101,18 @@
       }
       let rangeStart = "2026-08-01",
         rangeEnd = "2026-08-24";
+      const rangePicker = LumaGuildDateRange.create({
+        mask: rangeSheet,
+        start: rangeStart,
+        end: rangeEnd,
+        minDate: "2026-01-01",
+        maxDate: "2026-08-29",
+        onConfirm: (start, end) => {
+          rangeStart = start;
+          rangeEnd = end;
+          render();
+        },
+      });
       function render() {
         messageRangeValue.textContent = `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
         messageRangeButton.setAttribute(
@@ -144,36 +134,13 @@
               .join("")
           : '<div class="guild-page-empty"><b>暂无消息</b><span>当前日期范围内没有发送记录</span></div>';
       }
-      function closeRangeDialog() {
-        messageRangeDialog.classList.add("state-hide");
-      }
-      messageRangeButton.onclick = () => {
-        startDate.value = rangeStart;
-        endDate.value = rangeEnd;
-        messageRangeDialog.classList.remove("state-hide");
-      };
+      messageRangeButton.onclick = rangePicker.open;
       thisMonthButton.onclick = () => {
         rangeStart = "2026-08-01";
         rangeEnd = "2026-08-24";
+        rangePicker.setRange(rangeStart, rangeEnd);
         render();
       };
-      cancelRange.onclick = closeRangeDialog;
-      messageRangeDialog.onclick = (event) => {
-        if (event.target === messageRangeDialog) closeRangeDialog();
-      };
-      confirmRange.onclick = () => {
-        if (!startDate.value || !endDate.value)
-          return Luma.toast("请选择完整日期范围");
-        if (startDate.value > endDate.value)
-          return Luma.toast("结束日期不能早于开始日期");
-        rangeStart = startDate.value;
-        rangeEnd = endDate.value;
-        closeRangeDialog();
-        render();
-      };
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeRangeDialog();
-      });
       render();
       window.parent.postMessage(
         { type: "luma-page", file: "guild-messages.html" },

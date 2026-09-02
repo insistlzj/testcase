@@ -1,0 +1,352 @@
+{
+  "项目名称": "Luma Live",
+  "来源策略": "prototype-primary",
+  "同步状态": "有非阻塞待确认",
+  "执行时间": "2026-09-01T11:36:27+08:00",
+  "原型基线": [
+    {
+      "相对路径": "prototype/Luma Live-原型说明.md",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "db96e32c1f7cbbf0638a8daf6de0e97c66f5874a942423f14fd403541f904724"
+    },
+    {
+      "相对路径": "prototype/index.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "a21ae7398b215ace03275f116c926ecb07526d85b62aca8823c960b29b40e0bc"
+    },
+    {
+      "相对路径": "prototype/assets/annotations.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "977d534fe16237db6c28db6bf6cd30acd4d07650b992743a20ae0e2f251d5a53"
+    },
+    {
+      "相对路径": "prototype/assets/common.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "bd5f519fa6e614525038f903716e48830dfdc4b9b616befd42094532bd1ea9c2"
+    },
+    {
+      "相对路径": "prototype/assets/mock.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "89be5292b2862865ca970383ae1351248e7915f074fc9548b29c35adf4924abf"
+    },
+    {
+      "相对路径": "prototype/assets/live-muted-users.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "c54d29eb6ff959390b316cc337f90eee24baa63765352931b5a75edd84943dcc"
+    },
+    {
+      "相对路径": "prototype/assets/start-live-config.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "c9648538539c3e50a44caf48dd500985163e6e76e80c3c06001b57c76bf55a23"
+    },
+    {
+      "相对路径": "context/系统概要 .md",
+      "修改时间": "2026-08-31T18:30:48+08:00",
+      "SHA-256": "60c0d176ca8282e3349543b4d4e0adf4f5c4e0cad4341295ceb0ecbf261e1a49"
+    },
+    {
+      "相对路径": "context/01-用户主播App-项目需求清单.md",
+      "修改时间": "2026-08-31T09:59:55+08:00",
+      "SHA-256": "833393cd859b965c900fbd04a0ca9c71ce042320d55455c4de9948791916dee1"
+    },
+    {
+      "相对路径": "context/02-公会App-项目需求清单.md",
+      "修改时间": "2026-08-31T11:24:28+08:00",
+      "SHA-256": "8d91854d557839b962c773100c784217591729e026eb9b2acc4c99a5717e3db2"
+    },
+    {
+      "相对路径": "context/03-管理后台-项目需求清单.md",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "3edc263129da295dc0a85a973d2e2a1c86b674956d0f669cc43f198432ddd2fb"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/live-plaza.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "3331a090d1936ad0765ec6957df1270d9fcb223a0b8b26b765f58f7b6ea05e4c"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "0ae81f0738ac4f0bf6b35813587274b7c87ca52223658b5eb22f65888834bdec"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-data.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "b3bbd1941b5f42a449f562d0e05891ec3a4a23d0848d726e4f8e84ae7af900dc"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-records.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "2c191aa0ebeb10ff5a6fc958640527a169092f16345fd341b141642e1d404d1b"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/start-live-settings.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "beaf63128336c30ae2e96e9f1dcf506f91a21e70b2bc5d2388481f385eb8c513"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-host.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "f293b002b331a918e6ec2b106360ec5860f7da5022bb9ca05efffbdc504676b2"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-viewer.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "b96e1ff6a67f03429a07d6119c220cd5519ee252beac503fdc30190890333e21"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-cohost-active.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "1d0e414e724f1f4340374bf411a6a31bf0a9391e19be72a74d9a672d94529e44"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host-password.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "e49dd5deb65ae2b952ad6bf1d3e455d8308b4abdf4aa54e7fbc355798a653322"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "aebfc99c263e1ee8cd1108390f83de6461056bd3d1b81663396bea2d2f823e0d"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-report.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "78c465e079329c50bd1b503101f321bd6e837c6bc1064364d8e356ebf875f218"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-user-report.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "f7cfba0d268391d312ea947a0f14d726c17f784502be816c89fbad453326a73c"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "72b07df3b7c9f3f7d723aa2c06d902a8aea3c551ba7ac4a15b07f27388fc4110"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-management.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "053cdb112c6c1a2bbd04f7639a126ae1ee78ccfbf7ee574ab7da8ad291ddc38d"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-detail.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "054538d6af4f4c636f27952ee51bdda6f9ad740de83e905e7dacd4ab167f26d4"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-handling.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "731e83acb998032d756f8e8f772fbf54e96aae3da52d9cb0c61186c428c61d66"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-detail.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "a90479193e808ccb45a1ce83a8538ce9164b0c227f6e5d1b3960f22d3a7f49f6"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-live-type.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "2251c4d8806f550b660c718e69ddabd2d9d53bba931c4166e670a44a778dbaa0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "83032fab0db3e3ae77391c66d455cc351089e86c474c7264dcecef0d3456aacd"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch-detail.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "abe89a8e9b9a433cebbbb17c6a9b1621d2817c98b7f98e0ad1f5d4a8b4b6dca0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "90530695c657c973a9a5cd414940f0cc92c4fddee3156c5f40e86108abe99efb"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "d084cab3970cf3512564f6ab79bfcb65745b396e40212f9c2230d53398791ef4"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "e86b0df7b25735c32148155e09e72f2fe4d32b452300c0365de4cb254b08b427"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "ef1f16f08c5d999cb681f58cfcf87f21d41945b5b89acf7f1398ef151aa9bfc0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-list.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "c848047178708a472f11c0c9a201a32bb33075acc021ff02043bed2089848728"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-detail.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "108444d39d4bfbb8a9c2000569f324cbe2b62f099e675fa45d7ba4d3abd043d3"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "9eb2e695eb46e862d51c00ec6c23e8be297bd502dff48e0171dd3c93e0398088"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "32adab0f21d784627e396f375d67ae936a5a5846e0c0a23cba098ab3d30033ce"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-accounts.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "880989a5940a87d7c206a90aa8995569a0f5027d25c207b968e753e27134a876"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-gift-records.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "871b85a37c4789f11bd2f1222177657572634784c0840207ce3b759406416c72"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-host-detail.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "9ba7f620cc98b21c5ab9a4e3683b452b76dce763dd5e339c0c34e6fbee796464"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-all-live.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "f7b0b3166efe2f0e06fdb5477df8a059f40f2fdf3cc2a0969585e997cdf1fac5"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-host-data.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "f0ad36b52b13cc9a647934d63c6e00c9c34e6bc38b61f07cbec1252f4bac25e9"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-live-gift-detail.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "c6dabdd4483079e4c36b391580480d0cd0c2a8a7b32d9cb824c1ab55b2466aee"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-accounts.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "c311bae5e9a1aa48546baf47b7321ac4241a351e6202137162856fd1c6c3b7b3"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-gift-records.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "bd60d716b24a1ccb13a698e8deaadaeb9cdade44c2a6e1937436febb215734c2"
+    }
+  ],
+  "扫描范围": [
+    "用户 App / 直播广场",
+    "用户 App / 普通房、门票房、密码房进房",
+    "用户 App / 观众直播间、主播直播间、房管协助管理",
+    "用户 App / 连麦、举报、开播设置、结束直播",
+    "用户 App / 主播中心直播记录、直播数据入口",
+    "公共批注、公共 Mock、共享交互、直播禁言和开播配置",
+    "管理后台 / 直播房型、直播类型、门票价格、敏感词、礼物、举报、直播处置、运营账号",
+    "公会 App / 主播直播权限、直播记录、运营账号及虚拟送礼"
+  ],
+  "目标需求清单": [
+    "context/01-用户主播App-项目需求清单.md",
+    "context/系统概要 .md（全局关联规则）",
+    "context/02-公会App-项目需求清单.md（仅作关联证据）",
+    "context/03-管理后台-项目需求清单.md（仅作关联证据）"
+  ],
+  "差异统计": {
+    "新增": 0,
+    "修改": 0,
+    "明确删除": 0,
+    "原型未覆盖": 6,
+    "来源冲突": 3,
+    "无法定位": 0
+  },
+  "需求清单变更日志编号": [
+    "RSL-0002",
+    "RSL-0003"
+  ],
+  "同步摘要": [
+    "本次未修改 context 需求清单；保留幸运礼物返奖档位和概率规则。",
+    "派生需求写明用户App礼物面板或详情展示概率与奖励档位，但当前审核通过的用户App原型没有对应入口，新增为非阻塞的原型未覆盖项。",
+    "按 RCL-0022 将系统规则、目标端入口和目标端可观察结果分层：移出 3 条无入口正式用例，保留 2 条余额结果用例，新增 Q-039 组和 Q-040。",
+    "规则文件发生变化，当前任务按组合方案执行 full 全量扫描，不复用旧规则基线。",
+    "本次复核未发现当前原型与派生需求清单之间需要再次写入的差异。",
+    "直播记录规则已由前序同步 RSL-0003 写入需求清单，本次直接纳入完整直播模块。",
+    "页面默认示例日期与批注“默认近 7 天”的差异按 RCL-0019 使用批注，不计来源冲突。",
+    "本次原型、需求和全局证据与 003 缓存一致，按组合方案执行 incremental 增量生成。",
+    "新增《系统概要》纳入全局证据；对其中与原型批注冲突的举报工单生命周期、账号拉黑好友关系和粉丝团关系，按 prototype-primary 采用原型批注。",
+    "用户 App 固定赠送数量菜单与管理后台购买份数配置的来源关系不明确，保留原型现状用例并新增 Q-037 重审项。",
+    "修复 1 组重复用例标题和 2 组重复验证点名称，并增加标题与验证点名称唯一性校验。"
+  ],
+  "前序同步变更": {
+    "日志编号": "RSL-0003",
+    "新增": 1,
+    "修改": 1,
+    "明确删除": 0
+  },
+  "受影响用例": [
+    {
+      "范围": "用户App-直播模块-260829-003.xlsx",
+      "状态": "继续有效",
+      "数量": 267
+    },
+    {
+      "范围": "用户App-直播模块-260829-003.xlsx / LIVE-262",
+      "状态": "已被替代",
+      "数量": 1
+    },
+    {
+      "范围": "用户App-直播记录模块-260831-002.xlsx",
+      "状态": "继续有效并合入本次模块",
+      "数量": 54
+    },
+    {
+      "范围": "用户App-直播模块-260831-002.xlsx / 删除来源依赖",
+      "状态": "需要重审",
+      "数量": 99
+    },
+    {
+      "范围": "用户App-直播模块-260831-002.xlsx / LIVE-165 至 LIVE-169",
+      "状态": "已被替代",
+      "数量": 5
+    },
+    {
+      "范围": "用户App-直播模块-260831-003.xlsx / LIVE-014、LIVE-033、LIVE-044、LIVE-241、LIVE-245、LIVE-313",
+      "状态": "需要重审",
+      "数量": 6
+    },
+    {
+      "范围": "用户App 直播模块历史 Excel",
+      "状态": "应当废弃",
+      "数量": 0
+    },
+    {
+      "范围": "用户App-直播模块-260831-001.xlsx / LIVE-090 至 LIVE-091",
+      "状态": "需要重审",
+      "数量": 2
+    },
+    {
+      "范围": "用户App-直播模块-260831-004.xlsx / LIVE-352、LIVE-353、LIVE-356",
+      "状态": "已被替代",
+      "数量": 3
+    },
+    {
+      "范围": "用户App-直播模块-260831-004.xlsx / LIVE-354 至 LIVE-355",
+      "状态": "继续有效",
+      "数量": 2
+    }
+  ],
+  "阻塞异常": [],
+  "非阻塞待确认": [
+    "直播记录入口和单场记录后续查看方式",
+    "直播记录日期时区、观众人数与收礼数量统计口径",
+    "结束直播后的记录可查询时效与异常结束记录生成规则",
+    "大量历史记录加载和保留期限",
+    "礼物赠送数量由用户 App 固定菜单还是管理后台购买份数配置决定",
+    "用户App是否提供幸运礼物规则入口、入口位置及展示内容",
+    "用户App是否提供逐个开奖结果明细"
+  ]
+}

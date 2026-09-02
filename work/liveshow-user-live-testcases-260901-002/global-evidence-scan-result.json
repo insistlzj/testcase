@@ -1,0 +1,3453 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "项目目录": "liveshow-proto",
+  "测试范围": {
+    "目标端": "用户App",
+    "功能模块": "直播模块",
+    "UI视觉测试": false,
+    "其他端用途": "仅作为规则来源、配置来源、状态影响和下游结果证据"
+  },
+  "扫描模式": "full",
+  "模式依据": [
+    "AGENTS.md 和 Cem Kaner.txt 新增 RCL-0023 业务对象名称优先与数据别名解释规则，规则基线变化触发全量扫描。",
+    "继续执行 RCL-0022 目标端可执行性与规则归属门禁，并重新核对幸运礼物的系统概要、派生需求、用户App共享交互、直播间动态状态和批注。"
+  ],
+  "上次缓存": {
+    "存在": true,
+    "状态": "有非阻塞待确认",
+    "项目指纹": "43cc8e6f7daefc3a66d066e8e01edc4286f0e3cf146d98c2bb2111b1e0d53a43"
+  },
+  "规则基线": [
+    {
+      "相对路径": "AGENTS.md",
+      "SHA-256": "dc10d3f9b07b4424aa0071c76ac4f193e1fe9c7ef0d57587941b169d26edb228"
+    },
+    {
+      "相对路径": "Cem Kaner.txt",
+      "SHA-256": "2878f7aca85ca0f83d10d5a8e75339be4595f84079eead4d7e0789406128dd8d"
+    },
+    {
+      "相对路径": "全局证据扫描指令.md",
+      "SHA-256": "e31bdd612b8da01ea20131c4c1330cf60fa607bdd914cd9c7f4738a4cbc8bc8d"
+    },
+    {
+      "相对路径": "原型与需求清单同步指令.md",
+      "SHA-256": "b1ff7618203e7f838265ef019023e4f68ded0a734d21301d9965a8bae1af5a03"
+    }
+  ],
+  "项目指纹": "43cc8e6f7daefc3a66d066e8e01edc4286f0e3cf146d98c2bb2111b1e0d53a43",
+  "文件清单": [
+    {
+      "相对路径": ".gitignore",
+      "文件大小": 34,
+      "修改时间": "2026-08-31T01:48:29.087Z",
+      "SHA-256": "6f8864e708e65fb8542c7761e3112d50abeb79af40ed1143d2b84391a22b07ca",
+      "文件类别": "项目规则与说明"
+    },
+    {
+      "相对路径": "项目说明.md",
+      "文件大小": 3894,
+      "修改时间": "2026-08-31T01:48:29.169Z",
+      "SHA-256": "753eb0d741c49fc96241c4e2d5eec6f5b18745ece164c0f0a11011beb56c2a6d",
+      "文件类别": "项目规则与说明"
+    },
+    {
+      "相对路径": "需求来源策略.json",
+      "文件大小": 385,
+      "修改时间": "2026-08-31T01:59:55.350Z",
+      "SHA-256": "fcf5e0c4053e83f126cc9d4967c21198e7c7785c9da1af02ef898c5143baa1be",
+      "文件类别": "项目规则与说明"
+    },
+    {
+      "相对路径": "移动端原型-配色规范.md",
+      "文件大小": 4876,
+      "修改时间": "2026-08-31T01:48:29.168Z",
+      "SHA-256": "b782c5ccaecde58a693b292095e789537d218cc6e58d5832b90f90fb0822b0bb",
+      "文件类别": "项目规则与说明"
+    },
+    {
+      "相对路径": "用户APP原型分析报告-2026-08-08.md",
+      "文件大小": 8999,
+      "修改时间": "2026-08-31T01:48:29.168Z",
+      "SHA-256": "6010476edb53cb6db2066a1275d9a746ad3e5cce3d66f7ba1ee1ad08cb699c09",
+      "文件类别": "项目规则与说明"
+    },
+    {
+      "相对路径": "AGENTS.md",
+      "文件大小": 8448,
+      "修改时间": "2026-08-31T01:48:29.087Z",
+      "SHA-256": "514d8de94e7aef8be27529d93c30f0dfdc31712baca45e6fe32ffe8e606c388f",
+      "文件类别": "项目规则与说明"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dazz Chat/screenshot-01.webp",
+      "文件大小": 50338,
+      "修改时间": "2026-08-31T01:48:29.088Z",
+      "SHA-256": "dd20da3f4b8229b0b2e0e170c515d6d95e5eb566676088c67178fd46b84e6be0",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dazz Chat/screenshot-02.webp",
+      "文件大小": 38766,
+      "修改时间": "2026-08-31T01:48:29.089Z",
+      "SHA-256": "d8eb176fc7c642cd300f5877fe312adde1042ab3654b03ed18a3f4f02ae085de",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dazz Chat/screenshot-03.webp",
+      "文件大小": 39126,
+      "修改时间": "2026-08-31T01:48:29.089Z",
+      "SHA-256": "f5df1d859563c7e1b7a1c00b76fbcc2a9bc7c188c01748e8f11c80124bba0de3",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dazz Chat/screenshot-04.webp",
+      "文件大小": 42242,
+      "修改时间": "2026-08-31T01:48:29.090Z",
+      "SHA-256": "35d4acc338f9dcd87d39b6419c0e68b36f9cbe6b4a7c47bc812d1c1672498703",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dreamlike Video Chat/screenshot-01.webp",
+      "文件大小": 65388,
+      "修改时间": "2026-08-31T01:48:29.090Z",
+      "SHA-256": "8b566506f2e2cfee8cad9531d1f42f4ef0854a2638c15d678dabac33c8676ca9",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dreamlike Video Chat/screenshot-02.webp",
+      "文件大小": 55490,
+      "修改时间": "2026-08-31T01:48:29.090Z",
+      "SHA-256": "1bc505b1af0df0233cabf15693d07198a9d3645de3be538016df344546b17665",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dreamlike Video Chat/screenshot-03.webp",
+      "文件大小": 45912,
+      "修改时间": "2026-08-31T01:48:29.091Z",
+      "SHA-256": "edfc7e5878b4dc443f1203d828e6a43f8613e32d908d64d4c51943428f4b6e56",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dreamlike Video Chat/screenshot-04.webp",
+      "文件大小": 59154,
+      "修改时间": "2026-08-31T01:48:29.091Z",
+      "SHA-256": "6dda426d2227ce30c406e48a7dd8ee9b217dc1bb5eeca9536f8eea91ae26b2d7",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Mango Live/screenshot-01.webp",
+      "文件大小": 50890,
+      "修改时间": "2026-08-31T01:48:29.092Z",
+      "SHA-256": "cf753a6a3d806b23ef9a7ef9baa882c146ca7908ae9075f8c75e0d6659baff0a",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Mango Live/screenshot-02.webp",
+      "文件大小": 65720,
+      "修改时间": "2026-08-31T01:48:29.092Z",
+      "SHA-256": "d653a4c7726a17fa8dbddac7f9fbd2ece155e641fbb0e5a4858ffb8239c668f6",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Mango Live/screenshot-03.webp",
+      "文件大小": 75158,
+      "修改时间": "2026-08-31T01:48:29.092Z",
+      "SHA-256": "b37e354e9a70fef075f6ceb45171a6fd017b48f070fb2cd03e348cc7eab8d8e7",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Mango Live/screenshot-04.webp",
+      "文件大小": 72712,
+      "修改时间": "2026-08-31T01:48:29.093Z",
+      "SHA-256": "e852129fb2f81ac82f9212ed8c9c11428da7db7a988daad35f9b78661bdf6dab",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Momo Live/screenshot-01.webp",
+      "文件大小": 64104,
+      "修改时间": "2026-08-31T01:48:29.094Z",
+      "SHA-256": "7af361fb67a4d17bab2ffbe339d853b7625e9352ae90fd5b9bdb898f910ba437",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Momo Live/screenshot-02.webp",
+      "文件大小": 74568,
+      "修改时间": "2026-08-31T01:48:29.094Z",
+      "SHA-256": "9e8036527302951079021c41bb07d548f7e95d59407f0e50408bca755844c15a",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Momo Live/screenshot-03.webp",
+      "文件大小": 78010,
+      "修改时间": "2026-08-31T01:48:29.094Z",
+      "SHA-256": "5701a9d03de516560761e10e592d65e5eacc833a1ee4c81c920f87b320171d71",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "app-store-screenshots/Momo Live/screenshot-04.webp",
+      "文件大小": 70400,
+      "修改时间": "2026-08-31T01:48:29.095Z",
+      "SHA-256": "d7e46966776930a5a11cb25a725f466e3eef1cb4ad53c48880db8a9f9754bdeb",
+      "文件类别": "竞品截图"
+    },
+    {
+      "相对路径": "APP一级页面 .html",
+      "文件大小": 31039,
+      "修改时间": "2026-08-31T01:48:29.088Z",
+      "SHA-256": "9aa193f61eda0a8ce203b10a847d85a0673fa001e3f44f7787efd7a0c466cf32",
+      "文件类别": "项目规则与说明"
+    },
+    {
+      "相对路径": "CLAUDE.md",
+      "文件大小": 10,
+      "修改时间": "2026-08-31T01:48:29.088Z",
+      "SHA-256": "918b1c90559355ef78f33fdf3562f2b021ef8bdfd8a5c8415e5decd44934de55",
+      "文件类别": "项目规则与说明"
+    },
+    {
+      "相对路径": "context/.DS_Store",
+      "文件大小": 6148,
+      "修改时间": "2026-08-31T10:41:45.712Z",
+      "SHA-256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "文件类别": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/01-用户主播App-项目需求清单.md",
+      "文件大小": 17198,
+      "修改时间": "2026-08-31T01:59:55.360Z",
+      "SHA-256": "833393cd859b965c900fbd04a0ca9c71ce042320d55455c4de9948791916dee1",
+      "文件类别": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/01-用户主播App-页面架构.md",
+      "文件大小": 8954,
+      "修改时间": "2026-08-31T01:48:29.097Z",
+      "SHA-256": "b97a7ae6c2ed345e8bea0ada8684764467b302217d0bf30610f0f67e4724604d",
+      "文件类别": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/02-公会App-项目需求清单.md",
+      "文件大小": 6881,
+      "修改时间": "2026-08-31T03:24:28.219Z",
+      "SHA-256": "8d91854d557839b962c773100c784217591729e026eb9b2acc4c99a5717e3db2",
+      "文件类别": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/03-管理后台-项目需求清单.md",
+      "文件大小": 10001,
+      "修改时间": "2026-08-31T01:48:29.097Z",
+      "SHA-256": "3edc263129da295dc0a85a973d2e2a1c86b674956d0f669cc43f198432ddd2fb",
+      "文件类别": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/系统概要 .md",
+      "文件大小": 17898,
+      "修改时间": "2026-08-31T10:30:48.245Z",
+      "SHA-256": "60c0d176ca8282e3349543b4d4e0adf4f5c4e0cad4341295ceb0ecbf261e1a49",
+      "文件类别": "需求与业务上下文"
+    },
+    {
+      "相对路径": "export-admin-prototype.mjs",
+      "文件大小": 6046,
+      "修改时间": "2026-08-31T01:48:29.099Z",
+      "SHA-256": "c33d4dc2538f8edde4001b6c6d95ecea57b6228caec8c31c087dc4098a008fb2",
+      "文件类别": "项目规则与说明"
+    },
+    {
+      "相对路径": "prototype/批注核对清单.md",
+      "文件大小": 4601,
+      "修改时间": "2026-08-31T01:48:29.167Z",
+      "SHA-256": "927745f891a3d12471f62cd3b0a0d0d6327632c6ca79ef0f1bb89d6cbce1cea9",
+      "文件类别": "原型说明与入口"
+    },
+    {
+      "相对路径": "prototype/页面视图规范.md",
+      "文件大小": 1382,
+      "修改时间": "2026-08-31T01:48:29.167Z",
+      "SHA-256": "2df50ad43b8262c850d829afb7080d257a1efdf9f5eba1c5cb9a7674a007ea39",
+      "文件类别": "原型说明与入口"
+    },
+    {
+      "相对路径": "prototype/原型规范.md",
+      "文件大小": 607,
+      "修改时间": "2026-08-31T01:48:29.167Z",
+      "SHA-256": "cb40096d644d10f08cda06933b4679cd665aff78cd897779443e18412e0b9ceb",
+      "文件类别": "原型说明与入口"
+    },
+    {
+      "相对路径": "prototype/assets/admin-account-balance-page.js",
+      "文件大小": 16855,
+      "修改时间": "2026-08-31T01:48:29.100Z",
+      "SHA-256": "f7fa0143d0e859022567f2f9dc08106348680709cc1f666c63e83176d6fa1d37",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/admin-finance-reconciliation-page.js",
+      "文件大小": 13394,
+      "修改时间": "2026-08-31T01:48:29.100Z",
+      "SHA-256": "52aee0b6356366119fc2b7e65db3e0df8413d6aede8f1f8731cc54cc58539d37",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/admin-mock.js",
+      "文件大小": 136241,
+      "修改时间": "2026-08-31T01:48:29.101Z",
+      "SHA-256": "a10007c6b685109c152d90575d6c9f5cabd44f78ee319addfb8988905ff0a2c6",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/admin-reporting.js",
+      "文件大小": 15778,
+      "修改时间": "2026-08-31T01:48:29.101Z",
+      "SHA-256": "afba2a0df2d4813f63704ae48eae9f9a40a26b32b143625df0223f374a15af04",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/admin-settlement-upload-page.js",
+      "文件大小": 17386,
+      "修改时间": "2026-08-31T01:48:29.102Z",
+      "SHA-256": "7f537fa939f7bc9a5ff9b529d82f23175a82015d64f8e6ac33d5d7d635ae259b",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/admin-statistics-page.js",
+      "文件大小": 10798,
+      "修改时间": "2026-08-31T01:48:29.102Z",
+      "SHA-256": "b400fa074282ea0a9ff3f50c04430b7c98740e68735c4d1e1ce71f24c89b1fbc",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/admin-tokens.js",
+      "文件大小": 2703,
+      "修改时间": "2026-08-31T01:48:29.102Z",
+      "SHA-256": "350d1e2c7c0686ef1719613ef173e31ab5b9c2f2666324a0c9daa87cf2cf65ce",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/admin.css",
+      "文件大小": 58675,
+      "修改时间": "2026-08-31T01:48:29.103Z",
+      "SHA-256": "f14c571723c4aec5c3132c2047452bf42be9ad158a405cac791bd061c73c349d",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/annotations.js",
+      "文件大小": 43539,
+      "修改时间": "2026-08-31T01:48:29.103Z",
+      "SHA-256": "977d534fe16237db6c28db6bf6cd30acd4d07650b992743a20ae0e2f251d5a53",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/chat-media.js",
+      "文件大小": 5330,
+      "修改时间": "2026-08-31T01:48:29.103Z",
+      "SHA-256": "7e97e065b2bb6045d7426b7272a562a439c9c8b7854399af07f9177c7f871049",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/common.css",
+      "文件大小": 23091,
+      "修改时间": "2026-08-31T01:48:29.104Z",
+      "SHA-256": "40848b711d4fec7fbfc84bfb71c0322845869a401dd29ef3726736b049a590ae",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/common.js",
+      "文件大小": 128852,
+      "修改时间": "2026-08-31T01:48:29.105Z",
+      "SHA-256": "bd5f519fa6e614525038f903716e48830dfdc4b9b616befd42094532bd1ea9c2",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/diamond.svg",
+      "文件大小": 1564,
+      "修改时间": "2026-08-31T01:48:29.106Z",
+      "SHA-256": "b45ceb511c616e77d7a57d3f2d427702fcf43ffff35e524df9a3c1c194d9b77e",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/guild-core-data.css",
+      "文件大小": 51096,
+      "修改时间": "2026-08-31T01:48:29.106Z",
+      "SHA-256": "f70af4a72743e0fa3d9bc31c4a34b8cb85add002082f4570296ef0170581892f",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/guild-data-model.js",
+      "文件大小": 11374,
+      "修改时间": "2026-08-31T01:48:29.106Z",
+      "SHA-256": "0b2ad8cb4bb8a6e0a115a5bdb4348c3628781b56e1c72975fbcca7564337de25",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/guild-date-range.js",
+      "文件大小": 5992,
+      "修改时间": "2026-08-31T01:48:29.107Z",
+      "SHA-256": "7ee3acd664b137055faa75313a34d041028d1945b8c117f37820eb0f7302eb36",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/guild-live-night.svg",
+      "文件大小": 1394,
+      "修改时间": "2026-08-31T01:48:29.107Z",
+      "SHA-256": "057f19558ac591229cb0dab1fbdb97b8158d1966ecc0d81eb5a8361c9dbdf750",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/guild-live-stage.svg",
+      "文件大小": 1102,
+      "修改时间": "2026-08-31T01:48:29.107Z",
+      "SHA-256": "c41487e9c551ae8fd9f966271e571ee7e3280fc0434569ca2d7fe8d9fec6f0bf",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/guild-live-studio.svg",
+      "文件大小": 1287,
+      "修改时间": "2026-08-31T01:48:29.107Z",
+      "SHA-256": "92d9395aa241e98fefad3f2b8b14a995191a9a7b886925bc5b72adfa9f9a16d1",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/guild-record-overviews.js",
+      "文件大小": 19205,
+      "修改时间": "2026-08-31T01:48:29.108Z",
+      "SHA-256": "347b29385325dd914d1b6355d64024ccace629a934b4ccb496812cec3ffc5c46",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/guild-share-records.js",
+      "文件大小": 14128,
+      "修改时间": "2026-08-31T01:48:29.108Z",
+      "SHA-256": "2e045d2ca5bb07e4fc37fa95e6b458946666b13e7cfd03c94b22b7a32682b33b",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/guild-withdrawal-review.css",
+      "文件大小": 4211,
+      "修改时间": "2026-08-31T01:48:29.108Z",
+      "SHA-256": "88d535937f4df1f7cdf4d6c521bbf6efa951bd0bb6718a2c18e6b2dc3a8f2186",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/guild-withdrawal-review.js",
+      "文件大小": 3549,
+      "修改时间": "2026-08-31T01:48:29.109Z",
+      "SHA-256": "e9c2129c7b16a821d1b5ddf94849f2845a4d7c0a0aac272493e2a980d2efe6a0",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/guild.css",
+      "文件大小": 99230,
+      "修改时间": "2026-08-31T01:48:29.109Z",
+      "SHA-256": "ed0c1f09206c55fedde65da48e294f461764de3ff8569ecaabc64b5416807476",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/live-muted-users.js",
+      "文件大小": 5578,
+      "修改时间": "2026-08-31T01:48:29.110Z",
+      "SHA-256": "c54d29eb6ff959390b316cc337f90eee24baa63765352931b5a75edd84943dcc",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/live-room-cover.svg",
+      "文件大小": 1218,
+      "修改时间": "2026-08-31T01:48:29.110Z",
+      "SHA-256": "8ade172e1c50636bcbb247b309ec3b851a710881a1c38ab32c71ca1f5bb52984",
+      "文件类别": "样式与视觉资源"
+    },
+    {
+      "相对路径": "prototype/assets/mock.js",
+      "文件大小": 38333,
+      "修改时间": "2026-08-31T01:48:29.110Z",
+      "SHA-256": "89be5292b2862865ca970383ae1351248e7915f074fc9548b29c35adf4924abf",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/operation-accounts.js",
+      "文件大小": 8805,
+      "修改时间": "2026-08-31T01:48:29.111Z",
+      "SHA-256": "e766214af3ea9885795ab0608f35572a68b5a7b2d100f62b9c6db99aaae82155",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/start-live-config.js",
+      "文件大小": 464,
+      "修改时间": "2026-08-31T01:48:29.111Z",
+      "SHA-256": "c9648538539c3e50a44caf48dd500985163e6e76e80c3c06001b57c76bf55a23",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/tailwind.js",
+      "文件大小": 87,
+      "修改时间": "2026-08-31T01:48:29.111Z",
+      "SHA-256": "5c5de4bbb668f6d6fe2179373687434e043ba8d0e6877ee004d7c14b712618f6",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/tokens.js",
+      "文件大小": 226,
+      "修改时间": "2026-08-31T01:48:29.111Z",
+      "SHA-256": "ea674526cee1c918f9be061b4968e2b71f09bbd2470bf8852c12e0ac160635de",
+      "文件类别": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/index.html",
+      "文件大小": 97170,
+      "修改时间": "2026-08-31T01:48:29.112Z",
+      "SHA-256": "a21ae7398b215ace03275f116c926ecb07526d85b62aca8823c960b29b40e0bc",
+      "文件类别": "原型说明与入口"
+    },
+    {
+      "相对路径": "prototype/Luma Live-原型说明.md",
+      "文件大小": 24825,
+      "修改时间": "2026-08-31T01:48:29.099Z",
+      "SHA-256": "db96e32c1f7cbbf0638a8daf6de0e97c66f5874a942423f14fd403541f904724",
+      "文件类别": "原型说明与入口"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-account-create.html",
+      "文件大小": 7018,
+      "修改时间": "2026-08-31T01:48:29.112Z",
+      "SHA-256": "a2206dc8095123c535ba92418baeebb21ade880fb51ac442f1982042d3285a33",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-account-detail.html",
+      "文件大小": 15520,
+      "修改时间": "2026-08-31T01:48:29.113Z",
+      "SHA-256": "a295aca3507ced0d6629b197116afaa87fbd79779bc103f166208348e4421341",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-accounts.html",
+      "文件大小": 7278,
+      "修改时间": "2026-08-31T01:48:29.113Z",
+      "SHA-256": "880989a5940a87d7c206a90aa8995569a0f5027d25c207b968e753e27134a876",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-gift-records.html",
+      "文件大小": 8126,
+      "修改时间": "2026-08-31T01:48:29.113Z",
+      "SHA-256": "871b85a37c4789f11bd2f1222177657572634784c0840207ce3b759406416c72",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+      "文件大小": 8035,
+      "修改时间": "2026-08-31T01:48:29.114Z",
+      "SHA-256": "e10a682dfbdd4017b29b54a7ac0720125817ce705bfb127295f5229438156fba",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-issue-records.html",
+      "文件大小": 6005,
+      "修改时间": "2026-08-31T01:48:29.114Z",
+      "SHA-256": "043bc69a943c338faec9f2f120f550fc56acb974f2e9c2232b72eb062ce318fa",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+      "文件大小": 1887,
+      "修改时间": "2026-08-31T01:48:29.114Z",
+      "SHA-256": "0c1c4690829c9bacdccbd2cc01f689460728508b852440e479b2c2bdec1da051",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-daily-statistics.html",
+      "文件大小": 7193,
+      "修改时间": "2026-08-31T01:48:29.114Z",
+      "SHA-256": "8536c6806a374c6f55693674ce96f820b88e9bbd66bb8094891972d154f3ee98",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-data-overview.html",
+      "文件大小": 9729,
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "93a0ab4141316c5da6e2cbe0e23ed62d4fbb378db4c198b2eae6db6c9a5d988c",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-host-live-record-report.html",
+      "文件大小": 8081,
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "16b6dd33e19fc73e2ca6a7af43954d1adde8f6071352a2008f664a4d5ceb2299",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-host-statistics.html",
+      "文件大小": 903,
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "51caaf7d64118e7150d252a51d0bf3efd58005a071a7491e487badeb16ccc929",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-live-statistics.html",
+      "文件大小": 917,
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "c00a8d786ab97a772d7b6183e928010be1842a283af7b2fef29bc28d83f133a4",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+      "文件大小": 1894,
+      "修改时间": "2026-08-31T01:48:29.115Z",
+      "SHA-256": "aca5e6416fce409995771b87694a9603f2346c6514c2e65648b79ef39402d081",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+      "文件大小": 1900,
+      "修改时间": "2026-08-31T01:48:29.116Z",
+      "SHA-256": "6c97a6c304f45768f9771812961f3f8f5d8cd308dd06f91d1156cd8bfa2b3d30",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-host-share.html",
+      "文件大小": 1894,
+      "修改时间": "2026-08-31T01:48:29.116Z",
+      "SHA-256": "e4af1c251c2369e0ab8cf3097d61df7543e5b6bd4592448840d15f45a3f631bc",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+      "文件大小": 1897,
+      "修改时间": "2026-08-31T01:48:29.116Z",
+      "SHA-256": "61cf6a67d3b4ff70a05c67cf60fd5b9abbd7cd6ce903fecdbed6d11682c504aa",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+      "文件大小": 1902,
+      "修改时间": "2026-08-31T01:48:29.116Z",
+      "SHA-256": "4093ce1ef6cc540c36bacd63296f70c2d38b75d1d11e6e49dfff113a0db1a8fe",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+      "文件大小": 1884,
+      "修改时间": "2026-08-31T01:48:29.117Z",
+      "SHA-256": "f6a2c8244c25f9412e8179add285b996050baea502814edd9880aaa69f08f7fe",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-recharge-statistics.html",
+      "文件大小": 918,
+      "修改时间": "2026-08-31T01:48:29.117Z",
+      "SHA-256": "116e1a6cd9ea5b8a35cc0784616b1406756d9e5df3aea06985262c4a228005a5",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+      "文件大小": 1882,
+      "修改时间": "2026-08-31T01:48:29.117Z",
+      "SHA-256": "8bdef6efd8536d2acd842afcd2b7899437414a56c9f443c3bdd86aa4f6fd1164",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-report-center.html",
+      "文件大小": 10318,
+      "修改时间": "2026-08-31T01:48:29.117Z",
+      "SHA-256": "4af3f08f9e56ce18497f3a2b307ae7be24b011fd35c601882e6f45f33be7a318",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-user-active-statistics.html",
+      "文件大小": 909,
+      "修改时间": "2026-08-31T01:48:29.118Z",
+      "SHA-256": "71c9c07ee6b10e7cf0ddf8ae8fae34be90572a2687df5afa2ba0b8448157b4e9",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+      "文件大小": 954,
+      "修改时间": "2026-08-31T01:48:29.118Z",
+      "SHA-256": "56c1974815b7fb6a475573fff69da98f0d55221acb6c64573e6164dedb977b72",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-account-violation.html",
+      "文件大小": 11634,
+      "修改时间": "2026-08-31T01:48:29.118Z",
+      "SHA-256": "a825a37362b52885d1119328aae19d02fc5667130b596b44661a74ba3bd40036",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-content-audit-detail.html",
+      "文件大小": 12435,
+      "修改时间": "2026-08-31T01:48:29.119Z",
+      "SHA-256": "43cb871134e77b0b0cc08d8d084db9269b253737d998dde81f23d41346571934",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-content-audit.html",
+      "文件大小": 17735,
+      "修改时间": "2026-08-31T01:48:29.119Z",
+      "SHA-256": "4efc80809f041062d05850563b7aa12f51ec33f75eec918ffd0d5d9c7ac18fcd",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-detail.html",
+      "文件大小": 17236,
+      "修改时间": "2026-08-31T01:48:29.119Z",
+      "SHA-256": "a90479193e808ccb45a1ce83a8538ce9164b0c227f6e5d1b3960f22d3a7f49f6",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-handling.html",
+      "文件大小": 12904,
+      "修改时间": "2026-08-31T01:48:29.120Z",
+      "SHA-256": "731e83acb998032d756f8e8f772fbf54e96aae3da52d9cb0c61186c428c61d66",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/dashboard/admin-dashboard.html",
+      "文件大小": 21308,
+      "修改时间": "2026-08-31T01:48:29.120Z",
+      "SHA-256": "f62168602f50918046afd03e5a76f3d1767746e2390f7b825599d78449c8bfb8",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-account-balance.html",
+      "文件大小": 1683,
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "8618db074253c91e9af7e79a71b4efae107413e2a3a590cc27531a8b9a761ca7",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+      "文件大小": 1776,
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "7024974c14207d6b4e48d5724b973b1a400772d132132303976fda2d6f272b0e",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+      "文件大小": 1814,
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "fabb706d45673797b8033f16515b5f6bcaf6a89ec6b6710805dd7d0c3ce1399e",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-settlement-record.html",
+      "文件大小": 1741,
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "1076f4a2f5c36debef005bad429e8af1828377ec04c0aa96a3fc43dc4cc0fe68",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-host-account-balance.html",
+      "文件大小": 1681,
+      "修改时间": "2026-08-31T01:48:29.121Z",
+      "SHA-256": "b5ac70e82dacfc5dda965a29a149eda88d2225f3c33b5db5af8c679f2143fcf3",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-host-balance-change-record.html",
+      "文件大小": 1775,
+      "修改时间": "2026-08-31T01:48:29.122Z",
+      "SHA-256": "17da03bf6e34be417818dff402d0c6fbdb49e07b6a433a11e478f7efb60f6cd0",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-settlement-record-detail.html",
+      "文件大小": 1813,
+      "修改时间": "2026-08-31T01:48:29.122Z",
+      "SHA-256": "e33302a195eb07f6f8ab468ef960d3501ca721b510f16ec83751414e891bd849",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-settlement-record.html",
+      "文件大小": 1740,
+      "修改时间": "2026-08-31T01:48:29.122Z",
+      "SHA-256": "0d1a0380f73d96727cd4e566c8b3c37a85fa56748ef4f706b6aa8da107576551",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-custom-gift.html",
+      "文件大小": 25219,
+      "修改时间": "2026-08-31T01:48:29.122Z",
+      "SHA-256": "e9790599f46ff7d533c145e00bf1c083c52fa556fff4334b0715ef73e9bd1798",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-detail.html",
+      "文件大小": 24585,
+      "修改时间": "2026-08-31T01:48:29.123Z",
+      "SHA-256": "108444d39d4bfbb8a9c2000569f324cbe2b62f099e675fa45d7ba4d3abd043d3",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-list.html",
+      "文件大小": 23289,
+      "修改时间": "2026-08-31T01:48:29.123Z",
+      "SHA-256": "c848047178708a472f11c0c9a201a32bb33075acc021ff02043bed2089848728",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+      "文件大小": 20507,
+      "修改时间": "2026-08-31T01:48:29.124Z",
+      "SHA-256": "32adab0f21d784627e396f375d67ae936a5a5846e0c0a23cba098ab3d30033ce",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+      "文件大小": 11110,
+      "修改时间": "2026-08-31T01:48:29.124Z",
+      "SHA-256": "9eb2e695eb46e862d51c00ec6c23e8be297bd502dff48e0171dd3c93e0398088",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+      "文件大小": 11356,
+      "修改时间": "2026-08-31T01:48:29.124Z",
+      "SHA-256": "c6dee7c9b37baa03204c31906824a0e34267d64fd8b8c05f7a5566a998dc1b48",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+      "文件大小": 27940,
+      "修改时间": "2026-08-31T01:48:29.125Z",
+      "SHA-256": "3e0e386fe557b33612296cd6e376e71842ddbec6fda25d34e647c43177e68265",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-prop-detail.html",
+      "文件大小": 21542,
+      "修改时间": "2026-08-31T01:48:29.125Z",
+      "SHA-256": "2f023774286c01ba075d5a1bd41e51735f7464d97ce18e34567094529c04937a",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-prop-list.html",
+      "文件大小": 31102,
+      "修改时间": "2026-08-31T01:48:29.125Z",
+      "SHA-256": "8808bd0ef972ea55d7226800ac1e86eda2469dd64d54d0f06699d7e69203cf4d",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/guild/admin-guild-detail.html",
+      "文件大小": 22972,
+      "修改时间": "2026-08-31T01:48:29.126Z",
+      "SHA-256": "958f022857813b36493501ee214641227209c047bca370b13c3347fbef011c68",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/guild/admin-guild-list.html",
+      "文件大小": 21083,
+      "修改时间": "2026-08-31T01:48:29.126Z",
+      "SHA-256": "d4cabff102ed14a71b5c5cabae286b719db528c8a4de8c9bd9650a4e39167150",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-detail.html",
+      "文件大小": 24591,
+      "修改时间": "2026-08-31T01:48:29.127Z",
+      "SHA-256": "67b5c303c3d86066cb57988f75790bb3bf6f9f48e68d04206a7a504aa15cb907",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-list.html",
+      "文件大小": 24837,
+      "修改时间": "2026-08-31T01:48:29.127Z",
+      "SHA-256": "97f8009a5d3a43dced8d389ea0b1be6ac5b24ac4626d069efb80155c9d40f5f2",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-review-detail.html",
+      "文件大小": 18727,
+      "修改时间": "2026-08-31T01:48:29.127Z",
+      "SHA-256": "f379f686c1b915bea42bc3ff1a019ed05e6202516c03586ab98afb0a92a7952c",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-review.html",
+      "文件大小": 10855,
+      "修改时间": "2026-08-31T01:48:29.127Z",
+      "SHA-256": "2311d751157f5565eb5808a125eed871fca42504a67ffc9b69501de258b61b34",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-inspection-schedule-create.html",
+      "文件大小": 14027,
+      "修改时间": "2026-08-31T01:48:29.128Z",
+      "SHA-256": "6a2316bba4747fbf8ba83d76adeca2631ccc441a0941a7abcc274c8754d69b6c",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+      "文件大小": 7571,
+      "修改时间": "2026-08-31T01:48:29.128Z",
+      "SHA-256": "bb76e731fb37aa36c6d7f77672202985d258d81700e6d4879d2c09a2f776d622",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-inspection-schedule.html",
+      "文件大小": 11930,
+      "修改时间": "2026-08-31T01:48:29.129Z",
+      "SHA-256": "6cd25154b61ff8808eede1157afa09be4e052df88a4fe2b57e26081b0113c72e",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-detail.html",
+      "文件大小": 12483,
+      "修改时间": "2026-08-31T01:48:29.129Z",
+      "SHA-256": "054538d6af4f4c636f27952ee51bdda6f9ad740de83e905e7dacd4ab167f26d4",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-management.html",
+      "文件大小": 14899,
+      "修改时间": "2026-08-31T01:48:29.129Z",
+      "SHA-256": "053cdb112c6c1a2bbd04f7639a126ae1ee78ccfbf7ee574ab7da8ad291ddc38d",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch-detail.html",
+      "文件大小": 7033,
+      "修改时间": "2026-08-31T01:48:29.130Z",
+      "SHA-256": "abe89a8e9b9a433cebbbb17c6a9b1621d2817c98b7f98e0ad1f5d4a8b4b6dca0",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch.html",
+      "文件大小": 6109,
+      "修改时间": "2026-08-31T01:48:29.130Z",
+      "SHA-256": "83032fab0db3e3ae77391c66d455cc351089e86c474c7264dcecef0d3456aacd",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+      "文件大小": 6416,
+      "修改时间": "2026-08-31T01:48:29.130Z",
+      "SHA-256": "bd4a01b1ade7b3f6a8e42ab239a6b29af1844d528d00919b920d0092b7e14351",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-guild-recommendation.html",
+      "文件大小": 8700,
+      "修改时间": "2026-08-31T01:48:29.131Z",
+      "SHA-256": "4b2968437cd2792379a3f163cb45b4a6f21001a779fa564b359eec925828c988",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-live-type.html",
+      "文件大小": 13579,
+      "修改时间": "2026-08-31T01:48:29.131Z",
+      "SHA-256": "2251c4d8806f550b660c718e69ddabd2d9d53bba931c4166e670a44a778dbaa0",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-placement-config.html",
+      "文件大小": 13924,
+      "修改时间": "2026-08-31T01:48:29.131Z",
+      "SHA-256": "e5db21819bc0e32e1d46d5d693012d4f6628e60efd6e0f1f98fa47762cd09d02",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-placement-detail.html",
+      "文件大小": 17357,
+      "修改时间": "2026-08-31T01:48:29.132Z",
+      "SHA-256": "23389d323946064c22c1f4617d8c1b47f4c997506711cbe6f6210a867e5d7e48",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-push-detail.html",
+      "文件大小": 10722,
+      "修改时间": "2026-08-31T01:48:29.132Z",
+      "SHA-256": "c0fabf436af0c04244f03751e238bce5a8a9ec1220774e63581e78eea4050e08",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-push-management.html",
+      "文件大小": 11545,
+      "修改时间": "2026-08-31T01:48:29.132Z",
+      "SHA-256": "3fc206accf4ffdff688a77af521b32f6b3f4fe44d536d0d2fc239361514141db",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-recharge-package-detail.html",
+      "文件大小": 14453,
+      "修改时间": "2026-08-31T01:48:29.133Z",
+      "SHA-256": "3ee600a71bd51aea25a11dd4757ff58333e8e5b5978e971709906fdeef22436d",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-recharge-package.html",
+      "文件大小": 14217,
+      "修改时间": "2026-08-31T01:48:29.133Z",
+      "SHA-256": "cd7feb990db416ecc0103a5d840a818fcead18db626d2d4cc0036fd40f033ad5",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+      "文件大小": 8748,
+      "修改时间": "2026-08-31T01:48:29.133Z",
+      "SHA-256": "ef1f16f08c5d999cb681f58cfcf87f21d41945b5b89acf7f1398ef151aa9bfc0",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words.html",
+      "文件大小": 10662,
+      "修改时间": "2026-08-31T01:48:29.134Z",
+      "SHA-256": "e86b0df7b25735c32148155e09e72f2fe4d32b452300c0365de4cb254b08b427",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-task-config.html",
+      "文件大小": 16489,
+      "修改时间": "2026-08-31T01:48:29.134Z",
+      "SHA-256": "4b87443ada2324be145d6d5e85881e52a55c26d33182b871122473c8f4f4fe3f",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-task-detail.html",
+      "文件大小": 23785,
+      "修改时间": "2026-08-31T01:48:29.134Z",
+      "SHA-256": "aa0208273e848be784047f55fec74804cd0f8bc31dc640ac58fbe46788b53964",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+      "文件大小": 9562,
+      "修改时间": "2026-08-31T01:48:29.134Z",
+      "SHA-256": "d084cab3970cf3512564f6ab79bfcb65745b396e40212f9c2230d53398791ef4",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level.html",
+      "文件大小": 8028,
+      "修改时间": "2026-08-31T01:48:29.135Z",
+      "SHA-256": "90530695c657c973a9a5cd414940f0cc92c4fddee3156c5f40e86108abe99efb",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-consumption-order-detail.html",
+      "文件大小": 11760,
+      "修改时间": "2026-08-31T01:48:29.135Z",
+      "SHA-256": "d0096e36eb073d281d773e049cefe23f3ca5327c5eaf6f246d54fddf1e6816f7",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-consumption-order.html",
+      "文件大小": 12088,
+      "修改时间": "2026-08-31T01:48:29.136Z",
+      "SHA-256": "4a367c26e14fd72199a2e197e5afd60979589b1dccfb0b312a09464660fa28b3",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-recharge-order-detail.html",
+      "文件大小": 14237,
+      "修改时间": "2026-08-31T01:48:29.136Z",
+      "SHA-256": "6fe3812eb81f30177fed4e3d19fe9996b23ada51ea41599efe54ba0cc742cbb2",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-recharge-order.html",
+      "文件大小": 11677,
+      "修改时间": "2026-08-31T01:48:29.136Z",
+      "SHA-256": "771f86c73055394c5c4b49ebaecc33ecd732e6df20fabd65ddf79ef0a0322d8b",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-refund-order.html",
+      "文件大小": 10348,
+      "修改时间": "2026-08-31T01:48:29.137Z",
+      "SHA-256": "465f28018e9770d0d65fff9071859b3059ea463c17ae25bb0e43157531d0c1c5",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-account-detail.html",
+      "文件大小": 9428,
+      "修改时间": "2026-08-31T01:48:29.137Z",
+      "SHA-256": "65aa00475db8f040270016431abf51e9deaef45e5e3612b6b171aa6341da59b6",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-account.html",
+      "文件大小": 13046,
+      "修改时间": "2026-08-31T01:48:29.138Z",
+      "SHA-256": "db98a57f22d2f401815ee78d8a343faf7c66ca443d5069518634f09e47c3c692",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-audit-detail.html",
+      "文件大小": 6031,
+      "修改时间": "2026-08-31T01:48:29.138Z",
+      "SHA-256": "bf45b187ec4fecbaace41dec3b6f4cb3b9b5ba60d6690f675729544029805141",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-audit.html",
+      "文件大小": 9890,
+      "修改时间": "2026-08-31T01:48:29.138Z",
+      "SHA-256": "e550600b0dee8afb9851aa31740d86b8ad78fc474b9ce584fa81f34fa55e56cd",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-parameter-detail.html",
+      "文件大小": 11276,
+      "修改时间": "2026-08-31T01:48:29.139Z",
+      "SHA-256": "23f75535d9f94434e66be8b4ade55ba223a4b3546863dfe16fbf22c9f91f8f1f",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-parameter.html",
+      "文件大小": 10654,
+      "修改时间": "2026-08-31T01:48:29.139Z",
+      "SHA-256": "2e661b207c45df156ccf40302dc003417bad92bbd3723c11ae754211ea99f979",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-role-detail.html",
+      "文件大小": 10402,
+      "修改时间": "2026-08-31T01:48:29.139Z",
+      "SHA-256": "45e0df77fe41d1a17671c9be67a6dbcc2b51c1e82dfc6eccdff4d5794ba1f235",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-role.html",
+      "文件大小": 10338,
+      "修改时间": "2026-08-31T01:48:29.139Z",
+      "SHA-256": "db1718bfe421d62b76f91290e40452d1fecc10a09c183741ace69f6a254870cf",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/user/admin-user-detail.html",
+      "文件大小": 14721,
+      "修改时间": "2026-08-31T01:48:29.140Z",
+      "SHA-256": "eba51947e63e9916a0b2ed8ea3194591f868129d4f2c70e4c2566299e6ad2765",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/user/admin-user-list.html",
+      "文件大小": 25090,
+      "修改时间": "2026-08-31T01:48:29.140Z",
+      "SHA-256": "1df95161604fa1d1d3519fc6fb327313fdbea0a0ab7daa39c53d65d64c440d0a",
+      "文件类别": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-join-review-detail.html",
+      "文件大小": 14434,
+      "修改时间": "2026-08-31T01:48:29.141Z",
+      "SHA-256": "feba2f0f4586db411d9f674fc541b3b6cd4fc28a316c238800f952f6cd85844e",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-join-review.html",
+      "文件大小": 5721,
+      "修改时间": "2026-08-31T01:48:29.141Z",
+      "SHA-256": "36e24fa89bb6349e4be1dd0ff3445c9dd5268bb251fdb2526bd3192f5d90e802",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-leave-review-detail.html",
+      "文件大小": 7025,
+      "修改时间": "2026-08-31T01:48:29.141Z",
+      "SHA-256": "d7c5d4aeff6035264ccce4fe889ec060f79afd31f31fa3c677288891c51ec9ab",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-leave-review.html",
+      "文件大小": 5705,
+      "修改时间": "2026-08-31T01:48:29.142Z",
+      "SHA-256": "cce93f505182d196b05357c9f10759e1dcdbd39c0c567cc33f77e593b9f1844a",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/auth/guild-login.html",
+      "文件大小": 1756,
+      "修改时间": "2026-08-31T01:48:29.142Z",
+      "SHA-256": "87cfafc8525b71a9bf720a06b6bfdda1eeca4836c0514eb7a2947059bf2880cb",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/auth/guild-switch.html",
+      "文件大小": 2527,
+      "修改时间": "2026-08-31T01:48:29.142Z",
+      "SHA-256": "f551e39216ccfbb84923f3024b5b8078cacf0ad4db6ee9f6fda63ed20aea8cbd",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-all-live.html",
+      "文件大小": 4319,
+      "修改时间": "2026-08-31T01:48:29.142Z",
+      "SHA-256": "f7b0b3166efe2f0e06fdb5477df8a059f40f2fdf3cc2a0969585e997cdf1fac5",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-all-violations.html",
+      "文件大小": 5238,
+      "修改时间": "2026-08-31T01:48:29.143Z",
+      "SHA-256": "6a65bf869575a6ac237268c8a1c1b931315916af1918579122655df07a71eac4",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-host-data.html",
+      "文件大小": 27269,
+      "修改时间": "2026-08-31T01:48:29.143Z",
+      "SHA-256": "f0ad36b52b13cc9a647934d63c6e00c9c34e6bc38b61f07cbec1252f4bac25e9",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-host-summary.html",
+      "文件大小": 23830,
+      "修改时间": "2026-08-31T01:48:29.143Z",
+      "SHA-256": "4cd8205aa9e5049f29434038a2fc0c249cb8ee16482e9b92fa069847721fd856",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-income-day-detail.html",
+      "文件大小": 8017,
+      "修改时间": "2026-08-31T01:48:29.143Z",
+      "SHA-256": "70773f7454a66242836a8eeeecc5a6baac6c96f92bba3793ad71cc69c82c00c6",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-income.html",
+      "文件大小": 32792,
+      "修改时间": "2026-08-31T01:48:29.144Z",
+      "SHA-256": "e099ef1d128ae56e8a017b606e4c0f388716edf2cf2abfc10abcec722cca32cd",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-live-gift-detail.html",
+      "文件大小": 8956,
+      "修改时间": "2026-08-31T01:48:29.144Z",
+      "SHA-256": "c6dabdd4483079e4c36b391580480d0cd0c2a8a7b32d9cb824c1ab55b2466aee",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-share-income.html",
+      "文件大小": 2751,
+      "修改时间": "2026-08-31T01:48:29.144Z",
+      "SHA-256": "4e31fcdbfe9264446d6b6ba10a52b44f565ecb77d9a6ab1a87f6d879db8396f5",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-share-ledger.html",
+      "文件大小": 6297,
+      "修改时间": "2026-08-31T01:48:29.144Z",
+      "SHA-256": "4c7f85d80ae406b5c81c07f117847cb4b7002020d6c000e7d1b76d4c37298af6",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-violation-host-select.html",
+      "文件大小": 6981,
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "d47b5117ea829a5f857ada77a63984c240d647ed9c14034afeeda44777411850",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/home/guild-home.html",
+      "文件大小": 8103,
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "744e60b6e4aba3acc939601ce1dc70b70822a2b688eb835db6841a9982915a9c",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/home/guild-notification-detail.html",
+      "文件大小": 2162,
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "a64a2bda584e26cb24cee712d04b794bf7dd26b67aedb59ab003c4565a33f495",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/home/guild-notifications.html",
+      "文件大小": 2039,
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "12e9da2f95fa47b0d43ce11caa934cee472458290b8c2b192130a72a5ea65d30",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/management/guild-password.html",
+      "文件大小": 3577,
+      "修改时间": "2026-08-31T01:48:29.145Z",
+      "SHA-256": "2da9cfd319a1a5a7c0852b25a8f75deea15a8b35fa2da53a43efff0315ab89b3",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/management/guild-profile.html",
+      "文件大小": 2269,
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "9787e68e968f0e97e75259edf7dfa7688373e13fe3463e62eff405701f81089a",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/management/guild-settings.html",
+      "文件大小": 2936,
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "e97e6ca25db224b617dc4a60ef2734dbce4f56a84edd8a3e34b59e3026c7dd56",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-host-select.html",
+      "文件大小": 4395,
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "244d3b1050058e59480d071abf469200b96e97a5d0003a7a927e2d8d58b366b5",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-message-compose.html",
+      "文件大小": 7284,
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "aa5b37a86990d58d5002fb9563077c605694a242599c4b5d613c71f47ae50bda",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-message-detail.html",
+      "文件大小": 3096,
+      "修改时间": "2026-08-31T01:48:29.146Z",
+      "SHA-256": "effc73e2f44d1490ad91ddf38d0a01273fcfa42bd89821f5782c0d080aaf1c58",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-messages.html",
+      "文件大小": 5531,
+      "修改时间": "2026-08-31T01:48:29.147Z",
+      "SHA-256": "cffb1f05d56f505cddcd108d76b09c21f510197f3ad4b566bbcb77b0221cf989",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-account-compose.html",
+      "文件大小": 3683,
+      "修改时间": "2026-08-31T01:48:29.147Z",
+      "SHA-256": "b8a52016fd4cb0a7d780d8cf80b450d9a109f7402c3219c22b7ddc551b7ae9a6",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-account-detail.html",
+      "文件大小": 13292,
+      "修改时间": "2026-08-31T01:48:29.147Z",
+      "SHA-256": "8345971a8464ef537a47d945ff4ed0da53841c6d58d7482046062d019993887f",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-account-select.html",
+      "文件大小": 5554,
+      "修改时间": "2026-08-31T01:48:29.147Z",
+      "SHA-256": "805669bbf906a0853520be1312c9bb47b1bf0e36a3b7d4c97ede53255d1114ef",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-accounts.html",
+      "文件大小": 3269,
+      "修改时间": "2026-08-31T01:48:29.148Z",
+      "SHA-256": "c311bae5e9a1aa48546baf47b7321ac4241a351e6202137162856fd1c6c3b7b3",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-gift-records.html",
+      "文件大小": 11481,
+      "修改时间": "2026-08-31T01:48:29.148Z",
+      "SHA-256": "bd60d716b24a1ccb13a698e8deaadaeb9cdade44c2a6e1937436febb215734c2",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-host-detail.html",
+      "文件大小": 21952,
+      "修改时间": "2026-08-31T01:48:29.148Z",
+      "SHA-256": "9ba7f620cc98b21c5ab9a4e3683b452b76dce763dd5e339c0c34e6fbee796464",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-host-list.html",
+      "文件大小": 30539,
+      "修改时间": "2026-08-31T01:48:29.149Z",
+      "SHA-256": "70ca3b4e8430a464a1fe2b622dcfdeb69962765a4439c03b73d84f9868799168",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-member-list.html",
+      "文件大小": 6635,
+      "修改时间": "2026-08-31T01:48:29.149Z",
+      "SHA-256": "756f0ab52c7c0a6663afbd7de4e9e0ec1ef6d153ddfa65cfba65110c2ec1e2b3",
+      "文件类别": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/auth/auth-login-register.html",
+      "文件大小": 9086,
+      "修改时间": "2026-08-31T01:48:29.149Z",
+      "SHA-256": "45fabd004395588668eebf77c9bf34da4ac382302fe9c6f28bce2618e255cbe2",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/auth/auth-phone-login.html",
+      "文件大小": 11094,
+      "修改时间": "2026-08-31T01:48:29.150Z",
+      "SHA-256": "1d9d12eef65754d4f49293aff04eb096b883d30b8bd25560a7b3ddcb4207e1d2",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/auth/auth-profile-completion.html",
+      "文件大小": 7870,
+      "修改时间": "2026-08-31T01:48:29.150Z",
+      "SHA-256": "8bcb85b7fa3e6e9e517c756a7cee95b77788e422b2927d60c935ce3e55949445",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/fan-club/fan-contribution-ranking.html",
+      "文件大小": 8718,
+      "修改时间": "2026-08-31T01:48:29.150Z",
+      "SHA-256": "5918a3a355c782c37c8931183f4f1f8e6f0b926a6d9ad17cf67ba1d2ae1fc2a9",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/fan-club/my-fan-clubs.html",
+      "文件大小": 7553,
+      "修改时间": "2026-08-31T01:48:29.151Z",
+      "SHA-256": "f5921ec74d9470356fbdb86bc64784021dba8e3d1a59d8c8637ab9e9dd3fe547",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-application-form.html",
+      "文件大小": 7240,
+      "修改时间": "2026-08-31T01:48:29.151Z",
+      "SHA-256": "b7a889f5a94272f384b0749bf26aa922412773171327b92e16f8aefc88517bf7",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-application-records.html",
+      "文件大小": 3615,
+      "修改时间": "2026-08-31T01:48:29.151Z",
+      "SHA-256": "b257a1f0f3b87b3d49fcdbc0f1ae1c6364dc9a6d51690a68496b09154dda3926",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-detail.html",
+      "文件大小": 9190,
+      "修改时间": "2026-08-31T01:48:29.151Z",
+      "SHA-256": "5f2e8885848492c8d9261d97d2a0c8e164fe8cc1c349d0713eb93eb853ae4f57",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-leave-application.html",
+      "文件大小": 5348,
+      "修改时间": "2026-08-31T01:48:29.152Z",
+      "SHA-256": "d31546e4bf5747b7f047605a3cc0a63623fef4934314aa89435a65d57cda4ec4",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-management.html",
+      "文件大小": 9107,
+      "修改时间": "2026-08-31T01:48:29.152Z",
+      "SHA-256": "8292d07c88340396123fc78eac0dc8db6603bb6fa9e4a31613ba7ae66d99b738",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/contribution-ranking.html",
+      "文件大小": 6704,
+      "修改时间": "2026-08-31T01:48:29.152Z",
+      "SHA-256": "7647c1165803ea50da08f10446479739b85746ed6fbe115e24d9fb7a01c83e24",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/host-ranking.html",
+      "文件大小": 6640,
+      "修改时间": "2026-08-31T01:48:29.152Z",
+      "SHA-256": "b21d1b6443d41eca113a8f7c7f9122a6fa1bccbd42bca5b63fb5e1ac4d4f2429",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/invite-friends.html",
+      "文件大小": 12313,
+      "修改时间": "2026-08-31T01:48:29.153Z",
+      "SHA-256": "e6323bf8b3bb8fe63790e25399425854903f4b0857a2730597532885c8a001ed",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/live-plaza.html",
+      "文件大小": 20281,
+      "修改时间": "2026-08-31T01:48:29.153Z",
+      "SHA-256": "3331a090d1936ad0765ec6957df1270d9fcb223a0b8b26b765f58f7b6ea05e4c",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/search-results.html",
+      "文件大小": 13455,
+      "修改时间": "2026-08-31T01:48:29.153Z",
+      "SHA-256": "d6909d4e4f7f1a69d85079158c01f2088bda2772f460b65b3381cd4d776c9241",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/search.html",
+      "文件大小": 4251,
+      "修改时间": "2026-08-31T01:48:29.153Z",
+      "SHA-256": "1c03c1c37affcb1b77db5c0574210d6b8223ed9f099c4ed460171f5fc6a2f820",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/welfare-center.html",
+      "文件大小": 6920,
+      "修改时间": "2026-08-31T01:48:29.154Z",
+      "SHA-256": "584602d3cc3b89ad4bd6ecb9b391f50857cd9fa2d1f99f4cf191b90e1f3a2e4e",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/add-bank-card.html",
+      "文件大小": 5020,
+      "修改时间": "2026-08-31T01:48:29.154Z",
+      "SHA-256": "91968cdfd578d79e858171e0a3a3336ba835ca66a2fcb018886f6ef7f0ec6cb4",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/fan-club-settings.html",
+      "文件大小": 5523,
+      "修改时间": "2026-08-31T01:48:29.154Z",
+      "SHA-256": "0563f7f97941dcdcfb6ad6c10fb181202152e1a5bdc856fc807ab5aa2c2f93ae",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/fan-club.html",
+      "文件大小": 21041,
+      "修改时间": "2026-08-31T01:48:29.154Z",
+      "SHA-256": "9acac6d4280d06123cb638a77f5b5eb94ece2f8cb66c492e1fdd0780f1656ee4",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/fan-list.html",
+      "文件大小": 3359,
+      "修改时间": "2026-08-31T01:48:29.155Z",
+      "SHA-256": "6a9629fd4d93cd552fea90e62b1eaa6df4480831a2c4eda15fcaed89f3392839",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center-pending.html",
+      "文件大小": 11571,
+      "修改时间": "2026-08-31T01:48:29.155Z",
+      "SHA-256": "ed284094d00464443994a575e99a5884ade487b05e4cde159c7edd89485b662c",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center.html",
+      "文件大小": 13834,
+      "修改时间": "2026-08-31T01:48:29.155Z",
+      "SHA-256": "0ae81f0738ac4f0bf6b35813587274b7c87ca52223658b5eb22f65888834bdec",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-guild-notifications.html",
+      "文件大小": 4941,
+      "修改时间": "2026-08-31T01:48:29.155Z",
+      "SHA-256": "67203032c390eea531bd5499f9e1fc6be9ab3d4620605ccfb585fb21aad519af",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/income-withdrawal.html",
+      "文件大小": 3050,
+      "修改时间": "2026-08-31T01:48:29.156Z",
+      "SHA-256": "9748d142223d019dbb89c73c55207e74c3e83db2839dbf75bcbe3f65f41e5d2d",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-data.html",
+      "文件大小": 22002,
+      "修改时间": "2026-08-31T01:48:29.156Z",
+      "SHA-256": "b3bbd1941b5f42a449f562d0e05891ec3a4a23d0848d726e4f8e84ae7af900dc",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-records.html",
+      "文件大小": 21198,
+      "修改时间": "2026-08-31T01:48:29.156Z",
+      "SHA-256": "2c191aa0ebeb10ff5a6fc958640527a169092f16345fd341b141642e1d404d1b",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/moderator-management.html",
+      "文件大小": 8877,
+      "修改时间": "2026-08-31T01:48:29.157Z",
+      "SHA-256": "c77f08ae7c6c7999c109e7078c0d8fdbb982751697c05c96ef592517580d9bb0",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/my-bank-cards.html",
+      "文件大小": 7124,
+      "修改时间": "2026-08-31T01:48:29.157Z",
+      "SHA-256": "74e88786fb7b79796e1540baa6818df4e7408f95559ca0638e5b5f4e84321b4f",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/start-live-settings.html",
+      "文件大小": 27081,
+      "修改时间": "2026-08-31T01:48:29.157Z",
+      "SHA-256": "beaf63128336c30ae2e96e9f1dcf506f91a21e70b2bc5d2388481f385eb8c513",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/withdrawal-application.html",
+      "文件大小": 8945,
+      "修改时间": "2026-08-31T01:48:29.157Z",
+      "SHA-256": "f2fcacf880882698aba39079b086f525d50bb8d6b498268f50e1339fbcdf1515",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-host.html",
+      "文件大小": 2993,
+      "修改时间": "2026-08-31T01:48:29.158Z",
+      "SHA-256": "f293b002b331a918e6ec2b106360ec5860f7da5022bb9ca05efffbdc504676b2",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-viewer.html",
+      "文件大小": 2088,
+      "修改时间": "2026-08-31T01:48:29.158Z",
+      "SHA-256": "b96e1ff6a67f03429a07d6119c220cd5519ee252beac503fdc30190890333e21",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-cohost-active.html",
+      "文件大小": 62870,
+      "修改时间": "2026-08-31T01:48:29.158Z",
+      "SHA-256": "1d0e414e724f1f4340374bf411a6a31bf0a9391e19be72a74d9a672d94529e44",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host-password.html",
+      "文件大小": 90358,
+      "修改时间": "2026-08-31T01:48:29.159Z",
+      "SHA-256": "e49dd5deb65ae2b952ad6bf1d3e455d8308b4abdf4aa54e7fbc355798a653322",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host.html",
+      "文件大小": 65909,
+      "修改时间": "2026-08-31T01:48:29.160Z",
+      "SHA-256": "aebfc99c263e1ee8cd1108390f83de6461056bd3d1b81663396bea2d2f823e0d",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-report.html",
+      "文件大小": 6751,
+      "修改时间": "2026-08-31T01:48:29.160Z",
+      "SHA-256": "78c465e079329c50bd1b503101f321bd6e837c6bc1064364d8e356ebf875f218",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-user-report.html",
+      "文件大小": 6948,
+      "修改时间": "2026-08-31T01:48:29.160Z",
+      "SHA-256": "f7cfba0d268391d312ea947a0f14d726c17f784502be816c89fbad453326a73c",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room.html",
+      "文件大小": 104161,
+      "修改时间": "2026-08-31T01:48:29.160Z",
+      "SHA-256": "72b07df3b7c9f3f7d723aa2c06d902a8aea3c551ba7ac4a15b07f27388fc4110",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/blacklist-management.html",
+      "文件大小": 6029,
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "6100b50a2edaca52ff11f7af4bf10380b70af37511a0db5cab17ae2403194570",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration-avatar-frame.html",
+      "文件大小": 3307,
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "c65ce2c12163adbb5d3d7dea57ac4dad0891659433848c1563740af05e04f04f",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration-chat-bubble.html",
+      "文件大小": 3225,
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "27c066d775de4b51f0f032ea20a78194fa2d3e9d0f567951f837a1e304c7c8de",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration-medal.html",
+      "文件大小": 3714,
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "19c22efd36af5885b1979f2ad3150eed0eb3b21debf898746534d048145e1e18",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration.html",
+      "文件大小": 3691,
+      "修改时间": "2026-08-31T01:48:29.161Z",
+      "SHA-256": "5ffc061f8399567ec6a7735ce56e698b91409ac1a32aa11b68aa248b012ca6f7",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-following.html",
+      "文件大小": 4077,
+      "修改时间": "2026-08-31T01:48:29.162Z",
+      "SHA-256": "0351bdb3cfa502704d95c3444895f2d2d94bc59b1f97550d7fdfdb78d9f2a87a",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-outfits.html",
+      "文件大小": 5670,
+      "修改时间": "2026-08-31T01:48:29.162Z",
+      "SHA-256": "09b0241053afdad64a5fa508297b3f1e0a045522b71940b3aaf10556d491207c",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/profile-edit.html",
+      "文件大小": 11553,
+      "修改时间": "2026-08-31T01:48:29.162Z",
+      "SHA-256": "62fb53e831fe3724d04e68a0b79760a968438ac9414f8216a62fb628817293e4",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/profile.html",
+      "文件大小": 8043,
+      "修改时间": "2026-08-31T01:48:29.162Z",
+      "SHA-256": "bd41d732e3c6baaa7912658f307010498ba49df9e95f85471fe2d24797995510",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/settings.html",
+      "文件大小": 10008,
+      "修改时间": "2026-08-31T01:48:29.163Z",
+      "SHA-256": "0a22419a9c5eba04856292b99780541c6f9b58d21cd18874c0d7e07990d243c3",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/chat-settings.html",
+      "文件大小": 7697,
+      "修改时间": "2026-08-31T01:48:29.163Z",
+      "SHA-256": "1c29d07630b984b935d921c4becab835360f2af8565235c5e6669926352fafb8",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/direct-message.html",
+      "文件大小": 5025,
+      "修改时间": "2026-08-31T01:48:29.163Z",
+      "SHA-256": "d73b840feb5c344238c963cda2af7ded5a04995f4b6a6d946a2ede85477743c2",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/fan-group-chat.html",
+      "文件大小": 12039,
+      "修改时间": "2026-08-31T01:48:29.163Z",
+      "SHA-256": "303a639b11cebec963b751c1d019d3ec464e89f7b881827f2ed53edea26e0f50",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/friend-list.html",
+      "文件大小": 5271,
+      "修改时间": "2026-08-31T01:48:29.164Z",
+      "SHA-256": "7b754c40b6dc24aded8e8d5a47f66d04bf688b495c2293b4271b82661b7c42c5",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/group-manage-member.html",
+      "文件大小": 5967,
+      "修改时间": "2026-08-31T01:48:29.164Z",
+      "SHA-256": "b7a901ec9b72607a13fbda84707ab9ff62e8f31111c4fd9e45cb124a1fab0be5",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/group-manage-owner.html",
+      "文件大小": 3894,
+      "修改时间": "2026-08-31T01:48:29.164Z",
+      "SHA-256": "cee52e65a755a4aee6053c0f28af7c126afcc6d3920fd307f419bb2360acf23e",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/host-gift-gallery.html",
+      "文件大小": 3880,
+      "修改时间": "2026-08-31T01:48:29.164Z",
+      "SHA-256": "1a327a6761e78c616631e98b4b1da5e4f1f72efae3fbfaaa945d6f24bb4a3f75",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/host-home.html",
+      "文件大小": 22121,
+      "修改时间": "2026-08-31T01:48:29.165Z",
+      "SHA-256": "41647b83a0cd25b0c13e31cfc635bd78dfa5408355bd3f4a5123c326ebb248b6",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/interaction-notifications.html",
+      "文件大小": 4640,
+      "修改时间": "2026-08-31T01:48:29.165Z",
+      "SHA-256": "597d21bd4f20d3a31b160de698299857a05f16defef7024181afa96324210abe",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/message-center.html",
+      "文件大小": 5818,
+      "修改时间": "2026-08-31T01:48:29.165Z",
+      "SHA-256": "67547b09973958fb6cc0accb03eb6e5ddd0aa6d27e5e73c40e6363fefa13ea28",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/system-notifications.html",
+      "文件大小": 3897,
+      "修改时间": "2026-08-31T01:48:29.165Z",
+      "SHA-256": "535f43d1b661f8798aa04f84fca9ad6b70908baad32c8e378bae377faa7493a5",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/user-home.html",
+      "文件大小": 14988,
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "c14006cfea899256f4519ced32156164c7978c40a44ef9cfa1053ee44cee2fde",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/balance-detail.html",
+      "文件大小": 3747,
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/order-expense-detail.html",
+      "文件大小": 2350,
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "607a491f9ca9ea62ce391a88bd40ca6b45f403902d8249661a5eab901a63b135",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/order-income-detail.html",
+      "文件大小": 2472,
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "e60470d31a1444584352c58a92029120b691807ebe4a71363c8a161afef74a19",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/recharge.html",
+      "文件大小": 7316,
+      "修改时间": "2026-08-31T01:48:29.166Z",
+      "SHA-256": "b532101e37f5376679dd28401e4f1d901bee19dabe80ce7d866e62c2dc51a6fd",
+      "文件类别": "用户App原型页面"
+    },
+    {
+      "相对路径": "workspace/2026-08/REQ-001-资料修改风控审核/需求梳理-资料修改风控审核.md",
+      "文件大小": 1120,
+      "修改时间": "2026-08-31T01:48:29.168Z",
+      "SHA-256": "5731e84bbf371fa6d1f569976945774b39f5f951682fbd05e1889a14d3523d1a",
+      "文件类别": "其他需求工作区"
+    },
+    {
+      "相对路径": "workspace/2026-08/REQ-001-资料修改风控审核/todo.md",
+      "文件大小": 114,
+      "修改时间": "2026-08-31T01:48:29.167Z",
+      "SHA-256": "dacba5f4f4078f4d3c19349b61288a761c9cde008fe2efe58960ae5c22248e2d",
+      "文件类别": "其他需求工作区"
+    },
+    {
+      "相对路径": "workspace/2026-08/REQ-002-商品SKU分成规则/需求梳理-商品SKU分成规则.md",
+      "文件大小": 1536,
+      "修改时间": "2026-08-31T01:48:29.168Z",
+      "SHA-256": "cf476bf080a7e1fc33c866f76c0be12376e374cc387258e1f0ae5ed21b59e3f6",
+      "文件类别": "其他需求工作区"
+    },
+    {
+      "相对路径": "workspace/2026-08/REQ-002-商品SKU分成规则/todo.md",
+      "文件大小": 122,
+      "修改时间": "2026-08-31T01:48:29.168Z",
+      "SHA-256": "2d4a56f5187e9a0441a56e65b9af81fc9aaf0972d4844f117fa9615a45e96855",
+      "文件类别": "其他需求工作区"
+    }
+  ],
+  "文件变化": {
+    "新增": [],
+    "修改": [],
+    "删除": [],
+    "重命名候选": []
+  },
+  "已读取文件": [
+    {
+      "相对路径": "项目说明.md",
+      "用途": "项目规则与说明"
+    },
+    {
+      "相对路径": "需求来源策略.json",
+      "用途": "项目规则与说明"
+    },
+    {
+      "相对路径": "AGENTS.md",
+      "用途": "项目规则与说明"
+    },
+    {
+      "相对路径": "context/.DS_Store",
+      "用途": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/01-用户主播App-项目需求清单.md",
+      "用途": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/01-用户主播App-页面架构.md",
+      "用途": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/02-公会App-项目需求清单.md",
+      "用途": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/03-管理后台-项目需求清单.md",
+      "用途": "需求与业务上下文"
+    },
+    {
+      "相对路径": "context/系统概要 .md",
+      "用途": "需求与业务上下文"
+    },
+    {
+      "相对路径": "prototype/批注核对清单.md",
+      "用途": "原型说明与入口"
+    },
+    {
+      "相对路径": "prototype/assets/admin-mock.js",
+      "用途": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/annotations.js",
+      "用途": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/common.js",
+      "用途": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/guild-data-model.js",
+      "用途": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/guild-record-overviews.js",
+      "用途": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/live-muted-users.js",
+      "用途": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/mock.js",
+      "用途": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/operation-accounts.js",
+      "用途": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/assets/start-live-config.js",
+      "用途": "公共脚本与Mock"
+    },
+    {
+      "相对路径": "prototype/index.html",
+      "用途": "原型说明与入口"
+    },
+    {
+      "相对路径": "prototype/Luma Live-原型说明.md",
+      "用途": "原型说明与入口"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-accounts.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-gift-records.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-detail.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-handling.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-custom-gift.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-detail.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-list.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-detail.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-management.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch-detail.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-live-type.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level.html",
+      "用途": "管理后台原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-all-live.html",
+      "用途": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-host-data.html",
+      "用途": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-live-gift-detail.html",
+      "用途": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-accounts.html",
+      "用途": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-gift-records.html",
+      "用途": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-host-detail.html",
+      "用途": "公会App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/contribution-ranking.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/live-plaza.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center-pending.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-data.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-records.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/start-live-settings.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-host.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-viewer.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-cohost-active.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host-password.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-report.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-user-report.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room.html",
+      "用途": "用户App原型页面"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/balance-detail.html",
+      "用途": "用户App原型页面"
+    }
+  ],
+  "复用证据": [],
+  "未纳入文件": [
+    {
+      "相对路径": ".gitignore",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "移动端原型-配色规范.md",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "用户APP原型分析报告-2026-08-08.md",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dazz Chat/screenshot-01.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dazz Chat/screenshot-02.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dazz Chat/screenshot-03.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dazz Chat/screenshot-04.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dreamlike Video Chat/screenshot-01.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dreamlike Video Chat/screenshot-02.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dreamlike Video Chat/screenshot-03.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Dreamlike Video Chat/screenshot-04.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Mango Live/screenshot-01.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Mango Live/screenshot-02.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Mango Live/screenshot-03.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Mango Live/screenshot-04.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Momo Live/screenshot-01.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Momo Live/screenshot-02.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Momo Live/screenshot-03.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "app-store-screenshots/Momo Live/screenshot-04.webp",
+      "原因": "仅作为竞品视觉参考；本次未要求UI视觉测试。"
+    },
+    {
+      "相对路径": "APP一级页面 .html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "CLAUDE.md",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "export-admin-prototype.mjs",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/页面视图规范.md",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/原型规范.md",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/admin-account-balance-page.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/admin-finance-reconciliation-page.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/admin-reporting.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/admin-settlement-upload-page.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/admin-statistics-page.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/admin-tokens.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/admin.css",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/chat-media.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/common.css",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/diamond.svg",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/guild-core-data.css",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/guild-date-range.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/guild-live-night.svg",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/guild-live-stage.svg",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/guild-live-studio.svg",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/guild-share-records.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/guild-withdrawal-review.css",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/guild-withdrawal-review.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/guild.css",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/live-room-cover.svg",
+      "原因": "仅承载样式或装饰素材，不用于建立业务入口或预期。"
+    },
+    {
+      "相对路径": "prototype/assets/tailwind.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/assets/tokens.js",
+      "原因": "文件已建档，与本次用户App直播模块修正无直接关系。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-account-create.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-account-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-issue-records.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-daily-statistics.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-data-overview.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-host-live-record-report.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-host-statistics.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-live-statistics.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-host-share.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-recharge-statistics.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-report-center.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-user-active-statistics.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-account-violation.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-content-audit-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-content-audit.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/dashboard/admin-dashboard.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-account-balance.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-guild-settlement-record.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-host-account-balance.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-host-balance-change-record.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-settlement-record-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/finance/admin-settlement-record.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-prop-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-prop-list.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/guild/admin-guild-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/guild/admin-guild-list.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-list.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-review-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-host-review.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-inspection-schedule-create.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-inspection-schedule.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-guild-recommendation.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-placement-config.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-placement-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-push-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-push-management.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-recharge-package-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-recharge-package.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-task-config.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-task-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-consumption-order-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-consumption-order.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-recharge-order-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-recharge-order.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/orders/admin-refund-order.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-account-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-account.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-audit-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-audit.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-parameter-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-parameter.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-role-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/system/admin-system-role.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/user/admin-user-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/admin/user/admin-user-list.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-join-review-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-join-review.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-leave-review-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/approval/guild-leave-review.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/auth/guild-login.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/auth/guild-switch.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-all-violations.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-host-summary.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-income-day-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-income.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-share-income.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-share-ledger.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-violation-host-select.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/home/guild-home.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/home/guild-notification-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/home/guild-notifications.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/management/guild-password.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/management/guild-profile.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/management/guild-settings.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-host-select.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-message-compose.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-message-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-messages.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-account-compose.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-account-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-account-select.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-host-list.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-member-list.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/auth/auth-login-register.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/auth/auth-phone-login.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/auth/auth-profile-completion.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/fan-club/fan-contribution-ranking.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/fan-club/my-fan-clubs.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-application-form.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-application-records.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-leave-application.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/guild/guild-management.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/host-ranking.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/invite-friends.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/search-results.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/search.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/welfare-center.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/add-bank-card.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/fan-club-settings.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/fan-club.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/fan-list.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-guild-notifications.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/income-withdrawal.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/moderator-management.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/my-bank-cards.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/withdrawal-application.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/blacklist-management.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration-avatar-frame.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration-chat-bubble.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration-medal.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-decoration.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-following.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/my-outfits.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/profile-edit.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/profile.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/profile/settings.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/chat-settings.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/direct-message.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/fan-group-chat.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/friend-list.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/group-manage-member.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/group-manage-owner.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/host-gift-gallery.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/host-home.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/interaction-notifications.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/message-center.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/system-notifications.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/social/user-home.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/order-expense-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/order-income-detail.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/recharge.html",
+      "原因": "页面已建档，但不属于用户App直播范围或已发现的跨端依赖。"
+    },
+    {
+      "相对路径": "workspace/2026-08/REQ-001-资料修改风控审核/需求梳理-资料修改风控审核.md",
+      "原因": "不涉及用户App直播模块及本次已发现依赖。"
+    },
+    {
+      "相对路径": "workspace/2026-08/REQ-001-资料修改风控审核/todo.md",
+      "原因": "不涉及用户App直播模块及本次已发现依赖。"
+    },
+    {
+      "相对路径": "workspace/2026-08/REQ-002-商品SKU分成规则/需求梳理-商品SKU分成规则.md",
+      "原因": "不涉及用户App直播模块及本次已发现依赖。"
+    },
+    {
+      "相对路径": "workspace/2026-08/REQ-002-商品SKU分成规则/todo.md",
+      "原因": "不涉及用户App直播模块及本次已发现依赖。"
+    }
+  ],
+  "依赖关系": [
+    {
+      "上游": "管理后台/直播房型",
+      "共同业务对象": "房型配置",
+      "当前模块": "开播设置",
+      "规则": "启用状态和开放用户范围决定主播可选择的房型",
+      "证据": [
+        "context/01-用户主播App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/pages/admin/operations/admin-feature-switch-detail.html"
+      ]
+    },
+    {
+      "上游": "管理后台/直播类型",
+      "共同业务对象": "直播分类",
+      "当前模块": "直播广场、开播设置",
+      "规则": "启用分类决定用户端筛选和主播开播分类",
+      "证据": [
+        "context/01-用户主播App-项目需求清单.md",
+        "prototype/pages/admin/operations/admin-live-type.html",
+        "prototype/assets/start-live-config.js"
+      ]
+    },
+    {
+      "上游": "管理后台/礼物道具",
+      "共同业务对象": "礼物配置",
+      "当前模块": "直播送礼",
+      "规则": "上架状态、名称、图标、金币价格和分类影响用户端礼物面板",
+      "证据": [
+        "context/01-用户主播App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/pages/admin/gifts/admin-gift-list.html"
+      ]
+    },
+    {
+      "上游": "管理后台/购买份数配置",
+      "共同业务对象": "礼物赠送数量",
+      "当前模块": "直播送礼",
+      "规则": "后台可配置购买份数，但用户端原型固定五个数量，最终来源关系待确认",
+      "证据": [
+        "prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+        "prototype/assets/admin-mock.js",
+        "prototype/assets/common.js"
+      ]
+    },
+    {
+      "上游": "管理后台/敏感词库",
+      "共同业务对象": "公屏消息",
+      "当前模块": "观众互动",
+      "规则": "词库适用于公屏，命中后的用户端处理方式待确认",
+      "证据": [
+        "context/01-用户主播App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/pages/admin/operations/admin-sensitive-words-detail.html"
+      ]
+    },
+    {
+      "上游": "用户App/举报提交",
+      "共同业务对象": "举报工单",
+      "当前模块": "直播间举报",
+      "下游": "管理后台/举报处理",
+      "规则": "提交生成工单，后台处置后按处置类型通知举报人和主播",
+      "证据": [
+        "context/系统概要 .md",
+        "prototype/assets/annotations.js",
+        "prototype/pages/admin/content/admin-report-detail.html"
+      ]
+    },
+    {
+      "上游": "管理后台/强制关播",
+      "共同业务对象": "直播场次",
+      "当前模块": "观众直播间、门票资格",
+      "规则": "立即结束场次，观众收到结束提示并返回广场，门票不退款",
+      "证据": [
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/pages/admin/host/admin-live-detail.html",
+        "prototype/pages/user/live/live-end-viewer.html"
+      ]
+    },
+    {
+      "上游": "公会App/关闭直播权限",
+      "共同业务对象": "主播直播权限和进行中场次",
+      "当前模块": "主播直播间、主播权限状态",
+      "规则": "关闭权限时当前直播结束，后续不能创建场次",
+      "证据": [
+        "context/02-公会App-项目需求清单.md",
+        "prototype/pages/guild/people/guild-host-detail.html",
+        "context/01-用户主播App-项目需求清单.md"
+      ]
+    },
+    {
+      "上游": "管理后台、公会App/运营账号",
+      "共同业务对象": "虚拟金币送礼",
+      "当前模块": "进房、送礼、贡献榜、主播实时收益",
+      "规则": "运营账号免门票和密码校验、不能赠送幸运礼物；虚拟送礼计入氛围和榜单但不计主播真实收益",
+      "证据": [
+        "context/系统概要 .md",
+        "context/02-公会App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/assets/annotations.js"
+      ]
+    },
+    {
+      "上游": "用户App/主播结束直播",
+      "共同业务对象": "直播场次",
+      "当前模块": "直播记录",
+      "下游": "公会App、管理后台直播记录",
+      "规则": "同一场次形成用户端历史记录及其他端统计来源",
+      "证据": [
+        "context/系统概要 .md",
+        "context/01-用户主播App-项目需求清单.md",
+        "context/02-公会App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md"
+      ]
+    },
+    {
+      "上游": "管理后台/幸运礼物配置",
+      "共同业务对象": "幸运礼物规则",
+      "当前模块": "用户App/直播送礼",
+      "规则": "后台和系统概要定义返奖档位及概率；用户App原型只提供赠送、余额和中奖播报，规则入口及开奖明细待确认",
+      "证据": [
+        "context/系统概要 .md",
+        "context/01-用户主播App-项目需求清单.md",
+        "prototype/assets/common.js",
+        "prototype/pages/user/live/live-room.html",
+        "prototype/assets/annotations.js"
+      ]
+    }
+  ],
+  "关联映射": [
+    {
+      "映射编号": "MAP-LIVE-001",
+      "上游": "管理后台/直播房型",
+      "共同业务对象": "房型配置",
+      "当前模块": "开播设置",
+      "规则": "启用状态和开放用户范围决定主播可选择的房型",
+      "证据": [
+        "context/01-用户主播App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/pages/admin/operations/admin-feature-switch-detail.html"
+      ],
+      "处理结果": "正式用例或已有覆盖"
+    },
+    {
+      "映射编号": "MAP-LIVE-002",
+      "上游": "管理后台/直播类型",
+      "共同业务对象": "直播分类",
+      "当前模块": "直播广场、开播设置",
+      "规则": "启用分类决定用户端筛选和主播开播分类",
+      "证据": [
+        "context/01-用户主播App-项目需求清单.md",
+        "prototype/pages/admin/operations/admin-live-type.html",
+        "prototype/assets/start-live-config.js"
+      ],
+      "处理结果": "正式用例或已有覆盖"
+    },
+    {
+      "映射编号": "MAP-LIVE-003",
+      "上游": "管理后台/礼物道具",
+      "共同业务对象": "礼物配置",
+      "当前模块": "直播送礼",
+      "规则": "上架状态、名称、图标、金币价格和分类影响用户端礼物面板",
+      "证据": [
+        "context/01-用户主播App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/pages/admin/gifts/admin-gift-list.html"
+      ],
+      "处理结果": "正式用例或已有覆盖"
+    },
+    {
+      "映射编号": "MAP-LIVE-004",
+      "上游": "管理后台/购买份数配置",
+      "共同业务对象": "礼物赠送数量",
+      "当前模块": "直播送礼",
+      "规则": "后台可配置购买份数，但用户端原型固定五个数量，最终来源关系待确认",
+      "证据": [
+        "prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+        "prototype/assets/admin-mock.js",
+        "prototype/assets/common.js"
+      ],
+      "处理结果": "需求待确认"
+    },
+    {
+      "映射编号": "MAP-LIVE-005",
+      "上游": "管理后台/敏感词库",
+      "共同业务对象": "公屏消息",
+      "当前模块": "观众互动",
+      "规则": "词库适用于公屏，命中后的用户端处理方式待确认",
+      "证据": [
+        "context/01-用户主播App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/pages/admin/operations/admin-sensitive-words-detail.html"
+      ],
+      "处理结果": "需求待确认"
+    },
+    {
+      "映射编号": "MAP-LIVE-006",
+      "上游": "用户App/举报提交",
+      "共同业务对象": "举报工单",
+      "当前模块": "直播间举报",
+      "下游": "管理后台/举报处理",
+      "规则": "提交生成工单，后台处置后按处置类型通知举报人和主播",
+      "证据": [
+        "context/系统概要 .md",
+        "prototype/assets/annotations.js",
+        "prototype/pages/admin/content/admin-report-detail.html"
+      ],
+      "处理结果": "正式用例或已有覆盖"
+    },
+    {
+      "映射编号": "MAP-LIVE-007",
+      "上游": "管理后台/强制关播",
+      "共同业务对象": "直播场次",
+      "当前模块": "观众直播间、门票资格",
+      "规则": "立即结束场次，观众收到结束提示并返回广场，门票不退款",
+      "证据": [
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/pages/admin/host/admin-live-detail.html",
+        "prototype/pages/user/live/live-end-viewer.html"
+      ],
+      "处理结果": "正式用例或已有覆盖"
+    },
+    {
+      "映射编号": "MAP-LIVE-008",
+      "上游": "公会App/关闭直播权限",
+      "共同业务对象": "主播直播权限和进行中场次",
+      "当前模块": "主播直播间、主播权限状态",
+      "规则": "关闭权限时当前直播结束，后续不能创建场次",
+      "证据": [
+        "context/02-公会App-项目需求清单.md",
+        "prototype/pages/guild/people/guild-host-detail.html",
+        "context/01-用户主播App-项目需求清单.md"
+      ],
+      "处理结果": "正式用例或已有覆盖"
+    },
+    {
+      "映射编号": "MAP-LIVE-009",
+      "上游": "管理后台、公会App/运营账号",
+      "共同业务对象": "虚拟金币送礼",
+      "当前模块": "进房、送礼、贡献榜、主播实时收益",
+      "规则": "运营账号免门票和密码校验、不能赠送幸运礼物；虚拟送礼计入氛围和榜单但不计主播真实收益",
+      "证据": [
+        "context/系统概要 .md",
+        "context/02-公会App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md",
+        "prototype/assets/annotations.js"
+      ],
+      "处理结果": "正式用例或已有覆盖"
+    },
+    {
+      "映射编号": "MAP-LIVE-010",
+      "上游": "用户App/主播结束直播",
+      "共同业务对象": "直播场次",
+      "当前模块": "直播记录",
+      "下游": "公会App、管理后台直播记录",
+      "规则": "同一场次形成用户端历史记录及其他端统计来源",
+      "证据": [
+        "context/系统概要 .md",
+        "context/01-用户主播App-项目需求清单.md",
+        "context/02-公会App-项目需求清单.md",
+        "context/03-管理后台-项目需求清单.md"
+      ],
+      "处理结果": "正式用例或已有覆盖"
+    },
+    {
+      "映射编号": "MAP-LIVE-011",
+      "上游": "管理后台/幸运礼物配置",
+      "共同业务对象": "幸运礼物规则",
+      "当前模块": "用户App/直播送礼",
+      "规则": "后台和系统概要定义返奖档位及概率；用户App原型只提供赠送、余额和中奖播报，规则入口及开奖明细待确认",
+      "证据": [
+        "context/系统概要 .md",
+        "context/01-用户主播App-项目需求清单.md",
+        "prototype/assets/common.js",
+        "prototype/pages/user/live/live-room.html",
+        "prototype/assets/annotations.js"
+      ],
+      "处理结果": "余额结果保留为正式用例；规则入口和开奖明细进入需求待确认"
+    }
+  ],
+  "证据缺口": [
+    "礼物购买份数后台配置与用户App固定数量菜单的最终来源关系未明确，新增Q-037。",
+    "敏感词命中后的拦截、替换、反馈和匹配规则仍由Q-006组确认。",
+    "平台强制关闭等非手动结束场次是否生成用户App直播记录仍由Q-036确认。",
+    "《系统概要》写直播结束后举报工单自动作废，原型批注写已提交工单继续审核；按 prototype-primary 采用原型批注并保留冲突追溯。",
+    "用户App是否提供幸运礼物规则入口、入口位置及展示内容由 Q-039 组确认。",
+    "用户App是否提供逐个开奖结果明细由 Q-040 确认。"
+  ],
+  "阻塞项": [],
+  "开始基线": [
+    {
+      "相对路径": "项目说明.md",
+      "SHA-256": "753eb0d741c49fc96241c4e2d5eec6f5b18745ece164c0f0a11011beb56c2a6d"
+    },
+    {
+      "相对路径": "需求来源策略.json",
+      "SHA-256": "fcf5e0c4053e83f126cc9d4967c21198e7c7785c9da1af02ef898c5143baa1be"
+    },
+    {
+      "相对路径": "AGENTS.md",
+      "SHA-256": "514d8de94e7aef8be27529d93c30f0dfdc31712baca45e6fe32ffe8e606c388f"
+    },
+    {
+      "相对路径": "context/.DS_Store",
+      "SHA-256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3"
+    },
+    {
+      "相对路径": "context/01-用户主播App-项目需求清单.md",
+      "SHA-256": "833393cd859b965c900fbd04a0ca9c71ce042320d55455c4de9948791916dee1"
+    },
+    {
+      "相对路径": "context/01-用户主播App-页面架构.md",
+      "SHA-256": "b97a7ae6c2ed345e8bea0ada8684764467b302217d0bf30610f0f67e4724604d"
+    },
+    {
+      "相对路径": "context/02-公会App-项目需求清单.md",
+      "SHA-256": "8d91854d557839b962c773100c784217591729e026eb9b2acc4c99a5717e3db2"
+    },
+    {
+      "相对路径": "context/03-管理后台-项目需求清单.md",
+      "SHA-256": "3edc263129da295dc0a85a973d2e2a1c86b674956d0f669cc43f198432ddd2fb"
+    },
+    {
+      "相对路径": "context/系统概要 .md",
+      "SHA-256": "60c0d176ca8282e3349543b4d4e0adf4f5c4e0cad4341295ceb0ecbf261e1a49"
+    },
+    {
+      "相对路径": "prototype/批注核对清单.md",
+      "SHA-256": "927745f891a3d12471f62cd3b0a0d0d6327632c6ca79ef0f1bb89d6cbce1cea9"
+    },
+    {
+      "相对路径": "prototype/assets/admin-mock.js",
+      "SHA-256": "a10007c6b685109c152d90575d6c9f5cabd44f78ee319addfb8988905ff0a2c6"
+    },
+    {
+      "相对路径": "prototype/assets/annotations.js",
+      "SHA-256": "977d534fe16237db6c28db6bf6cd30acd4d07650b992743a20ae0e2f251d5a53"
+    },
+    {
+      "相对路径": "prototype/assets/common.js",
+      "SHA-256": "bd5f519fa6e614525038f903716e48830dfdc4b9b616befd42094532bd1ea9c2"
+    },
+    {
+      "相对路径": "prototype/assets/guild-data-model.js",
+      "SHA-256": "0b2ad8cb4bb8a6e0a115a5bdb4348c3628781b56e1c72975fbcca7564337de25"
+    },
+    {
+      "相对路径": "prototype/assets/guild-record-overviews.js",
+      "SHA-256": "347b29385325dd914d1b6355d64024ccace629a934b4ccb496812cec3ffc5c46"
+    },
+    {
+      "相对路径": "prototype/assets/live-muted-users.js",
+      "SHA-256": "c54d29eb6ff959390b316cc337f90eee24baa63765352931b5a75edd84943dcc"
+    },
+    {
+      "相对路径": "prototype/assets/mock.js",
+      "SHA-256": "89be5292b2862865ca970383ae1351248e7915f074fc9548b29c35adf4924abf"
+    },
+    {
+      "相对路径": "prototype/assets/operation-accounts.js",
+      "SHA-256": "e766214af3ea9885795ab0608f35572a68b5a7b2d100f62b9c6db99aaae82155"
+    },
+    {
+      "相对路径": "prototype/assets/start-live-config.js",
+      "SHA-256": "c9648538539c3e50a44caf48dd500985163e6e76e80c3c06001b57c76bf55a23"
+    },
+    {
+      "相对路径": "prototype/index.html",
+      "SHA-256": "a21ae7398b215ace03275f116c926ecb07526d85b62aca8823c960b29b40e0bc"
+    },
+    {
+      "相对路径": "prototype/Luma Live-原型说明.md",
+      "SHA-256": "db96e32c1f7cbbf0638a8daf6de0e97c66f5874a942423f14fd403541f904724"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-accounts.html",
+      "SHA-256": "880989a5940a87d7c206a90aa8995569a0f5027d25c207b968e753e27134a876"
+    },
+    {
+      "相对路径": "prototype/pages/admin/accounts/admin-operation-gift-records.html",
+      "SHA-256": "871b85a37c4789f11bd2f1222177657572634784c0840207ce3b759406416c72"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-detail.html",
+      "SHA-256": "a90479193e808ccb45a1ce83a8538ce9164b0c227f6e5d1b3960f22d3a7f49f6"
+    },
+    {
+      "相对路径": "prototype/pages/admin/content/admin-report-handling.html",
+      "SHA-256": "731e83acb998032d756f8e8f772fbf54e96aae3da52d9cb0c61186c428c61d66"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-custom-gift.html",
+      "SHA-256": "e9790599f46ff7d533c145e00bf1c083c52fa556fff4334b0715ef73e9bd1798"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-detail.html",
+      "SHA-256": "108444d39d4bfbb8a9c2000569f324cbe2b62f099e675fa45d7ba4d3abd043d3"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-list.html",
+      "SHA-256": "c848047178708a472f11c0c9a201a32bb33075acc021ff02043bed2089848728"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+      "SHA-256": "32adab0f21d784627e396f375d67ae936a5a5846e0c0a23cba098ab3d30033ce"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+      "SHA-256": "9eb2e695eb46e862d51c00ec6c23e8be297bd502dff48e0171dd3c93e0398088"
+    },
+    {
+      "相对路径": "prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+      "SHA-256": "c6dee7c9b37baa03204c31906824a0e34267d64fd8b8c05f7a5566a998dc1b48"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-detail.html",
+      "SHA-256": "054538d6af4f4c636f27952ee51bdda6f9ad740de83e905e7dacd4ab167f26d4"
+    },
+    {
+      "相对路径": "prototype/pages/admin/host/admin-live-management.html",
+      "SHA-256": "053cdb112c6c1a2bbd04f7639a126ae1ee78ccfbf7ee574ab7da8ad291ddc38d"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch-detail.html",
+      "SHA-256": "abe89a8e9b9a433cebbbb17c6a9b1621d2817c98b7f98e0ad1f5d4a8b4b6dca0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-feature-switch.html",
+      "SHA-256": "83032fab0db3e3ae77391c66d455cc351089e86c474c7264dcecef0d3456aacd"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-live-type.html",
+      "SHA-256": "2251c4d8806f550b660c718e69ddabd2d9d53bba931c4166e670a44a778dbaa0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+      "SHA-256": "ef1f16f08c5d999cb681f58cfcf87f21d41945b5b89acf7f1398ef151aa9bfc0"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-sensitive-words.html",
+      "SHA-256": "e86b0df7b25735c32148155e09e72f2fe4d32b452300c0365de4cb254b08b427"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+      "SHA-256": "d084cab3970cf3512564f6ab79bfcb65745b396e40212f9c2230d53398791ef4"
+    },
+    {
+      "相对路径": "prototype/pages/admin/operations/admin-ticket-price-level.html",
+      "SHA-256": "90530695c657c973a9a5cd414940f0cc92c4fddee3156c5f40e86108abe99efb"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-all-live.html",
+      "SHA-256": "f7b0b3166efe2f0e06fdb5477df8a059f40f2fdf3cc2a0969585e997cdf1fac5"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-host-data.html",
+      "SHA-256": "f0ad36b52b13cc9a647934d63c6e00c9c34e6bc38b61f07cbec1252f4bac25e9"
+    },
+    {
+      "相对路径": "prototype/pages/guild/data/guild-live-gift-detail.html",
+      "SHA-256": "c6dabdd4483079e4c36b391580480d0cd0c2a8a7b32d9cb824c1ab55b2466aee"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-accounts.html",
+      "SHA-256": "c311bae5e9a1aa48546baf47b7321ac4241a351e6202137162856fd1c6c3b7b3"
+    },
+    {
+      "相对路径": "prototype/pages/guild/operations/guild-operation-gift-records.html",
+      "SHA-256": "bd60d716b24a1ccb13a698e8deaadaeb9cdade44c2a6e1937436febb215734c2"
+    },
+    {
+      "相对路径": "prototype/pages/guild/people/guild-host-detail.html",
+      "SHA-256": "9ba7f620cc98b21c5ab9a4e3683b452b76dce763dd5e339c0c34e6fbee796464"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/contribution-ranking.html",
+      "SHA-256": "7647c1165803ea50da08f10446479739b85746ed6fbe115e24d9fb7a01c83e24"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/live-plaza.html",
+      "SHA-256": "3331a090d1936ad0765ec6957df1270d9fcb223a0b8b26b765f58f7b6ea05e4c"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center-pending.html",
+      "SHA-256": "ed284094d00464443994a575e99a5884ade487b05e4cde159c7edd89485b662c"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center.html",
+      "SHA-256": "0ae81f0738ac4f0bf6b35813587274b7c87ca52223658b5eb22f65888834bdec"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-data.html",
+      "SHA-256": "b3bbd1941b5f42a449f562d0e05891ec3a4a23d0848d726e4f8e84ae7af900dc"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-records.html",
+      "SHA-256": "2c191aa0ebeb10ff5a6fc958640527a169092f16345fd341b141642e1d404d1b"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/start-live-settings.html",
+      "SHA-256": "beaf63128336c30ae2e96e9f1dcf506f91a21e70b2bc5d2388481f385eb8c513"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-host.html",
+      "SHA-256": "f293b002b331a918e6ec2b106360ec5860f7da5022bb9ca05efffbdc504676b2"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-viewer.html",
+      "SHA-256": "b96e1ff6a67f03429a07d6119c220cd5519ee252beac503fdc30190890333e21"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-cohost-active.html",
+      "SHA-256": "1d0e414e724f1f4340374bf411a6a31bf0a9391e19be72a74d9a672d94529e44"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host-password.html",
+      "SHA-256": "e49dd5deb65ae2b952ad6bf1d3e455d8308b4abdf4aa54e7fbc355798a653322"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host.html",
+      "SHA-256": "aebfc99c263e1ee8cd1108390f83de6461056bd3d1b81663396bea2d2f823e0d"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-report.html",
+      "SHA-256": "78c465e079329c50bd1b503101f321bd6e837c6bc1064364d8e356ebf875f218"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-user-report.html",
+      "SHA-256": "f7cfba0d268391d312ea947a0f14d726c17f784502be816c89fbad453326a73c"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room.html",
+      "SHA-256": "72b07df3b7c9f3f7d723aa2c06d902a8aea3c551ba7ac4a15b07f27388fc4110"
+    },
+    {
+      "相对路径": "prototype/pages/user/wallet/balance-detail.html",
+      "SHA-256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4"
+    }
+  ],
+  "输出前复核": {
+    "状态": "通过",
+    "变化文件": []
+  },
+  "扫描状态": "有非阻塞待确认",
+  "交付产物": {
+    "JSON": "work/liveshow-user-live-testcases-260901-002/用户App-直播模块-测试用例-260901-002.json",
+    "Excel": "outputs/Luma Live-case/用户App-直播模块-260901-002.xlsx",
+    "业务对象别名审查": "work/liveshow-user-live-testcases-260901-002/business-alias-readability-review.json",
+    "正式用例数": 358,
+    "需求待确认数": 73
+  }
+}

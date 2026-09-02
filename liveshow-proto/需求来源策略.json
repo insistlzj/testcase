@@ -1,0 +1,17 @@
+{
+  "项目名称": "Luma Live",
+  "来源策略": "prototype-primary",
+  "原型目录": "prototype",
+  "派生需求目录": "context",
+  "派生需求清单": [
+    "context/01-用户主播App-项目需求清单.md",
+    "context/02-公会App-项目需求清单.md",
+    "context/03-管理后台-项目需求清单.md"
+  ],
+  "公共证据清单": [
+    "context/01-用户主播App-页面架构.md",
+    "context/系统概要 .md"
+  ],
+  "生成前同步": true,
+  "历史来源只读": true
+}

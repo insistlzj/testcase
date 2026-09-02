@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>送礼记录 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link rel="stylesheet" href="../../../assets/guild.css?v=20260829-filter-zone-v1" />
+    <link rel="stylesheet" href="../../../assets/guild-core-data.css?v=20260824-gift-detail-entry-v1" />
+    <script src="../../../assets/common.js?v=20260829-operation-accounts-v3"></script>
+    <script src="../../../assets/guild-date-range.js?v=20260829-v1"></script>
+    <script src="../../../assets/operation-accounts.js?v=20260829-v4"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav"><a class="guild-back" href="../home/guild-home.html">‹</a>送礼记录</header>
+      <div class="guild-page-body guild-host-summary-page guild-operation-gift-page">
+        <section class="guild-host-record-panel" aria-label="运营账号送礼记录">
+          <div class="guild-filter-zone">
+            <div class="guild-operation-gift-account-switch">
+              <a id="accountSwitchLink" href="guild-operation-account-select.html" aria-label="选择运营账号">
+                <span>运营账号</span><strong id="accountFilterValue"></strong>
+                <em aria-hidden="true">›</em>
+              </a>
+            </div>
+            <div class="guild-host-record-filters guild-operation-gift-range-filters">
+            <button class="guild-host-range-trigger" id="rangeButton" type="button" aria-haspopup="dialog">
+              <span id="rangeValue"></span><i aria-hidden="true">⌄</i>
+            </button>
+            <button class="guild-host-performance-quick guild-host-record-quick" id="shortcutButton" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span id="shortcutValue"></span><i aria-hidden="true">⌄</i>
+            </button>
+            <div class="guild-host-performance-shortcut-menu" id="shortcutMenu" role="menu" aria-label="快捷日期筛选" hidden>
+              <button type="button" role="menuitemradio" data-shortcut="today">今日</button>
+              <button type="button" role="menuitemradio" data-shortcut="yesterday">昨日</button>
+              <button type="button" role="menuitemradio" data-shortcut="thisWeek">本周</button>
+              <button type="button" role="menuitemradio" data-shortcut="lastWeek">上周</button>
+              <button type="button" role="menuitemradio" data-shortcut="thisMonth">本月</button>
+              <button type="button" role="menuitemradio" data-shortcut="lastMonth">上月</button>
+              <button type="button" role="menuitemradio" data-shortcut="custom">自定义</button>
+            </div>
+            </div>
+          </div>
+          <div class="guild-host-record-summary guild-operation-gift-summary">
+            <article><span>总送礼次数</span><b id="totalGiftCount"></b></article>
+            <article><span>总消费金币</span><b class="guild-host-summary-coin-value" id="totalGiftCoins"></b></article>
+          </div>
+          <section class="guild-operation-gift-table">
+            <div class="guild-operation-gift-table-head"><span>礼物/时间</span><span>消费金币</span></div>
+            <div class="guild-operation-gift-list" id="giftList"></div>
+          </section>
+        </section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+
+    <div id="rangeSheet"></div>
+
+    <div class="guild-mask state-hide" id="giftDetailMask">
+      <section class="guild-sheet guild-operation-gift-sheet" role="dialog" aria-modal="true" aria-labelledby="giftDetailTitle">
+        <header><h2 id="giftDetailTitle">送礼详情</h2><button class="guild-sheet-close" id="closeGiftDetail" type="button" aria-label="关闭">×</button></header>
+        <div class="guild-detail-grid" id="giftDetailGrid"></div>
+      </section>
+    </div>
+
+    <script>
+      const store = LUMA_OPERATION_ACCOUNTS;
+      const fmt = store.formatCoins;
+      const guild = store.guilds[0];
+      const accounts = store.accounts.filter((account) => account.guildId === guild.id);
+      const params = new URLSearchParams(location.search);
+      const requestedAccountValue = params.has("accountIds") ? params.get("accountIds") : params.get("accountId") || "all";
+      const requestedAccountIds = requestedAccountValue.split(",").filter((id) => accounts.some((account) => account.id === id));
+      const selectedAccounts = requestedAccountValue === "all"
+        ? accounts
+        : requestedAccountValue === "none"
+          ? []
+          : accounts.filter((account) => requestedAccountIds.includes(account.id));
+      const selectedAccountIds = new Set(selectedAccounts.map((account) => account.id));
+      let rangeStart = params.get("start") || "2026-08-29";
+      let rangeEnd = params.get("end") || "2026-08-29";
+      let selectedShortcut = "custom";
+      let visibleRecords = [];
+      const shortcutLabels = { today: "今日", yesterday: "昨日", thisWeek: "本周", lastWeek: "上周", thisMonth: "本月", lastMonth: "上月", custom: "自定义" };
+      const shortcutRanges = {
+        today: ["2026-08-29", "2026-08-29"],
+        yesterday: ["2026-08-28", "2026-08-28"],
+        thisWeek: ["2026-08-24", "2026-08-29"],
+        lastWeek: ["2026-08-17", "2026-08-23"],
+        thisMonth: ["2026-08-01", "2026-08-29"],
+        lastMonth: ["2026-07-01", "2026-07-31"],
+      };
+      selectedShortcut = Object.keys(shortcutRanges).find((key) => shortcutRanges[key][0] === rangeStart && shortcutRanges[key][1] === rangeEnd) || "custom";
+
+      const coinIcon = '<svg class="guild-coin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 12 12 21 3 12Z"></path></svg>';
+      function render() {
+        rangeValue.textContent = `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
+        const selectionValue = selectedAccounts.length === accounts.length ? "all" : selectedAccounts.length ? selectedAccounts.map((account) => account.id).join(",") : "none";
+        accountSwitchLink.href = `guild-operation-account-select.html?selected=${encodeURIComponent(selectionValue)}&start=${rangeStart}&end=${rangeEnd}`;
+        accountFilterValue.textContent = `已选${selectedAccounts.length}个`;
+        accountSwitchLink.setAttribute("aria-label", `选择运营账号，当前已选${selectedAccounts.length}个`);
+        shortcutValue.textContent = shortcutLabels[selectedShortcut];
+        shortcutMenu.querySelectorAll("[data-shortcut]").forEach((button) => {
+          const active = button.dataset.shortcut === selectedShortcut;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-checked", String(active));
+        });
+        visibleRecords = store.giftRecords
+          .filter((record) => selectedAccountIds.has(record.accountId) && record.occurredAt.slice(0, 10) >= rangeStart && record.occurredAt.slice(0, 10) <= rangeEnd)
+          .sort((a, b) => b.occurredAt.localeCompare(a.occurredAt));
+        totalGiftCount.textContent = fmt(visibleRecords.length);
+        totalGiftCoins.innerHTML = `${coinIcon}${fmt(visibleRecords.reduce((sum, record) => sum + record.unitPrice * record.quantity, 0))}`;
+        giftList.innerHTML = visibleRecords.length
+          ? visibleRecords.map((record) => `<button class="guild-operation-gift-card" type="button" data-record-id="${record.id}">
+              <span class="guild-operation-gift-card-copy"><b>${record.giftName}</b><small>${LUMA_FORMAT.dateTime(record.occurredAt)}</small></span>
+              <span class="guild-operation-gift-card-value"><strong>${coinIcon}${fmt(record.unitPrice * record.quantity)}</strong></span>
+              <i aria-hidden="true">›</i>
+            </button>`).join("")
+          : '<div class="guild-page-empty"><b>暂无送礼记录</b></div>';
+      }
+
+      function openDetail(record) {
+        const fields = [
+          ["赠送时间", LUMA_FORMAT.dateTime(record.occurredAt)],
+          ["礼物名称", record.giftName],
+          ["消费金币", `${coinIcon}${fmt(record.unitPrice * record.quantity)}`, "guild-gift-coin-value"],
+          ["礼物单价", `${coinIcon}${fmt(record.unitPrice)}`, "guild-gift-coin-value"],
+          ["礼物类型", record.giftType],
+          ["赠送数量", fmt(record.quantity)],
+          ["主播名称", record.hostName],
+          ["主播ID", record.hostId],
+        ];
+        giftDetailGrid.innerHTML = fields.map((field) => `<div class="guild-detail-item"><span>${field[0]}</span><b class="${field[2] || ""}">${field[1]}</b></div>`).join("");
+        giftDetailMask.classList.remove("state-hide");
+        document.body.classList.add("guild-sheet-open");
+      }
+
+      function closeDetail() { giftDetailMask.classList.add("state-hide"); document.body.classList.remove("guild-sheet-open"); }
+      const rangePicker = LumaGuildDateRange.create({
+        mask: rangeSheet,
+        start: rangeStart,
+        end: rangeEnd,
+        minDate: "2026-01-01",
+        maxDate: "2026-08-29",
+        onConfirm: (start, end) => { rangeStart = start; rangeEnd = end; selectedShortcut = "custom"; render(); },
+      });
+
+      rangeButton.onclick = rangePicker.open;
+      shortcutButton.onclick = (event) => {
+        event.stopPropagation();
+        shortcutMenu.hidden = !shortcutMenu.hidden;
+        shortcutButton.setAttribute("aria-expanded", String(!shortcutMenu.hidden));
+      };
+      shortcutMenu.onclick = (event) => {
+        event.stopPropagation();
+        const button = event.target.closest("[data-shortcut]");
+        if (!button) return;
+        const shortcut = button.dataset.shortcut;
+        shortcutMenu.hidden = true;
+        shortcutButton.setAttribute("aria-expanded", "false");
+        if (shortcut === "custom") return rangePicker.open();
+        selectedShortcut = shortcut;
+        [rangeStart, rangeEnd] = shortcutRanges[shortcut];
+        rangePicker.setRange(rangeStart, rangeEnd);
+        render();
+      };
+      giftList.onclick = (event) => {
+        const row = event.target.closest("[data-record-id]");
+        if (!row) return;
+        openDetail(visibleRecords.find((record) => record.id === row.dataset.recordId));
+      };
+      closeGiftDetail.onclick = closeDetail;
+      giftDetailMask.onclick = (event) => { if (event.target === giftDetailMask) closeDetail(); };
+      document.addEventListener("click", () => { shortcutMenu.hidden = true; shortcutButton.setAttribute("aria-expanded", "false"); });
+      document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeDetail(); });
+      render();
+      window.parent.postMessage({ type: "luma-page", file: "guild-operation-gift-records.html", query: location.search }, "*");
+      Luma.registerStates({ "页面状态": { "正常": () => { rangePicker.close(); closeDetail(); render(); }, "选择日期": rangePicker.open, "送礼详情": () => { if (visibleRecords[0]) openDetail(visibleRecords[0]); }, "空状态": () => { giftList.innerHTML = '<div class="guild-page-empty"><b>暂无送礼记录</b></div>'; totalGiftCount.textContent = "0"; totalGiftCoins.innerHTML = `${coinIcon}0`; } } });
+    </script>
+  </body>
+</html>

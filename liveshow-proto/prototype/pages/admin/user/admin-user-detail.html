@@ -22,14 +22,9 @@
           <span class="admin-brand-mark">L</span><span>Luma 管理后台</span>
         </div>
         <nav class="admin-nav" aria-label="管理后台一级菜单">
-          <button class="admin-nav-item active">
-            <span>用户管理</span><span>⌄</span>
-          </button>
-          <div class="admin-nav-submenu">
-            <a class="admin-nav-sub active" href="admin-user-list.html"
-              >用户列表</a
-            ><a class="admin-nav-sub" href="admin-ban-appeal.html">封禁申诉</a>
-          </div>
+          <a class="admin-nav-item active" href="admin-user-list.html"
+            ><span>用户管理</span><span>›</span></a
+          >
           <a class="admin-nav-item" href="../host/admin-host-list.html"
             ><span>主播管理</span><span>›</span></a
           ><a class="admin-nav-item" href="../guild/admin-guild-list.html"
@@ -154,7 +149,7 @@
         relationships: [],
         violations: [],
       };
-      const statusText = { normal: "正常", muted: "禁言中", banned: "已封禁" };
+      const statusText = { normal: "正常", banned: "已封禁" };
       const { coins: formatCoins, money: formatMoney } =
         window.LUMA_ADMIN_FORMAT;
       const initials = (item) =>
@@ -257,7 +252,7 @@
         Luma.setTip(genderEl, user.gender, "性别");
         statusEl.className = `admin-status ${user.status}`;
         Luma.setTip(statusEl, statusText[user.status], "账号状态");
-        profileActionsEl.innerHTML = `<button class="admin-btn secondary" data-action="reset">重置资料</button>${user.status === "banned" ? "" : '<button class="admin-btn secondary" data-action="mute">设置禁言</button>'}<button class="admin-btn ${user.status === "banned" ? "" : "danger"}" data-action="${user.status === "banned" ? "unban" : "ban"}">${user.status === "banned" ? "解封" : "封禁"}</button>`;
+        profileActionsEl.innerHTML = `<button class="admin-btn secondary" data-action="reset">重置资料</button><button class="admin-btn ${user.status === "banned" ? "" : "danger"}" data-action="${user.status === "banned" ? "unban" : "ban"}">${user.status === "banned" ? "解封" : "封禁"}</button>`;
         metricsEl.innerHTML = `<div class="admin-metric"><span>金币余额</span><b>${formatCoins(user.balance)}</b></div><div class="admin-metric"><span>累计充值（USD）</span><b>${formatMoney(user.recharge)}</b></div><div class="admin-metric"><span>累计消费（金币）</span><b>${formatCoins(user.spend)}</b></div>`;
         baseInfoEl.innerHTML = /* HTML */ `<div class="admin-detail-item">
             <span>地区</span><b>${user.region}</b>
@@ -284,14 +279,11 @@
       function openAction(action) {
         currentAction = action;
         actionTitle.textContent = {
-          mute: "设置用户禁言",
           ban: "封禁用户",
           unban: "解封用户",
           reset: "重置用户资料",
         }[action];
         actionSubmit.className = `admin-btn ${action === "ban" ? "danger" : ""}`;
-        if (action === "mute")
-          actionBody.innerHTML = `<p>${user.name}（${user.id}）当前状态：${statusText[user.status]}</p><div class="admin-form-row"><label for="muteDuration">禁言时长</label><select class="admin-select" id="muteDuration" required><option value="">请选择</option><option value="0">0 / 不禁言（取消禁言）</option><option value="1h">1 小时</option><option value="24h">24 小时</option><option value="7d">7 天</option><option value="30d">30 天</option></select></div>`;
         if (action === "ban")
           actionBody.innerHTML = /* HTML */ `<p>
               将对 ${user.name}（${user.id}）执行封禁。
@@ -304,47 +296,13 @@
                 required
               ></textarea>
             </div>
-            <div class="admin-form-row">
-              <label for="banDurationType">封禁时长</label
-              ><select class="admin-select" id="banDurationType" required>
-                <option value="temporary">临时封禁</option>
-                <option value="permanent">永久封禁</option>
-              </select>
-            </div>
-            <div class="admin-form-row" id="banDaysWrap">
-              <label for="banDays">临时天数</label
-              ><input
-                class="admin-input"
-                id="banDays"
-                type="number"
-                min="1"
-                max="365"
-                required
-              />
-            </div>
-            <div class="admin-form-row">
-              <label>封禁范围</label>
-              <div class="admin-checkboxes">
-                <label
-                  ><input type="checkbox" name="banScope" checked /> 登录</label
-                ><label
-                  ><input type="checkbox" name="banScope" checked /> 发言</label
-                ><label><input type="checkbox" name="banScope" /> 送礼</label>
-              </div>
-            </div>`;
+            <div class="admin-note">封禁后账号将立即下线并禁止登录。</div>`;
         if (action === "unban")
           actionBody.innerHTML = `<p>确认解除 ${user.name}（${user.id}）的账号封禁？</p>`;
         if (action === "reset")
           actionBody.innerHTML = `<p>将重置 ${user.name}（${user.id}）的头像、昵称和个性签名。</p><div class="admin-form-row"><label for="resetReason">重置原因</label><textarea class="admin-textarea" id="resetReason" required></textarea></div>`;
         actionOverlay.classList.add("show");
       }
-      document.addEventListener("change", (event) => {
-        if (event.target.id !== "banDurationType") return;
-        const permanent = event.target.value === "permanent";
-        banDaysWrap.classList.toggle("state-hide", permanent);
-        banDays.required = !permanent;
-        if (permanent) banDays.value = "";
-      });
       document.addEventListener("click", (event) => {
         const tab = event.target.closest("[data-tab]");
         if (tab) renderTab(tab.dataset.tab);
@@ -362,19 +320,7 @@
       });
       actionForm.onsubmit = (event) => {
         event.preventDefault();
-        if (
-          currentAction === "ban" &&
-          !document.querySelector('[name="banScope"]:checked')
-        )
-          return Luma.toast("至少选择一个封禁范围");
         let message = "操作已提交";
-        if (currentAction === "mute") {
-          user.status = muteDuration.value === "0" ? "normal" : "muted";
-          message =
-            muteDuration.value === "0"
-              ? "已取消用户禁言"
-              : "用户禁言设置已提交";
-        }
         if (currentAction === "ban") user.status = "banned";
         if (currentAction === "unban") user.status = "normal";
         if (currentAction === "reset") {
@@ -400,7 +346,6 @@
         "*",
       );
       Luma.registerStates({
-        设置禁言: () => openAction("mute"),
         封禁用户: () => openAction("ban"),
         重置资料: () => openAction("reset"),
       });

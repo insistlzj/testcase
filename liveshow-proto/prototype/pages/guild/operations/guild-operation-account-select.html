@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>选择运营账号 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link rel="stylesheet" href="../../../assets/guild.css?v=20260829-operation-account-select-v1" />
+    <script src="../../../assets/common.js?v=20260829-operation-accounts-v3"></script>
+    <script src="../../../assets/operation-accounts.js?v=20260829-v4"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" id="backLink" href="guild-operation-gift-records.html" aria-label="返回送礼记录">‹</a><span>选择</span>
+      </header>
+      <div class="guild-page-body guild-host-select-body">
+        <label class="guild-search" for="accountSearch">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+          <input id="accountSearch" type="search" placeholder="搜索运营账号名称或账号" autocomplete="off" />
+        </label>
+        <div class="guild-list-summary">
+          <strong id="listSummary"></strong>
+          <button class="guild-host-select-all" id="selectAllButton" type="button" aria-label="全选运营账号">
+            <span id="selectionSummary"></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="m8 12 3 3 5-6"></path></svg>
+          </button>
+        </div>
+        <section class="guild-host-choice-list" id="accountList" aria-label="运营账号多选列表"></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+    <script>
+      const store = LUMA_OPERATION_ACCOUNTS;
+      const guild = store.guilds[0];
+      const accounts = store.accounts.filter((account) => account.guildId === guild.id);
+      const params = new URLSearchParams(location.search);
+      const requestedValue = params.get("selected") || "";
+      const requestedIds = requestedValue.split(",").filter((id) => accounts.some((account) => account.id === id));
+      let selectedAccountIds = requestedValue === "none"
+        ? new Set()
+        : requestedValue === "all"
+          ? new Set(accounts.map((account) => account.id))
+          : new Set(requestedIds.length ? requestedIds : accounts.map((account) => account.id));
+
+      function returnUrl() {
+        const query = new URLSearchParams(location.search);
+        query.delete("selected");
+        query.delete("accountId");
+        query.delete("accountIds");
+        const selectedIds = [...selectedAccountIds];
+        if (!selectedIds.length) query.set("accountIds", "none");
+        else if (selectedIds.length === accounts.length) query.set("accountIds", "all");
+        else query.set("accountIds", selectedIds.join(","));
+        return `guild-operation-gift-records.html?${query}`;
+      }
+
+      function render() {
+        const query = accountSearch.value.trim().toLowerCase();
+        const visible = accounts.filter((account) => `${account.name} ${account.account}`.toLowerCase().includes(query));
+        const allSelected = selectedAccountIds.size === accounts.length;
+        listSummary.textContent = `运营账号 ${visible.length} 个`;
+        selectionSummary.textContent = `已选${selectedAccountIds.size}个`;
+        selectAllButton.classList.toggle("active", allSelected);
+        selectAllButton.setAttribute("aria-pressed", String(allSelected));
+        selectAllButton.setAttribute("aria-label", allSelected ? "取消全选运营账号" : "全选运营账号");
+        accountList.innerHTML = visible.length
+          ? visible.map((account) => {
+              const selected = selectedAccountIds.has(account.id);
+              return `<button class="guild-host-choice ${selected ? "selected" : ""}" data-id="${account.id}" type="button" role="checkbox" aria-checked="${selected}"><span class="directory-avatar">${account.avatar}</span><span class="guild-host-choice-copy"><b>${account.name}</b><small>${account.account}</small></span><i aria-hidden="true">${selected ? "✓" : ""}</i></button>`;
+            }).join("")
+          : '<div class="guild-page-empty"><b>未找到运营账号</b></div>';
+        backLink.href = returnUrl();
+      }
+
+      accountList.onclick = (event) => {
+        const button = event.target.closest("[data-id]");
+        if (!button) return;
+        if (selectedAccountIds.has(button.dataset.id)) selectedAccountIds.delete(button.dataset.id);
+        else selectedAccountIds.add(button.dataset.id);
+        render();
+      };
+      selectAllButton.onclick = () => {
+        selectedAccountIds = selectedAccountIds.size === accounts.length
+          ? new Set()
+          : new Set(accounts.map((account) => account.id));
+        render();
+      };
+      accountSearch.oninput = render;
+      render();
+      window.parent.postMessage({ type: "luma-page", file: "guild-operation-account-select.html", query: location.search }, "*");
+      Luma.registerStates({ "选择状态": { "默认": render, "全选": () => { selectedAccountIds = new Set(accounts.map((account) => account.id)); render(); }, "未选择": () => { selectedAccountIds = new Set(); render(); } } });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>创建运营账号 · 运营账号 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/admin.css?v=20260829-operation-accounts-v6" />
+    <script src="../../../assets/common.js?v=20260829-operation-accounts-v3"></script>
+    <script src="../../../assets/operation-accounts.js?v=20260829-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar"><div class="admin-brand"><span class="admin-brand-mark">L</span><span>Luma 管理后台</span></div><nav class="admin-nav"></nav><div class="admin-sidebar-foot">Luma Live 管理后台</div></aside>
+      <div class="admin-main">
+        <header class="admin-topbar"><div class="admin-breadcrumb">运营账号&nbsp;&nbsp;/&nbsp;&nbsp;账号列表&nbsp;&nbsp;/&nbsp;&nbsp;<strong>创建运营账号</strong></div><div class="admin-account"><span class="admin-account-avatar">管</span><span>后台管理员</span><span>⌄</span></div></header>
+        <main class="admin-content admin-create-page">
+          <a class="admin-back-link" href="admin-operation-accounts.html">‹ 返回账号列表</a>
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2>创建运营账号</h2></div>
+            <form id="accountForm">
+              <div class="admin-form-grid">
+                <div class="admin-form-row full"><label>头像</label><div class="admin-inline-actions"><span class="admin-avatar" id="avatarPreview">N</span><button class="admin-btn secondary" id="avatarBtn" type="button">上传头像</button><input class="admin-file-input" id="avatarInput" type="file" accept="image/*" /></div></div>
+                <div class="admin-form-row"><label for="nameInput">名称</label><input class="admin-input" id="nameInput" value="Nadia Official" maxlength="30" required /></div>
+                <div class="admin-form-row admin-form-row-top"><label for="accountInput">账号</label><div><input class="admin-input" id="accountInput" value="nadia_ops" maxlength="30" autocomplete="off" required /><small class="admin-form-hint">账号只支持用户端进行邮箱登录</small></div></div>
+                <div class="admin-form-row"><label for="initialCode">初始密码</label><input class="admin-input" id="initialCode" value="123456" minlength="6" autocomplete="off" required /></div>
+                <div class="admin-form-row"><label for="guildSelect">所属公会</label><select class="admin-select" id="guildSelect" required></select></div>
+                <div class="admin-form-row admin-form-row-top"><label for="coinsInput">初始发放金币</label><div><div class="admin-input-unit"><input class="admin-input" id="coinsInput" type="number" min="0" value="0" required /><span>金币</span></div><div class="admin-note" style="margin-top:8px">最多可发放 <b id="maxCoinsHint"></b> 金币</div></div></div>
+                <div class="admin-form-row"><label>账号状态</label><div class="admin-switch-control"><label class="admin-switch"><input id="statusToggle" type="checkbox" checked /><span class="admin-switch-track"></span></label><span id="statusText">启用</span></div></div>
+              </div>
+            </form>
+          </section>
+          <div class="admin-create-actions"><a class="admin-btn secondary" href="admin-operation-accounts.html">取消</a><button class="admin-btn" type="submit" form="accountForm">保存</button></div>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      const store = LUMA_OPERATION_ACCOUNTS;
+      const fmt = store.formatCoins;
+      const avatarPreview = document.getElementById("avatarPreview");
+      const avatarBtn = document.getElementById("avatarBtn");
+      const avatarInput = document.getElementById("avatarInput");
+      const nameInput = document.getElementById("nameInput");
+      const accountInput = document.getElementById("accountInput");
+      const initialCode = document.getElementById("initialCode");
+      const guildSelect = document.getElementById("guildSelect");
+      const coinsInput = document.getElementById("coinsInput");
+      const maxCoinsHint = document.getElementById("maxCoinsHint");
+      const statusToggle = document.getElementById("statusToggle");
+      const statusText = document.getElementById("statusText");
+      const accountForm = document.getElementById("accountForm");
+
+      initialCode.value = "123456";
+      guildSelect.innerHTML = store.guilds.map((guild) => `<option value="${guild.id}">${guild.name} · ${guild.id}</option>`).join("");
+      function selectedGuild() { return store.guilds.find((guild) => guild.id === guildSelect.value); }
+      function maxGrant() { const guild = selectedGuild(); return Math.max(0, Math.min(guild.singleAccountMonthlyLimit, guild.monthlyQuota - guild.issued)); }
+      function renderLimit() { coinsInput.max = maxGrant(); maxCoinsHint.textContent = fmt(maxGrant()); }
+      avatarBtn.onclick = () => avatarInput.click();
+      avatarInput.onchange = () => {
+        const file = avatarInput.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => { avatarPreview.innerHTML = `<img src="${reader.result}" alt="头像预览" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`; };
+        reader.readAsDataURL(file);
+      };
+      nameInput.oninput = () => { if (!avatarInput.files.length) avatarPreview.textContent = nameInput.value.trim().slice(0, 1).toUpperCase() || "运"; };
+      guildSelect.onchange = renderLimit;
+      statusToggle.onchange = () => { statusText.textContent = statusToggle.checked ? "启用" : "禁用"; };
+      accountForm.onsubmit = (event) => {
+        event.preventDefault();
+        const account = accountInput.value.trim().toLowerCase();
+        const amount = Number(coinsInput.value);
+        if (store.accounts.some((item) => item.account.toLowerCase() === account)) return Luma.toast("该账号已存在");
+        if (amount > maxGrant()) return Luma.toast(`最多可发放 ${fmt(maxGrant())} 金币`);
+        const query = new URLSearchParams({ created: "1", name: nameInput.value.trim(), account, guild: guildSelect.value, coins: String(amount), status: statusToggle.checked ? "enabled" : "disabled" });
+        location.href = `admin-operation-accounts.html?${query}`;
+      };
+      renderLimit();
+      window.parent.postMessage({ type: "luma-page", file: "admin-operation-account-create.html" }, "*");
+      Luma.registerStates({ "账号状态": { "启用": () => { statusToggle.checked = true; statusToggle.onchange(); }, "禁用": () => { statusToggle.checked = false; statusToggle.onchange(); } } });
+    </script>
+  </body>
+</html>

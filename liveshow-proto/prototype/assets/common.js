@@ -542,16 +542,16 @@ window.LUMA_GUILD_CONTEXT = (() => {
       ['../analytics/admin-data-overview.html', '数据概览'],
       ['../analytics/admin-report-center.html', '报表中心']
     ],
-    '系统配置': [
-      ['../system/admin-system-account.html', '后台账号'],
-      ['../system/admin-system-role.html', '角色权限'],
-      ['../system/admin-system-parameter.html', '系统参数'],
-      ['../system/admin-system-audit.html', '操作审计']
+    '运营账号': [
+      ['../accounts/admin-operation-accounts.html', '账号列表'],
+      ['../accounts/admin-operation-issue-records.html', '发放记录'],
+      ['../accounts/admin-operation-gift-records.html', '送礼记录'],
+      ['../accounts/admin-operation-guild-controls.html', '额度限制']
     ]
   };
   const currentFile = location.pathname.split('/').pop();
   const currentCategory = location.pathname.split('/').slice(-2, -1)[0];
-  const categoryByGroup = { '订单管理': 'orders', '财务分成': 'finance', '数据分析': 'analytics', '系统配置': 'system' };
+  const categoryByGroup = { '订单管理': 'orders', '财务分成': 'finance', '数据分析': 'analytics', '运营账号': 'accounts' };
   const reportFiles = ['admin-account-violation.html', 'admin-report-handling.html', 'admin-report-detail.html'];
 
   function groupName(trigger) {
@@ -571,8 +571,16 @@ window.LUMA_GUILD_CONTEXT = (() => {
     if (!nav) return;
 
     if (!nav.children.length) {
-      nav.innerHTML = '<a class="admin-nav-item" href="../user/admin-user-list.html"><span>用户管理</span><span>›</span></a><a class="admin-nav-item" href="../host/admin-host-list.html"><span>主播管理</span><span>›</span></a><a class="admin-nav-item" href="../guild/admin-guild-list.html"><span>公会管理</span><span>›</span></a><a class="admin-nav-item" href="../gifts/admin-gift-list.html"><span>礼物道具</span><span>›</span></a><a class="admin-nav-item" href="../operations/admin-placement-config.html"><span>运营配置</span><span>›</span></a><a class="admin-nav-item" href="../finance/admin-settlement-record.html"><span>财务分成</span><span>›</span></a><button class="admin-nav-item" data-menu="数据分析"><span>数据分析</span><span>›</span></button><button class="admin-nav-item" data-menu="系统配置"><span>系统配置</span><span>›</span></button>';
+      nav.innerHTML = '<a class="admin-nav-item" href="../user/admin-user-list.html"><span>用户管理</span><span>›</span></a><a class="admin-nav-item" href="../host/admin-host-list.html"><span>主播管理</span><span>›</span></a><a class="admin-nav-item" href="../guild/admin-guild-list.html"><span>公会管理</span><span>›</span></a><a class="admin-nav-item" href="../gifts/admin-gift-list.html"><span>礼物道具</span><span>›</span></a><a class="admin-nav-item" href="../operations/admin-placement-config.html"><span>运营配置</span><span>›</span></a><a class="admin-nav-item" href="../finance/admin-settlement-record.html"><span>财务分成</span><span>›</span></a><button class="admin-nav-item" data-menu="数据分析"><span>数据分析</span><span>›</span></button>';
     }
+
+    [...nav.querySelectorAll(':scope > .admin-nav-item')]
+      .filter((entry) => entry.textContent.trim().startsWith('系统配置'))
+      .forEach((entry) => {
+        const submenu = entry.nextElementSibling;
+        if (submenu?.classList.contains('admin-nav-submenu')) submenu.remove();
+        entry.remove();
+      });
 
     if (!nav.querySelector('a[href$="admin-dashboard.html"]')) {
       const dashboardEntry = document.createElement('a');
@@ -607,6 +615,15 @@ window.LUMA_GUILD_CONTEXT = (() => {
       else nav.appendChild(reportEntry);
     }
 
+    if (!nav.querySelector('[data-menu="运营账号"]')) {
+      const operationAccountEntry = document.createElement('button');
+      operationAccountEntry.className = 'admin-nav-item';
+      operationAccountEntry.type = 'button';
+      operationAccountEntry.dataset.menu = '运营账号';
+      operationAccountEntry.innerHTML = '<span>运营账号</span><span>›</span>';
+      nav.appendChild(operationAccountEntry);
+    }
+
     if (reportFiles.includes(currentFile)) {
       nav.querySelectorAll(':scope > .admin-nav-item').forEach((entry) => {
         entry.classList.remove('active');
@@ -627,18 +644,23 @@ window.LUMA_GUILD_CONTEXT = (() => {
     }
 
     [...nav.querySelectorAll(':scope > .admin-nav-item')].forEach((trigger) => {
-      const name = groupName(trigger);
+      const configuredName = groupName(trigger);
+      let submenu = trigger.nextElementSibling;
+      const hasExistingSubmenu = submenu?.classList.contains('admin-nav-submenu');
+      const isStaticGroup = trigger.tagName === 'BUTTON' && hasExistingSubmenu;
+      if (!configuredName && !isStaticGroup) return;
+
+      const name = configuredName || trigger.querySelector('span')?.textContent.trim();
       if (!name) return;
 
       trigger.dataset.adminNavGroup = name;
       if (trigger.tagName === 'BUTTON') trigger.type = 'button';
 
-      let submenu = trigger.nextElementSibling;
-      if (!submenu?.classList.contains('admin-nav-submenu')) {
+      if (!hasExistingSubmenu) {
         submenu = document.createElement('div');
         submenu.className = 'admin-nav-submenu';
         submenu.dataset.adminNavSubmenu = name;
-        groups[name].forEach(([href, label]) => {
+        groups[configuredName].forEach(([href, label]) => {
           const link = document.createElement('a');
           link.className = 'admin-nav-sub';
           link.href = href;
@@ -654,7 +676,7 @@ window.LUMA_GUILD_CONTEXT = (() => {
         trigger.insertAdjacentElement('afterend', submenu);
       }
 
-      if (name === '财务分成') {
+      if (configuredName === '财务分成') {
         const hostSettlementLink = submenu.querySelector('a[href$="admin-settlement-record.html"]');
         if (hostSettlementLink) hostSettlementLink.textContent = '主播分成记录';
         if (!submenu.querySelector('a[href$="admin-guild-settlement-record.html"]')) {
@@ -687,9 +709,11 @@ window.LUMA_GUILD_CONTEXT = (() => {
         });
       }
 
-      const containsCurrentPage = name === '举报处理'
-        ? reportFiles.includes(currentFile)
-        : currentCategory === categoryByGroup[name];
+      const containsCurrentPage = configuredName
+        ? (configuredName === '举报处理'
+          ? reportFiles.includes(currentFile)
+          : currentCategory === categoryByGroup[configuredName])
+        : trigger.classList.contains('active') || Boolean(submenu.querySelector('.admin-nav-sub.active'));
       trigger.classList.toggle('active', containsCurrentPage);
       setExpanded(trigger, submenu, containsCurrentPage);
       trigger.addEventListener('click', (event) => {

@@ -169,7 +169,10 @@
       { file: 'guild-host-select.html', title: '选择主播', type: 'mobile' },
       { file: 'guild-message-detail.html', title: '消息详情', type: 'mobile' },
       { file: 'guild-operation-accounts.html', title: '运营账号', type: 'mobile' },
-      { file: 'guild-operation-account-compose.html', title: '添加运营账号', type: 'mobile' },
+      { file: 'guild-operation-account-compose.html', title: '创建运营账号', type: 'mobile' },
+      { file: 'guild-operation-account-detail.html', title: '运营账号主页', type: 'mobile' },
+      { file: 'guild-operation-gift-records.html', title: '送礼记录', type: 'mobile' },
+      { file: 'guild-operation-account-select.html', title: '选择运营账号（多选）', type: 'mobile' },
       { file: 'guild-profile.html', title: '公会资料', type: 'mobile' },
       { file: 'guild-settings.html', title: '账号设置', type: 'mobile' },
       { file: 'guild-password.html', title: '修改密码', type: 'mobile' },
@@ -189,7 +192,7 @@
     const guildPageGroups = [
       { title: '登录与首页', pageFiles: ['guild-login.html', 'guild-switch.html', 'guild-home.html', 'guild-notifications.html', 'guild-notification-detail.html'] },
       { title: '主播管理', pageFiles: ['guild-join-review.html', 'guild-join-review-detail.html', 'guild-leave-review.html', 'guild-leave-review-detail.html', 'guild-member-list.html', 'guild-host-list.html', 'guild-host-summary.html', 'guild-host-detail.html'] },
-      { title: '运营工具', pageFiles: ['guild-messages.html', 'guild-message-compose.html', 'guild-host-select.html', 'guild-message-detail.html', 'guild-operation-accounts.html', 'guild-operation-account-compose.html'] },
+      { title: '运营工具', pageFiles: ['guild-messages.html', 'guild-message-compose.html', 'guild-host-select.html', 'guild-message-detail.html', 'guild-operation-accounts.html', 'guild-operation-account-compose.html', 'guild-operation-account-detail.html', 'guild-operation-gift-records.html', 'guild-operation-account-select.html'] },
       { title: '公会管理', pageFiles: ['guild-profile.html', 'guild-settings.html', 'guild-password.html'] },
       { title: '数据与收益', pageFiles: ['guild-income.html', 'guild-income-day-detail.html', 'guild-host-data.html', 'guild-live-gift-detail.html', 'guild-all-violations.html', 'guild-share-ledger.html', 'guild-share-income.html', 'guild-all-live.html', 'guild-violation-host-select.html'] }
     ];
@@ -197,8 +200,6 @@
       { file: 'admin-dashboard.html', title: '工作台', type: 'desktop' },
       { file: 'admin-user-list.html', title: '用户列表', type: 'desktop' },
       { file: 'admin-user-detail.html', title: '用户详情', type: 'desktop' },
-      { file: 'admin-ban-appeal.html', title: '封禁申诉', type: 'desktop' },
-      { file: 'admin-ban-appeal-detail.html', title: '申诉详情', type: 'desktop' },
       { file: 'admin-host-list.html', title: '主播列表', type: 'desktop' },
       { file: 'admin-host-detail.html', title: '主播详情', type: 'desktop' },
       { file: 'admin-host-review.html', title: '主播审核', type: 'desktop' },
@@ -250,6 +251,8 @@
       { file: 'admin-live-type.html', title: '直播类型', type: 'desktop' },
       { file: 'admin-feature-switch.html', title: '直播房型', type: 'desktop' },
       { file: 'admin-feature-switch-detail.html', title: '直播房型编辑', type: 'desktop' },
+      { file: 'admin-ticket-price-level.html', title: '门票价格档位', type: 'desktop' },
+      { file: 'admin-ticket-price-level-detail.html', title: '门票价格档位编辑', type: 'desktop' },
       { file: 'admin-sensitive-words.html', title: '敏感词库', type: 'desktop' },
       { file: 'admin-sensitive-words-detail.html', title: '敏感词编辑', type: 'desktop' },
       { file: 'admin-report-center.html', title: '报表中心', type: 'desktop' },
@@ -269,27 +272,25 @@
       { file: 'admin-consumption-order-detail-report.html', title: '消费订单明细', type: 'desktop' },
       { file: 'admin-refund-order-detail-report.html', title: '退款订单明细', type: 'desktop' },
       { file: 'admin-recharge-order-detail-report.html', title: '充值订单明细', type: 'desktop' },
-      { file: 'admin-system-account.html', title: '后台账号', type: 'desktop' },
-      { file: 'admin-system-account-detail.html', title: '账号编辑', type: 'desktop' },
-      { file: 'admin-system-role.html', title: '角色权限', type: 'desktop' },
-      { file: 'admin-system-role-detail.html', title: '角色编辑', type: 'desktop' },
-      { file: 'admin-system-parameter.html', title: '系统参数', type: 'desktop' },
-      { file: 'admin-system-parameter-detail.html', title: '参数编辑', type: 'desktop' },
-      { file: 'admin-system-audit.html', title: '操作审计', type: 'desktop' },
-      { file: 'admin-system-audit-detail.html', title: '日志详情', type: 'desktop' }
+      { file: 'admin-operation-accounts.html', title: '账号列表', type: 'desktop' },
+      { file: 'admin-operation-account-create.html', title: '创建运营账号', type: 'desktop' },
+      { file: 'admin-operation-account-detail.html', title: '运营账号主页', type: 'desktop' },
+      { file: 'admin-operation-issue-records.html', title: '发放记录', type: 'desktop' },
+      { file: 'admin-operation-gift-records.html', title: '送礼记录', type: 'desktop' },
+      { file: 'admin-operation-guild-controls.html', title: '额度限制', type: 'desktop' }
     ];
     const adminPageGroups = [
       { title: '工作台', pageFiles: ['admin-dashboard.html'], allFiles: ['admin-dashboard.html'] },
-      { title: '用户管理', pageFiles: ['admin-user-list.html', 'admin-ban-appeal.html'], allFiles: ['admin-user-list.html', 'admin-user-detail.html', 'admin-ban-appeal.html', 'admin-ban-appeal-detail.html'] },
+      { title: '用户管理', pageFiles: ['admin-user-list.html'], allFiles: ['admin-user-list.html', 'admin-user-detail.html'] },
       { title: '主播管理', pageFiles: ['admin-host-review.html', 'admin-host-list.html', 'admin-live-management.html', 'admin-inspection-schedule.html', 'admin-content-audit.html'], allFiles: ['admin-host-review.html', 'admin-host-review-detail.html', 'admin-host-list.html', 'admin-host-detail.html', 'admin-live-management.html', 'admin-live-detail.html', 'admin-inspection-schedule.html', 'admin-inspection-schedule-create.html', 'admin-inspection-schedule-detail.html', 'admin-content-audit.html', 'admin-content-audit-detail.html'] },
       { title: '举报处理', pageFiles: ['admin-account-violation.html', 'admin-report-handling.html'], allFiles: ['admin-account-violation.html', 'admin-report-handling.html', 'admin-report-detail.html'] },
       { title: '公会管理', pageFiles: ['admin-guild-list.html'], allFiles: ['admin-guild-list.html', 'admin-guild-detail.html'] },
       { title: '礼物道具', pageFiles: ['admin-gift-list.html', 'admin-custom-gift.html', 'admin-lucky-gift-config.html', 'admin-prop-list.html', 'admin-gift-send-count-rules.html'], allFiles: ['admin-gift-list.html', 'admin-gift-detail.html', 'admin-custom-gift.html', 'admin-lucky-gift-config.html', 'admin-lucky-gift-detail.html', 'admin-prop-list.html', 'admin-prop-detail.html', 'admin-gift-send-count-rules.html', 'admin-gift-send-count-rule-detail.html'] },
-      { title: '运营配置', pageFiles: ['admin-placement-config.html', 'admin-push-management.html', 'admin-recharge-package.html', 'admin-task-config.html', 'admin-guild-recommendation.html', 'admin-live-type.html', 'admin-feature-switch.html', 'admin-sensitive-words.html'], allFiles: ['admin-placement-config.html', 'admin-placement-detail.html', 'admin-push-management.html', 'admin-push-detail.html', 'admin-recharge-package.html', 'admin-recharge-package-detail.html', 'admin-task-config.html', 'admin-task-detail.html', 'admin-guild-recommendation.html', 'admin-guild-recommendation-detail.html', 'admin-live-type.html', 'admin-feature-switch.html', 'admin-feature-switch-detail.html', 'admin-sensitive-words.html', 'admin-sensitive-words-detail.html'] },
+      { title: '运营配置', pageFiles: ['admin-placement-config.html', 'admin-push-management.html', 'admin-recharge-package.html', 'admin-task-config.html', 'admin-guild-recommendation.html', 'admin-live-type.html', 'admin-feature-switch.html', 'admin-sensitive-words.html'], allFiles: ['admin-placement-config.html', 'admin-placement-detail.html', 'admin-push-management.html', 'admin-push-detail.html', 'admin-recharge-package.html', 'admin-recharge-package-detail.html', 'admin-task-config.html', 'admin-task-detail.html', 'admin-guild-recommendation.html', 'admin-guild-recommendation-detail.html', 'admin-live-type.html', 'admin-feature-switch.html', 'admin-feature-switch-detail.html', 'admin-ticket-price-level.html', 'admin-ticket-price-level-detail.html', 'admin-sensitive-words.html', 'admin-sensitive-words-detail.html'] },
       { title: '订单管理', pageFiles: ['admin-recharge-order.html', 'admin-consumption-order.html', 'admin-refund-order.html'], allFiles: ['admin-recharge-order.html', 'admin-recharge-order-detail.html', 'admin-consumption-order.html', 'admin-consumption-order-detail.html', 'admin-refund-order.html'] },
       { title: '财务分成', pageFiles: ['admin-settlement-record.html', 'admin-host-account-balance.html', 'admin-guild-settlement-record.html', 'admin-guild-account-balance.html'], allFiles: ['admin-settlement-record.html', 'admin-settlement-record-detail.html', 'admin-host-account-balance.html', 'admin-host-balance-change-record.html', 'admin-guild-settlement-record.html', 'admin-guild-settlement-record-detail.html', 'admin-guild-account-balance.html', 'admin-guild-balance-change-record.html'] },
       { title: '数据分析', pageFiles: ['admin-report-center.html', 'admin-data-overview.html', 'admin-daily-statistics.html', 'admin-user-active-statistics.html', 'admin-host-statistics.html', 'admin-live-statistics.html', 'admin-host-live-record-report.html', 'admin-recharge-statistics.html', 'admin-user-activity-statistics.html', 'admin-monthly-income-expense.html', 'admin-monthly-host-share.html', 'admin-monthly-viewer-consumption.html', 'admin-monthly-gift-sales.html', 'admin-consumption-order-detail-report.html', 'admin-refund-order-detail-report.html', 'admin-recharge-order-detail-report.html'], allFiles: ['admin-report-center.html', 'admin-data-overview.html', 'admin-daily-statistics.html', 'admin-user-active-statistics.html', 'admin-host-statistics.html', 'admin-live-statistics.html', 'admin-host-live-record-report.html', 'admin-recharge-statistics.html', 'admin-user-activity-statistics.html', 'admin-monthly-income-expense.html', 'admin-monthly-host-share.html', 'admin-monthly-viewer-consumption.html', 'admin-monthly-gift-sales.html', 'admin-consumption-order-detail-report.html', 'admin-refund-order-detail-report.html', 'admin-recharge-order-detail-report.html'] },
-      { title: '系统配置', pageFiles: ['admin-system-account.html', 'admin-system-role.html', 'admin-system-parameter.html', 'admin-system-audit.html'], allFiles: ['admin-system-account.html', 'admin-system-account-detail.html', 'admin-system-role.html', 'admin-system-role-detail.html', 'admin-system-parameter.html', 'admin-system-parameter-detail.html', 'admin-system-audit.html', 'admin-system-audit-detail.html'] }
+      { title: '运营账号', pageFiles: ['admin-operation-accounts.html', 'admin-operation-issue-records.html', 'admin-operation-gift-records.html', 'admin-operation-guild-controls.html'], allFiles: ['admin-operation-accounts.html', 'admin-operation-account-create.html', 'admin-operation-account-detail.html', 'admin-operation-issue-records.html', 'admin-operation-gift-records.html', 'admin-operation-guild-controls.html'] }
     ];
     adminPageGroups.flatMap((group) => group.pageFiles).forEach((file, index) => {
       const page = adminPages.find((item) => item.file === file);
@@ -307,21 +308,26 @@
       ,'guild-host-select.html': 'guild-messages.html'
       ,'guild-message-detail.html': 'guild-messages.html'
       ,'guild-operation-account-compose.html': 'guild-operation-accounts.html'
+      ,'guild-operation-account-detail.html': 'guild-operation-accounts.html'
+      ,'guild-operation-account-select.html': 'guild-operation-gift-records.html'
       ,'guild-password.html': 'guild-settings.html'
       ,'guild-switch.html': 'guild-home.html'
     };
     const adminDetailParents = {
       'admin-user-detail.html': 'admin-user-list.html',
-      'admin-ban-appeal-detail.html': 'admin-ban-appeal.html',
       'admin-host-detail.html': 'admin-host-list.html',
       'admin-host-review-detail.html': 'admin-host-review.html',
       'admin-live-detail.html': 'admin-live-management.html',
       'admin-inspection-schedule-create.html': 'admin-inspection-schedule.html',
       'admin-inspection-schedule-detail.html': 'admin-inspection-schedule.html',
       'admin-content-audit-detail.html': 'admin-content-audit.html',
+      'admin-operation-account-create.html': 'admin-operation-accounts.html',
+      'admin-operation-account-detail.html': 'admin-operation-accounts.html',
       'admin-report-detail.html': 'admin-report-handling.html',
       'admin-guild-detail.html': 'admin-guild-list.html',
       'admin-feature-switch-detail.html': 'admin-feature-switch.html',
+      'admin-ticket-price-level.html': 'admin-feature-switch.html',
+      'admin-ticket-price-level-detail.html': 'admin-feature-switch.html',
       'admin-settlement-record-detail.html': 'admin-settlement-record.html',
       'admin-guild-settlement-record-detail.html': 'admin-guild-settlement-record.html',
       'admin-gift-detail.html': 'admin-gift-list.html',
@@ -335,11 +341,7 @@
       'admin-recharge-order-detail.html': 'admin-recharge-order.html',
       'admin-task-detail.html': 'admin-task-config.html',
       'admin-guild-recommendation-detail.html': 'admin-guild-recommendation.html',
-      'admin-sensitive-words-detail.html': 'admin-sensitive-words.html',
-      'admin-system-account-detail.html': 'admin-system-account.html',
-      'admin-system-role-detail.html': 'admin-system-role.html',
-      'admin-system-parameter-detail.html': 'admin-system-parameter.html',
-      'admin-system-audit-detail.html': 'admin-system-audit.html'
+      'admin-sensitive-words-detail.html': 'admin-sensitive-words.html'
     };
     const baseUserPageOrder = [
       'live-plaza.html', 'host-ranking.html', 'contribution-ranking.html', 'search.html', 'search-results.html', 'live-room.html', 'live-room-report.html', 'live-room-user-report.html', 'live-room-host.html', 'live-room-host-password.html', 'live-room-cohost-active.html', 'live-end-viewer.html', 'live-end-host.html',
@@ -474,6 +476,9 @@
   "guild-message-detail.html": "guild/operations/guild-message-detail.html",
   "guild-operation-accounts.html": "guild/operations/guild-operation-accounts.html",
   "guild-operation-account-compose.html": "guild/operations/guild-operation-account-compose.html",
+  "guild-operation-account-detail.html": "guild/operations/guild-operation-account-detail.html",
+  "guild-operation-gift-records.html": "guild/operations/guild-operation-gift-records.html",
+  "guild-operation-account-select.html": "guild/operations/guild-operation-account-select.html",
   "guild-profile.html": "guild/management/guild-profile.html",
   "guild-settings.html": "guild/management/guild-settings.html",
   "guild-password.html": "guild/management/guild-password.html",
@@ -493,8 +498,6 @@
   "admin-dashboard.html": "admin/dashboard/admin-dashboard.html",
   "admin-user-list.html": "admin/user/admin-user-list.html",
   "admin-user-detail.html": "admin/user/admin-user-detail.html",
-  "admin-ban-appeal.html": "admin/user/admin-ban-appeal.html",
-  "admin-ban-appeal-detail.html": "admin/user/admin-ban-appeal-detail.html",
   "admin-host-list.html": "admin/host/admin-host-list.html",
   "admin-host-detail.html": "admin/host/admin-host-detail.html",
   "admin-host-review.html": "admin/host/admin-host-review.html",
@@ -533,6 +536,8 @@
   "admin-live-type.html": "admin/operations/admin-live-type.html",
   "admin-feature-switch.html": "admin/operations/admin-feature-switch.html",
   "admin-feature-switch-detail.html": "admin/operations/admin-feature-switch-detail.html",
+  "admin-ticket-price-level.html": "admin/operations/admin-ticket-price-level.html",
+  "admin-ticket-price-level-detail.html": "admin/operations/admin-ticket-price-level-detail.html",
   "admin-sensitive-words.html": "admin/operations/admin-sensitive-words.html",
   "admin-sensitive-words-detail.html": "admin/operations/admin-sensitive-words-detail.html",
   "admin-recharge-order.html": "admin/orders/admin-recharge-order.html",
@@ -565,14 +570,12 @@
   "admin-consumption-order-detail-report.html": "admin/analytics/admin-consumption-order-detail-report.html",
   "admin-refund-order-detail-report.html": "admin/analytics/admin-refund-order-detail-report.html",
   "admin-recharge-order-detail-report.html": "admin/analytics/admin-recharge-order-detail-report.html",
-  "admin-system-account.html": "admin/system/admin-system-account.html",
-  "admin-system-account-detail.html": "admin/system/admin-system-account-detail.html",
-  "admin-system-role.html": "admin/system/admin-system-role.html",
-  "admin-system-role-detail.html": "admin/system/admin-system-role-detail.html",
-  "admin-system-parameter.html": "admin/system/admin-system-parameter.html",
-  "admin-system-parameter-detail.html": "admin/system/admin-system-parameter-detail.html",
-  "admin-system-audit.html": "admin/system/admin-system-audit.html",
-  "admin-system-audit-detail.html": "admin/system/admin-system-audit-detail.html"
+  "admin-operation-accounts.html": "admin/accounts/admin-operation-accounts.html",
+  "admin-operation-account-create.html": "admin/accounts/admin-operation-account-create.html",
+  "admin-operation-account-detail.html": "admin/accounts/admin-operation-account-detail.html",
+  "admin-operation-issue-records.html": "admin/accounts/admin-operation-issue-records.html",
+  "admin-operation-gift-records.html": "admin/accounts/admin-operation-gift-records.html",
+  "admin-operation-guild-controls.html": "admin/accounts/admin-operation-guild-controls.html"
 };
     const pages = [...userPages, ...guildPages, ...adminPages];
     pages.forEach((page) => { page.path = pagePaths[page.file] || page.file; });

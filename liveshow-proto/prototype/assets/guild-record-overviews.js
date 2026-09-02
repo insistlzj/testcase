@@ -156,9 +156,7 @@
   }
 
   function renderFilters() {
-    rangePickerValue.textContent = viewType === 'violations'
-      ? (rangeStart === rangeEnd ? compactDate(rangeStart) : `${compactDate(rangeStart)}–${compactDate(rangeEnd)}`)
-      : `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
+    rangePickerValue.textContent = `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
     rangePickerButton.setAttribute('aria-label', `选择日期范围，当前${rangePickerValue.textContent}`);
     if (shortcutPicker && shortcutPickerValue && shortcutMenu) {
       shortcutPickerValue.textContent = shortcutLabels[selectedShortcut];

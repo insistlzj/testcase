@@ -88,7 +88,10 @@
 | 主播业绩 | `pages/guild/people/guild-host-list.html` | 日期范围、在职/离职查询及详情。 |
 | 新建运营消息 | `pages/guild/operations/guild-message-compose.html` | 向全体成员或一位指定主播发送消息。 |
 | 选择主播 | `pages/guild/operations/guild-host-select.html` | 搜索并单选一位主播，完成后返回新建页。 |
-| 添加运营账号 | `pages/guild/operations/guild-operation-account-compose.html` | 选择成员及直播间后添加运营账号。 |
+| 运营账号 | `pages/guild/operations/guild-operation-accounts.html` | 展示公会额度汇总、账户余额、本月消费及账号列表。 |
+| 创建运营账号 | `pages/guild/operations/guild-operation-account-compose.html` | 上传头像并填写账号资料，可初始发放金币。 |
+| 运营账号主页 | `pages/guild/operations/guild-operation-account-detail.html` | 展示账号数据、消费列表，并支持启禁用和发放金币。 |
+| 送礼记录 | `pages/guild/operations/guild-operation-gift-records.html` | 按运营账号和日期范围查询送礼记录及详情。 |
 | 每日经营详情 | `pages/guild/data/guild-income-day-detail.html` | 展示当日公会收益、主播开播概况并进入主播数据。 |
 | 违规记录 | `pages/guild/data/guild-all-violations.html` | 按主播查看直播间违规记录。 |
 | 全部直播记录 | `pages/guild/data/guild-all-live.html` | 按日期范围和主播筛选全部直播汇总记录。 |
@@ -107,8 +110,6 @@
 | 工作台 | `pages/admin/dashboard/admin-dashboard.html` | 展示今日实时数据、近 7 日指标趋势、退款和快捷操作。 |
 | 用户列表 | `pages/admin/user/admin-user-list.html` | 用户筛选、列表和账号处置。 |
 | 用户详情 | `pages/admin/user/admin-user-detail.html` | 基础信息、充值、消费、设备、关注、粉丝和违规记录。 |
-| 封禁申诉 | `pages/admin/user/admin-ban-appeal.html` | 申诉筛选和申诉处置。 |
-| 申诉详情 | `pages/admin/user/admin-ban-appeal-detail.html` | 展示基础信息和申诉内容，支持处理申诉。 |
 | 主播列表 | `pages/admin/host/admin-host-list.html` | 主播查询、直播权限、平台锁定、警告和封禁。 |
 | 主播详情 | `pages/admin/host/admin-host-detail.html` | 基础信息、收益摘要、认证、权限、直播、粉丝团和违规记录。 |
 | 认证主播 | `pages/admin/host/admin-host-review.html` | 认证筛选、通过与驳回。 |
@@ -147,6 +148,8 @@
 | 公会推荐编辑 | `pages/admin/operations/admin-guild-recommendation-detail.html` | 选择推荐公会并配置权重。 |
 | 直播房型 | `pages/admin/operations/admin-feature-switch.html` | 查询并管理普通房、门票房和密码房。 |
 | 直播房型编辑 | `pages/admin/operations/admin-feature-switch-detail.html` | 配置开放范围和启用状态。 |
+| 门票价格档位 | `pages/admin/operations/admin-ticket-price-level.html` | 管理门票房可选择的价格档位、状态和排序。 |
+| 门票价格档位编辑 | `pages/admin/operations/admin-ticket-price-level-detail.html` | 新增或编辑门票金币价格、排序和启用状态。 |
 | 敏感词库 | `pages/admin/operations/admin-sensitive-words.html` | 查询、导入、新建和管理敏感词。 |
 | 敏感词编辑 | `pages/admin/operations/admin-sensitive-words-detail.html` | 配置敏感词、匹配规则和使用场景。 |
 | 普通礼物 | `pages/admin/gifts/admin-gift-list.html` | 长期礼物筛选、新增编辑、特效绑定和上下架。 |
@@ -172,6 +175,12 @@
 | 消费订单明细 | `pages/admin/analytics/admin-consumption-order-detail-report.html` | 展示观众消费、主播收益及关联场次。 |
 | 退款订单明细 | `pages/admin/analytics/admin-refund-order-detail-report.html` | 展示已完成退款订单。 |
 | 充值订单明细 | `pages/admin/analytics/admin-recharge-order-detail-report.html` | 展示已支付充值订单及充值套餐名称。 |
+| 运营账号列表 | `pages/admin/accounts/admin-operation-accounts.html` | 查询运营账号，查看账号状态、管理权限、余额和消费数据。 |
+| 创建运营账号 | `pages/admin/accounts/admin-operation-account-create.html` | 创建账号并配置所属公会、初始金币和账号状态。 |
+| 运营账号主页 | `pages/admin/accounts/admin-operation-account-detail.html` | 查看账号数据，编辑资料、启禁用、发放金币、重置密码和锁定管理权限。 |
+| 发放记录 | `pages/admin/accounts/admin-operation-issue-records.html` | 按公会、运营账号名称或ID、日期查询金币发放记录。 |
+| 送礼记录 | `pages/admin/accounts/admin-operation-gift-records.html` | 按公会、运营账号和日期查询送礼记录及详情。 |
+| 额度限制 | `pages/admin/accounts/admin-operation-guild-controls.html` | 查询公会并配置单账号及公会累计发放上限。 |
 
 管理后台使用桌面画布。详情均打开独立页面，基础信息位于顶部，其他内容通过下方 Tab 展示。
 管理后台日期使用日/月/年格式且不补零，例如 `8/12/2026` 表示 2026 年 12 月 8 日；时间使用点号分隔，例如 `14.30`；日期时间格式为 `8/12/2026 14.30`。

@@ -1,0 +1,54 @@
+{
+  "项目名称": "Luma Live",
+  "来源策略": "prototype-primary",
+  "同步状态": "有非阻塞待确认",
+  "执行时间": "2026-08-31 11:23:26 CST",
+  "原型基线": [
+    { "相对路径": "prototype/Luma Live-原型说明.md", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "db96e32c1f7cbbf0638a8daf6de0e97c66f5874a942423f14fd403541f904724" },
+    { "相对路径": "prototype/index.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "a21ae7398b215ace03275f116c926ecb07526d85b62aca8823c960b29b40e0bc" },
+    { "相对路径": "prototype/assets/annotations.js", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "977d534fe16237db6c28db6bf6cd30acd4d07650b992743a20ae0e2f251d5a53" },
+    { "相对路径": "prototype/assets/common.js", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "bd5f519fa6e614525038f903716e48830dfdc4b9b616befd42094532bd1ea9c2" },
+    { "相对路径": "prototype/assets/mock.js", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "89be5292b2862865ca970383ae1351248e7915f074fc9548b29c35adf4924abf" },
+    { "相对路径": "prototype/assets/guild-data-model.js", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "0b2ad8cb4bb8a6e0a115a5bdb4348c3628781b56e1c72975fbcca7564337de25" },
+    { "相对路径": "prototype/assets/guild-record-overviews.js", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "347b29385325dd914d1b6355d64024ccace629a934b4ccb496812cec3ffc5c46" },
+    { "相对路径": "prototype/assets/guild-share-records.js", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "2e045d2ca5bb07e4fc37fa95e6b458946666b13e7cfd03c94b22b7a32682b33b" },
+    { "相对路径": "prototype/assets/guild-date-range.js", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "7ee3acd664b137055faa75313a34d041028d1945b8c117f37820eb0f7302eb36" },
+    { "相对路径": "prototype/pages/guild/home/guild-home.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "744e60b6e4aba3acc939601ce1dc70b70822a2b688eb835db6841a9982915a9c" },
+    { "相对路径": "prototype/pages/guild/data/guild-income.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "e099ef1d128ae56e8a017b606e4c0f388716edf2cf2abfc10abcec722cca32cd" },
+    { "相对路径": "prototype/pages/guild/data/guild-income-day-detail.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "70773f7454a66242836a8eeeecc5a6baac6c96f92bba3793ad71cc69c82c00c6" },
+    { "相对路径": "prototype/pages/guild/data/guild-host-data.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "f0ad36b52b13cc9a647934d63c6e00c9c34e6bc38b61f07cbec1252f4bac25e9" },
+    { "相对路径": "prototype/pages/guild/data/guild-live-gift-detail.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "c6dabdd4483079e4c36b391580480d0cd0c2a8a7b32d9cb824c1ab55b2466aee" },
+    { "相对路径": "prototype/pages/guild/data/guild-all-violations.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "6a65bf869575a6ac237268c8a1c1b931315916af1918579122655df07a71eac4" },
+    { "相对路径": "prototype/pages/guild/data/guild-share-ledger.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "4c7f85d80ae406b5c81c07f117847cb4b7002020d6c000e7d1b76d4c37298af6" },
+    { "相对路径": "prototype/pages/guild/data/guild-share-income.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "4e31fcdbfe9264446d6b6ba10a52b44f565ecb77d9a6ab1a87f6d879db8396f5" },
+    { "相对路径": "prototype/pages/guild/data/guild-all-live.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "f7b0b3166efe2f0e06fdb5477df8a059f40f2fdf3cc2a0969585e997cdf1fac5" },
+    { "相对路径": "prototype/pages/guild/data/guild-violation-host-select.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "d47b5117ea829a5f857ada77a63984c240d647ed9c14034afeeda44777411850" },
+    { "相对路径": "prototype/pages/guild/data/guild-host-summary.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "4cd8205aa9e5049f29434038a2fc0c249cb8ee16482e9b92fa069847721fd856" },
+    { "相对路径": "prototype/pages/guild/people/guild-host-list.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "70ca3b4e8430a464a1fe2b622dcfdeb69962765a4439c03b73d84f9868799168" },
+    { "相对路径": "prototype/pages/guild/people/guild-host-detail.html", "修改时间": "2026-08-31T09:48:29+08:00", "SHA-256": "9ba7f620cc98b21c5ab9a4e3683b452b76dce763dd5e339c0c34e6fbee796464" }
+  ],
+  "扫描范围": [
+    "公会 App / 数据与收益 / 公会业绩、每日经营详情、直播记录、违规记录、主播分成记录、公会分成记录",
+    "关联入口：公会首页、主播列表、主播详情、主播数据",
+    "关联交互：日月切换、指标趋势、主播多选、日期筛选、明细下钻与返回条件",
+    "公共来源：原型说明、页面树、批注、公会数据模型、记录汇总、分成记录、日期与金额格式"
+  ],
+  "目标需求清单": ["context/02-公会App-项目需求清单.md"],
+  "差异统计": { "新增": 5, "修改": 0, "明确删除": 0, "原型未覆盖": 9, "来源冲突": 2, "无法定位": 0 },
+  "需求清单变更日志编号": ["RSL-0005"],
+  "受影响用例": [
+    { "范围": "公会App-直播记录模块-260831-001.xlsx", "状态": "继续有效", "数量": 107 }
+  ],
+  "阻塞异常": [],
+  "非阻塞待确认": [
+    "公会业绩开播人数在多日和多月范围内是去重还是逐日逐月累加",
+    "违规记录是否提供快捷日期筛选入口",
+    "违规记录时间字段使用发生时间还是举报时间",
+    "历史日期的直播中指标名称和统计边界",
+    "公会业绩月数据的完整历史范围",
+    "公会数据与分成记录的业务时区、分页、保留期限和离会主播历史范围",
+    "主播分成与公会分成记录的生成时点、负数类型和失败恢复",
+    "结算台账三方明细、命中规则版本和结算状态的展示位置",
+    "数据页导出范围和汇总明细不一致时的处理方式"
+  ]
+}

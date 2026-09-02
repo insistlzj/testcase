@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>运营账号主页 · 公会 APP</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <link rel="stylesheet" href="../../../assets/guild.css?v=20260829-filter-zone-v1" />
+    <link rel="stylesheet" href="../../../assets/guild-core-data.css?v=20260829-date-range-v1" />
+    <script src="../../../assets/common.js?v=20260829-operation-accounts-v3"></script>
+    <script src="../../../assets/guild-date-range.js?v=20260829-v1"></script>
+    <script src="../../../assets/operation-accounts.js?v=20260829-v4"></script>
+  </head>
+  <body>
+    <main class="guild-sub-screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="guild-page-nav">
+        <a class="guild-back" href="guild-operation-accounts.html">‹</a>运营账号主页
+      </header>
+      <div class="guild-page-body">
+        <p class="guild-operation-note locked state-hide" id="lockNote">平台已锁定该运营账号的公会管理权限，当前仅可查看。</p>
+        <section class="guild-form-card">
+          <div class="guild-operation-detail-head">
+            <i class="directory-avatar" id="avatar"></i>
+            <span class="guild-operation-detail-copy">
+              <span class="guild-operation-detail-title"><b id="accountName"></b><span class="guild-status-tag guild-operation-detail-status" id="statusTag"></span></span>
+              <span id="accountId"></span>
+            </span>
+            <button class="guild-operation-detail-manage" id="manageBtn" type="button">管理</button>
+          </div>
+        </section>
+        <section class="guild-operation-home-metrics">
+          <div><span>账户余额</span><b id="balance"></b></div>
+          <div><span>累计消费</span><b id="spentTotal"></b></div>
+          <div><span>本月发放</span><b id="issued"></b></div>
+          <div><span>本月消费</span><b id="spentMonth"></b></div>
+        </section>
+        <section class="guild-operation-consumption-tools guild-filter-zone">
+          <button class="guild-operation-consumption-range" id="rangeButton" type="button" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg>
+            <span id="rangeValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <button class="guild-host-performance-quick" id="shortcutButton" type="button" aria-haspopup="menu" aria-expanded="false">
+            <span id="shortcutValue">本月</span><i aria-hidden="true">⌄</i>
+          </button>
+          <div class="guild-host-performance-shortcut-menu guild-operation-consumption-shortcuts" id="shortcutMenu" role="menu" aria-label="快捷日期筛选" hidden>
+            <button type="button" role="menuitemradio" data-shortcut="today">今日</button>
+            <button type="button" role="menuitemradio" data-shortcut="yesterday">昨日</button>
+            <button type="button" role="menuitemradio" data-shortcut="thisWeek">本周</button>
+            <button type="button" role="menuitemradio" data-shortcut="lastWeek">上周</button>
+            <button class="active" type="button" role="menuitemradio" data-shortcut="thisMonth">本月</button>
+            <button type="button" role="menuitemradio" data-shortcut="lastMonth">上月</button>
+            <button type="button" role="menuitemradio" data-shortcut="custom">自定义</button>
+          </div>
+        </section>
+        <section class="guild-operation-consumption-list" id="consumptionList"></section>
+      </div>
+    </main>
+    <div class="guild-homebar"><i></i></div>
+
+    <div class="guild-mask state-hide" id="managementSheet">
+      <section class="guild-sheet guild-operation-management-sheet" role="dialog" aria-modal="true" aria-labelledby="managementTitle">
+        <header><h2 id="managementTitle">管理运营账号</h2><button class="guild-sheet-close" id="closeManagement" type="button" aria-label="关闭">×</button></header>
+        <div class="guild-operation-sheet-status"><span>账号状态</span><div id="statusControl"><button class="guild-inline-switch" id="statusSwitch" type="button" role="switch" aria-label="账号状态"></button><span class="guild-operation-sheet-current-status" id="statusValue"></span></div></div>
+        <button class="guild-primary-action" id="sheetCoinBtn" type="button">发放金币</button>
+      </section>
+    </div>
+
+    <div class="guild-confirm-mask state-hide" id="coinDialog">
+      <section class="guild-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="coinTitle">
+        <h2 id="coinTitle">发放金币</h2><p id="coinHint"></p>
+        <label class="guild-field"><span>发放数量</span><input id="coinAmount" type="number" min="1" value="0" /></label>
+        <div class="guild-confirm-actions"><button id="coinCancel" type="button">取消</button><button class="primary" id="coinConfirm" type="button">确认发放</button></div>
+      </section>
+    </div>
+
+    <div id="rangeSheet"></div>
+
+    <script>
+      const store = LUMA_OPERATION_ACCOUNTS;
+      const fmt = store.formatCoins;
+      const params = new URLSearchParams(location.search);
+      const item = store.accounts.find((account) => account.id === params.get("id")) || store.accounts[0];
+      const guild = store.guilds.find((candidate) => candidate.id === item.guildId);
+      let locked = Boolean(item.managementLocked);
+      let rangeStart = "2026-08-01";
+      let rangeEnd = "2026-08-29";
+      let selectedShortcut = "thisMonth";
+      const shortcutLabels = { today: "今日", yesterday: "昨日", thisWeek: "本周", lastWeek: "上周", thisMonth: "本月", lastMonth: "上月", custom: "自定义" };
+      const shortcutRanges = {
+        today: ["2026-08-29", "2026-08-29"],
+        yesterday: ["2026-08-28", "2026-08-28"],
+        thisWeek: ["2026-08-24", "2026-08-29"],
+        lastWeek: ["2026-08-17", "2026-08-23"],
+        thisMonth: ["2026-08-01", "2026-08-29"],
+        lastMonth: ["2026-07-01", "2026-07-31"],
+      };
+
+      function accountRecords() {
+        return store.giftRecords.filter((record) => record.accountId === item.id && record.occurredAt.slice(0, 10) >= rangeStart && record.occurredAt.slice(0, 10) <= rangeEnd);
+      }
+
+      function datesInRange(start, end) {
+        const dates = [];
+        const cursor = new Date(`${start}T00:00:00Z`);
+        const last = new Date(`${end}T00:00:00Z`);
+        while (cursor <= last) {
+          dates.push(cursor.toISOString().slice(0, 10));
+          cursor.setUTCDate(cursor.getUTCDate() + 1);
+        }
+        return dates.reverse();
+      }
+
+      function renderConsumption() {
+        rangeValue.textContent = `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
+        shortcutValue.textContent = shortcutLabels[selectedShortcut];
+        shortcutMenu.querySelectorAll("[data-shortcut]").forEach((button) => {
+          const active = button.dataset.shortcut === selectedShortcut;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-checked", String(active));
+        });
+        const coinsByDate = accountRecords().reduce((result, record) => {
+          const date = record.occurredAt.slice(0, 10);
+          result[date] = (result[date] || 0) + record.unitPrice * record.quantity;
+          return result;
+        }, {});
+        consumptionList.innerHTML = datesInRange(rangeStart, rangeEnd).map((date) => {
+          const coins = coinsByDate[date] || 0;
+          return `<a href="guild-operation-gift-records.html?accountId=${encodeURIComponent(item.id)}&start=${date}&end=${date}" aria-label="查看${LUMA_FORMAT.date(date)}送礼记录，消费${fmt(coins)}金币"><span>${LUMA_FORMAT.date(date)}</span><b>◆ ${fmt(coins)}</b><i>›</i></a>`;
+        }).join("");
+      }
+
+      function render() {
+        const enabled = item.status === "enabled";
+        avatar.textContent = item.avatar;
+        accountName.textContent = item.name;
+        accountId.textContent = item.id;
+        balance.textContent = fmt(item.balance);
+        spentTotal.textContent = fmt(item.spentTotal);
+        issued.textContent = fmt(item.issued);
+        spentMonth.textContent = fmt(item.spentMonth);
+        statusTag.textContent = enabled ? "启用" : "禁用";
+        statusTag.className = `guild-status-tag guild-operation-detail-status ${enabled ? "success" : "danger"}`;
+        statusControl.dataset.status = item.status;
+        statusSwitch.classList.toggle("active", enabled);
+        statusSwitch.setAttribute("aria-checked", String(enabled));
+        statusValue.textContent = enabled ? "启用" : "禁用";
+        statusValue.className = `guild-operation-sheet-current-status ${enabled ? "success" : "danger"}`;
+        statusSwitch.disabled = locked;
+        sheetCoinBtn.disabled = locked;
+        lockNote.classList.toggle("state-hide", !locked);
+        renderConsumption();
+      }
+
+      function closeSheet() {
+        managementSheet.classList.add("state-hide");
+        document.body.classList.remove("guild-sheet-open");
+      }
+      function closeCoinDialog() { coinDialog.classList.add("state-hide"); }
+      function closeShortcutMenu() { shortcutMenu.hidden = true; shortcutButton.setAttribute("aria-expanded", "false"); }
+      const rangePicker = LumaGuildDateRange.create({
+        mask: rangeSheet,
+        start: rangeStart,
+        end: rangeEnd,
+        minDate: "2026-01-01",
+        maxDate: "2026-08-29",
+        onConfirm: (start, end) => {
+          rangeStart = start;
+          rangeEnd = end;
+          selectedShortcut = "custom";
+          renderConsumption();
+        },
+      });
+
+      manageBtn.onclick = () => { managementSheet.classList.remove("state-hide"); document.body.classList.add("guild-sheet-open"); };
+      closeManagement.onclick = closeSheet;
+      managementSheet.onclick = (event) => { if (event.target === managementSheet) closeSheet(); };
+      statusSwitch.onclick = () => { if (locked) return; item.status = item.status === "enabled" ? "disabled" : "enabled"; render(); Luma.toast(item.status === "enabled" ? "账号已启用" : "账号已禁用"); };
+      sheetCoinBtn.onclick = () => {
+        const available = Math.max(0, Math.min(guild.singleAccountMonthlyLimit - item.issued, guild.monthlyQuota - guild.issued));
+        coinAmount.max = available;
+        coinAmount.value = "0";
+        coinHint.textContent = `最多可发放 ${fmt(available)} 金币`;
+        closeSheet();
+        coinDialog.classList.remove("state-hide");
+      };
+      coinCancel.onclick = closeCoinDialog;
+      coinDialog.onclick = (event) => { if (event.target === coinDialog) closeCoinDialog(); };
+      coinConfirm.onclick = () => {
+        const amount = Number(coinAmount.value);
+        const available = Math.max(0, Math.min(guild.singleAccountMonthlyLimit - item.issued, guild.monthlyQuota - guild.issued));
+        if (!amount) return Luma.toast("请输入发放数量");
+        if (amount > available) return Luma.toast(`最多可发放 ${fmt(available)} 金币`);
+        item.balance += amount; item.issued += amount; guild.issued += amount;
+        closeCoinDialog(); render(); Luma.toast("金币已发放");
+      };
+      rangeButton.onclick = rangePicker.open;
+      shortcutButton.onclick = () => {
+        shortcutMenu.hidden = !shortcutMenu.hidden;
+        shortcutButton.setAttribute("aria-expanded", String(!shortcutMenu.hidden));
+      };
+      shortcutMenu.onclick = (event) => {
+        const button = event.target.closest("[data-shortcut]");
+        if (!button) return;
+        const shortcut = button.dataset.shortcut;
+        closeShortcutMenu();
+        if (shortcut === "custom") return rangeButton.click();
+        selectedShortcut = shortcut;
+        [rangeStart, rangeEnd] = shortcutRanges[selectedShortcut];
+        rangePicker.setRange(rangeStart, rangeEnd);
+        renderConsumption();
+      };
+      document.addEventListener("click", (event) => { if (!event.target.closest(".guild-operation-consumption-tools")) closeShortcutMenu(); });
+      document.addEventListener("keydown", (event) => { if (event.key === "Escape") { closeSheet(); closeCoinDialog(); closeShortcutMenu(); } });
+      render();
+      window.parent.postMessage({ type: "luma-page", file: "guild-operation-account-detail.html", query: location.search }, "*");
+      Luma.registerStates({ "页面状态": { "正常": () => { closeSheet(); closeCoinDialog(); rangePicker.close(); closeShortcutMenu(); }, "选择日期": rangePicker.open, "管理": () => manageBtn.click(), "发放金币": () => { manageBtn.click(); sheetCoinBtn.click(); } }, "账号状态": { "启用": () => { item.status = "enabled"; render(); }, "禁用": () => { item.status = "disabled"; render(); } }, "管理权限": { "正常": () => { item.managementLocked = false; locked = false; render(); }, "平台锁定": () => { item.managementLocked = true; locked = true; render(); } } });
+    </script>
+  </body>
+</html>

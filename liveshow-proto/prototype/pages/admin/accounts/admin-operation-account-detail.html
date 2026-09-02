@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>运营账号主页 · 运营账号 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/admin.css?v=20260829-operation-accounts-v3" />
+    <script src="../../../assets/common.js?v=20260829-operation-accounts-v3"></script>
+    <script src="../../../assets/operation-accounts.js?v=20260829-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar"><div class="admin-brand"><span class="admin-brand-mark">L</span><span>Luma 管理后台</span></div><nav class="admin-nav"></nav><div class="admin-sidebar-foot">Luma Live 管理后台</div></aside>
+      <div class="admin-main">
+        <header class="admin-topbar"><div class="admin-breadcrumb">运营账号&nbsp;&nbsp;/&nbsp;&nbsp;账号列表&nbsp;&nbsp;/&nbsp;&nbsp;<strong>运营账号主页</strong></div><div class="admin-account"><span class="admin-account-avatar">管</span><span>后台管理员</span><span>⌄</span></div></header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-operation-accounts.html">‹ 返回账号列表</a>
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-profile-summary">
+              <span class="admin-avatar" id="avatar"></span>
+              <div><h2 id="accountName"></h2><div class="admin-profile-meta"><span id="accountMeta"></span></div></div>
+              <div class="admin-profile-summary-actions"><button class="admin-btn secondary" id="editBtn" type="button">编辑资料</button><button class="admin-btn secondary" id="passwordBtn" type="button">重置密码</button><button class="admin-btn" id="coinBtn" type="button">发放金币</button></div>
+            </div>
+            <div class="admin-metrics admin-inline-metrics" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+              <div class="admin-metric"><span>账户余额</span><b id="balance"></b></div>
+              <div class="admin-metric"><span>累计消费</span><b id="spentTotal"></b></div>
+              <div class="admin-metric"><span>本月发放</span><b id="issued"></b></div>
+              <div class="admin-metric"><span>本月消费</span><b id="spentMonth"></b></div>
+            </div>
+            <div class="admin-detail-grid">
+              <div class="admin-detail-item"><span>账号</span><b id="accountValue"></b></div>
+              <div class="admin-detail-item"><span>账号ID</span><b id="accountIdValue"></b></div>
+              <div class="admin-detail-item"><span>所属公会</span><b id="guildValue"></b></div>
+              <div class="admin-detail-item"><span>账号状态</span><div class="admin-switch-control"><label class="admin-switch"><input id="statusToggle" type="checkbox" /><span class="admin-switch-track"></span></label><span id="statusText"></span></div></div>
+              <div class="admin-detail-item"><span>公会管理权限</span><div class="admin-switch-control"><label class="admin-switch"><input id="managementToggle" type="checkbox" /><span class="admin-switch-track"></span></label><span id="managementText"></span></div></div>
+            </div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar">
+              <div class="admin-list-tabs" role="tablist" aria-label="账号记录">
+                <button class="admin-list-tab active" type="button" role="tab" aria-selected="true" data-record-tab="issue">发放记录</button>
+                <button class="admin-list-tab" type="button" role="tab" aria-selected="false" data-record-tab="gift">送礼记录</button>
+              </div>
+              <span id="recordCount"></span>
+            </div>
+            <div class="admin-table-wrap" id="recordTable"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="admin-overlay" id="editOverlay">
+      <section class="admin-modal wide"><div class="admin-modal-head"><h2>编辑资料</h2><button class="admin-icon-btn" data-close="editOverlay">×</button></div><form id="editForm"><div class="admin-modal-body">
+        <div class="admin-form-row"><label>头像</label><div class="admin-inline-actions"><span class="admin-avatar" id="editAvatar"></span><button class="admin-btn secondary" id="editAvatarBtn" type="button">上传头像</button><input class="admin-file-input" id="editAvatarInput" type="file" accept="image/*" /></div></div>
+        <div class="admin-form-grid"><div class="admin-form-row"><label for="nameInput">名称</label><input class="admin-input" id="nameInput" required /></div><div class="admin-form-row"><label for="accountInput">账号</label><input class="admin-input" id="accountInput" required /></div><div class="admin-form-row full"><label for="guildInput">所属公会</label><select class="admin-select" id="guildInput"></select></div></div>
+      </div><div class="admin-modal-foot"><button class="admin-btn secondary" type="button" data-close="editOverlay">取消</button><button class="admin-btn" type="submit">保存</button></div></form></section>
+    </div>
+    <div class="admin-overlay" id="coinOverlay"><section class="admin-modal"><div class="admin-modal-head"><h2>发放金币</h2><button class="admin-icon-btn" data-close="coinOverlay">×</button></div><form id="coinForm"><div class="admin-modal-body"><p id="coinHint"></p><div class="admin-form-row"><label for="coinAmount">发放数量</label><input class="admin-input" id="coinAmount" type="number" min="1" value="10000" required /></div></div><div class="admin-modal-foot"><button class="admin-btn secondary" type="button" data-close="coinOverlay">取消</button><button class="admin-btn" type="submit">确认发放</button></div></form></section></div>
+    <div class="admin-overlay" id="passwordOverlay"><section class="admin-modal"><div class="admin-modal-head"><h2>重置密码</h2><button class="admin-icon-btn" data-close="passwordOverlay">×</button></div><div class="admin-modal-body"><p>重置后原密码立即失效，新密码仅展示一次。</p></div><div class="admin-modal-foot"><button class="admin-btn secondary" data-close="passwordOverlay">取消</button><button class="admin-btn" id="passwordConfirm">确认重置</button></div></section></div>
+    <script>
+      const store = LUMA_OPERATION_ACCOUNTS;
+      const fmt = store.formatCoins;
+      const params = new URLSearchParams(location.search);
+      const item = store.accounts.find((account) => account.id === params.get("id")) || store.accounts[0];
+      const byId = (id) => document.getElementById(id);
+      const avatar = byId("avatar"), accountName = byId("accountName"), accountMeta = byId("accountMeta"), balance = byId("balance"), spentTotal = byId("spentTotal"), issued = byId("issued"), spentMonth = byId("spentMonth"), accountValue = byId("accountValue"), accountIdValue = byId("accountIdValue"), guildValue = byId("guildValue"), statusToggle = byId("statusToggle"), statusText = byId("statusText"), managementToggle = byId("managementToggle"), managementText = byId("managementText");
+      const editBtn = byId("editBtn"), passwordBtn = byId("passwordBtn"), coinBtn = byId("coinBtn"), recordTable = byId("recordTable"), recordCount = byId("recordCount");
+      const editOverlay = byId("editOverlay"), coinOverlay = byId("coinOverlay"), passwordOverlay = byId("passwordOverlay");
+      const editForm = byId("editForm"), editAvatar = byId("editAvatar"), editAvatarBtn = byId("editAvatarBtn"), editAvatarInput = byId("editAvatarInput"), nameInput = byId("nameInput"), accountInput = byId("accountInput"), guildInput = byId("guildInput");
+      const coinForm = byId("coinForm"), coinAmount = byId("coinAmount"), coinHint = byId("coinHint"), passwordConfirm = byId("passwordConfirm");
+      let uploadedAvatar = "", activeRecordTab = "issue";
+
+      guildInput.innerHTML = store.guilds.map((guild) => `<option value="${guild.id}">${guild.name} · ${guild.id}</option>`).join("");
+      function currentGuild() { return store.guilds.find((guild) => guild.id === item.guildId); }
+      function availableCoins() { const guild = currentGuild(); return Math.max(0, Math.min(guild.singleAccountMonthlyLimit - item.issued, guild.monthlyQuota - guild.issued)); }
+      function render() {
+        avatar.textContent = item.avatar;
+        accountName.textContent = item.name;
+        accountMeta.textContent = item.id.replace(/\D/g, "");
+        balance.textContent = fmt(item.balance);
+        spentTotal.textContent = fmt(item.spentTotal);
+        issued.textContent = fmt(item.issued);
+        spentMonth.textContent = fmt(item.spentMonth);
+        accountValue.textContent = item.account;
+        accountIdValue.textContent = item.id.replace(/\D/g, "");
+        guildValue.textContent = `${item.guildName} · ${item.guildId}`;
+        statusToggle.checked = item.status === "enabled";
+        statusText.textContent = statusToggle.checked ? "启用" : "禁用";
+        managementToggle.checked = !item.managementLocked;
+        managementText.textContent = managementToggle.checked ? "启用" : "禁用";
+      }
+
+      function renderRecords(type) {
+        activeRecordTab = type;
+        document.querySelectorAll("[data-record-tab]").forEach((tab) => { const active = tab.dataset.recordTab === type; tab.classList.toggle("active", active); tab.setAttribute("aria-selected", String(active)); });
+        if (type === "issue") {
+          const records = store.issueRecords.filter((record) => record.accountId === item.id);
+          recordCount.textContent = `共 ${records.length} 条`;
+          recordTable.innerHTML = `<table class="admin-table" style="min-width:860px"><thead><tr><th>发放时间</th><th>发放前余额</th><th>发放金币</th><th>发放后余额</th><th>操作人</th></tr></thead><tbody>${records.length ? records.map((record) => `<tr><td>${LUMA_FORMAT.dateTime(record.occurredAt)}</td><td class="admin-money">${fmt(record.beforeBalance)}</td><td class="admin-money">${fmt(record.amount)}</td><td class="admin-money">${fmt(record.afterBalance)}</td><td>${record.operator}</td></tr>`).join("") : '<tr><td colspan="5"><div class="admin-empty"><strong>暂无发放记录</strong></div></td></tr>'}</tbody></table>`;
+          return;
+        }
+        const records = store.giftRecords.filter((record) => record.accountId === item.id);
+        recordCount.textContent = `共 ${records.length} 条`;
+        recordTable.innerHTML = `<table class="admin-table" style="min-width:1080px"><thead><tr><th>赠送时间</th><th>礼物名称</th><th>主播</th><th>礼物类型</th><th>礼物单价</th><th>赠送数量</th><th>消费金币</th></tr></thead><tbody>${records.length ? records.map((record) => `<tr><td>${LUMA_FORMAT.dateTime(record.occurredAt)}</td><td>${record.giftName}</td><td>${record.hostName}<br><span class="admin-muted">${record.hostId}</span></td><td>${record.giftType}</td><td class="admin-money">${fmt(record.unitPrice)}</td><td>${record.quantity}</td><td class="admin-money">${fmt(record.unitPrice * record.quantity)}</td></tr>`).join("") : '<tr><td colspan="7"><div class="admin-empty"><strong>暂无送礼记录</strong></div></td></tr>'}</tbody></table>`;
+      }
+
+      statusToggle.onchange = () => { item.status = statusToggle.checked ? "enabled" : "disabled"; render(); Luma.toast(item.status === "enabled" ? "账号已启用" : "账号已禁用"); };
+      managementToggle.onchange = () => { item.managementLocked = !managementToggle.checked; render(); Luma.toast(managementToggle.checked ? "公会管理权限已启用" : "公会管理权限已禁用"); };
+      editBtn.onclick = () => { uploadedAvatar = ""; editAvatar.textContent = item.avatar; nameInput.value = item.name; accountInput.value = item.account; guildInput.value = item.guildId; editOverlay.classList.add("show"); };
+      editAvatarBtn.onclick = () => editAvatarInput.click();
+      editAvatarInput.onchange = () => { const file = editAvatarInput.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = () => { uploadedAvatar = reader.result; editAvatar.innerHTML = `<img src="${uploadedAvatar}" alt="头像预览" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`; }; reader.readAsDataURL(file); };
+      editForm.onsubmit = (event) => { event.preventDefault(); const account = accountInput.value.trim().toLowerCase(); if (store.accounts.some((candidate) => candidate !== item && candidate.account.toLowerCase() === account)) return Luma.toast("该账号已存在"); const guild = store.guilds.find((candidate) => candidate.id === guildInput.value); Object.assign(item, { name: nameInput.value.trim(), account, guildId: guild.id, guildName: guild.name, avatar: uploadedAvatar ? nameInput.value.trim().slice(0, 1).toUpperCase() : item.avatar }); editOverlay.classList.remove("show"); render(); Luma.toast("资料已保存"); };
+      coinBtn.onclick = () => { coinAmount.max = availableCoins(); coinAmount.value = Math.min(10000, availableCoins()) || 0; coinHint.textContent = `最多可发放 ${fmt(availableCoins())} 金币`; coinOverlay.classList.add("show"); };
+      coinForm.onsubmit = (event) => { event.preventDefault(); const amount = Number(coinAmount.value); if (!amount) return Luma.toast("请输入发放数量"); if (amount > availableCoins()) return Luma.toast(`最多可发放 ${fmt(availableCoins())} 金币`); const guild = currentGuild(); const beforeBalance = item.balance; item.balance += amount; item.issued += amount; guild.issued += amount; store.issueRecords.unshift({ id: `OI${Date.now()}`, accountId: item.id, guildId: guild.id, beforeBalance, amount, afterBalance: item.balance, operator: "admin.lina", occurredAt: "2026-08-29 12:16" }); coinOverlay.classList.remove("show"); render(); renderRecords("issue"); Luma.toast("金币已发放"); };
+      passwordBtn.onclick = () => passwordOverlay.classList.add("show");
+      passwordConfirm.onclick = () => { passwordOverlay.classList.remove("show"); Luma.toast("新密码：123456"); };
+      document.querySelectorAll("[data-record-tab]").forEach((tab) => { tab.onclick = () => renderRecords(tab.dataset.recordTab); });
+      document.addEventListener("click", (event) => { const close = event.target.closest("[data-close]"); if (close) byId(close.dataset.close).classList.remove("show"); if (event.target.classList.contains("admin-overlay")) event.target.classList.remove("show"); });
+
+      render();
+      renderRecords("issue");
+      window.parent.postMessage({ type: "luma-page", file: "admin-operation-account-detail.html", query: location.search }, "*");
+      Luma.registerStates({ "记录": { "发放记录": () => renderRecords("issue"), "送礼记录": () => renderRecords("gift") }, "公会管理权限": { "启用": () => { managementToggle.checked = true; managementToggle.onchange(); }, "禁用": () => { managementToggle.checked = false; managementToggle.onchange(); } }, "弹窗": { "关闭": () => [editOverlay, coinOverlay, passwordOverlay].forEach((overlay) => overlay.classList.remove("show")), "编辑资料": () => editBtn.click(), "发放金币": () => coinBtn.click(), "重置密码": () => passwordBtn.click() } });
+    </script>
+  </body>
+</html>

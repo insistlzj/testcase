@@ -123,7 +123,7 @@
         switchRows.innerHTML = items
           .map(
             (item) =>
-              `<tr><td><b>${item.name}</b></td><td><div class="admin-switch-control"><label class="admin-switch"><input type="checkbox" data-toggle="${item.id}" ${item.enabled ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${item.enabled ? "开启" : "关闭"}</span></div></td><td>${item.operator}</td><td>${item.updatedAt}</td><td><a class="admin-table-link" href="admin-feature-switch-detail.html?id=${item.id}">编辑</a></td></tr>`,
+              `<tr><td><b>${item.name}</b></td><td><div class="admin-switch-control"><label class="admin-switch"><input type="checkbox" data-toggle="${item.id}" ${item.enabled ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${item.enabled ? "开启" : "关闭"}</span></div></td><td>${item.operator}</td><td>${item.updatedAt}</td><td><a class="admin-action" href="admin-feature-switch-detail.html?id=${item.id}">编辑</a>${item.id === "RT002" ? '<a class="admin-action" href="admin-ticket-price-level.html">价格配置</a>' : ""}</td></tr>`,
           )
           .join("");
       }

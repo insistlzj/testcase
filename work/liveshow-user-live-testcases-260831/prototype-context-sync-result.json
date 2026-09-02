@@ -1,0 +1,178 @@
+{
+  "项目名称": "Luma Live",
+  "来源策略": "prototype-primary",
+  "同步状态": "有非阻塞待确认",
+  "执行时间": "2026-08-31T16:36:15+08:00",
+  "原型基线": [
+    {
+      "相对路径": "prototype/Luma Live-原型说明.md",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "db96e32c1f7cbbf0638a8daf6de0e97c66f5874a942423f14fd403541f904724"
+    },
+    {
+      "相对路径": "prototype/index.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "a21ae7398b215ace03275f116c926ecb07526d85b62aca8823c960b29b40e0bc"
+    },
+    {
+      "相对路径": "prototype/assets/annotations.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "977d534fe16237db6c28db6bf6cd30acd4d07650b992743a20ae0e2f251d5a53"
+    },
+    {
+      "相对路径": "prototype/assets/common.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "bd5f519fa6e614525038f903716e48830dfdc4b9b616befd42094532bd1ea9c2"
+    },
+    {
+      "相对路径": "prototype/assets/mock.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "89be5292b2862865ca970383ae1351248e7915f074fc9548b29c35adf4924abf"
+    },
+    {
+      "相对路径": "prototype/assets/live-muted-users.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "c54d29eb6ff959390b316cc337f90eee24baa63765352931b5a75edd84943dcc"
+    },
+    {
+      "相对路径": "prototype/assets/start-live-config.js",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "c9648538539c3e50a44caf48dd500985163e6e76e80c3c06001b57c76bf55a23"
+    },
+    {
+      "相对路径": "prototype/pages/user/home/live-plaza.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "3331a090d1936ad0765ec6957df1270d9fcb223a0b8b26b765f58f7b6ea05e4c"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/host-center.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "0ae81f0738ac4f0bf6b35813587274b7c87ca52223658b5eb22f65888834bdec"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-data.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "b3bbd1941b5f42a449f562d0e05891ec3a4a23d0848d726e4f8e84ae7af900dc"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/live-records.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "2c191aa0ebeb10ff5a6fc958640527a169092f16345fd341b141642e1d404d1b"
+    },
+    {
+      "相对路径": "prototype/pages/user/host/start-live-settings.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "beaf63128336c30ae2e96e9f1dcf506f91a21e70b2bc5d2388481f385eb8c513"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-host.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "f293b002b331a918e6ec2b106360ec5860f7da5022bb9ca05efffbdc504676b2"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-end-viewer.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "b96e1ff6a67f03429a07d6119c220cd5519ee252beac503fdc30190890333e21"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-cohost-active.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "1d0e414e724f1f4340374bf411a6a31bf0a9391e19be72a74d9a672d94529e44"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host-password.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "e49dd5deb65ae2b952ad6bf1d3e455d8308b4abdf4aa54e7fbc355798a653322"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-host.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "aebfc99c263e1ee8cd1108390f83de6461056bd3d1b81663396bea2d2f823e0d"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-report.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "78c465e079329c50bd1b503101f321bd6e837c6bc1064364d8e356ebf875f218"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room-user-report.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "f7cfba0d268391d312ea947a0f14d726c17f784502be816c89fbad453326a73c"
+    },
+    {
+      "相对路径": "prototype/pages/user/live/live-room.html",
+      "修改时间": "2026-08-31T09:48:29+08:00",
+      "SHA-256": "72b07df3b7c9f3f7d723aa2c06d902a8aea3c551ba7ac4a15b07f27388fc4110"
+    }
+  ],
+  "扫描范围": [
+    "用户 App / 直播广场",
+    "用户 App / 普通房、门票房、密码房进房",
+    "用户 App / 观众直播间、主播直播间、房管协助管理",
+    "用户 App / 连麦、举报、开播设置、结束直播",
+    "用户 App / 主播中心直播记录、直播数据入口",
+    "公共批注、公共 Mock、共享交互、直播禁言和开播配置"
+  ],
+  "目标需求清单": [
+    "context/01-用户主播App-项目需求清单.md",
+    "context/01-用户主播App-角色与用例.md",
+    "context/01-互动场景权限规则.md"
+  ],
+  "差异统计": {
+    "新增": 0,
+    "修改": 0,
+    "明确删除": 0,
+    "原型未覆盖": 5,
+    "来源冲突": 0,
+    "无法定位": 0
+  },
+  "需求清单变更日志编号": [
+    "RSL-0002",
+    "RSL-0003"
+  ],
+  "同步摘要": [
+    "本次复核未发现当前原型与派生需求清单之间需要再次写入的差异。",
+    "直播记录规则已由前序同步 RSL-0003 写入需求清单，本次直接纳入完整直播模块。",
+    "页面默认示例日期与批注“默认近 7 天”的差异按 RCL-0019 使用批注，不计来源冲突。"
+  ],
+  "前序同步变更": {
+    "日志编号": "RSL-0003",
+    "新增": 1,
+    "修改": 1,
+    "明确删除": 0
+  },
+  "受影响用例": [
+    {
+      "范围": "用户App-直播模块-260829-003.xlsx",
+      "状态": "继续有效",
+      "数量": 267
+    },
+    {
+      "范围": "用户App-直播模块-260829-003.xlsx / LIVE-262",
+      "状态": "已被替代",
+      "数量": 1
+    },
+    {
+      "范围": "用户App-直播记录模块-260831-002.xlsx",
+      "状态": "继续有效并合入本次模块",
+      "数量": 54
+    },
+    {
+      "范围": "用户App 直播模块历史 Excel",
+      "状态": "需要重审",
+      "数量": 0
+    },
+    {
+      "范围": "用户App 直播模块历史 Excel",
+      "状态": "应当废弃",
+      "数量": 0
+    }
+  ],
+  "阻塞异常": [],
+  "非阻塞待确认": [
+    "直播记录入口和单场记录后续查看方式",
+    "直播记录日期时区、观众人数与收礼数量统计口径",
+    "结束直播后的记录可查询时效与异常结束记录生成规则",
+    "大量历史记录加载和保留期限"
+  ]
+}

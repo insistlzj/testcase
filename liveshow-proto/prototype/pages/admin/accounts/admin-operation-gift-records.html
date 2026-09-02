@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>送礼记录 · 运营账号 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script><script src="../../../assets/tokens.js"></script><script src="../../../assets/admin-tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/admin.css?v=20260829-operation-accounts-v3" />
+    <script src="../../../assets/common.js?v=20260829-operation-accounts-v3"></script><script src="../../../assets/operation-accounts.js?v=20260829-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar"><div class="admin-brand"><span class="admin-brand-mark">L</span><span>Luma 管理后台</span></div><nav class="admin-nav"></nav><div class="admin-sidebar-foot">Luma Live 管理后台</div></aside>
+      <div class="admin-main"><header class="admin-topbar"><div class="admin-breadcrumb">运营账号&nbsp;&nbsp;/&nbsp;&nbsp;<strong>送礼记录</strong></div><div class="admin-account"><span class="admin-account-avatar">管</span><span>后台管理员</span><span>⌄</span></div></header>
+        <main class="admin-content">
+          <div class="admin-page-head"><h1>送礼记录</h1></div>
+          <section class="admin-panel admin-filter">
+            <div class="admin-filter-grid">
+              <div class="admin-field"><label for="guildFilter">所属公会</label><select class="admin-select" id="guildFilter"><option value="">全部公会</option></select></div>
+              <div class="admin-field"><label for="accountFilter">运营账号</label><select class="admin-select" id="accountFilter"><option value="">全部账号</option></select></div>
+              <div class="admin-field"><label>赠送时间</label><div class="admin-range admin-date-range"><input class="admin-input" id="startDate" type="date" value="2026-08-01" /><span>至</span><input class="admin-input" id="endDate" type="date" value="2026-08-29" /></div></div>
+            </div>
+            <div class="admin-filter-actions"><button class="admin-btn secondary" id="resetBtn" type="button">重置</button><button class="admin-btn" id="searchBtn" type="button">查询</button></div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar"><strong>送礼记录</strong><span id="resultCount"></span></div>
+            <div class="admin-table-wrap"><table class="admin-table has-actions" style="min-width:1120px"><thead><tr><th>运营账号</th><th>礼物名称</th><th>赠送时间</th><th>主播</th><th>消费金币</th><th>操作</th></tr></thead><tbody id="rows"></tbody></table></div>
+            <div class="admin-pagination" id="pagination"><span>20 条 / 页</span><button class="admin-page-btn" disabled>‹</button><button class="admin-page-btn active" disabled>1</button><button class="admin-page-btn" disabled>›</button></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="detailOverlay"><section class="admin-modal wide"><div class="admin-modal-head"><h2>送礼详情</h2><button class="admin-icon-btn" data-close="detailOverlay">×</button></div><div class="admin-modal-body"><div class="admin-description-list" id="detailGrid"></div></div><div class="admin-modal-foot"><button class="admin-btn" data-close="detailOverlay">关闭</button></div></section></div>
+    <script>
+      const store = LUMA_OPERATION_ACCOUNTS, fmt = store.formatCoins, params = new URLSearchParams(location.search);
+      const guildFilter = document.getElementById("guildFilter"), accountFilter = document.getElementById("accountFilter"), startDate = document.getElementById("startDate"), endDate = document.getElementById("endDate"), resetBtn = document.getElementById("resetBtn"), searchBtn = document.getElementById("searchBtn"), rows = document.getElementById("rows"), resultCount = document.getElementById("resultCount"), pagination = document.getElementById("pagination"), detailOverlay = document.getElementById("detailOverlay"), detailGrid = document.getElementById("detailGrid");
+      const accountById = (id) => store.accounts.find((account) => account.id === id);
+      let visible = [];
+      guildFilter.innerHTML += store.guilds.map((guild) => `<option value="${guild.id}">${guild.name}</option>`).join("");
+      function renderAccountOptions() { const selected = accountFilter.value; const accounts = store.accounts.filter((account) => !guildFilter.value || account.guildId === guildFilter.value); accountFilter.innerHTML = '<option value="">全部账号</option>' + accounts.map((account) => `<option value="${account.id}">${account.name} · ${account.account}</option>`).join(""); if (accounts.some((account) => account.id === selected)) accountFilter.value = selected; }
+      function render(items) { visible = items; resultCount.textContent = `共 ${items.length} 条`; pagination.classList.toggle("state-hide", !items.length); rows.innerHTML = items.length ? items.map((record) => { const account = accountById(record.accountId); return `<tr><td><b>${account.name}</b><br><span class="admin-muted">${account.account}</span></td><td>${record.giftName}</td><td>${LUMA_FORMAT.dateTime(record.occurredAt)}</td><td>${record.hostName}<br><span class="admin-muted">${record.hostId}</span></td><td class="admin-money">${fmt(record.unitPrice * record.quantity)}</td><td><button class="admin-action" data-detail="${record.id}">详情</button></td></tr>`; }).join("") : '<tr><td colspan="6"><div class="admin-empty"><strong>未找到送礼记录</strong></div></td></tr>'; }
+      function filter() { render(store.giftRecords.filter((record) => { const account = accountById(record.accountId); return account && (!guildFilter.value || account.guildId === guildFilter.value) && (!accountFilter.value || record.accountId === accountFilter.value) && (!startDate.value || record.occurredAt.slice(0, 10) >= startDate.value) && (!endDate.value || record.occurredAt.slice(0, 10) <= endDate.value); }).sort((a, b) => b.occurredAt.localeCompare(a.occurredAt))); }
+      function openDetail(record) { const fields = [["赠送时间", LUMA_FORMAT.dateTime(record.occurredAt)], ["礼物名称", record.giftName], ["消费金币", fmt(record.unitPrice * record.quantity)], ["礼物单价", fmt(record.unitPrice)], ["礼物类型", record.giftType], ["赠送数量", fmt(record.quantity)], ["主播名称", record.hostName], ["主播ID", record.hostId]]; detailGrid.innerHTML = fields.map((field) => `<div class="admin-description-label">${field[0]}</div><div class="admin-description-value">${field[1]}</div>`).join(""); detailOverlay.classList.add("show"); }
+      guildFilter.onchange = () => { renderAccountOptions(); accountFilter.value = ""; };
+      searchBtn.onclick = filter;
+      resetBtn.onclick = () => { guildFilter.value = ""; renderAccountOptions(); accountFilter.value = ""; startDate.value = "2026-08-01"; endDate.value = "2026-08-29"; filter(); };
+      rows.onclick = (event) => { const button = event.target.closest("[data-detail]"); if (button) openDetail(visible.find((record) => record.id === button.dataset.detail)); };
+      document.addEventListener("click", (event) => { const close = event.target.closest("[data-close]"); if (close) document.getElementById(close.dataset.close).classList.remove("show"); if (event.target.classList.contains("admin-overlay")) event.target.classList.remove("show"); });
+      renderAccountOptions();
+      if (params.get("accountId")) { const account = accountById(params.get("accountId")); if (account) { guildFilter.value = account.guildId; renderAccountOptions(); accountFilter.value = account.id; } }
+      filter();
+      window.parent.postMessage({ type: "luma-page", file: "admin-operation-gift-records.html", query: location.search }, "*");
+      Luma.registerStates({ "页面状态": { "默认": filter, "送礼详情": () => { if (visible[0]) openDetail(visible[0]); }, "空状态": () => render([]) } });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>额度限制 · 运营账号 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/admin.css?v=20260829-operation-accounts-v2" />
+    <script src="../../../assets/common.js?v=20260829-operation-accounts-v3"></script>
+    <script src="../../../assets/operation-accounts.js?v=20260829-v4"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand"><span class="admin-brand-mark">L</span><span>Luma 管理后台</span></div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">运营账号&nbsp;&nbsp;/&nbsp;&nbsp;<strong>额度限制</strong></div>
+          <div class="admin-account"><span class="admin-account-avatar">管</span><span>后台管理员</span><span>⌄</span></div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head"><h1>额度限制</h1></div>
+          <section class="admin-panel admin-filter">
+            <div class="admin-filter-grid"><div class="admin-field"><label for="guildKeyword">公会</label><input class="admin-input" id="guildKeyword" placeholder="公会名称或 ID" /></div></div>
+            <div class="admin-filter-actions"><button class="admin-btn secondary" id="resetBtn" type="button">重置</button><button class="admin-btn" id="searchBtn" type="button">查询</button></div>
+          </section>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar"><strong>公会额度配置</strong><span id="resultCount"></span></div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width:1120px">
+                <thead>
+                  <tr>
+                    <th>公会</th>
+                    <th>单月单账号发放上限</th>
+                    <th>单月累计发放金币上限</th>
+                    <th>本月累计已发放</th>
+                    <th>账户余额累计</th>
+                    <th>本月累计消费</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="rows"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="admin-overlay" id="quotaOverlay">
+      <section class="admin-modal">
+        <div class="admin-modal-head"><h2>配置额度限制</h2><button class="admin-icon-btn" data-close="quotaOverlay">×</button></div>
+        <form id="quotaForm">
+          <div class="admin-modal-body">
+            <p id="quotaGuild"></p>
+            <div class="admin-form-row"><label for="singleLimitValue">单月单账号发放上限</label><input class="admin-input" id="singleLimitValue" type="number" min="1" required /></div>
+            <div class="admin-form-row"><label for="monthlyLimitValue">单月累计发放金币上限</label><input class="admin-input" id="monthlyLimitValue" type="number" min="1" required /></div>
+          </div>
+          <div class="admin-modal-foot"><button class="admin-btn secondary" type="button" data-close="quotaOverlay">取消</button><button class="admin-btn" type="submit">保存</button></div>
+        </form>
+      </section>
+    </div>
+
+    <script>
+      const store = LUMA_OPERATION_ACCOUNTS;
+      const fmt = store.formatCoins;
+      const resultCount = document.getElementById("resultCount");
+      const rows = document.getElementById("rows");
+      const quotaOverlay = document.getElementById("quotaOverlay");
+      const quotaGuild = document.getElementById("quotaGuild");
+      const quotaForm = document.getElementById("quotaForm");
+      const singleLimitValue = document.getElementById("singleLimitValue");
+      const monthlyLimitValue = document.getElementById("monthlyLimitValue");
+      const guildKeyword = document.getElementById("guildKeyword");
+      const resetBtn = document.getElementById("resetBtn");
+      const searchBtn = document.getElementById("searchBtn");
+      let current = null;
+
+      function guildTotals(guildId) {
+        return store.accounts.filter((account) => account.guildId === guildId).reduce((totals, account) => {
+          totals.balance += account.balance;
+          totals.spentMonth += account.spentMonth;
+          return totals;
+        }, { balance: 0, spentMonth: 0 });
+      }
+
+      function render(items = store.guilds) {
+        resultCount.textContent = `共 ${items.length} 个公会`;
+        rows.innerHTML = items.length ? items.map((guild) => {
+          const totals = guildTotals(guild.id);
+          return `<tr>
+            <td><b>${guild.name}</b><br><span class="admin-muted">${guild.id}</span></td>
+            <td>${fmt(guild.singleAccountMonthlyLimit)}</td>
+            <td>${fmt(guild.monthlyQuota)}</td>
+            <td>${fmt(guild.issued)}</td>
+            <td>${fmt(totals.balance)}</td>
+            <td>${fmt(totals.spentMonth)}</td>
+            <td><button class="admin-action" data-quota="${guild.id}">配置额度</button></td>
+          </tr>`;
+        }).join("") : '<tr><td colspan="7"><div class="admin-empty"><strong>未找到公会</strong></div></td></tr>';
+      }
+
+      function filter() {
+        const keyword = guildKeyword.value.trim().toLowerCase();
+        render(store.guilds.filter((guild) => !keyword || guild.name.toLowerCase().includes(keyword) || guild.id.toLowerCase().includes(keyword)));
+      }
+
+      function openQuota(guild) {
+        current = guild;
+        quotaGuild.textContent = `${guild.name}（${guild.id}）`;
+        singleLimitValue.value = guild.singleAccountMonthlyLimit;
+        monthlyLimitValue.value = guild.monthlyQuota;
+        quotaOverlay.classList.add("show");
+      }
+
+      rows.onclick = (event) => {
+        const button = event.target.closest("[data-quota]");
+        if (button) openQuota(store.guilds.find((guild) => guild.id === button.dataset.quota));
+      };
+
+      quotaForm.onsubmit = (event) => {
+        event.preventDefault();
+        const singleLimit = Number(singleLimitValue.value);
+        const monthlyLimit = Number(monthlyLimitValue.value);
+        const highestIssued = Math.max(0, ...store.accounts.filter((account) => account.guildId === current.id).map((account) => account.issued));
+        if (monthlyLimit < current.issued) return Luma.toast("单月累计上限不能低于本月累计已发放");
+        if (singleLimit < highestIssued) return Luma.toast("单账号上限不能低于账号本月已发放");
+        if (singleLimit > monthlyLimit) return Luma.toast("单账号上限不能高于单月累计上限");
+        current.singleAccountMonthlyLimit = singleLimit;
+        current.monthlyQuota = monthlyLimit;
+        quotaOverlay.classList.remove("show");
+        filter();
+        Luma.toast("额度限制已更新");
+      };
+
+      searchBtn.onclick = filter;
+      resetBtn.onclick = () => { guildKeyword.value = ""; render(); };
+
+      document.addEventListener("click", (event) => {
+        const close = event.target.closest("[data-close]");
+        if (close) document.getElementById(close.dataset.close).classList.remove("show");
+        if (event.target.classList.contains("admin-overlay")) event.target.classList.remove("show");
+      });
+
+      render();
+      window.parent.postMessage({ type: "luma-page", file: "admin-operation-guild-controls.html" }, "*");
+      Luma.registerStates({ "弹窗": { "关闭": () => quotaOverlay.classList.remove("show"), "配置额度": () => openQuota(store.guilds[0]) } });
+    </script>
+  </body>
+</html>
