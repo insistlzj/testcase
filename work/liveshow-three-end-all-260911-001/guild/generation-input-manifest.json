@@ -1,0 +1,637 @@
+{
+  "schemaVersion": "3.1",
+  "最终JSON": "公会App-全部模块-测试用例-260911-001.json",
+  "生成策略": "source-first",
+  "项目名称": "Luma Live",
+  "项目目录": "liveshow-proto",
+  "任务工作目录": "work/liveshow-three-end-all-260911-001/guild",
+  "目标范围": {
+    "端名": "公会App",
+    "模块名称": "全部模块"
+  },
+  "输入文件": [
+    {
+      "路径": "liveshow-proto/prototype/index.html",
+      "角色": "当前业务证据",
+      "SHA-256": "cae55b355e8980c2c059edc55eab45e2bbfc8890d7fae6cbf2122934f55aed61",
+      "允许定义业务规则": true,
+      "内容类型": "index.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/guild.js",
+      "角色": "当前业务证据",
+      "SHA-256": "f8a7bfc9bc24433402d0e8a86e78dafae1a6993047f6954d234834968655ca93",
+      "允许定义业务规则": true,
+      "内容类型": "guild.js"
+    },
+    {
+      "路径": "liveshow-proto/context/系统概要 .md",
+      "角色": "当前业务证据",
+      "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+      "允许定义业务规则": true,
+      "内容类型": "系统概要 .md"
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "角色": "当前业务证据",
+      "SHA-256": "ca03c6a9a07e1a1fddbb9dbd011079c3c28565878c686394ff476627e8df218e",
+      "允许定义业务规则": true,
+      "内容类型": "02-公会App-项目需求清单.md"
+    },
+    {
+      "路径": "liveshow-proto/项目说明.md",
+      "角色": "当前业务证据",
+      "SHA-256": "6411c37b7c7632fc7184b530f88a9cb124a57a5f594fb78ca6f862758dec6c74",
+      "允许定义业务规则": true,
+      "内容类型": "项目说明.md"
+    },
+    {
+      "路径": "liveshow-proto/需求来源策略.json",
+      "角色": "当前业务证据",
+      "SHA-256": "68f130ad57add2a5c07e343324e46dd03325e9dcaa0a1e32141966afe79ee180",
+      "允许定义业务规则": true,
+      "内容类型": "需求来源策略.json"
+    },
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "角色": "当前业务证据",
+      "SHA-256": "1e17c8335bdc889884cd7100ffb7743d761c8c2d789e2038d424756ac9d27896",
+      "允许定义业务规则": true,
+      "内容类型": "01-用户主播App-项目需求清单.md"
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "角色": "当前业务证据",
+      "SHA-256": "ee47c471a2389345b9345551d2bc266aeeaa2a7ac9d63b3730fa64b15e4f95a1",
+      "允许定义业务规则": true,
+      "内容类型": "03-管理后台-项目需求清单.md"
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/user.js",
+      "角色": "当前业务证据",
+      "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+      "允许定义业务规则": true,
+      "内容类型": "user.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/admin.js",
+      "角色": "当前业务证据",
+      "SHA-256": "741536cf35c6fa3dcda03d508803446e45119c83903036eb80549d4aa14fed1a",
+      "允许定义业务规则": true,
+      "内容类型": "admin.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/mock.js",
+      "角色": "当前业务证据",
+      "SHA-256": "90ad739cf3bd0c5e4ce29dde5472f1a1679e00472d90cad10a985659cc642271",
+      "允许定义业务规则": true,
+      "内容类型": "mock.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-mock.js",
+      "角色": "当前业务证据",
+      "SHA-256": "3c3745c4dc62066fd73bc116270d87355311bd6f736ae32f0945f0c1a25ceefc",
+      "允许定义业务规则": true,
+      "内容类型": "admin-mock.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/auth/guild-login.html",
+      "角色": "当前业务证据",
+      "SHA-256": "87cfafc8525b71a9bf720a06b6bfdda1eeca4836c0514eb7a2947059bf2880cb",
+      "允许定义业务规则": true,
+      "内容类型": "guild-login.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/auth/guild-switch.html",
+      "角色": "当前业务证据",
+      "SHA-256": "f551e39216ccfbb84923f3024b5b8078cacf0ad4db6ee9f6fda63ed20aea8cbd",
+      "允许定义业务规则": true,
+      "内容类型": "guild-switch.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-home.html",
+      "角色": "当前业务证据",
+      "SHA-256": "77aa03bdd7ab110c6298b4a728b01b840dbf24940e909cac28fb820b788b259a",
+      "允许定义业务规则": true,
+      "内容类型": "guild-home.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-notifications.html",
+      "角色": "当前业务证据",
+      "SHA-256": "12e9da2f95fa47b0d43ce11caa934cee472458290b8c2b192130a72a5ea65d30",
+      "允许定义业务规则": true,
+      "内容类型": "guild-notifications.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-notification-detail.html",
+      "角色": "当前业务证据",
+      "SHA-256": "a64a2bda584e26cb24cee712d04b794bf7dd26b67aedb59ab003c4565a33f495",
+      "允许定义业务规则": true,
+      "内容类型": "guild-notification-detail.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-join-review.html",
+      "角色": "当前业务证据",
+      "SHA-256": "36e24fa89bb6349e4be1dd0ff3445c9dd5268bb251fdb2526bd3192f5d90e802",
+      "允许定义业务规则": true,
+      "内容类型": "guild-join-review.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-join-review-detail.html",
+      "角色": "当前业务证据",
+      "SHA-256": "8c25981dda264cdc47f0fb0b0c341d872c496f768c7ef85649ef7dbb243eb547",
+      "允许定义业务规则": true,
+      "内容类型": "guild-join-review-detail.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review.html",
+      "角色": "当前业务证据",
+      "SHA-256": "cce93f505182d196b05357c9f10759e1dcdbd39c0c567cc33f77e593b9f1844a",
+      "允许定义业务规则": true,
+      "内容类型": "guild-leave-review.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review-detail.html",
+      "角色": "当前业务证据",
+      "SHA-256": "d7c5d4aeff6035264ccce4fe889ec060f79afd31f31fa3c677288891c51ec9ab",
+      "允许定义业务规则": true,
+      "内容类型": "guild-leave-review-detail.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-member-list.html",
+      "角色": "当前业务证据",
+      "SHA-256": "756f0ab52c7c0a6663afbd7de4e9e0ec1ef6d153ddfa65cfba65110c2ec1e2b3",
+      "允许定义业务规则": true,
+      "内容类型": "guild-member-list.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-host-list.html",
+      "角色": "当前业务证据",
+      "SHA-256": "9d21261a357af843e84870e9b3c68ca958425bf9a1d19acd2a3dd4f4456bc15d",
+      "允许定义业务规则": true,
+      "内容类型": "guild-host-list.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-host-summary.html",
+      "角色": "当前业务证据",
+      "SHA-256": "4cd8205aa9e5049f29434038a2fc0c249cb8ee16482e9b92fa069847721fd856",
+      "允许定义业务规则": true,
+      "内容类型": "guild-host-summary.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-host-detail.html",
+      "角色": "当前业务证据",
+      "SHA-256": "7431288708b56558c908a77a70da00d7a0422534e82ecfe79ca4a30de93a5069",
+      "允许定义业务规则": true,
+      "内容类型": "guild-host-detail.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-messages.html",
+      "角色": "当前业务证据",
+      "SHA-256": "edb125cd087d23a483b350020b507430c0c291799c1bc7c533e1f0293198a0e2",
+      "允许定义业务规则": true,
+      "内容类型": "guild-messages.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-message-compose.html",
+      "角色": "当前业务证据",
+      "SHA-256": "f5e4e473bae1e1e298f25aa2d678835e61d9d581667bb44b4d01f0eef06b7d15",
+      "允许定义业务规则": true,
+      "内容类型": "guild-message-compose.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-host-select.html",
+      "角色": "当前业务证据",
+      "SHA-256": "244d3b1050058e59480d071abf469200b96e97a5d0003a7a927e2d8d58b366b5",
+      "允许定义业务规则": true,
+      "内容类型": "guild-host-select.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-message-detail.html",
+      "角色": "当前业务证据",
+      "SHA-256": "1e86844a3927e1678b69be0ab41d6e5346ee9605a38d45c27d5d7b194d77d227",
+      "允许定义业务规则": true,
+      "内容类型": "guild-message-detail.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-accounts.html",
+      "角色": "当前业务证据",
+      "SHA-256": "c311bae5e9a1aa48546baf47b7321ac4241a351e6202137162856fd1c6c3b7b3",
+      "允许定义业务规则": true,
+      "内容类型": "guild-operation-accounts.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-compose.html",
+      "角色": "当前业务证据",
+      "SHA-256": "b8a52016fd4cb0a7d780d8cf80b450d9a109f7402c3219c22b7ddc551b7ae9a6",
+      "允许定义业务规则": true,
+      "内容类型": "guild-operation-account-compose.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-detail.html",
+      "角色": "当前业务证据",
+      "SHA-256": "8345971a8464ef537a47d945ff4ed0da53841c6d58d7482046062d019993887f",
+      "允许定义业务规则": true,
+      "内容类型": "guild-operation-account-detail.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-gift-records.html",
+      "角色": "当前业务证据",
+      "SHA-256": "bd60d716b24a1ccb13a698e8deaadaeb9cdade44c2a6e1937436febb215734c2",
+      "允许定义业务规则": true,
+      "内容类型": "guild-operation-gift-records.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-select.html",
+      "角色": "当前业务证据",
+      "SHA-256": "805669bbf906a0853520be1312c9bb47b1bf0e36a3b7d4c97ede53255d1114ef",
+      "允许定义业务规则": true,
+      "内容类型": "guild-operation-account-select.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-profile.html",
+      "角色": "当前业务证据",
+      "SHA-256": "a3bb84075246927dfc5ed0bfd2b6f7679ecd84b938d21d313553a703966162dd",
+      "允许定义业务规则": true,
+      "内容类型": "guild-profile.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-settings.html",
+      "角色": "当前业务证据",
+      "SHA-256": "a2c53b0d2b348024489f5d0b0e44325e06bcd2effa753804c73ff88c5c0e465a",
+      "允许定义业务规则": true,
+      "内容类型": "guild-settings.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-password.html",
+      "角色": "当前业务证据",
+      "SHA-256": "2da9cfd319a1a5a7c0852b25a8f75deea15a8b35fa2da53a43efff0315ab89b3",
+      "允许定义业务规则": true,
+      "内容类型": "guild-password.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-host-data.html",
+      "角色": "当前业务证据",
+      "SHA-256": "30cb3398b79d301b91d20159a22c7e52a4c2f63afe7dafac21ac32a27ed3683d",
+      "允许定义业务规则": true,
+      "内容类型": "guild-host-data.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-live-gift-detail.html",
+      "角色": "当前业务证据",
+      "SHA-256": "c6dabdd4483079e4c36b391580480d0cd0c2a8a7b32d9cb824c1ab55b2466aee",
+      "允许定义业务规则": true,
+      "内容类型": "guild-live-gift-detail.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-all-violations.html",
+      "角色": "当前业务证据",
+      "SHA-256": "6a65bf869575a6ac237268c8a1c1b931315916af1918579122655df07a71eac4",
+      "允许定义业务规则": true,
+      "内容类型": "guild-all-violations.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-income.html",
+      "角色": "当前业务证据",
+      "SHA-256": "89c058de24602f1cccc16a8a441ebf5dccc7946f54c116c2aec2a2b9233db62a",
+      "允许定义业务规则": true,
+      "内容类型": "guild-income.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-income-day-detail.html",
+      "角色": "当前业务证据",
+      "SHA-256": "70773f7454a66242836a8eeeecc5a6baac6c96f92bba3793ad71cc69c82c00c6",
+      "允许定义业务规则": true,
+      "内容类型": "guild-income-day-detail.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-share-ledger.html",
+      "角色": "当前业务证据",
+      "SHA-256": "4c7f85d80ae406b5c81c07f117847cb4b7002020d6c000e7d1b76d4c37298af6",
+      "允许定义业务规则": true,
+      "内容类型": "guild-share-ledger.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-share-income.html",
+      "角色": "当前业务证据",
+      "SHA-256": "4e31fcdbfe9264446d6b6ba10a52b44f565ecb77d9a6ab1a87f6d879db8396f5",
+      "允许定义业务规则": true,
+      "内容类型": "guild-share-income.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-violation-host-select.html",
+      "角色": "当前业务证据",
+      "SHA-256": "d47b5117ea829a5f857ada77a63984c240d647ed9c14034afeeda44777411850",
+      "允许定义业务规则": true,
+      "内容类型": "guild-violation-host-select.html"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/annotations.js",
+      "角色": "当前业务证据",
+      "SHA-256": "1584cf57c3deb2493c31d0f167aee5cdd413fe3d505a7ad129a867ebd155be32",
+      "允许定义业务规则": true,
+      "内容类型": "annotations.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.css",
+      "角色": "当前业务证据",
+      "SHA-256": "8b4acdb60bdab1b63b6a34ad26416ea9c4d02d8f4d5d7c2989f56c576aaaf695",
+      "允许定义业务规则": true,
+      "内容类型": "common.css"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.js",
+      "角色": "当前业务证据",
+      "SHA-256": "dcad35af7673c0714b5ea86c28f393157a0340835de95fd3957f0f05826a56e7",
+      "允许定义业务规则": true,
+      "内容类型": "common.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/diamond.svg",
+      "角色": "当前业务证据",
+      "SHA-256": "b45ceb511c616e77d7a57d3f2d427702fcf43ffff35e524df9a3c1c194d9b77e",
+      "允许定义业务规则": true,
+      "内容类型": "diamond.svg"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-core-data.css",
+      "角色": "当前业务证据",
+      "SHA-256": "91a6e7d1a566a85054ab32d438cc1188976ef3c6bd8af98e41b46b8cf3aeadbd",
+      "允许定义业务规则": true,
+      "内容类型": "guild-core-data.css"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-data-model.js",
+      "角色": "当前业务证据",
+      "SHA-256": "0b2ad8cb4bb8a6e0a115a5bdb4348c3628781b56e1c72975fbcca7564337de25",
+      "允许定义业务规则": true,
+      "内容类型": "guild-data-model.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-date-range.js",
+      "角色": "当前业务证据",
+      "SHA-256": "7ee3acd664b137055faa75313a34d041028d1945b8c117f37820eb0f7302eb36",
+      "允许定义业务规则": true,
+      "内容类型": "guild-date-range.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-record-overviews.js",
+      "角色": "当前业务证据",
+      "SHA-256": "51d848e473cab754bd0d683d026e8f7a4d60e715a7aa76f01b665a7f6196f1e3",
+      "允许定义业务规则": true,
+      "内容类型": "guild-record-overviews.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-share-records.js",
+      "角色": "当前业务证据",
+      "SHA-256": "2e045d2ca5bb07e4fc37fa95e6b458946666b13e7cfd03c94b22b7a32682b33b",
+      "允许定义业务规则": true,
+      "内容类型": "guild-share-records.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild.css",
+      "角色": "当前业务证据",
+      "SHA-256": "32a448b4144dee929dad56bd28465046af5c3ee71d0b60e8c76df81190b257d0",
+      "允许定义业务规则": true,
+      "内容类型": "guild.css"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/operation-accounts.js",
+      "角色": "当前业务证据",
+      "SHA-256": "9f644f20bb72a5555f120640eebce4e92b9fee60bc25e95f37025c298fbc6214",
+      "允许定义业务规则": true,
+      "内容类型": "operation-accounts.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/tailwind.js",
+      "角色": "当前业务证据",
+      "SHA-256": "5c5de4bbb668f6d6fe2179373687434e043ba8d0e6877ee004d7c14b712618f6",
+      "允许定义业务规则": true,
+      "内容类型": "tailwind.js"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/tokens.js",
+      "角色": "当前业务证据",
+      "SHA-256": "ea674526cee1c918f9be061b4968e2b71f09bbd2470bf8852c12e0ac160635de",
+      "允许定义业务规则": true,
+      "内容类型": "tokens.js"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/source-documents.json",
+      "角色": "本次派生产物",
+      "SHA-256": "a68462dec3f2b247b1eb2e48273e49acf8c8ff5cdbd4ce499ca9f4349679ca19",
+      "允许定义业务规则": false,
+      "内容类型": "source-documents.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/page-entry-map.json",
+      "角色": "本次派生产物",
+      "SHA-256": "edd98252fccdcc27955a29d67811871ecb35ed4ee67dfc2301e17de4c2696810",
+      "允许定义业务规则": false,
+      "内容类型": "page-entry-map.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/page-elements.json",
+      "角色": "本次派生产物",
+      "SHA-256": "0bf4483acdb77603fe05d86bacf8ac6c9caf11d6a7381caa2318dab075bfd8cf",
+      "允许定义业务规则": false,
+      "内容类型": "page-elements.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/implementation-review.json",
+      "角色": "本次派生产物",
+      "SHA-256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "允许定义业务规则": false,
+      "内容类型": "implementation-review.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/dependency-analysis.json",
+      "角色": "本次派生产物",
+      "SHA-256": "53e92d858ae71e7d5ecdd68508a887c66ed9887e393948eaea852b22be2da8cf",
+      "允许定义业务规则": false,
+      "内容类型": "dependency-analysis.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/business-rule-catalog.json",
+      "角色": "本次派生产物",
+      "SHA-256": "7d08c22261666e36a723573bbdea44a5b4ed1d804486ff2ccd173c810d3a0596",
+      "允许定义业务规则": true,
+      "内容类型": "业务规则清单"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/test-scenario-library.json",
+      "角色": "本次派生产物",
+      "SHA-256": "bbd86fd41a862844d9fab4f805e669ed692e22205eb7678a531c22f80d1c24ed",
+      "允许定义业务规则": false,
+      "内容类型": "test-scenario-library.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/discovery-baseline.json",
+      "角色": "本次派生产物",
+      "SHA-256": "139ef0df9dd14d6b70ad0aaeae6e43224e1eae58166b9621802d27969066d3a1",
+      "允许定义业务规则": false,
+      "内容类型": "discovery-baseline.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/global-evidence-scan-result.json",
+      "角色": "本次派生产物",
+      "SHA-256": "ce5421e4646d1b0d1827f52f10786cfb6f7bd04782d7917c306558391801e631",
+      "允许定义业务规则": false,
+      "内容类型": "global-evidence-scan-result.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/prototype-context-sync-result.json",
+      "角色": "本次派生产物",
+      "SHA-256": "44d37ef09e1808aa5a62a125ab374f712de66bb313563ddb7075b398aa397504",
+      "允许定义业务规则": false,
+      "内容类型": "prototype-context-sync-result.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/coverage-before.json",
+      "角色": "本次派生产物",
+      "SHA-256": "d061c253569c0c7be7080d99d748f3d246ec8076cc139855724d486d0de01a41",
+      "允许定义业务规则": false,
+      "内容类型": "coverage-before.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/coverage-after.json",
+      "角色": "本次派生产物",
+      "SHA-256": "b2ffa9e5e0d23c8041648a86573ebb6e4ea8954ecbf8977d827d8a65761fe229",
+      "允许定义业务规则": false,
+      "内容类型": "coverage-after.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/coverage-dimensions.json",
+      "角色": "本次派生产物",
+      "SHA-256": "c327043627fafcc5fb9162d3da0f3b9c5bbb64d65838f4588a91d5fe4446c450",
+      "允许定义业务规则": false,
+      "内容类型": "coverage-dimensions.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/page-element-coverage.json",
+      "角色": "本次派生产物",
+      "SHA-256": "5628c7484026cbfc9e8b7998f5f25796a41d8a93cbdb687a8bb0d5c0d7741377",
+      "允许定义业务规则": false,
+      "内容类型": "page-element-coverage.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/coverage-review-backlog.json",
+      "角色": "本次派生产物",
+      "SHA-256": "b14acbd1e2b5564ce1f436cbf1ac0c35a143923da4397ef1acbe5b8c0cf9912f",
+      "允许定义业务规则": false,
+      "内容类型": "coverage-review-backlog.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/coverage-change-report.json",
+      "角色": "本次派生产物",
+      "SHA-256": "b2b70951623c32275f23e2ddc49e7382d16f532f82ec705a8fe4dfefc7e5b876",
+      "允许定义业务规则": false,
+      "内容类型": "coverage-change-report.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/historical-case-comparison.json",
+      "角色": "本次派生产物",
+      "SHA-256": "69f3ca592c066722a5b837adce56438f78393aedd0a41902bd666a02d3aa0331",
+      "允许定义业务规则": false,
+      "内容类型": "historical-case-comparison.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/semantic-dedup-review.json",
+      "角色": "本次派生产物",
+      "SHA-256": "a7ecfb14f1ad041bf9d0f15e32fd4cdbf8665a33088b8481e45b1b9b36d4969a",
+      "允许定义业务规则": false,
+      "内容类型": "semantic-dedup-review.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/current-testcase-candidate.json",
+      "角色": "本次派生产物",
+      "SHA-256": "19f0676115268292c874420c19343a80f6478658034c1afe5aa0ab40db95094d",
+      "允许定义业务规则": false,
+      "内容类型": "current-testcase-candidate.json"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "角色": "本次派生产物",
+      "SHA-256": "19f0676115268292c874420c19343a80f6478658034c1afe5aa0ab40db95094d",
+      "允许定义业务规则": false,
+      "内容类型": "公会App-全部模块-测试用例-260911-001.json"
+    },
+    {
+      "路径": "AGENTS.md",
+      "角色": "执行工具",
+      "SHA-256": "89bb3a8e2d7c74fd36ef05c512383efaca1cc9f7b959cc2aae4c0b197b669f52",
+      "允许定义业务规则": false,
+      "内容类型": "AGENTS.md"
+    },
+    {
+      "路径": "scripts/evidence-discovery.mjs",
+      "角色": "执行工具",
+      "SHA-256": "75803362f3e0cd6b2a366c296bb48164dd7cc4dda4ce5804a42be8731e81d707",
+      "允许定义业务规则": false,
+      "内容类型": "evidence-discovery.mjs"
+    },
+    {
+      "路径": "scripts/scenario-design.mjs",
+      "角色": "执行工具",
+      "SHA-256": "c5047b3b9bcb8f45f2f940b3812e7cd35629db48fb09d007946930a6e6e7817c",
+      "允许定义业务规则": false,
+      "内容类型": "scenario-design.mjs"
+    },
+    {
+      "路径": "scripts/scope-scenario-design.mjs",
+      "角色": "执行工具",
+      "SHA-256": "1e18d77c670497d7c8bf421ead6289ba4e7f9aa0e01d30035f0514c1aa9316d3",
+      "允许定义业务规则": false,
+      "内容类型": "scope-scenario-design.mjs"
+    },
+    {
+      "路径": "scripts/liveshow-scope-evidence.mjs",
+      "角色": "执行工具",
+      "SHA-256": "e18b8e4263cd500bdf14db5fd236fa80e4d60b2ff22f22bb7c1288c375a992c4",
+      "允许定义业务规则": false,
+      "内容类型": "liveshow-scope-evidence.mjs"
+    },
+    {
+      "路径": "scripts/evidence-dependencies.mjs",
+      "角色": "执行工具",
+      "SHA-256": "22402274305bc79c838c6b3af76a2086657ababa8b32658a6194a8f61bdcd407",
+      "允许定义业务规则": false,
+      "内容类型": "evidence-dependencies.mjs"
+    },
+    {
+      "路径": "scripts/parse-prototype-html.py",
+      "角色": "执行工具",
+      "SHA-256": "013d2f32f5c9acf9c20a7084b268404ed05030ccb8981425cd4f76759f6adfd5",
+      "允许定义业务规则": false,
+      "内容类型": "parse-prototype-html.py"
+    },
+    {
+      "路径": "scripts/validate-discovery.mjs",
+      "角色": "执行工具",
+      "SHA-256": "14e6d7d1cf7a4e00a6b0dcf54138b48d26718d186c69a23e55bd944f9fc952db",
+      "允许定义业务规则": false,
+      "内容类型": "validate-discovery.mjs"
+    },
+    {
+      "路径": "scripts/validate-testcase-json.mjs",
+      "角色": "执行工具",
+      "SHA-256": "a441260924499787f4619d0be82dd3ba0573d651d09f7ead95a410ef580d92f6",
+      "允许定义业务规则": false,
+      "内容类型": "validate-testcase-json.mjs"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/build-three-end.mjs",
+      "角色": "执行工具",
+      "SHA-256": "abebed6d4003013a43363646fdf68527810ad8a33f3db0a41ed1007a9e292922",
+      "允许定义业务规则": false,
+      "内容类型": "build-three-end.mjs"
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/build-workbooks.mjs",
+      "角色": "执行工具",
+      "SHA-256": "179c3baf43afd5b7ba51219d7ffa9b951a7f12f8d02257082d340d85c00d73b8",
+      "允许定义业务规则": false,
+      "内容类型": "build-workbooks.mjs"
+    }
+  ]
+}

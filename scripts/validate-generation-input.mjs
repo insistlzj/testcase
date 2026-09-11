@@ -58,7 +58,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
   const manifestPath = path.resolve(manifestFile);
   const manifest = await readJson(manifestPath, "生成输入角色清单");
 
-  if (['3.0','3.1'].includes(manifest.schemaVersion)) {
+  if (['3.0','3.1','3.2'].includes(manifest.schemaVersion)) {
     const { validateDiscovery } = await import('./validate-discovery.mjs');
     return validateDiscovery(path.dirname(manifestPath), root, { phase });
   }

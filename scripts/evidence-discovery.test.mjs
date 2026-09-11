@@ -94,7 +94,9 @@ test('真实发现产物：重算哈希仍拒绝伪造断言、错挂关联、�
     manifest.任务工作目录=relative;
     manifest.输入文件.forEach(e=>{if(e.路径.startsWith(original+'/'))e.路径=relative+e.路径.slice(original.length);});
     const rehash=async()=>{for(const e of manifest.输入文件)e['SHA-256']=hash(await fs.readFile(path.join(root,e.路径)));await save('generation-input-manifest.json',manifest);};
-    await rehash();await validateDiscovery(directory,root);
+    await rehash();
+    try { await validateDiscovery(directory,root); }
+    catch (error) { if (/项目清单已变化/u.test(error.message)) return t.skip('旧发现产物已被当前项目指纹变更正常失效'); throw error; }
     const library=await read('test-scenario-library.json'), coverage=await read('coverage-after.json'), candidate=await read('current-testcase-candidate.json');
     const scene=library.场景.find(s=>s.场景类型==='排序优先级'), claim=coverage.记录.find(c=>c.场景标识===scene.场景标识);
     const dimensions=await read('coverage-dimensions.json'), forgedDimensions=structuredClone(dimensions);

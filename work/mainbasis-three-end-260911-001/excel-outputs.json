@@ -1,0 +1,23 @@
+[
+  {
+    "端": "用户App",
+    "输出文件": "/Users/geekonup/testcase/outputs/Luma Live-case/用户App-全部模块-260911-003.xlsx",
+    "测试用例数": 190,
+    "需求待确认数": 86,
+    "预览目录": "/Users/geekonup/testcase/work/mainbasis-three-end-260911-001/user/previews"
+  },
+  {
+    "端": "公会App",
+    "输出文件": "/Users/geekonup/testcase/outputs/Luma Live-case/公会App-全部模块-260911-003.xlsx",
+    "测试用例数": 70,
+    "需求待确认数": 52,
+    "预览目录": "/Users/geekonup/testcase/work/mainbasis-three-end-260911-001/guild/previews"
+  },
+  {
+    "端": "管理后台",
+    "输出文件": "/Users/geekonup/testcase/outputs/Luma Live-case/管理后台-全部模块-260911-003.xlsx",
+    "测试用例数": 116,
+    "需求待确认数": 70,
+    "预览目录": "/Users/geekonup/testcase/work/mainbasis-three-end-260911-001/admin/previews"
+  }
+]

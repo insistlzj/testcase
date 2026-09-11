@@ -1,0 +1,84 @@
+{
+  "项目目录": "/Users/geekonup/testcase/liveshow-proto",
+  "本次任务目录": "/Users/geekonup/testcase/work/indonesia-live-spec-260911-001",
+  "输入": [
+    {
+      "路径": "sources/需求规格说明.md",
+      "SHA256": "b2ab2624d1a1f4afaab601ab0109e39c44870d4569acae2c321e5191e35994fa",
+      "角色": "当前业务证据",
+      "内容类型": "正式需求规格",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "sources/需求待确认.md",
+      "SHA256": "be3fa523551083911d6f6c54c6a82b5bfd2ea862211e8fd46d3a34a0801067b5",
+      "角色": "当前业务证据",
+      "内容类型": "风险与缺口",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "build-baseline.mjs",
+      "SHA256": "e3619c83fc25263bce31fa48150b9b8f7ab5803d29e77470453f0301bd73e422",
+      "角色": "执行工具",
+      "内容类型": "基线构建脚本",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "source-policy.json",
+      "SHA256": "167883658f26df837d9966e94c8b3286267519ec60fee504d8a6e044e7569b83",
+      "角色": "本次派生产物",
+      "内容类型": "规则与场景基线",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "requirements-baseline.json",
+      "SHA256": "774995d68cb72f0e6617a38b06210cfb8e7a19997b7dabdd3cf9b5a41ce264fa",
+      "角色": "本次派生产物",
+      "内容类型": "规则与场景基线",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "pending-risk-baseline.json",
+      "SHA256": "8e4da6613616eebd9123dbc2b079d739e0ac943b650d6e637f308323ced44d49",
+      "角色": "本次派生产物",
+      "内容类型": "规则与场景基线",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scenario-baseline.json",
+      "SHA256": "8121d3cad33cc2d364cd58e274583c7abd6ffaaa72107676acfbe50069beed2f",
+      "角色": "本次派生产物",
+      "内容类型": "规则与场景基线",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "baseline-lock.json",
+      "SHA256": "9ea8236e39f8b160564e973be4da0104cba7fe3fd2f762610a8025072f06bfc6",
+      "角色": "本次派生产物",
+      "内容类型": "规则与场景基线",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "../liveshow-three-end-all-260911-001/user/current-testcase-candidate.json",
+      "SHA256": "8b2fdb29f344d825f5f86c79c9a88877d18a70510cd6ae0ec6f00ae3bc435ad4",
+      "角色": "历史参照",
+      "内容类型": "用户App现有测试用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "../liveshow-three-end-all-260911-001/guild/current-testcase-candidate.json",
+      "SHA256": "19f0676115268292c874420c19343a80f6478658034c1afe5aa0ab40db95094d",
+      "角色": "历史参照",
+      "内容类型": "公会App现有测试用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "../liveshow-three-end-all-260911-001/admin/current-testcase-candidate.json",
+      "SHA256": "e8d8db860a9462c2c9c25b7ce8ece34f88ef05711f92d45bc7bc57b0c195a77e",
+      "角色": "历史参照",
+      "内容类型": "管理后台现有测试用例",
+      "允许定义业务规则": false
+    }
+  ],
+  "历史参照启用阶段": "已在规则与场景基线锁定后启用"
+}

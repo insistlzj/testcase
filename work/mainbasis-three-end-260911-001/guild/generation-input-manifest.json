@@ -1,0 +1,160 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "任务标识": "mainbasis-three-end-260911-001/guild",
+  "生成策略": "current-evidence-only",
+  "目标范围": {
+    "端名": "公会App",
+    "模块名称": "M01 账号·登录·资料与设置、M03 社交·私信·群聊与通知、M05 公会申请·认证·组织与权限、M09 运营账号·虚拟金币与公会消息、M10 用户管理·审核·举报与巡房、M11 财务·退款·结算上传与账户调整、M12 直播业绩·增长与统计报表"
+  },
+  "项目目录": "MainBasis",
+  "任务工作目录": "work/mainbasis-three-end-260911-001",
+  "输入文件": [
+    {
+      "路径": "MainBasis/统一需求文档.md",
+      "SHA-256": "86a256fcad797592d2be1ba21941a642fe44bafea6d207b15394e1d7aba663c5",
+      "角色": "当前业务证据",
+      "内容类型": "正式需求",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/guild/business-rule-catalog.json",
+      "SHA-256": "cb7d400894a40432e97a90a697c79e97ad0be69759dff936e192561eaaa39fa6",
+      "角色": "本次派生产物",
+      "内容类型": "业务规则清单",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/build-cases.mjs",
+      "SHA-256": "9a0daa3dd9139ef15456e57d1428b11fccf025be18c8f53fcf4fa05777452668",
+      "角色": "执行工具",
+      "内容类型": "渲染脚本",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/reviewed-model.mjs",
+      "SHA-256": "c119a775d3f513cff93d4731a951d7bda9b7a8d68f40abdffd2db478fc84a0ed",
+      "角色": "执行工具",
+      "内容类型": "已复核场景设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/state-transition-baseline.json",
+      "SHA-256": "1c9a7a3fee976133af0e201b0507adaaa1fc6f5935a7fb885efff9b6a9f3d197",
+      "角色": "本次派生产物",
+      "内容类型": "状态转换基线",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/independent-scenario-baseline.json",
+      "SHA-256": "03b91d71b93ec0dc9e8628ea04237e752700903bce383dfc5341c4fdd864685a",
+      "角色": "本次派生产物",
+      "内容类型": "独立场景库",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "MainBasis/需求待确认清单.md",
+      "SHA-256": "4412cece5361e84c5d9a9ba2f816608639b8eba52ed74746ef5df2f83bd4036d",
+      "角色": "当前业务证据",
+      "内容类型": "未确认风险与缺口",
+      "允许定义业务规则": true,
+      "正式预期允许引用": false,
+      "允许用途": [
+        "候选风险",
+        "待决策问题"
+      ],
+      "禁止用途": [
+        "确定性预期"
+      ]
+    },
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "SHA-256": "19f0676115268292c874420c19343a80f6478658034c1afe5aa0ab40db95094d",
+      "角色": "历史参照",
+      "内容类型": "历史用例JSON",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/prepare.mjs",
+      "SHA-256": "c2293680b232f52d2ebd67c567547a8f1bbe9d5093a4c31519573c28d6ad2713",
+      "角色": "执行工具",
+      "内容类型": "证据解析工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/decisions.mjs",
+      "SHA-256": "050b768e90ced393f90492ec281ad744fbb55d77f6deeb473dcd1bd15e0e134c",
+      "角色": "执行工具",
+      "内容类型": "问题拆分与候选方案",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/finalize.mjs",
+      "SHA-256": "710404ac166da780020891f622dadddbcef1123e7e6ca555e840c0f987bc8792",
+      "角色": "执行工具",
+      "内容类型": "交付隔离校验工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "AGENTS.md",
+      "SHA-256": "3b16a93fc5c4d1bbdb24e6c47bac02fe2c238217361b6314c69b66f8afe41c33",
+      "角色": "执行工具",
+      "内容类型": "治理与校验",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "Cem Kaner.txt",
+      "SHA-256": "0edaeb495dbc8f7c36854d69eb0ca71ba63f74421a051d64e3d7407019f6e75e",
+      "角色": "执行工具",
+      "内容类型": "治理与校验",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/testcase-design.mjs",
+      "SHA-256": "aa312711deafb9f795d2f5f89ad915204e2b8d44214e158fe5179e227a322f24",
+      "角色": "执行工具",
+      "内容类型": "治理与校验",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-generation-input.mjs",
+      "SHA-256": "3ff6739e4c27565a254f6df9708fdcdc48c450d95cfdb54578431d637d63dc8d",
+      "角色": "执行工具",
+      "内容类型": "治理与校验",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-testcase-json.mjs",
+      "SHA-256": "a441260924499787f4619d0be82dd3ba0573d651d09f7ead95a410ef580d92f6",
+      "角色": "执行工具",
+      "内容类型": "治理与校验",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/guild/candidate.json",
+      "SHA-256": "a747a4858a2a2169b37ab98827b461e9d398d7df579aa38f1e313b5b83596bab",
+      "角色": "本次派生产物",
+      "内容类型": "当前候选用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/guild/final.json",
+      "SHA-256": "a747a4858a2a2169b37ab98827b461e9d398d7df579aa38f1e313b5b83596bab",
+      "角色": "本次派生产物",
+      "内容类型": "最终用例JSON",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/mainbasis-three-end-260911-001/guild/historical-case-comparison.json",
+      "SHA-256": "18d739067f841ee2c32e40561dbd7716698762dd280d514592e42c660e9953a9",
+      "角色": "本次派生产物",
+      "内容类型": "历史用例比较结果",
+      "允许定义业务规则": false
+    }
+  ],
+  "当前业务规则清单": "work/mainbasis-three-end-260911-001/guild/business-rule-catalog.json",
+  "生成脚本": "work/mainbasis-three-end-260911-001/build-cases.mjs",
+  "当前候选用例": "work/mainbasis-three-end-260911-001/guild/candidate.json",
+  "最终用例JSON": "work/mainbasis-three-end-260911-001/guild/final.json",
+  "历史用例比较结果": "work/mainbasis-three-end-260911-001/guild/historical-case-comparison.json"
+}

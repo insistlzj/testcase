@@ -1,0 +1,1464 @@
+{
+  "admin-dashboard.html": {
+    "name": "工作台",
+    "object": "工作台",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/dashboard/admin-dashboard.html",
+    "parent": "admin-dashboard.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入工作台"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-user-list.html": {
+    "name": "用户列表",
+    "object": "用户列表",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "用户管理",
+    "file": "liveshow-proto/prototype/pages/admin/user/admin-user-list.html",
+    "parent": "admin-user-list.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入用户列表"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-user-detail.html": {
+    "name": "用户详情",
+    "object": "用户详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "用户管理",
+    "file": "liveshow-proto/prototype/pages/admin/user/admin-user-detail.html",
+    "parent": "admin-user-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入用户详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-host-list.html": {
+    "name": "主播列表",
+    "object": "主播列表",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/admin/host/admin-host-list.html",
+    "parent": "admin-host-list.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播列表"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-host-detail.html": {
+    "name": "主播详情",
+    "object": "主播详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/admin/host/admin-host-detail.html",
+    "parent": "admin-host-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-host-review.html": {
+    "name": "主播审核",
+    "object": "主播审核",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/admin/host/admin-host-review.html",
+    "parent": "admin-host-review.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播审核"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-host-review-detail.html": {
+    "name": "审核详情",
+    "object": "审核详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/admin/host/admin-host-review-detail.html",
+    "parent": "admin-host-review-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入审核详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-live-management.html": {
+    "name": "直播场次",
+    "object": "直播场次",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/admin/host/admin-live-management.html",
+    "parent": "admin-live-management.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播场次"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-live-detail.html": {
+    "name": "直播详情",
+    "object": "直播详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/admin/host/admin-live-detail.html",
+    "parent": "admin-live-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-inspection-schedule.html": {
+    "name": "巡房排班",
+    "object": "巡房排班",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule.html",
+    "parent": "admin-inspection-schedule.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入巡房排班"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-inspection-schedule-create.html": {
+    "name": "新建排班",
+    "object": "新建排班",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-create.html",
+    "parent": "admin-inspection-schedule-create.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入新建排班"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-inspection-schedule-detail.html": {
+    "name": "排班详情",
+    "object": "排班详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+    "parent": "admin-inspection-schedule-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入排班详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-content-audit.html": {
+    "name": "内容审核",
+    "object": "内容审核",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "内容审核",
+    "file": "liveshow-proto/prototype/pages/admin/content/admin-content-audit.html",
+    "parent": "admin-content-audit.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入内容审核"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-content-audit-detail.html": {
+    "name": "内容审核详情",
+    "object": "内容审核详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "内容审核",
+    "file": "liveshow-proto/prototype/pages/admin/content/admin-content-audit-detail.html",
+    "parent": "admin-content-audit-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入内容审核详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-account-violation.html": {
+    "name": "账号违规",
+    "object": "账号违规",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "内容审核",
+    "file": "liveshow-proto/prototype/pages/admin/content/admin-account-violation.html",
+    "parent": "admin-account-violation.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入账号违规"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-report-handling.html": {
+    "name": "直播间违规",
+    "object": "直播间违规",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "内容审核",
+    "file": "liveshow-proto/prototype/pages/admin/content/admin-report-handling.html",
+    "parent": "admin-report-handling.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播间违规"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-report-detail.html": {
+    "name": "举报详情",
+    "object": "举报详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "内容审核",
+    "file": "liveshow-proto/prototype/pages/admin/content/admin-report-detail.html",
+    "parent": "admin-report-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入举报详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-violation-types.html": {
+    "name": "违规类型",
+    "object": "违规类型",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "内容审核",
+    "file": "liveshow-proto/prototype/pages/admin/content/admin-violation-types.html",
+    "parent": "admin-violation-types.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入违规类型"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-violation-type-detail.html": {
+    "name": "违规类型编辑",
+    "object": "违规类型编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "内容审核",
+    "file": "liveshow-proto/prototype/pages/admin/content/admin-violation-type-detail.html",
+    "parent": "admin-violation-type-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入违规类型编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-guild-list.html": {
+    "name": "公会列表",
+    "object": "公会列表",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "公会管理",
+    "file": "liveshow-proto/prototype/pages/admin/guild/admin-guild-list.html",
+    "parent": "admin-guild-list.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会列表"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-guild-detail.html": {
+    "name": "公会详情",
+    "object": "公会详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "公会管理",
+    "file": "liveshow-proto/prototype/pages/admin/guild/admin-guild-detail.html",
+    "parent": "admin-guild-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-gift-list.html": {
+    "name": "普通礼物",
+    "object": "普通礼物",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "礼物与道具",
+    "file": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-list.html",
+    "parent": "admin-gift-list.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入普通礼物"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-gift-detail.html": {
+    "name": "礼物详情",
+    "object": "礼物详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "礼物与道具",
+    "file": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-detail.html",
+    "parent": "admin-gift-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入礼物详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-custom-gift.html": {
+    "name": "定制礼物",
+    "object": "定制礼物",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "礼物与道具",
+    "file": "liveshow-proto/prototype/pages/admin/gifts/admin-custom-gift.html",
+    "parent": "admin-custom-gift.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入定制礼物"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-lucky-gift-config.html": {
+    "name": "幸运礼物",
+    "object": "幸运礼物",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "礼物与道具",
+    "file": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+    "parent": "admin-lucky-gift-config.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入幸运礼物"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-lucky-gift-detail.html": {
+    "name": "幸运礼物编辑",
+    "object": "幸运礼物编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "礼物与道具",
+    "file": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+    "parent": "admin-lucky-gift-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入幸运礼物编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-prop-list.html": {
+    "name": "道具配置",
+    "object": "道具配置",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "礼物与道具",
+    "file": "liveshow-proto/prototype/pages/admin/gifts/admin-prop-list.html",
+    "parent": "admin-prop-list.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入道具配置"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-prop-detail.html": {
+    "name": "道具详情",
+    "object": "道具详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "礼物与道具",
+    "file": "liveshow-proto/prototype/pages/admin/gifts/admin-prop-detail.html",
+    "parent": "admin-prop-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入道具详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-gift-send-count-rules.html": {
+    "name": "购买份数配置",
+    "object": "购买份数配置",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "礼物与道具",
+    "file": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+    "parent": "admin-gift-send-count-rules.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入购买份数配置"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-gift-send-count-rule-detail.html": {
+    "name": "购买份数配置详情",
+    "object": "购买份数配置详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "礼物与道具",
+    "file": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+    "parent": "admin-gift-send-count-rule-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入购买份数配置详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-placement-config.html": {
+    "name": "展位配置",
+    "object": "展位配置",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-placement-config.html",
+    "parent": "admin-placement-config.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入展位配置"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-placement-detail.html": {
+    "name": "展示素材编辑",
+    "object": "展示素材编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-placement-detail.html",
+    "parent": "admin-placement-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入展示素材编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-push-management.html": {
+    "name": "推送管理",
+    "object": "推送管理",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-push-management.html",
+    "parent": "admin-push-management.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入推送管理"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-push-detail.html": {
+    "name": "推送配置",
+    "object": "推送配置",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-push-detail.html",
+    "parent": "admin-push-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入推送配置"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-recharge-package.html": {
+    "name": "充值套餐",
+    "object": "充值套餐",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package.html",
+    "parent": "admin-recharge-package.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入充值套餐"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-recharge-package-detail.html": {
+    "name": "充值套餐编辑",
+    "object": "充值套餐编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+    "parent": "admin-recharge-package-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入充值套餐编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-task-config.html": {
+    "name": "任务配置",
+    "object": "任务配置",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-task-config.html",
+    "parent": "admin-task-config.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入任务配置"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-task-detail.html": {
+    "name": "通用任务编辑",
+    "object": "通用任务编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+    "parent": "admin-task-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入通用任务编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-guild-recommendation.html": {
+    "name": "公会推荐",
+    "object": "公会推荐",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation.html",
+    "parent": "admin-guild-recommendation.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会推荐"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-guild-recommendation-detail.html": {
+    "name": "公会推荐编辑",
+    "object": "公会推荐编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+    "parent": "admin-guild-recommendation-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会推荐编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-level-config.html": {
+    "name": "等级配置",
+    "object": "等级配置",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-level-config.html",
+    "parent": "admin-level-config.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入等级配置"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-live-type.html": {
+    "name": "直播类型",
+    "object": "直播类型",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-live-type.html",
+    "parent": "admin-live-type.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播类型"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-feature-switch.html": {
+    "name": "直播房型",
+    "object": "直播房型",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-feature-switch.html",
+    "parent": "admin-feature-switch.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播房型"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-ticket-price-level.html": {
+    "name": "门票价格档位",
+    "object": "门票价格档位",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level.html",
+    "parent": "admin-ticket-price-level.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入门票价格档位"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-ticket-price-level-detail.html": {
+    "name": "门票价格档位编辑",
+    "object": "门票价格档位编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+    "parent": "admin-ticket-price-level-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入门票价格档位编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-sensitive-words.html": {
+    "name": "敏感词库",
+    "object": "敏感词库",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words.html",
+    "parent": "admin-sensitive-words.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入敏感词库"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-sensitive-words-detail.html": {
+    "name": "敏感词编辑",
+    "object": "敏感词编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营配置",
+    "file": "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+    "parent": "admin-sensitive-words-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入敏感词编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-recharge-order.html": {
+    "name": "充值订单",
+    "object": "充值订单",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order.html",
+    "parent": "admin-recharge-order.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入充值订单"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-recharge-order-detail.html": {
+    "name": "充值订单详情",
+    "object": "充值订单详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order-detail.html",
+    "parent": "admin-recharge-order-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入充值订单详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-consumption-order.html": {
+    "name": "消费订单",
+    "object": "消费订单",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order.html",
+    "parent": "admin-consumption-order.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入消费订单"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-consumption-order-detail.html": {
+    "name": "消费订单详情",
+    "object": "消费订单详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order-detail.html",
+    "parent": "admin-consumption-order-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入消费订单详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-refund-order.html": {
+    "name": "退款订单",
+    "object": "退款订单",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/orders/admin-refund-order.html",
+    "parent": "admin-refund-order.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入退款订单"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-settlement-record.html": {
+    "name": "主播分成记录",
+    "object": "主播分成记录",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record.html",
+    "parent": "admin-settlement-record.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播分成记录"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-settlement-record-detail.html": {
+    "name": "主播分成记录详情",
+    "object": "主播分成记录详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record-detail.html",
+    "parent": "admin-settlement-record-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播分成记录详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-host-account-balance.html": {
+    "name": "主播账户余额",
+    "object": "主播账户余额",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/finance/admin-host-account-balance.html",
+    "parent": "admin-host-account-balance.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播账户余额"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-host-balance-change-record.html": {
+    "name": "余额变更记录",
+    "object": "余额变更记录",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/finance/admin-host-balance-change-record.html",
+    "parent": "admin-host-balance-change-record.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入余额变更记录"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-guild-settlement-record.html": {
+    "name": "公会分成记录",
+    "object": "公会分成记录",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record.html",
+    "parent": "admin-guild-settlement-record.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会分成记录"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-guild-settlement-record-detail.html": {
+    "name": "公会分成记录详情",
+    "object": "公会分成记录详情",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+    "parent": "admin-guild-settlement-record-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会分成记录详情"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-guild-account-balance.html": {
+    "name": "公会账户余额",
+    "object": "公会账户余额",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/finance/admin-guild-account-balance.html",
+    "parent": "admin-guild-account-balance.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会账户余额"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-guild-balance-change-record.html": {
+    "name": "余额变更记录",
+    "object": "余额变更记录",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "财务结算",
+    "file": "liveshow-proto/prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+    "parent": "admin-guild-balance-change-record.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入余额变更记录"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-report-center.html": {
+    "name": "报表中心",
+    "object": "报表中心",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-report-center.html",
+    "parent": "admin-report-center.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入报表中心"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-data-overview.html": {
+    "name": "数据概览",
+    "object": "数据概览",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-data-overview.html",
+    "parent": "admin-data-overview.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入数据概览"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-daily-statistics.html": {
+    "name": "每日统计",
+    "object": "每日统计",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-daily-statistics.html",
+    "parent": "admin-daily-statistics.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入每日统计"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-user-active-statistics.html": {
+    "name": "用户活跃汇总（每日）",
+    "object": "用户活跃汇总（每日）",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-user-active-statistics.html",
+    "parent": "admin-user-active-statistics.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入用户活跃汇总（每日）"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-host-statistics.html": {
+    "name": "主播活跃汇总（每日）",
+    "object": "主播活跃汇总（每日）",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-host-statistics.html",
+    "parent": "admin-host-statistics.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播活跃汇总（每日）"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-live-statistics.html": {
+    "name": "直播间互动汇总（每日）",
+    "object": "直播间互动汇总（每日）",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-live-statistics.html",
+    "parent": "admin-live-statistics.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播间互动汇总（每日）"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-host-live-record-report.html": {
+    "name": "直播记录明细报表",
+    "object": "直播记录明细报表",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-host-live-record-report.html",
+    "parent": "admin-host-live-record-report.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播记录明细报表"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-recharge-statistics.html": {
+    "name": "充值消费汇总（每日）",
+    "object": "充值消费汇总（每日）",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-statistics.html",
+    "parent": "admin-recharge-statistics.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入充值消费汇总（每日）"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-user-activity-statistics.html": {
+    "name": "充值用户分层汇总（每日）",
+    "object": "充值用户分层汇总（每日）",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+    "parent": "admin-user-activity-statistics.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入充值用户分层汇总（每日）"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-monthly-income-expense.html": {
+    "name": "月度收益支出汇总",
+    "object": "月度收益支出汇总",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+    "parent": "admin-monthly-income-expense.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入月度收益支出汇总"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-monthly-host-share.html": {
+    "name": "主播业绩分成报表",
+    "object": "主播业绩分成报表",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-share.html",
+    "parent": "admin-monthly-host-share.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播业绩分成报表"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-monthly-host-earnings.html": {
+    "name": "主播礼物打赏明细报表",
+    "object": "主播礼物打赏明细报表",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+    "parent": "admin-monthly-host-earnings.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播礼物打赏明细报表"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-monthly-viewer-consumption.html": {
+    "name": "用户消费汇总报表",
+    "object": "用户消费汇总报表",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+    "parent": "admin-monthly-viewer-consumption.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入用户消费汇总报表"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-monthly-gift-sales.html": {
+    "name": "礼物消费汇总报表",
+    "object": "礼物消费汇总报表",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+    "parent": "admin-monthly-gift-sales.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入礼物消费汇总报表"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-consumption-order-detail-report.html": {
+    "name": "消费订单明细",
+    "object": "消费订单明细",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+    "parent": "admin-consumption-order-detail-report.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入消费订单明细"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-refund-order-detail-report.html": {
+    "name": "退款订单明细",
+    "object": "退款订单明细",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+    "parent": "admin-refund-order-detail-report.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入退款订单明细"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-recharge-order-detail-report.html": {
+    "name": "充值订单明细",
+    "object": "充值订单明细",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "数据报表",
+    "file": "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+    "parent": "admin-recharge-order-detail-report.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入充值订单明细"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-operation-accounts.html": {
+    "name": "账号列表",
+    "object": "账号列表",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营账号",
+    "file": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-accounts.html",
+    "parent": "admin-operation-accounts.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入账号列表"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-operation-account-detail.html": {
+    "name": "运营账号主页",
+    "object": "运营账号主页",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营账号",
+    "file": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-account-detail.html",
+    "parent": "admin-operation-account-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入运营账号主页"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-operation-issue-records.html": {
+    "name": "发放记录",
+    "object": "发放记录",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营账号",
+    "file": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-issue-records.html",
+    "parent": "admin-operation-issue-records.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入发放记录"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-operation-gift-records.html": {
+    "name": "送礼记录",
+    "object": "送礼记录",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营账号",
+    "file": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-gift-records.html",
+    "parent": "admin-operation-gift-records.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入送礼记录"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-operation-guild-controls.html": {
+    "name": "额度限制",
+    "object": "额度限制",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "运营账号",
+    "file": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+    "parent": "admin-operation-guild-controls.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入额度限制"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-system-account.html": {
+    "name": "后台账号",
+    "object": "后台账号",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "系统配置",
+    "file": "liveshow-proto/prototype/pages/admin/system/admin-system-account.html",
+    "parent": "admin-system-account.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入后台账号"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-system-account-detail.html": {
+    "name": "账号编辑",
+    "object": "账号编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "系统配置",
+    "file": "liveshow-proto/prototype/pages/admin/system/admin-system-account-detail.html",
+    "parent": "admin-system-account-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入账号编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-system-role.html": {
+    "name": "角色管理",
+    "object": "角色管理",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "系统配置",
+    "file": "liveshow-proto/prototype/pages/admin/system/admin-system-role.html",
+    "parent": "admin-system-role.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入角色管理"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  },
+  "admin-system-role-detail.html": {
+    "name": "角色编辑",
+    "object": "角色编辑",
+    "role": "平台管理员",
+    "endName": "管理后台",
+    "module": "系统配置",
+    "file": "liveshow-proto/prototype/pages/admin/system/admin-system-role-detail.html",
+    "parent": "admin-system-role-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入角色编辑"
+    ],
+    "preconditions": [
+      "平台管理员账号已登录且具备当前页面权限"
+    ]
+  }
+}

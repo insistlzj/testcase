@@ -1,0 +1,930 @@
+{
+  "生成时间": "2026-09-11T05:01:11.778Z",
+  "页面入口数": 132,
+  "入口证据": [
+    {
+      "需求编号": "REQ-ACC-001",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/settings.html",
+      "SHA256": "68281c21ac7294e232bf6083ce83d787658dcfa05e13467c56b5cf94ef0fafff",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-001",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/management/guild-settings.html",
+      "SHA256": "a2c53b0d2b348024489f5d0b0e44325e06bcd2effa753804c73ff88c5c0e465a",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-001",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/dashboard/admin-dashboard.html",
+      "SHA256": "0624bd39b41e7a04a0150a771425a9e8ea45d13671097f7ee84e50bd889d2693",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-002",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+      "SHA256": "88fdf21bac687e498edb3bc6601bbed6ad647ce585248ba2b1b73e68af350aa6",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-002",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/auth/guild-login.html",
+      "SHA256": "87cfafc8525b71a9bf720a06b6bfdda1eeca4836c0514eb7a2947059bf2880cb",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-003",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/auth/auth-country-select.html",
+      "SHA256": "133cfb9ef405b6629857cf20a4bf8c7c3121181602e80212d963d5c94a43c5f1",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-004",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/auth/auth-email-login.html",
+      "SHA256": "79815ba6324384bd578e479164460fd565114e9d6cd72ce0bb1c9a5cfc997acd",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-005",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/profile-edit.html",
+      "SHA256": "691c5fe76c1a6c4dd071b5c34486c3cfdfaf5be8277ccc5af11e6f0978cf5291",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-006",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/settings.html",
+      "SHA256": "68281c21ac7294e232bf6083ce83d787658dcfa05e13467c56b5cf94ef0fafff",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-007",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/settings.html",
+      "SHA256": "68281c21ac7294e232bf6083ce83d787658dcfa05e13467c56b5cf94ef0fafff",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-008",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/guild/guild-application-form.html",
+      "SHA256": "1cc28282e4df6583452d7e60222b69747ca0ace21caadab0a5eb14dd2245cc93",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-009",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/auth/auth-phone-login.html",
+      "SHA256": "8732173a70563e30cd5a3f4778d5349ee60c0f4f3479eedc6573fbb89a052080",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-010",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/profile-edit.html",
+      "SHA256": "691c5fe76c1a6c4dd071b5c34486c3cfdfaf5be8277ccc5af11e6f0978cf5291",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-010",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/user/admin-user-detail.html",
+      "SHA256": "aa09c6822b1cb8ed0f50d6b3740bc72a64bdc8eb966ac604701c74572b15185c",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-011",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/social/system-notifications.html",
+      "SHA256": "43c07aa29edefb6099dd34bcaeafec0f8dbee75b8c627a068ff6db2fba2f6b36",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-011",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/user/admin-user-detail.html",
+      "SHA256": "aa09c6822b1cb8ed0f50d6b3740bc72a64bdc8eb966ac604701c74572b15185c",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-ACC-012",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/search-results.html",
+      "SHA256": "d6909d4e4f7f1a69d85079158c01f2088bda2772f460b65b3381cd4d776c9241",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-001",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA256": "c09ad3251e660e5fcd6af552cbec5e9f401942bea35dc05f9cd89b5bf40327e4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-002",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA256": "c09ad3251e660e5fcd6af552cbec5e9f401942bea35dc05f9cd89b5bf40327e4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-003",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-detail.html",
+      "SHA256": "d1d7bd9b5b7bac0cbbf161df6b25122f551ca53c892b7847a305e0fbc0fff0ab",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-004",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/live-data.html",
+      "SHA256": "b3bbd1941b5f42a449f562d0e05891ec3a4a23d0848d726e4f8e84ae7af900dc",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-004",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/data/guild-host-data.html",
+      "SHA256": "30cb3398b79d301b91d20159a22c7e52a4c2f63afe7dafac21ac32a27ed3683d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-004",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/analytics/admin-live-statistics.html",
+      "SHA256": "c00a8d786ab97a772d7b6183e928010be1842a283af7b2fef29bc28d83f133a4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-005",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "SHA256": "053b10ca84c99e7f6f65bfdff2b8fb74475f318e7615e61291175600c4e1f5b1",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-006",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/order-expense-detail.html",
+      "SHA256": "607a491f9ca9ea62ce391a88bd40ca6b45f403902d8249661a5eab901a63b135",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-006",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/host/admin-live-management.html",
+      "SHA256": "e2b61b510b2eddc9fc0a357a841d31298cf832405fd20a2817f3ba48abf97096",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-007",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/live-records.html",
+      "SHA256": "2c191aa0ebeb10ff5a6fc958640527a169092f16345fd341b141642e1d404d1b",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-007",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/data/guild-host-data.html",
+      "SHA256": "30cb3398b79d301b91d20159a22c7e52a4c2f63afe7dafac21ac32a27ed3683d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-007",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/host/admin-host-detail.html",
+      "SHA256": "c6ba1122de23feda1f32d9eb0e6774f3b93e409088777cbe2c521cd8ffc9809a",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-008",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/host-center.html",
+      "SHA256": "d4bc9bb57780e5b4485c023730f25cfa13fcadacd79db471ab622c2d200480b9",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-008",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/host/admin-host-detail.html",
+      "SHA256": "c6ba1122de23feda1f32d9eb0e6774f3b93e409088777cbe2c521cd8ffc9809a",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-009",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/all-tasks.html",
+      "SHA256": "de73888d3e8dc4041472b039ce5bc2b12fcf058b191435509228464e9306ee63",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-010",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA256": "c09ad3251e660e5fcd6af552cbec5e9f401942bea35dc05f9cd89b5bf40327e4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-011",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "SHA256": "053b10ca84c99e7f6f65bfdff2b8fb74475f318e7615e61291175600c4e1f5b1",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-012",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+      "SHA256": "a008fa98a8b465d65e3de4ecd188b854aba8342f4a05e302def81f10e819f3b4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-012",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-placement-detail.html",
+      "SHA256": "0c8a6120fca658572f405e2858f719b85a38084a48331478084c26eb916f5ebe",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-013",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/social/system-notifications.html",
+      "SHA256": "43c07aa29edefb6099dd34bcaeafec0f8dbee75b8c627a068ff6db2fba2f6b36",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-013",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-push-management.html",
+      "SHA256": "24b949f59e5b826fc1af904458da774ffc564e1b1ebaec486b89d6a3baa7563b",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-014",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-detail.html",
+      "SHA256": "d1d7bd9b5b7bac0cbbf161df6b25122f551ca53c892b7847a305e0fbc0fff0ab",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-015",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "SHA256": "053b10ca84c99e7f6f65bfdff2b8fb74475f318e7615e61291175600c4e1f5b1",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-016",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+      "SHA256": "a8e48582fda769399cc295f41674e6718ab102722c12362ed4589f3f2958d70d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-017",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+      "SHA256": "a8e48582fda769399cc295f41674e6718ab102722c12362ed4589f3f2958d70d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-018",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/profile.html",
+      "SHA256": "62169261e9f35e4467fd784cc497720676e415bdf6863c5535756e11657abd18",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-019",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+      "SHA256": "a008fa98a8b465d65e3de4ecd188b854aba8342f4a05e302def81f10e819f3b4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-020",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/social/message-center.html",
+      "SHA256": "67547b09973958fb6cc0accb03eb6e5ddd0aa6d27e5e73c40e6363fefa13ea28",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-021",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/host/admin-host-list.html",
+      "SHA256": "bfabcb6ffd0be7bb7137717522590c5a94c28843f0b7cba2c9034af93c2e8256",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-022",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+      "SHA256": "a8e48582fda769399cc295f41674e6718ab102722c12362ed4589f3f2958d70d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-023",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/visible-fan-select.html",
+      "SHA256": "45f68c95e61d274dc0f9226324ad7a078c66fe2ccafeb6d3838c5cba8eaced3e",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-024",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "SHA256": "053b10ca84c99e7f6f65bfdff2b8fb74475f318e7615e61291175600c4e1f5b1",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-025",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/contribution-ranking.html",
+      "SHA256": "98214d12f47895802c71d1488a8225b0722489895ba3eee2534dbc8ca94a28b3",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-LIVE-026",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/social/host-home.html",
+      "SHA256": "e0398be999c43515cda84c615bb6816d1ff1218c87297e33c20351e70009995d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-001",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/fan-club.html",
+      "SHA256": "d947b7870890fffe8497cf636b2f27374bbf6503ae94f780e36f2e968b1c75b6",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-002",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/fan-club.html",
+      "SHA256": "d947b7870890fffe8497cf636b2f27374bbf6503ae94f780e36f2e968b1c75b6",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-003",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/social/fan-group-chat.html",
+      "SHA256": "d09c4841f7a1dea5b34541a92d97a191bbf679ed85b6be26c9f5cba679732d0c",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-004",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/social/fan-group-chat.html",
+      "SHA256": "d09c4841f7a1dea5b34541a92d97a191bbf679ed85b6be26c9f5cba679732d0c",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-005",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA256": "c09ad3251e660e5fcd6af552cbec5e9f401942bea35dc05f9cd89b5bf40327e4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-006",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/social/direct-message.html",
+      "SHA256": "11779b5ffbbcb613069887831f54c1afe5ba1972f16a8b6cbb1ecc8fe631c0da",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-007",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/social/chat-settings.html",
+      "SHA256": "53af827e5a09121510feb2ad4c474e475bbdbf56eaa644ecaaea59a2316bde62",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-008",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA256": "c09ad3251e660e5fcd6af552cbec5e9f401942bea35dc05f9cd89b5bf40327e4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-009",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/moderator-management.html",
+      "SHA256": "b907f5f244abf8a28fa06ef5dee8bd74f4249aae2b518d6b08d4ec360d46ce8d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-010",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA256": "c09ad3251e660e5fcd6af552cbec5e9f401942bea35dc05f9cd89b5bf40327e4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-011",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA256": "c09ad3251e660e5fcd6af552cbec5e9f401942bea35dc05f9cd89b5bf40327e4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-012",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "SHA256": "053b10ca84c99e7f6f65bfdff2b8fb74475f318e7615e61291175600c4e1f5b1",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-013",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/moderator-management.html",
+      "SHA256": "b907f5f244abf8a28fa06ef5dee8bd74f4249aae2b518d6b08d4ec360d46ce8d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-014",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/social/group-manage-member.html",
+      "SHA256": "b7a901ec9b72607a13fbda84707ab9ff62e8f31111c4fd9e45cb124a1fab0be5",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-SOC-015",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/settings.html",
+      "SHA256": "68281c21ac7294e232bf6083ce83d787658dcfa05e13467c56b5cf94ef0fafff",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-001",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "SHA256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-001",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+      "SHA256": "3ee600a71bd51aea25a11dd4757ff58333e8e5b5978e971709906fdeef22436d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-002",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+      "SHA256": "6a70e719de015a826ede1dad42dedcc531161fa8f5c2e0a8085dfaca1c3fabf7",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-003",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+      "SHA256": "d11a7aaf86dbafce481a7df1f721d52128a0983c57f4b15270d9acf9ce81011d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-004",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/my-decoration.html",
+      "SHA256": "5ffc061f8399567ec6a7735ce56e698b91409ac1a32aa11b68aa248b012ca6f7",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-004",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/gifts/admin-prop-detail.html",
+      "SHA256": "20d42316ed27a7f040e848094b712e514745ee369759272ad9a484f2d9deb3a0",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-005",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/income-sharing.html",
+      "SHA256": "9748d142223d019dbb89c73c55207e74c3e83db2839dbf75bcbe3f65f41e5d2d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-005",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/data/guild-income.html",
+      "SHA256": "89c058de24602f1cccc16a8a441ebf5dccc7946f54c116c2aec2a2b9233db62a",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-005",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+      "SHA256": "6c97a6c304f45768f9771812961f3f8f5d8cd308dd06f91d1156cd8bfa2b3d30",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-006",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/contribution-ranking.html",
+      "SHA256": "98214d12f47895802c71d1488a8225b0722489895ba3eee2534dbc8ca94a28b3",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-006",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/analytics/admin-host-statistics.html",
+      "SHA256": "51caaf7d64118e7150d252a51d0bf3efd58005a071a7491e487badeb16ccc929",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-007",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "SHA256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-007",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/data/guild-income.html",
+      "SHA256": "89c058de24602f1cccc16a8a441ebf5dccc7946f54c116c2aec2a2b9233db62a",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-007",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/analytics/admin-report-center.html",
+      "SHA256": "4af3f08f9e56ce18497f3a2b307ae7be24b011fd35c601882e6f45f33be7a318",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-008",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/recharge.html",
+      "SHA256": "b532101e37f5376679dd28401e4f1d901bee19dabe80ce7d866e62c2dc51a6fd",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-008",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/orders/admin-refund-order.html",
+      "SHA256": "465f28018e9770d0d65fff9071859b3059ea463c17ae25bb0e43157531d0c1c5",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-009",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/income-sharing.html",
+      "SHA256": "9748d142223d019dbb89c73c55207e74c3e83db2839dbf75bcbe3f65f41e5d2d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-009",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/data/guild-income.html",
+      "SHA256": "89c058de24602f1cccc16a8a441ebf5dccc7946f54c116c2aec2a2b9233db62a",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-009",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+      "SHA256": "6c97a6c304f45768f9771812961f3f8f5d8cd308dd06f91d1156cd8bfa2b3d30",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-010",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order-detail.html",
+      "SHA256": "6fe3812eb81f30177fed4e3d19fe9996b23ada51ea41599efe54ba0cc742cbb2",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-011",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "SHA256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-011",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/data/guild-income.html",
+      "SHA256": "89c058de24602f1cccc16a8a441ebf5dccc7946f54c116c2aec2a2b9233db62a",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-011",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/finance/admin-host-account-balance.html",
+      "SHA256": "b5ac70e82dacfc5dda965a29a149eda88d2225f3c33b5db5af8c679f2143fcf3",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-012",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+      "SHA256": "61cf6a67d3b4ff70a05c67cf60fd5b9abbd7cd6ce903fecdbed6d11682c504aa",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-013",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/recharge.html",
+      "SHA256": "b532101e37f5376679dd28401e4f1d901bee19dabe80ce7d866e62c2dc51a6fd",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-013",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+      "SHA256": "3ee600a71bd51aea25a11dd4757ff58333e8e5b5978e971709906fdeef22436d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-014",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "SHA256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-014",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+      "SHA256": "f6a2c8244c25f9412e8179add285b996050baea502814edd9880aaa69f08f7fe",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-015",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "SHA256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-015",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order-detail.html",
+      "SHA256": "56d947fd0899c4614e453ba1a1e9cb3c18503e6a9e65c195b26e823d083e9a36",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-016",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "SHA256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-016",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/orders/admin-refund-order.html",
+      "SHA256": "465f28018e9770d0d65fff9071859b3059ea463c17ae25bb0e43157531d0c1c5",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-017",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/recharge.html",
+      "SHA256": "b532101e37f5376679dd28401e4f1d901bee19dabe80ce7d866e62c2dc51a6fd",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-017",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+      "SHA256": "3ee600a71bd51aea25a11dd4757ff58333e8e5b5978e971709906fdeef22436d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-018",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "SHA256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-018",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-detail.html",
+      "SHA256": "8345971a8464ef537a47d945ff4ed0da53841c6d58d7482046062d019993887f",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-018",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-account-detail.html",
+      "SHA256": "db5d6b43eca8b8a2e3b98f461ee7b7a27651d36213fd4a52b00207fa865b582d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-FIN-019",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+      "SHA256": "a8e48582fda769399cc295f41674e6718ab102722c12362ed4589f3f2958d70d",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-001",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/all-tasks.html",
+      "SHA256": "de73888d3e8dc4041472b039ce5bc2b12fcf058b191435509228464e9306ee63",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-001",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-task-config.html",
+      "SHA256": "9eebfd03519ffcacf2c236f619d3f77472ebefc0ba7343d17ed8ebd6e8063fc8",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-002",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+      "SHA256": "891f5ff640841d5f8203f04594a04b2ea2f9dc4d3dd7022a9d9de6a8f33ae8bb",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-003",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/invite-friends.html",
+      "SHA256": "ac81186fcd1662e4b68246594161361ba02a23928d50e8b7a16ae00660eac073",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-003",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-task-config.html",
+      "SHA256": "9eebfd03519ffcacf2c236f619d3f77472ebefc0ba7343d17ed8ebd6e8063fc8",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-004",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/all-tasks.html",
+      "SHA256": "de73888d3e8dc4041472b039ce5bc2b12fcf058b191435509228464e9306ee63",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-004",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+      "SHA256": "891f5ff640841d5f8203f04594a04b2ea2f9dc4d3dd7022a9d9de6a8f33ae8bb",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-005",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/all-tasks.html",
+      "SHA256": "de73888d3e8dc4041472b039ce5bc2b12fcf058b191435509228464e9306ee63",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-006",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/all-tasks.html",
+      "SHA256": "de73888d3e8dc4041472b039ce5bc2b12fcf058b191435509228464e9306ee63",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-007",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/all-tasks.html",
+      "SHA256": "de73888d3e8dc4041472b039ce5bc2b12fcf058b191435509228464e9306ee63",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-007",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+      "SHA256": "891f5ff640841d5f8203f04594a04b2ea2f9dc4d3dd7022a9d9de6a8f33ae8bb",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-008",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/profile.html",
+      "SHA256": "62169261e9f35e4467fd784cc497720676e415bdf6863c5535756e11657abd18",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-008",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-level-config.html",
+      "SHA256": "f9917c3b505da76a4356e249ac87f0e671f7847d847f2951b4bdb6995b8efac1",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-009",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/profile/profile.html",
+      "SHA256": "62169261e9f35e4467fd784cc497720676e415bdf6863c5535756e11657abd18",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-TASK-009",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-level-config.html",
+      "SHA256": "f9917c3b505da76a4356e249ac87f0e671f7847d847f2951b4bdb6995b8efac1",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-001",
+      "目标端": "用户App",
+      "页面": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+      "SHA256": "a008fa98a8b465d65e3de4ecd188b854aba8342f4a05e302def81f10e819f3b4",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-001",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/home/guild-home.html",
+      "SHA256": "77aa03bdd7ab110c6298b4a728b01b840dbf24940e909cac28fb820b788b259a",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-001",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation.html",
+      "SHA256": "1542c25913556b60b206629c15c28d222d31fd996227ace8ab5f033d23e93948",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-002",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/people/guild-member-list.html",
+      "SHA256": "756f0ab52c7c0a6663afbd7de4e9e0ec1ef6d153ddfa65cfba65110c2ec1e2b3",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-002",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/guild/admin-guild-detail.html",
+      "SHA256": "20e5a7d5b853598448bf014a232ec1e42ad9f062364b0cc1442a0ce998f36234",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-003",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/approval/guild-join-review-detail.html",
+      "SHA256": "8c25981dda264cdc47f0fb0b0c341d872c496f768c7ef85649ef7dbb243eb547",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-003",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/host/admin-host-review-detail.html",
+      "SHA256": "f379f686c1b915bea42bc3ff1a019ed05e6202516c03586ab98afb0a92a7952c",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-004",
+      "目标端": "公会App",
+      "页面": "liveshow-proto/prototype/pages/guild/operations/guild-operation-accounts.html",
+      "SHA256": "c311bae5e9a1aa48546baf47b7321ac4241a351e6202137162856fd1c6c3b7b3",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-004",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-accounts.html",
+      "SHA256": "4652600c770ecfb66c3d56406842139795d27af04891bf7af153058acf87c7d7",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-005",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/user/admin-user-list.html",
+      "SHA256": "03341caba148da97a603df9b4b2bf971b56192685d634542fee935c7af71b33c",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-006",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-placement-config.html",
+      "SHA256": "b980103001553b500e8f27ac6121af797392f3b9c2bd190cc397bbe4ebff8c78",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-007",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-placement-config.html",
+      "SHA256": "b980103001553b500e8f27ac6121af797392f3b9c2bd190cc397bbe4ebff8c78",
+      "用途": "仅证明当前入口，不定义业务规则"
+    },
+    {
+      "需求编号": "REQ-GUILD-008",
+      "目标端": "管理后台",
+      "页面": "liveshow-proto/prototype/pages/admin/operations/admin-push-detail.html",
+      "SHA256": "77c8ace78582fa0c41926e6d33696bbf7630e0079d28b17536cf913e4eddf23a",
+      "用途": "仅证明当前入口，不定义业务规则"
+    }
+  ]
+}

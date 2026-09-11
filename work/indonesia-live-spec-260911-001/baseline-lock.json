@@ -1,0 +1,19 @@
+{
+  "锁定时间": "2026-09-11T06:34:44.257Z",
+  "基线状态": "已锁定",
+  "规则数": 89,
+  "场景数": 286,
+  "风险与缺口数": 61,
+  "来源哈希": {
+    "sources/需求规格说明.md": "b2ab2624d1a1f4afaab601ab0109e39c44870d4569acae2c321e5191e35994fa",
+    "sources/需求待确认.md": "be3fa523551083911d6f6c54c6a82b5bfd2ea862211e8fd46d3a34a0801067b5"
+  },
+  "基线产物哈希": {
+    "source-policy.json": "167883658f26df837d9966e94c8b3286267519ec60fee504d8a6e044e7569b83",
+    "requirements-baseline.json": "774995d68cb72f0e6617a38b06210cfb8e7a19997b7dabdd3cf9b5a41ce264fa",
+    "pending-risk-baseline.json": "8e4da6613616eebd9123dbc2b079d739e0ac943b650d6e637f308323ced44d49",
+    "scenario-baseline.json": "8121d3cad33cc2d364cd58e274583c7abd6ffaaa72107676acfbe50069beed2f"
+  },
+  "历史用例读取状态": "未读取",
+  "历史输入": []
+}

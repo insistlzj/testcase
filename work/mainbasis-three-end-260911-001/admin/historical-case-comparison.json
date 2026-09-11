@@ -1,0 +1,6601 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "目标范围": {
+    "端名": "管理后台",
+    "模块名称": "M04 粉丝团·房管与成长等级、M05 公会申请·认证·组织与权限、M08 礼物·道具·任务·邀请与运营配置、M09 运营账号·虚拟金币与公会消息、M10 用户管理·审核·举报与巡房、M11 财务·退款·结算上传与账户调整、M12 直播业绩·增长与统计报表、M13 后台系统·通用配置与其他已登记页面"
+  },
+  "独立场景固定时间": "2026-09-11T08:53:49.987Z",
+  "独立场景SHA256": "03b91d71b93ec0dc9e8628ea04237e752700903bce383dfc5341c4fdd864685a",
+  "历史读取开始时间": "2026-09-11T08:53:50.372Z",
+  "候选JSON": {
+    "路径": "work/mainbasis-three-end-260911-001/admin/candidate.json",
+    "SHA-256": "dff3fed422c1233a3578ba343a53a0c3ef8bb4521f752b14796263e389bea495"
+  },
+  "历史输入": [
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "SHA-256": "e8d8db860a9462c2c9c25b7ce8ece34f88ef05711f92d45bc7bc57b0c195a77e"
+    }
+  ],
+  "比较结果": [
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0015",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0016",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0017",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0018",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0019",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0020",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0021",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0022",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0023",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0024",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-settlement-record-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0025",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-account-balance.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0026",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-account-balance.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0027",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-account-balance.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0028",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-account-balance.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0029",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-refund-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0030",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-refund-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0031",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-refund-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0032",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-refund-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0033",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-refund-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0034",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-refund-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0035",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0036",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0037",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0038",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0039",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0040",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0041",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0042",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0043",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0044",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0045",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0046",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0047",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0048",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-balance-change-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0049",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-balance-change-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0050",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-balance-change-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0051",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-balance-change-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0052",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-balance-change-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0053",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-balance-change-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0054",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0055",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0056",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0057",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0058",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0059",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0060",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0061",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0062",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0063",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-settlement-record-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0064",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-account-balance.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0065",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-account-balance.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0066",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-account-balance.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AFIN-0067",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-account-balance.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGUILD-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0015",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-prop-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0016",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-custom-gift.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0017",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-custom-gift.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0018",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-custom-gift.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0019",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rules.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0020",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rules.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0021",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rules.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0022",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rules.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0023",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rules.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0024",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rules.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0025",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rules.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0026",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rule-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0027",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rule-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0028",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rule-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0029",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rule-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0030",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rule-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0031",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rule-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0032",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-send-count-rule-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0033",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0034",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0035",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0036",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0037",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0038",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0039",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0040",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0041",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0042",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0043",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0044",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0045",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0046",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0047",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0048",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0049",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0050",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-gift-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0051",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0052",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0053",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0054",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0055",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0056",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0057",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0058",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0059",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0060",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0061",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0062",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0063",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0064",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0065",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0066",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0067",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0068",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0069",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0070",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AGIFT-0071",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-lucky-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-content-audit.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-content-audit.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-content-audit.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-content-audit.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-content-audit.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-content-audit-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-content-audit-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-content-audit-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-content-audit-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0015",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0016",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0017",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0018",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0019",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0020",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0021",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0022",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0023",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-types.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0024",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-type-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0025",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-type-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0026",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-type-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0027",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-type-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0028",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-type-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0029",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-type-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0030",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-violation-type-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0031",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-account-violation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0032",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-account-violation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0033",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-account-violation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0034",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-account-violation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0035",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-account-violation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0036",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-account-violation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0037",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-handling.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0038",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-handling.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0039",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-handling.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0040",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-handling.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0041",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-handling.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ACONT-0042",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-handling.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-center.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-center.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-center.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-report-center.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0015",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-activity-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0016",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-activity-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0017",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-activity-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0018",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-activity-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0019",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-activity-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0020",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-dashboard.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0021",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-dashboard.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0022",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-dashboard.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0023",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-dashboard.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0024",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-dashboard.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0025",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-dashboard.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0026",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-dashboard.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0027",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-dashboard.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0028",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-dashboard.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0029",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-gift-sales.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0030",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-gift-sales.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0031",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-gift-sales.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0032",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-daily-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0033",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-daily-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0034",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-daily-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0035",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-daily-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0036",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-daily-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0037",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-daily-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0038",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-daily-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0039",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-daily-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0040",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-data-overview.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0041",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-data-overview.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0042",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-data-overview.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0043",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-data-overview.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0044",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-data-overview.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0045",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-data-overview.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0046",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-data-overview.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0047",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-refund-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0048",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-refund-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0049",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-refund-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0050",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0051",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0052",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0053",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-consumption-order-detail-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0054",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-active-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0055",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-active-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0056",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-active-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0057",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-active-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0058",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-active-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0059",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-viewer-consumption.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0060",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-viewer-consumption.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0061",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-viewer-consumption.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0062",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-income-expense.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0063",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-income-expense.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0064",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-income-expense.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0065",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-income-expense.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0066",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-live-record-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0067",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-live-record-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0068",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-live-record-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0069",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-live-record-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0070",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-live-record-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0071",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-live-record-report.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0072",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0073",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0074",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0075",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0076",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0077",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0078",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0079",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0080",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0081",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0082",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-statistics.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0083",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-earnings.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0084",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-earnings.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0085",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-earnings.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0086",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-earnings.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0087",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-share.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0088",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-share.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0089",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-share.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0090",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-share.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0091",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-share.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ADATA-0092",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-monthly-host-share.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0015",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0016",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0017",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-role.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0018",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0019",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0020",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0021",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0022",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "ASYS-0023",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-system-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0015",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0016",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0017",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0018",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AUSER-0019",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-user-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0015",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0016",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0017",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-recharge-package-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0018",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-level-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0019",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-level-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0020",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-level-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0021",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-level-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0022",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-level-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0023",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-level-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0024",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-recommendation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0025",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-recommendation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0026",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-recommendation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0027",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-recommendation.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0028",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-recommendation-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0029",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-recommendation-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0030",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-recommendation-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0031",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-guild-recommendation-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0032",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0033",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0034",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0035",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0036",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0037",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0038",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0039",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0040",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0041",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-ticket-price-level-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0042",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0043",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0044",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0045",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0046",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0047",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0048",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0049",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0050",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0051",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0052",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0053",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0054",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0055",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0056",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0057",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-sensitive-words.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0058",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0059",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0060",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0061",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0062",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0063",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0064",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0065",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0066",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0067",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-task-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0068",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0069",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0070",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0071",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0072",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0073",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0074",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0075",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0076",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0077",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-push-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0078",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0079",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0080",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0081",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0082",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0083",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0084",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0085",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0086",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0087",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0088",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0089",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0090",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0091",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0092",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-placement-config.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0093",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-feature-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0094",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-feature-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0095",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-feature-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0096",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-feature-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0097",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-feature-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0098",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-feature-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0099",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-type.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0100",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-type.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0101",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-type.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0102",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-type.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0103",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-type.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AOPS-0104",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-type.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-guild-controls.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-guild-controls.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-guild-controls.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-guild-controls.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-guild-controls.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-guild-controls.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-guild-controls.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-issue-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-issue-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-issue-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-issue-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-gift-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-gift-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-gift-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0015",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0016",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0017",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0018",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0019",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0020",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0021",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0022",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0023",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AACCT-0024",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0001",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0002",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0003",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0004",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0005",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0006",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0007",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0008",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0009",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0010",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule-create.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0011",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule-create.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0012",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule-create.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0013",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule-create.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0014",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0015",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0016",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0017",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-inspection-schedule.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0018",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0019",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0020",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0021",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0022",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0023",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0024",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0025",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-management.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0026",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0027",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0028",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0029",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0030",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0031",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-live-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0032",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0033",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0034",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0035",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0036",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0037",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0038",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0039",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0040",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0041",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0042",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0043",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0044",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0045",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0046",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0047",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0048",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0049",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/admin/管理后台-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "AHOST-0050",
+      "当前稳定规则标识": [
+        "BR-MB-admin-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：admin-host-detail.html"
+      ],
+      "当前用例追溯": []
+    }
+  ]
+}

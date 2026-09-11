@@ -1,0 +1,2849 @@
+{
+  "schemaVersion": "3.1",
+  "项目": "Luma Live",
+  "目标端": "管理后台",
+  "扫描模式": "full",
+  "模式依据": "三端全部模块范围首次使用当前证据提取 Schema，旧直播模块缓存不能复用",
+  "项目指纹": "abeff7ad50df95208fe162761640316e48cfa9d5b02e9d1830046dc19bfdc381",
+  "文件数量": 261,
+  "语义读取记录": [
+    {
+      "路径": "liveshow-proto/prototype/index.html",
+      "SHA256": "cae55b355e8980c2c059edc55eab45e2bbfc8890d7fae6cbf2122934f55aed61",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/admin.js",
+      "SHA256": "741536cf35c6fa3dcda03d508803446e45119c83903036eb80549d4aa14fed1a",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": [
+        "BR-4E66C49F3B12CC",
+        "BR-767A8E6A53A258",
+        "BR-F55F532309BF1C",
+        "BR-6311740F9B347A",
+        "BR-E2A59B9E76C8A7",
+        "BR-0EBF7C1630BE83",
+        "BR-35A32C5CAF250F",
+        "BR-2ADF2BF6F1C12C",
+        "BR-E3590D4E8671AA",
+        "BR-8149FA48092C00",
+        "BR-8D09A49E67ACED",
+        "BR-8C103B4579C78A",
+        "BR-F5F69680001686",
+        "BR-9478D552CB4490",
+        "BR-79F496E704BECC",
+        "BR-CAA130F070238B",
+        "BR-643E47D405C420",
+        "BR-67CE9567E1EE44",
+        "BR-13BA291F60646D",
+        "BR-6B55E94552C9C9",
+        "BR-D351E100C9485A",
+        "BR-C7760EFD49D636",
+        "BR-64B73EC0852A77",
+        "BR-F83F7A8B2590E4",
+        "BR-50B536E29DE48B",
+        "BR-44E1B294EFFB5C",
+        "BR-2BB62314879AB3",
+        "BR-02C90CFA30F7E7",
+        "BR-6AB0F89DA39F1F",
+        "BR-0345626A3A2D2F",
+        "BR-831CC5A0DBBB67",
+        "BR-BF2033237ECD86",
+        "BR-1C556446A0987E",
+        "BR-49C4621D187511",
+        "BR-4E9A7D0E1CEC44",
+        "BR-0882A509B3CC9B",
+        "BR-5D255AE3C784CB",
+        "BR-B31FBBCD03CC35",
+        "BR-100A02C5977873",
+        "BR-1141620A403A46",
+        "BR-BAEC077B65FCA9",
+        "BR-126BD40EAF20A2",
+        "BR-E24EE6D5E47ED4",
+        "BR-E50D1ED33A56CE",
+        "BR-8EC5FA6FDAF55E",
+        "BR-FC5ECE282B5A0A",
+        "BR-1E5AB9238F8CE5",
+        "BR-EF5799650B16B0",
+        "BR-0B3BB0D927E950",
+        "BR-0A0D3EAFF48D0A",
+        "BR-8E9E20F5934E33",
+        "BR-635BA482B2C1B8",
+        "BR-CDF2AFFB800AB6",
+        "BR-20678E3AC98189",
+        "BR-BE22EA770233B9",
+        "BR-D2B6A7EFE9F112",
+        "BR-4E96F31C8A24B6",
+        "BR-2720A537041209",
+        "BR-1784122078F4D4",
+        "BR-BA64B62D6FA279",
+        "BR-CA565B4EF795D5",
+        "BR-FB71368F04A361",
+        "BR-9EF0B8E1994C4D",
+        "BR-FB76A16F57A493",
+        "BR-60F7B1B91552FF",
+        "BR-77DE8B69880CDB",
+        "BR-8ABAABA6D2C85F",
+        "BR-6CAA980838AFE3",
+        "BR-13F472DB72A543",
+        "BR-29858C5F7D8603",
+        "BR-F555994D96E55E",
+        "BR-37F03065B342C7",
+        "BR-0C922863095C7A",
+        "BR-45CF93B529D7C5",
+        "BR-04A2B574917FA1",
+        "BR-83287DF6696162",
+        "BR-305ED356A297B2",
+        "BR-D384AC8F4934C2",
+        "BR-63BCA244B2B580",
+        "BR-060938FEE578B3",
+        "BR-4690AEB900F7CC",
+        "BR-7BA7CDBF98F039",
+        "BR-988E5D5AD9D40A",
+        "BR-72F9F8D7545142",
+        "BR-64245231734569",
+        "BR-BF1F7199315011",
+        "BR-428B34978C3C6C",
+        "BR-B2740F108C89A2",
+        "BR-073A9C38C02A6C",
+        "BR-A67390F4C363CE",
+        "BR-0ED2D6584C540F",
+        "BR-0B68D8E7067548",
+        "BR-B2EAC5EFB9238D",
+        "BR-96634002401325",
+        "BR-E98EB9CD08CCE9",
+        "BR-2C49CE8701176B",
+        "BR-8CEC6CBCCAC97A",
+        "BR-65DC33855C966D",
+        "BR-BEA19AC9F36D40",
+        "BR-61C7D84B10F5A3",
+        "BR-246458448B27FD",
+        "BR-138DB7A2DD8F8C",
+        "BR-98079EBEA43DE5",
+        "BR-B1AD0D7AFE52C4",
+        "BR-5D809DB2C92B3B",
+        "BR-653AF5E98FF805",
+        "BR-1B2C54048DE086",
+        "BR-716648EAB24200",
+        "BR-E19CA9F61A8895",
+        "BR-B71E331566BC92",
+        "BR-1261DC1E6A3B39",
+        "BR-95DB47CB9D1DA8",
+        "BR-150CA00AC3EE04",
+        "BR-87E231F029BE73",
+        "BR-1027ED54A39A56",
+        "BR-862CA1D68A4CEF",
+        "BR-9573256D4BE4C2",
+        "BR-419833B2BF0548",
+        "BR-6A9485B9276459",
+        "BR-9A155700A83F27",
+        "BR-5890B520A80718",
+        "BR-0E59E7D66EE252",
+        "BR-85AA3D786C0F32",
+        "BR-64DC97111B1038",
+        "BR-10719911BDCAC3",
+        "BR-7162A45BE05229",
+        "BR-5B155857EA413C",
+        "BR-0B7766DE0A01AC",
+        "BR-6C7CF86DAB820B",
+        "BR-37F8EE24E5B648",
+        "BR-839EAB447D3DF9",
+        "BR-65CF6941A8DDAD",
+        "BR-019AF9F20CFE7F",
+        "BR-D95447CCFF3580",
+        "BR-A8AA85A89B66BE",
+        "BR-6C265C0A2EE27F",
+        "BR-8AEF1B3CB8274B",
+        "BR-E8D8D7AC54296E",
+        "BR-D597A9C20ECBCB",
+        "BR-B7F6248314BC00",
+        "BR-B4A0B8A1ED0630",
+        "BR-9B9544B3831741",
+        "BR-23AF94CE9ED543",
+        "BR-1D523772BE8652",
+        "BR-6CC6068F15C022",
+        "BR-B85A7BAB88F250",
+        "BR-09E31E6405E238",
+        "BR-464D0278568277",
+        "BR-4537F075CA22C9",
+        "BR-48EC77C1EB2BBA",
+        "BR-211B5DB21E5D07",
+        "BR-D45E13D83407A9",
+        "BR-B642F5566AD841",
+        "BR-A4DF38B0668B86",
+        "BR-7FE4F7A43C9668",
+        "BR-79D2845C101DE8",
+        "BR-4E50F40B3C49E0",
+        "BR-54B4A60A37BFC4",
+        "BR-D10F25B93F08B3",
+        "BR-A1C4188692AC2A",
+        "BR-37F0FEBB434CED",
+        "BR-A8D7BA574F1B2E",
+        "BR-C0686F543D7898",
+        "BR-9160C60A26F63B",
+        "BR-04DF81F2F3D71F",
+        "BR-93745C593E7B85",
+        "BR-287CB3D9D95717",
+        "BR-7274EC42294D22",
+        "BR-6F0BE6CF3711BC",
+        "BR-0C70462F34CAF1",
+        "BR-C20DBD1D9690CD",
+        "BR-950DEE8CC95FDC",
+        "BR-AD5992B4E82413",
+        "BR-9B2E11A84235B3",
+        "BR-C59C5FBB5BF2A4",
+        "BR-4DB6869CCDE2C8",
+        "BR-61E29D6B66AA2F",
+        "BR-9A517C0F945D37",
+        "BR-4E2D88C331A271",
+        "BR-BD34EA01A91E1F",
+        "BR-8B69920B3CCFD8",
+        "BR-F2DFBC2DED8081",
+        "BR-13E9C3412830B5",
+        "BR-DB6BBCB3159805",
+        "BR-CC349F66B621E5",
+        "BR-30BE4AA2D0718D",
+        "BR-959139D7271707",
+        "BR-029E24ADF6C83B",
+        "BR-F011BF41F6A854",
+        "BR-EEE4B52312AD1F",
+        "BR-E2BF2FB4B48CA9",
+        "BR-3CA93BA613FB17",
+        "BR-4FB457890BF00D",
+        "BR-A29F5D6D5CE047",
+        "BR-9AF89CAF886987",
+        "BR-1BA4CCE7F0348D",
+        "BR-C4FE565F868D7B",
+        "BR-EB56E9D8896898",
+        "BR-0D41C90B7FAE4B",
+        "BR-B5BF66C5C78C58",
+        "BR-2C9C2F5BA8D885",
+        "BR-CF646F3856C36D",
+        "BR-9BC9282B1C4472",
+        "BR-ED21E75CEF0CD8",
+        "BR-0AAC39839E2F35",
+        "BR-D7B8BFDFCF7A1B",
+        "BR-4F2563BAB35B94",
+        "BR-526023CD723997",
+        "BR-5D388AF683E822",
+        "BR-BE69C08679963A",
+        "BR-D529FF7F9D8B40",
+        "BR-9810643753E6BF",
+        "BR-163C498AE572BE",
+        "BR-E125205F13228F",
+        "BR-F47DA633CE6463",
+        "BR-9C9E160B3C81B2",
+        "BR-C7E0681B82486A",
+        "BR-0F3203F96CBA13",
+        "BR-E544AF0DFF35C7",
+        "BR-43A3DA3C1719E2",
+        "BR-A2A8D3FBB796DD",
+        "BR-B61A0E980C7D8D",
+        "BR-8A2E503C7FF7B5",
+        "BR-F2ABCA24F097E4",
+        "BR-2D8C0D4DB525D8",
+        "BR-3C2B4E30B1F4A8",
+        "BR-FC791CE60902F3",
+        "BR-66B28F60DCF1A3",
+        "BR-E102012CD9AD26",
+        "BR-1BBBDE51A71EA0",
+        "BR-654B969591A290",
+        "BR-7086E0D36B24F4",
+        "BR-80A65558D8BA71",
+        "BR-2AD907722C98C9",
+        "BR-FB52D23F1770D3",
+        "BR-A6D4BF916CD8D1",
+        "BR-605BB90E629854",
+        "BR-DC86AA013ECD9A",
+        "BR-E0B412A06669E4",
+        "BR-0011DFE9C04264",
+        "BR-841406D1D21390",
+        "BR-934DC498BFB9E9",
+        "BR-2EEB1C9025D3DD",
+        "BR-DF7A15E8C05483",
+        "BR-09EEAD694DE329",
+        "BR-3CBEBC2283B273",
+        "BR-42B758D03BD17B",
+        "BR-60A7D021F2F8F9",
+        "BR-B7A42E9F1C1B87",
+        "BR-E0181428FA4E11",
+        "BR-51044D4931D681",
+        "BR-9E5CCC1B6F2BFC",
+        "BR-444BC9E4660C46",
+        "BR-ED41C009B91C32",
+        "BR-C4A67679872A43",
+        "BR-968179D413EEEE",
+        "BR-E6844291BE2B51",
+        "BR-94F23E8804BEE6",
+        "BR-606A616B5B6E27",
+        "BR-ABDF4F1BD500E6",
+        "BR-998640F1C2ECEB",
+        "BR-C9A9F5C1F4EF8F",
+        "BR-BC64103F2B5333",
+        "BR-F2510966E56E26",
+        "BR-819D820FD1065B",
+        "BR-31D7646406E776",
+        "BR-114E60C3EC0805",
+        "BR-3FF7DA366043D6",
+        "BR-D24C25B55FF22F",
+        "BR-B86CAEFD5A6714",
+        "BR-D47AED946D5768",
+        "BR-98EF03E96D4BE4",
+        "BR-2CD3B4B2820C08",
+        "BR-D9DFE69F4D3D90",
+        "BR-E82A824E3C9E3B",
+        "BR-51AA273A9BA55D",
+        "BR-DCDFBC48D38B58",
+        "BR-37C628CDF02B49",
+        "BR-EF5F788A9DFFBF",
+        "BR-B158C25D7CEC03",
+        "BR-10416747A7DB0B",
+        "BR-45DB02495915A5",
+        "BR-15BD2050EB4C76",
+        "BR-B0E0B336D468C1",
+        "BR-C622A163817F9B",
+        "BR-F60EB89BCC9B9A",
+        "BR-276539584FF2C9",
+        "BR-2B2DCC2F9BFDA9",
+        "BR-39B1066148BB19",
+        "BR-D16F3964EE665C",
+        "BR-D2643F174A3961",
+        "BR-54405D3D14FED3",
+        "BR-8BBC2B83566020",
+        "BR-694CFAE03E453E",
+        "BR-C3EA0127C8E0BD",
+        "BR-E0663B9AED409C",
+        "BR-EA7CBC8E750201",
+        "BR-9EF7FF127A8D65",
+        "BR-3CFE4B128BF88A",
+        "BR-2D13C226B64106",
+        "BR-55ED3ECE2A9DD5",
+        "BR-0F2D32BB766C9E",
+        "BR-10938FEC2467AA",
+        "BR-7616F1C8432500",
+        "BR-5E4A3C020FBF1F",
+        "BR-237BAA8A69AC56",
+        "BR-1011DE538A4E07",
+        "BR-D3772DAD21BA07",
+        "BR-91145B25AECBCE",
+        "BR-CBAE60EE5B7C0D",
+        "BR-438E35ACCE46AA",
+        "BR-B8C64A59D30A41",
+        "BR-556BCE43AAECF0",
+        "BR-78EA20C258AD01",
+        "BR-799D9636E5397E",
+        "BR-F883D75FCF15E0",
+        "BR-E240E9C8667196",
+        "BR-4541B749BFBFC2",
+        "BR-95AA69E789FD0C",
+        "BR-56572327C643B5",
+        "BR-173506BD7E4D37",
+        "BR-DDF4A3CB32C67E",
+        "BR-87368EC7C68D16",
+        "BR-E4E53301F0AA16",
+        "BR-0533270F306F53",
+        "BR-0871733FE2298A",
+        "BR-74CECB89021CB9",
+        "BR-0E7BAD62AA0CDC",
+        "BR-B5725A6550C3A5",
+        "BR-3333643387D836",
+        "BR-FB429A15B6C7A1",
+        "BR-40927EC8DDECAE",
+        "BR-E234947E36B7B5",
+        "BR-D230B6E80BC952",
+        "BR-073CCF7E77CCE3",
+        "BR-064159933CD733",
+        "BR-4035F77A663893",
+        "BR-8AC5F69AA87B8B",
+        "BR-B74FAC7B227FE0",
+        "BR-1C7179594A07EF",
+        "BR-F1CB203601C563",
+        "BR-804790D4DAF3E8",
+        "BR-6C4C9A1AAD49F0",
+        "BR-2F94E0EE797FDD",
+        "BR-162651C87EC39B",
+        "BR-3B956D20553F90",
+        "BR-2DAA3F5F155EC6",
+        "BR-3C8CACF86D51B8",
+        "BR-5FE30D7C5D5C7A",
+        "BR-88E1809A584AC0",
+        "BR-69D59C25D96DDA",
+        "BR-B6FE495C810A62",
+        "BR-574CF075AB1051",
+        "BR-A34CE24652854D",
+        "BR-32D2A22730DA12",
+        "BR-59C77E36E6B9D2",
+        "BR-33AE085AA05D6B",
+        "BR-BC3F4062834F27",
+        "BR-5F0866BDE269DF",
+        "BR-7689FF744E3C41",
+        "BR-9A5E0103C407E5",
+        "BR-616CE188AD2F9D",
+        "BR-07E1465ECE2EBF",
+        "BR-0C11D4CE6B6305",
+        "BR-802B6D281543BF",
+        "BR-33F6551F16D71D",
+        "BR-3C5D60DF5FF5B4",
+        "BR-2C63C3939BE515",
+        "BR-EBA29B4C8EB70C",
+        "BR-647738D0A608E0",
+        "BR-DA6A466C32836F",
+        "BR-31937367410A1C",
+        "BR-94CA077FDFB84B",
+        "BR-F8044A60E6FC01",
+        "BR-EDBBC3E9CFE587",
+        "BR-6ECB356D63A97B",
+        "BR-486F46736E9ED4",
+        "BR-A82DCB03715FE5",
+        "BR-0A74F48C34939F",
+        "BR-15F257718E5D0D",
+        "BR-39CA1B6A43EE96",
+        "BR-75CC7AF10ACCCC",
+        "BR-9880DCE0A9CFC1",
+        "BR-5B7AB20584B46B",
+        "BR-4CFC1C2E715362",
+        "BR-16B8CA88C9D6B3",
+        "BR-0507B8FAC28019",
+        "BR-3423A8DF11C6A8",
+        "BR-5DAE7E17DE2D1D",
+        "BR-0C3D70EAC41772",
+        "BR-7299B40C5A3D8A",
+        "BR-180A46F6318447",
+        "BR-2717A257B182AA",
+        "BR-77EAE32C46AFB5",
+        "BR-D3EC9ACFA6134A",
+        "BR-536FB534F46565",
+        "BR-74D310180942E2",
+        "BR-8D66A569C5B7AB",
+        "BR-58E41F683D3371",
+        "BR-6202A61EE7CA99",
+        "BR-61E2EB77AA3212",
+        "BR-D76DE6EFB37CBD",
+        "BR-2686294D4EC938",
+        "BR-FC78FC5AFF78AD",
+        "BR-D8A260E900A2D9",
+        "BR-4D92D5BB9DFEB7",
+        "BR-1BDABCC211D5E9",
+        "BR-9548EFBCF0310D",
+        "BR-3E171DD12BC0AA",
+        "BR-F85742D66E0C43",
+        "BR-D44F4A7E2B28F8",
+        "BR-9E0B4B77D9B689",
+        "BR-5FA0FBB324BEB0",
+        "BR-32097BEEA0B885",
+        "BR-41329D91A752D3",
+        "BR-F8F1FE6CD2D1A8",
+        "BR-973136CB5EA4AD",
+        "BR-C0C74AD8F98E6F",
+        "BR-FAA8659C28D533",
+        "BR-A64C9E1796DB08",
+        "BR-3CF8F56FFBB983",
+        "BR-1C62DE7FCCAB84",
+        "BR-0D848F12C957E1",
+        "BR-6C55A390CF9330",
+        "BR-FBA5DDBE9D4C7B",
+        "BR-E783E7220ECCBE",
+        "BR-D97E6DEFE081F4",
+        "BR-ADBD679B32639B",
+        "BR-630F92B09F608B",
+        "BR-0FFB1B9357A550",
+        "BR-B26380B2CCC7F6",
+        "BR-C4344D47AAFB55",
+        "BR-E78E0A8B3F6CA8",
+        "BR-DDB8D1834107DE",
+        "BR-A8686B5B50D05A",
+        "BR-9C48B044060ADA",
+        "BR-85E63A709DEA34",
+        "BR-537EBAB682A6C0",
+        "BR-3ECA2F97A14AD5",
+        "BR-61896EA505FC71",
+        "BR-B0DCE598D327C9",
+        "BR-AAD00BE777853B",
+        "BR-FA1AD39F94DAB3",
+        "BR-530883DE907225",
+        "BR-700E0C7925EF64",
+        "BR-5965DF4550D0C8",
+        "BR-710DE7B2DA9187",
+        "BR-3C68F9177B3D5E",
+        "BR-B86309A82A965C",
+        "BR-2F61055BA06E49",
+        "BR-8DB49118922EE2",
+        "BR-7B3941D3B1AC33",
+        "BR-EDA05D2B90C086",
+        "BR-B71B98A07BB142",
+        "BR-16A30334237BB3",
+        "BR-8728F33C28A90D",
+        "BR-E7A224C4C8B1AF",
+        "BR-6556BECE0D36D7",
+        "BR-71BA2CEEE13F9D",
+        "BR-25F1425E7F9222",
+        "BR-76C7601B246504",
+        "BR-BEA404C63DB886",
+        "BR-3964F4D996AB83",
+        "BR-3383AF2D798AC0",
+        "BR-4C9CAE8332E7EA",
+        "BR-FD8FE615CB3CC6",
+        "BR-FD61DEFBBC0775",
+        "BR-5513118D3C2D31",
+        "BR-7E625843AF5EDC",
+        "BR-0AEA1A6C363E39",
+        "BR-9D2C1DD3039E69",
+        "BR-FB97A9A58B09D5",
+        "BR-F9AA6B120B0B7A",
+        "BR-B07887CBB0A65B",
+        "BR-7E66E1A03521DE",
+        "BR-2BD4258019BE58",
+        "BR-ED00259F239F20",
+        "BR-72F7D7D17C1461",
+        "BR-7F57CA9FA55E1B",
+        "BR-9DFD7B2188B84F",
+        "BR-632560CDDE7F29",
+        "BR-62BCBB26A5232E",
+        "BR-1EA8E2D1073B1B",
+        "BR-DAFB761604EAB4",
+        "BR-FFD5878D506130",
+        "BR-9C13A4281111E6",
+        "BR-42BB9EE5F9F3A4",
+        "BR-DF6B19A2DFBD85",
+        "BR-D5CFA21BB9C41C",
+        "BR-F688F1240C19BF",
+        "BR-2226F519AEC599",
+        "BR-1A1EB0EF421441",
+        "BR-8A728CB7D8674B",
+        "BR-FFC54D1CE2BBEB",
+        "BR-A5EAD9071A6003",
+        "BR-662BF7CDE37814",
+        "BR-BE9B09D9938D86",
+        "BR-BC61CF1895D3E1",
+        "BR-FD8E7E239724B7",
+        "BR-F6E6FAA3718DBC",
+        "BR-BD36D1CAE46109",
+        "BR-B4B4489C4D190E",
+        "BR-C6D2F2A8494A89",
+        "BR-78C8410C1DB595",
+        "BR-08F76D4A65A012",
+        "BR-FFC8844BF64E13",
+        "BR-7228E543AA244B",
+        "BR-88692A119AB807",
+        "BR-9E922CDC3D50F1",
+        "BR-24442E96BA3B1D",
+        "BR-121DC1F408877E",
+        "BR-9154798FE97321",
+        "BR-A3A81DF22FA17E",
+        "BR-B8BDF395684F28",
+        "BR-097AA5B0065222",
+        "BR-E87EE326B24591",
+        "BR-D6E87307E53370",
+        "BR-24538AF991B437",
+        "BR-FA3A19D95BF9E0",
+        "BR-05C76E08FED3DD",
+        "BR-24AEA342B3AD8A",
+        "BR-7C365132EB2ED5",
+        "BR-CC2686FFE3C197",
+        "BR-456C8A14508476",
+        "BR-93A744DB1BC36C",
+        "BR-42AA7364288B60",
+        "BR-D8BA06B0985482",
+        "BR-4965E7C6A15905",
+        "BR-C2AC2EC3CCE4DA",
+        "BR-F3E66EDF56AC30",
+        "BR-C1BF550AA3ED4A",
+        "BR-D2B5B9944BA6F6",
+        "BR-07FF3A4F939864",
+        "BR-83E190296CDA7F",
+        "BR-957A49E664184D",
+        "BR-1609EE613AB2AF",
+        "BR-D82AF84F7D21B5",
+        "BR-C9F8288A2D6619",
+        "BR-AF6A96710725E1",
+        "BR-2795E3E4110C69",
+        "BR-DDFF692B8D8A74",
+        "BR-D7BC6AC35675D2",
+        "BR-1123D93BEFF49D",
+        "BR-2C47BC5F54C78E",
+        "BR-D35DC95995B9F7",
+        "BR-83116CD6356702",
+        "BR-4E51C74F7BDBDA",
+        "BR-74439EF585C601",
+        "BR-1C1BC3BA185ED5",
+        "BR-39CCD874DB7EC1",
+        "BR-A20E8352E7287A",
+        "BR-FDA86A017C8944",
+        "BR-41F2ACE29A8F89",
+        "BR-A841C3CEA4A781",
+        "BR-B22F3A6103F102",
+        "BR-E345CE23397B01",
+        "BR-4D79A977A08550",
+        "BR-998985048316BD",
+        "BR-3A36A8CF95B186",
+        "BR-9E6C180DD49CD0",
+        "BR-D677339ADD5261",
+        "BR-ABD58F026B53DF",
+        "BR-C6A066C6717EE7",
+        "BR-3324C5C797F8EF",
+        "BR-1900F07BB7475C",
+        "BR-CCA56676821E6D",
+        "BR-F30EC4A7BE5A16",
+        "BR-E0F168D7D5EA13",
+        "BR-543FAD00CA4A4E",
+        "BR-BF8B2A496516E4",
+        "BR-DF4493135101AC",
+        "BR-B7492B01FB6B1D",
+        "BR-A3D1AC60D2C23A",
+        "BR-D10A01086F2106",
+        "BR-FCCD0F61006496",
+        "BR-F9A18DAC9CD732",
+        "BR-8F51BC689B9083",
+        "BR-A0FE1C5550F87A",
+        "BR-154755A174C3B8",
+        "BR-2C4E8AD8DCA357",
+        "BR-6C7B5DABA72D5A",
+        "BR-E2CB229BEF9BB3",
+        "BR-70C4937D0BE8B9",
+        "BR-472D9CE4ECFAD9",
+        "BR-A0F08478328DF7",
+        "BR-08219F9446FC4D",
+        "BR-46CE8512E65E67",
+        "BR-3D1D77F373A585",
+        "BR-A14F1AF4104715",
+        "BR-5B5C36F1723DC8",
+        "BR-332E6059CD9F90",
+        "BR-8BCF8C8F1F780D",
+        "BR-F72697846D8F89",
+        "BR-48177FB6B46089",
+        "BR-615CDCCF1DD8CC",
+        "BR-140CA190513832",
+        "BR-3A1C8E9FBD1336",
+        "BR-ED4814C653ECA0",
+        "BR-36937BFD666BBD",
+        "BR-48E37190A33780",
+        "BR-F773A265C3011F",
+        "BR-93FE8F3BBCB129",
+        "BR-E66E716590808A",
+        "BR-97EED4E5A13A9A",
+        "BR-2BBC6B090EE48A",
+        "BR-DF73D36243D90B",
+        "BR-12A8E2EF021D55",
+        "BR-E151A5B17AEB55",
+        "BR-70373159EDD99D",
+        "BR-0F9C942F5CF0C3",
+        "BR-0E9BD76B8A8A83",
+        "BR-9A39CA43AF5EC4",
+        "BR-799A08B6968717",
+        "BR-367212CD2333CC",
+        "BR-E5245D39CFD880",
+        "BR-21B0D977D3FA2A",
+        "BR-BF2C4EE4333E33",
+        "BR-DC62ABC590A8E4",
+        "BR-87C506AE4272DE",
+        "BR-929028A3347B4D",
+        "BR-5194ED5DD2D5E0",
+        "BR-3129A89C1BC331",
+        "BR-87C198AF5D93F0",
+        "BR-F21B3E4F0733A4",
+        "BR-C175054130B946",
+        "BR-80CF32E72CEF5E",
+        "BR-8D072E8F0548EA",
+        "BR-7789B51FBD087E",
+        "BR-1567FDD88DDB4F",
+        "BR-94548FE40357C7",
+        "BR-14232F8BF5D385",
+        "BR-6242D0059C401B",
+        "BR-F38D68D7F0792A",
+        "BR-3DD9102995190E",
+        "BR-34C8E9962BF570",
+        "BR-942A9C7FE0FA9E",
+        "BR-130D0FD80A72F2",
+        "BR-828FDB825C4FA6",
+        "BR-10F606BE2E7063",
+        "BR-D0AB489E9BAF8D",
+        "BR-146E91B5D7E076",
+        "BR-A8F146293812B4",
+        "BR-7DC044EFB7C84D",
+        "BR-AA96758722E980",
+        "BR-21A479CCD8E5B9",
+        "BR-6C985B056A6068",
+        "BR-B612A3CDBAEDB0",
+        "BR-FCF0743DE3B172",
+        "BR-37D006AC1F9631",
+        "BR-2DEA56903F5128",
+        "BR-E07BB8C5C202DB",
+        "BR-FF68E653A02109",
+        "BR-911B83CAC2542B",
+        "BR-F80C20219F0698",
+        "BR-8047E7E2AB7829",
+        "BR-020A552CAAFEE4",
+        "BR-06C154E4DD853C",
+        "BR-4DA37E225C1C89",
+        "BR-A854DDFB28FB3C",
+        "BR-C1F0CFECA7EC06",
+        "BR-E46E96EE657D3B",
+        "BR-FAF9F81661D648",
+        "BR-1240269BB3472C",
+        "BR-A593E14BE6E8B6",
+        "BR-CD4C1F5B37ABB9",
+        "BR-53745C6F39BE9A",
+        "BR-71C4D4957A147D",
+        "BR-AB056A14CDED9B",
+        "BR-9CBBF6DDFFDA84",
+        "BR-EF970B7D4DBA67",
+        "BR-DC9E7714D2CD9B",
+        "BR-BE5ACD47F36DA3",
+        "BR-7AD837A90FDEBC",
+        "BR-55B030480101FA",
+        "BR-72B1E19CAAB9AA",
+        "BR-A8052C9E8986D7",
+        "BR-86E98BB7E16611",
+        "BR-2E48B9B057410F",
+        "BR-E8363C17CA324F",
+        "BR-45C1CD0ACA0865",
+        "BR-C1D7774B89C167",
+        "BR-1D05160553D686",
+        "BR-03E45A0B281C64",
+        "BR-CF23D84BCC7F2B",
+        "BR-0BCE09CA6697A4",
+        "BR-74C5F05FCBC6CC",
+        "BR-A9C264DAD31F31",
+        "BR-AEF22D8C4BAEA2",
+        "BR-FA7F8B5EEB2509",
+        "BR-D28D5F2873EF59",
+        "BR-90A8E90B73BF06",
+        "BR-11680ED314DBC5",
+        "BR-ADB302D52E602D",
+        "BR-25A2B03A6A2715",
+        "BR-FA38D999E73B04",
+        "BR-EC49B7A9821CF4",
+        "BR-C4CE67C06407C7",
+        "BR-05CF7C8A281D4D",
+        "BR-5E03E6278BCA24",
+        "BR-42F1D0BD62947E",
+        "BR-037E5BCA684753",
+        "BR-95ED65FD337CA5",
+        "BR-2989BAD09D6F73",
+        "BR-C12EEAA942E9BA",
+        "BR-257972C3B26DBA",
+        "BR-3E1D731B2D3FC2",
+        "BR-2CF7112C834C0B",
+        "BR-7B1504B0352711",
+        "BR-4E6DA9D35D3633",
+        "BR-B04B26F803A3C9",
+        "BR-DD4C5AFFA74CC4",
+        "BR-C162CDFF2EFBFD",
+        "BR-8465582ABCAAE6",
+        "BR-82DA377ED8B644",
+        "BR-D35969792DC9B5",
+        "BR-EDA0ED975A1DAD",
+        "BR-FDD87951C176E7",
+        "BR-6ED3024F3E99DF",
+        "BR-AA78EF9A338329",
+        "BR-7D54AE1E2D8412",
+        "BR-6712968AC879E4",
+        "BR-447178D8C52E66",
+        "BR-4B636E1BE24755",
+        "BR-BA304E7E8703E9",
+        "BR-00E68EE3EDF3D4",
+        "BR-0793EA3E8C15D4",
+        "BR-E5711ED00C7992",
+        "BR-060170709FEA75",
+        "BR-C743A1959C4A79",
+        "BR-17D9EE5DCF0862",
+        "BR-6BAEDC0A71B9D5",
+        "BR-02A362428A4237",
+        "BR-522CDAB838A1E0",
+        "BR-F01BBAD551DC93",
+        "BR-E378B4E1E87911",
+        "BR-D7FAC6613BD9C1",
+        "BR-DE3191A7A8F07A",
+        "BR-42F7556CA06098",
+        "BR-CE9336D0E35306",
+        "BR-102345D54899AD",
+        "BR-CA104174CDBAE5",
+        "BR-DBB3D73EF0D261",
+        "BR-CBFD522A04B2F5",
+        "BR-5656F74615E43D",
+        "BR-584694250B852E",
+        "BR-17BAF46F9DE64B",
+        "BR-68AD01C5FC514C",
+        "BR-649BE296312089",
+        "BR-921343BFD9C947",
+        "BR-437C05FE5A33CD",
+        "BR-80F9247D4C6E3C",
+        "BR-C25FF1760EA3A5",
+        "BR-4C2737AB2FA90C",
+        "BR-E6ED6457718C77",
+        "BR-307BF2F8033D67",
+        "BR-011C93E81886D8",
+        "BR-2B85222DB778E7",
+        "BR-2CB933DEA17318",
+        "BR-1BAEA12DD2465A",
+        "BR-6ABABE1B40E9AE",
+        "BR-D22D36F1620C28",
+        "BR-A6C7B75AD9CC01",
+        "BR-307D04F221E4C2",
+        "BR-A9775D9AB1252E",
+        "BR-D29ABDCA992DE3",
+        "BR-D71A699E64DF72",
+        "BR-98C2261333495B",
+        "BR-39CB31246B4E23",
+        "BR-9A81AC78950BD8",
+        "BR-5EBAEA8C7B6C5C",
+        "BR-87D4A45DB818C1",
+        "BR-1B7284BA2B291B",
+        "BR-76BAFFDE19C306",
+        "BR-08A84C8325455B",
+        "BR-0868361AD87715",
+        "BR-98E0B6F42C662F",
+        "BR-FB7974967BAD5E",
+        "BR-8FEF73C0416DAF",
+        "BR-4DD93FCAED7CBB",
+        "BR-375B22C1387B58",
+        "BR-3F5E350B032ECC",
+        "BR-1C35B5DE140005",
+        "BR-DA4798385949BA",
+        "BR-7FCB76CD34ABE0",
+        "BR-97DB85E3174339",
+        "BR-C9A12604CAD764",
+        "BR-2B717F301C2E04",
+        "BR-B1F2A4DB8D2ACA",
+        "BR-5FBD1D725D2A6C",
+        "BR-C17074444E3A38",
+        "BR-6F9C83A5AFC9A0",
+        "BR-E0C0743A70ED42",
+        "BR-5D621112AF6919",
+        "BR-B3244CBA145348",
+        "BR-9A054EA549431A",
+        "BR-BF18134DF9F76D",
+        "BR-FE3DBB747B7847",
+        "BR-4871F8E1701E94",
+        "BR-CE344A9E6D7D4E",
+        "BR-4D1AD123227F94",
+        "BR-A84D5365E57BF6",
+        "BR-D5A3519F670A74",
+        "BR-8EC7BE91E4186E",
+        "BR-F3AAC49F3722B1",
+        "BR-A136308DAA41FC",
+        "BR-75A50CC897DC18",
+        "BR-3906F83C77DAA6",
+        "BR-769DFC4313CBBB",
+        "BR-61B38C6C77FFD7",
+        "BR-406B04B6A4A8A5",
+        "BR-47116BD5AB9B34",
+        "BR-05CAC366502C2F",
+        "BR-3F04CCD2E1E207",
+        "BR-DEBFACBA809F81",
+        "BR-8E772237014321",
+        "BR-BBF421C817D004",
+        "BR-03C861D5124FE2",
+        "BR-44DF945E04FEAC",
+        "BR-2BD78A9CEE9CEE",
+        "BR-547C28B93F5CC6",
+        "BR-D51B43470EA6C6",
+        "BR-41F0D382BFF6E4",
+        "BR-6B99DD866C8A21",
+        "BR-4186E3830EF6F5",
+        "BR-56D93C6DCBD9C3",
+        "BR-FF6DDA2CFBA2C7",
+        "BR-1410465479C01D",
+        "BR-A5306562479B76",
+        "BR-360E497D1467D7",
+        "BR-A5EF70EF36E552",
+        "BR-E0E5D1235BBBC2",
+        "BR-F45638621321F0",
+        "BR-6808457411D761",
+        "BR-ED888AD8444161",
+        "BR-3134152CA21C41",
+        "BR-04AAACBE5C6B67",
+        "BR-2EE1B9ED9C044D",
+        "BR-4930FFEC202BC1",
+        "BR-37E5C3B388E7FF",
+        "BR-23EC2C64607A09",
+        "BR-D12DF190E10990",
+        "BR-5D389B93229A8B",
+        "BR-F873B617254895",
+        "BR-9F302F3CC62931",
+        "BR-BCE9C630B7549F",
+        "BR-4B842EB1742047",
+        "BR-F96C0F67F2FC8A",
+        "BR-52AEE545A69ABD",
+        "BR-34E6ACCB34A0BD",
+        "BR-AACEAECF7CAD67",
+        "BR-BFCA95A885638A",
+        "BR-23A6F1A01DCC4B",
+        "BR-D60117D764CE97",
+        "BR-C3FBDB49E5F56A",
+        "BR-61B2BD04E9EF7E",
+        "BR-6777DAE3489D9F",
+        "BR-5C131FC17AA7AE",
+        "BR-7AA664A6E79DA7",
+        "BR-5F3E047E716DD4",
+        "BR-A9ED2BA5DD2910",
+        "BR-3A2F692F5DB1C6"
+      ]
+    },
+    {
+      "路径": "liveshow-proto/context/系统概要 .md",
+      "SHA256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": [
+        "BR-AE0DC248262B8D",
+        "BR-99A3F0555EF19F",
+        "BR-B83E671987C8CD",
+        "BR-26271F1B77094D",
+        "BR-94ED76C7611188",
+        "BR-545E3C88AF1E6E",
+        "BR-2B4326F8B7DD64",
+        "BR-96AF26A2D446DA",
+        "BR-DF6CF27F40C992",
+        "BR-673C6103DCA64A",
+        "BR-A57A2D31C25E90",
+        "BR-F844FD74C9BE53",
+        "BR-1C8B02600D446E",
+        "BR-282940E443D6BB",
+        "BR-987BEA85046136",
+        "BR-4D85410062CC24",
+        "BR-9512C7308753B9",
+        "BR-FA07D5EC003D95",
+        "BR-66BF6DD5911847",
+        "BR-FD1FEFBFF12472",
+        "BR-7626DF591DBCEC",
+        "BR-45BAD55D6C04F4",
+        "BR-75EB4DCE6F9199",
+        "BR-DEFE5E612B3F2C",
+        "BR-C1BF94682DD490",
+        "BR-BD7FBD3422539D",
+        "BR-2239536760CFED",
+        "BR-9BF00C43B19D3E",
+        "BR-534BF676EB2922",
+        "BR-705EA3B2C571B7",
+        "BR-C503277E7667DF",
+        "BR-67D09A1D5F0BC2",
+        "BR-959411C2FF82D2",
+        "BR-4629CB4C92121F",
+        "BR-0C5B0E3CE6B2EA",
+        "BR-700D699B20E053",
+        "BR-106DCAD4BD0FD5",
+        "BR-20DF629E8D71AC",
+        "BR-7427EC1CFF0AEE",
+        "BR-51EFEF942029DD",
+        "BR-03435FBE337051",
+        "BR-B25D9A528D8719",
+        "BR-8A579C6CB32BD6",
+        "BR-F210B6357105AE",
+        "BR-8B8D2698AF368F",
+        "BR-9F4378F539EDFC",
+        "BR-493314F677BF42",
+        "BR-DA9385AE84020C",
+        "BR-3DA0752DEBC973",
+        "BR-B993C2CE47A01A",
+        "BR-AEB01955D427E6",
+        "BR-4525E97955124F",
+        "BR-81C71BD3CC2AAC",
+        "BR-03D735CED84D6E",
+        "BR-7F068641D358E8",
+        "BR-6BC45D24E94151",
+        "BR-FDBBB5013C5CFC",
+        "BR-9EBAEA079FABD9",
+        "BR-DD088A973D6B1F",
+        "BR-80F1905E5D6E48",
+        "BR-4A9AA2ABD58184",
+        "BR-31132BBAFDBE58",
+        "BR-4F388F5498CC2F",
+        "BR-C7A7D87B89B2B9",
+        "BR-9A5F59326DC540",
+        "BR-4D7C4404A116EF",
+        "BR-81B96BCCB16933",
+        "BR-89BD61A6FAADC7",
+        "BR-C249CD4FB7616B",
+        "BR-A0BD66334AFA4A",
+        "BR-053C662B427484",
+        "BR-1316902B7E17EB",
+        "BR-0B6816518A33CE",
+        "BR-88A61521C8DBAE",
+        "BR-C54768713AA329",
+        "BR-801D3101714116",
+        "BR-E7C088B1EEF0B3",
+        "BR-E913F95E505DDE",
+        "BR-99BE93F4A27DA9",
+        "BR-B0E2B20E60DF95",
+        "BR-6F263E4901187A",
+        "BR-BF2759D8E2F1DC",
+        "BR-21DA865F9E3606",
+        "BR-BBDAF72996EDFC",
+        "BR-D4572B2FBA372B",
+        "BR-7EB24AC59539D1",
+        "BR-F8689BE9A33281",
+        "BR-316F6C251EAB7B",
+        "BR-4C7DEF3239D00C",
+        "BR-4DCF33728B2E39",
+        "BR-E16962FB5E5FAB",
+        "BR-15AADDC5154E13",
+        "BR-8843C1D70C0EFC",
+        "BR-98E2BA0F50D746",
+        "BR-2C960C17A72C22",
+        "BR-F730D7E02E00E5",
+        "BR-D7D54223C2A817",
+        "BR-36F73B8339EFBC",
+        "BR-DA65F0C6BF22DA",
+        "BR-F65BDE9110E600",
+        "BR-AC64470DEA2D51",
+        "BR-03421F79D98CA6",
+        "BR-192A9E94855A05",
+        "BR-A36F5615657314",
+        "BR-FC7459292FCB9E",
+        "BR-0B1D454332F249",
+        "BR-F7CBB3F12EA3DC",
+        "BR-0071738CA9EC75",
+        "BR-AA1B9805C0883D",
+        "BR-DCAB95473C7262",
+        "BR-5260B19AA6C013",
+        "BR-2920E3031ACAC1",
+        "BR-220F53FEF3E1BB",
+        "BR-6ED66FAEEDE3FD",
+        "BR-899008BEE6F551",
+        "BR-5617D4B15AF1EE",
+        "BR-8CEDE0EB6066AE",
+        "BR-39F7BFF870AEBD",
+        "BR-DFE45EFF5CE90E",
+        "BR-6C08985D7C223B",
+        "BR-83141B9B38DD74",
+        "BR-9C74950F2F316F",
+        "BR-8B704C1B16C5A3",
+        "BR-8C511986AC83A9",
+        "BR-5FF279CC5A74E1",
+        "BR-E10C545A484DE1",
+        "BR-B1A9082F5B3BEB",
+        "BR-E2851FCE79A7FB",
+        "BR-BFC9B7040518B7",
+        "BR-C09253174D4D8D",
+        "BR-498FA61767BA70",
+        "BR-8A9EF584243EE3",
+        "BR-3C945B92B4D437",
+        "BR-6C4C714D5AD747",
+        "BR-B18362508F77DF",
+        "BR-57F00E2007F7C0",
+        "BR-A8CFAC3FE61FE0",
+        "BR-4BA60D5AE95E59",
+        "BR-C179AC946664B1",
+        "BR-8108E3F6C57369",
+        "BR-F6CB5704BDFB9C",
+        "BR-102D560D6045D3",
+        "BR-6FD30F413847B4",
+        "BR-3B07DFB0F4B4B4",
+        "BR-5CC233413999F9",
+        "BR-685E22253075F1",
+        "BR-5B3075243727F9",
+        "BR-2C6749328B4157",
+        "BR-183D55786DFD3C",
+        "BR-F741646D8526F5",
+        "BR-C7CA12976074DC",
+        "BR-2FCF2251B23102",
+        "BR-4BFCBA9DD07CC9",
+        "BR-D5C0C3EE0A3C4A",
+        "BR-ACC7F7F2BEE76E",
+        "BR-BC26176F8A1D49",
+        "BR-3A5751182C55B2",
+        "BR-FBFB6F200C0079",
+        "BR-0952E1AF0807E7",
+        "BR-E60567667D73EE",
+        "BR-4DF49809ECD573",
+        "BR-8BBEE5734A2F43",
+        "BR-E366B5AA44E2AA",
+        "BR-D6D46F2565871C",
+        "BR-D38B239BFE3E3F",
+        "BR-DAE904E579CCE0",
+        "BR-288C630DC20FD5",
+        "BR-D2BB3269292AF3",
+        "BR-0CF607F56D3E8E",
+        "BR-AA255D4E343397",
+        "BR-A167D4B023E616",
+        "BR-F84AA4F18E903E",
+        "BR-6DC5B8064ABF0B",
+        "BR-5C01AD274EDFFA",
+        "BR-52653A3B15B5FA",
+        "BR-179150346A8E94",
+        "BR-77A2C090B16340",
+        "BR-31F8CC7E9D457E",
+        "BR-8029822E0F5856",
+        "BR-200EEC90EB57F7",
+        "BR-AF01B4D2E17BF0",
+        "BR-4AB2E682E204DE",
+        "BR-AE2DA3EC321970",
+        "BR-B1ACB0F305F70E",
+        "BR-BA8281FFB4E68D",
+        "BR-C842CD3B8180A4",
+        "BR-BE92015C92D168",
+        "BR-43ABE3ADC66DDB",
+        "BR-0A19E6F9860B2D",
+        "BR-B9BB3725C1476D",
+        "BR-B4FE194E40AFE4",
+        "BR-35B88E286F7B37",
+        "BR-08B58200D13DB1",
+        "BR-C0ECAF25EB72AE",
+        "BR-492A6E9DCB79B6",
+        "BR-71A1D8CB4D67A7",
+        "BR-A3F9EE6B3E3975",
+        "BR-DF21683B7EC441",
+        "BR-7852062BD5C1A7",
+        "BR-87AEA2D22A18B7",
+        "BR-479901694CDE33",
+        "BR-EC60F2A55F870A",
+        "BR-C6E253139687D8",
+        "BR-6FE38FB2B8F10B",
+        "BR-C7C3CD79E34831",
+        "BR-E62FB2CB30372E",
+        "BR-E410E2E3967219",
+        "BR-22D8369F9C9883",
+        "BR-85EC308DDDF47E",
+        "BR-37FA4E95682E2B",
+        "BR-7F82A6D413B2F2",
+        "BR-F43E09CE66D206",
+        "BR-9CBF425AA50433",
+        "BR-4338AB9CFA6489",
+        "BR-658F2B19510EB2",
+        "BR-3950675523392A",
+        "BR-686A099BD756AF",
+        "BR-47EE98413224AF",
+        "BR-609E929F9D2DCC",
+        "BR-FD3DC25C87DAF4",
+        "BR-37C5A68917F675",
+        "BR-3845D779ED114C",
+        "BR-792171219721AC",
+        "BR-57F7E555D38E55"
+      ]
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "SHA256": "ee47c471a2389345b9345551d2bc266aeeaa2a7ac9d63b3730fa64b15e4f95a1",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": [
+        "BR-C789826D35F523",
+        "BR-93D67086085594",
+        "BR-A15298D59E7038",
+        "BR-9F94F2383DAF75",
+        "BR-0EA84B6A485F29",
+        "BR-A6107FB134EFC8",
+        "BR-CC6D17B8A4226A",
+        "BR-7DAE2C8B382E00",
+        "BR-172C41D8CC87A9",
+        "BR-87D1DE33B15F98",
+        "BR-01DFAC378AF9EE",
+        "BR-B832056836C60F",
+        "BR-5217E74CDDF0A1",
+        "BR-37AB3B099E09E4",
+        "BR-48D548CA96FEA6",
+        "BR-6B84C5BF5CD565",
+        "BR-942AEFC9152A6E",
+        "BR-D3D0BE59003335",
+        "BR-743AD1D9080F8F",
+        "BR-4011CED3F533FC",
+        "BR-8B5385B0CCCB3F",
+        "BR-1CB7D0E77C234F",
+        "BR-5F6BC38A62F1EA",
+        "BR-26E0CF038244B5",
+        "BR-580033110229AE",
+        "BR-16B24EC7BF3216",
+        "BR-725784FF5B7901",
+        "BR-1A3761BE34A206",
+        "BR-FA343F0FB09E1A",
+        "BR-8BF05530C30E81",
+        "BR-B2F5C4C3A3A80C",
+        "BR-DE1ACEAA253291",
+        "BR-4C28E49335DF95",
+        "BR-2B396B952AAFE3",
+        "BR-729E089BB3C3D2",
+        "BR-24480D41C51660",
+        "BR-C3AFE77BDF75BC",
+        "BR-2848FF4F432EC4",
+        "BR-C6C25C5FAF69AE",
+        "BR-9A5348D83925CC",
+        "BR-931B968D0052B4",
+        "BR-A3E81008F6CD54",
+        "BR-B766BA154C1603",
+        "BR-58F6EB6351EA02",
+        "BR-CA1E9A8EAE7C40",
+        "BR-D713FE56ECAC69",
+        "BR-CB47FABC09CDB0",
+        "BR-F1ED6AAB29F56F",
+        "BR-4B25502CF06BCF",
+        "BR-440AAA02B72B32",
+        "BR-C578E36F96D827",
+        "BR-A5DB340D0050D0",
+        "BR-2CAE1F548155F1",
+        "BR-A3928FCDD67095",
+        "BR-A19992CEF4730C",
+        "BR-43A6A381977C13",
+        "BR-1DEE71F8BD8E8F",
+        "BR-5600B2CFD9BE5E",
+        "BR-12D75C0C860AFF",
+        "BR-A932C97BAD373D",
+        "BR-C63FCD7971AD70",
+        "BR-6C58253F72C377",
+        "BR-625E8823E03F64",
+        "BR-82C647F1C4A06B",
+        "BR-135CDD123EE7D3",
+        "BR-2F1B3F56B1E151",
+        "BR-2953C84EB83364",
+        "BR-DD0156D575F547",
+        "BR-71F2DD7D1F3F09",
+        "BR-9A81E54EDB5194",
+        "BR-8621D53E8785F5",
+        "BR-5054E79A185606",
+        "BR-A010605A7565A2",
+        "BR-7A0E034B1A228B",
+        "BR-722B308B059B05",
+        "BR-AA3357D68EB086",
+        "BR-16C4C61134B49D",
+        "BR-A9563C2F2A5519",
+        "BR-407BDA443771F3",
+        "BR-825BAED9399435",
+        "BR-7AA86B464D61E3",
+        "BR-C129BA27C40306",
+        "BR-02521594B02A2C",
+        "BR-7AD3BC98C87EAD"
+      ]
+    },
+    {
+      "路径": "liveshow-proto/项目说明.md",
+      "SHA256": "6411c37b7c7632fc7184b530f88a9cb124a57a5f594fb78ca6f862758dec6c74",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/需求来源策略.json",
+      "SHA256": "68f130ad57add2a5c07e343324e46dd03325e9dcaa0a1e32141966afe79ee180",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "SHA256": "1e17c8335bdc889884cd7100ffb7743d761c8c2d789e2038d424756ac9d27896",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "SHA256": "ca03c6a9a07e1a1fddbb9dbd011079c3c28565878c686394ff476627e8df218e",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/user.js",
+      "SHA256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/guild.js",
+      "SHA256": "f8a7bfc9bc24433402d0e8a86e78dafae1a6993047f6954d234834968655ca93",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/mock.js",
+      "SHA256": "90ad739cf3bd0c5e4ce29dde5472f1a1679e00472d90cad10a985659cc642271",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-mock.js",
+      "SHA256": "3c3745c4dc62066fd73bc116270d87355311bd6f736ae32f0945f0c1a25ceefc",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/dashboard/admin-dashboard.html",
+      "SHA256": "0624bd39b41e7a04a0150a771425a9e8ea45d13671097f7ee84e50bd889d2693",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/user/admin-user-list.html",
+      "SHA256": "03341caba148da97a603df9b4b2bf971b56192685d634542fee935c7af71b33c",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/user/admin-user-detail.html",
+      "SHA256": "aa09c6822b1cb8ed0f50d6b3740bc72a64bdc8eb966ac604701c74572b15185c",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-list.html",
+      "SHA256": "bfabcb6ffd0be7bb7137717522590c5a94c28843f0b7cba2c9034af93c2e8256",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-detail.html",
+      "SHA256": "c6ba1122de23feda1f32d9eb0e6774f3b93e409088777cbe2c521cd8ffc9809a",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-review.html",
+      "SHA256": "2311d751157f5565eb5808a125eed871fca42504a67ffc9b69501de258b61b34",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-review-detail.html",
+      "SHA256": "f379f686c1b915bea42bc3ff1a019ed05e6202516c03586ab98afb0a92a7952c",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-live-management.html",
+      "SHA256": "e2b61b510b2eddc9fc0a357a841d31298cf832405fd20a2817f3ba48abf97096",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-live-detail.html",
+      "SHA256": "e90ce6b6a48abee01f62eb9d291241de35b3c30a9c6865b659ba66b422696c66",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule.html",
+      "SHA256": "6cd25154b61ff8808eede1157afa09be4e052df88a4fe2b57e26081b0113c72e",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-create.html",
+      "SHA256": "6a2316bba4747fbf8ba83d76adeca2631ccc441a0941a7abcc274c8754d69b6c",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+      "SHA256": "bb76e731fb37aa36c6d7f77672202985d258d81700e6d4879d2c09a2f776d622",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-content-audit.html",
+      "SHA256": "4efc80809f041062d05850563b7aa12f51ec33f75eec918ffd0d5d9c7ac18fcd",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-content-audit-detail.html",
+      "SHA256": "43cb871134e77b0b0cc08d8d084db9269b253737d998dde81f23d41346571934",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-account-violation.html",
+      "SHA256": "b2d56dde931af62191f2d290f674bca3bf6183abbc8cd1ff9fb215d67523009c",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-report-handling.html",
+      "SHA256": "698b7445ffc5c41fb343b8ce486a191cfc6a1470862ee0a7a9126fbcb4195064",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-report-detail.html",
+      "SHA256": "526b75a09fc583eaa196fafc100e8bd7b0cfdd238609a3df8644da359d3ecc58",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-violation-types.html",
+      "SHA256": "0cf733253fa06b985740b37c48eef422a878555810af742459c49da5b746db6b",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-violation-type-detail.html",
+      "SHA256": "6f553c218b0052de8ce001cd4725d775bafbfdce9ee6c656ab1c8e28894fc8df",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/guild/admin-guild-list.html",
+      "SHA256": "225f197d809f0359fc2de515b548bf7c21a9844bb97713caa87b4ca0712d7622",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/guild/admin-guild-detail.html",
+      "SHA256": "20e5a7d5b853598448bf014a232ec1e42ad9f062364b0cc1442a0ce998f36234",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-list.html",
+      "SHA256": "0acd4bb6ea827e4f67a26f3a2336d8d21ada3025524d85c3198b31812084af51",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-detail.html",
+      "SHA256": "d1d7bd9b5b7bac0cbbf161df6b25122f551ca53c892b7847a305e0fbc0fff0ab",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-custom-gift.html",
+      "SHA256": "0ab525c665cd909af8a7918dd2cf1534b6dd5cd8e7384dec1369b77e76d67150",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+      "SHA256": "6a70e719de015a826ede1dad42dedcc531161fa8f5c2e0a8085dfaca1c3fabf7",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+      "SHA256": "d11a7aaf86dbafce481a7df1f721d52128a0983c57f4b15270d9acf9ce81011d",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-prop-list.html",
+      "SHA256": "881dd2762a7c41b861802298f1a68875a918f1652f1ac51c4bb1b65259446950",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-prop-detail.html",
+      "SHA256": "20d42316ed27a7f040e848094b712e514745ee369759272ad9a484f2d9deb3a0",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+      "SHA256": "60e83a3f8a3f933900f2c04399522c457df97870d13fc2557bc7c2032d5a3664",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+      "SHA256": "0864919b54b57743c644a94611536615a75fab7ffbc25c398fe6fda25ccd5f84",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-placement-config.html",
+      "SHA256": "b980103001553b500e8f27ac6121af797392f3b9c2bd190cc397bbe4ebff8c78",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-placement-detail.html",
+      "SHA256": "0c8a6120fca658572f405e2858f719b85a38084a48331478084c26eb916f5ebe",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-push-management.html",
+      "SHA256": "24b949f59e5b826fc1af904458da774ffc564e1b1ebaec486b89d6a3baa7563b",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-push-detail.html",
+      "SHA256": "77c8ace78582fa0c41926e6d33696bbf7630e0079d28b17536cf913e4eddf23a",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package.html",
+      "SHA256": "cd7feb990db416ecc0103a5d840a818fcead18db626d2d4cc0036fd40f033ad5",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+      "SHA256": "3ee600a71bd51aea25a11dd4757ff58333e8e5b5978e971709906fdeef22436d",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-task-config.html",
+      "SHA256": "9eebfd03519ffcacf2c236f619d3f77472ebefc0ba7343d17ed8ebd6e8063fc8",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+      "SHA256": "891f5ff640841d5f8203f04594a04b2ea2f9dc4d3dd7022a9d9de6a8f33ae8bb",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation.html",
+      "SHA256": "1542c25913556b60b206629c15c28d222d31fd996227ace8ab5f033d23e93948",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+      "SHA256": "928d6b09c42a7268fc062c67eeaa9c91905ac1427bb79213f18f4623c77adc14",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-level-config.html",
+      "SHA256": "f9917c3b505da76a4356e249ac87f0e671f7847d847f2951b4bdb6995b8efac1",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-live-type.html",
+      "SHA256": "392029b81e9dce80b68cce66fc948cacc8ca69eef147ae5825a6abbe1967a7b1",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-feature-switch.html",
+      "SHA256": "1ac81236e015df5f662e27d1ebd38f8c45b104d125645babe5cf86ef6de5a622",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level.html",
+      "SHA256": "90530695c657c973a9a5cd414940f0cc92c4fddee3156c5f40e86108abe99efb",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+      "SHA256": "d084cab3970cf3512564f6ab79bfcb65745b396e40212f9c2230d53398791ef4",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words.html",
+      "SHA256": "e86b0df7b25735c32148155e09e72f2fe4d32b452300c0365de4cb254b08b427",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+      "SHA256": "bb1a298b50cd80d54ce544886af2b91666411a5bc9e72c546d7aa3031b0e76ed",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order.html",
+      "SHA256": "771f86c73055394c5c4b49ebaecc33ecd732e6df20fabd65ddf79ef0a0322d8b",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order-detail.html",
+      "SHA256": "6fe3812eb81f30177fed4e3d19fe9996b23ada51ea41599efe54ba0cc742cbb2",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order.html",
+      "SHA256": "4a367c26e14fd72199a2e197e5afd60979589b1dccfb0b312a09464660fa28b3",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order-detail.html",
+      "SHA256": "56d947fd0899c4614e453ba1a1e9cb3c18503e6a9e65c195b26e823d083e9a36",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-refund-order.html",
+      "SHA256": "465f28018e9770d0d65fff9071859b3059ea463c17ae25bb0e43157531d0c1c5",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record.html",
+      "SHA256": "0d1a0380f73d96727cd4e566c8b3c37a85fa56748ef4f706b6aa8da107576551",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record-detail.html",
+      "SHA256": "e33302a195eb07f6f8ab468ef960d3501ca721b510f16ec83751414e891bd849",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-host-account-balance.html",
+      "SHA256": "b5ac70e82dacfc5dda965a29a149eda88d2225f3c33b5db5af8c679f2143fcf3",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-host-balance-change-record.html",
+      "SHA256": "17da03bf6e34be417818dff402d0c6fbdb49e07b6a433a11e478f7efb60f6cd0",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record.html",
+      "SHA256": "1076f4a2f5c36debef005bad429e8af1828377ec04c0aa96a3fc43dc4cc0fe68",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+      "SHA256": "fabb706d45673797b8033f16515b5f6bcaf6a89ec6b6710805dd7d0c3ce1399e",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-account-balance.html",
+      "SHA256": "8618db074253c91e9af7e79a71b4efae107413e2a3a590cc27531a8b9a761ca7",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+      "SHA256": "7024974c14207d6b4e48d5724b973b1a400772d132132303976fda2d6f272b0e",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-report-center.html",
+      "SHA256": "4af3f08f9e56ce18497f3a2b307ae7be24b011fd35c601882e6f45f33be7a318",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-data-overview.html",
+      "SHA256": "93a0ab4141316c5da6e2cbe0e23ed62d4fbb378db4c198b2eae6db6c9a5d988c",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-daily-statistics.html",
+      "SHA256": "8536c6806a374c6f55693674ce96f820b88e9bbd66bb8094891972d154f3ee98",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-user-active-statistics.html",
+      "SHA256": "71c9c07ee6b10e7cf0ddf8ae8fae34be90572a2687df5afa2ba0b8448157b4e9",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-host-statistics.html",
+      "SHA256": "51caaf7d64118e7150d252a51d0bf3efd58005a071a7491e487badeb16ccc929",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-live-statistics.html",
+      "SHA256": "c00a8d786ab97a772d7b6183e928010be1842a283af7b2fef29bc28d83f133a4",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-host-live-record-report.html",
+      "SHA256": "16b6dd33e19fc73e2ca6a7af43954d1adde8f6071352a2008f664a4d5ceb2299",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-statistics.html",
+      "SHA256": "116e1a6cd9ea5b8a35cc0784616b1406756d9e5df3aea06985262c4a228005a5",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+      "SHA256": "56c1974815b7fb6a475573fff69da98f0d55221acb6c64573e6164dedb977b72",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+      "SHA256": "61cf6a67d3b4ff70a05c67cf60fd5b9abbd7cd6ce903fecdbed6d11682c504aa",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-share.html",
+      "SHA256": "e4af1c251c2369e0ab8cf3097d61df7543e5b6bd4592448840d15f45a3f631bc",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+      "SHA256": "6c97a6c304f45768f9771812961f3f8f5d8cd308dd06f91d1156cd8bfa2b3d30",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+      "SHA256": "4093ce1ef6cc540c36bacd63296f70c2d38b75d1d11e6e49dfff113a0db1a8fe",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+      "SHA256": "aca5e6416fce409995771b87694a9603f2346c6514c2e65648b79ef39402d081",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+      "SHA256": "0c1c4690829c9bacdccbd2cc01f689460728508b852440e479b2c2bdec1da051",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+      "SHA256": "8bdef6efd8536d2acd842afcd2b7899437414a56c9f443c3bdd86aa4f6fd1164",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+      "SHA256": "f6a2c8244c25f9412e8179add285b996050baea502814edd9880aaa69f08f7fe",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-accounts.html",
+      "SHA256": "4652600c770ecfb66c3d56406842139795d27af04891bf7af153058acf87c7d7",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-account-detail.html",
+      "SHA256": "db5d6b43eca8b8a2e3b98f461ee7b7a27651d36213fd4a52b00207fa865b582d",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-issue-records.html",
+      "SHA256": "043bc69a943c338faec9f2f120f550fc56acb974f2e9c2232b72eb062ce318fa",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-gift-records.html",
+      "SHA256": "871b85a37c4789f11bd2f1222177657572634784c0840207ce3b759406416c72",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+      "SHA256": "e10a682dfbdd4017b29b54a7ac0720125817ce705bfb127295f5229438156fba",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-account.html",
+      "SHA256": "81d9a7bda7f761c4d516b301728d2bc43e7738bbea2aea3c8feab3989ddf76f7",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-account-detail.html",
+      "SHA256": "71370e5470dbb4cb2d59612e72d3764e2abff138e1de18596b50971cff9b3ae3",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-role.html",
+      "SHA256": "8c8f09fccbe0cdd1b96532804964afce43e126b24ddd9b3259fbbdb299cd910a",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-role-detail.html",
+      "SHA256": "1a98aea19d0b543951b68496356c48d64e4a87c20772ed1f309b54bd11e25964",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-account-balance-page.js",
+      "SHA256": "7b21b52811074377e83eeefdb1ce6f0d89e6888533ec5c8c53211dcd5e701feb",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-finance-reconciliation-page.js",
+      "SHA256": "294a973f7c464d56f8006650f317efad2b804b0e2b12229a8c9b988344f3d1bb",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-reporting.js",
+      "SHA256": "4ffb3652a7a3d283e5665dfbd77935b95f674ee71bf1d6f37c180029bcd0a999",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-settlement-upload-page.js",
+      "SHA256": "0dd312a725c5b5c97c07b4698dfc3cb8a7100a6b3ac9bab35bca08c21e246d21",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-statistics-page.js",
+      "SHA256": "b400fa074282ea0a9ff3f50c04430b7c98740e68735c4d1e1ce71f24c89b1fbc",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-tokens.js",
+      "SHA256": "350d1e2c7c0686ef1719613ef173e31ab5b9c2f2666324a0c9daa87cf2cf65ce",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin.css",
+      "SHA256": "8e97d9720fd7b3d8783c4e0675c53852b5b7afbb0a64058252ec1f3308e0117e",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/annotations.js",
+      "SHA256": "1584cf57c3deb2493c31d0f167aee5cdd413fe3d505a7ad129a867ebd155be32",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.js",
+      "SHA256": "dcad35af7673c0714b5ea86c28f393157a0340835de95fd3957f0f05826a56e7",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/operation-accounts.js",
+      "SHA256": "9f644f20bb72a5555f120640eebce4e92b9fee60bc25e95f37025c298fbc6214",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/tailwind.js",
+      "SHA256": "5c5de4bbb668f6d6fe2179373687434e043ba8d0e6877ee004d7c14b712618f6",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/tokens.js",
+      "SHA256": "ea674526cee1c918f9be061b4968e2b71f09bbd2470bf8852c12e0ac160635de",
+      "结论": "已读取并纳入当前端证据或依赖复核",
+      "关联规则": []
+    }
+  ],
+  "规则缺失复核": [
+    {
+      "检索对象": "等级配置",
+      "检索词": [
+        "等级配置",
+        "主播收益计入财富等级时应包含哪些收入类型"
+      ],
+      "已查文件": [
+        "liveshow-proto/prototype/index.html",
+        "liveshow-proto/prototype/annotations/admin.js",
+        "liveshow-proto/context/系统概要 .md",
+        "liveshow-proto/context/03-管理后台-项目需求清单.md",
+        "liveshow-proto/项目说明.md",
+        "liveshow-proto/需求来源策略.json",
+        "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+        "liveshow-proto/context/02-公会App-项目需求清单.md",
+        "liveshow-proto/prototype/annotations/user.js",
+        "liveshow-proto/prototype/annotations/guild.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/assets/admin-mock.js",
+        "liveshow-proto/prototype/pages/admin/dashboard/admin-dashboard.html",
+        "liveshow-proto/prototype/pages/admin/user/admin-user-list.html",
+        "liveshow-proto/prototype/pages/admin/user/admin-user-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-list.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-review.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-review-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-live-management.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-live-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-create.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-content-audit.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-content-audit-detail.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-account-violation.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-report-handling.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-report-detail.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-violation-types.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-violation-type-detail.html",
+        "liveshow-proto/prototype/pages/admin/guild/admin-guild-list.html",
+        "liveshow-proto/prototype/pages/admin/guild/admin-guild-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-list.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-custom-gift.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-prop-list.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-prop-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-placement-config.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-placement-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-push-management.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-push-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-task-config.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-level-config.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-live-type.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-feature-switch.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order-detail.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order-detail.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-refund-order.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record-detail.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-host-account-balance.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-host-balance-change-record.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-account-balance.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-report-center.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-data-overview.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-daily-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-user-active-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-host-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-live-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-host-live-record-report.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-share.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-accounts.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-account-detail.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-issue-records.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-gift-records.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-account.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-account-detail.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-role.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-role-detail.html",
+        "liveshow-proto/prototype/assets/admin-account-balance-page.js",
+        "liveshow-proto/prototype/assets/admin-finance-reconciliation-page.js",
+        "liveshow-proto/prototype/assets/admin-reporting.js",
+        "liveshow-proto/prototype/assets/admin-settlement-upload-page.js",
+        "liveshow-proto/prototype/assets/admin-statistics-page.js",
+        "liveshow-proto/prototype/assets/admin-tokens.js",
+        "liveshow-proto/prototype/assets/admin.css",
+        "liveshow-proto/prototype/assets/annotations.js",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/operation-accounts.js",
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js"
+      ],
+      "命中位置": [
+        "liveshow-proto/prototype/annotations/admin.js admin-level-config.html / 待确认 / 3.1"
+      ],
+      "命中内容": [
+        "收益和送礼贡献的具体计入范围、等级判定及配置修改对已有等级的影响待确认；表内数值为虚构示例。"
+      ],
+      "采用结论": "当前来源明确标记待确认，保留为产品决策问题",
+      "未采用原因": []
+    },
+    {
+      "检索对象": "等级配置",
+      "检索词": [
+        "等级配置",
+        "送礼贡献计入财富等级时应包含哪些消费类型"
+      ],
+      "已查文件": [
+        "liveshow-proto/prototype/index.html",
+        "liveshow-proto/prototype/annotations/admin.js",
+        "liveshow-proto/context/系统概要 .md",
+        "liveshow-proto/context/03-管理后台-项目需求清单.md",
+        "liveshow-proto/项目说明.md",
+        "liveshow-proto/需求来源策略.json",
+        "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+        "liveshow-proto/context/02-公会App-项目需求清单.md",
+        "liveshow-proto/prototype/annotations/user.js",
+        "liveshow-proto/prototype/annotations/guild.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/assets/admin-mock.js",
+        "liveshow-proto/prototype/pages/admin/dashboard/admin-dashboard.html",
+        "liveshow-proto/prototype/pages/admin/user/admin-user-list.html",
+        "liveshow-proto/prototype/pages/admin/user/admin-user-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-list.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-review.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-review-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-live-management.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-live-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-create.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-content-audit.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-content-audit-detail.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-account-violation.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-report-handling.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-report-detail.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-violation-types.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-violation-type-detail.html",
+        "liveshow-proto/prototype/pages/admin/guild/admin-guild-list.html",
+        "liveshow-proto/prototype/pages/admin/guild/admin-guild-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-list.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-custom-gift.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-prop-list.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-prop-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-placement-config.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-placement-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-push-management.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-push-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-task-config.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-level-config.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-live-type.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-feature-switch.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order-detail.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order-detail.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-refund-order.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record-detail.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-host-account-balance.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-host-balance-change-record.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-account-balance.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-report-center.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-data-overview.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-daily-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-user-active-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-host-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-live-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-host-live-record-report.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-share.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-accounts.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-account-detail.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-issue-records.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-gift-records.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-account.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-account-detail.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-role.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-role-detail.html",
+        "liveshow-proto/prototype/assets/admin-account-balance-page.js",
+        "liveshow-proto/prototype/assets/admin-finance-reconciliation-page.js",
+        "liveshow-proto/prototype/assets/admin-reporting.js",
+        "liveshow-proto/prototype/assets/admin-settlement-upload-page.js",
+        "liveshow-proto/prototype/assets/admin-statistics-page.js",
+        "liveshow-proto/prototype/assets/admin-tokens.js",
+        "liveshow-proto/prototype/assets/admin.css",
+        "liveshow-proto/prototype/assets/annotations.js",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/operation-accounts.js",
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js"
+      ],
+      "命中位置": [
+        "liveshow-proto/prototype/annotations/admin.js admin-level-config.html / 待确认 / 3.1"
+      ],
+      "命中内容": [
+        "收益和送礼贡献的具体计入范围、等级判定及配置修改对已有等级的影响待确认；表内数值为虚构示例。"
+      ],
+      "采用结论": "当前来源明确标记待确认，保留为产品决策问题",
+      "未采用原因": []
+    },
+    {
+      "检索对象": "等级配置",
+      "检索词": [
+        "等级配置",
+        "等级配置修改后应如何处理已有用户等级"
+      ],
+      "已查文件": [
+        "liveshow-proto/prototype/index.html",
+        "liveshow-proto/prototype/annotations/admin.js",
+        "liveshow-proto/context/系统概要 .md",
+        "liveshow-proto/context/03-管理后台-项目需求清单.md",
+        "liveshow-proto/项目说明.md",
+        "liveshow-proto/需求来源策略.json",
+        "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+        "liveshow-proto/context/02-公会App-项目需求清单.md",
+        "liveshow-proto/prototype/annotations/user.js",
+        "liveshow-proto/prototype/annotations/guild.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/assets/admin-mock.js",
+        "liveshow-proto/prototype/pages/admin/dashboard/admin-dashboard.html",
+        "liveshow-proto/prototype/pages/admin/user/admin-user-list.html",
+        "liveshow-proto/prototype/pages/admin/user/admin-user-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-list.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-review.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-host-review-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-live-management.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-live-detail.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-create.html",
+        "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-content-audit.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-content-audit-detail.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-account-violation.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-report-handling.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-report-detail.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-violation-types.html",
+        "liveshow-proto/prototype/pages/admin/content/admin-violation-type-detail.html",
+        "liveshow-proto/prototype/pages/admin/guild/admin-guild-list.html",
+        "liveshow-proto/prototype/pages/admin/guild/admin-guild-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-list.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-custom-gift.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-prop-list.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-prop-detail.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+        "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-placement-config.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-placement-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-push-management.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-push-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-task-config.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-level-config.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-live-type.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-feature-switch.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words.html",
+        "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order-detail.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order-detail.html",
+        "liveshow-proto/prototype/pages/admin/orders/admin-refund-order.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record-detail.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-host-account-balance.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-host-balance-change-record.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-account-balance.html",
+        "liveshow-proto/prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-report-center.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-data-overview.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-daily-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-user-active-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-host-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-live-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-host-live-record-report.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-share.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+        "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-accounts.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-account-detail.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-issue-records.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-gift-records.html",
+        "liveshow-proto/prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-account.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-account-detail.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-role.html",
+        "liveshow-proto/prototype/pages/admin/system/admin-system-role-detail.html",
+        "liveshow-proto/prototype/assets/admin-account-balance-page.js",
+        "liveshow-proto/prototype/assets/admin-finance-reconciliation-page.js",
+        "liveshow-proto/prototype/assets/admin-reporting.js",
+        "liveshow-proto/prototype/assets/admin-settlement-upload-page.js",
+        "liveshow-proto/prototype/assets/admin-statistics-page.js",
+        "liveshow-proto/prototype/assets/admin-tokens.js",
+        "liveshow-proto/prototype/assets/admin.css",
+        "liveshow-proto/prototype/assets/annotations.js",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/operation-accounts.js",
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js"
+      ],
+      "命中位置": [
+        "liveshow-proto/prototype/annotations/admin.js admin-level-config.html / 待确认 / 3.1"
+      ],
+      "命中内容": [
+        "收益和送礼贡献的具体计入范围、等级判定及配置修改对已有等级的影响待确认；表内数值为虚构示例。"
+      ],
+      "采用结论": "当前来源明确标记待确认，保留为产品决策问题",
+      "未采用原因": []
+    }
+  ],
+  "排除项": [
+    {
+      "路径": "liveshow-proto/.gitignore",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/用户APP原型分析报告-2026-08-08.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/AGENTS.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-01.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-02.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-03.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-04.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-01.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-02.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-03.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-04.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-01.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-02.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-03.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-04.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-01.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-02.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-03.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-04.webp",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/APP一级页面 .html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/CLAUDE.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/export-admin-prototype.mjs",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/批注核对清单.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/页面视图规范.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/原型规范.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/chat-media.js",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.css",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/diamond.svg",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-core-data.css",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-data-model.js",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-date-range.js",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-night.svg",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-stage.svg",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-studio.svg",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-record-overviews.js",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-share-records.js",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild.css",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/live-muted-users.js",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/live-room-cover.svg",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/start-live-config.js",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/Luma Live-原型说明.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-audit-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-audit.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-parameter-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-parameter.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-permission.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-join-review-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-join-review.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/auth/guild-login.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/auth/guild-switch.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-all-violations.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-host-data.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-host-summary.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-income-day-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-income.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-live-gift-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-share-income.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-share-ledger.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-violation-host-select.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-home.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-notification-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-notifications.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-password.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-profile.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-settings.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-host-select.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-message-compose.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-message-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-messages.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-compose.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-select.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-accounts.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-gift-records.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-host-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-host-list.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-member-list.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-country-select.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-email-login.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-phone-login.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-profile-completion.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/fan-club/fan-contribution-ranking.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/fan-club/my-fan-clubs.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-application-form.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-application-records.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-leave-application.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-management.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/all-tasks.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/contribution-ranking.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/host-ranking.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/invite-friends.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/search-results.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/search.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/welfare-center.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/fan-club-settings.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/fan-club.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/fan-list.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/host-center-pending.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/host-center.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/host-guild-notifications.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/income-sharing.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/live-data.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/live-records.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/moderator-management.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/visible-fan-select.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-end-host.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-end-viewer.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-cohost-active.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-host-password.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-report.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-user-report.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/blacklist-management.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-decoration-avatar-frame.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-decoration-chat-bubble.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-decoration-medal.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-decoration.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-following.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-outfits.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/profile-edit.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/profile.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/settings.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/chat-settings.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/direct-message.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/fan-group-chat.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/follower-list.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/friend-list.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/group-manage-member.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/group-manage-owner.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/host-gift-gallery.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/host-home.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/interaction-notifications.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/message-center.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/system-notifications.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/user-home.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/order-expense-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/order-income-detail.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/recharge.html",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-001-资料修改风控审核/需求梳理-资料修改风控审核.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-001-资料修改风控审核/todo.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-002-商品SKU分成规则/需求梳理-商品SKU分成规则.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-002-商品SKU分成规则/todo.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-09/用户APP原型排查.md",
+      "原因": "未进入当前端依赖闭包，已建档但不扩大测试范围"
+    }
+  ],
+  "缓存清理": {
+    "状态": "成功",
+    "失效层": [
+      "证据原子",
+      "规则与依赖",
+      "候选与历史比较",
+      "工作簿"
+    ],
+    "已隔离文件": [],
+    "清理后残留失效文件": []
+  },
+  "项目接入基线": {
+    "状态": "已确认",
+    "路径": "work/liveshow-proto-project-onboarding/latest.json"
+  },
+  "扫描状态": "有非阻塞待确认",
+  "阻塞项": []
+}

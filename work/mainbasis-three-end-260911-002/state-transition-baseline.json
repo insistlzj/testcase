@@ -1,0 +1,864 @@
+{
+  "来源哈希": {
+    "MainBasis/统一需求文档.md": "86a256fcad797592d2be1ba21941a642fe44bafea6d207b15394e1d7aba663c5",
+    "MainBasis/需求待确认清单.md": "4412cece5361e84c5d9a9ba2f816608639b8eba52ed74746ef5df2f83bd4036d"
+  },
+  "状态转换": [
+    {
+      "id": "ST-DD3F68EE18AB",
+      "flow": "FLOW-B8276CAE",
+      "object": "入会申请",
+      "from": "无处理中申请且未加入公会",
+      "action": "提交申请",
+      "role": "用户",
+      "end": "用户App",
+      "to": "申请中",
+      "refs": [
+        "U-guild-application-form-009",
+        "U-guild-application-form-013"
+      ],
+      "observed": [
+        "用户App",
+        "公会App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-D0ECFE747DFD",
+      "flow": "FLOW-B8276CAE",
+      "object": "入会申请",
+      "from": "待公会审核",
+      "action": "驳回申请",
+      "role": "公会长",
+      "end": "公会App",
+      "to": "公会驳回",
+      "refs": [
+        "D-SYS-048",
+        "D-SYS-053",
+        "D-SYS-054"
+      ],
+      "observed": [
+        "用户App",
+        "公会App"
+      ],
+      "branch": "驳回"
+    },
+    {
+      "id": "ST-677B2B597F20",
+      "flow": "FLOW-289CDBD1",
+      "object": "退会申请",
+      "from": "已加入且无处理中退会申请",
+      "action": "提交退会原因",
+      "role": "主播",
+      "end": "用户App",
+      "to": "退会申请中",
+      "refs": [
+        "U-guild-leave-application-004",
+        "U-guild-leave-application-008"
+      ],
+      "observed": [
+        "用户App",
+        "公会App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-57A6970538D0",
+      "flow": "FLOW-289CDBD1",
+      "object": "退会申请",
+      "from": "退会申请中",
+      "action": "驳回退会",
+      "role": "公会长",
+      "end": "公会App",
+      "to": "已驳回且关系保留",
+      "refs": [
+        "G-guild-leave-review-detail-007",
+        "G-guild-leave-review-detail-008"
+      ],
+      "observed": [
+        "用户App",
+        "公会App"
+      ],
+      "branch": "驳回"
+    },
+    {
+      "id": "ST-D5B9B34DDEFD",
+      "flow": "FLOW-289CDBD1",
+      "object": "退会申请",
+      "from": "退会申请中",
+      "action": "确认通过",
+      "role": "公会长",
+      "end": "公会App",
+      "to": "已退出且主播身份失效",
+      "refs": [
+        "G-guild-leave-review-detail-006",
+        "U-guild-leave-application-006"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-6CB4EB33D1A6",
+      "flow": "FLOW-EA7D49B9",
+      "object": "公会成员关系",
+      "from": "在会且未结清收益为0",
+      "action": "确认移出",
+      "role": "公会长",
+      "end": "公会App",
+      "to": "关系解除且停止开播",
+      "refs": [
+        "G-guild-host-detail-009",
+        "U-guild-leave-application-006"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-9BA0FDC3D12B",
+      "flow": "FLOW-A69D5528",
+      "object": "公会",
+      "from": "启用",
+      "action": "确认停用",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "停用且成员关系解除",
+      "refs": [
+        "D-SYS-066",
+        "A-admin-guild-list-009"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-5EBDFB9C4C54",
+      "flow": "FLOW-A69D5528",
+      "object": "公会",
+      "from": "未解散且收益已结清",
+      "action": "确认解散",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "已解散",
+      "refs": [
+        "A-admin-guild-list-008",
+        "A-admin-guild-detail-012"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-19D13657CB0F",
+      "flow": "FLOW-AEA28E22",
+      "object": "公会长账号",
+      "from": "启用",
+      "action": "停用账号",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "停用",
+      "refs": [
+        "A-admin-guild-list-007",
+        "A-admin-guild-detail-011"
+      ],
+      "observed": [
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-AC22AC8ED4A1",
+      "flow": "FLOW-082EDB69",
+      "object": "用户账号",
+      "from": "正常",
+      "action": "确认封禁",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "封禁且会话下线",
+      "refs": [
+        "D-SYS-122",
+        "A-admin-user-list-010",
+        "A-admin-user-list-012"
+      ],
+      "observed": [
+        "用户App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-782E85466F8F",
+      "flow": "FLOW-082EDB69",
+      "object": "用户账号",
+      "from": "封禁",
+      "action": "确认解封",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "可登录且直播权限不恢复",
+      "refs": [
+        "A-admin-user-detail-009",
+        "A-admin-user-list-012"
+      ],
+      "observed": [
+        "用户App",
+        "管理后台"
+      ],
+      "branch": "恢复"
+    },
+    {
+      "id": "ST-C5B0C9E4BA27",
+      "flow": "FLOW-634569CC",
+      "object": "账号注销",
+      "from": "注销倒计时中",
+      "action": "倒计时结束",
+      "role": "用户",
+      "end": "用户App",
+      "to": "七日冷静期",
+      "refs": [
+        "U-settings-021",
+        "U-settings-022"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-13B368CFE58B",
+      "flow": "FLOW-634569CC",
+      "object": "账号注销",
+      "from": "七日冷静期",
+      "action": "取消注销",
+      "role": "用户",
+      "end": "用户App",
+      "to": "恢复登录",
+      "refs": [
+        "U-views_auth-login-register_deletion-cooling-006",
+        "U-settings-023"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "取消"
+    },
+    {
+      "id": "ST-110A98BB4BBE",
+      "flow": "FLOW-3316A78D",
+      "object": "直播场次",
+      "from": "符合开播条件且未开播",
+      "action": "开始直播",
+      "role": "主播",
+      "end": "用户App",
+      "to": "直播中且生成新场次",
+      "refs": [
+        "U-start-live-settings-009",
+        "U-start-live-settings-010",
+        "U-start-live-settings-018"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-2AD30B73A584",
+      "flow": "FLOW-3316A78D",
+      "object": "直播场次",
+      "from": "直播中",
+      "action": "确认结束直播",
+      "role": "主播",
+      "end": "用户App",
+      "to": "已结束",
+      "refs": [
+        "U-views_live-room-host_end-confirm-001",
+        "U-views_live-room-host_end-confirm-002"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-7D44D5648AC8",
+      "flow": "FLOW-29684C4A",
+      "object": "主播直播权限",
+      "from": "开启且正在直播",
+      "action": "关闭直播权限",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "权限关闭且本场结束",
+      "refs": [
+        "A-admin-host-list-007",
+        "U-live-room-host-006"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-FFC3DF4CEA14",
+      "flow": "FLOW-29684C4A",
+      "object": "主播直播权限",
+      "from": "公会可管理且开启",
+      "action": "关闭开播权限",
+      "role": "公会长",
+      "end": "公会App",
+      "to": "权限关闭且本场结束",
+      "refs": [
+        "G-guild-host-detail-008"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-8CF9566F5670",
+      "flow": "FLOW-29684C4A",
+      "object": "主播直播权限",
+      "from": "平台开启且公会原设置保留",
+      "action": "锁定公会权限",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "跟随平台且只读",
+      "refs": [
+        "D-SYS-086",
+        "D-SYS-089",
+        "A-admin-host-list-008"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-AF4B8DF8896D",
+      "flow": "FLOW-29684C4A",
+      "object": "主播直播权限",
+      "from": "锁定中",
+      "action": "取消锁定",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "按公会原设置重算",
+      "refs": [
+        "D-SYS-087",
+        "D-SYS-089"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "恢复"
+    },
+    {
+      "id": "ST-38CAF85828ED",
+      "flow": "FLOW-4A7D12A7",
+      "object": "连麦邀请",
+      "from": "双方普通房在播且未连麦且无拉黑",
+      "action": "发出邀请",
+      "role": "主播",
+      "end": "用户App",
+      "to": "邀请中",
+      "refs": [
+        "D-SYS-105",
+        "D-SYS-107",
+        "U-views_live-room-host_cohost-hosts-007"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-EC80ABC71789",
+      "flow": "FLOW-4A7D12A7",
+      "object": "连麦邀请",
+      "from": "邀请中",
+      "action": "取消邀请",
+      "role": "主播",
+      "end": "用户App",
+      "to": "邀请失效",
+      "refs": [
+        "D-SYS-108"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "取消"
+    },
+    {
+      "id": "ST-0241D71A01FF",
+      "flow": "FLOW-4A7D12A7",
+      "object": "连麦邀请",
+      "from": "邀请中",
+      "action": "拒绝邀请",
+      "role": "主播",
+      "end": "用户App",
+      "to": "邀请关闭",
+      "refs": [
+        "D-SYS-109",
+        "U-views_live-room-host_cohost-invite-notice-006"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "拒绝"
+    },
+    {
+      "id": "ST-A1609BC95F1F",
+      "flow": "FLOW-4A7D12A7",
+      "object": "连麦邀请",
+      "from": "单笔有效邀请且双方满足连麦条件",
+      "action": "接受邀请",
+      "role": "主播",
+      "end": "用户App",
+      "to": "两位主播连麦中",
+      "refs": [
+        "U-views_live-room-host_cohost-invite-notice-006"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-940C6D073588",
+      "flow": "FLOW-A380690A",
+      "object": "连麦会话",
+      "from": "连麦中",
+      "action": "确认退出连麦",
+      "role": "主播",
+      "end": "用户App",
+      "to": "双方各自继续单播",
+      "refs": [
+        "D-SYS-112",
+        "U-views_live-room-cohost-active_cohost-exit-confirm-001"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-4CBA1F27FFEA",
+      "flow": "FLOW-74D9AD48",
+      "object": "好友申请",
+      "from": "待处理",
+      "action": "同意申请",
+      "role": "用户",
+      "end": "用户App",
+      "to": "已同意且建立双向好友",
+      "refs": [
+        "U-interaction-notifications-006",
+        "U-friend-list-006"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-40C116E0638A",
+      "flow": "FLOW-74D9AD48",
+      "object": "好友申请",
+      "from": "待处理",
+      "action": "拒绝申请",
+      "role": "用户",
+      "end": "用户App",
+      "to": "已拒绝且未建立好友",
+      "refs": [
+        "U-interaction-notifications-006"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "拒绝"
+    },
+    {
+      "id": "ST-433E3B969C50",
+      "flow": "FLOW-EEC990CE",
+      "object": "账号拉黑关系",
+      "from": "无拉黑",
+      "action": "确认拉黑",
+      "role": "用户",
+      "end": "用户App",
+      "to": "拉黑且关系和私信清除",
+      "refs": [
+        "U-blacklist-management-003",
+        "U-blacklist-management-004",
+        "U-blacklist-management-005"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-D92C7C5B0EBE",
+      "flow": "FLOW-EEC990CE",
+      "object": "账号拉黑关系",
+      "from": "已拉黑",
+      "action": "确认取消拉黑",
+      "role": "用户",
+      "end": "用户App",
+      "to": "该方向拉黑解除且旧关系不恢复",
+      "refs": [
+        "U-blacklist-management-009",
+        "U-blacklist-management-014"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "恢复"
+    },
+    {
+      "id": "ST-CFCAA1E75EDF",
+      "flow": "FLOW-FD3B32C9",
+      "object": "粉丝团团籍",
+      "from": "未加入且符合条件且未满500人",
+      "action": "加入粉丝团",
+      "role": "用户",
+      "end": "用户App",
+      "to": "有效团籍和群籍",
+      "refs": [
+        "U-views_live-room_fan-club-not-joined-004",
+        "U-views_live-room_fan-club-not-joined-006",
+        "U-views_live-room_fan-club-not-joined-008"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-EBD33D8C4612",
+      "flow": "FLOW-FD3B32C9",
+      "object": "粉丝团团籍",
+      "from": "有效团籍",
+      "action": "确认退出粉丝团",
+      "role": "粉丝团成员",
+      "end": "用户App",
+      "to": "团籍解除且等级和亲密度清零",
+      "refs": [
+        "U-group-manage-member-006",
+        "U-group-manage-member-007"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-D1693E7B9FB6",
+      "flow": "FLOW-FD3B32C9",
+      "object": "粉丝团团籍",
+      "from": "有效团籍",
+      "action": "确认移除成员",
+      "role": "主播",
+      "end": "用户App",
+      "to": "团籍解除且等级和亲密度清零",
+      "refs": [
+        "U-fan-club-006",
+        "U-fan-club-010"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-542AE28D2BBD",
+      "flow": "FLOW-6D44B008",
+      "object": "本场禁言",
+      "from": "本场可发言",
+      "action": "确认禁言",
+      "role": "主播",
+      "end": "用户App",
+      "to": "本场不可发言",
+      "refs": [
+        "U-live-room-host-008",
+        "U-live-room-host-011"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-2B6858F451FD",
+      "flow": "FLOW-6D44B008",
+      "object": "本场禁言",
+      "from": "本场仍被禁言",
+      "action": "确认恢复发言",
+      "role": "主播",
+      "end": "用户App",
+      "to": "本场可发言",
+      "refs": [
+        "U-views_live-room-host_restore-speaking-confirm-001",
+        "U-views_live-room-host_restore-speaking-confirm-002"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "恢复"
+    },
+    {
+      "id": "ST-7E91CEB5ED4D",
+      "flow": "FLOW-2EF3ECFF",
+      "object": "本场踢出",
+      "from": "本场在线",
+      "action": "确认踢出",
+      "role": "主播",
+      "end": "用户App",
+      "to": "本场已踢出不可重进",
+      "refs": [
+        "D-SYS-100",
+        "U-live-room-host-011"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-E5F5C85CE801",
+      "flow": "FLOW-2BA2481A",
+      "object": "充值订单",
+      "from": "待支付",
+      "action": "完成支付",
+      "role": "用户",
+      "end": "用户App",
+      "to": "支付成功且金币到账",
+      "refs": [
+        "U-recharge-004",
+        "U-recharge-005",
+        "U-recharge-010"
+      ],
+      "observed": [
+        "用户App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-DF452BCC4832",
+      "flow": "FLOW-2BA2481A",
+      "object": "充值订单",
+      "from": "支付成功且未退款",
+      "action": "确认整单退款",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "全额已退款且金币扣回",
+      "refs": [
+        "A-admin-recharge-order-detail-005",
+        "A-admin-recharge-order-detail-008",
+        "A-admin-recharge-order-detail-009",
+        "A-admin-recharge-order-detail-011"
+      ],
+      "observed": [
+        "用户App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-75DDB98DDEAA",
+      "flow": "FLOW-3674B837",
+      "object": "礼物消费",
+      "from": "礼物可用且余额充足",
+      "action": "赠送礼物",
+      "role": "用户",
+      "end": "用户App",
+      "to": "已支付且形成消费记录",
+      "refs": [
+        "D-SYS-126",
+        "U-views_live-room_gift-010"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-4536576E9EE1",
+      "flow": "FLOW-253CEACF",
+      "object": "本场门票",
+      "from": "未购买且可准入",
+      "action": "确认购买",
+      "role": "用户",
+      "end": "用户App",
+      "to": "本场门票有效",
+      "refs": [
+        "U-views_live-room_ticket-room-restricted-003",
+        "U-views_live-room_ticket-room-restricted-006"
+      ],
+      "observed": [
+        "用户App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-8A342E8F8815",
+      "flow": "FLOW-D14CBCCB",
+      "object": "任务奖励",
+      "from": "已达标且当日未过期且未领取",
+      "action": "手动领取",
+      "role": "用户",
+      "end": "用户App",
+      "to": "已领取且金币到账",
+      "refs": [
+        "U-welfare-center-017",
+        "U-welfare-center-018",
+        "U-welfare-center-019"
+      ],
+      "observed": [
+        "用户App"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-D442A7FDE8CB",
+      "flow": "FLOW-C83DBB68",
+      "object": "直播举报工单",
+      "from": "本场直播中",
+      "action": "提交举报",
+      "role": "用户",
+      "end": "用户App",
+      "to": "待处理",
+      "refs": [
+        "U-live-room-report-003",
+        "U-live-room-report-006"
+      ],
+      "observed": [
+        "用户App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-16D5E78C7908",
+      "flow": "FLOW-C83DBB68",
+      "object": "直播举报工单",
+      "from": "待处理且直播结束",
+      "action": "场次结束",
+      "role": "主播",
+      "end": "用户App",
+      "to": "已作废只读",
+      "refs": [
+        "A-admin-report-handling-007",
+        "A-admin-report-handling-008"
+      ],
+      "observed": [
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-3561F5C8C4FF",
+      "flow": "FLOW-C83DBB68",
+      "object": "直播举报工单",
+      "from": "待处理且直播中",
+      "action": "确认处置",
+      "role": "平台管理员",
+      "end": "管理后台",
+      "to": "已处理只读",
+      "refs": [
+        "A-admin-report-detail-009"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-7F58A6BD44DA",
+      "flow": "FLOW-8D092CF2",
+      "object": "运营虚拟金币",
+      "from": "公会及账号可管理且额度充足",
+      "action": "发放金币",
+      "role": "公会长",
+      "end": "公会App",
+      "to": "虚拟余额和月累计增加",
+      "refs": [
+        "G-guild-operation-account-detail-006",
+        "G-guild-operation-account-detail-007",
+        "G-guild-operation-account-detail-008"
+      ],
+      "observed": [
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-D3D833CE3E86",
+      "flow": "FLOW-9DD46CA2",
+      "object": "运营账号",
+      "from": "启用",
+      "action": "确认禁用",
+      "role": "公会长",
+      "end": "公会App",
+      "to": "禁用且余额保留",
+      "refs": [
+        "G-guild-operation-account-detail-005"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "正常"
+    },
+    {
+      "id": "ST-B60C46B3F3CF",
+      "flow": "FLOW-9DD46CA2",
+      "object": "运营账号",
+      "from": "禁用",
+      "action": "确认启用",
+      "role": "公会长",
+      "end": "公会App",
+      "to": "启用且恢复使用",
+      "refs": [
+        "G-guild-operation-account-detail-005"
+      ],
+      "observed": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "branch": "恢复"
+    }
+  ],
+  "说明": "保留已建立的转换基线；本次不新增转换或声明跨端闭环检查通过"
+}

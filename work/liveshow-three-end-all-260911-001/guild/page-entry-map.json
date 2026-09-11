@@ -1,0 +1,563 @@
+{
+  "guild-login.html": {
+    "name": "公会登录",
+    "object": "公会登录",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "公会账号",
+    "file": "liveshow-proto/prototype/pages/guild/auth/guild-login.html",
+    "parent": "guild-login.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会登录"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-switch.html": {
+    "name": "选择公会",
+    "object": "选择公会",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "公会账号",
+    "file": "liveshow-proto/prototype/pages/guild/auth/guild-switch.html",
+    "parent": "guild-switch.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入选择公会"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-home.html": {
+    "name": "首页",
+    "object": "首页",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "公会首页",
+    "file": "liveshow-proto/prototype/pages/guild/home/guild-home.html",
+    "parent": "guild-home.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入首页"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-notifications.html": {
+    "name": "通知消息",
+    "object": "通知消息",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "公会首页",
+    "file": "liveshow-proto/prototype/pages/guild/home/guild-notifications.html",
+    "parent": "guild-notifications.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入通知消息"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-notification-detail.html": {
+    "name": "通知详情",
+    "object": "通知详情",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "公会首页",
+    "file": "liveshow-proto/prototype/pages/guild/home/guild-notification-detail.html",
+    "parent": "guild-notification-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入通知详情"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-join-review.html": {
+    "name": "入会申请",
+    "object": "入会申请",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "审批管理",
+    "file": "liveshow-proto/prototype/pages/guild/approval/guild-join-review.html",
+    "parent": "guild-join-review.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入入会申请"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-join-review-detail.html": {
+    "name": "入会申请详情",
+    "object": "入会申请详情",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "审批管理",
+    "file": "liveshow-proto/prototype/pages/guild/approval/guild-join-review-detail.html",
+    "parent": "guild-join-review-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入入会申请详情"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-leave-review.html": {
+    "name": "退会申请",
+    "object": "退会申请",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "审批管理",
+    "file": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review.html",
+    "parent": "guild-leave-review.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入退会申请"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-leave-review-detail.html": {
+    "name": "退会申请详情",
+    "object": "退会申请详情",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "审批管理",
+    "file": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review-detail.html",
+    "parent": "guild-leave-review-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入退会申请详情"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-member-list.html": {
+    "name": "主播列表",
+    "object": "主播列表",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/guild/people/guild-member-list.html",
+    "parent": "guild-member-list.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播列表"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-host-list.html": {
+    "name": "主播业绩",
+    "object": "主播业绩",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/guild/people/guild-host-list.html",
+    "parent": "guild-host-list.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播业绩"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-host-summary.html": {
+    "name": "主播数据",
+    "object": "主播数据",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "数据与收益",
+    "file": "liveshow-proto/prototype/pages/guild/data/guild-host-summary.html",
+    "parent": "guild-host-summary.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播数据"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-host-detail.html": {
+    "name": "主播主页",
+    "object": "主播主页",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "主播管理",
+    "file": "liveshow-proto/prototype/pages/guild/people/guild-host-detail.html",
+    "parent": "guild-host-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播主页"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-messages.html": {
+    "name": "运营消息",
+    "object": "运营消息",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "运营管理",
+    "file": "liveshow-proto/prototype/pages/guild/operations/guild-messages.html",
+    "parent": "guild-messages.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入运营消息"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-message-compose.html": {
+    "name": "新建运营消息",
+    "object": "新建运营消息",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "运营管理",
+    "file": "liveshow-proto/prototype/pages/guild/operations/guild-message-compose.html",
+    "parent": "guild-message-compose.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入新建运营消息"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-host-select.html": {
+    "name": "选择主播",
+    "object": "选择主播",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "运营管理",
+    "file": "liveshow-proto/prototype/pages/guild/operations/guild-host-select.html",
+    "parent": "guild-host-select.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入选择主播"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-message-detail.html": {
+    "name": "运营消息详情",
+    "object": "运营消息详情",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "运营管理",
+    "file": "liveshow-proto/prototype/pages/guild/operations/guild-message-detail.html",
+    "parent": "guild-message-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入运营消息详情"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-operation-accounts.html": {
+    "name": "运营账号",
+    "object": "运营账号",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "运营管理",
+    "file": "liveshow-proto/prototype/pages/guild/operations/guild-operation-accounts.html",
+    "parent": "guild-operation-accounts.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入运营账号"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-operation-account-compose.html": {
+    "name": "创建运营账号",
+    "object": "创建运营账号",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "运营管理",
+    "file": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-compose.html",
+    "parent": "guild-operation-account-compose.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入创建运营账号"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-operation-account-detail.html": {
+    "name": "运营账号主页",
+    "object": "运营账号主页",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "运营管理",
+    "file": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-detail.html",
+    "parent": "guild-operation-account-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入运营账号主页"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-operation-gift-records.html": {
+    "name": "送礼记录",
+    "object": "送礼记录",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "运营管理",
+    "file": "liveshow-proto/prototype/pages/guild/operations/guild-operation-gift-records.html",
+    "parent": "guild-operation-gift-records.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入送礼记录"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-operation-account-select.html": {
+    "name": "选择运营账号",
+    "object": "选择运营账号",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "运营管理",
+    "file": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-select.html",
+    "parent": "guild-operation-account-select.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入选择运营账号"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-profile.html": {
+    "name": "公会资料",
+    "object": "公会资料",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "公会管理",
+    "file": "liveshow-proto/prototype/pages/guild/management/guild-profile.html",
+    "parent": "guild-profile.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会资料"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-settings.html": {
+    "name": "账号设置",
+    "object": "账号设置",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "公会管理",
+    "file": "liveshow-proto/prototype/pages/guild/management/guild-settings.html",
+    "parent": "guild-settings.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入账号设置"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-password.html": {
+    "name": "修改密码",
+    "object": "修改密码",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "公会管理",
+    "file": "liveshow-proto/prototype/pages/guild/management/guild-password.html",
+    "parent": "guild-password.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入修改密码"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-host-data.html": {
+    "name": "直播记录",
+    "object": "直播记录",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "数据与收益",
+    "file": "liveshow-proto/prototype/pages/guild/data/guild-host-data.html",
+    "parent": "guild-host-data.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播记录"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-live-gift-detail.html": {
+    "name": "直播场次详情",
+    "object": "直播场次详情",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "数据与收益",
+    "file": "liveshow-proto/prototype/pages/guild/data/guild-live-gift-detail.html",
+    "parent": "guild-live-gift-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播场次详情"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-all-violations.html": {
+    "name": "违规记录",
+    "object": "违规记录",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "数据与收益",
+    "file": "liveshow-proto/prototype/pages/guild/data/guild-all-violations.html",
+    "parent": "guild-all-violations.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入违规记录"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-income.html": {
+    "name": "公会业绩",
+    "object": "公会业绩",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "数据与收益",
+    "file": "liveshow-proto/prototype/pages/guild/data/guild-income.html",
+    "parent": "guild-income.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会业绩"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-income-day-detail.html": {
+    "name": "每日",
+    "object": "每日",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "数据与收益",
+    "file": "liveshow-proto/prototype/pages/guild/data/guild-income-day-detail.html",
+    "parent": "guild-income-day-detail.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入每日"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-share-ledger.html": {
+    "name": "主播分成记录",
+    "object": "主播分成记录",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "数据与收益",
+    "file": "liveshow-proto/prototype/pages/guild/data/guild-share-ledger.html",
+    "parent": "guild-share-ledger.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入主播分成记录"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-share-income.html": {
+    "name": "公会分成记录",
+    "object": "公会分成记录",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "数据与收益",
+    "file": "liveshow-proto/prototype/pages/guild/data/guild-share-income.html",
+    "parent": "guild-share-income.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入公会分成记录"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  },
+  "guild-violation-host-select.html": {
+    "name": "选择主播",
+    "object": "选择主播",
+    "role": "公会长",
+    "endName": "公会App",
+    "module": "数据与收益",
+    "file": "liveshow-proto/prototype/pages/guild/data/guild-violation-host-select.html",
+    "parent": "guild-violation-host-select.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入选择主播"
+    ],
+    "preconditions": [
+      "公会长账号已登录且具备当前页面权限"
+    ]
+  }
+}

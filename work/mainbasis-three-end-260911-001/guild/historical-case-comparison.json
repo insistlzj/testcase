@@ -1,0 +1,2350 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "目标范围": {
+    "端名": "公会App",
+    "模块名称": "M01 账号·登录·资料与设置、M03 社交·私信·群聊与通知、M05 公会申请·认证·组织与权限、M09 运营账号·虚拟金币与公会消息、M10 用户管理·审核·举报与巡房、M11 财务·退款·结算上传与账户调整、M12 直播业绩·增长与统计报表"
+  },
+  "独立场景固定时间": "2026-09-11T08:53:49.987Z",
+  "独立场景SHA256": "03b91d71b93ec0dc9e8628ea04237e752700903bce383dfc5341c4fdd864685a",
+  "历史读取开始时间": "2026-09-11T08:53:50.372Z",
+  "候选JSON": {
+    "路径": "work/mainbasis-three-end-260911-001/guild/candidate.json",
+    "SHA-256": "a747a4858a2a2169b37ab98827b461e9d398d7df579aa38f1e313b5b83596bab"
+  },
+  "历史输入": [
+    {
+      "路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "SHA-256": "19f0676115268292c874420c19343a80f6478658034c1afe5aa0ab40db95094d"
+    }
+  ],
+  "比较结果": [
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0001",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-profile.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0002",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-profile.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0003",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-profile.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0004",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-profile.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0005",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-profile.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0006",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-password.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0007",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-password.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0008",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-password.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0009",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-password.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0010",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-password.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0011",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-password.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0012",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-password.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0013",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-settings.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0014",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-settings.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GMGMT-0015",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-settings.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0001",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-home.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0002",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-home.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0003",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-home.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0004",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-home.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0005",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-home.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0006",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notification-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0007",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notification-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0008",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notification-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0009",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notification-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0010",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notification-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0011",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notification-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0012",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notifications.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0013",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notifications.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0014",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notifications.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0015",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notifications.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0016",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notifications.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0017",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notifications.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0018",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notifications.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOME-0019",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-notifications.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0001",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-login.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0002",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-login.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0003",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-login.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0004",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-login.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0005",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-login.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0006",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-login.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0007",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0008",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0009",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0010",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAUTH-0011",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-switch.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0001",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0002",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0003",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0004",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0005",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0006",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0007",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0008",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0009",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0010",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0011",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0012",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-join-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0013",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0014",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0015",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0016",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0017",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0018",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0019",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0020",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0021",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GAPP-0022",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-leave-review-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0001",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-share-income.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0002",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-share-income.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0003",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-share-income.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0004",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0005",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0006",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0007",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0008",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0009",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income-day-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0010",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income-day-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0011",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income-day-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0012",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income-day-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0013",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-income-day-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0014",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-all-violations.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0015",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-all-violations.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0016",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-all-violations.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0017",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-all-violations.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0018",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-all-violations.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0019",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-all-violations.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0020",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-all-violations.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0021",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-all-violations.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0022",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-violation-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0023",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-violation-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0024",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-violation-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0025",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-violation-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0026",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-violation-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0027",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-violation-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0028",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-live-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0029",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-live-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0030",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-live-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0031",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-live-gift-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0032",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-data.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0033",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-data.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0034",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-data.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0035",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-data.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0036",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-data.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0037",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-data.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0038",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-share-ledger.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0039",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-share-ledger.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0040",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-share-ledger.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0041",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-share-ledger.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0042",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-summary.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0043",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-summary.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0044",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-summary.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GDATA-0045",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-summary.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0001",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0002",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0003",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0004",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0005",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0006",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0007",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0008",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0009",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0010",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0011",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-gift-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0012",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-gift-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0013",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-gift-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0014",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-gift-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0015",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-gift-records.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0016",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-message-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0017",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-message-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0018",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-message-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0019",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-message-compose.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0020",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0021",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0022",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0023",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0024",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0025",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0026",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0027",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-select.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0028",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-messages.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0029",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-messages.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0030",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-messages.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0031",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-messages.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0032",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-messages.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0033",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-messages.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0034",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-message-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0035",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-message-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0036",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-message-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0037",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-message-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0038",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-message-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0039",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0040",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0041",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0042",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-accounts.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0043",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0044",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0045",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0046",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0047",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0048",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0049",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0050",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GOPS-0051",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-operation-account-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0001",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-member-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0002",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-member-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0003",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-member-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0004",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-member-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0005",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-member-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0006",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0007",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0008",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-list.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0009",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0010",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0011",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0012",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0013",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0014",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0015",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-detail.html"
+      ],
+      "当前用例追溯": []
+    },
+    {
+      "历史输入路径": "work/liveshow-three-end-all-260911-001/guild/公会App-全部模块-测试用例-260911-001.json",
+      "历史用例编号": "GHOST-0016",
+      "当前稳定规则标识": [
+        "BR-MB-guild-HISTORY-REVIEW"
+      ],
+      "判定": "待人工复核",
+      "差异": [
+        "没有建立条件和结果均一致的当前场景映射；旧用例不得作为已覆盖或当前规则来源",
+        "历史页面：guild-host-detail.html"
+      ],
+      "当前用例追溯": []
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "source": [
+      "G-guild-operation-account-detail-005"
+    ],
+    "point": "运营账号禁用登录",
+    "conditions": [
+      "运营账号",
+      "所属公会已将本账号禁用"
+    ],
+    "actions": [
+      "进入用户App登录页",
+      "输入有效凭证",
+      "点击登录"
+    ],
+    "result": "不能建立登录会话",
+    "end": "用户App",
+    "page": "auth-login-register.html",
+    "role": "运营账号",
+    "flow": "运营账号",
+    "可生成正式用例": false,
+    "原因": "MainBasis明确禁用后不可登录，但用户App仅列第三方、手机号和邮箱入口，运营账号登录账号与入口的对应关系未明确",
+    "关联问题": "Q019"
+  }
+]

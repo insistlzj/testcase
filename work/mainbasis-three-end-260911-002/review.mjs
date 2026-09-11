@@ -1,0 +1,14 @@
+import './model.mjs';
+import {scenes,dispositions} from './design.mjs';
+import {baseline,save} from './source.mjs';
+import {validateTestcaseRecords,loadTestcaseLanguageRules,splitAtomicResults} from '../../scripts/validate-testcase-json.mjs';
+export const draftCase=(s,i)=>({序号:i+1,用例编号:`CASE-${String(i+1).padStart(4,'0')}`,功能模块:s.module,功能结构:`${baseline.pages[s.page].name}（${s.role}视角）`,用例类型:s.type,优先级:s.priority,用例描述:`验证${s.pre.at(-1)}时，${s.steps.at(-1)}`,验证用例子项:s.point,前置条件:s.pre,操作步骤:s.steps,预期结果:[s.result],流程编号:s.flow,测试结果:'未测',测试人员:'',备注:[`规则：BR-${s.id}`]});
+const language=await loadTestcaseLanguageRules();
+const cases=scenes.map(draftCase);
+const report=validateTestcaseRecords({测试用例:cases,需求待确认:[]},language);
+const detail=report.问题.map(issue=>{const n=Number(issue.match(/^CASE-(\d+)/u)?.[1]);const c=scenes[n-1];return {issue,...c};});
+await save('design-review-issues.json',detail);
+const mode=process.argv[2],offset=Number(process.argv[3]||0);
+if(mode==='multi')console.log(detail.filter(x=>x.issue.includes('独立观察')).slice(offset,offset+50).map(x=>`${x.id} ${x.point}\n${x.result}\n=> ${JSON.stringify(splitAtomicResults(x.result))}`).join('\n'));
+else if(mode==='issues')console.log(detail.filter(x=>!x.issue.includes('独立观察')).slice(offset,offset+80).map(x=>`${x.id} ${x.issue}\n${x.point} | ${x.pre.join('；')} | ${x.steps.join(' / ')} | ${x.result}`).join('\n'));
+else console.log(JSON.stringify({scenes:scenes.length,issues:report.问题.length,types:report.问题.reduce((n,i)=>{let k=i.replace(/^CASE-\d+/u,'').split('：')[0];n[k]=(n[k]||0)+1;return n;},{}),unaccounted:baseline.entries.filter(e=>e.status==='基准规则'&&!scenes.some(s=>s.refs.includes(e.id))&&!dispositions.has(e.id)).map(e=>e.id)},null,2));
