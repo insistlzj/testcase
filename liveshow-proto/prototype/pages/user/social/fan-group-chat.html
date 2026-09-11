@@ -358,10 +358,25 @@
         notice = document.querySelector("#notice"),
         modal = document.querySelector("#modal"),
         liveShareCard = document.querySelector("#liveShareCard");
+      let muted = false;
       function sync() {
-        send.disabled = !input.value.trim();
+        send.disabled = muted || !input.value.trim();
       }
+      function setMuted(value) {
+        muted = value;
+        input.disabled = muted;
+        input.placeholder = muted ? "当前被禁言" : "发送消息";
+        if (muted) input.value = "";
+        sync();
+      }
+      document.addEventListener("click", (event) => {
+        if (!muted || !event.target.closest('.composer button, .chat-media-modal [data-send]')) return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        Luma.toast("当前被禁言");
+      }, true);
       function append() {
+        if (muted) return Luma.toast("当前被禁言");
         const text = input.value.trim();
         if (!text) return;
         const item = document.createElement("div");
@@ -389,9 +404,7 @@
         cover.className = "live-share-cover";
         placeholder.textContent = "房间封面图";
         status.className = "live-share-status";
-        status.textContent = liveRoom.action
-          ? `${liveRoom.status} · ${liveRoom.action}`
-          : liveRoom.status;
+        status.textContent = liveRoom.status;
         cover.append(placeholder, status);
         copy.className = "live-share-copy";
         title.textContent = liveRoom.title;
@@ -414,6 +427,10 @@
         modal.classList.add("state-hide");
       renderLiveShare("ended");
       Luma.registerStates({
+        发言状态: {
+          正常: () => setMuted(false),
+          用户被禁言: () => setMuted(true),
+        },
         直播房间: {
           已结束: () => renderLiveShare("ended"),
           直播中: () => renderLiveShare("live"),

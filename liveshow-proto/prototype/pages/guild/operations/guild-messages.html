@@ -44,11 +44,24 @@
             ><i aria-hidden="true">⌄</i></button
           ><button
             class="guild-host-performance-quick"
-            id="thisMonthButton"
+            id="messageShortcutButton"
             type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
           >
-            <span>本月</span><i aria-hidden="true">⌄</i>
+            <span id="messageShortcutValue">本月</span><i aria-hidden="true">⌄</i>
           </button>
+          <div
+            class="guild-host-performance-shortcut-menu"
+            id="messageShortcutMenu"
+            role="menu"
+            aria-label="快捷日期筛选"
+            hidden
+          >
+            <button type="button" role="menuitemradio" data-shortcut="thisWeek">本周</button>
+            <button class="active" type="button" role="menuitemradio" data-shortcut="thisMonth">本月</button>
+            <button type="button" role="menuitemradio" data-shortcut="custom">自定义</button>
+          </div>
         </div>
         <div class="guild-list-summary">
           <strong id="summary">发送记录</strong>
@@ -59,12 +72,13 @@
     <div class="guild-homebar"><i></i></div>
     <div id="rangeSheet"></div>
     <script>
-      const seed = [
+      const allHostCount = LUMA_MOCK.guildPortal.guildHosts.length,
+        seed = [
         {
           id: "M26081001",
-          audience: "全体成员",
-          recipientCount: 268,
-          content: "请各位成员关注本周公会活动安排，主播报名请于周五前完成。",
+          audience: "全体主播",
+          recipientCount: allHostCount,
+          content: "请各位主播关注本周公会活动安排，主播报名请于周五前完成。",
           hasImage: true,
           sentAt: "2026-08-10 10:20",
           sender: "Rizky",
@@ -88,7 +102,7 @@
         return [...saved, ...seed];
       }
       function audienceLabel(item) {
-        if (item.audience !== "指定主播") return item.audience;
+        if (item.audience !== "指定主播") return "全体主播";
         const recipientName = item.recipients?.[0] || "";
         const host = LUMA_MOCK.guildPortal.guildHosts.find(
           (candidate) =>
@@ -101,6 +115,16 @@
       }
       let rangeStart = "2026-08-01",
         rangeEnd = "2026-08-24";
+      let selectedShortcut = "thisMonth";
+      const shortcutLabels = {
+        thisWeek: "本周",
+        thisMonth: "本月",
+        custom: "自定义",
+      };
+      const shortcutRanges = {
+        thisWeek: ["2026-08-24", "2026-08-24"],
+        thisMonth: ["2026-08-01", "2026-08-24"],
+      };
       const rangePicker = LumaGuildDateRange.create({
         mask: rangeSheet,
         start: rangeStart,
@@ -110,6 +134,7 @@
         onConfirm: (start, end) => {
           rangeStart = start;
           rangeEnd = end;
+          selectedShortcut = "custom";
           render();
         },
       });
@@ -119,6 +144,14 @@
           "aria-label",
           `选择日期范围，当前${messageRangeValue.textContent}`,
         );
+        messageShortcutValue.textContent = shortcutLabels[selectedShortcut];
+        messageShortcutMenu
+          .querySelectorAll("[data-shortcut]")
+          .forEach((button) => {
+            const active = button.dataset.shortcut === selectedShortcut;
+            button.classList.toggle("active", active);
+            button.setAttribute("aria-checked", String(active));
+          });
         const items = records().filter(
           (item) =>
             item.sentAt.slice(0, 10) >= rangeStart &&
@@ -134,13 +167,37 @@
               .join("")
           : '<div class="guild-page-empty"><b>暂无消息</b><span>当前日期范围内没有发送记录</span></div>';
       }
+      function closeShortcutMenu() {
+        messageShortcutMenu.hidden = true;
+        messageShortcutButton.setAttribute("aria-expanded", "false");
+      }
       messageRangeButton.onclick = rangePicker.open;
-      thisMonthButton.onclick = () => {
-        rangeStart = "2026-08-01";
-        rangeEnd = "2026-08-24";
+      messageShortcutButton.onclick = () => {
+        messageShortcutMenu.hidden = !messageShortcutMenu.hidden;
+        messageShortcutButton.setAttribute(
+          "aria-expanded",
+          String(!messageShortcutMenu.hidden),
+        );
+      };
+      messageShortcutMenu.onclick = (event) => {
+        const button = event.target.closest("[data-shortcut]");
+        if (!button) return;
+        const shortcut = button.dataset.shortcut;
+        closeShortcutMenu();
+        if (shortcut === "custom") return rangePicker.open();
+        selectedShortcut = shortcut;
+        [rangeStart, rangeEnd] = shortcutRanges[shortcut];
         rangePicker.setRange(rangeStart, rangeEnd);
         render();
       };
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".guild-message-range-filter")) {
+          closeShortcutMenu();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeShortcutMenu();
+      });
       render();
       window.parent.postMessage(
         { type: "luma-page", file: "guild-messages.html" },

@@ -158,23 +158,17 @@
       const mock = window.LUMA_ADMIN_MOCK,
         id = new URLSearchParams(location.search).get("id");
       const host = mock.hosts.find((item) => item.id === id) || mock.hosts[0];
-      if (typeof host.withdrawalEnabled !== "boolean")
-        host.withdrawalEnabled = true;
       const records =
         mock.hostRecords[host.id] ||
         (mock.hostRecords[host.id] = {
           lives: [],
           earnings: [],
-          withdrawals: [],
           fanClub: null,
           violations: [],
         });
       const access = mock.livePermissions.find(
         (item) => item.hostId === host.id,
       );
-      const balance = mock.hostAccountBalances.find(
-        (item) => item.hostId === host.id,
-      ) || { withdrawnTotal: 0 };
       const guild = mock.guilds.find((item) => item.name === host.guild);
       const labels = {
         live: "直播中",
@@ -185,11 +179,8 @@
         banned: "已封禁",
         approved: "已通过",
       };
-      const {
-        coins: formatCoins,
-        integer: formatInteger,
-        money: formatMoney,
-      } = window.LUMA_ADMIN_FORMAT;
+      const { coins: formatCoins, integer: formatInteger } =
+        window.LUMA_ADMIN_FORMAT;
       const avatarEl = document.querySelector("#avatar"),
         nameEl = document.querySelector("#name"),
         hostIdEl = document.querySelector("#hostId"),
@@ -201,7 +192,6 @@
         detailPanelEl = document.querySelector("#detailPanel");
       let currentAction = "",
         currentTab = "lives",
-        pendingWithdrawalState = host.withdrawalEnabled,
         pendingPermissionState = {
           live: access.platformPermission === "enabled",
           guild: !access.locked,
@@ -313,8 +303,8 @@
         Luma.setTip(liveStatusEl, labels[host.liveStatus], "开播状态");
         statusEl.className = `admin-status ${host.accountStatus}`;
         Luma.setTip(statusEl, labels[host.accountStatus], "账号状态");
-        profileActionsEl.innerHTML = `<button class="admin-btn secondary" data-action="warn">警告</button>${host.accountStatus === "banned" ? '<button class="admin-btn" data-action="unban">解封</button>' : '<button class="admin-btn danger" data-action="ban">封禁</button>'}`;
-        metricsEl.innerHTML = `<div class="admin-metric"><span>累计金币收益</span><b>${formatCoins(host.earnings)}</b></div><div class="admin-metric"><span>累计提现</span><b>${formatMoney(balance.withdrawnTotal)}</b></div><div class="admin-metric"><span>可提现</span><b>${formatMoney(host.withdrawable)}</b></div>`;
+        profileActionsEl.innerHTML = host.accountStatus === "banned" ? '<button class="admin-btn" data-action="unban">解封</button>' : '<button class="admin-btn danger" data-action="ban">封禁</button>';
+        metricsEl.innerHTML = `<div class="admin-metric"><span>累计金币收益</span><b>${formatCoins(host.earnings)}</b></div>`;
         baseInfoEl.innerHTML = /* HTML */ `<div class="admin-detail-item">
             <span>公会名称/ID</span><b>${host.guild} / ${guild?.id || "-"}</b>
           </div>
@@ -356,43 +346,18 @@
                 ></span></label
               ><span>${access.locked ? "关闭" : "开启"}</span>
             </div>
-          </div>
-          <div class="admin-detail-item">
-            <span>开放提现</span>
-            <div class="admin-setting-control">
-              <label
-                class="admin-switch"
-                title="${host.accountStatus === "banned"
-                  ? "封禁主播不可开启提现"
-                  : "切换提现权限"}"
-                ><input
-                  type="checkbox"
-                  data-withdrawal-toggle
-                  ${host.withdrawalEnabled ? "checked" : ""}
-                  ${host.accountStatus === "banned" ? "disabled" : ""}
-                  aria-label="开放提现" /><span
-                  class="admin-switch-track"
-                ></span></label
-              ><span>${host.withdrawalEnabled ? "开启" : "关闭"}</span>
-            </div>
           </div>`;
       }
       function openAction(action) {
         currentAction = action;
         actionTitle.textContent = {
           permission: "变更权限",
-          withdrawal: pendingWithdrawalState ? "开放提现" : "关闭提现",
-          warn: "警告主播",
           ban: "封禁主播",
           unban: "解封主播",
         }[action];
-        actionSubmit.className = `admin-btn ${action === "ban" || (action === "withdrawal" && !pendingWithdrawalState) ? "danger" : ""}`;
+        actionSubmit.className = `admin-btn ${action === "ban" ? "danger" : ""}`;
         if (action === "permission")
           actionBody.innerHTML = `<p>${host.name}（${host.id}）</p><div class="admin-form-row"><label>权限调整</label><div class="admin-readonly-value">直播权限：${pendingPermissionState.live ? "开启" : "关闭"}；公会管理权限：${pendingPermissionState.guild ? "开启" : "关闭"}</div></div><div class="admin-form-row"><label for="permissionReason">变更原因</label><textarea class="admin-textarea" id="permissionReason" required></textarea></div><div class="admin-note">关闭公会管理权限后，公会不可修改直播权限</div>`;
-        if (action === "withdrawal")
-          actionBody.innerHTML = `<p>${host.name}（${host.id}）· 提现权限将${pendingWithdrawalState ? "开放" : "关闭"}</p><div class="admin-form-row"><label for="withdrawalReason">操作原因</label><textarea class="admin-textarea" id="withdrawalReason" required></textarea></div>`;
-        if (action === "warn")
-          actionBody.innerHTML = `<p>${host.name}（${host.id}）</p><div class="admin-form-row"><label for="warnReason">警告原因</label><textarea class="admin-textarea" id="warnReason" required></textarea></div>`;
         if (action === "ban")
           actionBody.innerHTML = /* HTML */ `<p>${host.name}（${host.id}）</p>
             <div class="admin-form-row">
@@ -410,7 +375,7 @@
       }
       function submitAction() {
         const reasonField = document.querySelector(
-            "#permissionReason,#withdrawalReason,#warnReason,#banReason,#unbanReason",
+            "#permissionReason,#banReason,#unbanReason",
           ),
           reason = reasonField ? reasonField.value.trim() : "";
         if (!reason) return Luma.toast("请填写操作原因");
@@ -432,24 +397,10 @@
           });
           host.permission = access.platformPermission;
         }
-        if (currentAction === "withdrawal")
-          host.withdrawalEnabled = pendingWithdrawalState;
-        if (currentAction === "warn") {
-          host.violations += 1;
-          records.violations.unshift({
-            type: "平台巡查",
-            action: "警告",
-            reason,
-            time,
-          });
-        }
         if (currentAction === "ban") {
           const before = `${labels[access.platformPermission]} / ${access.locked ? "已锁定" : "未锁定"}`;
           host.accountStatus = "banned";
           host.permission = "disabled";
-          host.withdrawalEnabled = false;
-          host.frozen += host.withdrawable;
-          host.withdrawable = 0;
           access.platformPermission = "disabled";
           access.locked = true;
           access.reason = reason;
@@ -481,17 +432,11 @@
         actionOverlay.classList.remove("show");
         renderBase();
         renderTab(
-          currentAction === "warn" ||
-            currentAction === "ban" ||
-            currentAction === "unban"
+          currentAction === "ban" || currentAction === "unban"
             ? "violations"
             : currentTab,
         );
-        Luma.toast(
-          currentAction === "withdrawal"
-            ? `提现权限已${host.withdrawalEnabled ? "开放" : "关闭"}`
-            : "操作已提交",
-        );
+        Luma.toast("操作已提交");
       }
       document.addEventListener("click", (event) => {
         const tab = event.target.closest("[data-tab]");
@@ -525,11 +470,6 @@
           openAction("permission");
           return;
         }
-        const toggle = event.target.closest("[data-withdrawal-toggle]");
-        if (!toggle) return;
-        pendingWithdrawalState = toggle.checked;
-        toggle.checked = host.withdrawalEnabled;
-        openAction("withdrawal");
       });
       actionForm.onsubmit = (event) => {
         event.preventDefault();
@@ -552,10 +492,6 @@
         直播记录: () => renderTab("lives"),
         认证资料: () => renderTab("cert"),
         粉丝团: () => renderTab("fanClub"),
-        关闭提现: () => {
-          pendingWithdrawalState = false;
-          openAction("withdrawal");
-        },
         变更直播权限: () => openAction("permission"),
         封禁主播: () => openAction("ban"),
       });

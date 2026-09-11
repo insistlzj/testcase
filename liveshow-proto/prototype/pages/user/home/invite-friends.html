@@ -256,7 +256,8 @@
     <main class="screen">
       <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
       <header class="nav">
-        <a href="welfare-center.html" aria-label="返回">‹</a>邀请好友
+        <a id="backLink" href="welfare-center.html" aria-label="返回">‹</a
+        >邀请好友
       </header>
       <section class="invite-banner">
         <small>邀请新朋友加入 Luma Live</small
@@ -328,6 +329,11 @@
       const previousPage = document.querySelector("#previousPage");
       const nextPage = document.querySelector("#nextPage");
       let recordPage = 1;
+      if (new URLSearchParams(location.search).get("guest") === "1") {
+        Luma.setGuestMode(true);
+      }
+      document.querySelector("#backLink").href =
+        Luma.guestUrl("welfare-center.html");
 
       document.querySelector("#inviteCount").textContent = invite.invitedCount;
       document.querySelector("#rewardTotal").innerHTML =
@@ -381,6 +387,7 @@
       });
       renderRecords();
       document.querySelector("#inviteButton").addEventListener("click", () => {
+        if (!Luma.requireLogin()) return;
         shareSheet.classList.add("show");
         shareSheet.setAttribute("aria-hidden", "false");
       });
@@ -397,7 +404,11 @@
       document.querySelectorAll("[data-share]").forEach((button) =>
         button.addEventListener("click", () => {
           closeShare();
-          Luma.toast(button.dataset.share + "（原型反馈）");
+          Luma.toast(
+            button.dataset.share === "复制邀请链接"
+              ? "复制成功"
+              : button.dataset.share,
+          );
         }),
       );
       Luma.registerStates({

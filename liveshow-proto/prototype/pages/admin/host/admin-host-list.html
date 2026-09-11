@@ -140,7 +140,7 @@
               <span id="resultCount">共 6 条</span>
             </div>
             <div class="admin-table-wrap">
-              <table class="admin-table has-actions" style="min-width: 1420px">
+              <table class="admin-table has-actions" style="min-width: 1310px">
                 <colgroup>
                   <col style="width: 150px" />
                   <col style="width: 84px" />
@@ -149,8 +149,6 @@
                   <col style="width: 150px" />
                   <col style="width: 88px" />
                   <col style="width: 106px" />
-                  <col style="width: 106px" />
-                  <col style="width: 100px" />
                   <col style="width: 72px" />
                   <col style="width: 116px" />
                 </colgroup>
@@ -163,8 +161,6 @@
                     <th>开播权限（平台 / 公会）</th>
                     <th>粉丝数量</th>
                     <th>金币收益</th>
-                    <th>可提现余额（USD）</th>
-                    <th>冻结中金额（USD）</th>
                     <th>违规次数</th>
                     <th>操作</th>
                   </tr>
@@ -222,10 +218,6 @@
         77206508: 216,
         77205884: 97,
       };
-      hosts.forEach((host) => {
-        if (typeof host.withdrawalEnabled !== "boolean")
-          host.withdrawalEnabled = true;
-      });
       const rows = document.querySelector("#hostRows"),
         resultCount = document.querySelector("#resultCount"),
         pagination = document.querySelector("#pagination");
@@ -241,18 +233,15 @@
         currentHost = null,
         currentAction = "",
         activeStatus = "";
-      const {
-        coins: formatCoins,
-        integer: formatInteger,
-        money: formatMoney,
-      } = window.LUMA_ADMIN_FORMAT;
+      const { coins: formatCoins, integer: formatInteger } =
+        window.LUMA_ADMIN_FORMAT;
       function render(items) {
         visibleHosts = items;
         resultCount.textContent = `共 ${items.length} 条`;
         pagination.classList.toggle("state-hide", !items.length);
         if (!items.length) {
           rows.innerHTML =
-            '<tr><td colspan="11"><div class="admin-empty"><strong>未找到匹配主播</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+            '<tr><td colspan="9"><div class="admin-empty"><strong>未找到匹配主播</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
           return;
         }
         rows.innerHTML = items
@@ -291,8 +280,6 @@
               </td>
               <td>${formatInteger(fanCounts[host.id] || 0)}</td>
               <td>${formatCoins(host.earnings)}</td>
-              <td>${formatMoney(host.withdrawable)}</td>
-              <td>${formatMoney(host.frozen)}</td>
               <td>${host.violations}</td>
               <td>
                 <a
@@ -509,7 +496,6 @@
             (mock.hostRecords[currentHost.id] = {
               lives: [],
               earnings: [],
-              withdrawals: [],
               fanClub: null,
               violations: [],
             }),
@@ -545,9 +531,6 @@
           const before = `${labels[access.platformPermission]} / ${access.locked ? "已锁定" : "未锁定"}`;
           currentHost.accountStatus = "banned";
           currentHost.permission = "disabled";
-          currentHost.withdrawalEnabled = false;
-          currentHost.frozen += currentHost.withdrawable;
-          currentHost.withdrawable = 0;
           access.platformPermission = "disabled";
           access.locked = true;
           access.reason = reason;

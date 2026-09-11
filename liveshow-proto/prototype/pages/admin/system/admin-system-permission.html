@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>权限配置 · 系统配置 · Luma Live 管理后台</title>
+    <script>
+      const roleId = new URLSearchParams(location.search).get("role");
+      location.replace(
+        roleId
+          ? `admin-system-role-detail.html?id=${encodeURIComponent(roleId)}`
+          : "admin-system-role.html",
+      );
+    </script>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/admin.css?v=20260821-filter-layout-v4" />
+    <script src="../../../assets/common.js?v=20260901-system-nav-order-v3"></script>
+    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-rbac-v1"></script>
+  </head>
+  <body class="admin-monochrome">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand"><span class="admin-brand-mark">L</span><span>Luma 管理后台</span></div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">系统配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>权限配置</strong></div>
+          <div class="admin-account"><span class="admin-account-avatar">管</span><span>后台管理员</span><span>⌄</span></div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head"><h1>权限配置</h1></div>
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head">
+              <h2>角色权限</h2>
+              <div class="admin-page-actions">
+                <button class="admin-btn" id="saveBtn" type="submit" form="permissionForm">保存</button>
+              </div>
+            </div>
+            <form id="permissionForm">
+              <div class="admin-form-grid admin-basic-form-grid">
+                <div class="admin-form-row">
+                  <label for="roleId">配置角色</label>
+                  <select class="admin-select" id="roleId"></select>
+                </div>
+                <div class="admin-form-row">
+                  <label>角色状态</label><div class="admin-readonly-value" id="roleStatus"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="dataScope">数据范围</label>
+                  <select class="admin-select" id="dataScope">
+                    <option>全平台</option>
+                    <option>指定业务范围</option>
+                    <option>本人操作数据</option>
+                  </select>
+                </div>
+                <div class="admin-form-row">
+                  <label>关联账号</label><div class="admin-readonly-value" id="accountCount"></div>
+                </div>
+              </div>
+              <div class="admin-note state-hide" id="lockedNote">超级管理员默认拥有全部权限，不允许修改。</div>
+              <div class="admin-detail-section">
+                <div class="admin-section-head">
+                  <h4>功能权限</h4><span class="system-permission-count" id="permissionCount"></span>
+                </div>
+                <div class="system-permission-groups" id="permissionGroups"></div>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const systemData = LUMA_ADMIN_MOCK.system,
+        params = new URLSearchParams(location.search),
+        allPermissions = systemData.permissions.flatMap((group) => group.items);
+      let role = systemData.roles.find((item) => item.id === params.get("role")) || systemData.roles[1],
+        selected = new Set();
+
+      roleId.innerHTML = systemData.roles
+        .map((item) => `<option value="${item.id}">${item.name}</option>`)
+        .join("");
+
+      function rolePermissions(item) {
+        if (item.locked) return allPermissions;
+        return item.selected || allPermissions.slice(0, item.permissionCount);
+      }
+
+      function renderPermissions() {
+        permissionGroups.innerHTML = systemData.permissions.map((group, index) => {
+          const checkedCount = group.items.filter((permission) => selected.has(permission)).length;
+          return /* HTML */ `<section class="system-permission-group">
+            <div class="system-permission-head">
+              <label><input type="checkbox" data-group="${index}" ${checkedCount === group.items.length ? "checked" : ""} ${role.locked ? "disabled" : ""} />${group.group}</label>
+              <span class="system-permission-count">${checkedCount} / ${group.items.length}</span>
+            </div>
+            <div class="system-permission-items">
+              ${group.items.map((permission) => `<label><input type="checkbox" data-permission="${permission}" ${selected.has(permission) ? "checked" : ""} ${role.locked ? "disabled" : ""} />${permission}</label>`).join("")}
+            </div>
+          </section>`;
+        }).join("");
+        permissionCount.textContent = `已选择 ${selected.size} 项权限`;
+      }
+
+      function render() {
+        selected = new Set(rolePermissions(role));
+        roleId.value = role.id;
+        roleStatus.innerHTML = `<span class="admin-status ${role.status}">${role.status === "enabled" ? "启用" : "停用"}</span>`;
+        dataScope.value = role.dataScope;
+        accountCount.textContent = `${role.accountCount} 个`;
+        dataScope.disabled = role.locked;
+        saveBtn.disabled = role.locked;
+        lockedNote.classList.toggle("state-hide", !role.locked);
+        renderPermissions();
+      }
+
+      roleId.onchange = () => {
+        role = systemData.roles.find((item) => item.id === roleId.value);
+        history.replaceState(null, "", `admin-system-permission.html?role=${role.id}`);
+        render();
+      };
+
+      permissionGroups.onchange = (event) => {
+        if (role.locked) return;
+        const groupIndex = event.target.dataset.group,
+          permission = event.target.dataset.permission;
+        if (groupIndex !== undefined) {
+          systemData.permissions[Number(groupIndex)].items.forEach((item) =>
+            event.target.checked ? selected.add(item) : selected.delete(item),
+          );
+        } else if (permission) {
+          event.target.checked ? selected.add(permission) : selected.delete(permission);
+        }
+        renderPermissions();
+      };
+
+      permissionForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (role.locked) return;
+        if (!selected.size) return Luma.toast("请至少选择一个功能权限");
+        role.selected = [...selected];
+        role.permissionCount = selected.size;
+        role.dataScope = dataScope.value;
+        role.updatedAt = "2026-09-01 15:10";
+        Luma.toast("权限配置已保存");
+      };
+
+      render();
+      window.parent.postMessage({ type: "luma-page", file: "admin-system-permission.html", query: location.search }, "*");
+      Luma.registerStates({
+        角色: {
+          运营管理员: () => { roleId.value = "ROLE002"; roleId.onchange(); },
+          内容审核员: () => { roleId.value = "ROLE003"; roleId.onchange(); },
+          超级管理员: () => { roleId.value = "ROLE001"; roleId.onchange(); },
+        },
+      });
+    </script>
+  </body>
+</html>

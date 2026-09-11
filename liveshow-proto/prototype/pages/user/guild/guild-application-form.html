@@ -75,16 +75,29 @@
       .section-title .required {
         margin-left: 3px;
       }
-      .upload-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+      .material-field {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 72px;
+        padding: 10px 0;
+        border-top: 1px solid var(--g6);
+      }
+      .material-field:first-of-type {
+        border-top: 0;
+      }
+      .material-label {
+        width: 76px;
+        flex: none;
+        color: var(--g3);
+        font-size: 13px;
       }
       .upload {
         position: relative;
         display: flex;
         min-width: 0;
-        height: 104px;
+        width: 118px;
+        height: 86px;
         align-items: center;
         justify-content: center;
         border: 1px dashed var(--g4);
@@ -115,6 +128,42 @@
         margin-bottom: 4px;
         color: var(--g2);
         font-size: 12px;
+      }
+      .document-types {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .document-type {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--g2);
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .document-type input {
+        width: 15px;
+        height: 15px;
+        margin: 0;
+        accent-color: var(--g1);
+      }
+      .document-type span {
+        line-height: 1;
+      }
+      .document-type input:checked + span {
+        color: var(--g1);
+        font-weight: 600;
+      }
+      .document-uploads {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        min-width: 0;
+        flex: 1;
+      }
+      .document-uploads .upload {
+        width: auto;
       }
       .hint {
         margin: 12px 16px 0;
@@ -177,23 +226,38 @@
         </div>
       </section>
       <section class="upload-section">
-        <h2 class="section-title">上传认证材料<i class="required">*</i></h2>
-        <div class="upload-grid">
+        <h2 class="section-title">上传认证材料</h2>
+        <div class="material-field">
+          <span class="material-label">本人照片 <i class="required">*</i></span>
           <label class="upload"
             ><input id="portrait" type="file" accept="image/*" /><span
-              >本人照片</span
+              >上传本人照片</span
             ></label
           >
-          <label class="upload"
-            ><input id="idFront" type="file" accept="image/*" /><span
-              >证件正面</span
-            ></label
-          >
-          <label class="upload"
-            ><input id="idBack" type="file" accept="image/*" /><span
-              >证件反面</span
-            ></label
-          >
+        </div>
+        <div class="material-field">
+          <span class="material-label">证件类型 <i class="required">*</i></span>
+          <div class="document-types" role="radiogroup" aria-label="证件类型">
+            <label class="document-type"
+              ><input type="radio" name="documentType" value="KTP" checked /><span>KTP</span></label
+            ><label class="document-type"
+              ><input type="radio" name="documentType" value="SIM" /><span>SIM</span></label
+            >
+          </div>
+        </div>
+        <div class="material-field">
+          <span class="material-label">证件照片 <i class="required">*</i></span>
+          <div class="document-uploads">
+            <label class="upload"
+              ><input id="documentFront" data-document-photo type="file" accept="image/*" /><span data-document-label="正面"
+                >上传 KTP 正面</span
+              ></label
+            ><label class="upload"
+              ><input id="documentBack" data-document-photo type="file" accept="image/*" /><span data-document-label="反面"
+                >上传 KTP 反面</span
+              ></label
+            >
+          </div>
         </div>
       </section>
       <p class="hint">请上传清晰、完整的材料。提交后由公会审核。</p>
@@ -215,6 +279,9 @@
       const nameInput = document.querySelector("#name");
       const phoneInput = document.querySelector("#phone");
       const uploadInputs = [...document.querySelectorAll(".upload input")];
+      const documentPhotos = [
+        ...document.querySelectorAll("[data-document-photo]"),
+      ];
       const submit = document.querySelector("#submit");
       function validate() {
         submit.disabled = !(
@@ -234,13 +301,35 @@
           validate();
         }),
       );
+      document.querySelectorAll('[name="documentType"]').forEach((input) =>
+        input.addEventListener("change", () => {
+          documentPhotos.forEach((photo) => {
+            photo.value = "";
+            photo.closest(".upload").classList.remove("has-file");
+          });
+          document.querySelectorAll("[data-document-label]").forEach((label) => {
+            label.textContent = `上传 ${input.value} ${label.dataset.documentLabel}`;
+          });
+          validate();
+        }),
+      );
       submit.onclick = () => {
         submit.disabled = true;
         const submittedAt = "2026-08-19 10:06";
+        const params = new URLSearchParams({
+          v: "20260909-guild-detail-route-v1",
+          guild: guild.id,
+          joinPending: "1",
+          submittedAt,
+          name: nameInput.value.trim(),
+          phone: phoneInput.value.trim(),
+          documentType: document.querySelector('[name="documentType"]:checked').value,
+          ...Object.fromEntries(uploadInputs.map((input) => [input.id, input.files[0].name])),
+        });
         Luma.toast("已提交公会申请");
         setTimeout(
           () =>
-            (location.href = `guild-detail.html?guild=${encodeURIComponent(guild.id)}&joinPending=1&submittedAt=${encodeURIComponent(submittedAt)}`),
+            (location.href = `guild-detail.html?${params}`),
           500,
         );
       };

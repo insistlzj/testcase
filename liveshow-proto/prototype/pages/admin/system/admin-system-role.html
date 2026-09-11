@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>角色权限 · 系统配置 · Luma Live 管理后台</title>
+    <title>角色管理 · 系统配置 · Luma Live 管理后台</title>
     <script src="../../../assets/tailwind.js"></script>
     <script src="../../../assets/tokens.js"></script>
     <script src="../../../assets/admin-tokens.js"></script>
@@ -11,9 +11,9 @@
       rel="stylesheet"
       href="../../../assets/admin.css?v=20260821-filter-actions-v8"
     />
-    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/common.js?v=20260901-system-nav-order-v3"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-menu-permissions-v2"></script>
   </head>
   <body class="admin-monochrome">
     <div class="admin-shell">
@@ -51,7 +51,7 @@
       <div class="admin-main">
         <header class="admin-topbar">
           <div class="admin-breadcrumb">
-            系统配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>角色权限</strong>
+            系统配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>角色管理</strong>
           </div>
           <div class="admin-account">
             <span class="admin-account-avatar">管</span><span>后台管理员</span
@@ -60,7 +60,7 @@
         </header>
         <main class="admin-content">
           <div class="admin-page-head">
-            <div><h1>角色权限</h1></div>
+            <div><h1>角色管理</h1></div>
             <a class="admin-btn" href="admin-system-role-detail.html?new=1"
               >新建角色</a
             >
@@ -74,14 +74,6 @@
                   id="roleKey"
                   placeholder="输入角色名称"
                 />
-              </div>
-              <div class="admin-field">
-                <label for="scopeFilter">数据范围</label
-                ><select class="admin-select" id="scopeFilter">
-                  <option value="">全部范围</option>
-                  <option>全平台</option>
-                  <option>指定业务范围</option>
-                </select>
               </div>
               <div class="admin-field">
                 <label for="statusFilter">角色状态</label
@@ -102,13 +94,11 @@
               <strong>后台角色</strong><span id="resultCount"></span>
             </div>
             <div class="admin-table-wrap">
-              <table class="admin-table has-actions" style="min-width: 1050px">
+              <table class="admin-table has-actions" style="min-width: 820px">
                 <thead>
                   <tr>
                     <th>角色 ID</th>
                     <th>角色名称</th>
-                    <th>权限项数量</th>
-                    <th>数据范围</th>
                     <th>关联账号</th>
                     <th>角色状态</th>
                     <th>更新时间</th>
@@ -145,14 +135,15 @@
     <script>
       const data = LUMA_ADMIN_MOCK.system.roles;
       let visible = data,
-        current = null;
+        current = null,
+        pendingToggle = null;
       function render(items) {
         visible = items;
         resultCount.textContent = `共 ${items.length} 个角色`;
         pagination.classList.toggle("state-hide", !items.length);
         if (!items.length) {
           rows.innerHTML =
-            '<tr><td colspan="8"><div class="admin-empty"><strong>未找到后台角色</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+            '<tr><td colspan="6"><div class="admin-empty"><strong>未找到后台角色</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
           return;
         }
         rows.innerHTML = items
@@ -165,28 +156,28 @@
                     ? ' <span class="admin-tag">系统内置</span>'
                     : ""}
                 </td>
-                <td>${x.permissionCount} 项</td>
-                <td>${x.dataScope}</td>
                 <td>${x.accountCount} 个</td>
                 <td>
-                  <span class="admin-status ${x.status}"
-                    >${x.status === "enabled" ? "启用" : "停用"}</span
-                  >
+                  <div class="admin-switch-control">
+                    <label class="admin-switch">
+                      <input
+                        type="checkbox"
+                        data-status-toggle="${x.id}"
+                        aria-label="${x.name} 角色状态"
+                        ${x.status === "enabled" ? "checked" : ""}
+                        ${x.locked ? "disabled" : ""}
+                      />
+                      <span class="admin-switch-track"></span>
+                    </label>
+                    <span>${x.status === "enabled" ? "启用" : "停用"}</span>
+                  </div>
                 </td>
                 <td>${x.updatedAt}</td>
                 <td>
                   <a
                     class="admin-action"
                     href="admin-system-role-detail.html?id=${x.id}"
-                    >编辑</a
-                  >${x.locked
-                    ? ""
-                    : /* HTML */ `<button
-                        class="admin-action"
-                        data-status-action="${x.id}"
-                      >
-                        ${x.status === "enabled" ? "停用" : "启用"}
-                      </button>`}
+                    >编辑</a>
                 </td>
               </tr>`,
           )
@@ -198,45 +189,66 @@
           data.filter(
             (x) =>
               (!key || x.name.toLowerCase().includes(key)) &&
-              (!scopeFilter.value || x.dataScope === scopeFilter.value) &&
               (!statusFilter.value || x.status === statusFilter.value),
           ),
         );
         Luma.toast(`已查询到 ${visible.length} 个角色`);
       }
-      function openStatus(item) {
+      function openStatus(item, input) {
         current = item;
+        pendingToggle = input;
         statusTitle.textContent =
-          item.status === "enabled" ? "停用角色" : "启用角色";
+          input.checked ? "启用角色" : "停用角色";
         statusText.textContent =
-          item.status === "enabled"
-            ? `停用后，关联的 ${item.accountCount} 个账号将失去该角色权限。`
-            : `启用后，关联账号将恢复该角色权限。`;
+          input.checked
+            ? `启用后，关联账号将恢复该角色权限。`
+            : `停用后，关联的 ${item.accountCount} 个账号将失去该角色权限。`;
         statusOverlay.classList.add("show");
       }
+      function closeStatus() {
+        if (pendingToggle && current)
+          pendingToggle.checked = current.status === "enabled";
+        pendingToggle = null;
+        current = null;
+        statusOverlay.classList.remove("show");
+      }
       document.addEventListener("click", (e) => {
-        const action = e.target.closest("[data-status-action]");
-        if (action)
-          openStatus(data.find((x) => x.id === action.dataset.statusAction));
         const close = e.target.closest("[data-close]");
-        if (close)
-          document
-            .querySelector(`#${close.dataset.close}`)
-            .classList.remove("show");
-        if (e.target.classList.contains("admin-overlay"))
-          e.target.classList.remove("show");
+        if (close) {
+          if (close.dataset.close === "statusOverlay") closeStatus();
+          else
+            document
+              .querySelector(`#${close.dataset.close}`)
+              .classList.remove("show");
+        }
+        if (e.target.classList.contains("admin-overlay")) {
+          if (e.target === statusOverlay) closeStatus();
+          else e.target.classList.remove("show");
+        }
       });
+      rows.onchange = (e) => {
+        const input = e.target.closest("[data-status-toggle]");
+        if (!input) return;
+        const item = data.find((x) => x.id === input.dataset.statusToggle);
+        if (!item || item.locked) {
+          input.checked = true;
+          return;
+        }
+        openStatus(item, input);
+      };
       statusConfirm.onclick = () => {
-        current.status = current.status === "enabled" ? "disabled" : "enabled";
+        current.status = pendingToggle.checked ? "enabled" : "disabled";
         current.updatedAt = "2026-08-07 10:30";
         statusOverlay.classList.remove("show");
+        const enabled = current.status === "enabled";
+        pendingToggle = null;
+        current = null;
         filter();
-        Luma.toast(`角色已${current.status === "enabled" ? "启用" : "停用"}`);
+        Luma.toast(`角色已${enabled ? "启用" : "停用"}`);
       };
       searchBtn.onclick = filter;
       resetBtn.onclick = () => {
         roleKey.value = "";
-        scopeFilter.value = "";
         statusFilter.value = "";
         render(data);
         Luma.toast("筛选条件已重置");
@@ -249,7 +261,13 @@
       Luma.registerStates({
         全部角色: () => render(data),
         停用角色: () => render(data.filter((x) => x.status === "disabled")),
-        停用确认: () => openStatus(data[1]),
+        停用确认: () => {
+          const input = rows.querySelector(
+            `[data-status-toggle="${data[1].id}"]`,
+          );
+          input.checked = false;
+          openStatus(data[1], input);
+        },
         无查询结果: () => render([]),
       });
     </script>

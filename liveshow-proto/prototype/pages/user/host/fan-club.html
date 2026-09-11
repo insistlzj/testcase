@@ -154,7 +154,7 @@
         content: none !important;
         display: none !important;
       }
-      .remove {
+      .member-action {
         display: none;
         margin-left: 4px;
         padding: 7px 9px;
@@ -165,7 +165,7 @@
         font: 12px inherit;
         cursor: pointer;
       }
-      .members.editing .remove {
+      .members.editing .member-action {
         display: block;
       }
       .members.editing .member {
@@ -321,7 +321,7 @@
     </main>
     <section class="modal state-hide" id="modal">
       <div class="dialog">
-        <h2>移除成员</h2>
+        <h2 id="modalTitle">移除成员</h2>
         <p id="modalText"></p>
         <div class="dialog-actions">
           <button id="cancel" type="button">取消</button
@@ -333,12 +333,21 @@
       const edit = document.querySelector("#edit"),
         members = document.querySelector("#members"),
         modal = document.querySelector("#modal"),
+        modalTitle = document.querySelector("#modalTitle"),
         modalText = document.querySelector("#modalText"),
         memberCount = document.querySelector("#memberCount"),
         sortTabs = document.querySelectorAll(".sort-tabs button");
       let editing = false,
         target = null,
+        pendingAction = "remove",
         count = 184;
+      document.querySelectorAll(".remove").forEach((button) => {
+        button.classList.add("member-action");
+        button.insertAdjacentHTML(
+          "beforebegin",
+          '<button class="member-action mute" type="button">禁言</button>',
+        );
+      });
       edit.onclick = () => {
         editing = !editing;
         members.classList.toggle("editing", editing);
@@ -365,7 +374,22 @@
           (button.onclick = (event) => {
             event.stopPropagation();
             target = button.closest(".member");
+            pendingAction = "remove";
+            modalTitle.textContent = "移除成员";
             modalText.textContent = `确认将 ${target.dataset.name} 移出粉丝团？该成员将同时退出粉丝团群。`;
+            document.querySelector("#confirm").textContent = "确认移除";
+            modal.classList.remove("state-hide");
+          }),
+      );
+      document.querySelectorAll(".mute").forEach(
+        (button) =>
+          (button.onclick = (event) => {
+            event.stopPropagation();
+            target = button.closest(".member");
+            pendingAction = "mute";
+            modalTitle.textContent = "禁言成员";
+            modalText.textContent = `确认禁言 ${target.dataset.name}？`;
+            document.querySelector("#confirm").textContent = "确认禁言";
             modal.classList.remove("state-hide");
           }),
       );
@@ -376,6 +400,12 @@
       document.querySelector("#confirm").onclick = () => {
         if (!target) return;
         const name = target.dataset.name;
+        if (pendingAction === "mute") {
+          target = null;
+          modal.classList.add("state-hide");
+          Luma.toast(`已禁言 ${name}`);
+          return;
+        }
         target.remove();
         count -= 1;
         memberCount.textContent = `${count} 名成员`;
@@ -437,6 +467,7 @@
       clubStyle.textContent += [
         `.member{position:relative;overflow:hidden}`,
         `.member>*:not(.remove){transition:transform .18s ease}`,
+        `.mute{position:static!important;width:42px!important;height:32px;flex:none;margin:0!important;padding:0!important;border-radius:7px!important;background:var(--g6)!important;color:var(--g2)!important;display:flex!important;align-items:center;justify-content:center;opacity:1!important;pointer-events:auto!important}`,
         `.remove{position:absolute;top:0;right:0;bottom:0;width:64px;margin:0!important;padding:0!important;border-radius:0!important;background:var(--g1)!important;color:var(--g7)!important;display:flex!important;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .18s ease}`,
         `.member.swiped>*:not(.remove){transform:translateX(-64px)}`,
         `.member.swiped .remove{opacity:1;pointer-events:auto}`,
@@ -457,7 +488,7 @@
         member.addEventListener(
           "touchstart",
           (event) => {
-            if (event.target.closest(".remove")) return;
+            if (event.target.closest(".member-action")) return;
             swipeStartX = event.touches[0].clientX;
             swipeStartY = event.touches[0].clientY;
           },
@@ -466,7 +497,7 @@
         member.addEventListener(
           "touchend",
           (event) => {
-            if (event.target.closest(".remove")) return;
+            if (event.target.closest(".member-action")) return;
             const deltaX = event.changedTouches[0].clientX - swipeStartX,
               deltaY = event.changedTouches[0].clientY - swipeStartY;
             if (Math.abs(deltaX) <= Math.abs(deltaY) || Math.abs(deltaX) < 36)
@@ -486,12 +517,12 @@
     <script>
       members.querySelectorAll(".member").forEach((member) => {
         member.addEventListener("pointerdown", (event) => {
-          if (event.target.closest(".remove")) return;
+          if (event.target.closest(".member-action")) return;
           swipeStartX = event.clientX;
           swipeStartY = event.clientY;
         });
         member.addEventListener("pointerup", (event) => {
-          if (event.target.closest(".remove")) return;
+          if (event.target.closest(".member-action")) return;
           const deltaX = event.clientX - swipeStartX,
             deltaY = event.clientY - swipeStartY;
           if (Math.abs(deltaX) <= Math.abs(deltaY) || Math.abs(deltaX) < 36)
@@ -568,6 +599,16 @@
     </script>
     <script>
       clubStyle.textContent += ".modal.state-hide{display:none!important}";
+      Luma.registerStates({
+        粉丝团管理: {
+          成员列表: () => modal.classList.add("state-hide"),
+          单人禁言确认: () => {
+            const member = members.querySelector(".member");
+            member?.classList.add("swiped");
+            member?.querySelector(".mute")?.click();
+          },
+        },
+      });
     </script>
   </body>
 </html>

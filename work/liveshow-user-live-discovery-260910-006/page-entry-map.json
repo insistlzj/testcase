@@ -1,0 +1,1033 @@
+{
+  "live-plaza.html": {
+    "name": "直播广场",
+    "object": "直播广场",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+    "parent": "live-plaza.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播广场"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "live-room.html": {
+    "name": "直播间（普通房）",
+    "object": "直播间（普通房）",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播间（普通房）"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "live-room-report.html": {
+    "name": "举报直播间",
+    "object": "举报直播间",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-report.html",
+    "parent": "live-room-report.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入举报直播间"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "live-room-user-report.html": {
+    "name": "举报用户",
+    "object": "举报用户",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-user-report.html",
+    "parent": "live-room-user-report.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入举报用户"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "live-room-host.html": {
+    "name": "直播间",
+    "object": "直播间",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播间"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "live-room-host-password.html": {
+    "name": "直播间",
+    "object": "直播间",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host-password.html",
+    "parent": "live-room-host-password.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "打开更多功能",
+      "点击房间密码"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "live-room-cohost-active.html": {
+    "name": "直播间",
+    "object": "直播间",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-cohost-active.html",
+    "parent": "live-room-cohost-active.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播间"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "live-end-viewer.html": {
+    "name": "直播结束页（观众）",
+    "object": "直播结束页（观众）",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-end-viewer.html",
+    "parent": "live-end-viewer.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播结束页（观众）"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "live-end-host.html": {
+    "name": "直播结束页",
+    "object": "直播结束页",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-end-host.html",
+    "parent": "live-end-host.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播结束页"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "moderator-management.html": {
+    "name": "房管管理",
+    "object": "房管管理",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/moderator-management.html",
+    "parent": "moderator-management.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入房管管理"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "start-live-settings.html": {
+    "name": "开播设置",
+    "object": "开播设置",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+    "parent": "start-live-settings.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入开播设置"
+    ],
+    "preconditions": [
+      "主播具备开播资格"
+    ]
+  },
+  "visible-fan-select.html": {
+    "name": "选择可见粉丝",
+    "object": "选择可见粉丝",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/visible-fan-select.html",
+    "parent": "visible-fan-select.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入选择可见粉丝"
+    ],
+    "preconditions": [
+      "主播具备开播资格"
+    ]
+  },
+  "live-data.html": {
+    "name": "直播数据",
+    "object": "直播数据",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/live-data.html",
+    "parent": "live-data.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播数据"
+    ],
+    "preconditions": [
+      "主播已有直播记录"
+    ]
+  },
+  "live-records.html": {
+    "name": "直播记录",
+    "object": "直播记录",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/live-records.html",
+    "parent": "live-records.html",
+    "selectors": [],
+    "state": null,
+    "steps": [
+      "进入直播记录"
+    ],
+    "preconditions": [
+      "主播已有直播记录"
+    ]
+  },
+  "views/live-plaza/notification-intro.html": {
+    "name": "首次登录通知说明",
+    "object": "首次登录通知说明",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+    "parent": "live-plaza.html",
+    "selectors": [],
+    "state": {
+      "group": "页面状态",
+      "name": "首次登录通知说明"
+    },
+    "steps": [
+      "打开首次登录通知说明"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-plaza/notification-permission.html": {
+    "name": "系统通知授权弹窗",
+    "object": "系统通知授权弹窗",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+    "parent": "live-plaza.html",
+    "selectors": [],
+    "state": {
+      "group": "页面状态",
+      "name": "系统通知授权弹窗"
+    },
+    "steps": [
+      "打开系统通知授权弹窗"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/gift.html": {
+    "name": "礼物",
+    "object": "礼物",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      "#gift"
+    ],
+    "state": null,
+    "steps": [
+      "打开礼物"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/gift-recharge.html": {
+    "name": "充值",
+    "object": "充值",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      "#gift",
+      "[data-recharge]"
+    ],
+    "state": null,
+    "steps": [
+      "打开充值"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/fan-club-not-joined.html": {
+    "name": "粉丝团-未加入",
+    "object": "粉丝团关系",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      ".fan-club-entry"
+    ],
+    "state": {
+      "group": "粉丝团状态",
+      "name": "未加入"
+    },
+    "steps": [
+      "打开粉丝团"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/fan-club-joined.html": {
+    "name": "粉丝团-已加入",
+    "object": "粉丝团关系",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      ".fan-club-entry"
+    ],
+    "state": {
+      "group": "粉丝团状态",
+      "name": "已加入"
+    },
+    "steps": [
+      "打开粉丝团"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/comment-muted.html": {
+    "name": "被禁言",
+    "object": "被禁言",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [],
+    "state": {
+      "group": "发言状态",
+      "name": "被禁言"
+    },
+    "steps": [
+      "打开被禁言"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/password-room-restricted.html": {
+    "name": "密码房-访问受限",
+    "object": "密码房-访问受限",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [],
+    "state": {
+      "group": "房间访问",
+      "name": "密码房-访问受限"
+    },
+    "steps": [
+      "进入目标密码房"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/ticket-room-restricted.html": {
+    "name": "门票房-访问受限",
+    "object": "门票房-访问受限",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [],
+    "state": {
+      "group": "房间访问",
+      "name": "门票房-访问受限"
+    },
+    "steps": [
+      "打开门票房-访问受限"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/blocked-room-restricted.html": {
+    "name": "被拉黑或踢出-访问受限",
+    "object": "被拉黑或踢出-访问受限",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [],
+    "state": {
+      "group": "房间访问",
+      "name": "被拉黑或踢出-访问受限"
+    },
+    "steps": [
+      "打开被拉黑或踢出-访问受限"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/patrol-room-allowed.html": {
+    "name": "巡房身份-正常进入",
+    "object": "巡房身份-正常进入",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [],
+    "state": {
+      "group": "房间访问",
+      "name": "巡房身份-正常进入"
+    },
+    "steps": [
+      "打开巡房身份-正常进入"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/audience-online.html": {
+    "name": "在线观众-观众列表",
+    "object": "在线观众-观众列表",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      ".watch-chip",
+      "[data-manager-tab=\"online\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开在线观众-观众列表"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/audience-managers.html": {
+    "name": "在线观众-房管列表",
+    "object": "在线观众-房管列表",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      ".watch-chip",
+      "[data-manager-tab=\"managers\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开在线观众-房管列表"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/profile-viewer.html": {
+    "name": "用户资料卡-普通观众",
+    "object": "用户资料卡-普通观众",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      "#chat .chat-meta b"
+    ],
+    "state": {
+      "group": "当前身份",
+      "name": "普通观众"
+    },
+    "steps": [
+      "打开用户资料卡-普通观众"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/profile-moderator.html": {
+    "name": "用户资料卡-房管",
+    "object": "用户资料卡-房管",
+    "role": "房管",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      "#chat .chat-meta b"
+    ],
+    "state": {
+      "group": "当前身份",
+      "name": "房管"
+    },
+    "steps": [
+      "打开用户资料卡-房管"
+    ],
+    "preconditions": [
+      "房管账号已获得当前主播授权"
+    ]
+  },
+  "views/live-room/profile-moderator-mute.html": {
+    "name": "禁言确认",
+    "object": "禁言确认",
+    "role": "房管",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      "#chat .chat-meta b",
+      "[aria-label=\"禁言\"]"
+    ],
+    "state": {
+      "group": "当前身份",
+      "name": "房管"
+    },
+    "steps": [
+      "打开禁言确认"
+    ],
+    "preconditions": [
+      "房管账号已获得当前主播授权"
+    ]
+  },
+  "views/live-room/profile-moderator-remove.html": {
+    "name": "踢出确认",
+    "object": "踢出确认",
+    "role": "房管",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      "#chat .chat-meta b",
+      "[aria-label=\"踢出直播间\"]"
+    ],
+    "state": {
+      "group": "当前身份",
+      "name": "房管"
+    },
+    "steps": [
+      "打开踢出确认"
+    ],
+    "preconditions": [
+      "房管账号已获得当前主播授权"
+    ]
+  },
+  "views/live-room/contribution-rank.html": {
+    "name": "本场贡献-贡献榜",
+    "object": "本场贡献榜",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      ".quick button:first-child",
+      "[data-session-tab=\"contribution\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开本场贡献榜"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/contribution-gifts.html": {
+    "name": "本场贡献-收到礼物",
+    "object": "本场贡献-收到礼物",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      ".quick button:first-child",
+      "[data-session-tab=\"gifts\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开本场贡献-收到礼物"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/more-actions.html": {
+    "name": "更多功能（用户）",
+    "object": "更多功能（用户）",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      ".more-actions"
+    ],
+    "state": null,
+    "steps": [
+      "打开更多功能（用户）"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room/host-profile.html": {
+    "name": "主播资料卡",
+    "object": "主播资料卡",
+    "role": "观众",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room.html",
+    "parent": "live-room.html",
+    "selectors": [
+      ".host-chip"
+    ],
+    "state": null,
+    "steps": [
+      "打开主播资料卡"
+    ],
+    "preconditions": [
+      "观众已登录且可进入当前直播间"
+    ]
+  },
+  "views/live-room-host/contribution-rank.html": {
+    "name": "本场贡献-贡献榜",
+    "object": "本场贡献榜",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      ".quick button:first-child",
+      "[data-session-tab=\"contribution\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开本场贡献榜"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/audience-viewers.html": {
+    "name": "在线观众-观众列表",
+    "object": "在线观众-观众列表",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      ".watch-chip",
+      "[data-audience-tab=\"viewers\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开在线观众-观众列表"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/muted-users.html": {
+    "name": "禁用用户",
+    "object": "禁用用户",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      "#moreActions",
+      "[data-host-setting=\"muted\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开禁用用户"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/restore-speaking-confirm.html": {
+    "name": "恢复发言确认",
+    "object": "恢复发言确认",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      "#moreActions",
+      "[data-host-setting=\"muted\"]",
+      "[data-restore-user]"
+    ],
+    "state": null,
+    "steps": [
+      "打开恢复发言确认"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/profile-host.html": {
+    "name": "观众资料卡-主播",
+    "object": "观众资料卡-主播",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      "#chat .chat-meta b"
+    ],
+    "state": {
+      "group": "资料卡权限",
+      "name": "主播"
+    },
+    "steps": [
+      "打开观众资料卡-主播"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/thank-message.html": {
+    "name": "快捷答谢",
+    "object": "快捷答谢",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      "#chat .chat-meta b",
+      "[data-user-thank]"
+    ],
+    "state": null,
+    "steps": [
+      "打开快捷答谢"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/focus-viewers.html": {
+    "name": "重点观众",
+    "object": "重点观众",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      ".focus-entry"
+    ],
+    "state": null,
+    "steps": [
+      "打开重点观众"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/cohost-hosts.html": {
+    "name": "连麦主播",
+    "object": "连麦邀请",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      "[data-host-pk]"
+    ],
+    "state": null,
+    "steps": [
+      "打开连麦邀请"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/cohost-hosts-search-result.html": {
+    "name": "连麦主播-搜索结果",
+    "object": "连麦邀请",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [],
+    "state": {
+      "group": "连麦主播",
+      "name": "搜索结果"
+    },
+    "steps": [
+      "打开连麦邀请"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/cohost-invite-notice.html": {
+    "name": "收到连麦邀请",
+    "object": "连麦邀请",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [],
+    "state": {
+      "group": "连麦邀请提示",
+      "name": "收到连麦邀请"
+    },
+    "steps": [
+      "打开连麦邀请"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/share-recipient.html": {
+    "name": "选择分享对象",
+    "object": "选择分享对象",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      "#moreActions",
+      "[data-host-setting=\"share\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开选择分享对象"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/more-actions.html": {
+    "name": "更多功能",
+    "object": "更多功能",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      "#moreActions"
+    ],
+    "state": null,
+    "steps": [
+      "打开更多功能"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host/end-confirm.html": {
+    "name": "结束直播确认",
+    "object": "结束直播确认",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+    "parent": "live-room-host.html",
+    "selectors": [
+      "#exit"
+    ],
+    "state": null,
+    "steps": [
+      "打开结束直播确认"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host-password/more-actions.html": {
+    "name": "更多功能",
+    "object": "更多功能",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host-password.html",
+    "parent": "live-room-host-password.html",
+    "selectors": [
+      "#moreActions"
+    ],
+    "state": null,
+    "steps": [
+      "打开更多功能",
+      "点击房间密码"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host-password/room-password.html": {
+    "name": "房间密码",
+    "object": "房间密码",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host-password.html",
+    "parent": "live-room-host-password.html",
+    "selectors": [
+      "#moreActions",
+      "[data-host-setting=\"password\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开更多功能",
+      "点击房间密码"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-host-password/visible-scope.html": {
+    "name": "可见范围",
+    "object": "可见范围",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-host-password.html",
+    "parent": "live-room-host-password.html",
+    "selectors": [
+      "#moreActions",
+      "[data-host-setting=\"scope\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开更多功能",
+      "点击房间密码"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-cohost-active/more-actions.html": {
+    "name": "更多功能",
+    "object": "更多功能",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-cohost-active.html",
+    "parent": "live-room-cohost-active.html",
+    "selectors": [
+      "#moreActions"
+    ],
+    "state": null,
+    "steps": [
+      "打开更多功能"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/live-room-cohost-active/cohost-exit-confirm.html": {
+    "name": "退出连麦确认",
+    "object": "退出连麦确认",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/live/live-room-cohost-active.html",
+    "parent": "live-room-cohost-active.html",
+    "selectors": [
+      "[data-host-pk]"
+    ],
+    "state": null,
+    "steps": [
+      "打开退出连麦确认"
+    ],
+    "preconditions": [
+      "主播正在直播"
+    ]
+  },
+  "views/start-live-settings/category.html": {
+    "name": "选类型",
+    "object": "选类型",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+    "parent": "start-live-settings.html",
+    "selectors": [
+      "#categoryEntry"
+    ],
+    "state": null,
+    "steps": [
+      "打开选类型"
+    ],
+    "preconditions": [
+      "主播具备开播资格"
+    ]
+  },
+  "views/start-live-settings/room-normal.html": {
+    "name": "房型（普通）",
+    "object": "房型（普通）",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+    "parent": "start-live-settings.html",
+    "selectors": [
+      "#roomEntry"
+    ],
+    "state": null,
+    "steps": [
+      "打开房型（普通）"
+    ],
+    "preconditions": [
+      "主播具备开播资格"
+    ]
+  },
+  "views/start-live-settings/room-ticket.html": {
+    "name": "房型（门票房）",
+    "object": "房型（门票房）",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+    "parent": "start-live-settings.html",
+    "selectors": [
+      "#roomEntry",
+      "[name=\"roomType\"][value=\"ticket\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开房型（门票房）"
+    ],
+    "preconditions": [
+      "主播具备开播资格"
+    ]
+  },
+  "views/start-live-settings/room-password.html": {
+    "name": "房型（密码房）",
+    "object": "房型（密码房）",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+    "parent": "start-live-settings.html",
+    "selectors": [
+      "#roomEntry",
+      "[name=\"roomType\"][value=\"password\"]",
+      "#authorizeSwitch"
+    ],
+    "state": null,
+    "steps": [
+      "进入开播设置",
+      "打开房型设置",
+      "选择密码房"
+    ],
+    "preconditions": [
+      "主播具备开播资格"
+    ]
+  },
+  "views/start-live-settings/beauty.html": {
+    "name": "美颜设置",
+    "object": "美颜设置",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+    "parent": "start-live-settings.html",
+    "selectors": [
+      "#beautyEntry"
+    ],
+    "state": null,
+    "steps": [
+      "进入开播设置",
+      "打开美颜"
+    ],
+    "preconditions": [
+      "主播具备开播资格"
+    ]
+  },
+  "views/live-data/month.html": {
+    "name": "月数据",
+    "object": "直播数据",
+    "role": "主播",
+    "file": "liveshow-proto/prototype/pages/user/host/live-data.html",
+    "parent": "live-data.html",
+    "selectors": [
+      "[data-mode=\"month\"]"
+    ],
+    "state": null,
+    "steps": [
+      "打开月数据"
+    ],
+    "preconditions": [
+      "主播已有直播记录"
+    ]
+  }
+}

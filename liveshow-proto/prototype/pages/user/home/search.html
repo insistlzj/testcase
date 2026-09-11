@@ -72,6 +72,69 @@
         font: 14px inherit;
         cursor: pointer;
       }
+      .history {
+        padding: 20px 16px;
+      }
+      .history-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .history-head h2 {
+        margin: 0;
+        font-size: 15px;
+      }
+      .history-clear {
+        padding: 4px 0;
+        border: 0;
+        background: transparent;
+        color: var(--g3);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .history-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .history-chip {
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        height: 34px;
+        border-radius: 8px;
+        background: var(--g7);
+        overflow: hidden;
+      }
+      .history-keyword,
+      .history-delete {
+        height: 100%;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+      .history-keyword {
+        max-width: 240px;
+        padding: 0 4px 0 12px;
+        color: var(--g2);
+        font: 13px inherit;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .history-delete {
+        width: 30px;
+        padding: 0;
+        color: var(--g4);
+        font: 17px inherit;
+      }
+      .history-empty {
+        margin: 52px 0 0;
+        color: var(--g4);
+        font-size: 13px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -94,6 +157,18 @@
           <button type="submit">搜索</button>
         </form>
       </header>
+      <section class="history" id="historySection" aria-labelledby="historyTitle">
+        <div class="history-head">
+          <h2 id="historyTitle">搜索历史</h2>
+          <button class="history-clear" id="clearHistory" type="button">
+            清空全部
+          </button>
+        </div>
+        <div class="history-list" id="historyList"></div>
+        <p class="history-empty state-hide" id="historyEmpty">
+          暂无搜索历史
+        </p>
+      </section>
     </main>
     <div class="homebar"><i></i></div>
     <script>
@@ -106,8 +181,16 @@
           : "";
       const form = document.querySelector("#searchForm");
       const input = document.querySelector("#keyword");
+      const historyKey = "luma-user-search-history-v1";
+      const defaultHistory = ["Sari", "620100", "Dewi", "唱歌直播"];
+      let searchHistory = defaultHistory.slice();
+      try {
+        const savedHistory = JSON.parse(localStorage.getItem(historyKey));
+        if (Array.isArray(savedHistory)) searchHistory = savedHistory.slice(0, 10);
+      } catch (_error) {}
       input.value = params.get("keyword") || "";
       if (managerMode) {
+        document.querySelector("#historySection").classList.add("state-hide");
         input.placeholder = "搜索用户 ID";
         document.querySelector("#back").onclick = () => {
           location.href = returnTarget;
@@ -117,13 +200,55 @@
           location.href = "live-plaza.html";
         };
       requestAnimationFrame(() => input.focus());
-      form.onsubmit = (event) => {
-        event.preventDefault();
-        const keyword = input.value.trim();
+      function saveHistory() {
+        try {
+          localStorage.setItem(historyKey, JSON.stringify(searchHistory));
+        } catch (_error) {}
+      }
+      function renderHistory() {
+        const list = document.querySelector("#historyList");
+        list.replaceChildren();
+        searchHistory.forEach((keyword) => {
+          const chip = document.createElement("div");
+          chip.className = "history-chip";
+          const searchButton = document.createElement("button");
+          searchButton.className = "history-keyword";
+          searchButton.type = "button";
+          searchButton.textContent = keyword;
+          searchButton.onclick = () => submitSearch(keyword);
+          const deleteButton = document.createElement("button");
+          deleteButton.className = "history-delete";
+          deleteButton.type = "button";
+          deleteButton.setAttribute("aria-label", `删除搜索历史 ${keyword}`);
+          deleteButton.textContent = "×";
+          deleteButton.onclick = () => {
+            searchHistory = searchHistory.filter((item) => item !== keyword);
+            saveHistory();
+            renderHistory();
+          };
+          chip.append(searchButton, deleteButton);
+          list.append(chip);
+        });
+        document
+          .querySelector("#historyEmpty")
+          .classList.toggle("state-hide", searchHistory.length > 0);
+        document
+          .querySelector("#clearHistory")
+          .classList.toggle("state-hide", searchHistory.length === 0);
+      }
+      function submitSearch(rawKeyword) {
+        const keyword = rawKeyword.trim();
         if (!keyword) {
           Luma.toast("请输入搜索内容");
           input.focus();
           return;
+        }
+        if (!managerMode) {
+          searchHistory = [
+            keyword,
+            ...searchHistory.filter((item) => item !== keyword),
+          ].slice(0, 10);
+          saveHistory();
         }
         const query = new URLSearchParams({ keyword });
         if (managerMode) {
@@ -131,7 +256,17 @@
           query.set("return", returnTarget);
         }
         location.href = `search-results.html?${query}`;
+      }
+      form.onsubmit = (event) => {
+        event.preventDefault();
+        submitSearch(input.value);
       };
+      document.querySelector("#clearHistory").onclick = () => {
+        searchHistory = [];
+        saveHistory();
+        renderHistory();
+      };
+      renderHistory();
       Luma.registerStates({
         页面状态: {
           未输入: () => {
@@ -139,6 +274,18 @@
           },
           已输入: () => {
             input.value = "Sari";
+          },
+        },
+        搜索历史: {
+          有记录: () => {
+            searchHistory = defaultHistory.slice();
+            saveHistory();
+            renderHistory();
+          },
+          已清空: () => {
+            searchHistory = [];
+            saveHistory();
+            renderHistory();
           },
         },
       });

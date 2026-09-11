@@ -9,7 +9,7 @@
     <script src="../../../assets/admin-tokens.js"></script>
     <link
       rel="stylesheet"
-      href="../../../assets/admin.css?v=20260821-filter-actions-v8"
+      href="../../../assets/admin.css?v=20260901-single-column-v1"
     />
     <style>
       .admin-prop-layout {
@@ -93,7 +93,7 @@
     </style>
     <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <script src="../../../assets/admin-mock.js?v=20260904-prop-types-v1"></script>
   </head>
   <body>
     <div class="admin-shell">
@@ -247,14 +247,14 @@
         </div>
         <form id="typeEditorForm">
           <div class="admin-modal-body">
-            <div class="admin-form-row">
-              <label for="typeName">类型名称</label
-              ><input
-                class="admin-input"
-                id="typeName"
-                maxlength="12"
-                required
-              />
+            <div class="admin-form-row full admin-form-row-top">
+              <label>类型名称</label>
+              <div class="admin-localized-inputs">
+                <label for="typeNameZh"><span>中文</span><input class="admin-input" id="typeNameZh" maxlength="20" required /></label>
+                <label for="typeNameEn"><span>英语</span><input class="admin-input" id="typeNameEn" maxlength="40" required /></label>
+                <label for="typeNameId"><span>印尼语</span><input class="admin-input" id="typeNameId" maxlength="40" required /></label>
+                <label for="typeNameMs"><span>马来语</span><input class="admin-input" id="typeNameMs" maxlength="40" required /></label>
+              </div>
             </div>
           </div>
           <div class="admin-modal-foot">
@@ -270,7 +270,7 @@
       </section>
     </div>
     <div class="admin-overlay" id="editorOverlay">
-      <section class="admin-modal wide">
+      <section class="admin-modal wide admin-create-page">
         <div class="admin-modal-head">
           <h2 id="editorTitle">新增道具</h2>
           <button class="admin-icon-btn" data-close="editorOverlay">×</button>
@@ -337,6 +337,10 @@
                 ><input class="admin-input" id="editId" required />
               </div>
               <div class="admin-form-row">
+                <label for="nameZh">中文名称</label
+                ><input class="admin-input" id="nameZh" required />
+              </div>
+              <div class="admin-form-row">
                 <label for="nameEn">英文名称</label
                 ><input class="admin-input" id="nameEn" required />
               </div>
@@ -351,10 +355,7 @@
               <div class="admin-form-row">
                 <label for="editType">道具类型</label
                 ><select class="admin-select" id="editType">
-                  <option value="light">灯牌</option>
-                  <option value="title">头衔</option>
                   <option value="medal">勋章</option>
-                  <option value="vehicle">座驾</option>
                   <option value="bubble">气泡</option>
                   <option value="avatar">头像框</option>
                 </select>
@@ -431,13 +432,11 @@
     <script>
       const props = window.LUMA_ADMIN_MOCK.propItems,
         defaultPropTypes = [
-          { key: "light", name: "灯牌" },
-          { key: "title", name: "头衔" },
-          { key: "medal", name: "勋章" },
-          { key: "vehicle", name: "座驾" },
-          { key: "bubble", name: "气泡" },
-          { key: "avatar", name: "头像框" },
+          { key: "medal", name: "勋章", names: { zh: "勋章", en: "Medal", id: "Medali", ms: "Pingat" } },
+          { key: "bubble", name: "气泡", names: { zh: "气泡", en: "Chat Bubble", id: "Gelembung Obrolan", ms: "Gelembung Sembang" } },
+          { key: "avatar", name: "头像框", names: { zh: "头像框", en: "Avatar Frame", id: "Bingkai Avatar", ms: "Bingkai Avatar" } },
         ],
+        removedPresetTypes = new Set(["light", "title", "vehicle"]),
         propTypeStorageKey = "luma-admin-prop-types-v1";
       function sharedPropStorage() {
         try {
@@ -453,9 +452,21 @@
           const saved = JSON.parse(
             sharedPropStorage().getItem(propTypeStorageKey) || "null",
           );
-          if (Array.isArray(saved) && saved.length) return saved;
+          if (Array.isArray(saved) && saved.length)
+            return saved
+              .filter((type) => !removedPresetTypes.has(type.key))
+              .map(normalizePropType);
         } catch (error) {}
-        return defaultPropTypes.map((item) => ({ ...item }));
+        return defaultPropTypes.map(normalizePropType);
+      }
+      function normalizePropType(type) {
+        const fallback = defaultPropTypes.find((item) => item.key === type.key),
+          names = {
+            ...(fallback?.names || {}),
+            ...(type.names || {}),
+            zh: type.names?.zh || type.name || fallback?.name || "",
+          };
+        return { ...type, name: names.zh, names };
       }
       function savePropTypes() {
         try {
@@ -506,7 +517,7 @@
             (item) =>
               /* HTML */ `<tr>
                 <td>${item.id}</td>
-                <td><b>${item.names.id}</b></td>
+                <td><b>${item.names.zh || item.names.id}</b></td>
                 <td>
                   <div class="admin-media">
                     <span class="admin-media-placeholder"
@@ -521,7 +532,7 @@
                       ><input
                         type="checkbox"
                         data-status-toggle="${item.id}"
-                        aria-label="${item.names.id} 上下架状态"
+                        aria-label="${item.names.zh || item.names.id} 上下架状态"
                         ${item.status === "online" ? "checked" : ""} /><span
                         class="admin-switch-track"
                       ></span></label
@@ -604,6 +615,7 @@
           .map((type) => `<option value="${type.key}">${type.name}</option>`)
           .join("");
         if (item) {
+          nameZh.value = item.names.zh || "";
           nameEn.value = item.names.en;
           nameId.value = item.names.id;
           nameMs.value = item.names.ms;
@@ -621,15 +633,18 @@
         editingTypeKey = key;
         const type = propTypes.find((item) => item.key === key);
         typeEditorTitle.textContent = type ? "修改道具类型" : "新增道具类型";
-        typeName.value = type?.name || "";
+        typeNameZh.value = type?.names?.zh || type?.name || "";
+        typeNameEn.value = type?.names?.en || "";
+        typeNameId.value = type?.names?.id || "";
+        typeNameMs.value = type?.names?.ms || "";
         typeEditorOverlay.classList.add("show");
-        typeName.focus();
+        typeNameZh.focus();
       }
       function openConfirm(item) {
         current = item;
         currentAction = "delete";
         confirmTitle.textContent = "删除道具";
-        confirmText.textContent = `确认删除 ${item.names.id}（${item.id}）？`;
+        confirmText.textContent = `确认删除 ${item.names.zh || item.names.id}（${item.id}）？`;
         confirmSubmit.className = "admin-btn danger";
         confirmOverlay.classList.add("show");
       }
@@ -747,6 +762,7 @@
           data = {
             id,
             names: {
+              zh: nameZh.value.trim(),
               en: nameEn.value.trim(),
               id: nameId.value.trim(),
               ms: nameMs.value.trim(),
@@ -783,7 +799,13 @@
       };
       typeEditorForm.onsubmit = (event) => {
         event.preventDefault();
-        const name = typeName.value.trim();
+        const names = {
+            zh: typeNameZh.value.trim(),
+            en: typeNameEn.value.trim(),
+            id: typeNameId.value.trim(),
+            ms: typeNameMs.value.trim(),
+          },
+          name = names.zh;
         if (
           propTypes.some(
             (type) => type.name === name && type.key !== editingTypeKey,
@@ -791,10 +813,13 @@
         )
           return Luma.toast("道具类型名称已存在");
         if (editingTypeKey) {
-          propTypes.find((type) => type.key === editingTypeKey).name = name;
+          Object.assign(
+            propTypes.find((type) => type.key === editingTypeKey),
+            { name, names },
+          );
         } else {
           const key = `custom_${Date.now()}`;
-          propTypes.push({ key, name });
+          propTypes.push({ key, name, names });
           activeType = key;
         }
         savePropTypes();

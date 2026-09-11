@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>直播间-连麦中（主播） · 用户主播 App · Luma Live</title>
+    <title>直播间-连麦中-主播 · 用户主播 App · Luma Live</title>
     <script src="../../../assets/tailwind.js"></script>
     <script src="../../../assets/tokens.js"></script>
     <link
       rel="stylesheet"
-      href="../../../assets/common.css?v=p003-host-room-v23"
+      href="../../../assets/common.css?v=p003-host-room-v25"
     />
-    <script src="../../../assets/common.js?v=20260826-cohost-search-v8"></script>
+    <script src="../../../assets/common.js?v=20260904-contribution-count-v12"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
     <style>
       .room {
@@ -532,8 +532,8 @@
           发送
         </button>
         <div class="host-toolset">
-          <button class="host-tool" type="button" data-host-pk aria-label="PK">
-            PK</button
+          <button class="host-tool" type="button" data-host-pk aria-label="退出主播连麦" title="退出连麦">
+            <svg class="cohost-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7.5" r="2.5"></circle><circle cx="17" cy="7.5" r="2.5"></circle><path d="M2.5 18c.4-3.1 2-4.7 4.5-4.7s4.1 1.6 4.5 4.7"></path><path d="M12.5 18c.4-3.1 2-4.7 4.5-4.7s4.1 1.6 4.5 4.7"></path><path d="M9.8 11.5h4.4"></path></svg></button
           ><button
             class="host-tool"
             type="button"
@@ -776,11 +776,12 @@
         Luma.toast("已发送好友申请");
       };
       roomUserSheet.querySelector("[data-user-thank]").onclick = function () {
-        Luma.toast(
-          "已向 " +
-            roomUserSheet.querySelector("[data-user-name]").textContent +
-            " 发送答谢",
-        );
+        var name = roomUserSheet.querySelector("[data-user-name]").textContent,
+          input = document.querySelector("#comment");
+        roomUserSheet.classList.add("state-hide");
+        input.value = "@" + name + " 谢谢你送的礼物！";
+        input.dispatchEvent(new Event("input"));
+        input.focus();
       };
       roomUserSheet.querySelector("[data-user-mute]").onchange = function () {
         Luma.toast(this.checked ? "已禁言" : "已解除禁言");
@@ -1317,7 +1318,7 @@
         location.href = "live-end-host.html";
       };
       document.querySelector("[data-host-pk]").onclick = function () {
-        Luma.toast("打开 PK");
+        Luma.toast("打开连麦主播");
       };
       document.querySelector("[data-host-settings]").onclick = function () {
         Luma.toast("打开直播设置");
@@ -1772,6 +1773,16 @@
       }
       .host-tool:hover {
         background: var(--g5);
+      }
+      .cohost-tool-icon {
+        width: 22px;
+        height: 22px;
+        margin: auto;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
       }
       .host-tool:nth-child(2) {
         font-size: 20px;

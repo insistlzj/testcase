@@ -245,6 +245,7 @@
         error.textContent = empty ? "请输入昵称后保存" : "";
       }
       function goHome() {
+        Luma.storage("session").setItem("luma-notification-intro-pending", "1");
         window.parent.postMessage(
           { type: "luma-page", file: "../home/live-plaza.html" },
           "*",

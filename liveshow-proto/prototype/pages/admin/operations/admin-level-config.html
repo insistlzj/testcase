@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>等级配置 · 运营配置 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+    />
+    <script src="../../../assets/common.js?v=20260910-level-config"></script>
+    <script src="../../../assets/mock.js?v=20260910-level-badges"></script>
+    <style>
+      .level-description { margin: 0; padding: 16px; color: var(--admin-muted); font-size: var(--admin-font-sm); border-bottom: 1px solid var(--admin-border); }
+      .level-badge { display: flex; align-items: center; gap: 12px; }
+      .level-badge img { width: 48px; height: 48px; object-fit: contain; border: 1px solid var(--admin-border); border-radius: var(--admin-radius-sm); background: var(--admin-surface); }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand"><span class="admin-brand-mark">L</span><span>Luma 管理后台</span></div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">运营配置&nbsp;&nbsp;/&nbsp;&nbsp;<strong>等级配置</strong></div>
+          <div class="admin-account"><span class="admin-account-avatar">管</span><span>后台管理员</span><span>⌄</span></div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head"><h1>等级配置</h1></div>
+          <form id="levelForm">
+            <section class="admin-panel admin-table-panel">
+              <div class="admin-table-toolbar">
+                <div class="admin-list-tabs" role="tablist" aria-label="等级类型">
+                  <button class="admin-list-tab active" type="button" role="tab" id="tab-host" aria-selected="true" aria-controls="levelPanel" data-level-tab="host">主播等级</button>
+                  <button class="admin-list-tab" type="button" role="tab" id="tab-wealth" aria-selected="false" aria-controls="levelPanel" data-level-tab="wealth">财富等级</button>
+                  <button class="admin-list-tab" type="button" role="tab" id="tab-fan" aria-selected="false" aria-controls="levelPanel" data-level-tab="fan">粉丝等级</button>
+                  <button class="admin-list-tab" type="button" role="tab" id="tab-fanClub" aria-selected="false" aria-controls="levelPanel" data-level-tab="fanClub">粉丝团等级</button>
+                </div>
+                <button class="admin-btn secondary" type="button" id="addLevel">新增等级</button>
+              </div>
+              <div class="admin-table-wrap" id="levelPanel" role="tabpanel" aria-labelledby="tab-host">
+                <p class="level-description" id="levelDescription"></p>
+                <table class="admin-table" style="min-width: 720px">
+                  <colgroup><col style="width: 20%" /><col style="width: 45%" /><col /></colgroup>
+                  <thead><tr><th>等级</th><th id="valueHeader">收益数值（金币）</th><th>勋章图</th></tr></thead>
+                  <tbody id="levelRows"></tbody>
+                </table>
+              </div>
+              <div class="admin-modal-foot"><button class="admin-btn" type="submit">保存</button></div>
+            </section>
+          </form>
+        </main>
+      </div>
+    </div>
+    <script>
+      const configs = JSON.parse(JSON.stringify(LUMA_MOCK.levelConfigs));
+      const tabs = [...document.querySelectorAll('[data-level-tab]')];
+      let activeType = 'host';
+      function renderLevels() {
+        const config = configs[activeType];
+        valueHeader.textContent = config.valueLabel;
+        levelDescription.textContent = config.description;
+        levelPanel.setAttribute('aria-labelledby', `tab-${activeType}`);
+        tabs.forEach((tab) => {
+          const active = tab.dataset.levelTab === activeType;
+          tab.classList.toggle('active', active);
+          tab.setAttribute('aria-selected', String(active));
+        });
+        levelRows.innerHTML = config.rows.map((row, index) => `<tr>
+          <td><input class="admin-input" type="number" min="1" step="1" required data-index="${index}" data-field="level" aria-label="第 ${index + 1} 行等级" value="${row.level}" /></td>
+          <td><input class="admin-input" type="number" min="0" step="any" required data-index="${index}" data-field="value" aria-label="第 ${index + 1} 行${config.valueLabel}" value="${row.value}" /></td>
+          <td><div class="level-badge">
+            ${row.badgeImage ? `<img src="${row.badgeImage}" alt="等级 ${row.level} 勋章图" />` : ''}
+            <button class="admin-btn secondary" type="button" data-upload-badge="${index}">${row.badgeImage ? '更换图片' : '上传图片'}</button>
+            <input type="file" accept="image/*" data-badge-file="${index}" aria-label="第 ${index + 1} 行勋章图" hidden />
+          </div></td>
+        </tr>`).join('');
+      }
+      function selectLevelType(type) {
+        activeType = type;
+        renderLevels();
+      }
+      tabs.forEach((tab, index) => {
+        tab.onclick = () => selectLevelType(tab.dataset.levelTab);
+        tab.onkeydown = (event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+          tabs[next].click();
+          tabs[next].focus();
+        };
+      });
+      levelRows.oninput = (event) => {
+        const input = event.target.closest('[data-field]');
+        if (input) configs[activeType].rows[Number(input.dataset.index)][input.dataset.field] = input.value;
+      };
+      levelRows.onclick = (event) => {
+        const button = event.target.closest('[data-upload-badge]');
+        if (button) levelRows.querySelector(`[data-badge-file="${button.dataset.uploadBadge}"]`).click();
+      };
+      levelRows.onchange = (event) => {
+        const input = event.target.closest('[data-badge-file]');
+        const file = input?.files[0];
+        if (!file) return;
+        if (!file.type.startsWith('image/')) {
+          Luma.toast('请选择图片文件');
+          input.value = '';
+          return;
+        }
+        const row = configs[activeType].rows[Number(input.dataset.badgeFile)];
+        const url = URL.createObjectURL(file);
+        const preview = new Image();
+        preview.onload = () => {
+          if (row.badgeImage) URL.revokeObjectURL(row.badgeImage);
+          row.badgeImage = url;
+          renderLevels();
+          Luma.toast('勋章图已上传');
+        };
+        preview.onerror = () => {
+          URL.revokeObjectURL(url);
+          input.value = '';
+          Luma.toast('图片无法读取，请重新选择');
+        };
+        preview.src = url;
+      };
+      addLevel.onclick = () => {
+        const rows = configs[activeType].rows;
+        rows.push({ level: Math.max(0, ...rows.map((row) => Number(row.level) || 0)) + 1, value: '', badgeImage: '' });
+        renderLevels();
+        levelRows.lastElementChild.querySelector('[data-field="value"]').focus();
+      };
+      levelForm.onsubmit = (event) => {
+        event.preventDefault();
+        const config = configs[activeType];
+        const levels = config.rows.map((row) => Number(row.level));
+        if (levels.some((level) => !Number.isInteger(level) || level < 1) || new Set(levels).size !== levels.length) {
+          Luma.toast('等级须为不重复的正整数');
+          return;
+        }
+        Luma.toast(`${config.title}已保存`);
+      };
+      renderLevels();
+      Luma.registerStates({ '等级类型': Object.fromEntries(Object.entries(configs).map(([key, config]) => [config.title, () => selectLevelType(key)])) });
+      window.parent.postMessage({ type: 'luma-page', file: 'admin-level-config.html' }, '*');
+    </script>
+  </body>
+</html>

@@ -10,6 +10,37 @@
     <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
     <script src="../../../assets/mock.js?v=20260817-manager-v2"></script>
     <style>
+      .live-permission-notice {
+        margin: 0;
+        padding: 12px 16px;
+        background: var(--g6);
+        color: var(--danger);
+        font-size: 14px;
+      }
+      #livePermissionDialog {
+        width: min(280px, calc(100% - 32px));
+        padding: 20px 16px 16px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g1);
+        text-align: center;
+        font-size: 14px;
+      }
+      #livePermissionDialog::backdrop {
+        background: var(--overlay);
+      }
+      #livePermissionDialog p { margin: 0 0 20px; }
+      #livePermissionDialog button {
+        width: 100%;
+        height: 38px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: inherit;
+        cursor: pointer;
+      }
       .host-head {
         padding: 12px 16px 16px;
         background: var(--g7);
@@ -262,6 +293,7 @@
           ‹</button
         >主播中心
       </header>
+      <p id="livePermissionNotice" class="live-permission-notice state-hide" role="status">直播权限已关闭，请联系公会</p>
       <section class="host-head">
         <div class="host-row">
           <i class="avatar">安</i>
@@ -271,7 +303,7 @@
               ID：88231007<a
                 class="guild-tag"
                 href="../guild/guild-application-records.html"
-                >Jakarta Star Guild</a
+                >Jakarta Star Agency</a
               >
             </p>
           </div>
@@ -312,7 +344,7 @@
         <button
           class="tool"
           type="button"
-          onclick="location.href='start-live-settings.html'"
+          onclick="startLive()"
         >
           <i
             ><svg viewBox="0 0 24 24">
@@ -354,7 +386,7 @@
         ><button
           class="tool"
           type="button"
-          onclick="Luma.toast('进入提现申请')"
+          onclick="location.href='income-sharing.html'"
         >
           <i
             ><svg viewBox="0 0 24 24">
@@ -391,7 +423,26 @@
         >
       </section>
     </main>
+    <dialog id="livePermissionDialog" aria-labelledby="livePermissionMessage">
+      <p id="livePermissionMessage">直播权限已关闭，请联系公会</p>
+      <form method="dialog"><button type="submit" autofocus>知道了</button></form>
+    </dialog>
     <script>
+      let livePermissionClosed = false;
+      const livePermissionDialog = document.querySelector("#livePermissionDialog");
+      livePermissionDialog.addEventListener("cancel", (event) => event.preventDefault());
+      function setLivePermission(closed) {
+        livePermissionClosed = closed;
+        livePermissionDialog.close();
+        document.querySelector("#livePermissionNotice").classList.toggle("state-hide", !closed);
+      }
+      function startLive() {
+        if (livePermissionClosed) {
+          livePermissionDialog.showModal();
+          return;
+        }
+        location.href = "start-live-settings.html";
+      }
       const hostCenter = LUMA_MOCK.hostCenter;
       const guildNoticeBadge = document.querySelector("#guildNoticeBadge");
       const unreadGuildNoticeCount = LUMA_MOCK.guildNotifications.filter(
@@ -444,6 +495,10 @@
             (button.onclick = () => renderPeriod(button.dataset.period)),
         );
       Luma.registerStates({
+        直播权限: {
+          正常: () => setLivePermission(false),
+          直播权限关闭: () => setLivePermission(true),
+        },
         有效天进度: {
           未达标: () => {
             validDayState = "incomplete";

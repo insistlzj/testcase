@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>幸运礼物详情 · 礼物道具 · Luma Live 管理后台</title>
+    <title>幸运礼物编辑 · 礼物道具 · Luma Live 管理后台</title>
     <script src="../../../assets/tailwind.js"></script>
     <script src="../../../assets/tokens.js"></script>
     <script src="../../../assets/admin-tokens.js"></script>
     <link
       rel="stylesheet"
-      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+      href="../../../assets/admin.css?v=20260901-probability-stepper-v1"
     />
     <script src="../../../assets/common.js?v=20260818-decimal-input-v1"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-lucky-unit-price-v1"></script>
   </head>
   <body>
     <div class="admin-shell">
@@ -57,7 +57,7 @@
       <div class="admin-main">
         <header class="admin-topbar">
           <div class="admin-breadcrumb">
-            <strong id="topbarTitle">幸运礼物详情</strong>
+            <strong id="topbarTitle">编辑幸运礼物</strong>
           </div>
           <div class="admin-account">
             <span class="admin-account-avatar">管</span><span>后台管理员</span
@@ -68,40 +68,7 @@
           <a class="admin-back-link" href="admin-lucky-gift-config.html"
             >‹ 返回幸运礼物</a
           >
-          <div id="viewContent">
-            <section class="admin-panel admin-profile-panel">
-              <div class="admin-profile-summary">
-                <div class="admin-media" id="giftIcon"></div>
-                <div>
-                  <h2 id="giftName"></h2>
-                  <span id="giftStatus"></span>
-                </div>
-                <div class="admin-profile-summary-actions">
-                  <button class="admin-btn secondary" id="editBtn">编辑</button
-                  ><button class="admin-btn danger" id="deleteBtn">删除</button>
-                </div>
-              </div>
-              <div class="admin-detail-grid" id="baseInfo"></div>
-            </section>
-            <section class="admin-panel admin-tabs-panel">
-              <div class="admin-detail-tabs">
-                <button class="admin-detail-tab active" data-tab="names">
-                  多语言名称</button
-                ><button class="admin-detail-tab" data-tab="effect">
-                  特效信息</button
-                ><button class="admin-detail-tab" data-tab="probability">
-                  概率配置</button
-                ><button class="admin-detail-tab" data-tab="records">
-                  操作记录
-                </button>
-              </div>
-              <div class="admin-detail-panel" id="detailPanel"></div>
-            </section>
-          </div>
-          <section
-            class="admin-panel admin-profile-panel state-hide"
-            id="editContent"
-          >
+          <section class="admin-panel admin-profile-panel" id="editContent">
             <div class="admin-section-head">
               <strong id="editTitle"></strong>
               <div class="admin-page-actions">
@@ -126,7 +93,10 @@
                 <div class="admin-form-row full admin-form-row-top">
                   <label>礼物名称</label>
                   <div class="admin-localized-inputs">
-                    <label for="nameEn"
+                    <label for="nameZh"
+                      ><span>中文</span
+                      ><input class="admin-input" id="nameZh" required /></label
+                    ><label for="nameEn"
                       ><span>英语</span
                       ><input class="admin-input" id="nameEn" required /></label
                     ><label for="nameId"
@@ -236,14 +206,29 @@
                   />
                 </div>
                 <div class="admin-form-row admin-form-row-top">
+                  <label>单价</label>
+                  <div class="admin-calculated-field admin-calculated-inline">
+                    <strong id="editUnitPrice">0 金币</strong
+                    ><span class="admin-calculation-formula"
+                      >计算方式：开奖次数 × 单次消耗金币</span
+                    >
+                  </div>
+                </div>
+                <div class="admin-form-row admin-form-row-top">
                   <label>RTP</label>
-                  <div class="admin-calculated-field" id="editRtpField">
-                    <strong id="editCalculatedRtp">0%</strong
-                    ><span
-                      class="admin-rtp-warning state-hide"
-                      id="editRtpWarning"
-                      >建议调低理论返奖率</span
-                    ><span
+                  <div
+                    class="admin-calculated-field admin-calculated-inline"
+                    id="editRtpField"
+                  >
+                    <div class="admin-calculated-value">
+                      <strong id="editCalculatedRtp">0%</strong
+                      ><span
+                        class="admin-rtp-warning state-hide"
+                        id="editRtpWarning"
+                        >建议调低理论返奖率</span
+                      >
+                    </div>
+                    <span class="admin-calculation-formula"
                       >计算方式：Σ（奖励金币 × 中奖概率）÷（单次消耗金币 ×
                       开奖次数）</span
                     >
@@ -297,8 +282,7 @@
           LGF0002: "GFT1007",
           LGF0003: "GFT1008",
         },
-        requestedId = legacyIds[params.get("id")] || params.get("id"),
-        directEdit = params.get("edit") === "1";
+        requestedId = legacyIds[params.get("id")] || params.get("id");
       let isNew = params.get("new") === "1",
         item =
           luckyGifts().find((gift) => gift.id === requestedId) ||
@@ -321,7 +305,7 @@
         );
       }
       function actualRtp(config) {
-        const cost = Number(config.price) * Number(config.comboCount || 1);
+        const cost = unitPrice(config);
         if (!cost) return 0;
         const expected = config.rewards.reduce(
           (total, reward) =>
@@ -330,11 +314,20 @@
         );
         return (expected / cost) * 100;
       }
+      function roundUpRtp(value) {
+        const numeric = Number(value);
+        if (!Number.isFinite(numeric) || numeric <= 0) return 0;
+        return Math.ceil((numeric - 1e-9) * 10) / 10;
+      }
+      function unitPrice(config) {
+        return Number(config.price) * Number(config.comboCount || 1);
+      }
       function validationState(config) {
         const total = probabilitySum(config),
-          rtp = actualRtp(config),
+          rtp = roundUpRtp(actualRtp(config)),
+          price = unitPrice(config),
           probabilityValid = Math.abs(total - 100) < 0.0001;
-        return { total, rtp, probabilityValid, valid: probabilityValid };
+        return { total, rtp, price, probabilityValid, valid: probabilityValid };
       }
       function probabilityTable(config, editable = false) {
         const rows = config.rewards
@@ -349,7 +342,7 @@
                 </td>
                 <td>
                   ${editable
-                    ? `<input class="admin-input admin-number-input" type="text" inputmode="decimal" data-luma-decimal min="0" max="100" step="0.1" data-row="${index}" data-key="probability" value="${formatDecimal(reward.probability)}" required>`
+                    ? `<div class="admin-decimal-stepper"><input class="admin-input admin-number-input" type="text" inputmode="decimal" data-luma-decimal min="0" max="100" step="0.1" data-row="${index}" data-key="probability" value="${formatDecimal(reward.probability)}" required><span class="admin-decimal-stepper-controls"><button type="button" data-probability-step="1" aria-label="增加单次中奖概率" title="增加单次中奖概率">▴</button><button type="button" data-probability-step="-1" aria-label="减少单次中奖概率" title="减少单次中奖概率">▾</button></span></div>`
                     : `${formatDecimal(reward.probability)}%`}
                 </td>
               </tr>`,
@@ -360,60 +353,15 @@
           table: `<div class="admin-table-wrap admin-probability-editor"><table class="admin-record-table"><thead><tr><th>档位</th><th>单次奖励金币</th><th>单次中奖概率（%）</th></tr></thead><tbody>${rows}</tbody></table></div>`,
         };
       }
-      function recordTable(records) {
-        if (!records.length)
-          return '<div class="admin-record-empty"><strong>暂无记录</strong></div>';
-        return `<div class="admin-record-scroll"><table class="admin-record-table"><thead><tr><th>操作类型</th><th>操作说明</th><th>操作人</th><th>操作时间</th></tr></thead><tbody>${records.map((record) => `<tr><td>${record.action}</td><td>${record.detail}</td><td>${record.operator}</td><td>${record.time}</td></tr>`).join("")}</tbody></table></div>`;
-      }
-      function renderTab(tab) {
-        document
-          .querySelectorAll("[data-tab]")
-          .forEach((button) =>
-            button.classList.toggle("active", button.dataset.tab === tab),
-          );
-        if (tab === "names")
-          detailPanel.innerHTML = `<div class="admin-detail-grid"><div class="admin-detail-item"><span>英文</span><b>${item.names.en}</b></div><div class="admin-detail-item"><span>印尼语</span><b>${item.names.id}</b></div><div class="admin-detail-item"><span>马来语</span><b>${item.names.ms}</b></div></div>`;
-        if (tab === "effect")
-          detailPanel.innerHTML = `<div class="admin-media-grid"><div><h4>礼物图标</h4><div class="admin-media large"><span class="admin-media-placeholder">${item.icon === "未上传" ? "未上传" : "图标 占位"}</span></div></div><div><h4>礼物特效</h4><div class="admin-media large"><span class="admin-media-placeholder">${item.effect === "未上传" ? "未上传" : "特效 占位"}</span></div></div></div>`;
-        if (tab === "probability")
-          detailPanel.innerHTML = probabilityTable(item).table;
-        if (tab === "records")
-          detailPanel.innerHTML = recordTable(item.changes);
-      }
-      function render() {
-        const rtp = actualRtp(item);
-        giftIcon.innerHTML = `<span class="admin-media-placeholder">${item.icon === "未上传" ? "未上传" : "图标 占位"}</span>`;
-        giftName.innerHTML = `${Luma.tip(item.names.id, "礼物名称")}（${Luma.id(item.id, "礼物ID")}）`;
-        giftStatus.className = "admin-switch-control";
-        giftStatus.innerHTML = `<label class="admin-switch"><input type="checkbox" data-detail-status-toggle aria-label="${item.names.id} 上下架状态" ${item.status === "online" ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${item.status === "online" ? "上架" : "下架"}</span>`;
-        baseInfo.innerHTML = /* HTML */ `<div class="admin-detail-item">
-            <span>单次消耗金币</span><b>${formatCoins(item.price)}</b>
-          </div>
-          <div class="admin-detail-item">
-            <span>开奖次数</span><b>${item.comboCount || 1}</b>
-          </div>
-          <div class="admin-detail-item">
-            <span>RTP</span><b>${formatDecimal(rtp)}%</b>
-          </div>
-          <div class="admin-detail-item">
-            <span>礼物图标</span><b>${item.icon}</b>
-          </div>
-          <div class="admin-detail-item">
-            <span>礼物特效</span><b>${item.effect}</b>
-          </div>
-          <div class="admin-detail-item">
-            <span>排序权重</span><b>${item.sort}</b>
-          </div>`;
-        renderTab("names");
-      }
       function blankItem() {
         return {
           id: nextGiftId(),
-          names: { en: "", id: "", ms: "" },
+          names: { zh: "", en: "", id: "", ms: "" },
           icon: "未上传",
           category: "lucky",
           price: 10,
           comboCount: 1,
+          unitPrice: 10,
           targetRtp: 96,
           effect: "未上传",
           sort: 50,
@@ -439,6 +387,8 @@
           errors = [],
           rtpRisk = state.rtp >= 100;
         draft.targetRtp = state.rtp;
+        draft.unitPrice = state.price;
+        editUnitPrice.textContent = `${formatCoins(state.price)} 金币`;
         editCalculatedRtp.textContent = `${formatDecimal(state.rtp)}%`;
         editRtpField.classList.toggle("is-risk", rtpRisk);
         editRtpWarning.classList.toggle("state-hide", !rtpRisk);
@@ -485,6 +435,7 @@
         editId.value = draft.id;
         editIdText.textContent = draft.id;
         giftIdRow.classList.toggle("state-hide", isNew);
+        nameZh.value = draft.names.zh || "";
         nameEn.value = draft.names.en;
         nameId.value = draft.names.id;
         nameMs.value = draft.names.ms;
@@ -496,18 +447,9 @@
         renderMediaEditor();
         syncEditStatus();
         updateValidation();
-        viewContent.classList.add("state-hide");
-        editContent.classList.remove("state-hide");
       }
       function closeEditor() {
-        if (isNew || directEdit) {
-          location.href = "admin-lucky-gift-config.html";
-          return;
-        }
-        draft = null;
-        editContent.classList.add("state-hide");
-        viewContent.classList.remove("state-hide");
-        topbarTitle.textContent = "幸运礼物详情";
+        location.href = "admin-lucky-gift-config.html";
       }
       editorRows.addEventListener("input", (event) => {
         const input = event.target;
@@ -518,19 +460,50 @@
             : Number(input.value);
         updateValidation();
       });
+      function stepProbability(input, direction) {
+        const step = Number(input.getAttribute("step")) || 1,
+          min = Number(input.getAttribute("min")),
+          max = Number(input.getAttribute("max")),
+          precision = (String(step).split(".")[1] || "").length,
+          factor = 10 ** precision,
+          current = LUMA_FORMAT.parseDecimal(input.value),
+          next = Math.min(
+            max,
+            Math.max(
+              min,
+              Math.round(
+                ((Number.isFinite(current) ? current : min) +
+                  direction * step) *
+                  factor,
+              ) / factor,
+            ),
+          );
+        input.value = LUMA_FORMAT.decimalInput(next, precision);
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+        input.focus();
+      }
+      editorRows.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-probability-step]");
+        if (!button) return;
+        stepProbability(
+          button.closest(".admin-decimal-stepper").querySelector("input"),
+          Number(button.dataset.probabilityStep),
+        );
+      });
+      editorRows.addEventListener("keydown", (event) => {
+        if (
+          event.target.dataset.key !== "probability" ||
+          !["ArrowUp", "ArrowDown"].includes(event.key)
+        )
+          return;
+        event.preventDefault();
+        stepProbability(event.target, event.key === "ArrowUp" ? 1 : -1);
+      });
       [editPrice, editComboCount].forEach((input) =>
         input.addEventListener("input", updateValidation),
       );
       editStatus.onchange = syncEditStatus;
-      editBtn.onclick = () => {
-        location.href = `admin-lucky-gift-detail.html?id=${item.id}&edit=1`;
-      };
       cancelBtn.onclick = closeEditor;
-      deleteBtn.onclick = () => {
-        const index = allGifts.indexOf(item);
-        if (index >= 0) allGifts.splice(index, 1);
-        location.href = "admin-lucky-gift-config.html";
-      };
       editForm.onsubmit = (event) => {
         event.preventDefault();
         const state = updateValidation();
@@ -542,6 +515,7 @@
         Object.assign(draft, {
           id,
           names: {
+            zh: nameZh.value.trim(),
             en: nameEn.value.trim(),
             id: nameId.value.trim(),
             ms: nameMs.value.trim(),
@@ -549,6 +523,7 @@
           icon: editorIcon,
           price: Number(editPrice.value),
           comboCount: Number(editComboCount.value),
+          unitPrice: state.price,
           targetRtp: state.rtp,
           effect: editorEffect,
           sort: Number(editSort.value),
@@ -573,17 +548,15 @@
             "",
             `admin-lucky-gift-detail.html?id=${item.id}`,
           );
-        render();
-        if (created || !directEdit) {
-          editContent.classList.add("state-hide");
-          viewContent.classList.remove("state-hide");
-          topbarTitle.textContent = "幸运礼物详情";
+        if (created) {
+          editTitle.textContent = "编辑幸运礼物";
+          topbarTitle.textContent = editTitle.textContent;
+          giftIdRow.classList.remove("state-hide");
+          editIdText.textContent = item.id;
         }
         Luma.toast(created ? "幸运礼物已新增" : "幸运礼物已保存");
       };
       document.addEventListener("click", (event) => {
-        const tab = event.target.closest("[data-tab]");
-        if (tab) renderTab(tab.dataset.tab);
         const remove = event.target.closest("[data-delete-media]");
         if (remove) {
           if (remove.dataset.deleteMedia === "icon") editorIcon = "未上传";
@@ -611,20 +584,6 @@
         const menu = event.target.closest("[data-menu]");
         if (menu) Luma.toast(menu.dataset.menu);
       });
-      document.addEventListener("change", (event) => {
-        if (event.target.matches("[data-detail-status-toggle]")) {
-          item.status = event.target.checked ? "online" : "offline";
-          item.updatedAt = "2026-08-05 14:30";
-          item.changes.unshift({
-            action: event.target.checked ? "上架" : "下架",
-            detail: "通过开关调整礼物状态",
-            operator: "后台管理员",
-            time: item.updatedAt,
-          });
-          render();
-          Luma.toast("礼物状态已更新");
-        }
-      });
       iconFile.onchange = () => {
         if (iconFile.files[0]) {
           editorIcon = iconFile.files[0].name;
@@ -637,8 +596,7 @@
           renderMediaEditor();
         }
       };
-      render();
-      if (isNew || directEdit) openEditor();
+      openEditor();
       window.parent.postMessage(
         {
           type: "luma-page",
@@ -648,13 +606,7 @@
         "*",
       );
       Luma.registerStates({
-        多语言名称: () => renderTab("names"),
-        特效信息: () => renderTab("effect"),
-        概率配置: () => renderTab("probability"),
-        操作记录: () => renderTab("records"),
-        编辑: () => {
-          location.href = `admin-lucky-gift-detail.html?id=${item.id}&edit=1`;
-        },
+        正常: () => openEditor(),
         "RTP 校验失败": () => {
           openEditor();
           draft.rewards[0].probability = 9;

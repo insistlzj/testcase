@@ -11,9 +11,9 @@
       rel="stylesheet"
       href="../../../assets/admin.css?v=20260821-filter-actions-v8"
     />
-    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/common.js?v=20260901-system-nav-order-v3"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-rbac-v1"></script>
   </head>
   <body class="admin-monochrome">
     <div class="admin-shell">
@@ -65,24 +65,6 @@
               >新建账号</a
             >
           </div>
-          <section class="system-summary-strip">
-            <article class="admin-panel system-summary-item">
-              <span>账号总数</span><b id="totalCount">6</b
-              ><small>含启用与停用账号</small>
-            </article>
-            <article class="admin-panel system-summary-item">
-              <span>启用账号</span><b id="enabledCount">5</b
-              ><small>当前可登录后台</small>
-            </article>
-            <article class="admin-panel system-summary-item">
-              <span>停用账号</span><b id="disabledCount">1</b
-              ><small>当前禁止登录</small>
-            </article>
-            <article class="admin-panel system-summary-item">
-              <span>从未登录</span><b id="neverCount">1</b
-              ><small>已创建但未登录</small>
-            </article>
-          </section>
           <section class="admin-panel admin-filter">
             <div class="admin-filter-grid">
               <div class="admin-field">
@@ -183,22 +165,11 @@
         roles = LUMA_ADMIN_MOCK.system.roles;
       let activeStatus = "",
         visible = data,
-        current = null;
+        current = null,
+        pendingToggle = null;
       roleFilter.innerHTML += [...new Set(roles.map((x) => x.name))]
         .map((x) => `<option>${x}</option>`)
         .join("");
-      function syncSummary() {
-        totalCount.textContent = data.length;
-        enabledCount.textContent = data.filter(
-          (x) => x.status === "enabled",
-        ).length;
-        disabledCount.textContent = data.filter(
-          (x) => x.status === "disabled",
-        ).length;
-        neverCount.textContent = data.filter(
-          (x) => x.lastLoginAt === "从未登录",
-        ).length;
-      }
       function render(items) {
         visible = items;
         resultCount.textContent = `共 ${items.length} 条`;
@@ -217,9 +188,19 @@
                 <td>${x.name}</td>
                 <td>${x.role}</td>
                 <td>
-                  <span class="admin-status ${x.status}"
-                    >${x.status === "enabled" ? "启用" : "停用"}</span
-                  >
+                  <div class="admin-switch-control">
+                    <label class="admin-switch">
+                      <input
+                        type="checkbox"
+                        data-status-toggle="${x.id}"
+                        aria-label="${x.username} 账号状态"
+                        ${x.status === "enabled" ? "checked" : ""}
+                        ${x.locked ? "disabled" : ""}
+                      />
+                      <span class="admin-switch-track"></span>
+                    </label>
+                    <span>${x.status === "enabled" ? "启用" : "停用"}</span>
+                  </div>
                 </td>
                 <td>${x.lastLoginAt}</td>
                 <td>${x.updatedAt}</td>
@@ -227,15 +208,7 @@
                   <a
                     class="admin-action"
                     href="admin-system-account-detail.html?id=${x.id}"
-                    >编辑</a
-                  >${x.locked
-                    ? '<span class="admin-muted">系统内置</span>'
-                    : /* HTML */ `<button
-                        class="admin-action"
-                        data-status-action="${x.id}"
-                      >
-                        ${x.status === "enabled" ? "停用" : "启用"}
-                      </button>`}
+                    >编辑</a>
                 </td>
               </tr>`,
           )
@@ -263,16 +236,24 @@
             x.classList.toggle("active", x.dataset.status === activeStatus),
           );
       }
-      function openStatus(item) {
+      function openStatus(item, input) {
         current = item;
+        pendingToggle = input;
         statusTitle.textContent =
-          item.status === "enabled" ? "停用账号" : "启用账号";
+          input.checked ? "启用账号" : "停用账号";
         statusText.textContent =
-          item.status === "enabled"
-            ? `停用后，“${item.username}”将无法登录管理后台。`
-            : `启用后，“${item.username}”可恢复登录管理后台。`;
+          input.checked
+            ? `启用后，“${item.username}”可恢复登录管理后台。`
+            : `停用后，“${item.username}”将无法登录管理后台。`;
         statusReason.value = "";
         statusOverlay.classList.add("show");
+      }
+      function closeStatus() {
+        if (pendingToggle && current)
+          pendingToggle.checked = current.status === "enabled";
+        pendingToggle = null;
+        current = null;
+        statusOverlay.classList.remove("show");
       }
       document.addEventListener("click", (e) => {
         const tab = e.target.closest("[data-status]");
@@ -282,25 +263,38 @@
           syncTabs();
           filter();
         }
-        const action = e.target.closest("[data-status-action]");
-        if (action)
-          openStatus(data.find((x) => x.id === action.dataset.statusAction));
         const close = e.target.closest("[data-close]");
-        if (close)
-          document
-            .querySelector(`#${close.dataset.close}`)
-            .classList.remove("show");
-        if (e.target.classList.contains("admin-overlay"))
-          e.target.classList.remove("show");
+        if (close) {
+          if (close.dataset.close === "statusOverlay") closeStatus();
+          else
+            document
+              .querySelector(`#${close.dataset.close}`)
+              .classList.remove("show");
+        }
+        if (e.target.classList.contains("admin-overlay")) {
+          if (e.target === statusOverlay) closeStatus();
+          else e.target.classList.remove("show");
+        }
       });
+      rows.onchange = (e) => {
+        const input = e.target.closest("[data-status-toggle]");
+        if (!input) return;
+        const item = data.find((x) => x.id === input.dataset.statusToggle);
+        if (!item || item.locked) {
+          input.checked = true;
+          return;
+        }
+        openStatus(item, input);
+      };
       statusConfirm.onclick = () => {
         if (!statusReason.value.trim()) return Luma.toast("请填写操作原因");
-        current.status = current.status === "enabled" ? "disabled" : "enabled";
+        current.status = pendingToggle.checked ? "enabled" : "disabled";
         current.updatedAt = "2026-08-07 10:30";
         statusOverlay.classList.remove("show");
-        syncSummary();
+        pendingToggle = null;
+        current = null;
         filter();
-        Luma.toast(`账号已${current.status === "enabled" ? "启用" : "停用"}`);
+        Luma.toast("账号状态已更新");
       };
       searchBtn.onclick = filter;
       resetBtn.onclick = () => {
@@ -312,7 +306,6 @@
         render(data);
         Luma.toast("筛选条件已重置");
       };
-      syncSummary();
       render(data);
       window.parent.postMessage(
         { type: "luma-page", file: "admin-system-account.html" },
@@ -321,7 +314,11 @@
       Luma.registerStates({
         全部账号: () => render(data),
         停用账号: () => render(data.filter((x) => x.status === "disabled")),
-        停用确认: () => openStatus(data[1]),
+        停用确认: () => {
+          const input = rows.querySelector('[data-status-toggle="ADM10008"]');
+          input.checked = false;
+          openStatus(data[1], input);
+        },
         无查询结果: () => render([]),
       });
     </script>

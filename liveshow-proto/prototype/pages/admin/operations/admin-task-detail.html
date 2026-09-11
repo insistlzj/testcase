@@ -137,14 +137,14 @@
                   <label>任务 ID</label>
                   <div class="admin-readonly-value" id="taskId"></div>
                 </div>
-                <div class="admin-form-row">
-                  <label for="taskName">任务名称</label
-                  ><input
-                    class="admin-input"
-                    id="taskName"
-                    maxlength="30"
-                    required
-                  />
+                <div class="admin-form-row full admin-form-row-top">
+                  <label>任务名称</label>
+                  <div class="admin-localized-inputs">
+                    <label for="taskNameZh"><span>中文</span><input class="admin-input" id="taskNameZh" maxlength="30" required /></label>
+                    <label for="taskNameEn"><span>英语</span><input class="admin-input" id="taskNameEn" maxlength="60" required /></label>
+                    <label for="taskNameId"><span>印尼语</span><input class="admin-input" id="taskNameId" maxlength="60" required /></label>
+                    <label for="taskNameMs"><span>马来语</span><input class="admin-input" id="taskNameMs" maxlength="60" required /></label>
+                  </div>
                 </div>
                 <div class="admin-form-row">
                   <label>状态</label>
@@ -402,6 +402,14 @@
           updatedAt: "2026-08-07 09:55",
         },
       ];
+      const taskNameCatalog = {
+        TSK1001: { zh: "连续登录奖励", en: "Consecutive Login Rewards", id: "Hadiah Login Berturut-turut", ms: "Ganjaran Log Masuk Berturut-turut" },
+        TSK1002: { zh: "单日观看直播奖励", en: "Daily Live Viewing Rewards", id: "Hadiah Menonton Live Harian", ms: "Ganjaran Menonton Live Harian" },
+        TSK1003: { zh: "累计赠礼次数奖励", en: "Cumulative Gift Count Rewards", id: "Hadiah Jumlah Gift Kumulatif", ms: "Ganjaran Bilangan Hadiah Terkumpul" },
+        TSK1004: { zh: "累计赠礼金币奖励", en: "Cumulative Gift Coin Rewards", id: "Hadiah Koin Gift Kumulatif", ms: "Ganjaran Syiling Hadiah Terkumpul" },
+        TSK1005: { zh: "分享直播间奖励", en: "Live Room Sharing Rewards", id: "Hadiah Berbagi Ruang Live", ms: "Ganjaran Kongsi Bilik Live" },
+        TSK1006: { zh: "邀请拉新奖励", en: "New User Invitation Rewards", id: "Hadiah Undangan Pengguna Baru", ms: "Ganjaran Jemputan Pengguna Baharu" },
+      };
       function sharedTaskStorage() {
         try {
           return window.parent && window.parent !== window
@@ -426,9 +434,19 @@
             }[action] ||
             "consecutive_login_days",
           cycle =
-            item.cycle || { watch_live: "daily" }[action] || "task_period";
+            item.cycle || { watch_live: "daily" }[action] || "task_period",
+          fallbackNames = taskNameCatalog[item.id] || {
+            zh: item.name || "", en: "", id: "", ms: "",
+          },
+          names = {
+            ...fallbackNames,
+            ...(item.names || {}),
+            zh: item.names?.zh || item.name || fallbackNames.zh,
+          };
         return {
           ...item,
+          name: names.zh,
+          names,
           action,
           metric,
           cycle,
@@ -447,10 +465,7 @@
           );
           if (Array.isArray(saved)) return saved.map(normalizeTask);
         } catch (error) {}
-        return defaultTasks.map((item) => ({
-          ...item,
-          rules: item.rules.map((rule) => ({ ...rule })),
-        }));
+        return defaultTasks.map(normalizeTask);
       }
       function saveTasks() {
         try {
@@ -496,7 +511,9 @@
       }
       function renderRules() {
         const meta = metricMeta[taskMetric.value];
-        conditionHeader.textContent = `${meta.label}（${meta.unit}）`;
+        conditionHeader.textContent = taskMetric.value === "consecutive_login_days"
+          ? "连续第 n 天"
+          : `${meta.label}（${meta.unit}）`;
         ruleRows.innerHTML = rules
           .map(
             (rule, index) =>
@@ -520,7 +537,13 @@
         const title = isNew ? "新建任务" : "编辑任务";
         pageName.textContent = title;
         taskId.textContent = isNew ? "保存后由系统生成" : editData.id;
-        taskName.value = isNew ? "" : editData.name;
+        const names = isNew
+          ? { zh: "", en: "", id: "", ms: "" }
+          : editData.names;
+        taskNameZh.value = names.zh;
+        taskNameEn.value = names.en;
+        taskNameId.value = names.id;
+        taskNameMs.value = names.ms;
         taskAction.value = isNew ? "login_app" : editData.action;
         syncAction(
           isNew ? "consecutive_login_days" : editData.metric,
@@ -600,9 +623,16 @@
         )
           return Luma.toast("请填写正确的奖励金币");
         const created = isNew,
+          names = {
+            zh: taskNameZh.value.trim(),
+            en: taskNameEn.value.trim(),
+            id: taskNameId.value.trim(),
+            ms: taskNameMs.value.trim(),
+          },
           item = {
             id: created ? nextId() : editData.id,
-            name: taskName.value.trim(),
+            name: names.zh,
+            names,
             action: taskAction.value,
             metric: taskMetric.value,
             cycle: taskCycle.value,

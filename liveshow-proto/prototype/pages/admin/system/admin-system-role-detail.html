@@ -9,11 +9,11 @@
     <script src="../../../assets/admin-tokens.js"></script>
     <link
       rel="stylesheet"
-      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+      href="../../../assets/admin.css?v=20260901-menu-permissions-v2"
     />
-    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/common.js?v=20260901-system-nav-order-v3"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-menu-permissions-v2"></script>
   </head>
   <body class="admin-monochrome">
     <div class="admin-shell">
@@ -51,7 +51,7 @@
       <div class="admin-main">
         <header class="admin-topbar">
           <div class="admin-breadcrumb">
-            系统配置&nbsp;&nbsp;/&nbsp;&nbsp;角色权限&nbsp;&nbsp;/&nbsp;&nbsp;<strong
+            系统配置&nbsp;&nbsp;/&nbsp;&nbsp;角色管理&nbsp;&nbsp;/&nbsp;&nbsp;<strong
               id="crumb"
               >角色编辑</strong
             >
@@ -63,9 +63,9 @@
         </header>
         <main class="admin-content">
           <a class="admin-back-link" href="admin-system-role.html"
-            >‹ 返回角色权限</a
+            >‹ 返回角色管理</a
           >
-          <section class="admin-panel admin-profile-panel">
+          <section class="admin-panel admin-profile-panel admin-create-page">
             <div class="admin-section-head">
               <h2 id="pageTitle">角色编辑</h2>
               <div class="admin-page-actions">
@@ -92,14 +92,6 @@
                   />
                 </div>
                 <div class="admin-form-row">
-                  <label for="dataScope">数据范围</label
-                  ><select class="admin-select" id="dataScope">
-                    <option>全平台</option>
-                    <option>指定业务范围</option>
-                    <option>本人操作数据</option>
-                  </select>
-                </div>
-                <div class="admin-form-row">
                   <label>角色状态</label>
                   <div class="admin-switch-control">
                     <label class="admin-switch"
@@ -110,19 +102,21 @@
                   </div>
                 </div>
               </div>
-              <div class="admin-detail-section">
-                <div class="admin-section-head">
-                  <h4>功能权限</h4>
-                  <span
-                    class="system-permission-count"
-                    id="permissionCount"
-                  ></span>
+              <section class="role-permission-section">
+                <div class="role-permission-heading">
+                  <div>
+                    <h3>菜单权限</h3>
+                    <span class="system-permission-count" id="permissionCount"></span>
+                  </div>
+                  <div class="role-permission-toolbar">
+                    <button type="button" data-tree-action="expand">全部展开</button>
+                    <button type="button" data-tree-action="collapse">全部收起</button>
+                    <button type="button" data-tree-action="select">全选</button>
+                    <button type="button" data-tree-action="clear">全不选</button>
+                  </div>
                 </div>
-                <div
-                  class="system-permission-groups"
-                  id="permissionGroups"
-                ></div>
-              </div>
+                <div class="role-permission-tree" id="permissionTree"></div>
+              </section>
               <div class="admin-note state-hide" id="lockedNote">
                 超级管理员为系统内置角色，默认拥有全部权限，不允许修改。
               </div>
@@ -142,91 +136,152 @@
               permissionCount: 0,
               dataScope: "指定业务范围",
               status: "enabled",
-              selected: [],
             }
           : S.roles.find((x) => x.id === params.get("id")) || S.roles[1];
-      let selected = new Set(
-        item.locked
-          ? S.permissions.flatMap((g) => g.items)
-          : item.selected ||
-            S.permissions
-              .flatMap((g) => g.items)
-              .slice(0, item.permissionCount),
-      );
+      const permissionItems = (group) =>
+        group.items.length ? group.items : [group.group];
+      const allPermissions = S.permissions.flatMap(permissionItems);
+      let selectedPermissions = new Set(
+          item.locked
+            ? allPermissions
+            : Array.isArray(item.selected)
+              ? item.selected
+              : allPermissions.slice(0, item.permissionCount),
+        ),
+        expandedGroups = new Set(S.permissions.map((_, index) => index));
+
       function renderPermissions() {
-        permissionGroups.innerHTML = S.permissions
-          .map((group, index) => {
-            const all = group.items.every((x) => selected.has(x));
-            return /* HTML */ `<section class="system-permission-group">
-              <div class="system-permission-head">
-                <label
-                  ><input
+        permissionCount.textContent = `已选择 ${selectedPermissions.size} / ${allPermissions.length} 项`;
+        permissionTree.innerHTML = S.permissions
+          .map((group, groupIndex) => {
+            const groupItems = permissionItems(group),
+              hasChildren = group.items.length > 0,
+              selectedCount = groupItems.filter((name) =>
+                selectedPermissions.has(name),
+              ).length,
+              expanded = expandedGroups.has(groupIndex),
+              disabled = item.locked ? "disabled" : "";
+            return /* HTML */ `<section class="role-permission-node">
+              <div class="role-permission-parent">
+                ${hasChildren
+                  ? /* HTML */ `<button
+                      class="role-permission-disclosure"
+                      type="button"
+                      data-expand-group="${groupIndex}"
+                      aria-label="${expanded ? "收起" : "展开"}${group.group}"
+                      aria-expanded="${expanded}"
+                    >${expanded ? "⌄" : "›"}</button>`
+                  : '<span class="role-permission-disclosure-spacer"></span>'}
+                <label>
+                  <input
                     type="checkbox"
-                    data-group="${index}"
-                    ${all ? "checked" : ""}
-                    ${item.locked ? "disabled" : ""}
-                  />${group.group}</label
-                ><span class="system-permission-count"
-                  >${group.items.filter((x) => selected.has(x)).length} /
-                  ${group.items.length}</span
-                >
+                    data-permission-group="${groupIndex}"
+                    ${selectedCount === groupItems.length ? "checked" : ""}
+                    ${disabled}
+                  />
+                  <strong>${group.group}</strong>
+                </label>
+                <span>${selectedCount} / ${groupItems.length}</span>
               </div>
-              <div class="system-permission-items">
-                ${group.items
-                  .map(
-                    (x) =>
-                      `<label><input type="checkbox" data-permission="${x}" ${selected.has(x) ? "checked" : ""} ${item.locked ? "disabled" : ""}>${x}</label>`,
-                  )
-                  .join("")}
-              </div>
+              ${hasChildren
+                ? /* HTML */ `<div class="role-permission-children ${expanded ? "" : "state-hide"}">
+                    ${group.items
+                      .map(
+                        (name) => /* HTML */ `<label>
+                          <input
+                            type="checkbox"
+                            data-permission="${name}"
+                            ${selectedPermissions.has(name) ? "checked" : ""}
+                            ${disabled}
+                          />
+                          <span>${name}</span>
+                        </label>`,
+                      )
+                      .join("")}
+                  </div>`
+                : ""}
             </section>`;
           })
           .join("");
-        permissionCount.textContent = `已选择 ${selected.size} 项权限`;
+        permissionTree
+          .querySelectorAll("[data-permission-group]")
+          .forEach((input) => {
+            const group = S.permissions[Number(input.dataset.permissionGroup)],
+              groupItems = permissionItems(group),
+              selectedCount = groupItems.filter((name) =>
+                selectedPermissions.has(name),
+              ).length;
+            input.indeterminate =
+              selectedCount > 0 && selectedCount < groupItems.length;
+          });
+        document.querySelectorAll("[data-tree-action='select'], [data-tree-action='clear']")
+          .forEach((button) => (button.disabled = Boolean(item.locked)));
       }
+
       function render() {
         crumb.textContent = pageTitle.textContent = isNew
           ? "新建角色"
           : "角色编辑";
         roleCode.textContent = item.id;
         roleName.value = item.name;
-        dataScope.value = item.dataScope;
         enabled.checked = item.status === "enabled";
         enabledText.textContent = enabled.checked ? "启用" : "停用";
         lockedNote.classList.toggle("state-hide", !item.locked);
-        [roleName, dataScope, enabled].forEach(
+        [roleName, enabled].forEach(
           (x) => (x.disabled = Boolean(item.locked)),
         );
         renderPermissions();
       }
-      permissionGroups.onchange = (e) => {
-        const groupIndex = e.target.dataset.group,
-          permission = e.target.dataset.permission;
-        if (groupIndex !== undefined) {
-          S.permissions[Number(groupIndex)].items.forEach((x) =>
-            e.target.checked ? selected.add(x) : selected.delete(x),
+      enabled.onchange = () =>
+        (enabledText.textContent = enabled.checked ? "启用" : "停用");
+      permissionTree.onclick = (event) => {
+        const button = event.target.closest("[data-expand-group]");
+        if (!button) return;
+        const groupIndex = Number(button.dataset.expandGroup);
+        if (expandedGroups.has(groupIndex)) expandedGroups.delete(groupIndex);
+        else expandedGroups.add(groupIndex);
+        renderPermissions();
+      };
+      permissionTree.onchange = (event) => {
+        const groupInput = event.target.closest("[data-permission-group]"),
+          permissionInput = event.target.closest("[data-permission]");
+        if (groupInput) {
+          permissionItems(
+            S.permissions[Number(groupInput.dataset.permissionGroup)],
+          ).forEach(
+            (name) =>
+              groupInput.checked
+                ? selectedPermissions.add(name)
+                : selectedPermissions.delete(name),
           );
-        } else if (permission) {
-          e.target.checked
-            ? selected.add(permission)
-            : selected.delete(permission);
+        } else if (permissionInput) {
+          if (permissionInput.checked)
+            selectedPermissions.add(permissionInput.dataset.permission);
+          else selectedPermissions.delete(permissionInput.dataset.permission);
         }
         renderPermissions();
       };
-      enabled.onchange = () =>
-        (enabledText.textContent = enabled.checked ? "启用" : "停用");
+      document.querySelectorAll("[data-tree-action]").forEach((button) => {
+        button.onclick = () => {
+          const action = button.dataset.treeAction;
+          if (action === "expand")
+            expandedGroups = new Set(S.permissions.map((_, index) => index));
+          if (action === "collapse") expandedGroups.clear();
+          if (action === "select") selectedPermissions = new Set(allPermissions);
+          if (action === "clear") selectedPermissions.clear();
+          renderPermissions();
+        };
+      });
       roleForm.onsubmit = (e) => {
         e.preventDefault();
         if (item.locked) return Luma.toast("系统内置角色不可修改");
-        if (!selected.size) return Luma.toast("请至少选择一个功能权限");
         if (S.roles.some((x) => x !== item && x.name === roleName.value.trim()))
           return Luma.toast("角色名称已存在");
         Object.assign(item, {
           name: roleName.value.trim(),
-          dataScope: dataScope.value,
           status: enabled.checked ? "enabled" : "disabled",
-          permissionCount: selected.size,
-          selected: [...selected],
+          selected: [...selectedPermissions],
+          permissionCount: selectedPermissions.size,
           updatedAt: "2026-08-07 10:30",
         });
         if (isNew) {
@@ -242,7 +297,7 @@
           );
         }
         render();
-        Luma.toast("角色权限已保存");
+        Luma.toast("角色已保存");
       };
       render();
       window.parent.postMessage(

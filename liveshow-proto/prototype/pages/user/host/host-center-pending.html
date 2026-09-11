@@ -235,7 +235,7 @@
         <div class="apply-form">
           <div class="apply-field">
             <label for="birthDate">出生日期</label
-            ><input id="birthDate" type="date" max="2026-08-11" required />
+            ><input id="birthDate" type="date" required />
           </div>
           <div class="age-note">主播认证需年满 18 岁。</div>
           <div class="apply-field">
@@ -257,7 +257,7 @@
             <label for="identityPhoto">本人手持证件</label
             ><input id="identityPhoto" type="file" accept="image/*" required />
           </div>
-          <button class="submit" type="submit">提交审核</button>
+          <button class="submit" id="applySubmit" type="submit" disabled>提交审核</button>
         </div>
       </form>
     </section>
@@ -275,7 +275,15 @@
         guildPending: {
           notice: "公会审核通过后，才能提交直播权限申请。",
           steps: [
-            ["加入公会", "", "action muted", "审核中"],
+            ["加入公会", window.LUMA_MOCK.guildMemberships.pending.guild, "action muted", "审核中"],
+            ["申请直播权限", "", "status", "未申请"],
+            ["开始直播", "", "status", "未开通"],
+          ],
+        },
+        guildRejected: {
+          notice: "公会入会申请已驳回，可重新选择公会并申请。",
+          steps: [
+            ["加入公会", "", "action", "重新申请"],
             ["申请直播权限", "", "status", "未申请"],
             ["开始直播", "", "status", "未开通"],
           ],
@@ -291,8 +299,16 @@
         permissionPending: {
           notice: "直播权限申请正在审核，请留意审核结果。",
           steps: [
-            ["加入公会", "", "done", "已同意"],
+            ["加入公会", window.LUMA_MOCK.guildMemberships.joined.guild, "done", "已同意"],
             ["申请直播权限", "", "status", "申请中"],
+            ["开始直播", "", "status", "未开通"],
+          ],
+        },
+        platformRejected: {
+          notice: "平台已驳回直播权限申请，请修改认证资料后重新提交。",
+          steps: [
+            ["加入公会", "", "done", "已同意"],
+            ["申请直播权限", "", "action", "重新申请"],
             ["开始直播", "", "status", "未开通"],
           ],
         },
@@ -300,9 +316,12 @@
       let current = "guild";
       const steps = document.querySelector("#steps"),
         applyMask = document.querySelector("#applyMask"),
-        applyForm = document.querySelector("#applyForm");
+        applyForm = document.querySelector("#applyForm"),
+        birthDate = document.querySelector("#birthDate"),
+        applySubmit = document.querySelector("#applySubmit");
       function render(name) {
         current = name;
+        applyMask.classList.add("state-hide");
         const state = stateMap[name];
         document.querySelector("#notice").textContent = state.notice;
         steps.innerHTML = state.steps
@@ -314,18 +333,18 @@
         steps.querySelectorAll("[data-action]").forEach(
           (button) =>
             (button.onclick = () => {
-              if (current === "guild")
+              if (current === "guild" || current === "guildRejected")
                 location.href = "../guild/guild-management.html";
               else if (current === "guildPending")
                 location.href = "../guild/guild-application-records.html";
-              else if (current === "apply")
+              else if (current === "apply" || current === "platformRejected")
                 applyMask.classList.remove("state-hide");
             }),
         );
       }
       function getAge(value) {
         const birth = new Date(`${value}T00:00:00`),
-          today = new Date("2026-08-11T00:00:00");
+          today = new Date();
         let age = today.getFullYear() - birth.getFullYear();
         if (
           today.getMonth() < birth.getMonth() ||
@@ -335,6 +354,17 @@
           age -= 1;
         return age;
       }
+      const adultDate = new Date();
+      adultDate.setFullYear(adultDate.getFullYear() - 18);
+      birthDate.max = adultDate.toISOString().slice(0, 10);
+      function syncSubmit() {
+        const complete = [...applyForm.querySelectorAll("[required]")].every(
+          (field) => field.value,
+        );
+        applySubmit.disabled = !complete || getAge(birthDate.value) < 18;
+      }
+      applyForm.addEventListener("input", syncSubmit);
+      applyForm.addEventListener("change", syncSubmit);
       document.querySelector("#applyClose").onclick = () =>
         applyMask.classList.add("state-hide");
       applyMask.onclick = (event) => {
@@ -342,7 +372,7 @@
       };
       applyForm.onsubmit = (event) => {
         event.preventDefault();
-        const age = getAge(document.querySelector("#birthDate").value);
+        const age = getAge(birthDate.value);
         if (age < 18) return Luma.toast("未满 18 岁，暂不能申请主播认证");
         applyMask.classList.add("state-hide");
         render("permissionPending");
@@ -357,8 +387,10 @@
         开通状态: {
           未加入公会: () => render("guild"),
           公会审核中: () => render("guildPending"),
+          公会驳回: () => render("guildRejected"),
           公会通过未提交直播申请: () => render("apply"),
-          "公会通过+已提交直播申请": () => render("permissionPending"),
+          直播权限审核中: () => render("permissionPending"),
+          平台驳回: () => render("platformRejected"),
           "公会通过+直播申请通过": () => (location.href = "host-center.html"),
         },
       });

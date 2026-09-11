@@ -176,7 +176,7 @@
         <button
           class="back"
           type="button"
-          onclick="location.href='live-plaza.html'"
+          onclick="location.href=Luma.guestUrl('live-plaza.html')"
         >
           ‹</button
         >贡献榜
@@ -219,6 +219,12 @@
           )
           .join("");
       };
+      document.addEventListener("click", (event) => {
+        const profileLink = event.target.closest(".podium-item, .ranking-row");
+        if (!profileLink || !Luma.isGuestMode()) return;
+        event.preventDefault();
+        Luma.requireLogin();
+      });
       document.querySelectorAll("[data-period]").forEach(
         (tab) =>
           (tab.onclick = () => {

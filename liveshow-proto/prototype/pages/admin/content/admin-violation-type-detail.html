@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>违规类型编辑 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/admin.css?v=20260821-filter-actions-v8" />
+    <script src="../../../assets/common.js?v=20260901-system-nav-order-v3"></script>
+    <script src="../../../assets/mock.js?v=20260901-i18n-v2"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-i18n-v2"></script>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand"><span class="admin-brand-mark">L</span><span>Luma 管理后台</span></div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb">违规类型&nbsp;&nbsp;/&nbsp;&nbsp;<strong id="pageName"></strong></div>
+          <div class="admin-account"><span class="admin-account-avatar">管</span><span>后台管理员</span><span>⌄</span></div>
+        </header>
+        <main class="admin-content">
+          <a class="admin-back-link" href="admin-violation-types.html">‹ 返回违规类型</a>
+          <section class="admin-panel admin-profile-panel">
+            <div class="admin-section-head"><h2 id="formTitle"></h2></div>
+            <form class="admin-resource-form" id="typeForm">
+              <div class="admin-form-grid admin-basic-form-grid">
+                <div class="admin-form-row">
+                  <label>类型 ID</label><div class="admin-readonly-value" id="typeId"></div>
+                </div>
+                <div class="admin-form-row full admin-form-row-top">
+                  <label>违规类型</label>
+                  <div class="admin-localized-inputs">
+                    <label for="typeNameZh"><span>中文</span><input class="admin-input" id="typeNameZh" maxlength="20" required /></label>
+                    <label for="typeNameEn"><span>英语</span><input class="admin-input" id="typeNameEn" maxlength="50" required /></label>
+                    <label for="typeNameId"><span>印尼语</span><input class="admin-input" id="typeNameId" maxlength="50" required /></label>
+                    <label for="typeNameMs"><span>马来语</span><input class="admin-input" id="typeNameMs" maxlength="50" required /></label>
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="sort">排序</label>
+                  <input class="admin-input admin-number-input" id="sort" type="number" min="1" step="1" required />
+                </div>
+                <div class="admin-form-row">
+                  <label>类型属性</label><div class="admin-readonly-value" id="typeProperty"></div>
+                </div>
+                <div class="admin-form-row">
+                  <label>状态</label>
+                  <div class="admin-switch-control">
+                    <label class="admin-switch">
+                      <input id="enabled" type="checkbox" />
+                      <span class="admin-switch-track"></span>
+                    </label>
+                    <span id="enabledText"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-modal-foot">
+                <a class="admin-btn secondary" href="admin-violation-types.html">取消</a>
+                <button class="admin-btn" type="submit">保存</button>
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script>
+      const storageKey = window.LUMA_VIOLATION_TYPE_STORAGE_KEY,
+        params = new URLSearchParams(location.search);
+      let items = window.LUMA_READ_VIOLATION_TYPES(), isNew = params.get("new") === "1";
+      function sharedStorage() {
+        try { return window.parent && window.parent !== window ? window.parent.localStorage : localStorage; }
+        catch (error) { return localStorage; }
+      }
+      function saveItems() {
+        try { sharedStorage().setItem(storageKey, JSON.stringify(items)); } catch (error) {}
+      }
+      function nextId() {
+        const number = Math.max(0, ...items.map((item) => Number(item.id.replace(/\D/g, "")) || 0)) + 1;
+        return `VT${String(number).padStart(3, "0")}`;
+      }
+      let item = isNew ? {
+        id: "", name: "", names: { zh: "", en: "", id: "", ms: "" }, sort: items.length + 1, protected: false, enabled: true, updatedAt: ""
+      } : items.find((entry) => entry.id === params.get("id")) || items[0];
+      function render() {
+        const title = isNew ? "新增违规类型" : "编辑违规类型";
+        pageName.textContent = title;
+        formTitle.textContent = title;
+        typeId.textContent = isNew ? "保存后由系统生成" : item.id;
+        typeNameZh.value = item.names?.zh || item.name || "";
+        typeNameEn.value = item.names?.en || "";
+        typeNameId.value = item.names?.id || "";
+        typeNameMs.value = item.names?.ms || "";
+        sort.value = item.sort;
+        sort.max = Math.max(1, items.length + (isNew ? 1 : 0));
+        typeProperty.textContent = item.protected ? "系统预置" : "自定义";
+        enabled.checked = item.protected ? true : item.enabled !== false;
+        enabled.disabled = item.protected;
+        enabledText.textContent = enabled.checked ? "启用" : "禁用";
+      }
+      function placeItem(target, nextSort) {
+        const others = items.filter((entry) => entry.id !== target.id).sort((left, right) => left.sort - right.sort);
+        others.splice(Math.min(Math.max(nextSort - 1, 0), others.length), 0, target);
+        others.forEach((entry, index) => { entry.sort = index + 1; });
+        return others;
+      }
+      typeForm.onsubmit = (event) => {
+        event.preventDefault();
+        const names = {
+          zh: typeNameZh.value.trim(),
+          en: typeNameEn.value.trim(),
+          id: typeNameId.value.trim(),
+          ms: typeNameMs.value.trim()
+        }, name = names.zh, nextSort = Number(sort.value);
+        if (!name) return Luma.toast("请输入违规类型");
+        if (items.some((entry) => entry.id !== item.id && entry.name === name)) return Luma.toast("违规类型名称已存在");
+        if (!Number.isInteger(nextSort) || nextSort < 1 || nextSort > items.length + (isNew ? 1 : 0)) return Luma.toast("请输入有效排序");
+        const created = isNew;
+        Object.assign(item, {
+          id: created ? nextId() : item.id,
+          name,
+          names,
+          sort: nextSort,
+          protected: created ? false : item.protected,
+          enabled: item.protected ? true : enabled.checked,
+          updatedAt: "2026-09-01 14:00"
+        });
+        items = placeItem(item, nextSort);
+        isNew = false;
+        saveItems();
+        if (created) history.replaceState(null, "", `admin-violation-type-detail.html?id=${item.id}`);
+        render();
+        Luma.toast(created ? "违规类型已新增" : "违规类型已保存");
+      };
+      enabled.onchange = () => {
+        enabledText.textContent = enabled.checked ? "启用" : "禁用";
+      };
+      render();
+      window.parent.postMessage({ type: "luma-page", file: "admin-violation-type-detail.html", query: location.search }, "*");
+    </script>
+  </body>
+</html>

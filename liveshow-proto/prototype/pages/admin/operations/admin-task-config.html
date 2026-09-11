@@ -11,6 +11,11 @@
       rel="stylesheet"
       href="../../../assets/admin.css?v=20260821-filter-actions-v8"
     />
+    <style>
+      .admin-switch-button { padding: 0; border: 0; background: transparent; }
+      .admin-switch-button.on .admin-switch-track { background: var(--admin-primary); }
+      .admin-switch-button.on .admin-switch-track::after { transform: translateX(18px); }
+    </style>
     <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
     <script src="../../../assets/admin-mock.js"></script>
   </head>
@@ -163,6 +168,19 @@
         </main>
       </div>
     </div>
+    <div class="admin-overlay" id="statusOverlay">
+      <section class="admin-modal" role="dialog" aria-modal="true" aria-labelledby="statusTitle">
+        <div class="admin-modal-head">
+          <h2 id="statusTitle"></h2>
+          <button class="admin-icon-btn" id="statusClose" type="button" aria-label="关闭">×</button>
+        </div>
+        <div class="admin-modal-body"><p id="statusText"></p></div>
+        <div class="admin-modal-foot">
+          <button class="admin-btn secondary" id="statusCancel" type="button">取消</button>
+          <button class="admin-btn" id="statusConfirm" type="button">确认</button>
+        </div>
+      </section>
+    </div>
     <script>
       const taskStorageKey = "luma-admin-task-config-v2";
       const defaultTasks = [
@@ -265,6 +283,14 @@
           updatedAt: "2026-08-07 09:55",
         },
       ];
+      const taskNameCatalog = {
+        TSK1001: { zh: "连续登录奖励", en: "Consecutive Login Rewards", id: "Hadiah Login Berturut-turut", ms: "Ganjaran Log Masuk Berturut-turut" },
+        TSK1002: { zh: "单日观看直播奖励", en: "Daily Live Viewing Rewards", id: "Hadiah Menonton Live Harian", ms: "Ganjaran Menonton Live Harian" },
+        TSK1003: { zh: "累计赠礼次数奖励", en: "Cumulative Gift Count Rewards", id: "Hadiah Jumlah Gift Kumulatif", ms: "Ganjaran Bilangan Hadiah Terkumpul" },
+        TSK1004: { zh: "累计赠礼金币奖励", en: "Cumulative Gift Coin Rewards", id: "Hadiah Koin Gift Kumulatif", ms: "Ganjaran Syiling Hadiah Terkumpul" },
+        TSK1005: { zh: "分享直播间奖励", en: "Live Room Sharing Rewards", id: "Hadiah Berbagi Ruang Live", ms: "Ganjaran Kongsi Bilik Live" },
+        TSK1006: { zh: "邀请拉新奖励", en: "New User Invitation Rewards", id: "Hadiah Undangan Pengguna Baru", ms: "Ganjaran Jemputan Pengguna Baharu" },
+      };
       const actionText = {
           login_app: "登录 App",
           watch_live: "观看直播",
@@ -297,9 +323,19 @@
             }[action] ||
             "consecutive_login_days",
           cycle =
-            item.cycle || { watch_live: "daily" }[action] || "task_period";
+            item.cycle || { watch_live: "daily" }[action] || "task_period",
+          fallbackNames = taskNameCatalog[item.id] || {
+            zh: item.name || "", en: "", id: "", ms: "",
+          },
+          names = {
+            ...fallbackNames,
+            ...(item.names || {}),
+            zh: item.names?.zh || item.name || fallbackNames.zh,
+          };
         return {
           ...item,
+          name: names.zh,
+          names,
           action,
           metric,
           cycle,
@@ -318,10 +354,7 @@
           );
           if (Array.isArray(saved)) return saved.map(normalizeTask);
         } catch (error) {}
-        return defaultTasks.map((item) => ({
-          ...item,
-          rules: item.rules.map((rule) => ({ ...rule })),
-        }));
+        return defaultTasks.map(normalizeTask);
       }
       function saveTasks() {
         try {
@@ -331,7 +364,42 @@
       function formatTime(value) {
         return value ? String(value).replace("T", " ") : "-";
       }
-      let tasks = readTasks();
+      let tasks = readTasks(),
+        pendingStatusChange = null;
+      const statusOverlay = document.querySelector("#statusOverlay");
+      function closeStatusConfirm() {
+        pendingStatusChange = null;
+        statusOverlay.classList.remove("show");
+      }
+      function confirmTaskStatus(task) {
+        const nextStatus = task.status === "enabled" ? "disabled" : "enabled";
+        pendingStatusChange = { task, nextStatus };
+        document.querySelector("#statusTitle").textContent =
+          nextStatus === "enabled" ? "确认开启任务？" : "确认关闭任务？";
+        document.querySelector("#statusText").textContent =
+          nextStatus === "enabled"
+            ? "开启后，任务将在生效时间内开始累计新进度。"
+            : "关闭后不再产生新进度，已领取奖励不回收。";
+        statusOverlay.classList.add("show");
+      }
+      window.openTaskStatusConfirm = (id) => {
+        const task = tasks.find((item) => item.id === id);
+        if (task) confirmTaskStatus(task);
+      };
+      document.querySelector("#statusClose").onclick = closeStatusConfirm;
+      document.querySelector("#statusCancel").onclick = closeStatusConfirm;
+      document.querySelector("#statusConfirm").onclick = () => {
+        if (!pendingStatusChange) return;
+        const { task, nextStatus } = pendingStatusChange;
+        closeStatusConfirm();
+        task.status = nextStatus;
+        saveTasks();
+        render();
+        Luma.toast(task.status === "enabled" ? "任务已开启" : "任务已关闭");
+      };
+      statusOverlay.onclick = (event) => {
+        if (event.target === statusOverlay) closeStatusConfirm();
+      };
       function filteredTasks(items = tasks) {
         const keyword = taskKeyword.value.trim().toLowerCase(),
           action = taskAction.value,
@@ -340,7 +408,9 @@
         return items.filter(
           (item) =>
             (!keyword ||
-              `${item.id} ${item.name}`.toLowerCase().includes(keyword)) &&
+              `${item.id} ${Object.values(item.names || { zh: item.name }).join(" ")}`
+                .toLowerCase()
+                .includes(keyword)) &&
             (!action || item.action === action) &&
             (!cycle || item.cycle === cycle) &&
             (!status || item.status === status),
@@ -356,18 +426,11 @@
                 (item) =>
                   /* HTML */ `<tr>
                     <td>${item.id}</td>
-                    <td><b>${item.name}</b></td>
+                    <td><b>${item.names?.zh || item.name}</b></td>
                     <td>
                       <div class="admin-switch-control">
-                        <label class="admin-switch"
-                          ><input
-                            type="checkbox"
-                            data-toggle-status="${item.id}"
-                            ${item.status === "enabled"
-                              ? "checked"
-                              : ""} /><span
-                            class="admin-switch-track"
-                          ></span></label
+                        <button class="admin-switch admin-switch-button ${item.status === "enabled" ? "on" : ""}" data-id="${item.id}" type="button" aria-label="${item.names?.zh || item.name} 启停状态" onclick="window.openTaskStatusConfirm(this.dataset.id)"
+                          ><span class="admin-switch-track"></span></button
                         ><span>${statusText[item.status]}</span>
                       </div>
                     </td>
@@ -388,18 +451,6 @@
               .join("")
           : '<tr><td colspan="7"><div class="admin-empty"><strong>未找到任务</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
       }
-      taskRows.onchange = (event) => {
-        const toggle = event.target.closest("[data-toggle-status]");
-        if (!toggle) return;
-        const task = tasks.find(
-          (item) => item.id === toggle.dataset.toggleStatus,
-        );
-        if (!task) return;
-        task.status = toggle.checked ? "enabled" : "disabled";
-        saveTasks();
-        render();
-        Luma.toast(task.status === "enabled" ? "任务已开启" : "任务已关闭");
-      };
       searchBtn.onclick = () => {
         render();
         Luma.toast(`已查询到 ${filteredTasks().length} 条任务`);

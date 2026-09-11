@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0",
+  "项目目录": "/Users/geekonup/testcase/liveshow-proto",
+  "项目身份": {
+    "稳定标识": {
+      "绝对路径": "/Users/geekonup/testcase/liveshow-proto",
+      "Git仓库根": "/Users/geekonup/testcase/liveshow-proto",
+      "Git远程地址": "https://github.com/geekonup/liveshow-proto.git"
+    },
+    "盘点基线": {
+      "Git分支": "main",
+      "Git提交": "46cad02f11ac563905f56684f5c35719bea8fb7f"
+    }
+  },
+  "触发原因": [
+    "当前 liveshow-proto 是独立 Git 仓库，稳定项目标识与父仓库中的历史目录管理方式不同",
+    "没有已确认的项目接入记录或可核对的全局证据缓存",
+    "项目根目录缺少需求来源策略.json"
+  ],
+  "盘点文件": [
+    {
+      "路径": "项目说明.md",
+      "SHA-256": "6411c37b7c7632fc7184b530f88a9cb124a57a5f594fb78ca6f862758dec6c74"
+    },
+    {
+      "路径": "context/01-用户主播App-项目需求清单.md",
+      "SHA-256": "74f5edf63be2049d9838b47f5e9052a4c342780d7eae22f05fa2aade9e637192"
+    },
+    {
+      "路径": "context/系统概要 .md",
+      "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24"
+    },
+    {
+      "路径": "prototype/index.html",
+      "SHA-256": "cae55b355e8980c2c059edc55eab45e2bbfc8890d7fae6cbf2122934f55aed61"
+    },
+    {
+      "路径": "prototype/annotations/user.js",
+      "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d"
+    },
+    {
+      "路径": "prototype/assets/common.js",
+      "SHA-256": "dcad35af7673c0714b5ea86c28f393157a0340835de95fd3957f0f05826a56e7"
+    },
+    {
+      "路径": "prototype/assets/mock.js",
+      "SHA-256": "90ad739cf3bd0c5e4ce29dde5472f1a1679e00472d90cad10a985659cc642271"
+    }
+  ],
+  "发现的证据入口": [
+    "项目说明.md",
+    "context/01-用户主播App-项目需求清单.md",
+    "context/02-公会App-项目需求清单.md",
+    "context/03-管理后台-项目需求清单.md",
+    "context/系统概要 .md",
+    "prototype/index.html",
+    "prototype/annotations/user.js",
+    "prototype/assets/annotations.js",
+    "prototype/assets/common.js",
+    "prototype/assets/mock.js",
+    "prototype/pages/user/"
+  ],
+  "缺失或失效引用": [],
+  "项目说明处理": "已按用户确认删除6个失效引用",
+  "来源策略处理": "已创建正式配置",
+  "待用户确认": [],
+  "用户确认": "删除项目说明中的6个失效引用，全量扫描后生成用户App-直播模块",
+  "确认时间": "2026-09-10 14:10:13 CST",
+  "正式文件": [
+    {
+      "路径": "项目说明.md",
+      "SHA-256": "6411c37b7c7632fc7184b530f88a9cb124a57a5f594fb78ca6f862758dec6c74"
+    },
+    {
+      "路径": "需求来源策略.json",
+      "SHA-256": "68f130ad57add2a5c07e343324e46dd03325e9dcaa0a1e32141966afe79ee180"
+    }
+  ],
+  "接入状态": "已确认"
+}

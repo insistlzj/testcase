@@ -248,7 +248,6 @@
         "operations",
         "list",
         "summary",
-        "all-live",
       ].includes(params.get("from"))
         ? params.get("from")
         : "home";
@@ -331,22 +330,6 @@
           if (returnPeriod) query.set("returnPeriod", returnPeriod);
         }
         return `guild-host-summary.html?${query}`;
-      }
-
-      function allLiveReturnUrl() {
-        const query = new URLSearchParams({
-          rangeStart,
-          rangeEnd,
-          shortcut: activeShortcut(),
-        });
-        if (!isAllHosts)
-          query.set(
-            "hostIds",
-            noHostsSelected
-              ? "none"
-              : selectedHosts.map((item) => item.id).join(","),
-          );
-        return `guild-all-live.html?${query}`;
       }
 
       function metric(label, value, valueClass = "") {
@@ -683,9 +666,7 @@
                   ? "../people/guild-host-list.html"
                   : origin === "summary" && isSingleHost
                     ? summaryReturnUrl()
-                    : origin === "all-live"
-                      ? allLiveReturnUrl()
-                      : "../home/guild-home.html";
+                    : "../home/guild-home.html";
       window.parent.postMessage(
         {
           type: "luma-page",

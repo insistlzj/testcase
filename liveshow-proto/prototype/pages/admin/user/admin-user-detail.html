@@ -252,7 +252,7 @@
         Luma.setTip(genderEl, user.gender, "性别");
         statusEl.className = `admin-status ${user.status}`;
         Luma.setTip(statusEl, statusText[user.status], "账号状态");
-        profileActionsEl.innerHTML = `<button class="admin-btn secondary" data-action="reset">重置资料</button><button class="admin-btn ${user.status === "banned" ? "" : "danger"}" data-action="${user.status === "banned" ? "unban" : "ban"}">${user.status === "banned" ? "解封" : "封禁"}</button>`;
+        profileActionsEl.innerHTML = `<button class="admin-btn ${user.status === "banned" ? "" : "danger"}" data-action="${user.status === "banned" ? "unban" : "ban"}">${user.status === "banned" ? "解封" : "封禁"}</button>`;
         metricsEl.innerHTML = `<div class="admin-metric"><span>金币余额</span><b>${formatCoins(user.balance)}</b></div><div class="admin-metric"><span>累计充值（USD）</span><b>${formatMoney(user.recharge)}</b></div><div class="admin-metric"><span>累计消费（金币）</span><b>${formatCoins(user.spend)}</b></div>`;
         baseInfoEl.innerHTML = /* HTML */ `<div class="admin-detail-item">
             <span>地区</span><b>${user.region}</b>
@@ -281,7 +281,6 @@
         actionTitle.textContent = {
           ban: "封禁用户",
           unban: "解封用户",
-          reset: "重置用户资料",
         }[action];
         actionSubmit.className = `admin-btn ${action === "ban" ? "danger" : ""}`;
         if (action === "ban")
@@ -299,8 +298,6 @@
             <div class="admin-note">封禁后账号将立即下线并禁止登录。</div>`;
         if (action === "unban")
           actionBody.innerHTML = `<p>确认解除 ${user.name}（${user.id}）的账号封禁？</p>`;
-        if (action === "reset")
-          actionBody.innerHTML = `<p>将重置 ${user.name}（${user.id}）的头像、昵称和个性签名。</p><div class="admin-form-row"><label for="resetReason">重置原因</label><textarea class="admin-textarea" id="resetReason" required></textarea></div>`;
         actionOverlay.classList.add("show");
       }
       document.addEventListener("click", (event) => {
@@ -323,11 +320,6 @@
         let message = "操作已提交";
         if (currentAction === "ban") user.status = "banned";
         if (currentAction === "unban") user.status = "normal";
-        if (currentAction === "reset") {
-          user.name = `用户${user.id.slice(-4)}`;
-          user.initials = "U";
-          user.signature = "";
-        }
         actionOverlay.classList.remove("show");
         renderBase();
         Luma.toast(message);
@@ -347,7 +339,6 @@
       );
       Luma.registerStates({
         封禁用户: () => openAction("ban"),
-        重置资料: () => openAction("reset"),
       });
     </script>
   </body>

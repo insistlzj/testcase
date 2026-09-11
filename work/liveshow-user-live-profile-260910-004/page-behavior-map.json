@@ -1,0 +1,1817 @@
+{
+  "schemaVersion": "1.0",
+  "目标范围": {
+    "端名": "用户App",
+    "模块名称": "直播模块"
+  },
+  "页面数": 53,
+  "已映射具体分支页面数": 17,
+  "仅完成内部信号分析页面数": 36,
+  "页面": [
+    {
+      "页面": "liveshow-proto/prototype/index.html",
+      "页面内部信号": {
+        "字段控件": 5,
+        "按钮或操作入口": 29,
+        "加载空失败禁用等状态": 29,
+        "提示或弹窗": 16,
+        "接口或消息调用": 2,
+        "跳转刷新或状态保持": 7
+      },
+      "关联逻辑文件": [],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/auth/auth-country-select.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 3,
+        "加载空失败禁用等状态": 5,
+        "提示或弹窗": 0,
+        "接口或消息调用": 2,
+        "跳转刷新或状态保持": 3
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/pages/user/auth/auth-phone-login.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/auth/auth-email-login.html",
+      "页面内部信号": {
+        "字段控件": 4,
+        "按钮或操作入口": 12,
+        "加载空失败禁用等状态": 15,
+        "提示或弹窗": 4,
+        "接口或消息调用": 4,
+        "跳转刷新或状态保持": 3
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+        "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 20,
+        "加载空失败禁用等状态": 13,
+        "提示或弹窗": 7,
+        "接口或消息调用": 7,
+        "跳转刷新或状态保持": 7
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/auth/auth-phone-login.html",
+        "liveshow-proto/prototype/pages/user/auth/auth-email-login.html",
+        "liveshow-proto/prototype/pages/user/auth/auth-profile-completion.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/auth/auth-phone-login.html",
+      "页面内部信号": {
+        "字段控件": 4,
+        "按钮或操作入口": 14,
+        "加载空失败禁用等状态": 15,
+        "提示或弹窗": 4,
+        "接口或消息调用": 5,
+        "跳转刷新或状态保持": 7
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/auth/auth-country-select.html",
+        "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+        "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/auth/auth-profile-completion.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 10,
+        "加载空失败禁用等状态": 16,
+        "提示或弹窗": 3,
+        "接口或消息调用": 2,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/fan-club/fan-contribution-ranking.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 6,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/fan-club/my-fan-clubs.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/fan-club/my-fan-clubs.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 6,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 2
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile.html",
+        "liveshow-proto/prototype/pages/user/live/live-room.html",
+        "liveshow-proto/prototype/pages/user/social/fan-group-chat.html",
+        "liveshow-proto/prototype/pages/user/fan-club/fan-contribution-ranking.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/guild/guild-application-form.html",
+      "页面内部信号": {
+        "字段控件": 7,
+        "按钮或操作入口": 6,
+        "加载空失败禁用等状态": 4,
+        "提示或弹窗": 1,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 3
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/guild/guild-management.html",
+        "liveshow-proto/prototype/pages/user/guild/guild-detail.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/guild/guild-application-records.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 3,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/guild/guild-management.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/guild/guild-detail.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 4,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 2
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/guild/guild-application-records.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/guild/guild-management.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 5,
+        "加载空失败禁用等状态": 3,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile.html",
+        "liveshow-proto/prototype/pages/user/guild/guild-application-records.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/home/invite-friends.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 10,
+        "加载空失败禁用等状态": 3,
+        "提示或弹窗": 1,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/home/welfare-center.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 27,
+        "加载空失败禁用等状态": 9,
+        "提示或弹窗": 9,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 3
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+        "liveshow-proto/prototype/pages/user/home/welfare-center.html",
+        "liveshow-proto/prototype/pages/user/social/message-center.html",
+        "liveshow-proto/prototype/pages/user/profile/profile.html",
+        "liveshow-proto/prototype/pages/user/live/live-room.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B01",
+          "操作": "查看直播卡片",
+          "状态": "用户账号已登录；存在一场正在进行的直播",
+          "可观察结果": "直播卡片字段包含本场封面、主题、主播、分类和访问次数",
+          "用例编号": "LIVE-0001"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B02",
+          "操作": "再次进入同一直播间",
+          "状态": "用户账号已登录；同一直播场次可正常进入",
+          "可观察结果": "本场访问次数累计 2 次成功进入事件",
+          "用例编号": "LIVE-0002"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B03",
+          "操作": "点击确认",
+          "状态": "用户账号已登录；目标密码房当前访问次数为 0；测试数据：错误密码 1234",
+          "可观察结果": "目标房间访问次数仍为 0",
+          "用例编号": "LIVE-0003"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B04",
+          "操作": "查看该主播的新场次卡片",
+          "状态": "用户账号已登录；主播创建新的直播场次",
+          "可观察结果": "新场次访问次数从 0 开始累计",
+          "用例编号": "LIVE-0004"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B05",
+          "操作": "切换至“新人”",
+          "状态": "用户账号已登录；热门和新人列表均有数据",
+          "可观察结果": "直播列表刷新为新人数据",
+          "用例编号": "LIVE-0005"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B06",
+          "操作": "选择“唱歌”分类",
+          "状态": "用户账号已登录；测试数据：分类“唱歌”下有直播",
+          "可观察结果": "列表只显示“唱歌”分类的直播",
+          "用例编号": "LIVE-0006"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B07",
+          "操作": "查看关注直播区",
+          "状态": "用户账号已登录；已关注主播 A 且主播 A 正在直播",
+          "可观察结果": "关注直播区显示主播 A",
+          "用例编号": "LIVE-0007"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B08",
+          "操作": "查看关注直播区",
+          "状态": "用户账号已登录；已关注主播均未开播",
+          "可观察结果": "关注直播区不显示",
+          "用例编号": "LIVE-0008"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B09",
+          "操作": "点击运营 Banner",
+          "状态": "用户账号已登录；存在有效运营 Banner",
+          "可观察结果": "页面进入该 Banner 配置的目标",
+          "用例编号": "LIVE-0009"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B10",
+          "操作": "点击主播榜",
+          "状态": "用户未登录",
+          "可观察结果": "页面进入主播榜",
+          "用例编号": "LIVE-0010"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-680694C94C",
+          "分支": "BR-LIVE-GROUP-680694C94C-B11",
+          "操作": "点击普通房卡片",
+          "状态": "用户未登录；存在正在直播的普通房",
+          "可观察结果": "页面直接进入登录页",
+          "用例编号": "LIVE-0011"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-6DFD9883EC",
+          "分支": "BR-LIVE-GROUP-6DFD9883EC-B01",
+          "操作": "进入直播广场",
+          "状态": "用户首次登录成功；通知说明尚未处理",
+          "可观察结果": "页面显示“开启通知”说明",
+          "用例编号": "LIVE-0012"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-6DFD9883EC",
+          "分支": "BR-LIVE-GROUP-6DFD9883EC-B02",
+          "操作": "点击“暂不开启”",
+          "状态": "用户首次登录成功；页面显示通知说明",
+          "可观察结果": "系统通知授权弹窗不显示",
+          "用例编号": "LIVE-0013"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-6DFD9883EC",
+          "分支": "BR-LIVE-GROUP-6DFD9883EC-B03",
+          "操作": "点击“开启通知”",
+          "状态": "用户首次登录成功；页面显示通知说明",
+          "可观察结果": "页面显示系统通知授权弹窗",
+          "用例编号": "LIVE-0014"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-6DFD9883EC",
+          "分支": "BR-LIVE-GROUP-6DFD9883EC-B04",
+          "操作": "进入直播广场",
+          "状态": "用户已处理过通知说明",
+          "可观察结果": "通知说明不再显示",
+          "用例编号": "LIVE-0015"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/home/search-results.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 15,
+        "加载空失败禁用等状态": 18,
+        "提示或弹窗": 3,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 4
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/home/search.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 8,
+        "加载空失败禁用等状态": 6,
+        "提示或弹窗": 1,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 5
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+        "liveshow-proto/prototype/pages/user/home/search-results.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/home/welfare-center.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 16,
+        "加载空失败禁用等状态": 1,
+        "提示或弹窗": 5,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/home/invite-friends.html",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+        "liveshow-proto/prototype/pages/user/home/welfare-center.html",
+        "liveshow-proto/prototype/pages/user/social/message-center.html",
+        "liveshow-proto/prototype/pages/user/profile/profile.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/fan-club-settings.html",
+      "页面内部信号": {
+        "字段控件": 2,
+        "按钮或操作入口": 6,
+        "加载空失败禁用等状态": 3,
+        "提示或弹窗": 1,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/host/fan-club.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/fan-club.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 24,
+        "加载空失败禁用等状态": 8,
+        "提示或弹窗": 31,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/host/host-center.html",
+        "liveshow-proto/prototype/pages/user/host/fan-club-settings.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/fan-list.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 3,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 2
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/host/host-center.html",
+        "liveshow-proto/prototype/pages/user/social/user-home.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/host-center.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 24,
+        "加载空失败禁用等状态": 5,
+        "提示或弹窗": 5,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 7
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile.html",
+        "liveshow-proto/prototype/pages/user/guild/guild-application-records.html",
+        "liveshow-proto/prototype/pages/user/host/live-data.html",
+        "liveshow-proto/prototype/pages/user/host/fan-list.html",
+        "liveshow-proto/prototype/pages/user/host/fan-club.html",
+        "liveshow-proto/prototype/pages/user/host/moderator-management.html",
+        "liveshow-proto/prototype/pages/user/host/income-sharing.html",
+        "liveshow-proto/prototype/pages/user/host/host-guild-notifications.html",
+        "liveshow-proto/prototype/pages/user/host/start-live-settings.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/host-guild-notifications.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 4,
+        "加载空失败禁用等状态": 2,
+        "提示或弹窗": 0,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/host/host-center.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/income-sharing.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 9,
+        "加载空失败禁用等状态": 1,
+        "提示或弹窗": 3,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/host/host-center.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/live-data.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 18,
+        "加载空失败禁用等状态": 6,
+        "提示或弹窗": 3,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 2
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/host/host-center.html",
+        "liveshow-proto/prototype/pages/user/host/live-records.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-427355016E",
+          "分支": "BR-LIVE-GROUP-427355016E-B01",
+          "操作": "切换至月范围",
+          "状态": "主播已有跨日和跨月直播数据",
+          "可观察结果": "页面全部指标更新为所选月份数据",
+          "用例编号": "LIVE-0157"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-427355016E",
+          "分支": "BR-LIVE-GROUP-427355016E-B02",
+          "操作": "选择当日",
+          "状态": "主播当日有效直播时长 179 分钟",
+          "可观察结果": "有效天显示 0 天",
+          "用例编号": "LIVE-0158"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-427355016E",
+          "分支": "BR-LIVE-GROUP-427355016E-B03",
+          "操作": "选择当日",
+          "状态": "主播当日有效直播时长 180 分钟",
+          "可观察结果": "有效天显示 1 天",
+          "用例编号": "LIVE-0159"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-427355016E",
+          "分支": "BR-LIVE-GROUP-427355016E-B04",
+          "操作": "选择当日",
+          "状态": "主播同一自然日有 2 场直播；测试数据：两场有效时长合计 360 分钟",
+          "可观察结果": "有效天显示 1 天",
+          "用例编号": "LIVE-0160"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-427355016E",
+          "分支": "BR-LIVE-GROUP-427355016E-B06",
+          "操作": "切换至目标月份",
+          "状态": "主播目标月份收到 100 虚拟金币礼物；无其他有效收益",
+          "可观察结果": "收益显示 0 金币",
+          "用例编号": "LIVE-0162"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/live-records.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 23,
+        "加载空失败禁用等状态": 10,
+        "提示或弹窗": 4,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/host/host-center.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-20DF672AB7",
+          "分支": "BR-LIVE-GROUP-20DF672AB7-B01",
+          "操作": "进入直播记录",
+          "状态": "主播近 8 天每天有一场直播",
+          "可观察结果": "列表只显示近 7 天内的直播场次",
+          "用例编号": "LIVE-0163"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-20DF672AB7",
+          "分支": "BR-LIVE-GROUP-20DF672AB7-B02",
+          "操作": "选择本周",
+          "状态": "主播本周和上周均有直播记录",
+          "可观察结果": "汇总指标只统计本周场次",
+          "用例编号": "LIVE-0164"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-20DF672AB7",
+          "分支": "BR-LIVE-GROUP-20DF672AB7-B03",
+          "操作": "查看场次顺序",
+          "状态": "主播筛选范围内有多场直播",
+          "可观察结果": "场次按开播时间倒序显示",
+          "用例编号": "LIVE-0165"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-20DF672AB7",
+          "分支": "BR-LIVE-GROUP-20DF672AB7-B04",
+          "操作": "点击历史场次",
+          "状态": "主播已有历史门票房记录；当前门票档位已修改",
+          "可观察结果": "场次详情显示开播时的门票配置",
+          "用例编号": "LIVE-0166"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-20DF672AB7",
+          "分支": "BR-LIVE-GROUP-20DF672AB7-B05",
+          "操作": "查看当前场次",
+          "状态": "主播当前正在直播",
+          "可观察结果": "当前场次结束时间为空",
+          "用例编号": "LIVE-0167"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-20DF672AB7",
+          "分支": "BR-LIVE-GROUP-20DF672AB7-B06",
+          "操作": "点击目标场次",
+          "状态": "主播已有至少一场直播记录",
+          "可观察结果": "单场详情包含数据和礼物明细",
+          "用例编号": "LIVE-0168"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/moderator-management.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 10,
+        "加载空失败禁用等状态": 7,
+        "提示或弹窗": 23,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 2
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/host/host-center.html",
+        "liveshow-proto/prototype/pages/user/home/search.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-A244B72DD2",
+          "分支": "BR-LIVE-GROUP-A244B72DD2-B01",
+          "操作": "确认添加",
+          "状态": "主播具备房管管理权限；目标用户未被拉黑且当前不是房管；当前房管 2 人；测试数据：目标用户 ID 88231007",
+          "可观察结果": "房管列表新增用户 88231007",
+          "用例编号": "LIVE-0110"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-A244B72DD2",
+          "分支": "BR-LIVE-GROUP-A244B72DD2-B02",
+          "操作": "点击添加房管",
+          "状态": "主播具备房管管理权限；当前已有 3 名房管",
+          "可观察结果": "页面提示“已达3人上限”",
+          "用例编号": "LIVE-0111"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-A244B72DD2",
+          "分支": "BR-LIVE-GROUP-A244B72DD2-B03",
+          "操作": "点击搜索",
+          "状态": "主播具备房管管理权限；目标用户在主播直播间黑名单内；测试数据：目标用户 ID 88231007",
+          "可观察结果": "搜索结果不显示用户 88231007",
+          "用例编号": "LIVE-0112"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-A244B72DD2",
+          "分支": "BR-LIVE-GROUP-A244B72DD2-B04",
+          "操作": "进入房管管理",
+          "状态": "主播已授权用户 A 为房管",
+          "可观察结果": "房管列表不再显示用户 A",
+          "用例编号": "LIVE-0113"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-A244B72DD2",
+          "分支": "BR-LIVE-GROUP-A244B72DD2-B05",
+          "操作": "进入房管管理",
+          "状态": "用户 A 的房管身份已因拉黑解除",
+          "可观察结果": "用户 A 仍不是房管",
+          "用例编号": "LIVE-0114"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+      "页面内部信号": {
+        "字段控件": 8,
+        "按钮或操作入口": 42,
+        "加载空失败禁用等状态": 23,
+        "提示或弹窗": 7,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 9
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/assets/admin-mock.js",
+        "liveshow-proto/prototype/assets/start-live-config.js",
+        "liveshow-proto/prototype/pages/user/host/host-center.html",
+        "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+        "liveshow-proto/prototype/pages/user/host/visible-fan-select.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B01",
+          "操作": "点击开始直播",
+          "状态": "主播账号可用；主播所属公会有效；主播认证通过；主播直播权限已开启；本场必填配置有效",
+          "可观察结果": "系统创建新的直播场次",
+          "用例编号": "LIVE-0071"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B02",
+          "操作": "点击开始直播",
+          "状态": "主播账号已封禁；本场必填配置有效",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0072"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B03",
+          "操作": "点击开始直播",
+          "状态": "主播所属公会已停用；本场必填配置有效",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0073"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B04",
+          "操作": "点击开始直播",
+          "状态": "主播认证未通过；本场必填配置有效",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0074"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B05",
+          "操作": "点击开始直播",
+          "状态": "主播直播权限已关闭；本场必填配置有效",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0075"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B06",
+          "操作": "点击开始直播",
+          "状态": "主播具备开播资格；相机权限尚未申请；本场必填配置有效",
+          "可观察结果": "系统直接显示相机授权弹窗",
+          "用例编号": "LIVE-0076"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B07",
+          "操作": "点击开始直播",
+          "状态": "主播具备开播资格；相机或麦克风权限被拒绝；本场必填配置有效",
+          "可观察结果": "页面提示“权限未开启，请前往系统设置”",
+          "用例编号": "LIVE-0077"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-AA270AF69D",
+          "分支": "BR-LIVE-GROUP-AA270AF69D-B01",
+          "操作": "点击开始直播",
+          "状态": "主播具备开播资格；直播分类未选择",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0078"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-AA270AF69D",
+          "分支": "BR-LIVE-GROUP-AA270AF69D-B03",
+          "操作": "取消系统照片选择",
+          "状态": "主播具备开播资格；当前封面为图片 A",
+          "可观察结果": "当前封面仍为图片 A",
+          "用例编号": "LIVE-0080"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-AA270AF69D",
+          "分支": "BR-LIVE-GROUP-AA270AF69D-B04",
+          "操作": "选择图片 A",
+          "状态": "主播具备开播资格；系统未授予完整相册权限",
+          "可观察结果": "页面只读取图片 A",
+          "用例编号": "LIVE-0081"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/host/visible-fan-select.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 8,
+        "加载空失败禁用等状态": 2,
+        "提示或弹窗": 7,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 4
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-A6D3E69451",
+          "分支": "BR-LIVE-GROUP-A6D3E69451-B01",
+          "操作": "点击编辑名单",
+          "状态": "主播具备开播资格；测试数据：A 仍关注，B 已取消关注",
+          "可观察结果": "可选粉丝列表仅包含仍关注的 A",
+          "用例编号": "LIVE-0094"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-A6D3E69451",
+          "分支": "BR-LIVE-GROUP-A6D3E69451-B02",
+          "操作": "点击全选",
+          "状态": "主播具备开播资格；当前有 8 名有效关注粉丝；搜索结果仅显示 2 人",
+          "可观察结果": "已选数量显示 8",
+          "用例编号": "LIVE-0095"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-A6D3E69451",
+          "分支": "BR-LIVE-GROUP-A6D3E69451-B03",
+          "操作": "点击确认",
+          "状态": "主播具备开播资格；已勾选粉丝 A、B",
+          "可观察结果": "密码房设置显示已选 2 人",
+          "用例编号": "LIVE-0096"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-A6D3E69451",
+          "分支": "BR-LIVE-GROUP-A6D3E69451-B04",
+          "操作": "点击返回",
+          "状态": "主播原名单为粉丝 A；本次取消 A 并勾选 B",
+          "可观察结果": "密码房设置仍显示粉丝 A",
+          "用例编号": "LIVE-0097"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/live/live-end-host.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 2,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/host/live-data.html",
+        "liveshow-proto/prototype/pages/user/host/host-center.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-79D91220FF",
+          "分支": "BR-LIVE-GROUP-79D91220FF-B04",
+          "操作": "查看主播结束页",
+          "状态": "主播已结束直播；测试数据：10:00 开始，10:30 结束",
+          "可观察结果": "直播时长显示 30 分钟",
+          "用例编号": "LIVE-0154"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-79D91220FF",
+          "分支": "BR-LIVE-GROUP-79D91220FF-B05",
+          "操作": "查看主播结束页",
+          "状态": "主播已结束直播；测试数据：观众 A 进入 2 次，观众 B 进入 1 次",
+          "可观察结果": "观看人数显示 3 人次",
+          "用例编号": "LIVE-0155"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-79D91220FF",
+          "分支": "BR-LIVE-GROUP-79D91220FF-B06",
+          "操作": "查看主播结束页",
+          "状态": "主播已结束直播；测试数据：普通礼物 100、门票 20、幸运礼物价值 1000、幸运收益比例 1%",
+          "可观察结果": "本场收益显示为 100 + 20 + 1000 × 1% = 130 金币",
+          "用例编号": "LIVE-0156"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/live/live-end-viewer.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 3,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-79D91220FF",
+          "分支": "BR-LIVE-GROUP-79D91220FF-B01",
+          "操作": "查看直播结束页",
+          "状态": "观众正在观看直播；当前场次已结束",
+          "可观察结果": "页面不提供评论输入框",
+          "用例编号": "LIVE-0151"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-79D91220FF",
+          "分支": "BR-LIVE-GROUP-79D91220FF-B02",
+          "操作": "再次打开该场次入口",
+          "状态": "当前直播场次已结束",
+          "可观察结果": "页面仍显示直播结束状态",
+          "用例编号": "LIVE-0152"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-79D91220FF",
+          "分支": "BR-LIVE-GROUP-79D91220FF-B03",
+          "操作": "进入主播的新场次",
+          "状态": "观众购买过上一场门票；主播已创建新门票场次",
+          "可观察结果": "页面显示购票弹窗",
+          "用例编号": "LIVE-0153"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-cohost-active.html",
+      "页面内部信号": {
+        "字段控件": 3,
+        "按钮或操作入口": 73,
+        "加载空失败禁用等状态": 43,
+        "提示或弹窗": 39,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 2
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/host-home.html",
+        "liveshow-proto/prototype/pages/user/social/user-home.html",
+        "liveshow-proto/prototype/pages/user/social/direct-message.html",
+        "liveshow-proto/prototype/pages/user/live/live-end-host.html",
+        "liveshow-proto/prototype/assets/live-muted-users.js"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-BE60B6D6C7",
+          "分支": "BR-LIVE-GROUP-BE60B6D6C7-B03",
+          "操作": "使用主播 A 点击结束直播",
+          "状态": "主播 A、B 正在连麦",
+          "可观察结果": "主播 B 恢复单人直播并继续当前场次",
+          "用例编号": "LIVE-0138"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-host-password.html",
+      "页面内部信号": {
+        "字段控件": 3,
+        "按钮或操作入口": 112,
+        "加载空失败禁用等状态": 77,
+        "提示或弹窗": 87,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 12
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/host-home.html",
+        "liveshow-proto/prototype/pages/user/social/user-home.html",
+        "liveshow-proto/prototype/pages/user/social/direct-message.html",
+        "liveshow-proto/prototype/pages/user/live/live-end-host.html",
+        "liveshow-proto/prototype/pages/user/host/visible-fan-select.html",
+        "liveshow-proto/prototype/assets/live-muted-users.js"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-B412DD29A5",
+          "分支": "BR-LIVE-GROUP-B412DD29A5-B03",
+          "操作": "点击确认",
+          "状态": "观众已用旧密码进入；主播已将本场密码改为 654321",
+          "可观察结果": "页面提示“密码错误，请重新输入”",
+          "用例编号": "LIVE-0146"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "页面内部信号": {
+        "字段控件": 3,
+        "按钮或操作入口": 81,
+        "加载空失败禁用等状态": 54,
+        "提示或弹窗": 43,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 2
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/host-home.html",
+        "liveshow-proto/prototype/pages/user/social/user-home.html",
+        "liveshow-proto/prototype/pages/user/social/direct-message.html",
+        "liveshow-proto/prototype/pages/user/live/live-end-host.html",
+        "liveshow-proto/prototype/assets/live-muted-users.js"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-E9F8A419C6",
+          "分支": "BR-LIVE-GROUP-E9F8A419C6-B01",
+          "操作": "查看顶部数据",
+          "状态": "主播正在直播；本场已有观众和礼物数据",
+          "可观察结果": "页面数据包含本场在线人数和本场贡献",
+          "用例编号": "LIVE-0105"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-report.html",
+      "页面内部信号": {
+        "字段控件": 2,
+        "按钮或操作入口": 3,
+        "加载空失败禁用等状态": 4,
+        "提示或弹窗": 1,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/live/live-room.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-3D4EDB4380",
+          "分支": "BR-LIVE-GROUP-3D4EDB4380-B01",
+          "操作": "查看提交按钮",
+          "状态": "观众已进入直播间；举报原因未选择",
+          "可观察结果": "提交按钮不可用",
+          "用例编号": "LIVE-0043"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-3D4EDB4380",
+          "分支": "BR-LIVE-GROUP-3D4EDB4380-B02",
+          "操作": "点击提交",
+          "状态": "观众已进入直播间；测试数据：原因“色情低俗”",
+          "可观察结果": "系统生成当前直播场次举报工单",
+          "用例编号": "LIVE-0044"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-3D4EDB4380",
+          "分支": "BR-LIVE-GROUP-3D4EDB4380-B03",
+          "操作": "输入 200 个字符",
+          "状态": "观众已进入直播举报页；测试数据：200 个字符",
+          "可观察结果": "补充说明输入框显示完整的 200 个字符",
+          "用例编号": "LIVE-0045"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room-user-report.html",
+      "页面内部信号": {
+        "字段控件": 2,
+        "按钮或操作入口": 3,
+        "加载空失败禁用等状态": 4,
+        "提示或弹窗": 1,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/live/live-room.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-7E5FA76CC4",
+          "分支": "BR-LIVE-GROUP-7E5FA76CC4-B01",
+          "操作": "点击提交",
+          "状态": "观众已进入直播间；测试数据：目标用户 A，原因“其他”",
+          "可观察结果": "系统生成用户 A 的账号举报工单",
+          "用例编号": "LIVE-0046"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "页面内部信号": {
+        "字段控件": 3,
+        "按钮或操作入口": 120,
+        "加载空失败禁用等状态": 107,
+        "提示或弹窗": 87,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 4
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/host-home.html",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+        "liveshow-proto/prototype/pages/user/social/user-home.html",
+        "liveshow-proto/prototype/pages/user/live/live-room-report.html",
+        "liveshow-proto/prototype/pages/user/social/direct-message.html",
+        "liveshow-proto/prototype/assets/live-room-cover.svg"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-1446A4BF0E",
+          "分支": "BR-LIVE-GROUP-1446A4BF0E-B01",
+          "操作": "点击普通房卡片",
+          "状态": "观众账号可用；观众与主播无拉黑关系；观众未被本场踢出",
+          "可观察结果": "页面直接展示直播内容",
+          "用例编号": "LIVE-0016"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-ABAABCCA93",
+          "分支": "BR-LIVE-GROUP-ABAABCCA93-B01",
+          "操作": "点击发送",
+          "状态": "观众已进入直播间；观众本场未被禁言；测试数据：评论“晚上好”",
+          "可观察结果": "公屏新增评论“晚上好”",
+          "用例编号": "LIVE-0032"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/profile/my-decoration.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 3,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/profile/my-following.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 2,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/profile/profile-edit.html",
+      "页面内部信号": {
+        "字段控件": 8,
+        "按钮或操作入口": 8,
+        "加载空失败禁用等状态": 16,
+        "提示或弹窗": 6,
+        "接口或消息调用": 2,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/profile/profile.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 28,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 3,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 7
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile-edit.html",
+        "liveshow-proto/prototype/pages/user/profile/settings.html",
+        "liveshow-proto/prototype/pages/user/profile/my-following.html",
+        "liveshow-proto/prototype/pages/user/social/follower-list.html",
+        "liveshow-proto/prototype/pages/user/social/friend-list.html",
+        "liveshow-proto/prototype/pages/user/profile/my-decoration.html",
+        "liveshow-proto/prototype/pages/user/fan-club/my-fan-clubs.html",
+        "liveshow-proto/prototype/pages/user/home/invite-friends.html",
+        "liveshow-proto/prototype/pages/user/guild/guild-application-form.html",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+        "liveshow-proto/prototype/pages/user/home/welfare-center.html",
+        "liveshow-proto/prototype/pages/user/social/message-center.html",
+        "liveshow-proto/prototype/pages/user/profile/profile.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-9DE56D94FB",
+          "分支": "BR-LIVE-GROUP-9DE56D94FB-B01",
+          "操作": "点击关注",
+          "状态": "观众已进入直播间；观众尚未关注主播",
+          "可观察结果": "关注按钮更新为已关注状态",
+          "用例编号": "LIVE-0036"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/profile/settings.html",
+      "页面内部信号": {
+        "字段控件": 2,
+        "按钮或操作入口": 25,
+        "加载空失败禁用等状态": 15,
+        "提示或弹窗": 24,
+        "接口或消息调用": 3,
+        "跳转刷新或状态保持": 6
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile.html",
+        "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+        "liveshow-proto/prototype/pages/user/wallet/recharge.html",
+        "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+        "liveshow-proto/prototype/pages/user/auth/auth-login-register.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B01",
+          "操作": "点击开始直播",
+          "状态": "主播账号可用；主播所属公会有效；主播认证通过；主播直播权限已开启；本场必填配置有效",
+          "可观察结果": "系统创建新的直播场次",
+          "用例编号": "LIVE-0071"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B02",
+          "操作": "点击开始直播",
+          "状态": "主播账号已封禁；本场必填配置有效",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0072"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B03",
+          "操作": "点击开始直播",
+          "状态": "主播所属公会已停用；本场必填配置有效",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0073"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B04",
+          "操作": "点击开始直播",
+          "状态": "主播认证未通过；本场必填配置有效",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0074"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B05",
+          "操作": "点击开始直播",
+          "状态": "主播直播权限已关闭；本场必填配置有效",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0075"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B06",
+          "操作": "点击开始直播",
+          "状态": "主播具备开播资格；相机权限尚未申请；本场必填配置有效",
+          "可观察结果": "系统直接显示相机授权弹窗",
+          "用例编号": "LIVE-0076"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-B994D746A6",
+          "分支": "BR-LIVE-GROUP-B994D746A6-B07",
+          "操作": "点击开始直播",
+          "状态": "主播具备开播资格；相机或麦克风权限被拒绝；本场必填配置有效",
+          "可观察结果": "页面提示“权限未开启，请前往系统设置”",
+          "用例编号": "LIVE-0077"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-AA270AF69D",
+          "分支": "BR-LIVE-GROUP-AA270AF69D-B01",
+          "操作": "点击开始直播",
+          "状态": "主播具备开播资格；直播分类未选择",
+          "可观察结果": "系统不创建直播场次",
+          "用例编号": "LIVE-0078"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-AA270AF69D",
+          "分支": "BR-LIVE-GROUP-AA270AF69D-B03",
+          "操作": "取消系统照片选择",
+          "状态": "主播具备开播资格；当前封面为图片 A",
+          "可观察结果": "当前封面仍为图片 A",
+          "用例编号": "LIVE-0080"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-AA270AF69D",
+          "分支": "BR-LIVE-GROUP-AA270AF69D-B04",
+          "操作": "选择图片 A",
+          "状态": "主播具备开播资格；系统未授予完整相册权限",
+          "可观察结果": "页面只读取图片 A",
+          "用例编号": "LIVE-0081"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/direct-message.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 7,
+        "加载空失败禁用等状态": 6,
+        "提示或弹窗": 5,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/message-center.html",
+        "liveshow-proto/prototype/assets/chat-media.js"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/fan-group-chat.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 13,
+        "加载空失败禁用等状态": 7,
+        "提示或弹窗": 18,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/message-center.html",
+        "liveshow-proto/prototype/pages/user/live/live-room.html",
+        "liveshow-proto/prototype/assets/chat-media.js"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/follower-list.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 2,
+        "加载空失败禁用等状态": 6,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/friend-list.html",
+      "页面内部信号": {
+        "字段控件": 1,
+        "按钮或操作入口": 1,
+        "加载空失败禁用等状态": 6,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/message-center.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/host-gift-gallery.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 1,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/host-home.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 30,
+        "加载空失败禁用等状态": 21,
+        "提示或弹窗": 21,
+        "接口或消息调用": 1,
+        "跳转刷新或状态保持": 4
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/fan-club/my-fan-clubs.html",
+        "liveshow-proto/prototype/pages/user/social/host-gift-gallery.html",
+        "liveshow-proto/prototype/pages/user/fan-club/fan-contribution-ranking.html",
+        "liveshow-proto/prototype/pages/user/social/direct-message.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/interaction-notifications.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 4,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 1,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/message-center.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/message-center.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 15,
+        "加载空失败禁用等状态": 3,
+        "提示或弹窗": 5,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/system-notifications.html",
+        "liveshow-proto/prototype/pages/user/social/interaction-notifications.html",
+        "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+        "liveshow-proto/prototype/pages/user/home/welfare-center.html",
+        "liveshow-proto/prototype/pages/user/social/message-center.html",
+        "liveshow-proto/prototype/pages/user/profile/profile.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/system-notifications.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 1,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/message-center.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/social/user-home.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 27,
+        "加载空失败禁用等状态": 22,
+        "提示或弹窗": 31,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 3
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/social/host-home.html",
+        "liveshow-proto/prototype/pages/user/social/direct-message.html"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 2,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 0,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 1
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/wallet/recharge.html",
+        "liveshow-proto/prototype/assets/diamond.svg"
+      ],
+      "已映射场景分支": [],
+      "覆盖状态": "已分析页面内部信号，未发现有确定依据的当前模块分支"
+    },
+    {
+      "页面": "liveshow-proto/prototype/pages/user/wallet/recharge.html",
+      "页面内部信号": {
+        "字段控件": 0,
+        "按钮或操作入口": 8,
+        "加载空失败禁用等状态": 0,
+        "提示或弹窗": 1,
+        "接口或消息调用": 0,
+        "跳转刷新或状态保持": 0
+      },
+      "关联逻辑文件": [
+        "liveshow-proto/prototype/assets/tailwind.js",
+        "liveshow-proto/prototype/assets/tokens.js",
+        "liveshow-proto/prototype/assets/common.css",
+        "liveshow-proto/prototype/assets/common.js",
+        "liveshow-proto/prototype/assets/mock.js",
+        "liveshow-proto/prototype/pages/user/profile/profile.html",
+        "liveshow-proto/prototype/pages/user/wallet/balance-detail.html"
+      ],
+      "已映射场景分支": [
+        {
+          "需求规则": "BR-LIVE-GROUP-2136BA2201",
+          "分支": "BR-LIVE-GROUP-2136BA2201-B01",
+          "操作": "点击确认支付",
+          "状态": "观众金币不足；已选择礼物 A 和数量 2；测试数据：充值 100 金币",
+          "可观察结果": "页面返回礼物视图且礼物 A 未自动送出",
+          "用例编号": "LIVE-0060"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-2136BA2201",
+          "分支": "BR-LIVE-GROUP-2136BA2201-B02",
+          "操作": "关闭充值视图",
+          "状态": "观众金币不足；已选择礼物 A 和数量 2",
+          "可观察结果": "礼物视图仍选中礼物 A 和数量 2",
+          "用例编号": "LIVE-0061"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-2136BA2201",
+          "分支": "BR-LIVE-GROUP-2136BA2201-B03",
+          "操作": "点击确认支付",
+          "状态": "观众已打开快捷充值；测试数据：余额 5 金币，支付返回失败",
+          "可观察结果": "观众金币余额保持 5 金币",
+          "用例编号": "LIVE-0062"
+        },
+        {
+          "需求规则": "BR-LIVE-GROUP-2136BA2201",
+          "分支": "BR-LIVE-GROUP-2136BA2201-B04",
+          "操作": "点击确认支付",
+          "状态": "观众已打开快捷充值；测试数据：余额 5 金币，支付请求超时",
+          "可观察结果": "观众金币余额保持 5 金币",
+          "用例编号": "LIVE-0063"
+        }
+      ],
+      "覆盖状态": "已映射到具体业务分支"
+    }
+  ]
+}

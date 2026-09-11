@@ -117,6 +117,62 @@
           </div>
         </div>
 
+        <div
+          class="guild-host-summary-filterbar guild-filter-zone"
+          id="monthFilterBar"
+          hidden
+        >
+          <button
+            class="guild-host-summary-range"
+            id="monthRangePickerButton"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+              <path d="M8 3v4M16 3v4M4 10h16"></path></svg
+            ><span id="monthRangePickerValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <button
+            class="guild-host-performance-quick"
+            id="monthShortcutPicker"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+          >
+            <span id="monthShortcutPickerValue"></span><i aria-hidden="true">⌄</i>
+          </button>
+          <div
+            class="guild-host-performance-shortcut-menu"
+            id="monthShortcutMenu"
+            role="menu"
+            aria-label="快捷月份筛选"
+            hidden
+          >
+            <button
+              type="button"
+              role="menuitemradio"
+              data-month-shortcut="halfYear"
+            >
+              近半年
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-month-shortcut="oneYear"
+            >
+              近一年
+            </button>
+            <button
+              type="button"
+              role="menuitemradio"
+              data-month-shortcut="custom"
+            >
+              自定义
+            </button>
+          </div>
+        </div>
+
         <section
           class="guild-income-metric-grid"
           id="metricGrid"
@@ -222,6 +278,40 @@
       </section>
     </div>
 
+    <div class="guild-mask guild-host-date-mask" id="monthRangeSheet" hidden>
+      <section
+        class="guild-sheet guild-income-month-range-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="monthRangeSheetTitle"
+      >
+        <header class="guild-income-month-sheet-head">
+          <button id="monthRangeSheetCancel" type="button">取消</button>
+          <h2 id="monthRangeSheetTitle">选择月份范围</h2>
+          <button class="confirm" id="monthRangeSheetConfirm" type="button">
+            确定
+          </button>
+        </header>
+        <div class="guild-income-month-calendar">
+          <div class="guild-host-performance-calendar-nav">
+            <button id="monthCalendarPrev" type="button" aria-label="上一年">
+              ‹</button
+            ><b id="monthCalendarTitle"></b
+            ><button id="monthCalendarNext" type="button" aria-label="下一年">
+              ›
+            </button>
+          </div>
+          <div
+            class="guild-income-month-calendar-grid"
+            id="monthCalendarMonths"
+            role="grid"
+            aria-label="月份"
+          ></div>
+        </div>
+        <p class="guild-host-performance-range-hint" id="monthRangeHint"></p>
+      </section>
+    </div>
+
     <script>
       const params = new URLSearchParams(location.search);
       const completeSummary = LUMA_GUILD_DATA.getGuildSummary();
@@ -233,7 +323,7 @@
       const [latestYear, latestMonthNumber] = latestMonth
         .split("-")
         .map(Number);
-      const availableMonths = Array.from({ length: 10 }, (_, index) => {
+      const availableMonths = Array.from({ length: 12 }, (_, index) => {
         const date = new Date(latestYear, latestMonthNumber - 1 - index, 1, 12);
         return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
       });
@@ -244,6 +334,11 @@
         lastWeek: "上周",
       };
       const shortcutKeys = Object.keys(shortcutLabels);
+      const monthShortcutLabels = {
+        halfYear: "近半年",
+        oneYear: "近一年",
+      };
+      const monthShortcutKeys = Object.keys(monthShortcutLabels);
       const hasRequestedRange =
         /^\d{4}-\d{2}-\d{2}$/.test(params.get("rangeStart") || "") &&
         /^\d{4}-\d{2}-\d{2}$/.test(params.get("rangeEnd") || "");
@@ -260,6 +355,26 @@
         hasRequestedRange && params.get("rangeEnd") >= rangeStart
           ? params.get("rangeEnd")
           : defaultRange[1];
+      const hasRequestedMonthRange =
+        /^\d{4}-\d{2}$/.test(params.get("monthStart") || "") &&
+        /^\d{4}-\d{2}$/.test(params.get("monthEnd") || "") &&
+        params.get("monthEnd") >= params.get("monthStart");
+      const selectedMonthShortcut = monthShortcutKeys.includes(
+        params.get("monthShortcut"),
+      )
+        ? params.get("monthShortcut")
+        : hasRequestedMonthRange
+          ? null
+          : "halfYear";
+      const defaultMonthRange = monthShortcutRange(
+        selectedMonthShortcut || "halfYear",
+      );
+      const monthRangeStart = hasRequestedMonthRange
+        ? params.get("monthStart")
+        : defaultMonthRange[0];
+      const monthRangeEnd = hasRequestedMonthRange
+        ? params.get("monthEnd")
+        : defaultMonthRange[1];
       const selectedDays = completeSummary.days
         .filter((day) => day.date >= rangeStart && day.date <= rangeEnd)
         .sort((left, right) => right.date.localeCompare(left.date));
@@ -273,6 +388,7 @@
       const dailyList = document.getElementById("dailyList");
       const monthlyList = document.getElementById("monthlyList");
       const dayFilterBar = document.getElementById("dayFilterBar");
+      const monthFilterBar = document.getElementById("monthFilterBar");
       const rangePickerButton = document.getElementById("rangePickerButton");
       const rangePickerValue = document.getElementById("rangePickerValue");
       const shortcutPicker = document.getElementById("shortcutPicker");
@@ -288,12 +404,44 @@
       const calendarTitle = document.getElementById("calendarTitle");
       const calendarDays = document.getElementById("calendarDays");
       const rangeSelection = document.getElementById("rangeSelection");
+      const monthRangePickerButton = document.getElementById(
+        "monthRangePickerButton",
+      );
+      const monthRangePickerValue = document.getElementById(
+        "monthRangePickerValue",
+      );
+      const monthShortcutPicker = document.getElementById(
+        "monthShortcutPicker",
+      );
+      const monthShortcutPickerValue = document.getElementById(
+        "monthShortcutPickerValue",
+      );
+      const monthShortcutMenu = document.getElementById("monthShortcutMenu");
+      const monthRangeSheet = document.getElementById("monthRangeSheet");
+      const monthRangeSheetCancel = document.getElementById(
+        "monthRangeSheetCancel",
+      );
+      const monthRangeSheetConfirm = document.getElementById(
+        "monthRangeSheetConfirm",
+      );
+      const monthCalendarPrev = document.getElementById("monthCalendarPrev");
+      const monthCalendarNext = document.getElementById("monthCalendarNext");
+      const monthCalendarTitle = document.getElementById(
+        "monthCalendarTitle",
+      );
+      const monthCalendarMonths = document.getElementById(
+        "monthCalendarMonths",
+      );
+      const monthRangeHint = document.getElementById("monthRangeHint");
       let currentMode = params.get("mode") === "month" ? "month" : "day";
       let activeMetric = "income";
       let trendPlot = [];
       let pendingRangeStart = rangeStart;
       let pendingRangeEnd = rangeEnd;
       let calendarMonth = rangeEnd.slice(0, 7);
+      let pendingMonthRangeStart = monthRangeStart;
+      let pendingMonthRangeEnd = monthRangeEnd;
+      let monthCalendarYear = Number(monthRangeEnd.slice(0, 4));
 
       function dateObject(value) {
         const [year, month, day] = value.split("-").map(Number);
@@ -333,6 +481,18 @@
         ];
       }
 
+      function monthShortcutRange(shortcut) {
+        return [
+          shiftMonth(latestMonth, shortcut === "oneYear" ? -11 : -5),
+          latestMonth,
+        ];
+      }
+
+      function displayMonth(month) {
+        const [year, value] = month.split("-");
+        return `${year}年${Number(value)}月`;
+      }
+
       function monthShortLabel(month) {
         return `${Number(month.slice(5))}月`;
       }
@@ -363,6 +523,7 @@
       };
       const historyFactors = [
         1, 0.995, 0.963, 0.941, 0.916, 0.894, 0.872, 0.848, 0.826, 0.801,
+        0.784, 0.762,
       ];
       const monthlyRows = availableMonths.map((month, index) => {
         const days = completeSummary.days.filter((day) =>
@@ -405,7 +566,10 @@
           0,
         ),
       };
-      const allTimeSummary = monthlyRows.reduce(
+      const selectedMonthlyRows = monthlyRows.filter(
+        (row) => row.month >= monthRangeStart && row.month <= monthRangeEnd,
+      );
+      const selectedMonthSummary = selectedMonthlyRows.reduce(
         (totals, row) => ({
           coins: totals.coins + row.coins,
           sessions: totals.sessions + row.sessions,
@@ -488,13 +652,13 @@
             ],
           };
         }
-        const orderedMonths = monthlyRows.slice(0, 6).reverse();
+        const orderedMonths = selectedMonthlyRows.slice().reverse();
         return {
           metrics: [
             {
               key: "income",
               label: "公会收益",
-              value: allTimeSummary.coins,
+              value: selectedMonthSummary.coins,
               values: orderedMonths.map((row) => row.coins),
               labels: orderedMonths.map((row) => monthShortLabel(row.month)),
               format: coin,
@@ -503,7 +667,7 @@
             {
               key: "sessions",
               label: "直播场次",
-              value: allTimeSummary.sessions,
+              value: selectedMonthSummary.sessions,
               values: orderedMonths.map((row) => row.sessions),
               labels: orderedMonths.map((row) => monthShortLabel(row.month)),
               format: number,
@@ -511,7 +675,7 @@
             {
               key: "startedHosts",
               label: "开播人数",
-              value: allTimeSummary.startedHosts,
+              value: selectedMonthSummary.startedHosts,
               values: orderedMonths.map((row) => row.startedHosts),
               labels: orderedMonths.map((row) => monthShortLabel(row.month)),
               format: number,
@@ -519,7 +683,7 @@
             {
               key: "effectiveDays",
               label: "达成有效天",
-              value: allTimeSummary.effectiveDays,
+              value: selectedMonthSummary.effectiveDays,
               values: orderedMonths.map((row) => row.effectiveDays),
               labels: orderedMonths.map((row) => monthShortLabel(row.month)),
               format: number,
@@ -578,7 +742,7 @@
           .join(" ");
         const every =
           currentMode === "month"
-            ? 1
+            ? Math.max(1, Math.ceil(values.length / 6))
             : Math.max(1, Math.ceil(values.length / 5));
         const dots = values
           .map((value, index) =>
@@ -645,6 +809,7 @@
       function renderDetail() {
         const isDay = currentMode === "day";
         dayFilterBar.hidden = !isDay;
+        monthFilterBar.hidden = isDay;
         dailyTable.hidden = !isDay;
         monthlyTable.hidden = isDay;
         if (isDay) {
@@ -656,7 +821,13 @@
             `${rangePickerValue.textContent}每日明细`,
           );
         } else {
-          monthlyList.innerHTML = monthlyRows.map(monthlyCard).join("");
+          monthlyList.innerHTML = selectedMonthlyRows.length
+            ? selectedMonthlyRows.map(monthlyCard).join("")
+            : '<div class="guild-page-empty"><b>当前范围暂无数据</b><span>请选择其他月份范围</span></div>';
+          monthlyTable.setAttribute(
+            "aria-label",
+            `${monthRangePickerValue.textContent}每月明细`,
+          );
         }
       }
 
@@ -680,6 +851,16 @@
         nextParams.set("rangeEnd", end);
         if (shortcut) nextParams.set("shortcut", shortcut);
         else nextParams.delete("shortcut");
+        location.href = `guild-income.html?${nextParams}`;
+      }
+
+      function applyMonthRange(start, end, shortcut = null) {
+        const nextParams = new URLSearchParams(location.search);
+        nextParams.set("mode", "month");
+        nextParams.set("monthStart", start);
+        nextParams.set("monthEnd", end);
+        if (shortcut) nextParams.set("monthShortcut", shortcut);
+        else nextParams.delete("monthShortcut");
         location.href = `guild-income.html?${nextParams}`;
       }
 
@@ -747,6 +928,63 @@
         shortcutPicker.setAttribute("aria-expanded", "false");
       }
 
+      function renderMonthCalendar() {
+        const earliestAvailableMonth =
+          availableMonths[availableMonths.length - 1];
+        const earliestYear = Number(earliestAvailableMonth.slice(0, 4));
+        const latestYear = Number(latestMonth.slice(0, 4));
+        monthCalendarTitle.textContent = `${monthCalendarYear}年`;
+        monthCalendarPrev.disabled = monthCalendarYear <= earliestYear;
+        monthCalendarNext.disabled = monthCalendarYear >= latestYear;
+        monthCalendarMonths.innerHTML = Array.from(
+          { length: 12 },
+          (_, index) => {
+            const month = `${monthCalendarYear}-${String(index + 1).padStart(2, "0")}`;
+            const enabled =
+              month >= earliestAvailableMonth && month <= latestMonth;
+            const isStart = month === pendingMonthRangeStart;
+            const isEnd = month === pendingMonthRangeEnd;
+            const inRange =
+              pendingMonthRangeStart &&
+              pendingMonthRangeEnd &&
+              month > pendingMonthRangeStart &&
+              month < pendingMonthRangeEnd;
+            const classes = [
+              isStart ? "range-start" : "",
+              isEnd ? "range-end" : "",
+              inRange ? "in-range" : "",
+            ]
+              .filter(Boolean)
+              .join(" ");
+            return `<button class="${classes}" type="button" role="gridcell" data-month="${month}" aria-selected="${Boolean(isStart || isEnd || inRange)}"${enabled ? "" : " disabled"}>${index + 1}月</button>`;
+          },
+        ).join("");
+        const end = pendingMonthRangeEnd || pendingMonthRangeStart;
+        monthRangeHint.textContent = pendingMonthRangeStart
+          ? `${displayMonth(pendingMonthRangeStart)}～${displayMonth(end)}`
+          : "请选择月份";
+      }
+
+      function openMonthRangeSheet() {
+        pendingMonthRangeStart = monthRangeStart;
+        pendingMonthRangeEnd = monthRangeEnd;
+        monthCalendarYear = Number(monthRangeEnd.slice(0, 4));
+        renderMonthCalendar();
+        monthRangeSheet.hidden = false;
+        document.body.classList.add("guild-sheet-open");
+      }
+
+      function closeMonthRangeSheet() {
+        monthRangeSheet.hidden = true;
+        document.body.classList.remove("guild-sheet-open");
+        monthRangePickerButton.focus();
+      }
+
+      function closeMonthShortcutMenu() {
+        monthShortcutMenu.hidden = true;
+        monthShortcutPicker.setAttribute("aria-expanded", "false");
+      }
+
       rangePickerValue.textContent = `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
       rangePickerButton.setAttribute(
         "aria-label",
@@ -771,6 +1009,31 @@
           applyRange(start, end, shortcut);
         };
       });
+      monthRangePickerValue.textContent = `${displayMonth(monthRangeStart)}～${displayMonth(monthRangeEnd)}`;
+      monthRangePickerButton.setAttribute(
+        "aria-label",
+        `选择月份范围，当前${monthRangePickerValue.textContent}`,
+      );
+      monthShortcutPickerValue.textContent = selectedMonthShortcut
+        ? monthShortcutLabels[selectedMonthShortcut]
+        : "自定义";
+      document.querySelectorAll("[data-month-shortcut]").forEach((button) => {
+        const active =
+          button.dataset.monthShortcut ===
+          (selectedMonthShortcut || "custom");
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-checked", String(active));
+        button.onclick = () => {
+          const shortcut = button.dataset.monthShortcut;
+          closeMonthShortcutMenu();
+          if (shortcut === "custom") {
+            openMonthRangeSheet();
+            return;
+          }
+          const [start, end] = monthShortcutRange(shortcut);
+          applyMonthRange(start, end, shortcut);
+        };
+      });
 
       document.querySelectorAll("[data-mode]").forEach(
         (button) =>
@@ -781,6 +1044,7 @@
           }),
       );
       rangePickerButton.onclick = openRangeSheet;
+      monthRangePickerButton.onclick = openMonthRangeSheet;
       shortcutPicker.onclick = (event) => {
         event.stopPropagation();
         shortcutMenu.hidden = !shortcutMenu.hidden;
@@ -790,6 +1054,15 @@
         );
       };
       shortcutMenu.onclick = (event) => event.stopPropagation();
+      monthShortcutPicker.onclick = (event) => {
+        event.stopPropagation();
+        monthShortcutMenu.hidden = !monthShortcutMenu.hidden;
+        monthShortcutPicker.setAttribute(
+          "aria-expanded",
+          String(!monthShortcutMenu.hidden),
+        );
+      };
+      monthShortcutMenu.onclick = (event) => event.stopPropagation();
       rangeSheetCancel.onclick = closeRangeSheet;
       rangeSheetConfirm.onclick = () => {
         if (!pendingRangeStart) return;
@@ -797,6 +1070,46 @@
       };
       rangeSheet.onclick = (event) => {
         if (event.target === rangeSheet) closeRangeSheet();
+      };
+      monthRangeSheetCancel.onclick = closeMonthRangeSheet;
+      monthRangeSheetConfirm.onclick = () => {
+        if (!pendingMonthRangeStart) return;
+        applyMonthRange(
+          pendingMonthRangeStart,
+          pendingMonthRangeEnd || pendingMonthRangeStart,
+        );
+      };
+      monthRangeSheet.onclick = (event) => {
+        if (event.target === monthRangeSheet) closeMonthRangeSheet();
+      };
+      monthCalendarPrev.onclick = () => {
+        const earliestYear = Number(
+          availableMonths[availableMonths.length - 1].slice(0, 4),
+        );
+        if (monthCalendarYear <= earliestYear) return;
+        monthCalendarYear -= 1;
+        renderMonthCalendar();
+      };
+      monthCalendarNext.onclick = () => {
+        const latestYear = Number(latestMonth.slice(0, 4));
+        if (monthCalendarYear >= latestYear) return;
+        monthCalendarYear += 1;
+        renderMonthCalendar();
+      };
+      monthCalendarMonths.onclick = (event) => {
+        const option = event.target.closest("[data-month]");
+        if (!option || option.disabled) return;
+        const month = option.dataset.month;
+        if (!pendingMonthRangeStart || pendingMonthRangeEnd) {
+          pendingMonthRangeStart = month;
+          pendingMonthRangeEnd = null;
+        } else if (month < pendingMonthRangeStart) {
+          pendingMonthRangeEnd = pendingMonthRangeStart;
+          pendingMonthRangeStart = month;
+        } else {
+          pendingMonthRangeEnd = month;
+        }
+        renderMonthCalendar();
       };
       calendarPrev.onclick = () => {
         const next = shiftMonth(calendarMonth, -1);
@@ -826,10 +1139,13 @@
         renderCalendar();
       };
       document.addEventListener("click", closeShortcutMenu);
+      document.addEventListener("click", closeMonthShortcutMenu);
       document.addEventListener("keydown", (event) => {
         if (event.key !== "Escape") return;
         if (!shortcutMenu.hidden) closeShortcutMenu();
+        else if (!monthShortcutMenu.hidden) closeMonthShortcutMenu();
         else if (!rangeSheet.hidden) closeRangeSheet();
+        else if (!monthRangeSheet.hidden) closeMonthRangeSheet();
       });
       incomeTrend.onpointermove = showTrendTooltip;
       incomeTrend.onpointerdown = showTrendTooltip;

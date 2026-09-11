@@ -1,0 +1,299 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "项目目录": "liveshow-proto",
+  "任务标识": "liveshow-user-live-profile-260910-003",
+  "任务工作目录": "work/liveshow-user-live-profile-260910-003",
+  "生成策略": "current-evidence-only",
+  "目标范围": {
+    "端名": "用户App",
+    "模块名称": "直播模块"
+  },
+  "输入文件": [
+    {
+      "路径": "liveshow-proto/项目说明.md",
+      "SHA-256": "6411c37b7c7632fc7184b530f88a9cb124a57a5f594fb78ca6f862758dec6c74",
+      "角色": "当前业务证据",
+      "内容类型": "需求或项目说明",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/需求来源策略.json",
+      "SHA-256": "68f130ad57add2a5c07e343324e46dd03325e9dcaa0a1e32141966afe79ee180",
+      "角色": "当前业务证据",
+      "内容类型": "需求或项目说明",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "SHA-256": "1e17c8335bdc889884cd7100ffb7743d761c8c2d789e2038d424756ac9d27896",
+      "角色": "当前业务证据",
+      "内容类型": "需求或项目说明",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "SHA-256": "aee792f8011a9f12e440c3cad05020bd68f4f2425907d87fb97b2a8736d75a46",
+      "角色": "当前业务证据",
+      "内容类型": "需求或项目说明",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "SHA-256": "ea3eb1ea9e1e7ab8dcc7f680ff692a17455b02e2427b96ccc863c72f60f54058",
+      "角色": "当前业务证据",
+      "内容类型": "需求或项目说明",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/context/系统概要 .md",
+      "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+      "角色": "当前业务证据",
+      "内容类型": "需求或项目说明",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/index.html",
+      "SHA-256": "cae55b355e8980c2c059edc55eab45e2bbfc8890d7fae6cbf2122934f55aed61",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/user.js",
+      "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+      "角色": "当前业务证据",
+      "内容类型": "原型批注",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.js",
+      "SHA-256": "dcad35af7673c0714b5ea86c28f393157a0340835de95fd3957f0f05826a56e7",
+      "角色": "当前业务证据",
+      "内容类型": "原型脚本",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/mock.js",
+      "SHA-256": "90ad739cf3bd0c5e4ce29dde5472f1a1679e00472d90cad10a985659cc642271",
+      "角色": "当前业务证据",
+      "内容类型": "原型脚本",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/start-live-config.js",
+      "SHA-256": "c9648538539c3e50a44caf48dd500985163e6e76e80c3c06001b57c76bf55a23",
+      "角色": "当前业务证据",
+      "内容类型": "原型脚本",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/live-muted-users.js",
+      "SHA-256": "c54d29eb6ff959390b316cc337f90eee24baa63765352931b5a75edd84943dcc",
+      "角色": "当前业务证据",
+      "内容类型": "原型脚本",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+      "SHA-256": "a008fa98a8b465d65e3de4ecd188b854aba8342f4a05e302def81f10e819f3b4",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+      "SHA-256": "a8e48582fda769399cc295f41674e6718ab102722c12362ed4589f3f2958d70d",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/visible-fan-select.html",
+      "SHA-256": "45f68c95e61d274dc0f9226324ad7a078c66fe2ccafeb6d3838c5cba8eaced3e",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/moderator-management.html",
+      "SHA-256": "b907f5f244abf8a28fa06ef5dee8bd74f4249aae2b518d6b08d4ec360d46ce8d",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/live-data.html",
+      "SHA-256": "b3bbd1941b5f42a449f562d0e05891ec3a4a23d0848d726e4f8e84ae7af900dc",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/live-records.html",
+      "SHA-256": "2c191aa0ebeb10ff5a6fc958640527a169092f16345fd341b141642e1d404d1b",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA-256": "c09ad3251e660e5fcd6af552cbec5e9f401942bea35dc05f9cd89b5bf40327e4",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "SHA-256": "053b10ca84c99e7f6f65bfdff2b8fb74475f318e7615e61291175600c4e1f5b1",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-host-password.html",
+      "SHA-256": "2f93b8dc05fb36c946cc2cb80a17ac1bbf741906230d57fdb08377ef19e5cae6",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-cohost-active.html",
+      "SHA-256": "8044e23b3d53f4a2bcdbbac65a247db8f52be5e93a1e1a66171e97ad7bcf24d6",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-report.html",
+      "SHA-256": "78c465e079329c50bd1b503101f321bd6e837c6bc1064364d8e356ebf875f218",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-user-report.html",
+      "SHA-256": "f7cfba0d268391d312ea947a0f14d726c17f784502be816c89fbad453326a73c",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-end-viewer.html",
+      "SHA-256": "b96e1ff6a67f03429a07d6119c220cd5519ee252beac503fdc30190890333e21",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-end-host.html",
+      "SHA-256": "f293b002b331a918e6ec2b106360ec5860f7da5022bb9ca05efffbdc504676b2",
+      "角色": "当前业务证据",
+      "内容类型": "原型页面",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/business-rule-catalog.json",
+      "SHA-256": "9cf6c852ea37cac7861a1b4acdc56ccf49ad92ae6023e29732f4c35dd9198139",
+      "角色": "本次派生产物",
+      "内容类型": "业务规则清单",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/current-testcase-candidate.json",
+      "SHA-256": "a2f7206523b8fa4383c7e66a1d7c82c08c69482aefa9998d99d34ff5be128adf",
+      "角色": "本次派生产物",
+      "内容类型": "当前候选用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/用户App-直播模块-测试用例-260910-001.json",
+      "SHA-256": "a2f7206523b8fa4383c7e66a1d7c82c08c69482aefa9998d99d34ff5be128adf",
+      "角色": "本次派生产物",
+      "内容类型": "最终用例JSON",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/historical-case-comparison.json",
+      "SHA-256": "d942cb532348972c64f30820cc5aac4c7ae3ba333f45e57fa49c0905c7d9ee1b",
+      "角色": "本次派生产物",
+      "内容类型": "历史用例比较结果",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/semantic-dedup-review.json",
+      "SHA-256": "2ee43082d1805f3fb29c451de3eb6c2d31a31bee6132ccf34112db20215f0267",
+      "角色": "本次派生产物",
+      "内容类型": "语义去重复核",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/page-coverage-map.json",
+      "SHA-256": "e05a67bbd63430d2f5a38d7177f980eb0008720876307195a2933f911c3f55ea",
+      "角色": "本次派生产物",
+      "内容类型": "页面覆盖映射",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/cross-module-flow-map.json",
+      "SHA-256": "4ed656722bef63da786790aa1b746a955c4d972e254ec54a69f037003e076cb4",
+      "角色": "本次派生产物",
+      "内容类型": "跨模块流程映射",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/global-evidence-scan-result.json",
+      "SHA-256": "4ba871e3a82bd57bb450ea168650717bc7a4d156aeca530026098e89127dca13",
+      "角色": "本次派生产物",
+      "内容类型": "全局证据扫描结果",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/prototype-context-sync-result.json",
+      "SHA-256": "70a24732ef576e5b4b2b72bdc542e49816af4318e0df4cbeaa71ed2a06cb4e23",
+      "角色": "本次派生产物",
+      "内容类型": "原型需求同步结果",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/evidence-atom-index.json",
+      "SHA-256": "518897df4b925e6604dd34907cdb083c2817a62752fa1e0dd7ae710f69a82dc8",
+      "角色": "本次派生产物",
+      "内容类型": "证据原子索引",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/coverage-matrix.json",
+      "SHA-256": "16bb7b421f504bfd06ba279c1da7025acaaa6c0e23e912a35d39187e47ce0383",
+      "角色": "本次派生产物",
+      "内容类型": "覆盖处理清单",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/quality-context.json",
+      "SHA-256": "c68b3eccad2f5a26a98db87aa73b10feb71d87c8d676b5ae5519b2e85e38f3f8",
+      "角色": "本次派生产物",
+      "内容类型": "质量校验上下文",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-live-profile-260910-003/build-live-module.mjs",
+      "SHA-256": "e38040cfd863fa73b2b5be810d8f5de1702e40c6d481d01bddd92cdc7b635eaf",
+      "角色": "执行工具",
+      "内容类型": "生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/testcase-design.mjs",
+      "SHA-256": "1476c5212ed78c049f5061d44bab1db59ee44c350f9dcf218a3f496fe4deda85",
+      "角色": "执行工具",
+      "内容类型": "生成工具",
+      "允许定义业务规则": false
+    }
+  ],
+  "当前业务规则清单": "work/liveshow-user-live-profile-260910-003/business-rule-catalog.json",
+  "生成脚本": "work/liveshow-user-live-profile-260910-003/build-live-module.mjs",
+  "当前候选用例": "work/liveshow-user-live-profile-260910-003/current-testcase-candidate.json",
+  "最终用例JSON": "work/liveshow-user-live-profile-260910-003/用户App-直播模块-测试用例-260910-001.json",
+  "历史用例比较结果": "work/liveshow-user-live-profile-260910-003/historical-case-comparison.json"
+}

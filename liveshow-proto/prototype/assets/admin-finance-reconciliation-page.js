@@ -20,11 +20,10 @@
   const configs = {
     monthlyIncomeExpense: {
       title: '月度收益支出汇总', file: 'admin-monthly-income-expense.html', rows: DATA.monthlyIncomeExpense,
-      allMonths: true, minWidth: 1020,
+      allMonths: true, minWidth: 680,
       columns: [
-        ['月份', (item) => monthText(item.month)], ['收益', (item) => coins(item.totalRevenue)], ['公会分成金额$', (item) => money(item.guildShareAmount)],
-        ['主播分成$', (item) => money(item.hostShareAmount)], ['用户累计充值', (item) => money(item.userRechargeAmount)],
-        ['用户累计退款', (item) => money(item.userRefundAmount)]
+        ['月份', (item) => monthText(item.month)], ['收益', (item) => coins(item.totalRevenue)],
+        ['累计充值', (item) => money(item.userRechargeAmount)], ['累计退款', (item) => money(item.userRefundAmount)]
       ]
     },
     monthlyHostShare: {

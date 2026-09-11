@@ -273,23 +273,17 @@
         const level = dataModel.profiles[host.id]?.level || host.level || "";
         const roleTag = isFormerHost
           ? '<em class="guild-host-former-tag">【退会】</em>'
-          : '<em class="guild-member-role">主播</em>';
+          : "";
         const levelText = level ? ` · ${level}` : "";
         hostSummary.innerHTML = `<div class="guild-host-summary-main"><span class="directory-avatar">${host.avatar}</span><span class="guild-host-summary-copy"><b class="guild-host-summary-name">${host.name}${roleTag}</b><span>${host.id}${levelText}</span></span></div>`;
       }
 
       function renderDataSummary() {
-        const withdrawable = Math.round(totals.coins * 0.5);
         const metrics = [
           ["粉丝数", LUMA_FORMAT.integer(totals.fans)],
           [
             "总收益",
             `${coinIcon}${LUMA_FORMAT.coins(totals.coins)}`,
-            "guild-host-total-coin",
-          ],
-          [
-            "可提现余额",
-            `${coinIcon}${LUMA_FORMAT.coins(withdrawable)}`,
             "guild-host-total-coin",
           ],
           ["直播次数", LUMA_FORMAT.integer(totals.sessions)],
@@ -309,7 +303,7 @@
         const permissionEnabled = guildPermission && platformPermission;
         const permissionStatus = platformPermission
           ? ""
-          : '<strong class="guild-permission-locked">已锁定</strong>';
+          : '<strong class="guild-permission-locked">权限已锁定</strong>';
         permissionGrid.innerHTML = `<div><span>直播权限</span>${permissionStatus}<button class="guild-permission-switch ${permissionEnabled ? "active" : ""}" id="permissionSwitch" type="button" role="switch" aria-label="直播权限" aria-checked="${permissionEnabled}" ${permissionDisabled ? "disabled" : ""}><i></i></button></div>`;
         permissionGrid.querySelector("#permissionSwitch").onclick = () => {
           if (permissionDisabled) return;

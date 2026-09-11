@@ -8,7 +8,7 @@
     <script src="../../../assets/tokens.js"></script>
     <link rel="stylesheet" href="../../../assets/common.css" />
     <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/mock.js?v=20260815-guild-leave-application-v1"></script>
+    <script src="../../../assets/mock.js?v=20260909-guild-materials-collapse-v1"></script>
     <style>
       .screen {
         padding-bottom: 34px;
@@ -94,7 +94,11 @@
     <script>
       const cards = document.querySelector("#cards");
       function render() {
-        const relations = window.LUMA_MOCK.guildRelationOrders;
+        const latestSubmittedAt = (relation) =>
+          relation.orders.reduce((latest, order) => order.submittedAt > latest ? order.submittedAt : latest, "");
+        const relations = [...window.LUMA_MOCK.guildRelationOrders].sort((a, b) =>
+          latestSubmittedAt(b).localeCompare(latestSubmittedAt(a)),
+        );
         cards.innerHTML = relations
           .map((relation) => {
             const guild = window.LUMA_MOCK.guilds.find(
@@ -105,7 +109,7 @@
           .join("");
         cards.querySelectorAll("[data-guild]").forEach((card) => {
           card.onclick = () =>
-            (location.href = `guild-detail.html?guild=${encodeURIComponent(card.dataset.guild)}`);
+            (location.href = `guild-detail.html?guild=${encodeURIComponent(card.dataset.guild)}&v=20260909-guild-detail-route-v1`);
         });
       }
       render();

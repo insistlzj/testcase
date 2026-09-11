@@ -15,19 +15,6 @@
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
     <script src="../../../assets/admin-mock.js?v=20260815-consumption-refund-v1"></script>
     <style>
-      .refund-confirm-summary {
-        margin-bottom: 18px;
-        padding: 14px;
-        border: 1px solid var(--admin-border);
-        border-radius: var(--admin-radius-sm);
-        background: var(--admin-canvas);
-        line-height: 1.7;
-      }
-      .refund-confirm-note {
-        margin: 8px 0 0;
-        color: var(--admin-muted);
-        font-size: var(--admin-font-xs);
-      }
       @media (max-width: 1100px) {
         .admin-detail-grid {
           grid-template-columns: 1fr;
@@ -86,10 +73,7 @@
             <div class="admin-section-head">
               <h2>订单信息</h2>
               <div class="admin-toolbar-actions">
-                <span class="admin-status" id="orderStatus"></span
-                ><button class="admin-btn danger" id="refundBtn" type="button">
-                  手动退款
-                </button>
+                <span class="admin-status" id="orderStatus"></span>
               </div>
             </div>
             <div class="admin-profile-summary">
@@ -116,48 +100,6 @@
         </main>
       </div>
     </div>
-    <div class="admin-overlay" id="refundOverlay">
-      <section class="admin-modal">
-        <div class="admin-modal-head">
-          <h2>确认手动退款</h2>
-          <button
-            class="admin-icon-btn"
-            type="button"
-            data-close="refundOverlay"
-            aria-label="关闭"
-          >
-            ×
-          </button>
-        </div>
-        <form id="refundForm">
-          <div class="admin-modal-body">
-            <div class="refund-confirm-summary" id="refundSummary"></div>
-            <div class="admin-form-row">
-              <label for="refundReason">退款原因</label
-              ><textarea
-                class="admin-textarea"
-                id="refundReason"
-                maxlength="200"
-                placeholder="请输入核对结果和退款原因"
-                required
-              ></textarea>
-              <div class="refund-confirm-note">
-                提交后将退回该订单消耗的全部本金和赠金；已分成的主播收益不追回。
-              </div>
-            </div>
-          </div>
-          <div class="admin-modal-foot">
-            <button
-              class="admin-btn secondary"
-              type="button"
-              data-close="refundOverlay"
-            >
-              取消</button
-            ><button class="admin-btn danger" type="submit">确认</button>
-          </div>
-        </form>
-      </section>
-    </div>
     <script>
       const params = new URLSearchParams(location.search),
         orders = window.LUMA_ADMIN_MOCK.consumptionOrders,
@@ -170,22 +112,6 @@
         format = window.LUMA_ADMIN_FORMAT,
         statusText = { paid: "已支付", refunded: "已退款" },
         statusClass = { paid: "success", refunded: "banned" };
-      const refundBtn = document.querySelector("#refundBtn"),
-        refundOverlay = document.querySelector("#refundOverlay"),
-        refundReason = document.querySelector("#refundReason");
-      function escapeHtml(value) {
-        return String(value).replace(
-          /[&<>"']/g,
-          (char) =>
-            ({
-              "&": "&amp;",
-              "<": "&lt;",
-              ">": "&gt;",
-              '"': "&quot;",
-              "'": "&#39;",
-            })[char],
-        );
-      }
       function displayStatus() {
         return order.refund || order.status === "reversed"
           ? "refunded"
@@ -198,7 +124,6 @@
         userId.innerHTML = Luma.id(order.userId, "用户ID");
         orderStatus.className = `admin-status ${statusClass[status]}`;
         orderStatus.textContent = statusText[status];
-        refundBtn.classList.toggle("state-hide", status === "refunded");
         orderInfo.innerHTML = /* HTML */ `<div class="admin-detail-item">
             <span>消费订单号</span><b>${order.orderNo}</b>
           </div>
@@ -231,44 +156,6 @@
           </div>`;
         targetInfo.innerHTML = `<div class="admin-detail-item"><span>主播</span><b>${order.targetName} · ${order.targetId}</b></div><div class="admin-detail-item"><span>直播间 ID</span><b>${order.roomId}</b></div><div class="admin-detail-item"><span>直播场次 ID</span><b>${order.sessionId}</b></div>`;
       }
-      function openRefund() {
-        refundSummary.innerHTML = `<b>订单 ${order.orderNo}</b><br>退回金币：${format.coins(order.coins)}<br>其中本金：${format.coins(order.paidBaseCoins)}，赠金：${format.coins(order.paidBonusCoins)}`;
-        refundReason.value = "";
-        refundOverlay.classList.add("show");
-        setTimeout(() => refundReason.focus(), 0);
-      }
-      function closeRefund() {
-        refundOverlay.classList.remove("show");
-      }
-      refundBtn.onclick = openRefund;
-      document
-        .querySelectorAll('[data-close="refundOverlay"]')
-        .forEach((button) => (button.onclick = closeRefund));
-      refundOverlay.onclick = (event) => {
-        if (event.target === refundOverlay) closeRefund();
-      };
-      refundForm.onsubmit = (event) => {
-        event.preventDefault();
-        const reason = refundReason.value.trim();
-        if (!reason) return Luma.toast("请输入退款原因");
-        order.refund = {
-          refundNo: "CRF20260814000216",
-          type: "手动退款",
-          returnedBaseCoins: order.paidBaseCoins,
-          returnedBonusCoins: order.paidBonusCoins,
-          balanceAfter: order.walletBalance + order.coins,
-          reason,
-          operator: "后台管理员",
-          createdAt: "2026-08-14 15:40",
-          settlementImpact: "主播已分成收益不追回，退款损失由平台承担。",
-        };
-        closeRefund();
-        renderOrder();
-        Luma.toast("退款成功，订单状态已更新");
-      };
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeRefund();
-      });
       renderOrder();
       window.parent.postMessage(
         {

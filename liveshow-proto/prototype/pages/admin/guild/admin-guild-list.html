@@ -122,7 +122,7 @@
                 <button class="admin-list-tab active" data-status-tab="">
                   全部</button
                 ><button class="admin-list-tab" data-status-tab="enabled">
-                  启用</button
+                  正常</button
                 ><button class="admin-list-tab" data-status-tab="disabled">
                   停用
                 </button>
@@ -135,8 +135,6 @@
                   <col style="width: 190px" />
                   <col style="width: 160px" />
                   <col style="width: 92px" />
-                  <col style="width: 82px" />
-                  <col style="width: 130px" />
                   <col style="width: 92px" />
                   <col style="width: 130px" />
                   <col style="width: 124px" />
@@ -146,8 +144,6 @@
                     <th>公会信息</th>
                     <th>公会长信息</th>
                     <th>主播人数</th>
-                    <th>普通成员人数</th>
-                    <th>累计分成（USD）</th>
                     <th>公会状态</th>
                     <th>创建时间</th>
                     <th>操作</th>
@@ -195,12 +191,11 @@
         guilds = mock.guilds,
         empty = {
           hosts: [],
-          members: [],
           income: [],
           shares: [],
           settlements: [],
         },
-        statusText = { enabled: "启用", disabled: "停用", unopened: "未开通" };
+        statusText = { enabled: "正常", disabled: "停用", unopened: "未开通" };
       const guildRows = document.querySelector("#guildRows"),
         resultCount = document.querySelector("#resultCount"),
         pagination = document.querySelector("#pagination");
@@ -219,13 +214,13 @@
         pagination.classList.toggle("state-hide", !items.length);
         if (!items.length) {
           guildRows.innerHTML =
-            '<tr><td colspan="8"><div class="admin-empty"><strong>未找到匹配公会</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+            '<tr><td colspan="6"><div class="admin-empty"><strong>未找到匹配公会</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
           return;
         }
         guildRows.innerHTML = items
           .map(
             (guild) =>
-              `<tr><td><b>${guild.name}</b><span class="admin-cell-sub">${guild.id}</span></td><td>${guild.leaderName}<br><span class="admin-muted">${Luma.id(guild.leaderId, "公会长账号")}</span></td><td>${guild.hostCount}</td><td>${guild.memberCount}</td><td>${formatMoney(guild.earnings)}</td><td><span class="admin-status ${guild.status}">${statusText[guild.status]}</span></td><td>${guild.createdAt}</td><td><a class="admin-action" href="admin-guild-detail.html?id=${guild.id}">详情</a></td></tr>`,
+              `<tr><td><b>${guild.name}</b><span class="admin-cell-sub">${guild.id}</span></td><td>${guild.leaderName}<br><span class="admin-muted">${Luma.id(guild.leaderId, "公会长账号")}</span></td><td>${guild.hostCount}</td><td><span class="admin-status ${guild.status}">${statusText[guild.status]}</span></td><td>${guild.createdAt}</td><td><a class="admin-action" href="admin-guild-detail.html?id=${guild.id}">详情</a></td></tr>`,
           )
           .join("");
       }
@@ -275,9 +270,6 @@
                 <span>名下主播数</span><b>${detailGuild.hostCount}</b>
               </div>
               <div class="admin-metric">
-                <span>成员数</span><b>${detailGuild.memberCount}</b>
-              </div>
-              <div class="admin-metric">
                 <span>累计收益（USD）</span
                 ><b>${formatMoney(detailGuild.earnings)}</b>
               </div>
@@ -297,8 +289,8 @@
                 ><b>${detailGuild.leaderId} / ${detailGuild.leaderName}</b>
               </div>
               <div class="admin-detail-item">
-                <span>公会端账号状态</span
-                ><b>${statusText[detailGuild.accountStatus]}</b>
+                <span>公会长账号状态</span
+                ><b>${statusText[detailGuild.leaderStatus]}</b>
               </div>
               <div class="admin-detail-item">
                 <span>创建时间</span><b>${detailGuild.createdAt}</b>
@@ -317,16 +309,6 @@
               ["账号状态", (i) => i.status],
             ],
             data.hosts,
-          );
-        if (tab === "members")
-          panel.innerHTML = table(
-            [
-              ["用户 ID", (i) => i.id],
-              ["昵称", (i) => i.name],
-              ["加入时间", (i) => i.joinedAt],
-              ["成员状态", (i) => i.status],
-            ],
-            data.members,
           );
         if (tab === "income")
           panel.innerHTML = table(
@@ -375,8 +357,6 @@
             <button class="admin-detail-tab active" data-tab="profile">
               基础信息</button
             ><button class="admin-detail-tab" data-tab="hosts">主播列表</button
-            ><button class="admin-detail-tab" data-tab="members">
-              成员列表</button
             ><button class="admin-detail-tab" data-tab="income">收益台账</button
             ><button class="admin-detail-tab" data-tab="shares">分成记录</button
             ><button class="admin-detail-tab" data-tab="settlements">
@@ -392,17 +372,16 @@
         currentGuild = guild;
         guildActionSubmit.className = "admin-btn";
         guildActionSubmit.disabled = false;
-        if (type === "account") {
-          guildActionTitle.textContent =
-            guild.accountStatus === "enabled"
-              ? "停用公会端账号"
-              : "开通公会端账号";
-          guildActionBody.innerHTML = `<p>确认${guild.accountStatus === "enabled" ? "停用" : "开通"} ${guild.name} 的公会端账号？</p>`;
-        }
+        guildActionSubmit.textContent = "确认";
         if (type === "status") {
           guildActionTitle.textContent =
             guild.status === "enabled" ? "停用公会" : "启用公会";
-          guildActionBody.innerHTML = `<p>确认${guild.status === "enabled" ? "停用" : "启用"} ${guild.name}？停用后公会长不可登录公会端。</p>`;
+          if (guild.status === "enabled") {
+            guildActionSubmit.textContent = "停用";
+            guildActionBody.innerHTML = '<div class="admin-note">停用后，公会无法被搜索、公会长无法登录、主播将退出公会并失去直播权限。</div>';
+          } else {
+            guildActionBody.innerHTML = `<p>确认启用 ${guild.name}？</p>`;
+          }
         }
         guildActionOverlay.classList.add("show");
       }
@@ -410,9 +389,6 @@
         document
           .querySelectorAll(".admin-overlay")
           .forEach((x) => x.classList.remove("show"));
-        document
-          .querySelectorAll(".admin-popover")
-          .forEach((x) => x.classList.add("state-hide"));
       }
       searchBtn.onclick = filter;
       resetBtn.onclick = () => {
@@ -474,14 +450,9 @@
       });
       guildActionForm.onsubmit = (e) => {
         e.preventDefault();
-        if (currentAction === "account")
-          currentGuild.accountStatus =
-            currentGuild.accountStatus === "enabled" ? "disabled" : "enabled";
         if (currentAction === "status") {
           currentGuild.status =
             currentGuild.status === "enabled" ? "disabled" : "enabled";
-          if (currentGuild.status === "disabled")
-            currentGuild.accountStatus = "disabled";
         }
         guildActionOverlay.classList.remove("show");
         render(visibleGuilds);

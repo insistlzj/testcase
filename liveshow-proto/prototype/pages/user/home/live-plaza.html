@@ -8,7 +8,7 @@
     <script src="../../../assets/tokens.js"></script>
     <link rel="stylesheet" href="../../../assets/common.css?v=p001-ticket-v5" />
     <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/mock.js?v=20260904-room-access-v1"></script>
     <style>
       .rank {
         display: grid;
@@ -380,6 +380,50 @@
         color: var(--g4);
         cursor: default;
       }
+      .notification-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--overlay);
+      }
+      .notification-card {
+        width: 300px;
+        padding: 22px 18px 18px;
+        border-radius: 8px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .notification-card h2 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .notification-card p {
+        margin: 10px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      .notification-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .notification-actions button {
+        flex: 1;
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .notification-actions .primary {
+        background: var(--g1);
+        color: var(--g7);
+      }
     </style>
   </head>
   <body>
@@ -388,15 +432,15 @@
       <div class="rank">
         <button
           class="rank-search"
-          onclick="Luma.toast('打开搜索')"
+          onclick="Luma.requireLogin() && Luma.toast('打开搜索')"
           aria-label="搜索"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="11" cy="11" r="6"></circle>
             <path d="m16 16 4 4"></path>
           </svg></button
-        ><button onclick="location.href='host-ranking.html'">主播榜</button
-        ><button onclick="location.href='contribution-ranking.html'">
+        ><button onclick="location.href=Luma.guestUrl('host-ranking.html')">主播榜</button
+        ><button onclick="location.href=Luma.guestUrl('contribution-ranking.html')">
           贡献榜
         </button>
       </div>
@@ -409,76 +453,107 @@
       <div class="grid" id="grid"></div>
     </main>
     <section
-      class="ticket-sheet state-hide"
-      id="ticketSheet"
+      class="notification-mask state-hide"
+      id="notificationIntro"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="notificationIntroTitle"
     >
-      <button
-        type="button"
-        class="ticket-sheet-close"
-        aria-label="关闭购买门票"
-      >
-        ×
-      </button>
-      <h2>购买门票</h2>
-      <div class="ticket-item">
-        <i>◆</i>
-        <div><b data-ticket-name>Maya 的专场</b><span>入场门票 × 1</span></div>
-        <strong class="coin" data-ticket-price>10</strong>
-      </div>
-      <footer class="ticket-footer">
-        <div class="ticket-balance">
-          <span class="coin">12.580</span
-          ><button type="button" data-ticket-recharge aria-label="充值">
-            +
+      <div class="notification-card">
+        <h2 id="notificationIntroTitle">开启通知</h2>
+        <p>开启后，你可以及时收到关注主播开播、互动消息及平台公告。</p>
+        <div class="notification-actions">
+          <button id="notificationLater" type="button">暂不开启</button>
+          <button class="primary" id="notificationEnable" type="button">
+            开启通知
           </button>
         </div>
-        <button type="button" data-buy-ticket>购买</button>
-      </footer>
+      </div>
     </section>
     <section
-      class="password-mask state-hide"
-      id="passwordDialog"
+      class="notification-mask state-hide"
+      id="systemPermission"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="systemPermissionTitle"
     >
-      <form class="password-card" id="passwordForm">
-        <button type="button" class="password-close" aria-label="关闭输入密码">
-          ×
-        </button>
-        <h2>输入房间密码</h2>
-        <p id="passwordRoomName"></p>
-        <input
-          id="roomPassword"
-          type="password"
-          inputmode="numeric"
-          maxlength="8"
-          placeholder="请输入密码"
-          autocomplete="off"
-        />
-        <p class="password-error" id="passwordError"></p>
-        <button
-          class="password-submit"
-          id="passwordSubmit"
-          type="submit"
-          disabled
-        >
-          进入直播间
-        </button>
-      </form>
+      <div class="notification-card">
+        <h2 id="systemPermissionTitle">“Luma Live”想给你发送通知</h2>
+        <p>通知可能包括提醒、声音和图标标记。</p>
+        <div class="notification-actions">
+          <button id="permissionDeny" type="button">不允许</button>
+          <button class="primary" id="permissionAllow" type="button">
+            允许
+          </button>
+        </div>
+      </div>
     </section>
     <nav class="tabbar">
       <a class="tab active" href="live-plaza.html">⌂<br />首页</a
-      ><a class="tab" href="welfare-center.html">♧<br />福利</a
-      ><a class="tab" href="../social/message-center.html">◌<br />消息</a
-      ><a class="tab" href="../profile/profile.html">♙<br />我的</a>
+      ><a class="tab" id="welfareTab" href="welfare-center.html">♧<br />福利</a
+      ><a class="tab" data-guest-protected href="../social/message-center.html">◌<br />消息</a
+      ><a class="tab" data-guest-protected href="../profile/profile.html">♙<br />我的</a>
     </nav>
     <div class="homebar"><i></i></div>
     <script>
       const d = window.LUMA_MOCK,
         grid = document.querySelector("#grid"),
         chips = document.querySelector("#chips");
+      if (new URLSearchParams(location.search).get("guest") === "1") {
+        Luma.setGuestMode(true);
+      }
+      const guestMode = Luma.isGuestMode();
+      const notificationStorage = Luma.storage(),
+        notificationSession = Luma.storage("session"),
+        notificationIntro = document.querySelector("#notificationIntro"),
+        systemPermission = document.querySelector("#systemPermission");
+      function openNotificationIntro() {
+        notificationIntro.classList.remove("state-hide");
+      }
+      function closeNotificationIntro() {
+        notificationIntro.classList.add("state-hide");
+      }
+      function openSystemPermission() {
+        closeNotificationIntro();
+        systemPermission.classList.remove("state-hide");
+      }
+      function resolveNotificationPermission(permission) {
+        notificationStorage.setItem("luma-notification-permission", permission);
+        systemPermission.classList.add("state-hide");
+        Luma.toast(permission === "granted" ? "通知已开启" : "通知未开启");
+      }
+      function finishNotificationIntro(openPermission) {
+        notificationStorage.setItem("luma-notification-intro-seen", "1");
+        notificationSession.removeItem("luma-notification-intro-pending");
+        openPermission ? openSystemPermission() : closeNotificationIntro();
+      }
+      document.querySelector("#notificationLater").onclick = () =>
+        finishNotificationIntro(false);
+      document.querySelector("#notificationEnable").onclick = () =>
+        finishNotificationIntro(true);
+      document.querySelector("#permissionDeny").onclick = () =>
+        resolveNotificationPermission("denied");
+      document.querySelector("#permissionAllow").onclick = () =>
+        resolveNotificationPermission("granted");
+      if (
+        !guestMode &&
+        notificationSession.getItem("luma-notification-intro-pending") === "1"
+      ) {
+        if (notificationStorage.getItem("luma-notification-intro-seen")) {
+          notificationSession.removeItem("luma-notification-intro-pending");
+        } else {
+          openNotificationIntro();
+        }
+      }
+      document.querySelector("#welfareTab").href =
+        Luma.guestUrl("welfare-center.html");
+      document.querySelectorAll("[data-guest-protected]").forEach((link) => {
+        link.onclick = (event) => {
+          if (!guestMode) return;
+          event.preventDefault();
+          Luma.requireLogin();
+        };
+      });
       document.querySelector("#following").innerHTML = [
         "Sari",
         "Dewi",
@@ -488,7 +563,7 @@
       ]
         .map(
           (x) =>
-            `<div class="person tap" onclick="Luma.toast('进入 ${x} 的直播间')"><i class="avatar">${x[0]}</i>${x}</div>`,
+            `<div class="person tap" onclick="Luma.requireLogin() && Luma.toast('进入 ${x} 的直播间')"><i class="avatar">${x[0]}</i>${x}</div>`,
         )
         .join("");
       function render(kind = "hot") {
@@ -501,16 +576,21 @@
                 ? { name: x, title: "新人主播", meta: "新人" }
                 : x;
             let badge = h.ticket
-              ? `<i class="room-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M9.5 9.5h3.8a1.8 1.8 0 0 1 0 3.6H10a2 2 0 0 0 0 4h4.5"/></svg>${h.ticket}</i>`
+              ? `<i class="room-badge ticket"><b>◆</b>${h.ticket}</i>`
               : h.locked
                 ? `<i class="room-badge lock"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></i>`
                 : "";
-            const normalRoom = !h.ticket && !h.locked;
-            const action = normalRoom
-              ? "location.href='../live/live-room.html'"
+            const roomAccess = h.blocked
+              ? "blocked"
               : h.locked
-                ? `openPasswordRoom('${h.name}')`
-                : `Luma.toast('进入 ${h.name} 的直播间')`;
+                ? "password"
+                : h.ticket
+                  ? "ticket"
+                  : "normal";
+            const roomAction = `location.href='../live/live-room.html?access=${roomAccess}'`;
+            const action = guestMode
+              ? "Luma.requireLogin()"
+              : roomAction;
             return /* HTML */ `<div
               class="card ${h.followed ? "followed" : ""}"
               data-room="${h.name}"
@@ -521,8 +601,8 @@
             >
               <div class="cover">
                 封面
-                1:1${badge}${h.viewers && !h.locked
-                  ? `<i class="viewer"><svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-5.5 9.5-5.5 9.5 5.5 9.5 5.5-3.5 5.5-9.5 5.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.5"/></svg>${h.viewers}</i>`
+                1:1${badge}${h.visits && !h.locked
+                  ? `<i class="viewer" aria-label="本场直播间访问 ${h.visits} 次" title="直播间访问次数"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-5.5 9.5-5.5 9.5 5.5 9.5 5.5-3.5 5.5-9.5 5.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.5"/></svg>${h.visits}</i>`
                   : ""}
               </div>
               <div class="meta">
@@ -560,89 +640,9 @@
         新人: () => {
           document.querySelector("[data-tab=new]").click();
         },
+        首次登录通知说明: openNotificationIntro,
+        系统通知授权弹窗: openSystemPermission,
       });
-    </script>
-    <script>
-      var ticketSheet = document.querySelector("#ticketSheet");
-      function openTicketRoom(name, price) {
-        ticketSheet.querySelector("[data-ticket-name]").textContent =
-          name + " 的专场";
-        ticketSheet.querySelector("[data-ticket-price]").textContent = price;
-        ticketSheet.classList.remove("state-hide");
-      }
-      function setupTicketRooms() {
-        grid
-          .querySelectorAll(".room-badge:not(.lock)")
-          .forEach(function (badge) {
-            var card = badge.closest(".card"),
-              room = d.hosts.find(function (item) {
-                return item.name === card.dataset.room;
-              }),
-              price = badge.textContent.trim();
-            badge.classList.add("ticket");
-            badge.innerHTML = "<b>◆</b>" + price;
-            card.onclick = function () {
-              openTicketRoom(room.name, price);
-            };
-            card.onkeydown = function (event) {
-              if (event.key === "Enter") openTicketRoom(room.name, price);
-            };
-          });
-      }
-      var originalRender = render;
-      render = function (kind) {
-        originalRender(kind);
-        setupTicketRooms();
-      };
-      setupTicketRooms();
-      ticketSheet.querySelector(".ticket-sheet-close").onclick = function () {
-        ticketSheet.classList.add("state-hide");
-      };
-      ticketSheet.querySelector("[data-ticket-recharge]").onclick =
-        function () {
-          Luma.toast("打开充值");
-        };
-      ticketSheet.querySelector("[data-buy-ticket]").onclick = function () {
-        ticketSheet.classList.add("state-hide");
-        Luma.toast("购买门票成功");
-        location.href = "../live/live-room.html";
-      };
-    </script>
-    <script>
-      var passwordDialog = document.querySelector("#passwordDialog"),
-        passwordInput = document.querySelector("#roomPassword"),
-        passwordSubmit = document.querySelector("#passwordSubmit"),
-        passwordError = document.querySelector("#passwordError"),
-        passwordRoom;
-      function openPasswordRoom(name) {
-        passwordRoom = d.hosts.find(function (room) {
-          return room.name === name;
-        });
-        passwordInput.value = "";
-        passwordSubmit.disabled = true;
-        passwordError.textContent = "";
-        document.querySelector("#passwordRoomName").textContent =
-          passwordRoom.name + " · " + passwordRoom.title;
-        passwordDialog.classList.remove("state-hide");
-        passwordInput.focus();
-      }
-      passwordInput.oninput = function () {
-        passwordSubmit.disabled = !passwordInput.value.trim();
-        passwordError.textContent = "";
-      };
-      document.querySelector(".password-close").onclick = function () {
-        passwordDialog.classList.add("state-hide");
-      };
-      document.querySelector("#passwordForm").onsubmit = function (event) {
-        event.preventDefault();
-        if (passwordInput.value !== passwordRoom.password) {
-          passwordError.textContent = "密码错误，请重新输入";
-          return;
-        }
-        passwordDialog.classList.add("state-hide");
-        Luma.toast("密码验证成功");
-        location.href = "../live/live-room.html";
-      };
     </script>
     <script>
       var plazaRender = render;
@@ -659,6 +659,7 @@
         operationCover.textContent = "运营 banner 图";
         operationBanner.append(operationCover);
         operationBanner.onclick = function () {
+          if (guestMode && !Luma.requireLogin()) return;
           Luma.toast("跳转运营配置目标");
         };
         operationBanner.onkeydown = function (event) {

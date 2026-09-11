@@ -11,9 +11,9 @@
       rel="stylesheet"
       href="../../../assets/admin.css?v=20260821-filter-actions-v8"
     />
-    <script src="../../../assets/common.js?v=20260821-report-menu-v1"></script>
-    <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/admin-mock.js?v=20260821-report-scope-v1"></script>
+    <script src="../../../assets/common.js?v=20260901-violation-types-v1"></script>
+    <script src="../../../assets/mock.js?v=20260901-violation-types-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-violation-types-v1"></script>
   </head>
   <body>
     <div class="admin-shell">
@@ -92,11 +92,6 @@
                 <label for="reportType">举报类型</label
                 ><select class="admin-select" id="reportType">
                   <option value="">全部类型</option>
-                  <option>色情低俗</option>
-                  <option>涉及宗教政治</option>
-                  <option>暴恐血腥</option>
-                  <option>未成年有害</option>
-                  <option>其他</option>
                 </select>
               </div>
               <div class="admin-field">
@@ -184,6 +179,12 @@
       const rows = document.querySelector("#reportRows"),
         count = document.querySelector("#resultCount"),
         pagination = document.querySelector("#pagination");
+      reportType.insertAdjacentHTML(
+        "beforeend",
+        window.LUMA_ADMIN_MOCK.reportTypes
+          .map((type) => `<option>${type}</option>`)
+          .join(""),
+      );
       function render(items) {
         visible = items;
         count.textContent = `共 ${items.length} 条`;

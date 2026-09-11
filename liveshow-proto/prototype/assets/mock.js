@@ -1,3 +1,37 @@
+window.LUMA_VIOLATION_TYPE_STORAGE_KEY = 'luma-admin-violation-types-v1';
+window.LUMA_VIOLATION_TYPE_DEFAULTS = [
+  { id: 'VT001', name: '色情低俗', names: { zh: '色情低俗', en: 'Sexual or Vulgar Content', id: 'Konten Seksual atau Vulgar', ms: 'Kandungan Seksual atau Lucah' }, sort: 1, protected: true, enabled: true, updatedAt: '2026-09-01 09:20' },
+  { id: 'VT002', name: '涉及宗教政治', names: { zh: '涉及宗教政治', en: 'Religious or Political Content', id: 'Konten Agama atau Politik', ms: 'Kandungan Agama atau Politik' }, sort: 2, protected: true, enabled: true, updatedAt: '2026-09-01 09:18' },
+  { id: 'VT003', name: '暴恐血腥', names: { zh: '暴恐血腥', en: 'Violence, Terrorism or Gore', id: 'Kekerasan, Terorisme, atau Darah', ms: 'Keganasan, Keganasan Melampau atau Berdarah' }, sort: 3, protected: true, enabled: true, updatedAt: '2026-09-01 09:16' },
+  { id: 'VT004', name: '未成年有害', names: { zh: '未成年有害', en: 'Harmful to Minors', id: 'Berbahaya bagi Anak di Bawah Umur', ms: 'Memudaratkan Kanak-kanak' }, sort: 4, protected: false, enabled: true, updatedAt: '2026-09-01 09:14' },
+  { id: 'VT005', name: '其它', names: { zh: '其它', en: 'Other', id: 'Lainnya', ms: 'Lain-lain' }, sort: 5, protected: false, enabled: true, updatedAt: '2026-09-01 09:12' }
+];
+window.LUMA_READ_VIOLATION_TYPES = () => {
+  try {
+    const storage = window.parent && window.parent !== window ? window.parent.localStorage : localStorage;
+    const saved = JSON.parse(storage.getItem(window.LUMA_VIOLATION_TYPE_STORAGE_KEY) || 'null');
+    if (Array.isArray(saved)) return saved.map((item) => {
+      const fallback = window.LUMA_VIOLATION_TYPE_DEFAULTS.find((entry) => entry.id === item.id);
+      const names = {
+        ...(fallback?.names || {}),
+        ...(item.names || {}),
+        zh: item.names?.zh || item.name || fallback?.name || ''
+      };
+      return {
+        ...item,
+        name: names.zh,
+        names,
+        enabled: item.protected ? true : item.enabled !== false
+      };
+    });
+  } catch (error) {}
+  return window.LUMA_VIOLATION_TYPE_DEFAULTS.map((item) => ({ ...item, names: { ...item.names } }));
+};
+window.LUMA_REPORT_TYPES = window.LUMA_READ_VIOLATION_TYPES()
+  .filter((item) => item.enabled)
+  .sort((left, right) => left.sort - right.sort)
+  .map((item) => item.name);
+
 window.LUMA_MOCK = {
   user: { name: 'Andi', id: '88231007', coins: '12.580', level: '等级 12' },
   auth: {
@@ -22,7 +56,7 @@ window.LUMA_MOCK = {
       { id: 'frame-crown', name: '王冠边框', mark: '♛' },
       { id: 'frame-night', name: '夜幕边框', mark: '◆' },
       { id: 'frame-spring', name: '春日边框', mark: '✿' },
-      { id: 'frame-sound', name: '律动边框', mark: '♫' }
+      { id: 'frame-sound', name: '律动边框', mark: '♫', expired: true }
     ],
     chatBubbles: [
       { id: 'bubble-starlight', name: '星光气泡', mark: '✦', equipped: true },
@@ -49,7 +83,7 @@ window.LUMA_MOCK = {
     viewers: '12.4K',
     fanCount: '1.8K',
     roomType: '普通房',
-    reportReasons: ['色情低俗', '涉及宗教政治', '暴恐血腥', '未成年有害', '其他'],
+    reportReasons: window.LUMA_REPORT_TYPES,
     mutedUsers: [
       { name: 'Nila', avatar: 'N' },
       { name: 'Rina', avatar: 'R' },
@@ -63,12 +97,12 @@ window.LUMA_MOCK = {
     ]
   },
   hosts: [
-    { name: 'Sari', title: '今晚唱到你睡着', meta: '唱歌 · 雅加达', viewers: '12.4K' },
-    { name: 'Dewi', title: '聊聊今天的事', meta: '聊天', viewers: '8.2K' },
-    { name: 'Maya', title: '专场演出', meta: '才艺', viewers: '3.1K' },
-    { name: 'Ayu', title: '新人报到', meta: '跳舞 · 万隆', viewers: '892' },
-    { name: 'Intan', title: '随机舞蹈', meta: '跳舞', viewers: '5.6K', ticket: '10' },
-    { name: 'Lala', title: '粉丝专属夜', meta: '输入密码进入', viewers: '—', locked: true, password: '123456' }
+    { name: 'Sari', title: '今晚唱到你睡着', meta: '唱歌 · 雅加达', visits: '12.4K' },
+    { name: 'Dewi', title: '聊聊今天的事', meta: '聊天', visits: '8.2K' },
+    { name: 'Maya', title: '专场演出', meta: '才艺', visits: '3.1K' },
+    { name: 'Ayu', title: '新人报到', meta: '跳舞 · 万隆', visits: '892', blocked: true },
+    { name: 'Intan', title: '随机舞蹈', meta: '跳舞', visits: '5.6K', ticket: '10' },
+    { name: 'Lala', title: '粉丝专属夜', meta: '输入密码进入', visits: '—', locked: true, password: '123456' }
   ],
   platformHostRanking: {
     day: [
@@ -153,6 +187,12 @@ window.LUMA_MOCK = {
     { name: 'Dewi', avatar: 'D', level: 'Lv.8', badges: ['勋章2'], profileType: 'host', profileKey: 'dewi' },
     { name: 'Maya', avatar: 'M', level: 'Lv.16', badges: ['勋章1'], profileType: 'host', profileKey: 'maya' }
   ],
+  followers: [
+    { name: 'Sari', avatar: 'S', level: 'Lv.20', badges: ['勋章1', '勋章2'], profileType: 'host', profileKey: 'sari' },
+    { name: 'Budi', avatar: 'B', level: 'Lv.12', badges: ['勋章1'], profileType: 'user', profileKey: 'budi' },
+    { name: 'Dewi', avatar: 'D', level: 'Lv.8', badges: ['勋章2'], profileType: 'host', profileKey: 'dewi' },
+    { name: 'Maya', avatar: 'M', level: 'Lv.16', badges: ['勋章1'], profileType: 'host', profileKey: 'maya' }
+  ],
   inviteFriends: {
     invitedCount: 6,
     totalReward: '60',
@@ -179,48 +219,69 @@ window.LUMA_MOCK = {
     { name: 'Rina', avatar: 'R' }
   ],
   configuredGuilds: [
-    { id: 'G10021', name: 'Jakarta Star Guild', logo: 'JS', description: '陪伴新人主播成长，打造高质量直播内容。', hosts: '126', applicationState: 'pending' },
-    { id: 'G10036', name: 'Bali Live Guild', logo: 'BL', description: '汇聚音乐与生活方式主播的创作社群。', hosts: '84', applicationState: 'joined' },
-    { id: 'G10058', name: 'Bandung Voice Guild', logo: 'BV', description: '专注声音互动与才艺直播的主播公会。', hosts: '63', applicationState: 'apply' },
-    { id: 'G10072', name: 'Surabaya Rhythm Guild', logo: 'SR', description: '为新主播提供直播培训与日常运营支持。', hosts: '52', applicationState: 'apply' },
-    { id: 'G10089', name: 'Medan Spark Guild', logo: 'MS', description: '发现本地特色内容，连接更多直播观众。', hosts: '41', applicationState: 'apply' }
+    { id: 'G10021', name: 'Jakarta Star Agency', logo: 'JS', description: '陪伴新人主播成长，打造高质量直播内容。', hosts: '126', applicationState: 'pending' },
+    { id: 'G10036', name: 'Bali Live Agency', logo: 'BL', description: '汇聚音乐与生活方式主播的创作社群。', hosts: '84', applicationState: 'joined' },
+    { id: 'G10058', name: 'Bandung Voice Agency', logo: 'BV', description: '专注声音互动与才艺直播的主播公会。', hosts: '63', applicationState: 'apply' },
+    { id: 'G10072', name: 'Surabaya Rhythm Agency', logo: 'SR', description: '为新主播提供直播培训与日常运营支持。', hosts: '52', applicationState: 'apply' },
+    { id: 'G10089', name: 'Medan Spark Agency', logo: 'MS', description: '发现本地特色内容，连接更多直播观众。', hosts: '41', applicationState: 'apply' }
   ],
   // User-facing guild-related pages use the platform-configured directory only.
   guilds: [
-    { id: 'G10021', name: 'Jakarta Star Guild', logo: 'JS', description: '陪伴新人主播成长，打造高质量直播内容。', hosts: '126', applicationState: 'pending' },
-    { id: 'G10036', name: 'Bali Live Guild', logo: 'BL', description: '汇聚音乐与生活方式主播的创作社群。', hosts: '84', applicationState: 'joined' },
-    { id: 'G10058', name: 'Bandung Voice Guild', logo: 'BV', description: '专注声音互动与才艺直播的主播公会。', hosts: '63', applicationState: 'apply' },
-    { id: 'G10072', name: 'Surabaya Rhythm Guild', logo: 'SR', description: '为新主播提供直播培训与日常运营支持。', hosts: '52', applicationState: 'apply' },
-    { id: 'G10089', name: 'Medan Spark Guild', logo: 'MS', description: '发现本地特色内容，连接更多直播观众。', hosts: '41', applicationState: 'apply' }
+    { id: 'G10021', name: 'Jakarta Star Agency', logo: 'JS', description: '陪伴新人主播成长，打造高质量直播内容。', hosts: '126', applicationState: 'pending' },
+    { id: 'G10036', name: 'Bali Live Agency', logo: 'BL', description: '汇聚音乐与生活方式主播的创作社群。', hosts: '84', applicationState: 'joined' },
+    { id: 'G10058', name: 'Bandung Voice Agency', logo: 'BV', description: '专注声音互动与才艺直播的主播公会。', hosts: '63', applicationState: 'apply' },
+    { id: 'G10072', name: 'Surabaya Rhythm Agency', logo: 'SR', description: '为新主播提供直播培训与日常运营支持。', hosts: '52', applicationState: 'apply' },
+    { id: 'G10089', name: 'Medan Spark Agency', logo: 'MS', description: '发现本地特色内容，连接更多直播观众。', hosts: '41', applicationState: 'apply' }
   ],
   guildApplications: [
-    { guild: 'Jakarta Star Guild', appliedAt: '2026-08-05 10:24', status: '申请中' }
+    { guild: 'Jakarta Star Agency', appliedAt: '2026-08-05 10:24', status: '申请中' }
   ],
   guildMemberships: {
-    pending: { guild: 'Jakarta Star Guild', status: '申请中', appliedAt: '2026-08-05 10:24' },
-    joined: { guild: 'Jakarta Star Guild', status: '已加入', appliedAt: '2026-07-10 09:18', joinedAt: '2026-07-13 15:42' },
-    leaving: { guild: 'Jakarta Star Guild', status: '申请退出', appliedAt: '2026-07-10 09:18', joinedAt: '2026-07-13 15:42', exitAppliedAt: '2026-08-15 09:41' },
-    exited: { guild: 'Jakarta Star Guild', status: '已退出', appliedAt: '2026-07-10 09:18', joinedAt: '2026-07-13 15:42', exitedAt: '2026-08-02 18:10' },
-    rejected: { guild: 'Bandung Voice Guild', status: '已拒绝', appliedAt: '2026-08-01 11:06', reviewedAt: '2026-08-03 09:20', rejectionReason: '请补充清晰的认证材料' }
+    pending: { guild: 'Jakarta Star Agency', status: '申请中', appliedAt: '2026-08-05 10:24' },
+    joined: { guild: 'Jakarta Star Agency', status: '已加入', appliedAt: '2026-07-10 09:18', joinedAt: '2026-07-13 15:42' },
+    leaving: { guild: 'Jakarta Star Agency', status: '申请退出', appliedAt: '2026-07-10 09:18', joinedAt: '2026-07-13 15:42', exitAppliedAt: '2026-08-15 09:41' },
+    exited: { guild: 'Jakarta Star Agency', status: '已退出', appliedAt: '2026-07-10 09:18', joinedAt: '2026-07-13 15:42', exitedAt: '2026-08-02 18:10' },
+    rejected: { guild: 'Bandung Voice Agency', status: '已拒绝', appliedAt: '2026-08-01 11:06', reviewedAt: '2026-08-03 09:20', rejectionReason: '请补充清晰的认证材料' }
   },
   guildHistory: [
-    { guild: 'Bandung Voice Guild', status: '已拒绝', appliedAt: '2026-08-01 11:06', reviewedAt: '2026-08-03 09:20' },
-    { guild: 'Bali Live Guild', status: '已退出', appliedAt: '2026-06-16 16:08', joinedAt: '2026-06-18 14:30', exitedAt: '2026-07-26 20:15' }
+    { guild: 'Bandung Voice Agency', status: '已拒绝', appliedAt: '2026-08-01 11:06', reviewedAt: '2026-08-03 09:20' },
+    { guild: 'Bali Live Agency', status: '已退出', appliedAt: '2026-06-16 16:08', joinedAt: '2026-06-18 14:30', exitedAt: '2026-07-26 20:15' }
   ],
   guildRelationOrders: [
+    { guildId: 'G10072', relationStatus: '申请中', orders: [
+      { type: '加入申请单', status: '申请中', submittedAt: '2026-08-10 09:30', application: {
+        name: 'Andi', phone: '+62 812 7310 6207', documentType: 'KTP',
+        portrait: 'Andi-本人照片.jpg', documentFront: 'KTP-Andi-正面.jpg', documentBack: 'KTP-Andi-反面.jpg'
+      } }
+    ] },
     { guildId: 'G10021', relationStatus: '已加入', orders: [
-      { type: '加入申请单', status: '已驳回', submittedAt: '2026-06-24 14:16', processedAt: '2026-06-26 10:08', rejectionReason: '认证材料信息不完整，请补充后重新提交。' },
-      { type: '加入申请单', status: '已通过', submittedAt: '2026-07-10 09:18', processedAt: '2026-07-13 15:42' },
+      { type: '加入申请单', status: '已驳回', submittedAt: '2026-06-24 14:16', processedAt: '2026-06-26 10:08', rejectionReason: '认证材料信息不完整，请补充后重新提交。', application: {
+        name: 'Andi', phone: '+62 812 7310 6207', documentType: 'KTP',
+        portrait: 'Andi-本人照片.jpg', documentFront: 'KTP-Andi-正面.jpg', documentBack: 'KTP-Andi-反面.jpg'
+      } },
+      { type: '加入申请单', status: '已通过', submittedAt: '2026-07-10 09:18', processedAt: '2026-07-13 15:42', application: {
+        name: 'Andi', phone: '+62 812 7310 6207', documentType: 'KTP',
+        portrait: 'Andi-本人照片.jpg', documentFront: 'KTP-Andi-正面.jpg', documentBack: 'KTP-Andi-反面.jpg'
+      } },
       { type: '退出申请单', status: '已驳回', submittedAt: '2026-08-08 18:24', processedAt: '2026-08-09 09:30', reason: '近期直播安排变更，暂不继续在公会开展直播。', rejectionReason: '存在待结算的主播收益，请完成结算后再申请退出。' }
     ] },
     { guildId: 'G10058', relationStatus: '已驳回', orders: [
-      { type: '加入申请单', status: '已驳回', submittedAt: '2026-08-01 11:06', processedAt: '2026-08-03 09:20', rejectionReason: '请补充清晰的认证材料' }
+      { type: '加入申请单', status: '已驳回', submittedAt: '2026-08-01 11:06', processedAt: '2026-08-03 09:20', rejectionReason: '请补充清晰的认证材料', application: {
+        name: 'Andi', phone: '+62 812 7310 6207', documentType: 'KTP',
+        portrait: 'Andi-本人照片.jpg', documentFront: 'KTP-Andi-正面.jpg', documentBack: 'KTP-Andi-反面.jpg'
+      } }
     ] },
     { guildId: 'G10036', relationStatus: '已退出', orders: [
-      { type: '加入申请单', status: '已通过', submittedAt: '2026-06-16 16:08', processedAt: '2026-06-18 14:30' },
+      { type: '加入申请单', status: '已通过', submittedAt: '2026-06-16 16:08', processedAt: '2026-06-18 14:30', application: {
+        name: 'Andi', phone: '+62 812 7310 6207', documentType: 'KTP',
+        portrait: 'Andi-本人照片.jpg', documentFront: 'KTP-Andi-正面.jpg', documentBack: 'KTP-Andi-反面.jpg'
+      } },
       { type: '退出申请单', status: '已通过', submittedAt: '2026-07-24 11:30', processedAt: '2026-07-26 20:15', reason: '近期直播安排变更，暂不继续在公会开展直播。' }
     ] }
   ],
+  guildDetailPendingExit: {
+    type: '退出申请单', status: '申请中', submittedAt: '2026-08-11 10:30', reason: '近期直播安排变更，暂不继续在公会开展直播。'
+  },
   myFanClubs: [
     { id: 'sari', host: 'Sari', avatar: 'S', name: 'Sari 的粉丝团', fanClubLevel: 'Lv.8', fanLevel: 'Lv.10', intimacy: '12.560', totalContribution: '36.820', intimacyRank: '18', leaders: ['R', 'M', 'D'], fanRank: '26', joined: '2026.07.11', live: true },
     { id: 'maya', host: 'Maya', avatar: 'M', name: 'Maya 的听友会', fanClubLevel: 'Lv.5', fanLevel: 'Lv.6', intimacy: '4.260', totalContribution: '12.480', intimacyRank: '42', leaders: ['A', 'T', 'I'], fanRank: '65', joined: '2026.06.29', live: false },
@@ -243,10 +304,11 @@ window.LUMA_MOCK = {
   },
   interactionNotifications: [
     { type: 'follow', name: 'Dewi', avatar: 'D', userKey: 'dewi', profileType: 'host', message: '关注了你', time: '2026-08-18 09:50' },
-    { type: 'friendRequest', name: 'Rina', avatar: 'R', userKey: 'rina', profileType: 'user', message: '申请加你为好友', time: '2026-08-17 18:22' }
+    { type: 'friendRequest', name: 'Rina', avatar: 'R', userKey: 'rina', profileType: 'user', message: '申请加你为好友', time: '2026-08-17 18:22' },
+    { type: 'friendRequest', name: 'Budi', avatar: 'B', userKey: 'budi', profileType: 'user', message: '申请加你为好友', time: '2026-08-16 14:30', result: '已失效' }
   ],
   systemNotifications: [
-    { icon: '系', category: 'guild', title: '加入公会申请已通过', content: '你已成功加入 Jakarta Star Guild，可继续申请直播权限。', time: '2026-08-18 10:24', unread: true },
+    { icon: '系', category: 'guild', title: '加入公会申请已通过', content: '你已成功加入 Jakarta Star Agency，可继续申请直播权限。', time: '2026-08-18 10:24', unread: true },
     { icon: '系', title: '已获得主播身份', content: '你的主播身份申请已通过，现在可以开始直播。', time: '2026-08-17 16:40', unread: false },
     { icon: '系', title: '直播权限已被平台禁用', content: '你的直播权限已被平台禁用，如需了解详情，请联系平台客服。', time: '2026.08.06', unread: false }
   ],
@@ -262,7 +324,7 @@ window.LUMA_MOCK = {
   },
   chatComposer: {
     voice: { label: '语音', duration: '00:08' },
-    image: { title: '今晚的直播清单', hint: '演示图片' }
+    image: { hint: '演示图片' }
   },
   newcomerHosts: ['Ayu', 'Tika', 'Wulan', 'Fitri', 'Eka', 'Yuni', 'Hana', 'Zahra', 'Olive'],
   recharge: {
@@ -297,7 +359,6 @@ window.LUMA_MOCK = {
       achieved: { duration: '3h', minutes: 180, target: '3h', targetMinutes: 180, achieved: true }
     },
     latest: { date: '昨天 20:06', duration: '2小时18分', viewers: '1.286', gifts: '4.820', income: '3.156' },
-    balance: { withdrawable: '12.680', frozen: '2.400', total: '18.460' },
     managers: [
       { name: 'Ari', id: '88231011', avatar: 'A' },
       { name: 'Dewi', id: '88231016', avatar: 'D' }
@@ -333,14 +394,6 @@ window.LUMA_MOCK = {
       { name: 'Dewi', avatar: 'D' }
     ]
   },
-  withdrawalBank: {
-    banks: ['BCA', 'Bank Mandiri', 'BRI'],
-    sampleAccount: { bank: 'BCA', number: '1234567890', recipientName: 'Andi Pratama' },
-    boundAccounts: [
-      { bank: 'BCA', number: '1234567890', recipientName: 'Andi Pratama' },
-      { bank: 'Bank Mandiri', number: '1320098417265', recipientName: 'Andi Pratama' }
-    ]
-  },
   myOutfits: [
     { id: 'OUTFIT001', type: 'avatarFrame', typeName: '头像框', name: '星光头像框', status: '穿戴中', validUntil: '永久' },
     { id: 'OUTFIT002', type: 'medal', typeName: '勋章', name: '音乐达人勋章', status: '未穿戴', validUntil: '2026-12-31' },
@@ -361,7 +414,7 @@ window.LUMA_MOCK = {
     ],
     functionGroups: [
       { title: '主播管理', items: ['入会申请', '退会申请', '主播列表'] },
-      { title: '数据与收益', items: ['主播业绩', '直播记录', '违规记录', '公会业绩', '提现审核', '主播分成', '公会分成'] },
+      { title: '数据与收益', items: ['主播业绩', '直播记录', '违规记录', '公会业绩', '主播分成', '公会分成'] },
       { title: '运营工具', items: ['运营消息', '运营账号', '送礼记录', '虚拟金币'] },
       { title: '公会管理', items: ['公会资料', '账号设置'] }
     ],
@@ -383,21 +436,13 @@ window.LUMA_MOCK = {
       { id: 'H103006', name: 'Maya', avatar: 'M', joinedAt: '2026-04-09', appliedAt: '2026-08-09 19:42', reason: '工作安排变更。', unsettled: '$0', live: false, status: 'pending' },
       { id: 'H102711', name: 'Nadia', avatar: 'N', joinedAt: '2026-01-08', appliedAt: '2026-08-08 12:16', reason: '个人原因。', unsettled: '$0', live: false, status: 'approved', handledAt: '2026-08-09 09:10' }
     ],
-    withdrawalApplications: [
-      { requestId: 'WD260820001', hostId: 'H102938', name: 'Sari', avatar: 'S', appliedAt: '2026-08-20 08:42', amount: '$12.480', bank: 'Bank Central Asia', accountNo: '0147283910', accountName: 'Sari Wulandari', status: 'pending' },
-      { requestId: 'WD260820002', hostId: 'H103121', name: 'Ayu', avatar: 'A', appliedAt: '2026-08-20 07:18', amount: '$8.260', bank: 'GoPay', accountNo: '081377260519', accountName: 'Ayu Safitri', status: 'pending' },
-      { requestId: 'WD260819006', hostId: 'H102954', name: 'Dewi', avatar: 'D', appliedAt: '2026-08-19 21:36', amount: '$6.800', bank: 'Bank Mandiri', accountNo: '1320098417265', accountName: 'Dewi Lestari', status: 'firstApproved', handledAt: '2026-08-20 08:10' },
-      { requestId: 'WD260819004', hostId: 'H103006', name: 'Maya', avatar: 'M', appliedAt: '2026-08-19 18:22', amount: '$3.500', bank: 'DANA', accountNo: '081298417206', accountName: 'Maya Putri', status: 'firstRejected', handledAt: '2026-08-19 20:05', rejectionReason: '提现账户信息不完整' },
-      { requestId: 'WD260818009', hostId: 'H103208', name: 'Intan', avatar: 'I', appliedAt: '2026-08-18 16:08', amount: '$10.120', bank: 'Bank Negara Indonesia', accountNo: '0918842056', accountName: 'Intan Permata', status: 'finalApproved', handledAt: '2026-08-19 14:30' },
-      { requestId: 'WD260818003', hostId: 'H102938', name: 'Sari', avatar: 'S', appliedAt: '2026-08-18 11:45', amount: '$4.600', bank: 'Bank Central Asia', accountNo: '0147283910', accountName: 'Sari Wulandari', status: 'finalRejected', handledAt: '2026-08-19 10:12', rejectionReason: '收款账户校验未通过' }
-    ],
     guildHosts: [
       { id: 'H102938', name: 'Sari', avatar: 'S', live: true, category: '唱歌', duration: '28.6 h', income: '$18.620', viewers: '86.420', joinedAt: '2026-02-06', platformPermission: true, guildPermission: true },
       { id: 'H102954', name: 'Dewi', avatar: 'D', live: true, category: '聊天', duration: '24.8 h', income: '$15.840', viewers: '72.180', joinedAt: '2026-03-18', platformPermission: true, guildPermission: true },
       { id: 'H103006', name: 'Maya', avatar: 'M', live: false, category: '才艺', duration: '22.3 h', income: '$13.260', viewers: '64.950', joinedAt: '2026-04-09', platformPermission: true, guildPermission: true },
       { id: 'H103121', name: 'Ayu', avatar: 'A', live: true, category: '舞蹈', duration: '18.6 h', income: '$9.840', viewers: '48.620', joinedAt: '2026-06-11', platformPermission: true, guildPermission: true },
-      { id: 'H103208', name: 'Intan', avatar: 'I', live: false, category: '舞蹈', duration: '16.2 h', income: '$8.560', viewers: '39.180', joinedAt: '2026-07-03', platformPermission: false, guildPermission: true },
-      { id: 'U90326542', name: 'Fajar', avatar: 'F', live: false, category: '日常', duration: '0 h', income: '$0', viewers: '0', joinedAt: '2026-08-10', platformPermission: true, guildPermission: true }
+      { id: 'H103208', name: 'Intan', avatar: 'I', live: false, category: '舞蹈', duration: '16.2 h', income: '$8.560', viewers: '39.180', joinedAt: '2026-07-03', platformPermission: true, guildPermission: true },
+      { id: 'U90326542', name: 'Fajar', avatar: 'F', live: false, category: '日常', duration: '0 h', income: '$0', viewers: '0', joinedAt: '2026-08-10', platformPermission: false, guildPermission: true }
     ],
     formerGuildHosts: [
       { id: 'H102711', name: 'Nadia', avatar: 'N', level: 'Lv.8', income: '$7.240', joinedAt: '2026-01-08', live: false, platformPermission: true, guildPermission: false },
@@ -445,3 +490,11 @@ window.LUMA_MOCK = {
     });
   });
 })();
+
+// 等级配置示例数据；数值单位为金币，具体计算口径待确认。
+LUMA_MOCK.levelConfigs = {
+  host: { title: '主播等级', valueLabel: '收益数值（金币）', description: '主播等级按主播累计获得的收益金币衡量。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 1000, badgeImage: '' }, { level: 3, value: 5000, badgeImage: '' }, { level: 4, value: 20000, badgeImage: '' }, { level: 5, value: 100000, badgeImage: '' }] },
+  wealth: { title: '财富等级', valueLabel: '送礼贡献（金币）', description: '财富等级按用户向所有主播累计送礼的金币贡献衡量。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 2000, badgeImage: '' }, { level: 3, value: 10000, badgeImage: '' }, { level: 4, value: 50000, badgeImage: '' }, { level: 5, value: 200000, badgeImage: '' }] },
+  fan: { title: '粉丝等级', valueLabel: '对主播送礼贡献（金币）', description: '粉丝等级按用户对单个主播累计送礼的金币贡献衡量，不同主播分别计算。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 100, badgeImage: '' }, { level: 3, value: 500, badgeImage: '' }, { level: 4, value: 2000, badgeImage: '' }, { level: 5, value: 10000, badgeImage: '' }] },
+  fanClub: { title: '粉丝团等级', valueLabel: '粉丝团累计收礼（金币）', description: '粉丝团等级按该粉丝团累计收到的礼物金币数值衡量。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 5000, badgeImage: '' }, { level: 3, value: 30000, badgeImage: '' }, { level: 4, value: 100000, badgeImage: '' }, { level: 5, value: 500000, badgeImage: '' }] }
+};

@@ -161,6 +161,53 @@
         color: var(--admin-danger);
         font-size: 12px;
       }
+      .count-editor {
+        min-width: 0;
+      }
+      .count-add-row {
+        display: flex;
+        gap: 8px;
+      }
+      .count-add-row .admin-input {
+        max-width: 220px;
+      }
+      .count-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        min-height: 36px;
+        margin-top: 10px;
+      }
+      .count-item {
+        height: 34px;
+        padding: 0 8px;
+        border: 1px solid var(--admin-border);
+        border-radius: var(--admin-radius-sm);
+        background: var(--admin-canvas);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .count-item[draggable="true"] {
+        cursor: grab;
+      }
+      .count-item.is-dragging {
+        opacity: 0.45;
+      }
+      .count-drag-handle {
+        color: var(--admin-muted);
+        cursor: grab;
+      }
+      .count-remove {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--admin-muted);
+        font-size: 18px;
+        line-height: 1;
+      }
     </style>
   </head>
   <body>
@@ -231,27 +278,29 @@
                   <label>规则ID</label>
                   <div class="admin-readonly-value" id="ruleId"></div>
                 </div>
-                <div class="admin-form-row">
-                  <label for="purchaseCount">购买份数</label
-                  ><input
-                    class="admin-input"
-                    id="purchaseCount"
-                    type="number"
-                    min="1"
-                    step="1"
-                    required
-                  />
+                <div class="admin-form-row is-top">
+                  <label for="newCount">赠送数量</label>
+                  <div class="count-editor">
+                    <div class="count-add-row">
+                      <input
+                        class="admin-input"
+                        id="newCount"
+                        type="number"
+                        min="1"
+                        step="1"
+                        placeholder="输入正整数"
+                      />
+                      <button class="admin-btn secondary" id="addCountBtn" type="button">
+                        添加
+                      </button>
+                    </div>
+                    <div class="count-list" id="countList"></div>
+                    <div class="rule-error state-hide" id="countError"></div>
+                  </div>
                 </div>
                 <div class="admin-form-row">
-                  <label for="ruleSort">排序</label
-                  ><input
-                    class="admin-input"
-                    id="ruleSort"
-                    type="number"
-                    min="0"
-                    step="1"
-                    required
-                  />
+                  <label for="defaultCount">默认数量</label>
+                  <select class="admin-select" id="defaultCount" required></select>
                 </div>
                 <div class="admin-form-row">
                   <label>状态</label>
@@ -288,7 +337,7 @@
       </div>
     </div>
     <script>
-      const storageKey = "luma-admin-gift-purchase-count-rules-v1",
+      const storageKey = "luma-admin-gift-send-count-rules-v3",
         typeText = {
           normal: "普通礼物",
           custom: "定制礼物",
@@ -398,6 +447,7 @@
         } catch (error) {}
         return defaults.map((item) => ({
           ...item,
+          sendCounts: [...item.sendCounts],
           giftTypes: [...item.giftTypes],
           giftIds: [...item.giftIds],
         }));
@@ -415,7 +465,30 @@
           ? null
           : rules.find((item) => item.id === params.get("id")) || rules[0],
         selectedGiftIds = new Set(),
-        activeGiftType = "normal";
+        activeGiftType = "normal",
+        sendCounts = [],
+        draggedCount = null;
+      function showCountError(message = "") {
+        countError.textContent = message;
+        countError.classList.toggle("state-hide", !message);
+      }
+      function renderCountEditor(selectedDefault = defaultCount.value) {
+        countList.innerHTML = sendCounts
+          .map(
+            (count) =>
+              `<div class="count-item" draggable="true" data-count="${count}"><span class="count-drag-handle" title="拖动排序">⋮⋮</span><b>×${count}</b><button class="count-remove" type="button" data-remove-count="${count}" aria-label="删除 ×${count}" title="删除">×</button></div>`,
+          )
+          .join("");
+        defaultCount.innerHTML = sendCounts.length
+          ? sendCounts
+              .map(
+                (count) =>
+                  `<option value="${count}" ${String(count) === String(selectedDefault) ? "selected" : ""}>×${count}</option>`,
+              )
+              .join("")
+          : '<option value="">请先添加赠送数量</option>';
+        showCountError();
+      }
       function renderGiftPicker() {
         giftSummary.textContent = `已选择 ${selectedGiftIds.size} 个礼物`;
         giftTypeTabs.innerHTML = Object.entries(typeText)
@@ -452,7 +525,7 @@
         requestAnimationFrame(syncStickyActions);
       }
       function syncStatus() {
-        ruleEnabledText.textContent = ruleEnabled.checked ? "生效" : "失效";
+        ruleEnabledText.textContent = ruleEnabled.checked ? "启用" : "停用";
       }
       function syncStickyActions() {
         actionBar.classList.remove("is-stuck");
@@ -467,8 +540,8 @@
           data = isNew
             ? {
                 id: "",
-                purchaseCount: 1,
-                sort: 100,
+                sendCounts: [1],
+                defaultCount: 1,
                 giftTypes: [],
                 giftIds: [],
                 status: "enabled",
@@ -476,11 +549,11 @@
             : editing;
         pageName.textContent = title;
         ruleId.textContent = isNew ? "保存后由系统生成" : data.id;
-        purchaseCount.value = data.purchaseCount;
-        ruleSort.value = data.sort;
+        sendCounts = [...data.sendCounts];
+        renderCountEditor(data.defaultCount);
         ruleEnabled.checked = data.status === "enabled";
         selectedGiftIds = new Set(
-          isNew ? gifts.map((item) => item.id) : data.giftIds,
+          isNew ? [] : data.giftIds,
         );
         syncStatus();
         renderGiftPicker();
@@ -511,14 +584,77 @@
         else selectedGiftIds.delete(input.dataset.giftId);
         renderGiftPicker();
       };
+      function addCount() {
+        const count = Number(newCount.value);
+        if (!Number.isInteger(count) || count < 1)
+          return showCountError("赠送数量必须为正整数");
+        if (sendCounts.includes(count))
+          return showCountError("赠送数量不能重复");
+        sendCounts.push(count);
+        renderCountEditor();
+        newCount.value = "";
+        newCount.focus();
+      }
+      addCountBtn.onclick = addCount;
+      newCount.onkeydown = (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        addCount();
+      };
+      countList.onclick = (event) => {
+        const button = event.target.closest("[data-remove-count]");
+        if (!button) return;
+        sendCounts = sendCounts.filter(
+          (count) => count !== Number(button.dataset.removeCount),
+        );
+        renderCountEditor();
+      };
+      countList.ondragstart = (event) => {
+        const item = event.target.closest("[data-count]");
+        if (!item) return;
+        draggedCount = Number(item.dataset.count);
+        item.classList.add("is-dragging");
+        event.dataTransfer.effectAllowed = "move";
+        event.dataTransfer.setData("text/plain", String(draggedCount));
+      };
+      countList.ondragover = (event) => event.preventDefault();
+      countList.ondrop = (event) => {
+        event.preventDefault();
+        const target = event.target.closest("[data-count]"),
+          targetCount = target ? Number(target.dataset.count) : null;
+        if (draggedCount === null || draggedCount === targetCount) return;
+        sendCounts = sendCounts.filter((count) => count !== draggedCount);
+        const targetIndex = sendCounts.indexOf(targetCount);
+        sendCounts.splice(targetIndex < 0 ? sendCounts.length : targetIndex, 0, draggedCount);
+        renderCountEditor();
+      };
+      countList.ondragend = () => {
+        draggedCount = null;
+        countList
+          .querySelectorAll(".is-dragging")
+          .forEach((item) => item.classList.remove("is-dragging"));
+      };
       ruleEnabled.onchange = syncStatus;
       window.addEventListener("resize", syncStickyActions);
       ruleForm.onsubmit = (event) => {
         event.preventDefault();
         giftError.classList.add("state-hide");
-        const count = Number(purchaseCount.value);
-        if (!Number.isInteger(count) || count < 1)
-          return Luma.toast("购买份数必须为正整数");
+        if (!sendCounts.length) {
+          showCountError("请至少添加一个赠送数量");
+          return;
+        }
+        if (
+          sendCounts.some((count) => !Number.isInteger(count) || count < 1) ||
+          new Set(sendCounts).size !== sendCounts.length
+        ) {
+          showCountError("赠送数量须为互不重复的正整数");
+          return;
+        }
+        const selectedDefault = Number(defaultCount.value);
+        if (!sendCounts.includes(selectedDefault)) {
+          showCountError("默认数量必须属于当前赠送数量列表");
+          return;
+        }
         if (!selectedGiftIds.size) {
           giftError.textContent = "请至少选择一个适用礼物";
           giftError.classList.remove("state-hide");
@@ -538,7 +674,7 @@
               selectedGiftIds.has(value),
             ),
             gift = gifts.find((item) => item.id === id);
-          giftError.textContent = `${gift?.names.zh || id} 已关联生效规则 ${conflict.id}`;
+          giftError.textContent = `${gift?.names.zh || id} 已关联启用规则 ${conflict.id}`;
           giftError.classList.remove("state-hide");
           return;
         }
@@ -552,8 +688,8 @@
           created = isNew,
           item = {
             id: created ? nextId() : editing.id,
-            purchaseCount: count,
-            sort: Number(ruleSort.value),
+            sendCounts: [...sendCounts],
+            defaultCount: selectedDefault,
             giftTypes,
             giftIds: [...selectedGiftIds],
             status: enabled ? "enabled" : "disabled",

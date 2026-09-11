@@ -277,7 +277,7 @@
           <td class="admin-money">${formatCoins(user.balance)}</td>
           <td>${user.guild}</td>
           <td class="admin-money">${user.registeredAt}</td>
-          <td><a class="admin-action" href="admin-user-detail.html?id=${user.id}">详情</a><span class="admin-action-menu"><button class="admin-action" data-more="${user.id}">更多</button><span class="admin-popover state-hide"><button data-action="${user.status === "banned" ? "unban" : "ban"}" data-user="${user.id}">${user.status === "banned" ? "解封" : "封禁"}</button><button data-action="reset" data-user="${user.id}">重置资料</button></span></span></td>
+          <td><a class="admin-action" href="admin-user-detail.html?id=${user.id}">详情</a><button class="admin-action" data-action="${user.status === "banned" ? "unban" : "ban"}" data-user="${user.id}">${user.status === "banned" ? "解封" : "封禁"}</button></td>
         </tr>`,
           )
           .join("");
@@ -423,7 +423,6 @@
         const title = {
           ban: "封禁用户",
           unban: "解封用户",
-          reset: "重置用户资料",
         }[action];
         document.querySelector("#actionTitle").textContent = title;
         document.querySelector("#actionSubmit").className =
@@ -445,8 +444,6 @@
             <div class="admin-note">封禁后账号将立即下线并禁止登录。</div>`;
         if (action === "unban")
           body.innerHTML = `<p>确认解除 ${user.name}（${user.id}）的账号封禁？</p>`;
-        if (action === "reset")
-          body.innerHTML = `<p>将重置 ${user.name}（${user.id}）的头像、昵称和个性签名。</p><div class="admin-form-row"><label for="resetReason">重置原因</label><textarea class="admin-textarea" id="resetReason" placeholder="填写重置原因" required></textarea></div>`;
         document.querySelector("#actionOverlay").classList.add("show");
       }
 
@@ -454,9 +451,6 @@
         document
           .querySelectorAll(".admin-overlay")
           .forEach((overlay) => overlay.classList.remove("show"));
-        document
-          .querySelectorAll(".admin-popover")
-          .forEach((popover) => popover.classList.add("state-hide"));
       }
 
       document.querySelector("#searchBtn").onclick = filterUsers;
@@ -506,18 +500,6 @@
           );
         const detailTab = event.target.closest("[data-detail-tab]");
         if (detailTab) renderDetailTab(detailTab.dataset.detailTab);
-        const more = event.target.closest("[data-more]");
-        document.querySelectorAll(".admin-popover").forEach((popover) => {
-          if (!more || popover !== more.nextElementSibling)
-            popover.classList.add("state-hide");
-        });
-        if (more) {
-          const popover = more.nextElementSibling;
-          const rect = more.getBoundingClientRect();
-          popover.style.left = `${rect.right - 112}px`;
-          popover.style.top = `${rect.bottom + 100 > window.innerHeight ? rect.top - 100 : rect.bottom + 4}px`;
-          popover.classList.toggle("state-hide");
-        }
         const action = event.target.closest("[data-action]");
         if (action)
           openAction(
@@ -547,11 +529,6 @@
         let actionMessage = "操作已提交";
         if (currentAction === "ban") currentUser.status = "banned";
         if (currentAction === "unban") currentUser.status = "normal";
-        if (currentAction === "reset") {
-          currentUser.name = `用户${currentUser.id.slice(-4)}`;
-          currentUser.initials = "U";
-          currentUser.signature = "";
-        }
         document.querySelector("#actionOverlay").classList.remove("show");
         render(renderedUsers);
         Luma.toast(actionMessage);

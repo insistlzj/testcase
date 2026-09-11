@@ -1,0 +1,62 @@
+{
+  "状态": "成功",
+  "方式": "移动保留，可恢复；不复用旧层",
+  "记录": [
+    {
+      "层": "evidence-atoms",
+      "文件": [
+        {
+          "路径": "work/liveshow-proto-global-evidence-cache/layers/evidence-atoms/evidence-atom-index.json",
+          "SHA256": "9b5debb2a5ac2a46f3824c0da9d6053bf799f63c64d978b8c261e490a039985e"
+        }
+      ],
+      "隔离目录": "work/liveshow-user-live-discovery-260910-005/cache-quarantine/1789034600126-evidence-atoms",
+      "时间": "2026-09-10T10:03:20.129Z"
+    },
+    {
+      "层": "normalized-rules",
+      "文件": [
+        {
+          "路径": "work/liveshow-proto-global-evidence-cache/layers/normalized-rules/business-rule-catalog.json",
+          "SHA256": "56c934b738cba9dc8156da0470983b4cbc60fc3e2d04024cca4639ee9365606f"
+        },
+        {
+          "路径": "work/liveshow-proto-global-evidence-cache/layers/normalized-rules/dependency-index.json",
+          "SHA256": "769ae4da8352c2e2c77f114fbc31b7f2973c68a0d1b62311d621ec84b196ea06"
+        }
+      ],
+      "隔离目录": "work/liveshow-user-live-discovery-260910-005/cache-quarantine/1789034600131-normalized-rules",
+      "时间": "2026-09-10T10:03:20.135Z"
+    },
+    {
+      "层": "cases-history",
+      "文件": [
+        {
+          "路径": "work/liveshow-proto-global-evidence-cache/layers/cases-history/historical-case-comparison.json",
+          "SHA256": "9926403458a4eb74f67d25475abc3ddc8f36a510b903b518c0b58a8de815e4a0"
+        },
+        {
+          "路径": "work/liveshow-proto-global-evidence-cache/layers/cases-history/quality-context.json",
+          "SHA256": "b0ef08e49a6e6361d383cea415b7e537f581e15429b6f64290459902780b11bd"
+        },
+        {
+          "路径": "work/liveshow-proto-global-evidence-cache/layers/cases-history/semantic-dedup-review.json",
+          "SHA256": "dac5d5e09e257748e5e700990de4b7ffa4adb38cec74442e7a746c2fa990d9df"
+        }
+      ],
+      "隔离目录": "work/liveshow-user-live-discovery-260910-005/cache-quarantine/1789034600135-cases-history",
+      "时间": "2026-09-10T10:03:20.137Z"
+    },
+    {
+      "层": "workbook",
+      "文件": [
+        {
+          "路径": "work/liveshow-proto-global-evidence-cache/layers/workbook/latest.json",
+          "SHA256": "6eb5bd94408b79a86b81c8de383353348cc9f7b9992ce45df7700153ae68dfb5"
+        }
+      ],
+      "隔离目录": "work/liveshow-user-live-discovery-260910-005/cache-quarantine/1789034600137-workbook",
+      "时间": "2026-09-10T10:03:20.138Z"
+    }
+  ]
+}

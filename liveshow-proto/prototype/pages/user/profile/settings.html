@@ -59,14 +59,14 @@
       a.setting-row {
         cursor: pointer;
       }
-      .setting-row select {
-        max-width: 160px;
-        height: 34px;
-        border: 0;
-        background: transparent;
+      .setting-value {
+        max-width: 200px;
         color: var(--g2);
-        font: 13px inherit;
+        font-size: 13px;
         text-align: right;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .switch {
         position: relative;
@@ -139,6 +139,13 @@
         font-size: 13px;
         line-height: 1.55;
       }
+      .dialog-card p.delete-notice {
+        text-align: left;
+      }
+      .dialog-card p.delete-notice span {
+        display: block;
+        margin-top: 6px;
+      }
       .dialog-actions {
         display: flex;
         gap: 10px;
@@ -156,6 +163,75 @@
       .dialog-actions .primary {
         background: var(--g1);
         color: var(--g7);
+      }
+      .dialog-actions button:disabled {
+        background: var(--g5);
+        color: var(--g4);
+        cursor: default;
+      }
+      .language-mask {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        background: var(--overlay);
+      }
+      .language-sheet {
+        width: 100%;
+        padding: 18px 16px 30px;
+        border-radius: 12px 12px 0 0;
+        background: var(--g7);
+      }
+      .language-sheet-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .language-sheet h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .language-close {
+        width: 36px;
+        height: 36px;
+        border: 0;
+        background: transparent;
+        color: var(--g3);
+        font: 22px inherit;
+        cursor: pointer;
+      }
+      .language-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 52px;
+        padding: 0;
+        border: 0;
+        border-bottom: 1px solid var(--g6);
+        background: transparent;
+        color: var(--g1);
+        font: 14px inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .language-option:last-child {
+        border-bottom: 0;
+      }
+      .language-check {
+        width: 22px;
+        color: var(--g1);
+        font-size: 18px;
+        text-align: right;
+        visibility: hidden;
+      }
+      .language-option[aria-checked="true"] {
+        font-weight: 700;
+      }
+      .language-option[aria-checked="true"] .language-check {
+        visibility: visible;
       }
     </style>
   </head>
@@ -187,7 +263,11 @@
       </section>
       <p class="section-label">通知</p>
       <section class="settings-section">
-        <label class="setting-row"
+        <button class="setting-row" id="systemNotification" type="button">
+          <span>系统通知</span
+          ><span class="setting-value" id="systemNotificationStatus"></span
+          ><i class="arrow">›</i></button
+        ><label class="setting-row"
           ><span>开播提醒</span
           ><span class="switch"
             ><input
@@ -201,13 +281,9 @@
       </section>
       <p class="section-label">系统设置</p>
       <section class="settings-section">
-        <label class="setting-row"
-          ><span>语言</span
-          ><select id="language" aria-label="语言">
-            <option value="en">English</option>
-            <option value="id">Bahasa Indonesia</option>
-            <option value="ms">Bahasa Melayu</option>
-          </select></label
+        <button class="setting-row" id="language" type="button">
+          <span>语言</span><span class="setting-value" id="languageValue"></span
+          ><i class="arrow">›</i></button
         ><button class="setting-row" id="about" type="button">
           <span>关于 Luma Live</span><i class="arrow">›</i></button
         ><button class="setting-row" id="logout" type="button">
@@ -235,6 +311,64 @@
         </div>
       </div>
     </section>
+    <section
+      class="language-mask state-hide"
+      id="languageMask"
+      aria-hidden="true"
+    >
+      <div
+        class="language-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="languageTitle"
+      >
+        <div class="language-sheet-head">
+          <h2 id="languageTitle">选择语言</h2>
+          <button
+            class="language-close"
+            id="languageClose"
+            type="button"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </div>
+        <div role="radiogroup" aria-label="语言">
+          <button
+            class="language-option"
+            type="button"
+            role="radio"
+            data-language="zh"
+          >
+            <span>中文</span><span class="language-check">✓</span>
+          </button>
+          <button
+            class="language-option"
+            type="button"
+            role="radio"
+            data-language="en"
+          >
+            <span>English</span><span class="language-check">✓</span>
+          </button>
+          <button
+            class="language-option"
+            type="button"
+            role="radio"
+            data-language="id"
+          >
+            <span>Bahasa Indonesia</span><span class="language-check">✓</span>
+          </button>
+          <button
+            class="language-option"
+            type="button"
+            role="radio"
+            data-language="ms"
+          >
+            <span>Bahasa Melayu</span><span class="language-check">✓</span>
+          </button>
+        </div>
+      </div>
+    </section>
     <div class="homebar"><i></i></div>
     <script>
       const settingsMock = window.LUMA_MOCK.settings;
@@ -242,51 +376,230 @@
         dialogTitle = document.querySelector("#dialogTitle"),
         dialogText = document.querySelector("#dialogText"),
         dialogCancel = document.querySelector("#dialogCancel"),
-        dialogConfirm = document.querySelector("#dialogConfirm");
+        dialogConfirm = document.querySelector("#dialogConfirm"),
+        languageMask = document.querySelector("#languageMask"),
+        languageValue = document.querySelector("#languageValue"),
+        systemNotificationStatus = document.querySelector(
+          "#systemNotificationStatus",
+        ),
+        languageLabels = {
+          zh: "中文",
+          en: "English",
+          id: "Bahasa Indonesia",
+          ms: "Bahasa Melayu",
+        };
+      const deleteScenarioStorageKey = "luma-next-delete-scenario";
+      const deletionStorage = Luma.storage();
+      const deletionCoolingKey = "luma-account-deletion-cooling";
+      const deletionDeadlineKey = "luma-account-deletion-deadline";
+      const notificationStorage = Luma.storage();
       let dialogAction = "",
-        canDelete = false;
+        deleteCountdownTimer,
+        currentLanguage = settingsMock.language || "id";
       document.querySelector("#phone").textContent = settingsMock.phone;
       document.querySelector("#email").textContent = settingsMock.email;
-      document.querySelector("#language").value = settingsMock.language;
+      function notificationPermission() {
+        return notificationStorage.getItem("luma-notification-permission") || "default";
+      }
+      function syncNotificationPermission() {
+        systemNotificationStatus.textContent = {
+          default: "未开启",
+          denied: "已拒绝",
+          granted: "已开启",
+        }[notificationPermission()];
+      }
+      function setNotificationPermission(permission) {
+        if (permission === "default") {
+          notificationStorage.removeItem("luma-notification-permission");
+        } else {
+          notificationStorage.setItem("luma-notification-permission", permission);
+        }
+        syncNotificationPermission();
+        closeDialog();
+      }
+      function openSystemNotification() {
+        const permission = notificationPermission();
+        if (permission === "granted") {
+          Luma.toast("系统通知已开启");
+          return;
+        }
+        openDialog(
+          permission === "denied"
+            ? "notification-settings"
+            : "notification-permission",
+        );
+      }
+      syncNotificationPermission();
+      function syncLanguage() {
+        languageValue.textContent = languageLabels[currentLanguage];
+        document.querySelectorAll("[data-language]").forEach((option) => {
+          option.setAttribute(
+            "aria-checked",
+            String(option.dataset.language === currentLanguage),
+          );
+        });
+      }
+      function openLanguageSheet() {
+        syncLanguage();
+        languageMask.classList.remove("state-hide");
+        languageMask.setAttribute("aria-hidden", "false");
+      }
+      function closeLanguageSheet() {
+        languageMask.classList.add("state-hide");
+        languageMask.setAttribute("aria-hidden", "true");
+      }
+      syncLanguage();
       document.querySelectorAll("[data-setting]").forEach((input) => {
         input.checked = Boolean(settingsMock[input.dataset.setting]);
         input.onchange = () => Luma.toast("设置已保存");
       });
-      document.querySelector("#language").onchange = () =>
-        Luma.toast("语言已切换");
+      document.querySelector("#language").onclick = openLanguageSheet;
+      document.querySelector("#languageClose").onclick = closeLanguageSheet;
+      languageMask.onclick = (event) => {
+        if (event.target === languageMask) closeLanguageSheet();
+      };
+      document.querySelectorAll("[data-language]").forEach((option) => {
+        option.onclick = () => {
+          currentLanguage = option.dataset.language;
+          syncLanguage();
+          closeLanguageSheet();
+          Luma.toast(`已切换为${languageLabels[currentLanguage]}`);
+        };
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLanguageSheet();
+      });
+      function setDialogButtons(cancelText, confirmText, primary = "confirm") {
+        dialogCancel.classList.remove("state-hide");
+        dialogConfirm.classList.remove("state-hide");
+        dialogCancel.textContent = cancelText;
+        dialogConfirm.textContent = confirmText;
+        dialogCancel.classList.toggle("primary", primary === "cancel");
+        dialogConfirm.classList.toggle("primary", primary === "confirm");
+        dialogCancel.disabled = false;
+        dialogConfirm.disabled = false;
+      }
+      function showDeleteNotice(scenario) {
+        dialogAction = scenario === "assets" ? "delete-assets" : "delete-eligible";
+        dialogTitle.textContent = "注销账号";
+        dialogText.className = "delete-notice";
+        dialogText.innerHTML =
+          "<span>1. 金币余额低于 100 可注销</span>" +
+          "<span>2. 注销后所有社交关系将解除，创建的粉丝团将解散</span>" +
+          "<span>3. 注销后七日内可取消注销</span>";
+        setDialogButtons(
+          scenario === "assets" ? "查看余额" : "确认注销",
+          "取消",
+          "cancel",
+        );
+      }
+      function showDeleteCountdown() {
+        clearInterval(deleteCountdownTimer);
+        dialogAction = "delete-countdown";
+        dialogTitle.textContent = "正在注销账号";
+        dialogText.className = "";
+        dialogText.textContent = "10 秒后提交注销申请";
+        setDialogButtons("", "取消");
+        dialogCancel.classList.add("state-hide");
+        let seconds = 10;
+        deleteCountdownTimer = setInterval(() => {
+          seconds -= 1;
+          dialogText.textContent = `${seconds} 秒后提交注销申请`;
+          if (seconds) return;
+          clearInterval(deleteCountdownTimer);
+          deleteCountdownTimer = null;
+          const deadline = Date.now() + 7 * 24 * 60 * 60 * 1000;
+          deletionStorage.setItem(deletionCoolingKey, "1");
+          deletionStorage.setItem(deletionDeadlineKey, String(deadline));
+          dialogAction = "delete-submitted";
+          dialogTitle.textContent = "注销申请已提交";
+          dialogText.textContent = `账号将在 ${new Date(deadline).toLocaleString("zh-CN", {
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          })} 完成注销，七日内可登录并取消注销。`;
+          setDialogButtons("", "退出登录");
+          dialogCancel.classList.add("state-hide");
+        }, 1000);
+      }
       function openDialog(action) {
         dialogAction = action;
+        dialogText.className = "";
         dialogCancel.classList.remove("state-hide");
         if (action === "about") {
           dialogTitle.textContent = "Luma Live";
           dialogText.textContent = "版本 v1.0.0";
+          setDialogButtons("取消", "知道了");
           dialogCancel.classList.add("state-hide");
-          dialogConfirm.textContent = "知道了";
         }
         if (action === "logout") {
           dialogTitle.textContent = "退出登录";
           dialogText.textContent = "退出后将返回登录页。";
-          dialogConfirm.textContent = "退出";
+          setDialogButtons("取消", "退出");
+        }
+        if (action === "notification-permission") {
+          dialogTitle.textContent = "“Luma Live”想给你发送通知";
+          dialogText.textContent = "通知可能包括提醒、声音和图标标记。";
+          setDialogButtons("不允许", "允许");
+        }
+        if (action === "notification-settings") {
+          dialogTitle.textContent = "系统通知未开启";
+          dialogText.textContent = "请前往手机系统设置，为 Luma Live 开启通知权限。";
+          setDialogButtons("暂不开启", "前往设置");
         }
         if (action === "delete") {
-          dialogTitle.textContent = "注销账号";
-          dialogText.textContent = canDelete
-            ? "提交后账号进入注销冷静期。"
-            : `当前仍有 ${settingsMock.coins} 金币，请处理后再申请注销。`;
-          dialogConfirm.textContent = canDelete ? "提交申请" : "查看余额";
+          const scenario =
+            sessionStorage.getItem(deleteScenarioStorageKey) === "eligible"
+              ? "eligible"
+              : "assets";
+          sessionStorage.setItem(
+            deleteScenarioStorageKey,
+            scenario === "assets" ? "eligible" : "assets",
+          );
+          showDeleteNotice(scenario);
         }
         dialogMask.classList.remove("state-hide");
       }
       function closeDialog() {
+        clearInterval(deleteCountdownTimer);
+        deleteCountdownTimer = null;
         dialogMask.classList.add("state-hide");
         dialogAction = "";
       }
       document.querySelector("#about").onclick = () => openDialog("about");
       document.querySelector("#logout").onclick = () => openDialog("logout");
+      document.querySelector("#systemNotification").onclick =
+        openSystemNotification;
       document.querySelector("#deleteAccount").onclick = () =>
         openDialog("delete");
-      dialogCancel.onclick = closeDialog;
+      dialogCancel.onclick = () => {
+        if (dialogAction === "notification-permission") {
+          setNotificationPermission("denied");
+          return;
+        }
+        if (dialogAction === "delete-assets") {
+          location.href = "../wallet/recharge.html";
+          return;
+        }
+        if (dialogAction === "delete-eligible") {
+          showDeleteCountdown();
+          return;
+        }
+        closeDialog();
+      };
       dialogConfirm.onclick = () => {
+        if (dialogAction === "notification-permission") {
+          setNotificationPermission("granted");
+          Luma.toast("通知已开启");
+          return;
+        }
+        if (dialogAction === "notification-settings") {
+          closeDialog();
+          Luma.toast("已打开手机系统设置");
+          return;
+        }
         if (dialogAction === "about") {
           closeDialog();
           return;
@@ -295,13 +608,25 @@
           location.href = "../auth/auth-login-register.html";
           return;
         }
-        if (dialogAction === "delete" && !canDelete) {
-          location.href = "../wallet/recharge.html";
+        if (dialogAction === "delete-submitted") {
+          window.parent.postMessage(
+            {
+              type: "luma-page",
+              file: "auth-login-register.html",
+              query: "?cooling=1",
+            },
+            "*",
+          );
+          location.href = "../auth/auth-login-register.html?cooling=1";
           return;
         }
-        if (dialogAction === "delete") {
+        if (
+          dialogAction === "delete-assets" ||
+          dialogAction === "delete-eligible" ||
+          dialogAction === "delete-countdown"
+        ) {
           closeDialog();
-          Luma.toast("注销申请已提交");
+          return;
         }
       };
       window.parent.postMessage(
@@ -309,14 +634,9 @@
         "*",
       );
       Luma.registerStates({
-        注销条件: {
-          有未处理资产: () => {
-            canDelete = false;
-          },
-          可提交注销: () => {
-            canDelete = true;
-          },
-        },
+        "系统通知-从未申请": () => setNotificationPermission("default"),
+        "系统通知-已拒绝": () => setNotificationPermission("denied"),
+        "系统通知-已授权": () => setNotificationPermission("granted"),
       });
     </script>
   </body>

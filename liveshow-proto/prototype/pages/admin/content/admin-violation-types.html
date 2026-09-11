@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>违规类型 · Luma Live 管理后台</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <script src="../../../assets/admin-tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/admin.css?v=20260821-filter-actions-v8" />
+    <script src="../../../assets/common.js?v=20260901-system-nav-order-v3"></script>
+    <script src="../../../assets/mock.js?v=20260901-i18n-v2"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-i18n-v2"></script>
+    <style>
+      .violation-sort-actions{display:flex;align-items:center;gap:4px}
+      .violation-sort-actions .admin-icon-btn{width:28px;height:28px;font-size:15px}
+      .violation-sort-actions .admin-icon-btn:disabled{opacity:.3;cursor:not-allowed}
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand"><span class="admin-brand-mark">L</span><span>Luma 管理后台</span></div>
+        <nav class="admin-nav"></nav>
+        <div class="admin-sidebar-foot">Luma Live 管理后台</div>
+      </aside>
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-breadcrumb"><strong>违规类型</strong></div>
+          <div class="admin-account"><span class="admin-account-avatar">管</span><span>后台管理员</span><span>⌄</span></div>
+        </header>
+        <main class="admin-content">
+          <div class="admin-page-head">
+            <h1>违规类型</h1>
+            <a class="admin-btn" href="admin-violation-type-detail.html?new=1">新增违规类型</a>
+          </div>
+          <section class="admin-panel admin-table-panel">
+            <div class="admin-table-toolbar"><strong>类型列表</strong><span id="resultCount"></span></div>
+            <div class="admin-table-wrap">
+              <table class="admin-table has-actions" style="min-width: 1040px">
+                <colgroup>
+                  <col style="width: 130px" />
+                  <col style="width: 150px" />
+                  <col style="width: 280px" />
+                  <col style="width: 180px" />
+                  <col style="width: 180px" />
+                  <col style="width: 120px" />
+                </colgroup>
+                <thead>
+                  <tr><th>类型 ID</th><th>排序</th><th>违规类型</th><th>状态</th><th>更新时间</th><th>操作</th></tr>
+                </thead>
+                <tbody id="typeRows"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="admin-overlay" id="deleteOverlay">
+      <section class="admin-modal" role="dialog" aria-modal="true" aria-labelledby="deleteTitle">
+        <div class="admin-modal-head">
+          <h2 id="deleteTitle">删除违规类型</h2>
+          <button class="admin-icon-btn" type="button" data-close="deleteOverlay">×</button>
+        </div>
+        <form id="deleteForm">
+          <div class="admin-modal-body"><p id="deleteText"></p></div>
+          <div class="admin-modal-foot">
+            <button class="admin-btn secondary" type="button" data-close="deleteOverlay">取消</button>
+            <button class="admin-btn danger" type="submit">确认删除</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const storageKey = window.LUMA_VIOLATION_TYPE_STORAGE_KEY;
+      let items = window.LUMA_READ_VIOLATION_TYPES(), deletingId = null;
+      function sharedStorage() {
+        try { return window.parent && window.parent !== window ? window.parent.localStorage : localStorage; }
+        catch (error) { return localStorage; }
+      }
+      function sortedItems() {
+        return [...items].sort((left, right) => left.sort - right.sort || left.id.localeCompare(right.id));
+      }
+      function normalize() {
+        items = sortedItems();
+        items.forEach((item, index) => {
+          item.sort = index + 1;
+          if (item.protected) item.enabled = true;
+        });
+      }
+      function saveItems() {
+        try { sharedStorage().setItem(storageKey, JSON.stringify(items)); } catch (error) {}
+      }
+      function render() {
+        normalize();
+        resultCount.textContent = `共 ${items.length} 个类型`;
+        typeRows.innerHTML = items.map((item, index) => {
+          const enabled = item.protected || item.enabled;
+          return /* HTML */ `<tr>
+          <td>${item.id}</td>
+          <td>
+            <div class="violation-sort-actions">
+              <span>${item.sort}</span>
+              <button class="admin-icon-btn" type="button" title="上移" aria-label="上移 ${item.name}" data-move="-1" data-id="${item.id}" ${index === 0 ? "disabled" : ""}>↑</button>
+              <button class="admin-icon-btn" type="button" title="下移" aria-label="下移 ${item.name}" data-move="1" data-id="${item.id}" ${index === items.length - 1 ? "disabled" : ""}>↓</button>
+            </div>
+          </td>
+          <td><b>${item.name}</b></td>
+          <td>
+            <div class="admin-switch-control">
+              <label class="admin-switch">
+                <input type="checkbox" data-toggle="${item.id}" ${enabled ? "checked" : ""} ${item.protected ? "disabled" : ""} />
+                <span class="admin-switch-track"></span>
+              </label>
+              <span>${enabled ? "启用" : "禁用"}</span>
+            </div>
+          </td>
+          <td>${LUMA_FORMAT.dateTime(item.updatedAt)}</td>
+          <td>
+            <a class="admin-action" href="admin-violation-type-detail.html?id=${item.id}">编辑</a>
+            ${item.protected ? "" : `<button class="admin-action" type="button" data-delete="${item.id}">删除</button>`}
+          </td>
+        </tr>`;
+        }).join("");
+      }
+      typeRows.onclick = (event) => {
+        const move = event.target.closest("[data-move]");
+        if (move && !move.disabled) {
+          const list = sortedItems(), index = list.findIndex((item) => item.id === move.dataset.id), target = index + Number(move.dataset.move);
+          if (target < 0 || target >= list.length) return;
+          [list[index].sort, list[target].sort] = [list[target].sort, list[index].sort];
+          items = list;
+          saveItems();
+          render();
+          Luma.toast("排序已更新");
+          return;
+        }
+        const remove = event.target.closest("[data-delete]");
+        if (!remove) return;
+        const item = items.find((entry) => entry.id === remove.dataset.delete);
+        if (!item || item.protected) return;
+        deletingId = item.id;
+        deleteText.textContent = `确认删除违规类型“${item.name}”？历史举报记录不受影响。`;
+        deleteOverlay.classList.add("show");
+      };
+      typeRows.onchange = (event) => {
+        const input = event.target.closest("[data-toggle]");
+        if (!input) return;
+        const item = items.find((entry) => entry.id === input.dataset.toggle);
+        if (!item || item.protected) {
+          input.checked = true;
+          return;
+        }
+        item.enabled = input.checked;
+        item.updatedAt = "2026-09-01 14:30";
+        saveItems();
+        render();
+        Luma.toast(`违规类型已${item.enabled ? "启用" : "禁用"}`);
+      };
+      deleteForm.onsubmit = (event) => {
+        event.preventDefault();
+        const item = items.find((entry) => entry.id === deletingId);
+        if (!item || item.protected) return;
+        items = items.filter((entry) => entry.id !== deletingId);
+        normalize();
+        saveItems();
+        deleteOverlay.classList.remove("show");
+        render();
+        Luma.toast("违规类型已删除");
+      };
+      document.addEventListener("click", (event) => {
+        const close = event.target.closest("[data-close]");
+        if (close) document.querySelector(`#${close.dataset.close}`).classList.remove("show");
+        if (event.target.classList.contains("admin-overlay")) event.target.classList.remove("show");
+      });
+      render();
+      window.parent.postMessage({ type: "luma-page", file: "admin-violation-types.html" }, "*");
+    </script>
+  </body>
+</html>

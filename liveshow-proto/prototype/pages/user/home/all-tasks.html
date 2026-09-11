@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>全部任务 · 用户主播端 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      .screen {
+        padding-bottom: 34px;
+        background: var(--g6);
+      }
+      .task-section {
+        margin-top: 12px;
+        padding: 0 16px;
+        background: var(--g7);
+      }
+      .task-row {
+        min-height: 82px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--g6);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .task-row:last-child {
+        border-bottom: 0;
+      }
+      .task-icon {
+        width: 38px;
+        height: 38px;
+        flex: none;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+        font-style: normal;
+      }
+      .task-copy {
+        min-width: 0;
+        flex: 1;
+      }
+      .task-copy b,
+      .task-copy small {
+        display: block;
+      }
+      .task-copy b {
+        overflow: hidden;
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .task-copy small {
+        margin-top: 5px;
+        color: var(--g3);
+        font-size: 11px;
+      }
+      .task-progress {
+        height: 4px;
+        margin-top: 8px;
+        border-radius: 2px;
+        background: var(--g6);
+        overflow: hidden;
+      }
+      .task-progress i {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--g1);
+      }
+      .task-side {
+        width: 66px;
+        flex: none;
+        text-align: center;
+      }
+      .reward {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--g2);
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .task-action {
+        width: 66px;
+        height: 30px;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 12px inherit;
+        cursor: pointer;
+      }
+      .task-action.secondary,
+      .task-action:disabled {
+        background: var(--g6);
+        color: var(--g3);
+      }
+      .task-action:disabled {
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button
+          class="back"
+          type="button"
+          aria-label="返回充值福利"
+          onclick="window.parent.postMessage({type:'luma-page',file:'welfare-center.html'},'*');location.href='welfare-center.html'"
+        >
+          ‹</button
+        >全部任务
+      </header>
+      <section class="task-section">
+        <article class="task-row">
+          <i class="task-icon">◷</i>
+          <div class="task-copy">
+            <b>观看直播 30 分钟</b>
+            <p class="task-progress"><i style="width: 70%"></i></p>
+            <small>21 / 30 分钟</small>
+          </div>
+          <div class="task-side">
+            <span class="reward">◆ 20</span
+            ><button class="task-action secondary" type="button" data-go="live">
+              去完成
+            </button>
+          </div>
+        </article>
+        <article class="task-row">
+          <i class="task-icon">♧</i>
+          <div class="task-copy">
+            <b>送出任意 1 个礼物</b>
+            <p class="task-progress"><i style="width: 100%"></i></p>
+            <small>1 / 1 · 可领取</small>
+          </div>
+          <div class="task-side">
+            <span class="reward">◆ 10</span
+            ><button class="task-action" type="button" data-claim>领取</button>
+          </div>
+        </article>
+        <article class="task-row">
+          <i class="task-icon">↗</i>
+          <div class="task-copy">
+            <b>分享 1 个直播间</b>
+            <p class="task-progress"><i style="width: 0"></i></p>
+            <small>0 / 1</small>
+          </div>
+          <div class="task-side">
+            <span class="reward">◆ 15</span
+            ><button class="task-action secondary" type="button" data-go="share">
+              去完成
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      document.querySelectorAll("[data-claim]").forEach((button) => {
+        button.onclick = () => {
+          if (button.disabled) return;
+          button.disabled = true;
+          button.textContent = "已领取";
+          Luma.toast("已领取 ◆ 10");
+        };
+      });
+      document.querySelectorAll("[data-go]").forEach((button) => {
+        button.onclick = () => {
+          const target = button.dataset.go;
+          Luma.toast(
+            {
+              live: "前往直播间观看",
+              share: "前往直播间分享",
+            }[target],
+          );
+        };
+      });
+      window.parent.postMessage(
+        { type: "luma-page", file: "all-tasks.html" },
+        "*",
+      );
+    </script>
+  </body>
+</html>

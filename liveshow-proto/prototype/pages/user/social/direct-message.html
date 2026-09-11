@@ -66,6 +66,16 @@
         background: var(--g1);
         color: var(--g7);
       }
+      .msg-failed {
+        width: 24px;
+        height: 24px;
+        border: 0;
+        border-radius: 50%;
+        background: var(--danger);
+        color: var(--g7);
+        font: 700 13px inherit;
+        cursor: pointer;
+      }
       .composer {
         position: fixed;
         bottom: 0;
@@ -113,6 +123,27 @@
         background: var(--g5);
         cursor: default;
       }
+      .msg.blocked {
+        display: grid;
+        grid-template-columns: minmax(0, 250px) 20px 34px;
+        justify-content: end;
+      }
+      .blocked .bubble {
+        justify-self: end;
+        overflow-wrap: anywhere;
+      }
+      .blocked-mark,
+      .blocked-reason {
+        color: var(--danger);
+      }
+      .blocked-mark {
+        align-self: center;
+      }
+      .blocked-reason {
+        grid-column: 1 / 3;
+        text-align: right;
+        font-size: 12px;
+      }
     </style>
   </head>
   <body>
@@ -150,21 +181,51 @@
       const input = document.querySelector("#input"),
         send = document.querySelector("#send"),
         chat = document.querySelector("#chat");
+      let sentCount = 1,
+        failNext = false,
+        blocked = false;
+      Luma.rejectBlockedMessage = (item) => {
+        if (!blocked) return false;
+        item.classList.add("blocked");
+        item.querySelector(".bubble").insertAdjacentHTML("afterend", '<span class="blocked-mark" aria-label="发送失败">❕&#xfe0e;</span>');
+        item.insertAdjacentHTML("beforeend", '<p class="blocked-reason">消息发送失败，对方拒收</p>');
+        return true;
+      };
       function sync() {
         send.disabled = !input.value.trim();
       }
       function append() {
         const text = input.value.trim();
         if (!text) return;
+        if (!blocked && sentCount >= 3) return Luma.toast("非好友最多发送三条");
         const item = document.createElement("div");
         item.className = "msg me";
-        item.innerHTML = `<p class="bubble"></p><i class="avatar">安</i>`;
+        item.innerHTML = `${failNext && !blocked ? '<button class="msg-failed" type="button" title="发送失败，点击重试" aria-label="发送失败，点击重试">!</button>' : ""}<p class="bubble"></p><i class="avatar">安</i>`;
         item.querySelector(".bubble").textContent = text;
+        Luma.rejectBlockedMessage(item);
         chat.append(item);
+        if (!failNext && !blocked) sentCount += 1;
         input.value = "";
         sync();
         input.focus();
+        if (failNext && !blocked) Luma.toast("发送失败");
+        failNext = false;
+        item.scrollIntoView({ block: "end" });
       }
+      chat.addEventListener("click", (event) => {
+        const retry = event.target.closest(".msg-failed");
+        if (!retry) return;
+        if (blocked) {
+          Luma.rejectBlockedMessage(retry.parentElement);
+          retry.remove();
+          return;
+        }
+        if (sentCount >= 3) return Luma.toast("非好友最多发送三条");
+        retry.remove();
+        sentCount += 1;
+        sync();
+        Luma.toast("发送成功");
+      });
       input.addEventListener("input", sync);
       input.addEventListener("keydown", (e) => {
         if (e.key === "Enter" && !e.shiftKey) {
@@ -173,6 +234,13 @@
         }
       });
       send.onclick = append;
+      Luma.registerStates({
+        消息发送: {
+          正常: () => { failNext = false; blocked = false; },
+          发送失败: () => { failNext = true; blocked = false; },
+          拉黑关系: () => { failNext = false; blocked = true; },
+        },
+      });
     </script>
     <script src="../../../assets/chat-media.js"></script>
   </body>

@@ -1,0 +1,253 @@
+{
+  "schemaVersion": "1.0",
+  "目标范围": {
+    "端名": "用户App",
+    "模块名称": "直播模块"
+  },
+  "直接成例": [
+    {
+      "页面或批注": "live-plaza.html",
+      "正式分支数": 15
+    },
+    {
+      "页面或批注": "live-room.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room/blocked-room-restricted.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/live-room/patrol-room-allowed.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/live-room/ticket-room-restricted.html",
+      "正式分支数": 7
+    },
+    {
+      "页面或批注": "views/live-room/password-room-restricted.html",
+      "正式分支数": 4
+    },
+    {
+      "页面或批注": "views/live-room/comment-muted.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "views/live-room/host-profile.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/live-room/more-actions.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room/audience-online.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/live-room/contribution-rank.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "live-room-report.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "live-room-user-report.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/live-room/fan-club-not-joined.html",
+      "正式分支数": 4
+    },
+    {
+      "页面或批注": "views/live-room/fan-club-joined.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "views/live-room/gift.html",
+      "正式分支数": 9
+    },
+    {
+      "页面或批注": "views/live-room/gift-recharge.html",
+      "正式分支数": 4
+    },
+    {
+      "页面或批注": "start-live-settings.html",
+      "正式分支数": 10
+    },
+    {
+      "页面或批注": "views/start-live-settings/category.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/start-live-settings/room-normal.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/start-live-settings/room-ticket.html",
+      "正式分支数": 5
+    },
+    {
+      "页面或批注": "views/start-live-settings/room-password.html",
+      "正式分支数": 8
+    },
+    {
+      "页面或批注": "visible-fan-select.html",
+      "正式分支数": 4
+    },
+    {
+      "页面或批注": "views/start-live-settings/beauty.html",
+      "正式分支数": 5
+    },
+    {
+      "页面或批注": "live-room-host.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/live-room-host/audience-viewers.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "views/live-room-host/contribution-rank.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "moderator-management.html",
+      "正式分支数": 5
+    },
+    {
+      "页面或批注": "views/live-room/audience-managers.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room/profile-moderator-mute.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room/profile-moderator.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room-host/profile-host.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room-host/muted-users.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room/profile-moderator-remove.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room-host/thank-message.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room-host/cohost-hosts-search-result.html",
+      "正式分支数": 2
+    },
+    {
+      "页面或批注": "views/live-room-host/cohost-invite-notice.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "views/live-room-cohost-active/cohost-exit-confirm.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "live-room-cohost-active.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/live-room-host-password/more-actions.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/live-room-host/share-recipient.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "views/live-room-host-password/room-password.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "live-room-host-password.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "views/live-room-host/end-confirm.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "live-end-viewer.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "live-end-host.html",
+      "正式分支数": 3
+    },
+    {
+      "页面或批注": "live-data.html",
+      "正式分支数": 5
+    },
+    {
+      "页面或批注": "views/live-data/month.html",
+      "正式分支数": 1
+    },
+    {
+      "页面或批注": "live-records.html",
+      "正式分支数": 6
+    },
+    {
+      "页面或批注": "views/live-room-host/cohost-hosts.html",
+      "正式分支数": 1
+    }
+  ],
+  "合并覆盖": [
+    {
+      "页面或批注": "views/live-plaza/notification-intro.html",
+      "处理说明": "通知说明的展示与按钮结果已由直播广场通知规则覆盖"
+    },
+    {
+      "页面或批注": "views/live-plaza/notification-permission.html",
+      "处理说明": "系统授权弹窗结果已由直播广场通知规则覆盖"
+    },
+    {
+      "页面或批注": "views/live-room/profile-viewer.html",
+      "处理说明": "观众资料入口与关系结果已由主播资料规则覆盖"
+    },
+    {
+      "页面或批注": "views/live-room/contribution-gifts.html",
+      "处理说明": "礼物贡献明细已并入本场贡献榜规则"
+    },
+    {
+      "页面或批注": "views/live-room-host/restore-speaking-confirm.html",
+      "处理说明": "解除禁言确认结果已并入禁言用户规则"
+    },
+    {
+      "页面或批注": "views/live-room-host/focus-viewers.html",
+      "处理说明": "重点关注观众状态已并入观众管理规则"
+    },
+    {
+      "页面或批注": "views/live-room-host/cohost-hosts.html",
+      "处理说明": "连麦主播列表已由搜索与邀请规则覆盖"
+    },
+    {
+      "页面或批注": "views/live-room-host/more-actions.html",
+      "处理说明": "主播更多菜单中的确定结果已由转发和关播规则覆盖"
+    },
+    {
+      "页面或批注": "views/live-room-host-password/visible-scope.html",
+      "处理说明": "密码房可见范围已由开播设置规则覆盖"
+    },
+    {
+      "页面或批注": "views/live-room-cohost-active/more-actions.html",
+      "处理说明": "连麦中更多菜单已由退出连麦确认规则覆盖"
+    }
+  ],
+  "未映射覆盖点": [],
+  "复核时间": "2026-09-10T08:36:03.997Z"
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "目标范围": {
+    "端名": "用户App",
+    "模块名称": "直播模块"
+  },
+  "候选JSON": {
+    "路径": "work/liveshow-user-live-profile-260910-004/current-testcase-candidate.json",
+    "SHA-256": "88a3537e76e4e189f1479fd99764e651c8cd0aaea8146a08ec6133705d01ee14"
+  },
+  "历史输入": [],
+  "比较结果": [],
+  "待人工复核": [],
+  "说明": "用户已清除历史数据；本批次不读取旧用例，当前候选全部由当前证据生成。"
+}

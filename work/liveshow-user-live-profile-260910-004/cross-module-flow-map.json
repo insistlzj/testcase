@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0",
+  "目标范围": {
+    "端名": "用户App",
+    "模块名称": "直播模块"
+  },
+  "流程": [
+    {
+      "流程编号": "FLOW-LIVE-ENTRY",
+      "用例数": 3
+    },
+    {
+      "流程编号": "FLOW-LIVE-PATROL",
+      "用例数": 2
+    },
+    {
+      "流程编号": "FLOW-LIVE-TICKET",
+      "用例数": 7
+    },
+    {
+      "流程编号": "FLOW-LIVE-OPS",
+      "用例数": 5
+    },
+    {
+      "流程编号": "FLOW-LIVE-REPORT",
+      "用例数": 2
+    },
+    {
+      "流程编号": "FLOW-LIVE-FANCLUB",
+      "用例数": 2
+    },
+    {
+      "流程编号": "FLOW-LIVE-GIFT",
+      "用例数": 4
+    },
+    {
+      "流程编号": "FLOW-LIVE-RECHARGE",
+      "用例数": 3
+    },
+    {
+      "流程编号": "FLOW-LIVE-LUCKY",
+      "用例数": 3
+    },
+    {
+      "流程编号": "FLOW-LIVE-START",
+      "用例数": 7
+    },
+    {
+      "流程编号": "FLOW-LIVE-CONFIG",
+      "用例数": 3
+    },
+    {
+      "流程编号": "FLOW-LIVE-MODERATION",
+      "用例数": 6
+    },
+    {
+      "流程编号": "FLOW-LIVE-COHOST",
+      "用例数": 10
+    },
+    {
+      "流程编号": "FLOW-LIVE-SHARE",
+      "用例数": 1
+    },
+    {
+      "流程编号": "FLOW-LIVE-END",
+      "用例数": 2
+    },
+    {
+      "流程编号": "FLOW-LIVE-INCOME",
+      "用例数": 2
+    }
+  ],
+  "范围说明": "只生成用户 App 直播模块用例；后台、公会端仅作为配置或外部触发证据。"
+}

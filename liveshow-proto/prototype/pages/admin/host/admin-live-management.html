@@ -266,7 +266,7 @@
                   href="admin-live-detail.html?id=${item.sessionId}"
                   >查看</a
                 >${isLive
-                  ? `<button class="admin-action" data-action="警告" data-id="${item.sessionId}">警告</button><button class="admin-action" data-action="断流" data-id="${item.sessionId}">断流</button><button class="admin-action" data-action="强制关播" data-id="${item.sessionId}">关播</button>`
+                  ? `<button class="admin-action" data-action="警告" data-id="${item.sessionId}">警告</button><button class="admin-action" data-action="强制关播" data-id="${item.sessionId}">关播</button>`
                   : ""}
               </td>
             </tr>`;
@@ -285,9 +285,7 @@
         actionNote.textContent =
           type === "强制关播"
             ? "提交后直播立即结束。"
-            : type === "断流"
-              ? "提交后中断当前直播流。"
-              : "警告内容将记录在处置记录中。";
+            : "警告内容将记录在处置记录中。";
         actionOverlay.classList.add("show");
       }
       searchBtn.onclick = () => {
@@ -337,7 +335,7 @@
           operator: "后台管理员",
           time: "2026-08-04 12:35",
         });
-        if (currentAction === "强制关播" || currentAction === "断流") {
+        if (currentAction === "强制关播") {
           current.status = "stopped";
           current.endedAt = "2026-08-04 12:35";
         }

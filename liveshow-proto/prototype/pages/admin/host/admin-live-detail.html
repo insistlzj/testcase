@@ -191,7 +191,7 @@
         Luma.setTip(statusEl, statusText[item.status], "场次状态");
         actionsEl.innerHTML =
           item.status === "live"
-            ? '<button class="admin-btn secondary" data-action="警告">警告</button><button class="admin-btn secondary" data-action="断流">断流</button><button class="admin-btn danger" data-action="强制关播">关播</button>'
+            ? '<button class="admin-btn secondary" data-action="警告">警告</button><button class="admin-btn danger" data-action="强制关播">关播</button>'
             : "";
         metricsEl.innerHTML = `<div class="admin-metric"><span>观众人数</span><b>${formatInteger(item.totalViewers)}</b></div><div class="admin-metric"><span>金币收益</span><b>${formatCoins(item.consumptionCoins)}</b></div><div class="admin-metric"><span>收礼数量</span><b>${formatInteger(item.gifts)}</b></div>`;
         baseInfoEl.innerHTML = `<div class="admin-detail-item"><span>直播场次 ID</span><b>${item.sessionId}</b></div><div class="admin-detail-item"><span>直播标题</span><b>${item.title}</b></div><div class="admin-detail-item"><span>开播时间</span><b>${item.startedAt}</b></div><div class="admin-detail-item"><span>结束时间</span><b>${item.endedAt}</b></div><div class="admin-detail-item"><span>直播时长</span><b>${item.duration}</b></div>`;
@@ -224,9 +224,7 @@
         actionNote.textContent =
           type === "强制关播"
             ? "提交后直播立即结束。"
-            : type === "断流"
-              ? "提交后中断当前直播流。"
-              : "警告内容将记录在处置记录中。";
+            : "警告内容将记录在处置记录中。";
         actionOverlay.classList.add("show");
       }
       document.addEventListener("click", (event) => {
@@ -252,7 +250,7 @@
           operator: "后台管理员",
           time: "2026-08-04 12:35",
         });
-        if (currentAction === "强制关播" || currentAction === "断流") {
+        if (currentAction === "强制关播") {
           item.status = "stopped";
           item.endedAt = "2026-08-04 12:35";
         }

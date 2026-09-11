@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../../assets/common.css" />
     <link
       rel="stylesheet"
-      href="../../../assets/guild.css?v=20260812-guild-complete-v2"
+      href="../../../assets/guild.css?v=20260902-language-sheet-v1"
     />
     <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
     <script src="../../../assets/mock.js"></script>
@@ -31,7 +31,7 @@
           <a class="guild-setting-row" href="guild-password.html"
             ><span>修改密码</span><span>›</span></a
           ><button class="guild-setting-row" id="language" type="button">
-            <span>语言</span><span id="languageValue">简体中文 ›</span>
+            <span>语言</span><span id="languageValue"></span>
           </button>
         </section>
         <button class="guild-danger-action" id="logout" type="button">
@@ -40,6 +40,40 @@
       </div>
     </main>
     <div class="guild-homebar"><i></i></div>
+    <div class="guild-mask state-hide" id="languageSheet">
+      <section
+        class="guild-sheet guild-language-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="languageSheetTitle"
+      >
+        <header>
+          <h2 id="languageSheetTitle">选择语言</h2>
+          <button
+            class="guild-sheet-close"
+            id="languageSheetClose"
+            type="button"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </header>
+        <div class="guild-language-options" role="radiogroup" aria-label="语言">
+          <button type="button" role="radio" data-language="zh">
+            <span>中文</span><i aria-hidden="true"></i>
+          </button>
+          <button type="button" role="radio" data-language="en">
+            <span>English</span><i aria-hidden="true"></i>
+          </button>
+          <button type="button" role="radio" data-language="id">
+            <span>Bahasa Indonesia</span><i aria-hidden="true"></i>
+          </button>
+          <button type="button" role="radio" data-language="ms">
+            <span>Bahasa Melayu</span><i aria-hidden="true"></i>
+          </button>
+        </div>
+      </section>
+    </div>
     <div class="guild-confirm-mask state-hide" id="logoutDialog">
       <section class="guild-confirm-dialog">
         <h2>确认退出登录？</h2>
@@ -55,11 +89,52 @@
     <script>
       if (new URLSearchParams(location.search).get("action") === "password")
         Luma.toast("密码修改成功");
-      language.onclick = () => {
-        languageValue.textContent = languageValue.textContent.startsWith("简体")
-          ? "Bahasa Indonesia ›"
-          : "简体中文 ›";
+      const languageLabels = {
+        zh: "中文",
+        en: "English",
+        id: "Bahasa Indonesia",
+        ms: "Bahasa Melayu",
       };
+      let selectedLanguage = localStorage.getItem("luma-guild-language") || "id";
+      if (!languageLabels[selectedLanguage]) selectedLanguage = "id";
+      function renderLanguage() {
+        languageValue.textContent = `${languageLabels[selectedLanguage]} ›`;
+        languageSheet
+          .querySelectorAll("[data-language]")
+          .forEach((button) => {
+            const selected = button.dataset.language === selectedLanguage;
+            button.classList.toggle("selected", selected);
+            button.setAttribute("aria-checked", String(selected));
+            button.querySelector("i").textContent = selected ? "✓" : "";
+          });
+      }
+      function openLanguageSheet() {
+        languageSheet.classList.remove("state-hide");
+        document.body.classList.add("guild-sheet-open");
+      }
+      function closeLanguageSheet() {
+        languageSheet.classList.add("state-hide");
+        document.body.classList.remove("guild-sheet-open");
+      }
+      language.onclick = openLanguageSheet;
+      languageSheetClose.onclick = closeLanguageSheet;
+      languageSheet.onclick = (event) => {
+        if (event.target === languageSheet) closeLanguageSheet();
+      };
+      languageSheet.querySelector(".guild-language-options").onclick = (
+        event,
+      ) => {
+        const option = event.target.closest("[data-language]");
+        if (!option) return;
+        selectedLanguage = option.dataset.language;
+        localStorage.setItem("luma-guild-language", selectedLanguage);
+        renderLanguage();
+        closeLanguageSheet();
+        Luma.toast("语言已切换");
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLanguageSheet();
+      });
       logout.onclick = () => logoutDialog.classList.remove("state-hide");
       logoutCancel.onclick = () => logoutDialog.classList.add("state-hide");
       logoutSubmit.onclick = () => (location.href = "../auth/guild-login.html");
@@ -71,6 +146,7 @@
         },
         "*",
       );
+      renderLanguage();
     </script>
   </body>
 </html>

@@ -29,14 +29,9 @@
         padding: 15px 14px;
         border-radius: 12px;
         background: var(--g7);
-        cursor: pointer;
       }
       .notice + .notice {
         margin-top: 12px;
-      }
-      .notice:focus-visible {
-        outline: 2px solid var(--primary);
-        outline-offset: 2px;
       }
       .notice-head {
         display: flex;
@@ -101,31 +96,11 @@
       function render() {
         noticeList.innerHTML = notices
           .map(
-            (item, index) =>
-              `<article class="notice" data-index="${index}" tabindex="0"><div class="notice-head"><i class="notice-icon">${item.icon}</i><b>${item.title}</b><time>${LUMA_FORMAT.dateTime(item.time)}</time></div><p>${item.content}</p>${item.unread ? '<i class="notice-unread" aria-label="未读"></i>' : ""}</article>`,
+            (item) =>
+              `<article class="notice"><div class="notice-head"><i class="notice-icon">${item.icon}</i><b>${item.title}</b><time>${LUMA_FORMAT.dateTime(item.time)}</time></div><p>${item.content}</p>${item.unread ? '<i class="notice-unread" aria-label="未读"></i>' : ""}</article>`,
           )
           .join("");
       }
-      function readNotice(index) {
-        const notice = notices[index];
-        if (!notice) return;
-        if (notice.unread) {
-          notice.unread = false;
-          render();
-          Luma.toast("通知已标为已读");
-          return;
-        }
-        Luma.toast("这是系统通知");
-      }
-      noticeList.addEventListener("click", (event) =>
-        readNotice(Number(event.target.closest(".notice")?.dataset.index)),
-      );
-      noticeList.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          readNotice(Number(event.target.closest(".notice")?.dataset.index));
-        }
-      });
       render();
     </script>
   </body>

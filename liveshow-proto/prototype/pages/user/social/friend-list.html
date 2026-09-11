@@ -57,18 +57,15 @@
         border-bottom: 1px solid var(--g6);
         background: var(--g7);
         color: var(--g1);
+        text-decoration: none;
       }
       .friend:last-child {
         border-bottom: 0;
       }
-      .friend-avatar-link {
-        display: block;
-        flex: none;
-        text-decoration: none;
-      }
       .friend .avatar {
         width: 46px;
         height: 46px;
+        flex: none;
       }
       .friend-copy {
         min-width: 0;
@@ -144,7 +141,7 @@
           return;
         }
         friends.forEach((friend) => {
-          const row = document.createElement("div");
+          const row = document.createElement("a");
           row.className = "friend";
           const profilePage =
             friend.profileType === "host"
@@ -152,7 +149,9 @@
               : `user-home.html?user=${encodeURIComponent(friend.profileKey)}`;
           const profileLabel =
             friend.profileType === "host" ? "主播主页" : "用户主页";
-          row.innerHTML = `<a class="friend-avatar-link" href="${profilePage}" aria-label="进入 ${friend.name} 的${profileLabel}"><i class="avatar"></i></a><span class="friend-copy"><b class="friend-name"></b><span class="friend-tags"></span></span>`;
+          row.href = profilePage;
+          row.setAttribute("aria-label", `进入 ${friend.name} 的${profileLabel}`);
+          row.innerHTML = '<i class="avatar"></i><span class="friend-copy"><b class="friend-name"></b><span class="friend-tags"></span></span>';
           row.querySelector(".avatar").textContent = friend.avatar;
           row.querySelector(".friend-name").textContent = friend.name;
           const tags = row.querySelector(".friend-tags");

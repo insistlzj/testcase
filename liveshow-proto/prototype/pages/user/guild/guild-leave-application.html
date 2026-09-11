@@ -137,7 +137,7 @@
         (item) => item.id === relation.guildId,
       );
       document.querySelector("#back").onclick = () =>
-        (location.href = `guild-detail.html?guild=${encodeURIComponent(guild.id)}`);
+        (location.href = `guild-detail.html?guild=${encodeURIComponent(guild.id)}&v=20260909-guild-detail-route-v1`);
       document.querySelector("#guildLogo").textContent = guild.logo;
       document.querySelector("#guildName").textContent = guild.name;
       const reason = document.querySelector("#reason");
@@ -159,7 +159,7 @@
         Luma.toast("已提交退出公会申请");
         setTimeout(
           () =>
-            (location.href = `guild-detail.html?guild=${encodeURIComponent(guild.id)}&exitPending=1&submittedAt=${encodeURIComponent(submittedAt)}&reason=${encodeURIComponent(pendingOrder.reason)}`),
+            (location.href = `guild-detail.html?guild=${encodeURIComponent(guild.id)}&exitPending=1&submittedAt=${encodeURIComponent(submittedAt)}&reason=${encodeURIComponent(pendingOrder.reason)}&v=20260909-guild-detail-route-v1`),
           350,
         );
       };

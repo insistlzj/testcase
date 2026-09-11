@@ -63,6 +63,15 @@
         color: var(--g4);
         font-size: 10px;
       }
+      .item.expired {
+        background: var(--g6);
+        color: var(--g4);
+        cursor: default;
+      }
+      .item.expired .visual {
+        background: var(--g6);
+        border-color: var(--g4);
+      }
       .item.equipped .visual {
         background: var(--g6);
       }
@@ -88,13 +97,13 @@
     <div class="homebar"><i></i></div>
     <script>
       const props = LUMA_MOCK.myDecorations.avatarFrames;
-      let equipped = props.find((item) => item.equipped)?.id || "";
+      let equipped = props.find((item) => item.equipped && !item.expired)?.id || "";
       const items = document.querySelector("#items");
       function render() {
         items.innerHTML = props
           .map(
             (item) =>
-              `<button class="item ${item.id === equipped ? "equipped" : ""}" type="button" data-id="${item.id}"><i class="visual"><i class="avatar">${LUMA_MOCK.myProfile.avatar}</i></i><b>${item.name}</b><small>${item.id === equipped ? "已佩戴" : "佩戴"}</small></button>`,
+              `<button class="item ${item.expired ? "expired" : item.id === equipped ? "equipped" : ""}" ${item.expired ? "disabled" : ""} type="button" data-id="${item.id}"><i class="visual"><i class="avatar">${LUMA_MOCK.myProfile.avatar}</i></i><b>${item.name}</b><small>${item.expired ? "失效" : item.id === equipped ? "已佩戴" : "佩戴"}</small></button>`,
           )
           .join("");
         items.querySelectorAll("button").forEach(

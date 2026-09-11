@@ -9,7 +9,7 @@
     <script src="../../../assets/admin-tokens.js"></script>
     <link
       rel="stylesheet"
-      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+      href="../../../assets/admin.css?v=20260901-single-column-v1"
     />
     <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
@@ -64,7 +64,7 @@
           <a class="admin-back-link" href="admin-system-parameter.html"
             >‹ 返回系统参数</a
           >
-          <section class="admin-panel admin-profile-panel">
+          <section class="admin-panel admin-profile-panel admin-create-page">
             <div class="admin-section-head">
               <div>
                 <h2 id="pageTitle">参数编辑</h2>
@@ -242,10 +242,6 @@
         "*",
       );
       Luma.registerStates({
-        最低提现金额: () =>
-          (location.href = "admin-system-parameter-detail.html?id=PARAM001"),
-        到账通道: () =>
-          (location.href = "admin-system-parameter-detail.html?id=PARAM002"),
         金币汇率: () =>
           (location.href = "admin-system-parameter-detail.html?id=PARAM003"),
         直播间类型标签: () =>

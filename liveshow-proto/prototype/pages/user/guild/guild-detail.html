@@ -8,7 +8,7 @@
     <script src="../../../assets/tokens.js"></script>
     <link rel="stylesheet" href="../../../assets/common.css" />
     <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/mock.js?v=20260817-guild-detail-v1"></script>
+    <script src="../../../assets/mock.js?v=20260909-guild-materials-collapse-v1"></script>
     <style>
       .screen {
         padding-bottom: 34px;
@@ -147,6 +147,40 @@
       .detail.reject span:last-child {
         color: var(--danger);
       }
+      .application-materials {
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px solid var(--g6);
+      }
+      .application-materials summary {
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .material-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .material {
+        margin: 0;
+        min-width: 0;
+      }
+      .material-preview {
+        display: grid;
+        place-items: center;
+        height: 82px;
+        border: 1px solid var(--g5);
+        border-radius: var(--radius-sm);
+        background: var(--g6);
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .document-materials {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
     </style>
   </head>
   <body>
@@ -186,24 +220,15 @@
       const selectedGuild = window.LUMA_MOCK.guilds.find(
         (item) => item.id === selectedGuildId,
       );
-      let relation = relations.find((item) => item.guildId === selectedGuildId);
+      let relation = structuredClone(relations.find((item) => item.guildId === selectedGuildId) || null);
       if (!relation && selectedGuild) {
         relation = {
           guildId: selectedGuild.id,
           relationStatus: "加入审核中",
           orders: [],
         };
-        relations.push(relation);
       }
-      relation = relation || relations[0];
-      const guild = window.LUMA_MOCK.guilds.find(
-        (item) => item.id === relation.guildId,
-      );
-      document.querySelector("#guildLogo").textContent = guild.logo;
-      document.querySelector("#guildName").textContent = guild.name;
-      document.querySelector("#guildId").textContent = `ID：${guild.id}`;
-      document.querySelector("#relationStatus").textContent =
-        relation.relationStatus;
+      relation = relation || structuredClone(relations[0]);
       const pendingOrder =
         query.get("exitPending") === "1"
           ? {
@@ -217,6 +242,14 @@
                 type: "加入申请单",
                 status: "加入审核中",
                 submittedAt: query.get("submittedAt"),
+                application: {
+                  name: query.get("name") || "—",
+                  phone: query.get("phone") || "—",
+                  documentType: query.get("documentType") || "—",
+                  portrait: query.get("portrait") || "—",
+                  documentFront: query.get("documentFront") || "—",
+                  documentBack: query.get("documentBack") || "—",
+                },
               }
             : null;
       if (
@@ -232,8 +265,7 @@
         if (pendingOrder.type === "加入申请单")
           relation.relationStatus = "加入审核中";
       }
-      document.querySelector("#relationStatus").textContent =
-        relation.relationStatus;
+      const initialRelation = structuredClone(relation);
       const orderTime = (value) => Number(String(value).replace(/\D/g, ""));
       const escapeHtml = (value) =>
         String(value).replace(
@@ -247,57 +279,104 @@
               "'": "&#39;",
             })[char],
         );
-      const orderedOrders = [...relation.orders].sort(
-        (first, second) =>
-          orderTime(second.submittedAt) - orderTime(first.submittedAt),
-      );
-      document.querySelector("#orders").innerHTML = orderedOrders
-        .map((order) => {
-          const isPending = ["申请中", "加入审核中"].includes(order.status);
-          const details = [
-            ["处理时间", order.processedAt],
-            ["申请", order.reason],
-            ["驳回", order.rejectionReason, "reject"],
-          ].filter(([, value]) => value);
-          return /* HTML */ `<article class="timeline-item">
-            <i
-              class="timeline-dot ${isPending ? "pending" : ""}"
-              aria-hidden="true"
-            ></i
-            ><time class="timeline-time"
-              >${escapeHtml(LUMA_FORMAT.dateTime(order.submittedAt))}</time
-            >
-            <section class="order-card">
-              <div class="order-head">
-                <b>${escapeHtml(order.type)}</b
-                ><span class="status ${isPending ? "pending" : ""}"
-                  >${escapeHtml(order.status)}</span
-                >
-              </div>
-              ${details
-                .map(
-                  ([label, value, kind]) =>
-                    `<div class="detail ${kind || ""}"><span>${label}</span><span>${escapeHtml(kind ? value : LUMA_FORMAT.dateTime(value))}</span></div>`,
-                )
-                .join("")}
-            </section>
-          </article>`;
-        })
-        .join("");
-      const applyLeave = document.querySelector("#applyLeave");
-      if (
-        relation.relationStatus === "已加入" &&
-        !orderedOrders.some(
-          (order) => order.type === "退出申请单" && order.status === "申请中",
-        )
-      )
-        applyLeave.onclick = () =>
-          (location.href = `guild-leave-application.html?guild=${encodeURIComponent(guild.id)}`);
-      else applyLeave.remove();
+      function renderRelation(relation) {
+        const guild = window.LUMA_MOCK.guilds.find(
+          (item) => item.id === relation.guildId,
+        );
+        document.querySelector("#guildLogo").textContent = guild.logo;
+        document.querySelector("#guildName").textContent = guild.name;
+        document.querySelector("#guildId").textContent = `ID：${guild.id}`;
+        document.querySelector("#relationStatus").textContent = relation.relationStatus;
+        const orderedOrders = [...relation.orders].sort(
+          (first, second) =>
+            orderTime(second.submittedAt) - orderTime(first.submittedAt),
+        );
+        document.querySelector("#orders").innerHTML = orderedOrders
+          .map((order) => {
+            const isPending = ["申请中", "加入审核中"].includes(order.status);
+            const application = order.type === "加入申请单" ? order.application : null;
+            const details = [
+              ["处理时间", order.processedAt],
+              ["申请", order.reason],
+              ["驳回", order.rejectionReason, "reject"],
+            ].filter(([, value]) => value);
+            return /* HTML */ `<article class="timeline-item">
+              <i
+                class="timeline-dot ${isPending ? "pending" : ""}"
+                aria-hidden="true"
+              ></i
+              ><time class="timeline-time"
+                >${escapeHtml(LUMA_FORMAT.dateTime(order.submittedAt))}</time
+              >
+              <section class="order-card">
+                <div class="order-head">
+                  <b>${escapeHtml(order.type)}</b
+                  ><span class="status ${isPending ? "pending" : ""}"
+                    >${escapeHtml(order.status)}</span
+                  >
+                </div>
+                ${details
+                  .map(
+                    ([label, value, kind]) =>
+                      `<div class="detail ${kind || ""}"><span>${label}</span><span>${escapeHtml(kind ? value : LUMA_FORMAT.dateTime(value))}</span></div>`,
+                  )
+                  .join("")}
+                ${application ? `
+                  <details class="application-materials">
+                    <summary>申请资料</summary>
+                    <div class="material-list">
+                      <div class="detail"><span>姓名</span><span>${escapeHtml(application.name)}</span></div>
+                      <div class="detail"><span>电话</span><span>${escapeHtml(application.phone)}</span></div>
+                      <figure class="material">
+                        <div class="material-preview">本人照片</div>
+                      </figure>
+                      <div class="detail"><span>证件类型</span><span>${escapeHtml(application.documentType)}</span></div>
+                      <div class="document-materials">
+                        <figure class="material">
+                          <div class="material-preview">${escapeHtml(application.documentType)} 正面</div>
+                        </figure>
+                        <figure class="material">
+                          <div class="material-preview">${escapeHtml(application.documentType)} 反面</div>
+                        </figure>
+                      </div>
+                    </div>
+                  </details>` : ""}
+              </section>
+            </article>`;
+          })
+          .join("");
+        const applyLeave = document.querySelector("#applyLeave");
+        const canLeave =
+          relation.relationStatus === "已加入" &&
+          !orderedOrders.some(
+            (order) => order.type === "退出申请单" && order.status === "申请中",
+          );
+        applyLeave.hidden = !canLeave;
+        applyLeave.onclick = canLeave
+          ? () => (location.href = `guild-leave-application.html?guild=${encodeURIComponent(guild.id)}`)
+          : null;
+      }
+      renderRelation(initialRelation);
       window.parent.postMessage(
-        { type: "luma-page", file: "guild-detail.html" },
+        { type: "luma-page", file: "guild-detail.html", query: location.search },
         "*",
       );
+      const joinedRelation = relations.find((item) => item.guildId === "G10021");
+      const joinedOnly = {
+        ...joinedRelation,
+        orders: joinedRelation.orders.filter((order) => order.type === "加入申请单"),
+      };
+      Luma.registerStates({
+        入会申请中: () => renderRelation(relations.find((item) => item.guildId === "G10072")),
+        已加入: () => renderRelation(joinedOnly),
+        入会已驳回: () => renderRelation(relations.find((item) => item.guildId === "G10058")),
+        退会申请中: () => renderRelation({
+          ...joinedRelation,
+          orders: [...joinedRelation.orders, window.LUMA_MOCK.guildDetailPendingExit],
+        }),
+        退会已驳回: () => renderRelation(joinedRelation),
+        已退出: () => renderRelation(relations.find((item) => item.guildId === "G10036")),
+      });
     </script>
   </body>
 </html>

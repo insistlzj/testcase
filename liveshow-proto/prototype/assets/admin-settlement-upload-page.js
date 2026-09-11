@@ -160,11 +160,11 @@
 
     function uploadedDetails() {
       return type === 'host' ? [
-        { name: 'Sari', id: '77210411', guildName: 'Aurora Guild', guildId: 'G100021', amount: 168000 },
-        { name: 'Maya', id: '77209318', guildName: 'Aurora Guild', guildId: 'G100021', amount: 142000 },
+        { name: 'Sari', id: '77210411', guildName: 'Aurora Agency', guildId: 'G100021', amount: 168000 },
+        { name: 'Maya', id: '77209318', guildName: 'Aurora Agency', guildId: 'G100021', amount: 142000 },
         { name: 'Dewi', id: '77208635', guildName: 'Star House', guildId: 'G100018', amount: 118000 }
       ] : [
-        { name: 'Aurora Guild', id: 'G100021', amount: 12800 },
+        { name: 'Aurora Agency', id: 'G100021', amount: 12800 },
         { name: 'Star House', id: 'G100018', amount: 9600 },
         { name: 'Blue Ocean', id: 'G100014', amount: 7600 }
       ];
@@ -235,11 +235,11 @@
   function detailPage() {
     const params = new URLSearchParams(location.search);
     const details = type === 'host' ? [
-      { name: 'Sari', id: '77210411', guildName: 'Aurora Guild', guildId: 'G100021', amount: 168000 },
-      { name: 'Maya', id: '77209318', guildName: 'Aurora Guild', guildId: 'G100021', amount: 142000 },
+      { name: 'Sari', id: '77210411', guildName: 'Aurora Agency', guildId: 'G100021', amount: 168000 },
+      { name: 'Maya', id: '77209318', guildName: 'Aurora Agency', guildId: 'G100021', amount: 142000 },
       { name: 'Dewi', id: '77208635', guildName: 'Star House', guildId: 'G100018', amount: 118000 }
     ] : [
-      { name: 'Aurora Guild', id: 'G100021', amount: 12800 },
+      { name: 'Aurora Agency', id: 'G100021', amount: 12800 },
       { name: 'Star House', id: 'G100018', amount: 9600 },
       { name: 'Blue Ocean', id: 'G100014', amount: 7600 }
     ];

@@ -29,6 +29,13 @@ button{cursor:pointer}
 .admin-config-panel{margin-top:16px}
 .admin-probability-panel{margin-bottom:16px}
 .admin-panel{background:var(--admin-surface);border:1px solid var(--admin-border);border-radius:var(--admin-radius-md)}
+.lucky-earning-config{min-height:68px;padding:14px 16px;margin-bottom:16px;display:flex;align-items:center;gap:24px}
+.lucky-earning-config>strong{flex:0 0 auto;font-size:var(--admin-font-base);font-weight:600}
+.lucky-earning-field{display:flex;align-items:center;gap:10px}
+.lucky-earning-field .admin-setting-control{width:132px}
+.lucky-earning-field .admin-input[readonly]{background:var(--admin-canvas);color:var(--admin-muted);cursor:default}
+.lucky-earning-formula{color:var(--admin-muted);font-size:var(--admin-font-xs);white-space:nowrap}
+.lucky-earning-config>.admin-btn{margin-left:auto}
 .admin-filter{padding:14px 16px;margin-bottom:16px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px}
 .admin-filter.inline-actions{display:flex}
 .admin-filter-grid{display:contents}
@@ -292,7 +299,7 @@ button{cursor:pointer}
 .admin-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
 .admin-form-grid .admin-form-row{margin:0}
 .admin-form-grid .admin-form-row.full{grid-column:1/-1}
-.admin-create-page .admin-form-grid{grid-template-columns:minmax(0,760px);gap:14px}
+.admin-create-page .admin-form-grid,.admin-create-page .admin-media-upload-grid{grid-template-columns:minmax(0,760px);gap:14px}
 .admin-create-page .admin-form-grid .admin-form-row{display:grid;grid-template-columns:120px minmax(0,1fr);align-items:center;gap:16px}
 .admin-create-page .admin-form-grid .admin-form-row.full{grid-column:auto}
 .admin-create-page .admin-form-grid .admin-form-row>label:first-child{margin:0}
@@ -320,9 +327,18 @@ button{cursor:pointer}
 .admin-calculated-field{min-height:56px;padding:8px 10px;border:1px solid var(--admin-border);border-radius:var(--admin-radius-sm);background:var(--admin-primary-soft)}
 .admin-calculated-field strong{display:block;color:var(--admin-primary);font-size:var(--admin-font-lg);font-weight:700;line-height:1.2}
 .admin-calculated-field span{display:block;margin-top:5px;color:var(--admin-muted);font-size:var(--admin-font-xs);line-height:1.4}
+.admin-calculated-field.admin-calculated-inline{display:flex;align-items:center;gap:20px}
+.admin-calculated-inline .admin-calculated-value{flex:none;min-width:0}
+.admin-calculated-inline .admin-calculation-formula{margin:0 0 0 auto;white-space:nowrap;text-align:right}
 .admin-calculated-field.is-risk{border-color:var(--admin-danger);background:var(--admin-danger-soft)}
 .admin-calculated-field.is-risk strong,.admin-calculated-field .admin-rtp-warning{color:var(--admin-danger)}
 .admin-calculated-field .admin-rtp-warning{font-weight:600}
+.admin-decimal-stepper{position:relative}
+.admin-decimal-stepper .admin-input{padding-right:30px}
+.admin-decimal-stepper-controls{position:absolute;top:1px;right:1px;bottom:1px;width:24px;display:grid;grid-template-rows:1fr 1fr;border-left:1px solid var(--admin-border);border-radius:0 var(--admin-radius-sm) var(--admin-radius-sm) 0;overflow:hidden}
+.admin-decimal-stepper-controls button{min-width:0;padding:0;border:0;background:var(--admin-surface);color:var(--admin-muted);font-size:9px;line-height:1;cursor:pointer}
+.admin-decimal-stepper-controls button+button{border-top:1px solid var(--admin-border)}
+.admin-decimal-stepper-controls button:hover{background:var(--admin-canvas);color:var(--admin-ink)}
 .admin-probability-editor{max-width:760px;margin-top:16px;border:1px solid var(--admin-border);border-radius:var(--admin-radius-sm)}
 .admin-probability-editor .admin-record-table{min-width:0}
 .admin-validation-error{max-width:760px;margin-top:8px;color:var(--admin-danger);font-size:var(--admin-font-xs);line-height:1.5}
@@ -540,6 +556,24 @@ button{cursor:pointer}
 .system-permission-items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:4px 14px 12px}
 .system-permission-items label{min-height:38px;display:flex;align-items:center;gap:7px;font-size:var(--admin-font-sm)}
 .system-permission-count{color:var(--admin-muted);font-size:var(--admin-font-xs)}
+.role-permission-section{max-width:760px;margin-top:28px}
+.role-permission-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:12px}
+.role-permission-heading h3{margin:0 0 5px;font-size:var(--admin-font-base);font-weight:650}
+.role-permission-toolbar{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.role-permission-toolbar button{height:32px;padding:0 10px;border:1px solid var(--admin-border);border-radius:var(--admin-radius-sm);background:var(--admin-surface);color:var(--admin-ink);font-size:var(--admin-font-xs)}
+.role-permission-toolbar button:hover:not(:disabled){border-color:#999;background:var(--admin-canvas)}
+.role-permission-toolbar button:disabled{cursor:not-allowed;opacity:.45}
+.role-permission-tree{border:1px solid var(--admin-border);border-radius:var(--admin-radius-sm);overflow:hidden;background:var(--admin-surface)}
+.role-permission-node+.role-permission-node{border-top:1px solid var(--admin-border)}
+.role-permission-parent{min-height:46px;padding:0 14px;display:grid;grid-template-columns:22px minmax(0,1fr) auto;align-items:center;gap:8px;background:var(--admin-canvas)}
+.role-permission-parent label,.role-permission-children label{display:flex;align-items:center;gap:8px;cursor:pointer}
+.role-permission-parent span{color:var(--admin-muted);font-size:var(--admin-font-xs)}
+.role-permission-disclosure{width:22px;height:30px;padding:0;border:0;background:transparent;color:var(--admin-muted);font-size:20px;line-height:1}
+.role-permission-disclosure-spacer{width:22px}
+.role-permission-children{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;padding:8px 44px 12px}
+.role-permission-children label{min-height:36px;font-size:var(--admin-font-sm)}
+.role-permission-parent input:disabled,.role-permission-children input:disabled{cursor:not-allowed}
+@media(max-width:900px){.role-permission-heading{align-items:flex-start;flex-direction:column}.role-permission-toolbar{justify-content:flex-start}.role-permission-children{grid-template-columns:1fr}}
 .system-parameter-value{display:inline-flex;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
 .system-change-table{width:100%;border-collapse:collapse;table-layout:fixed}
 .system-change-table th,.system-change-table td{padding:12px 14px;border:1px solid var(--admin-border);text-align:left;vertical-align:top;font-size:var(--admin-font-xs);overflow-wrap:anywhere}

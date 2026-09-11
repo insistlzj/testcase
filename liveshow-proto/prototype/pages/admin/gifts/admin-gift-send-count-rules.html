@@ -103,8 +103,8 @@
                 <label for="ruleStatus">状态</label
                 ><select class="admin-select" id="ruleStatus">
                   <option value="">全部状态</option>
-                  <option value="enabled">生效</option>
-                  <option value="disabled">失效</option>
+                  <option value="enabled">启用</option>
+                  <option value="disabled">停用</option>
                 </select>
               </div>
             </div>
@@ -125,8 +125,8 @@
                 <thead>
                   <tr>
                     <th>规则ID</th>
-                    <th>购买份数</th>
-                    <th>排序</th>
+                    <th>赠送数量</th>
+                    <th>默认数量</th>
                     <th>适用礼物</th>
                     <th>状态</th>
                     <th>更新时间</th>
@@ -147,7 +147,7 @@
       </div>
     </div>
     <script>
-      const storageKey = "luma-admin-gift-purchase-count-rules-v1",
+      const storageKey = "luma-admin-gift-send-count-rules-v3",
         defaults = window.LUMA_ADMIN_MOCK.giftPurchaseCountRules;
       function sharedStorage() {
         try {
@@ -167,6 +167,7 @@
         } catch (error) {}
         return defaults.map((item) => ({
           ...item,
+          sendCounts: [...item.sendCounts],
           giftTypes: [...item.giftTypes],
           giftIds: [...item.giftIds],
         }));
@@ -204,8 +205,8 @@
             (rule) =>
               /* HTML */ `<tr>
                 <td>${escapeHtml(rule.id)}</td>
-                <td>${rule.purchaseCount}</td>
-                <td>${rule.sort}</td>
+                <td>${rule.sendCounts.map((count) => `×${count}`).join("、")}</td>
+                <td>×${rule.defaultCount}</td>
                 <td>${rule.giftIds.length} 个</td>
                 <td>
                   <div class="admin-switch-control">
@@ -216,7 +217,7 @@
                         ${rule.status === "enabled" ? "checked" : ""} /><span
                         class="admin-switch-track"
                       ></span></label
-                    ><span>${rule.status === "enabled" ? "生效" : "失效"}</span>
+                    ><span>${rule.status === "enabled" ? "启用" : "停用"}</span>
                   </div>
                 </td>
                 <td>${rule.updatedAt}</td>
@@ -241,8 +242,7 @@
               (!key || rule.id.toLowerCase().includes(key)) &&
               (!type || rule.giftTypes.includes(type)) &&
               (!status || rule.status === status),
-          )
-          .sort((a, b) => b.sort - a.sort);
+          );
         render(items);
         if (showToast) Luma.toast(`已查询到 ${items.length} 条规则`);
       }

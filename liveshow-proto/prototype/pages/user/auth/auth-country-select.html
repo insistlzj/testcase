@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>选择国家/地区 · 账号 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <style>
+      body { background: var(--g7); }
+      .country-page {
+        width: 390px;
+        height: 844px;
+        padding: 34px 0 20px;
+        background: var(--g7);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .sb { margin: 0 24px 28px; }
+      .page-head {
+        height: 32px;
+        padding: 0 24px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .back {
+        position: absolute;
+        left: 20px;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--g2);
+        font: 25px/1 inherit;
+        cursor: pointer;
+      }
+      h1 { margin: 0; font-size: 20px; }
+      .search-wrap {
+        height: 42px;
+        margin: 22px 20px 8px;
+        padding: 0 13px;
+        border-radius: 8px;
+        background: var(--g6);
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .search-icon {
+        width: 14px;
+        height: 14px;
+        border: 1.5px solid var(--g3);
+        border-radius: 50%;
+        position: relative;
+        flex: none;
+      }
+      .search-icon::after {
+        content: "";
+        position: absolute;
+        right: -5px;
+        bottom: -3px;
+        width: 6px;
+        height: 1.5px;
+        background: var(--g3);
+        transform: rotate(45deg);
+      }
+      #countrySearch {
+        min-width: 0;
+        flex: 1;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--g1);
+        font: 14px inherit;
+      }
+      .list-scroll { flex: 1; overflow-y: auto; padding-bottom: 22px; }
+      .section-title {
+        margin: 18px 20px 8px;
+        color: var(--g3);
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .country-list { margin: 0; padding: 0 20px; list-style: none; }
+      .country-row {
+        width: 100%;
+        min-height: 52px;
+        padding: 0;
+        border: 0;
+        border-bottom: 1px solid var(--g6);
+        background: transparent;
+        color: var(--g1);
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr) auto 22px;
+        align-items: center;
+        gap: 8px;
+        text-align: left;
+        cursor: pointer;
+      }
+      .country-row .flag { font-size: 20px; line-height: 1; }
+      .country-row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
+      .country-row .dial { color: var(--g3); font-size: 14px; }
+      .country-row .selected { color: var(--g1); font-size: 15px; text-align: right; }
+      .empty { padding: 72px 20px; color: var(--g3); font-size: 13px; text-align: center; }
+      .state-hide { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <main class="country-page">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="page-head">
+        <button class="back" id="backPhone" type="button" aria-label="返回手机号登录">&#8249;</button>
+        <h1>选择国家/地区</h1>
+      </header>
+      <label class="search-wrap">
+        <i class="search-icon" aria-hidden="true"></i>
+        <input id="countrySearch" type="search" autocomplete="off" placeholder="搜索国家/地区或区号" />
+      </label>
+      <div class="list-scroll">
+        <section>
+          <h2 class="section-title">全部地区</h2>
+          <ul class="country-list" id="allList"></ul>
+          <p class="empty state-hide" id="emptyState">未找到相关国家或地区</p>
+        </section>
+      </div>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const countries = [
+        ["ID", "🇮🇩", "印度尼西亚", "+62"], ["MY", "🇲🇾", "马来西亚", "+60"],
+        ["US", "🇺🇸", "美国/加拿大", "+1"], ["SG", "🇸🇬", "新加坡", "+65"],
+        ["PH", "🇵🇭", "菲律宾", "+63"], ["TH", "🇹🇭", "泰国", "+66"],
+        ["VN", "🇻🇳", "越南", "+84"], ["JP", "🇯🇵", "日本", "+81"],
+        ["KR", "🇰🇷", "韩国", "+82"], ["IN", "🇮🇳", "印度", "+91"],
+        ["AU", "🇦🇺", "澳大利亚", "+61"], ["NZ", "🇳🇿", "新西兰", "+64"],
+        ["GB", "🇬🇧", "英国", "+44"], ["FR", "🇫🇷", "法国", "+33"],
+        ["DE", "🇩🇪", "德国", "+49"], ["IT", "🇮🇹", "意大利", "+39"],
+        ["ES", "🇪🇸", "西班牙", "+34"], ["PT", "🇵🇹", "葡萄牙", "+351"],
+        ["NL", "🇳🇱", "荷兰", "+31"], ["BE", "🇧🇪", "比利时", "+32"],
+        ["CH", "🇨🇭", "瑞士", "+41"], ["AT", "🇦🇹", "奥地利", "+43"],
+        ["SE", "🇸🇪", "瑞典", "+46"], ["NO", "🇳🇴", "挪威", "+47"],
+        ["DK", "🇩🇰", "丹麦", "+45"], ["FI", "🇫🇮", "芬兰", "+358"],
+        ["PL", "🇵🇱", "波兰", "+48"], ["CZ", "🇨🇿", "捷克", "+420"],
+        ["GR", "🇬🇷", "希腊", "+30"], ["RO", "🇷🇴", "罗马尼亚", "+40"],
+        ["HU", "🇭🇺", "匈牙利", "+36"], ["UA", "🇺🇦", "乌克兰", "+380"],
+        ["RU", "🇷🇺", "俄罗斯/哈萨克斯坦", "+7"], ["TR", "🇹🇷", "土耳其", "+90"],
+        ["AE", "🇦🇪", "阿联酋", "+971"], ["SA", "🇸🇦", "沙特阿拉伯", "+966"],
+        ["QA", "🇶🇦", "卡塔尔", "+974"], ["KW", "🇰🇼", "科威特", "+965"],
+        ["IL", "🇮🇱", "以色列", "+972"], ["EG", "🇪🇬", "埃及", "+20"],
+        ["ZA", "🇿🇦", "南非", "+27"], ["NG", "🇳🇬", "尼日利亚", "+234"],
+        ["KE", "🇰🇪", "肯尼亚", "+254"], ["TZ", "🇹🇿", "坦桑尼亚", "+255"],
+        ["MA", "🇲🇦", "摩洛哥", "+212"], ["GH", "🇬🇭", "加纳", "+233"],
+        ["BR", "🇧🇷", "巴西", "+55"], ["MX", "🇲🇽", "墨西哥", "+52"],
+        ["AR", "🇦🇷", "阿根廷", "+54"], ["CL", "🇨🇱", "智利", "+56"],
+        ["CO", "🇨🇴", "哥伦比亚", "+57"], ["PE", "🇵🇪", "秘鲁", "+51"],
+        ["VE", "🇻🇪", "委内瑞拉", "+58"], ["EC", "🇪🇨", "厄瓜多尔", "+593"],
+        ["PK", "🇵🇰", "巴基斯坦", "+92"], ["BD", "🇧🇩", "孟加拉国", "+880"],
+        ["LK", "🇱🇰", "斯里兰卡", "+94"], ["NP", "🇳🇵", "尼泊尔", "+977"],
+        ["MM", "🇲🇲", "缅甸", "+95"], ["KH", "🇰🇭", "柬埔寨", "+855"],
+        ["LA", "🇱🇦", "老挝", "+856"], ["BN", "🇧🇳", "文莱", "+673"],
+        ["TL", "🇹🇱", "东帝汶", "+670"], ["HK", "🇭🇰", "中国香港", "+852"],
+        ["MO", "🇲🇴", "中国澳门", "+853"], ["TW", "🇹🇼", "中国台湾", "+886"],
+        ["MN", "🇲🇳", "蒙古", "+976"], ["IR", "🇮🇷", "伊朗", "+98"],
+        ["IQ", "🇮🇶", "伊拉克", "+964"], ["JO", "🇯🇴", "约旦", "+962"],
+        ["LB", "🇱🇧", "黎巴嫩", "+961"], ["OM", "🇴🇲", "阿曼", "+968"],
+        ["BH", "🇧🇭", "巴林", "+973"], ["AF", "🇦🇫", "阿富汗", "+93"],
+        ["UZ", "🇺🇿", "乌兹别克斯坦", "+998"], ["AZ", "🇦🇿", "阿塞拜疆", "+994"],
+        ["GE", "🇬🇪", "格鲁吉亚", "+995"], ["IE", "🇮🇪", "爱尔兰", "+353"],
+        ["IS", "🇮🇸", "冰岛", "+354"], ["RS", "🇷🇸", "塞尔维亚", "+381"],
+        ["HR", "🇭🇷", "克罗地亚", "+385"], ["BG", "🇧🇬", "保加利亚", "+359"]
+      ];
+      const authDraftKey = "luma-auth-phone-draft";
+      const search = document.querySelector("#countrySearch");
+      const allList = document.querySelector("#allList");
+      let draft = {};
+      try { draft = JSON.parse(sessionStorage.getItem(authDraftKey)) || {}; } catch (_error) {}
+
+      function returnToPhone() {
+        window.parent.postMessage({ type: "luma-page", file: "auth-phone-login.html" }, "*");
+        location.href = "auth-phone-login.html";
+      }
+      function selectCountry(country) {
+        const [, flag, name, dialCode] = country;
+        sessionStorage.setItem(authDraftKey, JSON.stringify({ ...draft, flag, countryName: name, dialCode }));
+        returnToPhone();
+      }
+      function countryButton(country) {
+        const [iso, flag, name, dialCode] = country;
+        const item = document.createElement("li");
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "country-row";
+        button.setAttribute("aria-label", `${name} ${dialCode}`);
+        button.innerHTML = `<span class="flag" aria-hidden="true">${flag}</span><span class="name">${name}</span><span class="dial">${dialCode}</span><span class="selected">${draft.dialCode === dialCode && (draft.countryName === name || !draft.countryName) ? "✓" : ""}</span>`;
+        button.onclick = () => selectCountry(country);
+        item.dataset.search = `${iso} ${name} ${dialCode}`.toLowerCase();
+        item.append(button);
+        return item;
+      }
+      function render(query = "") {
+        const keyword = query.trim().toLowerCase().replace(/\s+/g, "");
+        const matches = countries.filter((country) => country.join("").toLowerCase().replace(/\s+/g, "").includes(keyword));
+        allList.replaceChildren(...matches.map(countryButton));
+        document.querySelector("#emptyState").classList.toggle("state-hide", matches.length > 0);
+      }
+      document.querySelector("#backPhone").onclick = returnToPhone;
+      search.addEventListener("input", () => render(search.value));
+      render();
+      window.parent.postMessage({ type: "luma-page", file: "auth-country-select.html" }, "*");
+    </script>
+  </body>
+</html>

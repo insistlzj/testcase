@@ -18,7 +18,7 @@
     .chat-media-actions button{flex:1;height:38px;border:0;border-radius:8px;background:var(--g6);color:var(--g2);font:14px inherit;cursor:pointer}
     .chat-media-actions .primary{background:var(--g1);color:var(--g7)}.chat-media-actions .primary:disabled{background:var(--g5);cursor:default}
     .voice-bubble{display:flex;align-items:center;gap:7px;min-width:98px}.voice-bubble i{font-size:12px;font-style:normal}
-    .image-bubble{width:168px;overflow:hidden;padding:0}.image-bubble .image-preview{height:116px;background:var(--g5);display:grid;place-items:center;color:var(--g3);font-size:12px}.image-bubble b{display:block;padding:7px 9px;font-size:12px;font-weight:500}
+    .image-bubble{width:168px;overflow:hidden;padding:0}.image-bubble .image-preview{height:116px;background:var(--g5);display:grid;place-items:center;color:var(--g3);font-size:12px}
   `;
   document.head.append(style);
 
@@ -66,8 +66,10 @@
     avatar.className = 'avatar';
     avatar.textContent = '安';
     item.append(avatar);
+    const rejected = !isGroup && window.Luma.rejectBlockedMessage?.(item);
     chat.append(item);
     item.scrollIntoView({ block: 'end' });
+    return !rejected;
   };
   const closeVoice = () => {
     clearInterval(recordingTimer);
@@ -91,19 +93,16 @@
     const duration = document.createElement('i');
     duration.textContent = recordingSeconds ? formatTime(recordingSeconds) : media.voice.duration;
     voice.append(duration);
-    append(voice, 'voice-bubble');
+    const sent = append(voice, 'voice-bubble');
     closeVoice();
-    window.Luma.toast('语音已发送');
+    if (sent) window.Luma.toast('语音已发送');
   };
   imageButton.onclick = () => {
     const image = document.createElement('span');
     const preview = document.createElement('span');
     preview.className = 'image-preview';
     preview.textContent = media.image.hint;
-    const title = document.createElement('b');
-    title.textContent = media.image.title;
-    image.append(preview, title);
-    append(image, 'image-bubble');
-    window.Luma.toast('图片已发送');
+    image.append(preview);
+    if (append(image, 'image-bubble')) window.Luma.toast('图片已发送');
   };
 })();

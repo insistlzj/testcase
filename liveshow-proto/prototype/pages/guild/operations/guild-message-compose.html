@@ -26,13 +26,13 @@
           <div class="guild-compose-label">发送对象</div>
           <div class="guild-recipient-mode">
             <button class="active" data-mode="all" type="button">
-              全体成员</button
+              全体主播</button
             ><a id="hostMode" data-mode="host" href="guild-host-select.html"
               >指定主播</a
             >
           </div>
           <div class="guild-selected-summary" id="selectedSummary">
-            将发送给全部 268 位成员
+            将发送给全部主播
           </div>
         </section>
         <section class="guild-form-card">
@@ -83,6 +83,7 @@
     </div>
     <script>
       const hosts = LUMA_MOCK.guildPortal.guildHosts,
+        allHostCount = hosts.length,
         params = new URLSearchParams(location.search),
         hostReturnContext =
           params.get("from") === "host-detail" ? "host-detail" : "",
@@ -105,7 +106,7 @@
         hostMode.href = `guild-host-select.html?selected=${encodeURIComponent(selectedHostId)}${contextQuery()}`;
         selectedSummary.textContent =
           mode === "all"
-            ? "将发送给全部 268 位成员"
+            ? `将发送给全部 ${allHostCount} 位主播`
             : host
               ? `已选择主播：${host.name}`
               : "请选择 1 位主播";
@@ -147,7 +148,7 @@
         }
         confirmCopy.textContent =
           mode === "all"
-            ? "消息将发送给全部 268 位成员。"
+            ? `消息将发送给全部 ${allHostCount} 位主播。`
             : `消息将发送给主播 ${host.name}。`;
         sendConfirm.classList.remove("state-hide");
       };
@@ -159,8 +160,8 @@
         );
         records.unshift({
           id: `M${Date.now()}`,
-          audience: mode === "all" ? "全体成员" : "指定主播",
-          recipientCount: mode === "all" ? 268 : 1,
+          audience: mode === "all" ? "全体主播" : "指定主播",
+          recipientCount: mode === "all" ? allHostCount : 1,
           recipientId: mode === "host" ? host.id : "",
           recipients: mode === "all" ? [] : [host.name],
           content: messageContent.value.trim(),

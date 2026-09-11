@@ -1,0 +1,2610 @@
+{
+  "schemaVersion": "1.0",
+  "目标范围": {
+    "端名": "用户App",
+    "模块名称": "直播模块"
+  },
+  "证据原子": [
+    {
+      "原子标识": "ATOM-LIVE-CAB4462F19FD",
+      "业务对象": "卡片信息",
+      "执行角色": "用户",
+      "动作": "查看直播卡片",
+      "可观察结果": "直播卡片字段包含本场封面、主题、主播、分类和访问次数",
+      "稳定规则标识": "BR-LIVE-CAB4462F19FD",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "直播卡片字段包含本场封面、主题、主播、分类和访问次数",
+          "原文": "展示本场封面、主题、主播、分类和本场直播间访问次数"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-E114FDAE2274",
+      "业务对象": "访问次数累计",
+      "执行角色": "用户",
+      "动作": "再次进入同一直播间",
+      "可观察结果": "本场访问次数累计 2 次成功进入事件",
+      "稳定规则标识": "BR-LIVE-E114FDAE2274",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "本场访问次数累计 2 次成功进入事件",
+          "原文": "同一用户重复进入重复累计"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-4280461A4264",
+      "业务对象": "失败访问排除",
+      "执行角色": "用户",
+      "动作": "点击确认",
+      "可观察结果": "目标房间访问次数仍为 0",
+      "稳定规则标识": "BR-LIVE-4280461A4264",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "目标房间访问次数仍为 0",
+          "原文": "密码校验失败、购票失败等未进入行为不计入"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-EE1F01A97CDC",
+      "业务对象": "场次初始计数",
+      "执行角色": "用户",
+      "动作": "查看该主播的新场次卡片",
+      "可观察结果": "新场次访问次数从 0 开始累计",
+      "稳定规则标识": "BR-LIVE-EE1F01A97CDC",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "新场次访问次数从 0 开始累计",
+          "原文": "场次开始时从 0 累计"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-2F998B2FEF73",
+      "业务对象": "列表 Tab",
+      "执行角色": "用户",
+      "动作": "切换至“新人”",
+      "可观察结果": "直播列表刷新为新人数据",
+      "稳定规则标识": "BR-LIVE-2F998B2FEF73",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "直播列表刷新为新人数据",
+          "原文": "切换热门或新人、选择分类 -> 刷新当前直播列表"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-B6422290C051",
+      "业务对象": "分类筛选",
+      "执行角色": "用户",
+      "动作": "选择“唱歌”分类",
+      "可观察结果": "列表只显示“唱歌”分类的直播",
+      "稳定规则标识": "BR-LIVE-B6422290C051",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "列表只显示“唱歌”分类的直播",
+          "原文": "选择分类 -> 刷新当前直播列表"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-49F517D7FDF8",
+      "业务对象": "关注直播区",
+      "执行角色": "用户",
+      "动作": "查看关注直播区",
+      "可观察结果": "关注直播区显示主播 A",
+      "稳定规则标识": "BR-LIVE-49F517D7FDF8",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "关注直播区显示主播 A",
+          "原文": "关注区仅展示已关注且正在直播的主播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-6C993C278921",
+      "业务对象": "关注区空态",
+      "执行角色": "用户",
+      "动作": "查看关注直播区",
+      "可观察结果": "关注直播区不显示",
+      "稳定规则标识": "BR-LIVE-6C993C278921",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "关注直播区不显示",
+          "原文": "无符合数据时隐藏"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-C417CFB42C40",
+      "业务对象": "Banner 跳转",
+      "执行角色": "用户",
+      "动作": "点击运营 Banner",
+      "可观察结果": "页面进入该 Banner 配置的目标",
+      "稳定规则标识": "BR-LIVE-C417CFB42C40",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "页面进入该 Banner 配置的目标",
+          "原文": "内容、排序、跳转和有效期由平台配置"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-E3A54C774338",
+      "业务对象": "游客榜单入口",
+      "执行角色": "游客",
+      "动作": "点击主播榜",
+      "可观察结果": "页面进入主播榜",
+      "稳定规则标识": "BR-LIVE-E3A54C774338",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "页面进入主播榜",
+          "原文": "游客可查看主播榜、贡献榜和不同分类下的主播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-F1829535669D",
+      "业务对象": "游客进房限制",
+      "执行角色": "游客",
+      "动作": "点击普通房卡片",
+      "可观察结果": "页面直接进入登录页",
+      "稳定规则标识": "BR-LIVE-F1829535669D",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "页面直接进入登录页",
+          "原文": "游客点击直播间、搜索、消息、我的或其他账号动作时不执行原操作，直接跳转登录页"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-A21AE9E7F90B",
+      "业务对象": "首次通知说明",
+      "执行角色": "用户",
+      "动作": "进入直播广场",
+      "可观察结果": "页面显示“开启通知”说明",
+      "稳定规则标识": "BR-LIVE-A21AE9E7F90B",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "页面显示“开启通知”说明",
+          "原文": "登录成功后首次进入首页显示通知授权说明"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-422D22950CA3",
+      "业务对象": "暂不开启",
+      "执行角色": "用户",
+      "动作": "点击“暂不开启”",
+      "可观察结果": "系统通知授权弹窗不显示",
+      "稳定规则标识": "BR-LIVE-422D22950CA3",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "系统通知授权弹窗不显示",
+          "原文": "点击暂不开启 -> 仅关闭说明，不请求系统权限"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-7E2984D7FB12",
+      "业务对象": "系统授权调用",
+      "执行角色": "用户",
+      "动作": "点击“开启通知”",
+      "可观察结果": "页面显示系统通知授权弹窗",
+      "稳定规则标识": "BR-LIVE-7E2984D7FB12",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "页面显示系统通知授权弹窗",
+          "原文": "点击开启通知 -> 模拟系统通知授权弹窗"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-D18716C51E8E",
+      "业务对象": "说明一次性",
+      "执行角色": "用户",
+      "动作": "进入直播广场",
+      "可观察结果": "通知说明不再显示",
+      "稳定规则标识": "BR-LIVE-D18716C51E8E",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-plaza.html 结构化批注",
+          "证明内容": "通知说明不再显示",
+          "原文": "均不在后续登录中重复展示"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-B033FCF94FB2",
+      "业务对象": "普通房准入",
+      "执行角色": "观众",
+      "动作": "点击普通房卡片",
+      "可观察结果": "页面直接展示直播内容",
+      "稳定规则标识": "BR-LIVE-B033FCF94FB2",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-room.html 结构化批注",
+          "证明内容": "页面直接展示直播内容",
+          "原文": "进入普通房 -> 直接展示直播内容"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-0C5F8CC87942",
+      "业务对象": "关系限制优先",
+      "执行角色": "观众",
+      "动作": "点击目标直播间",
+      "可观察结果": "页面显示“与主播存在拉黑或被踢出关系”",
+      "稳定规则标识": "BR-LIVE-0C5F8CC87942",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/blocked-room-restricted.html 结构化批注",
+          "证明内容": "页面显示“与主播存在拉黑或被踢出关系”",
+          "原文": "中央提示“与主播存在拉黑或被踢出关系”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-F16684CFB679",
+      "业务对象": "巡房准入",
+      "执行角色": "巡房人员",
+      "动作": "从巡房任务进入目标直播间",
+      "可观察结果": "页面显示带“巡房中”标识的直播内容",
+      "稳定规则标识": "BR-LIVE-F16684CFB679",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/patrol-room-allowed.html 结构化批注",
+          "证明内容": "页面显示带“巡房中”标识的直播内容",
+          "原文": "直接展示直播内容并显示“巡房中”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-6EE1730477D9",
+      "业务对象": "购票前遮挡",
+      "执行角色": "观众",
+      "动作": "点击门票房卡片",
+      "可观察结果": "直播内容由封面和毛玻璃完全遮挡",
+      "稳定规则标识": "BR-LIVE-6EE1730477D9",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/ticket-room-restricted.html 结构化批注",
+          "证明内容": "直播内容由封面和毛玻璃完全遮挡",
+          "原文": "由封面图和毛玻璃完全遮挡直播内容"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-4F910015EEEB",
+      "业务对象": "门票扣款",
+      "执行角色": "观众",
+      "动作": "点击确认购买",
+      "可观察结果": "观众金币余额扣减 10 金币",
+      "稳定规则标识": "BR-LIVE-4F910015EEEB",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/ticket-room-restricted.html 结构化批注",
+          "证明内容": "观众金币余额扣减 10 金币",
+          "原文": "扣减一次金币、生成支出记录并移除遮挡"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-2B26A2243AF2",
+      "业务对象": "购票余额不足",
+      "执行角色": "观众",
+      "动作": "点击确认购买",
+      "可观察结果": "观众金币余额保持 5 金币",
+      "稳定规则标识": "BR-LIVE-2B26A2243AF2",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/ticket-room-restricted.html 结构化批注",
+          "证明内容": "观众金币余额保持 5 金币",
+          "原文": "余额不足 -> 不扣款并打开充值入口"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-1F9011E7E095",
+      "业务对象": "门票复用",
+      "执行角色": "观众",
+      "动作": "再次进入同一场次",
+      "可观察结果": "观众金币余额保持 90 金币",
+      "稳定规则标识": "BR-LIVE-1F9011E7E095",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/ticket-room-restricted.html 结构化批注",
+          "证明内容": "观众金币余额保持 90 金币",
+          "原文": "同场重复进入不重复收费"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-31F0976BF81B",
+      "业务对象": "门票场次边界",
+      "执行角色": "观众",
+      "动作": "进入主播的新门票场次",
+      "可观察结果": "页面重新显示购票弹窗",
+      "稳定规则标识": "BR-LIVE-31F0976BF81B",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/ticket-room-restricted.html 结构化批注",
+          "证明内容": "页面重新显示购票弹窗",
+          "原文": "场次结束或被踢出后门票失效"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-FBC0FBD93CF8",
+      "业务对象": "踢出不退款",
+      "执行角色": "观众",
+      "动作": "查看金币余额",
+      "可观察结果": "观众金币余额保持 90 金币",
+      "稳定规则标识": "BR-LIVE-FBC0FBD93CF8",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/ticket-room-restricted.html 结构化批注",
+          "证明内容": "观众金币余额保持 90 金币",
+          "原文": "已支付金币不退款"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-F95534648179",
+      "业务对象": "密码格式",
+      "执行角色": "观众",
+      "动作": "点击确认",
+      "可观察结果": "页面提示“密码必须是4-12个数字”",
+      "稳定规则标识": "BR-LIVE-F95534648179",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/password-room-restricted.html 结构化批注",
+          "证明内容": "页面提示“密码必须是4-12个数字”",
+          "原文": "密码不是 4-12 个数字 -> 保留输入并提示“密码必须是4-12个数字”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-BC523B5EC82A",
+      "业务对象": "密码校验",
+      "执行角色": "观众",
+      "动作": "点击确认",
+      "可观察结果": "页面提示“密码错误，请重新输入”",
+      "稳定规则标识": "BR-LIVE-BC523B5EC82A",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/password-room-restricted.html 结构化批注",
+          "证明内容": "页面提示“密码错误，请重新输入”",
+          "原文": "密码格式有效但不正确 -> 保留输入并提示“密码错误，请重新输入”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-AC0F24B6698F",
+      "业务对象": "正确密码",
+      "执行角色": "观众",
+      "动作": "点击确认",
+      "可观察结果": "页面进入直播间",
+      "稳定规则标识": "BR-LIVE-AC0F24B6698F",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/password-room-restricted.html 结构化批注",
+          "证明内容": "页面进入直播间",
+          "原文": "密码正确 -> 进入直播间"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-B49FCC910935",
+      "业务对象": "运营账号门票豁免",
+      "执行角色": "运营账号",
+      "动作": "进入目标门票房",
+      "可观察结果": "页面不显示购票弹窗",
+      "稳定规则标识": "BR-LIVE-B49FCC910935",
+      "证据": [
+        {
+          "路径": "liveshow-proto/context/系统概要 .md",
+          "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+          "位置": "系统概要 3.7.1",
+          "证明内容": "页面不显示购票弹窗",
+          "原文": "进入门票房不需要购买门票"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-971B57AD67C4",
+      "业务对象": "运营账号密码豁免",
+      "执行角色": "运营账号",
+      "动作": "进入目标密码房",
+      "可观察结果": "页面不显示密码输入弹窗",
+      "稳定规则标识": "BR-LIVE-971B57AD67C4",
+      "证据": [
+        {
+          "路径": "liveshow-proto/context/系统概要 .md",
+          "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+          "位置": "系统概要 3.7.1",
+          "证明内容": "页面不显示密码输入弹窗",
+          "原文": "进入密码房无需输入密码"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-6AC2B1511E03",
+      "业务对象": "评论发送",
+      "执行角色": "观众",
+      "动作": "点击发送",
+      "可观察结果": "公屏新增评论“晚上好”",
+      "稳定规则标识": "BR-LIVE-6AC2B1511E03",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-room.html 结构化批注",
+          "证明内容": "公屏新增评论“晚上好”",
+          "原文": "公屏消息 | 展示系统、评论、进房和礼物消息"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-EE30A0993700",
+      "业务对象": "禁言输入限制",
+      "执行角色": "观众",
+      "动作": "点击发送",
+      "可观察结果": "公屏不生成该条评论",
+      "稳定规则标识": "BR-LIVE-EE30A0993700",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/comment-muted.html 结构化批注",
+          "证明内容": "公屏不生成该条评论",
+          "原文": "尝试发送时不生成消息、不写入公屏记录"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-098F247F29B8",
+      "业务对象": "恢复发言",
+      "执行角色": "观众",
+      "动作": "点击发送",
+      "可观察结果": "公屏新增评论“谢谢”",
+      "稳定规则标识": "BR-LIVE-098F247F29B8",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/comment-muted.html 结构化批注",
+          "证明内容": "公屏新增评论“谢谢”",
+          "原文": "主播或房管解除禁言后，用户立即恢复发言"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-464DD03F9FE7",
+      "业务对象": "禁言场次边界",
+      "执行角色": "观众",
+      "动作": "点击发送",
+      "可观察结果": "公屏新增评论“新场次”",
+      "稳定规则标识": "BR-LIVE-464DD03F9FE7",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/comment-muted.html 结构化批注",
+          "证明内容": "公屏新增评论“新场次”",
+          "原文": "下一场直播后恢复发言"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-3DF8B1F35AC3",
+      "业务对象": "关注状态",
+      "执行角色": "观众",
+      "动作": "点击关注",
+      "可观察结果": "关注按钮更新为已关注状态",
+      "稳定规则标识": "BR-LIVE-3DF8B1F35AC3",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/host-profile.html 结构化批注",
+          "证明内容": "关注按钮更新为已关注状态",
+          "原文": "关注、好友、粉丝团和拉黑关系"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-4DB774801DAD",
+      "业务对象": "直播分享",
+      "执行角色": "观众",
+      "动作": "选择转发",
+      "可观察结果": "页面调起系统分享",
+      "稳定规则标识": "BR-LIVE-4DB774801DAD",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/more-actions.html 结构化批注",
+          "证明内容": "页面调起系统分享",
+          "原文": "选择转发 -> 调起系统分享"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-259DA35226B7",
+      "业务对象": "在线用户范围",
+      "执行角色": "观众",
+      "动作": "打开在线观众列表",
+      "可观察结果": "列表内容仅包含仍在线的 A",
+      "稳定规则标识": "BR-LIVE-259DA35226B7",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/audience-online.html 结构化批注",
+          "证明内容": "列表内容仅包含仍在线的 A",
+          "原文": "仅展示当前直播场次仍在线的观众"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-77DA911C0FDB",
+      "业务对象": "贡献排序",
+      "执行角色": "观众",
+      "动作": "打开本场贡献榜",
+      "可观察结果": "榜单依次按贡献值、粉丝等级、财富等级和用户 ID 排序",
+      "稳定规则标识": "BR-LIVE-77DA911C0FDB",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/contribution-rank.html 结构化批注",
+          "证明内容": "榜单依次按贡献值、粉丝等级、财富等级和用户 ID 排序",
+          "原文": "依次按本场贡献值、当前主播粉丝团内的粉丝等级、财富等级从高到低排序"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-B498539510D9",
+      "业务对象": "榜单数量",
+      "执行角色": "观众",
+      "动作": "滚动至列表底部",
+      "可观察结果": "榜单只显示完整排序后的前 99 名",
+      "稳定规则标识": "BR-LIVE-B498539510D9",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/contribution-rank.html 结构化批注",
+          "证明内容": "榜单只显示完整排序后的前 99 名",
+          "原文": "完成全部排序后显示前 99 名"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-EFE72871AE39",
+      "业务对象": "我的排名",
+      "执行角色": "观众",
+      "动作": "滚动榜单",
+      "可观察结果": "我的排名固定显示在榜单底部",
+      "稳定规则标识": "BR-LIVE-EFE72871AE39",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/contribution-rank.html 结构化批注",
+          "证明内容": "我的排名固定显示在榜单底部",
+          "原文": "我的排名 | 固定显示在榜单底部"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-4ACF9816DF24",
+      "业务对象": "本地清屏",
+      "执行角色": "观众",
+      "动作": "选择清屏",
+      "可观察结果": "当前设备公屏显示被清空",
+      "稳定规则标识": "BR-LIVE-4ACF9816DF24",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/more-actions.html 结构化批注",
+          "证明内容": "当前设备公屏显示被清空",
+          "原文": "清屏只清除当前设备公屏显示"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-39F812FD7D0E",
+      "业务对象": "举报必填项",
+      "执行角色": "观众",
+      "动作": "查看提交按钮",
+      "可观察结果": "提交按钮不可用",
+      "稳定规则标识": "BR-LIVE-39F812FD7D0E",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-room-report.html 结构化批注",
+          "证明内容": "提交按钮不可用",
+          "原文": "未选择举报原因 -> 提交按钮不可用"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-5669EBA65E93",
+      "业务对象": "直播举报工单",
+      "执行角色": "观众",
+      "动作": "点击提交",
+      "可观察结果": "系统生成当前直播场次举报工单",
+      "稳定规则标识": "BR-LIVE-5669EBA65E93",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-room-report.html 结构化批注",
+          "证明内容": "系统生成当前直播场次举报工单",
+          "原文": "提交成功 -> 生成直播场次举报工单"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-FDE2D2E177BB",
+      "业务对象": "账号举报工单",
+      "执行角色": "观众",
+      "动作": "点击提交",
+      "可观察结果": "系统生成用户 A 的账号举报工单",
+      "稳定规则标识": "BR-LIVE-FDE2D2E177BB",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-room-user-report.html 结构化批注",
+          "证明内容": "系统生成用户 A 的账号举报工单",
+          "原文": "提交成功 -> 生成账号举报工单"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-1DEBC5E61920",
+      "业务对象": "入团条件",
+      "执行角色": "观众",
+      "动作": "点击加入",
+      "可观察结果": "观众未加入粉丝团并提示“未满足进群条件”",
+      "稳定规则标识": "BR-LIVE-1DEBC5E61920",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/fan-club-not-joined.html 结构化批注",
+          "证明内容": "观众未加入粉丝团并提示“未满足进群条件”",
+          "原文": "条件未满足或加入请求失败 -> 不加入并提示“未满足进群条件”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-7151BC92BB9B",
+      "业务对象": "成员上限",
+      "执行角色": "观众",
+      "动作": "点击加入",
+      "可观察结果": "观众不能加入该粉丝团",
+      "稳定规则标识": "BR-LIVE-7151BC92BB9B",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/fan-club-not-joined.html 结构化批注",
+          "证明内容": "观众不能加入该粉丝团",
+          "原文": "达到 500 人上限后不可加入"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-17C4EEDF7658",
+      "业务对象": "入团成功",
+      "执行角色": "观众",
+      "动作": "点击加入",
+      "可观察结果": "页面切换为已加入视图",
+      "稳定规则标识": "BR-LIVE-17C4EEDF7658",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/fan-club-not-joined.html 结构化批注",
+          "证明内容": "页面切换为已加入视图",
+          "原文": "加入成功 -> 切换为已加入视图"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-0A350257DF6C",
+      "业务对象": "粉丝群入口",
+      "执行角色": "观众",
+      "动作": "打开粉丝团",
+      "可观察结果": "页面显示可用的粉丝群入口",
+      "稳定规则标识": "BR-LIVE-0A350257DF6C",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/fan-club-joined.html 结构化批注",
+          "证明内容": "页面显示可用的粉丝群入口",
+          "原文": "有效团籍用户可进入粉丝群"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-41B4BCD929DF",
+      "业务对象": "退团数据",
+      "执行角色": "观众",
+      "动作": "确认退出",
+      "可观察结果": "观众粉丝等级清零为 0",
+      "稳定规则标识": "BR-LIVE-41B4BCD929DF",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/fan-club-joined.html 结构化批注",
+          "证明内容": "观众粉丝等级清零为 0",
+          "原文": "粉丝等级与亲密度清零"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-C346BC72B121",
+      "业务对象": "礼物信息",
+      "执行角色": "观众",
+      "动作": "查看礼物 A",
+      "可观察结果": "礼物 A 信息包含名称、图标、单价和可用状态",
+      "稳定规则标识": "BR-LIVE-C346BC72B121",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift.html 结构化批注",
+          "证明内容": "礼物 A 信息包含名称、图标、单价和可用状态",
+          "原文": "展示名称、图标、单价和可用状态"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-8D5E468D7913",
+      "业务对象": "所需金币",
+      "执行角色": "观众",
+      "动作": "选择数量 10",
+      "可观察结果": "本次所需金币显示为 10 × 10 = 100 金币",
+      "稳定规则标识": "BR-LIVE-8D5E468D7913",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift.html 结构化批注",
+          "证明内容": "本次所需金币显示为 10 × 10 = 100 金币",
+          "原文": "实际扣减金币 = 单价 × 数量"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-9DDB6D319E84",
+      "业务对象": "赠礼扣款",
+      "执行角色": "观众",
+      "动作": "点击赠送",
+      "可观察结果": "观众金币余额计算结果为 80 金币（100 - 10 × 2 = 80）",
+      "稳定规则标识": "BR-LIVE-9DDB6D319E84",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift.html 结构化批注",
+          "证明内容": "观众金币余额计算结果为 80 金币（100 - 10 × 2 = 80）",
+          "原文": "扣减一次金币、播放礼物效果并更新余额和本场贡献"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-52A33A920DAB",
+      "业务对象": "赠礼余额不足",
+      "执行角色": "观众",
+      "动作": "点击赠送",
+      "可观察结果": "观众金币余额保持 5 金币",
+      "稳定规则标识": "BR-LIVE-52A33A920DAB",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift.html 结构化批注",
+          "证明内容": "观众金币余额保持 5 金币",
+          "原文": "请求失败或余额不足时不扣减金币"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-FF8B1B23F3C2",
+      "业务对象": "礼物下架",
+      "执行角色": "观众",
+      "动作": "查看礼物 A",
+      "可观察结果": "礼物 A 不可赠送",
+      "稳定规则标识": "BR-LIVE-FF8B1B23F3C2",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift.html 结构化批注",
+          "证明内容": "礼物 A 不可赠送",
+          "原文": "下架后不可继续赠送"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-F964CFD01C1B",
+      "业务对象": "充值返回",
+      "执行角色": "观众",
+      "动作": "点击确认支付",
+      "可观察结果": "页面返回礼物视图且礼物 A 未自动送出",
+      "稳定规则标识": "BR-LIVE-F964CFD01C1B",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift-recharge.html 结构化批注",
+          "证明内容": "页面返回礼物视图且礼物 A 未自动送出",
+          "原文": "原礼物不自动补送"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-84732016D206",
+      "业务对象": "充值取消",
+      "执行角色": "观众",
+      "动作": "关闭充值视图",
+      "可观察结果": "礼物视图仍选中礼物 A 和数量 2",
+      "稳定规则标识": "BR-LIVE-84732016D206",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift-recharge.html 结构化批注",
+          "证明内容": "礼物视图仍选中礼物 A 和数量 2",
+          "原文": "保留原礼物和数量选择"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-E13AB61469C1",
+      "业务对象": "连送记录",
+      "执行角色": "观众",
+      "动作": "点击赠送",
+      "可观察结果": "系统生成 10 条独立礼物结果记录",
+      "稳定规则标识": "BR-LIVE-E13AB61469C1",
+      "证据": [
+        {
+          "路径": "liveshow-proto/context/系统概要 .md",
+          "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+          "位置": "系统概要 3.5.2",
+          "证明内容": "系统生成 10 条独立礼物结果记录",
+          "原文": "连续赠送按每个礼物分别扣减金币并记录结果"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-2F31093B86AF",
+      "业务对象": "幸运礼物净消耗",
+      "执行角色": "观众",
+      "动作": "点击赠送",
+      "可观察结果": "观众余额更新为 100 - 10 + 50 = 140 金币",
+      "稳定规则标识": "BR-LIVE-2F31093B86AF",
+      "证据": [
+        {
+          "路径": "liveshow-proto/context/系统概要 .md",
+          "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+          "位置": "系统概要 3.5.3",
+          "证明内容": "观众余额更新为 100 - 10 + 50 = 140 金币",
+          "原文": "若获得 50 金币，余额净增加 40 金币"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-85C3BCFB6481",
+      "业务对象": "十连开奖次数",
+      "执行角色": "观众",
+      "动作": "点击赠送",
+      "可观察结果": "系统生成 10 个独立开奖结果",
+      "稳定规则标识": "BR-LIVE-85C3BCFB6481",
+      "证据": [
+        {
+          "路径": "liveshow-proto/context/系统概要 .md",
+          "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+          "位置": "系统概要 3.5.3",
+          "证明内容": "系统生成 10 个独立开奖结果",
+          "原文": "10 个礼物分别开奖"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-D6E20E448FF9",
+      "业务对象": "幸运礼物收益",
+      "执行角色": "主播",
+      "动作": "打开本场收益",
+      "可观察结果": "本场幸运礼物收益显示为 1000 × 1% = 10 金币",
+      "稳定规则标识": "BR-LIVE-D6E20E448FF9",
+      "证据": [
+        {
+          "路径": "liveshow-proto/context/系统概要 .md",
+          "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+          "位置": "系统概要 3.6.1",
+          "证明内容": "本场幸运礼物收益显示为 1000 × 1% = 10 金币",
+          "原文": "幸运礼物|主播收益等于用户送出礼物价值*1%"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-22B81285564C",
+      "业务对象": "虚拟赠礼",
+      "执行角色": "运营账号",
+      "动作": "点击赠送",
+      "可观察结果": "直播间公屏显示该礼物消息",
+      "稳定规则标识": "BR-LIVE-22B81285564C",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift.html 结构化批注",
+          "证明内容": "直播间公屏显示该礼物消息",
+          "原文": "虚拟金币可计入公屏氛围和榜单"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-D8AED54B15B9",
+      "业务对象": "虚拟收益隔离",
+      "执行角色": "运营账号",
+      "动作": "点击赠送",
+      "可观察结果": "主播本场收益不增加",
+      "稳定规则标识": "BR-LIVE-D8AED54B15B9",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift.html 结构化批注",
+          "证明内容": "主播本场收益不增加",
+          "原文": "不形成主播收益或分成"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-5E1B7FFB416D",
+      "业务对象": "幸运礼物权限",
+      "执行角色": "运营账号",
+      "动作": "查看幸运礼物",
+      "可观察结果": "幸运礼物不可赠送",
+      "稳定规则标识": "BR-LIVE-5E1B7FFB416D",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/gift.html 结构化批注",
+          "证明内容": "幸运礼物不可赠送",
+          "原文": "不可赠送幸运礼物"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-1557B2A6A47C",
+      "业务对象": "开播资格",
+      "执行角色": "主播",
+      "动作": "点击开始直播",
+      "可观察结果": "系统创建新的直播场次",
+      "稳定规则标识": "BR-LIVE-1557B2A6A47C",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "系统创建新的直播场次",
+          "原文": "已授权时创建新场次并进入主播直播间"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-2F0DB60739BC",
+      "业务对象": "账号不可用",
+      "执行角色": "主播",
+      "动作": "点击开始直播",
+      "可观察结果": "系统不创建直播场次",
+      "稳定规则标识": "BR-LIVE-2F0DB60739BC",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "系统不创建直播场次",
+          "原文": "账号可用、公会有效、主播认证通过且直播权限开启时才可开播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-D0CF751C2EE7",
+      "业务对象": "公会失效",
+      "执行角色": "主播",
+      "动作": "点击开始直播",
+      "可观察结果": "系统不创建直播场次",
+      "稳定规则标识": "BR-LIVE-D0CF751C2EE7",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "系统不创建直播场次",
+          "原文": "账号可用、公会有效、主播认证通过且直播权限开启时才可开播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-3AA69802477E",
+      "业务对象": "认证未通过",
+      "执行角色": "主播",
+      "动作": "点击开始直播",
+      "可观察结果": "系统不创建直播场次",
+      "稳定规则标识": "BR-LIVE-3AA69802477E",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "系统不创建直播场次",
+          "原文": "账号可用、公会有效、主播认证通过且直播权限开启时才可开播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-EDDA6EA541F3",
+      "业务对象": "直播权限关闭",
+      "执行角色": "主播",
+      "动作": "点击开始直播",
+      "可观察结果": "系统不创建直播场次",
+      "稳定规则标识": "BR-LIVE-EDDA6EA541F3",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "系统不创建直播场次",
+          "原文": "账号可用、公会有效、主播认证通过且直播权限开启时才可开播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-3055C39AB5D2",
+      "业务对象": "分类必填",
+      "执行角色": "主播",
+      "动作": "点击开始直播",
+      "可观察结果": "系统不创建直播场次",
+      "稳定规则标识": "BR-LIVE-3055C39AB5D2",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "系统不创建直播场次",
+          "原文": "分类 | 必选"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-F452D7623A9B",
+      "业务对象": "分类范围",
+      "执行角色": "主播",
+      "动作": "打开分类选择",
+      "可观察结果": "分类列表仅包含已启用的分类 A",
+      "稳定规则标识": "BR-LIVE-F452D7623A9B",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/category.html 结构化批注",
+          "证明内容": "分类列表仅包含已启用的分类 A",
+          "原文": "已下架分类不可新选"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-EA30C5BBF91F",
+      "业务对象": "封面选择取消",
+      "执行角色": "主播",
+      "动作": "取消系统照片选择",
+      "可观察结果": "当前封面仍为图片 A",
+      "稳定规则标识": "BR-LIVE-EA30C5BBF91F",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "当前封面仍为图片 A",
+          "原文": "取消选择时保留原封面"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-20D1B89EDC88",
+      "业务对象": "相册权限",
+      "执行角色": "主播",
+      "动作": "选择图片 A",
+      "可观察结果": "页面只读取图片 A",
+      "稳定规则标识": "BR-LIVE-20D1B89EDC88",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "页面只读取图片 A",
+          "原文": "仅读取用户选中的图片，不申请完整相册权限"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-2E5DC367E2B7",
+      "业务对象": "普通房配置",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "房型回填为普通房",
+      "稳定规则标识": "BR-LIVE-2E5DC367E2B7",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/room-normal.html 结构化批注",
+          "证明内容": "房型回填为普通房",
+          "原文": "无门票或密码必填项"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-52A8912C7677",
+      "业务对象": "门票房开关",
+      "执行角色": "主播",
+      "动作": "打开房型设置",
+      "可观察结果": "门票房不可选择",
+      "稳定规则标识": "BR-LIVE-52A8912C7677",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/room-ticket.html 结构化批注",
+          "证明内容": "门票房不可选择",
+          "原文": "门票房受平台功能开关控制，关闭时不可选择"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-450C96D8514B",
+      "业务对象": "门票档位范围",
+      "执行角色": "主播",
+      "动作": "选择门票房",
+      "可观察结果": "可选门票档位为 10 和 20 金币",
+      "稳定规则标识": "BR-LIVE-450C96D8514B",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/room-ticket.html 结构化批注",
+          "证明内容": "可选门票档位为 10 和 20 金币",
+          "原文": "后台已启用的价格档位全部平铺展示"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-6CE1C70BB283",
+      "业务对象": "门票价格必选",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "页面提示“请选择有效的门票价格”",
+      "稳定规则标识": "BR-LIVE-6CE1C70BB283",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/room-ticket.html 结构化批注",
+          "证明内容": "页面提示“请选择有效的门票价格”",
+          "原文": "未选择或档位已停用 -> 不保存并提示“请选择有效的门票价格”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-38F029F3BF73",
+      "业务对象": "门票档位失效",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "页面提示“请选择有效的门票价格”",
+      "稳定规则标识": "BR-LIVE-38F029F3BF73",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/room-ticket.html 结构化批注",
+          "证明内容": "页面提示“请选择有效的门票价格”",
+          "原文": "未选择或档位已停用 -> 不保存并提示“请选择有效的门票价格”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-0EC616D2C3DF",
+      "业务对象": "密码房开关",
+      "执行角色": "主播",
+      "动作": "打开房型设置",
+      "可观察结果": "密码房不可选择",
+      "稳定规则标识": "BR-LIVE-0EC616D2C3DF",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/room-password.html 结构化批注",
+          "证明内容": "密码房不可选择",
+          "原文": "密码房受平台功能开关控制，关闭时不可选择"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-EC4F643888F8",
+      "业务对象": "密码最短值",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "页面提示“密码必须是4-12个数字”",
+      "稳定规则标识": "BR-LIVE-EC4F643888F8",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/room-password.html 结构化批注",
+          "证明内容": "页面提示“密码必须是4-12个数字”",
+          "原文": "密码不是 4-12 个数字 -> 不保存、保留输入并提示“密码必须是4-12个数字”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-B4F0F70EE3EC",
+      "业务对象": "密码最长值",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "页面提示“密码必须是4-12个数字”",
+      "稳定规则标识": "BR-LIVE-B4F0F70EE3EC",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/room-password.html 结构化批注",
+          "证明内容": "页面提示“密码必须是4-12个数字”",
+          "原文": "密码不是 4-12 个数字 -> 不保存、保留输入并提示“密码必须是4-12个数字”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-6360CAF4C479",
+      "业务对象": "密码字符",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "页面提示“密码必须是4-12个数字”",
+      "稳定规则标识": "BR-LIVE-6360CAF4C479",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/room-password.html 结构化批注",
+          "证明内容": "页面提示“密码必须是4-12个数字”",
+          "原文": "密码不是 4-12 个数字 -> 不保存、保留输入并提示“密码必须是4-12个数字”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-4954C198A27D",
+      "业务对象": "可选粉丝范围",
+      "执行角色": "主播",
+      "动作": "点击编辑名单",
+      "可观察结果": "可选粉丝列表仅包含仍关注的 A",
+      "稳定规则标识": "BR-LIVE-4954C198A27D",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "visible-fan-select.html 结构化批注",
+          "证明内容": "可选粉丝列表仅包含仍关注的 A",
+          "原文": "仅展示当前仍关注主播的粉丝"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-E9E1D53DC7D9",
+      "业务对象": "全选范围",
+      "执行角色": "主播",
+      "动作": "点击全选",
+      "可观察结果": "已选数量显示 8",
+      "稳定规则标识": "BR-LIVE-E9E1D53DC7D9",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "visible-fan-select.html 结构化批注",
+          "证明内容": "已选数量显示 8",
+          "原文": "选中全部当前有效粉丝，不受搜索结果范围影响"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-C8B0F1BAC626",
+      "业务对象": "名单保存",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "密码房设置显示已选 2 人",
+      "稳定规则标识": "BR-LIVE-C8B0F1BAC626",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "visible-fan-select.html 结构化批注",
+          "证明内容": "密码房设置显示已选 2 人",
+          "原文": "保存选择并返回密码房设置，展示最新名单"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-7629D8330ED5",
+      "业务对象": "名单取消",
+      "执行角色": "主播",
+      "动作": "点击返回",
+      "可观察结果": "密码房设置仍显示粉丝 A",
+      "稳定规则标识": "BR-LIVE-7629D8330ED5",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "visible-fan-select.html 结构化批注",
+          "证明内容": "密码房设置仍显示粉丝 A",
+          "原文": "不保存本次未确认的修改"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-4450D686928E",
+      "业务对象": "相机权限",
+      "执行角色": "主播",
+      "动作": "点击开始直播",
+      "可观察结果": "系统直接显示相机授权弹窗",
+      "稳定规则标识": "BR-LIVE-4450D686928E",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "系统直接显示相机授权弹窗",
+          "原文": "首次使用时直接调用系统权限弹窗"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-7E577D1D0421",
+      "业务对象": "权限拒绝",
+      "执行角色": "主播",
+      "动作": "点击开始直播",
+      "可观察结果": "页面提示“权限未开启，请前往系统设置”",
+      "稳定规则标识": "BR-LIVE-7E577D1D0421",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "start-live-settings.html 结构化批注",
+          "证明内容": "页面提示“权限未开启，请前往系统设置”",
+          "原文": "权限被拒绝 -> 停留当前页，提示“权限未开启，请前往系统设置”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-EB2F275DADA8",
+      "业务对象": "美颜默认值",
+      "执行角色": "主播",
+      "动作": "打开美颜",
+      "可观察结果": "当前项目强度显示 50",
+      "稳定规则标识": "BR-LIVE-EB2F275DADA8",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/beauty.html 结构化批注",
+          "证明内容": "当前项目强度显示 50",
+          "原文": "强度 | 取值 0-100，默认 50"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-D44ED5915792",
+      "业务对象": "模式参数隔离",
+      "执行角色": "主播",
+      "动作": "切换美颜与美型",
+      "可观察结果": "美颜强度为 30，美型强度为 70",
+      "稳定规则标识": "BR-LIVE-D44ED5915792",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/beauty.html 结构化批注",
+          "证明内容": "美颜强度为 30，美型强度为 70",
+          "原文": "可切换美颜和美型，两组参数独立保存"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-6FE3FEBA902F",
+      "业务对象": "恢复默认",
+      "执行角色": "主播",
+      "动作": "点击恢复默认",
+      "可观察结果": "全部美颜和美型参数重置为 50",
+      "稳定规则标识": "BR-LIVE-6FE3FEBA902F",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/start-live-settings/beauty.html 结构化批注",
+          "证明内容": "全部美颜和美型参数重置为 50",
+          "原文": "将全部参数重置为 50"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-A82C2498293C",
+      "业务对象": "现场数据",
+      "执行角色": "主播",
+      "动作": "查看顶部数据",
+      "可观察结果": "页面数据包含本场在线人数和本场贡献",
+      "稳定规则标识": "BR-LIVE-A82C2498293C",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-room-host.html 结构化批注",
+          "证明内容": "页面数据包含本场在线人数和本场贡献",
+          "原文": "在线人数 | 当前场次实时在线用户数"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-881CD6177868",
+      "业务对象": "离线移除",
+      "执行角色": "主播",
+      "动作": "接收观众 A 离开事件",
+      "可观察结果": "观众列表不再显示 A",
+      "稳定规则标识": "BR-LIVE-881CD6177868",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/audience-viewers.html 结构化批注",
+          "证明内容": "观众列表不再显示 A",
+          "原文": "用户离线后从本列表移除"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-EF095EA1857C",
+      "业务对象": "离线贡献",
+      "执行角色": "主播",
+      "动作": "打开本场贡献榜",
+      "可观察结果": "贡献榜仍显示观众 A 的 100 贡献值",
+      "稳定规则标识": "BR-LIVE-EF095EA1857C",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/contribution-rank.html 结构化批注",
+          "证明内容": "贡献榜仍显示观众 A 的 100 贡献值",
+          "原文": "用户离开直播间后仍保留本场贡献值和排名"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-5C6F2B62DA2B",
+      "业务对象": "新增房管",
+      "执行角色": "主播",
+      "动作": "确认添加",
+      "可观察结果": "房管列表新增用户 88231007",
+      "稳定规则标识": "BR-LIVE-5C6F2B62DA2B",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "moderator-management.html 结构化批注",
+          "证明内容": "房管列表新增用户 88231007",
+          "原文": "按用户 ID 搜索添加房管"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-29F5EF596525",
+      "业务对象": "房管上限",
+      "执行角色": "主播",
+      "动作": "点击添加房管",
+      "可观察结果": "页面提示“已达3人上限”",
+      "稳定规则标识": "BR-LIVE-29F5EF596525",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "moderator-management.html 结构化批注",
+          "证明内容": "页面提示“已达3人上限”",
+          "原文": "点击不执行并提示“已达3人上限”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-0CADAE4EEC4C",
+      "业务对象": "房管候选限制",
+      "执行角色": "主播",
+      "动作": "点击搜索",
+      "可观察结果": "搜索结果不显示用户 88231007",
+      "稳定规则标识": "BR-LIVE-0CADAE4EEC4C",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "moderator-management.html 结构化批注",
+          "证明内容": "搜索结果不显示用户 88231007",
+          "原文": "搜索仅返回未在该直播间黑名单、双方无账号拉黑关系且当前非房管的用户"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-ED5950957EF1",
+      "业务对象": "拉黑解除授权",
+      "执行角色": "主播",
+      "动作": "进入房管管理",
+      "可观察结果": "房管列表不再显示用户 A",
+      "稳定规则标识": "BR-LIVE-ED5950957EF1",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "moderator-management.html 结构化批注",
+          "证明内容": "房管列表不再显示用户 A",
+          "原文": "因拉黑自动解除 -> 立即移出房管列表"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-C02AC838BC97",
+      "业务对象": "授权不自动恢复",
+      "执行角色": "主播",
+      "动作": "进入房管管理",
+      "可观察结果": "用户 A 仍不是房管",
+      "稳定规则标识": "BR-LIVE-C02AC838BC97",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "moderator-management.html 结构化批注",
+          "证明内容": "用户 A 仍不是房管",
+          "原文": "取消拉黑后不自动恢复"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-43F5BBD5EFC0",
+      "业务对象": "取消房管",
+      "执行角色": "主播",
+      "动作": "确认取消",
+      "可观察结果": "用户 A 的房管管理权限立即失效",
+      "稳定规则标识": "BR-LIVE-43F5BBD5EFC0",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/audience-managers.html 结构化批注",
+          "证明内容": "用户 A 的房管管理权限立即失效",
+          "原文": "立即失去管理权限"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-80B283DDD8AA",
+      "业务对象": "长期授权",
+      "执行角色": "主播",
+      "动作": "打开房管列表",
+      "可观察结果": "房管列表仍显示用户 A",
+      "稳定规则标识": "BR-LIVE-80B283DDD8AA",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/audience-managers.html 结构化批注",
+          "证明内容": "房管列表仍显示用户 A",
+          "原文": "不随场次结束清除"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-0FB5FEC78A87",
+      "业务对象": "房管禁言",
+      "执行角色": "房管",
+      "动作": "确认禁言",
+      "可观察结果": "观众 A 的公屏输入不可提交",
+      "稳定规则标识": "BR-LIVE-0FB5FEC78A87",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/profile-moderator-mute.html 结构化批注",
+          "证明内容": "观众 A 的公屏输入不可提交",
+          "原文": "写入本场禁言状态并更新输入框"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-7D3574DBE719",
+      "业务对象": "主播保护",
+      "执行角色": "房管",
+      "动作": "点击主播资料",
+      "可观察结果": "资料卡的观众处置操作为空",
+      "稳定规则标识": "BR-LIVE-7D3574DBE719",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/profile-moderator.html 结构化批注",
+          "证明内容": "资料卡的观众处置操作为空",
+          "原文": "房管不能处置主播本人"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-0622BD832531",
+      "业务对象": "巡房保护",
+      "执行角色": "房管",
+      "动作": "点击巡房人员 A",
+      "可观察结果": "资料卡不显示踢出操作",
+      "稳定规则标识": "BR-LIVE-0622BD832531",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/profile-moderator.html 结构化批注",
+          "证明内容": "资料卡不显示踢出操作",
+          "原文": "巡房会话中的人员不可被拉黑或踢出"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-86A63B4EB478",
+      "业务对象": "主播禁言",
+      "执行角色": "主播",
+      "动作": "确认禁言",
+      "可观察结果": "观众 A 的公屏输入不可提交",
+      "稳定规则标识": "BR-LIVE-86A63B4EB478",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/profile-host.html 结构化批注",
+          "证明内容": "观众 A 的公屏输入不可提交",
+          "原文": "禁言和踢出只作用于当前场次"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-41BFE4D93DBE",
+      "业务对象": "禁言取消",
+      "执行角色": "主播",
+      "动作": "点击取消",
+      "可观察结果": "观众 A 仍可发送公屏消息",
+      "稳定规则标识": "BR-LIVE-41BFE4D93DBE",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/profile-moderator-mute.html 结构化批注",
+          "证明内容": "观众 A 仍可发送公屏消息",
+          "原文": "取消或关闭 -> 不改变状态"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-1C941DD5B584",
+      "业务对象": "恢复发言同步",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "禁言列表不再显示观众 A",
+      "稳定规则标识": "BR-LIVE-1C941DD5B584",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/muted-users.html 结构化批注",
+          "证明内容": "禁言列表不再显示观众 A",
+          "原文": "移出列表并同步更新资料卡和评论输入状态"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-44820901E4F8",
+      "业务对象": "本场踢出",
+      "执行角色": "主播",
+      "动作": "确认踢出",
+      "可观察结果": "观众 A 退出当前直播间",
+      "稳定规则标识": "BR-LIVE-44820901E4F8",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/profile-moderator-remove.html 结构化批注",
+          "证明内容": "观众 A 退出当前直播间",
+          "原文": "用户立即退出"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-446DFE4D6E27",
+      "业务对象": "踢出场次边界",
+      "执行角色": "主播",
+      "动作": "使用观众 A 进入新场次",
+      "可观察结果": "观众 A 进入直播间",
+      "稳定规则标识": "BR-LIVE-446DFE4D6E27",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room/profile-moderator-remove.html 结构化批注",
+          "证明内容": "观众 A 进入直播间",
+          "原文": "目标用户下一场可重新进入"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-9BEFD0646616",
+      "业务对象": "单条评论屏蔽",
+      "执行角色": "主播",
+      "动作": "点击“屏蔽此评论”",
+      "可观察结果": "主播与观众公屏均不显示评论 A",
+      "稳定规则标识": "BR-LIVE-9BEFD0646616",
+      "证据": [
+        {
+          "路径": "liveshow-proto/context/系统概要 .md",
+          "SHA-256": "4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24",
+          "位置": "系统概要 3.3.2",
+          "证明内容": "主播与观众公屏均不显示评论 A",
+          "原文": "主播和观众均不能看到被屏蔽的评论"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-9698C08E5DED",
+      "业务对象": "@ 预填",
+      "执行角色": "主播",
+      "动作": "点击“@Ta”",
+      "可观察结果": "评论输入框预填“@A ”",
+      "稳定规则标识": "BR-LIVE-9698C08E5DED",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/profile-host.html 结构化批注",
+          "证明内容": "评论输入框预填“@A ”",
+          "原文": "点击答谢 -> 关闭资料卡并预填答谢文案"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-13CCECFFB3C2",
+      "业务对象": "答谢待发送",
+      "执行角色": "主播",
+      "动作": "点击答谢",
+      "可观察结果": "公屏不自动新增答谢消息",
+      "稳定规则标识": "BR-LIVE-13CCECFFB3C2",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/thank-message.html 结构化批注",
+          "证明内容": "公屏不自动新增答谢消息",
+          "原文": "不自动发送"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-C9526EF8577E",
+      "业务对象": "答谢资产隔离",
+      "执行角色": "主播",
+      "动作": "点击答谢",
+      "可观察结果": "系统不生成礼物记录",
+      "稳定规则标识": "BR-LIVE-C9526EF8577E",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/thank-message.html 结构化批注",
+          "证明内容": "系统不生成礼物记录",
+          "原文": "不产生礼物记录"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-9D6B842DE9BD",
+      "业务对象": "连麦候选范围",
+      "执行角色": "主播",
+      "动作": "点击搜索",
+      "可观察结果": "连麦搜索结果仅包含主播 B",
+      "稳定规则标识": "BR-LIVE-9D6B842DE9BD",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/cohost-hosts-search-result.html 结构化批注",
+          "证明内容": "连麦搜索结果仅包含主播 B",
+          "原文": "仅返回当前在普通房直播、未连麦且双方无账号拉黑关系的主播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-52F624C49E01",
+      "业务对象": "单个发出邀请",
+      "执行角色": "主播",
+      "动作": "点击邀请",
+      "可观察结果": "页面提示“已有发出请求，请先取消”",
+      "稳定规则标识": "BR-LIVE-52F624C49E01",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/cohost-hosts-search-result.html 结构化批注",
+          "证明内容": "页面提示“已有发出请求，请先取消”",
+          "原文": "已有发出的请求 -> 提示“已有发出请求，请先取消”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-D7BF7168FBC5",
+      "业务对象": "邀请提示时长",
+      "执行角色": "主播",
+      "动作": "接收主播 A 的连麦邀请",
+      "可观察结果": "连麦邀请提示显示 4 秒",
+      "稳定规则标识": "BR-LIVE-D7BF7168FBC5",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/cohost-invite-notice.html 结构化批注",
+          "证明内容": "连麦邀请提示显示 4 秒",
+          "原文": "单个邀请提示停留 4 秒"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-6672E983BE5F",
+      "业务对象": "接受连麦",
+      "执行角色": "主播",
+      "动作": "点击接受",
+      "可观察结果": "页面进入两位主播分屏连麦状态",
+      "稳定规则标识": "BR-LIVE-6672E983BE5F",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/cohost-invite-notice.html 结构化批注",
+          "证明内容": "页面进入两位主播分屏连麦状态",
+          "原文": "接受 -> 再次校验条件后建立连麦"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-F9A92A4E23EE",
+      "业务对象": "拒绝连麦",
+      "执行角色": "主播",
+      "动作": "点击拒绝",
+      "可观察结果": "直播画面保持单人状态",
+      "稳定规则标识": "BR-LIVE-F9A92A4E23EE",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/cohost-invite-notice.html 结构化批注",
+          "证明内容": "直播画面保持单人状态",
+          "原文": "拒绝 -> 关闭该邀请"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-739E10A335F0",
+      "业务对象": "退出连麦",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "主播 A 恢复单人直播画面",
+      "稳定规则标识": "BR-LIVE-739E10A335F0",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-cohost-active/cohost-exit-confirm.html 结构化批注",
+          "证明内容": "主播 A 恢复单人直播画面",
+          "原文": "恢复各自单人直播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-DB3CF144E866",
+      "业务对象": "退出取消",
+      "执行角色": "主播",
+      "动作": "点击取消",
+      "可观察结果": "页面保持两人连麦画面",
+      "稳定规则标识": "BR-LIVE-DB3CF144E866",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-cohost-active/cohost-exit-confirm.html 结构化批注",
+          "证明内容": "页面保持两人连麦画面",
+          "原文": "取消或关闭 -> 保持连麦"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-0F719385BF08",
+      "业务对象": "单方关播",
+      "执行角色": "主播",
+      "动作": "使用主播 A 点击结束直播",
+      "可观察结果": "主播 B 恢复单人直播并继续当前场次",
+      "稳定规则标识": "BR-LIVE-0F719385BF08",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-room-cohost-active.html 结构化批注",
+          "证明内容": "主播 B 恢复单人直播并继续当前场次",
+          "原文": "任一方结束直播 -> 连麦立即结束，另一方直播继续"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-93BF1965E8B2",
+      "业务对象": "密码房连麦限制",
+      "执行角色": "主播",
+      "动作": "打开更多功能",
+      "可观察结果": "页面不显示连麦入口",
+      "稳定规则标识": "BR-LIVE-93BF1965E8B2",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host-password/more-actions.html 结构化批注",
+          "证明内容": "页面不显示连麦入口",
+          "原文": "密码房不提供连麦入口"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-C4AA61DACA52",
+      "业务对象": "转发准入",
+      "执行角色": "主播",
+      "动作": "使用好友 A 打开房间卡片",
+      "可观察结果": "好友 A 进入购票拦截页",
+      "稳定规则标识": "BR-LIVE-C4AA61DACA52",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/share-recipient.html 结构化批注",
+          "证明内容": "好友 A 进入购票拦截页",
+          "原文": "接收人仍按进入规则处理"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-526C70655051",
+      "业务对象": "直播中密码格式",
+      "执行角色": "主播",
+      "动作": "点击保存",
+      "可观察结果": "页面提示“密码必须是4-12个数字”",
+      "稳定规则标识": "BR-LIVE-526C70655051",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host-password/room-password.html 结构化批注",
+          "证明内容": "页面提示“密码必须是4-12个数字”",
+          "原文": "密码不是 4-12 个数字 -> 不保存、保留输入并提示“密码必须是4-12个数字”"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-A63C4B5DDE5B",
+      "业务对象": "在线用户旧授权",
+      "执行角色": "主播",
+      "动作": "点击保存",
+      "可观察结果": "观众 A 仍留在当前直播间",
+      "稳定规则标识": "BR-LIVE-A63C4B5DDE5B",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host-password/room-password.html 结构化批注",
+          "证明内容": "观众 A 仍留在当前直播间",
+          "原文": "已通过旧密码验证的在线用户不强制退出"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-3AE68CDB7D19",
+      "业务对象": "新密码重验",
+      "执行角色": "观众",
+      "动作": "点击确认",
+      "可观察结果": "页面提示“密码错误，请重新输入”",
+      "稳定规则标识": "BR-LIVE-3AE68CDB7D19",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-room-host-password.html 结构化批注",
+          "证明内容": "页面提示“密码错误，请重新输入”",
+          "原文": "用户退出后再次进入，必须输入新密码"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-5A25BDB3EA41",
+      "业务对象": "关播取消",
+      "执行角色": "主播",
+      "动作": "点击取消",
+      "可观察结果": "主播直播状态保持为直播中",
+      "稳定规则标识": "BR-LIVE-5A25BDB3EA41",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/end-confirm.html 结构化批注",
+          "证明内容": "主播直播状态保持为直播中",
+          "原文": "取消或关闭 -> 返回直播间继续直播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-3BE7E99BF962",
+      "业务对象": "确认关播",
+      "执行角色": "主播",
+      "动作": "点击确认",
+      "可观察结果": "页面进入主播结束页",
+      "稳定规则标识": "BR-LIVE-3BE7E99BF962",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/end-confirm.html 结构化批注",
+          "证明内容": "页面进入主播结束页",
+          "原文": "确认 -> 结束场次并进入主播结束页"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-3D66B695BF74",
+      "业务对象": "关播幂等",
+      "执行角色": "主播",
+      "动作": "连续点击确认两次",
+      "可观察结果": "系统只关闭一个直播场次",
+      "稳定规则标识": "BR-LIVE-3D66B695BF74",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-room-host/end-confirm.html 结构化批注",
+          "证明内容": "系统只关闭一个直播场次",
+          "原文": "重复确认只处理一次"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-20E12C66653A",
+      "业务对象": "结束页评论限制",
+      "执行角色": "观众",
+      "动作": "查看直播结束页",
+      "可观察结果": "页面不提供评论输入框",
+      "稳定规则标识": "BR-LIVE-20E12C66653A",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-end-viewer.html 结构化批注",
+          "证明内容": "页面不提供评论输入框",
+          "原文": "不能继续观看、评论、送礼或进入连麦"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-7CF0BF0FDBEF",
+      "业务对象": "结束状态保持",
+      "执行角色": "观众",
+      "动作": "再次打开该场次入口",
+      "可观察结果": "页面仍显示直播结束状态",
+      "稳定规则标识": "BR-LIVE-7CF0BF0FDBEF",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-end-viewer.html 结构化批注",
+          "证明内容": "页面仍显示直播结束状态",
+          "原文": "仍进入当前结束状态，不进入新场次"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-10E1B41316D3",
+      "业务对象": "新场次准入",
+      "执行角色": "观众",
+      "动作": "进入主播的新场次",
+      "可观察结果": "页面显示购票弹窗",
+      "稳定规则标识": "BR-LIVE-10E1B41316D3",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-end-viewer.html 结构化批注",
+          "证明内容": "页面显示购票弹窗",
+          "原文": "须重新执行对应准入校验"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-C43CCEB90DF5",
+      "业务对象": "本场时长",
+      "执行角色": "主播",
+      "动作": "查看主播结束页",
+      "可观察结果": "直播时长显示 30 分钟",
+      "稳定规则标识": "BR-LIVE-C43CCEB90DF5",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-end-host.html 结构化批注",
+          "证明内容": "直播时长显示 30 分钟",
+          "原文": "当前场次从开始到结束的有效直播时长"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-F597E0C3F932",
+      "业务对象": "观看人次",
+      "执行角色": "主播",
+      "动作": "查看主播结束页",
+      "可观察结果": "观看人数显示 3 人次",
+      "稳定规则标识": "BR-LIVE-F597E0C3F932",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-end-host.html 结构化批注",
+          "证明内容": "观看人数显示 3 人次",
+          "原文": "当前场次累计进入人次"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-8E7B03556FD0",
+      "业务对象": "本场收益",
+      "执行角色": "主播",
+      "动作": "查看主播结束页",
+      "可观察结果": "本场收益显示为 100 + 20 + 1000 × 1% = 130 金币",
+      "稳定规则标识": "BR-LIVE-8E7B03556FD0",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-end-host.html 结构化批注",
+          "证明内容": "本场收益显示为 100 + 20 + 1000 × 1% = 130 金币",
+          "原文": "普通/定制礼物收益 + 门票收益 + 幸运礼物收益"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-5418705929D5",
+      "业务对象": "统计范围切换",
+      "执行角色": "主播",
+      "动作": "切换至月范围",
+      "可观察结果": "页面全部指标更新为所选月份数据",
+      "稳定规则标识": "BR-LIVE-5418705929D5",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-data.html 结构化批注",
+          "证明内容": "页面全部指标更新为所选月份数据",
+          "原文": "切换日/月范围 -> 同步更新全部指标"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-EDC65D3D0376",
+      "业务对象": "有效天未达标",
+      "执行角色": "主播",
+      "动作": "选择当日",
+      "可观察结果": "有效天显示 0 天",
+      "稳定规则标识": "BR-LIVE-EDC65D3D0376",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-data.html 结构化批注",
+          "证明内容": "有效天显示 0 天",
+          "原文": "有效直播时长满 3 小时计 1 天"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-E9731BE93EBC",
+      "业务对象": "有效天边界",
+      "执行角色": "主播",
+      "动作": "选择当日",
+      "可观察结果": "有效天显示 1 天",
+      "稳定规则标识": "BR-LIVE-E9731BE93EBC",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-data.html 结构化批注",
+          "证明内容": "有效天显示 1 天",
+          "原文": "有效直播时长满 3 小时计 1 天"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-B1110E0596FA",
+      "业务对象": "有效天上限",
+      "执行角色": "主播",
+      "动作": "选择当日",
+      "可观察结果": "有效天显示 1 天",
+      "稳定规则标识": "BR-LIVE-B1110E0596FA",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-data.html 结构化批注",
+          "证明内容": "有效天显示 1 天",
+          "原文": "每日最多 1 天"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-94ACCC2C2301",
+      "业务对象": "月份空数据",
+      "执行角色": "主播",
+      "动作": "切换至目标月份",
+      "可观察结果": "页面全部指标显示 0",
+      "稳定规则标识": "BR-LIVE-94ACCC2C2301",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "views/live-data/month.html 结构化批注",
+          "证明内容": "页面全部指标显示 0",
+          "原文": "无数据月份全部指标显示 0"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-14F1D28F6D09",
+      "业务对象": "收益排除项",
+      "执行角色": "主播",
+      "动作": "切换至目标月份",
+      "可观察结果": "收益显示 0 金币",
+      "稳定规则标识": "BR-LIVE-14F1D28F6D09",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-data.html 结构化批注",
+          "证明内容": "收益显示 0 金币",
+          "原文": "虚拟金币、失败或撤销消费不计入"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-2F482FE3249C",
+      "业务对象": "默认日期范围",
+      "执行角色": "主播",
+      "动作": "进入直播记录",
+      "可观察结果": "列表只显示近 7 天内的直播场次",
+      "稳定规则标识": "BR-LIVE-2F482FE3249C",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-records.html 结构化批注",
+          "证明内容": "列表只显示近 7 天内的直播场次",
+          "原文": "默认近 7 天"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-5620BE2C1196",
+      "业务对象": "日期筛选",
+      "执行角色": "主播",
+      "动作": "选择本周",
+      "可观察结果": "汇总指标只统计本周场次",
+      "稳定规则标识": "BR-LIVE-5620BE2C1196",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-records.html 结构化批注",
+          "证明内容": "汇总指标只统计本周场次",
+          "原文": "日期范围变化 -> 同步更新场次列表和汇总指标"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-10177D634270",
+      "业务对象": "记录排序",
+      "执行角色": "主播",
+      "动作": "查看场次顺序",
+      "可观察结果": "场次按开播时间倒序显示",
+      "稳定规则标识": "BR-LIVE-10177D634270",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-records.html 结构化批注",
+          "证明内容": "场次按开播时间倒序显示",
+          "原文": "按开播时间倒序展示"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-C5A26204A1CA",
+      "业务对象": "场次配置快照",
+      "执行角色": "主播",
+      "动作": "点击历史场次",
+      "可观察结果": "场次详情显示开播时的门票配置",
+      "稳定规则标识": "BR-LIVE-C5A26204A1CA",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-records.html 结构化批注",
+          "证明内容": "场次详情显示开播时的门票配置",
+          "原文": "历史记录不随当前设置变更"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-D4DD809C51F0",
+      "业务对象": "进行中记录",
+      "执行角色": "主播",
+      "动作": "查看当前场次",
+      "可观察结果": "当前场次结束时间为空",
+      "稳定规则标识": "BR-LIVE-D4DD809C51F0",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-records.html 结构化批注",
+          "证明内容": "当前场次结束时间为空",
+          "原文": "直播中记录结束时间为空"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-9C26A5CFF045",
+      "业务对象": "单场详情入口",
+      "执行角色": "主播",
+      "动作": "点击目标场次",
+      "可观察结果": "单场详情包含数据和礼物明细",
+      "稳定规则标识": "BR-LIVE-9C26A5CFF045",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "live-records.html 结构化批注",
+          "证明内容": "单场详情包含数据和礼物明细",
+          "原文": "点击场次 -> 查看该场次的数据和礼物明细"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-PENDING-001",
+      "业务对象": "公屏发送包含敏感词的文字",
+      "执行角色": "",
+      "动作": "",
+      "可观察结果": "敏感词命中后，用户端采用哪一种处理规则？",
+      "稳定规则标识": "BR-LIVE-PENDING-001",
+      "证据": [
+        {
+          "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+          "SHA-256": "1e17c8335bdc889884cd7100ffb7743d761c8c2d789e2038d424756ac9d27896",
+          "位置": "公屏发送包含敏感词的文字",
+          "证明内容": "敏感词命中后，用户端采用哪一种处理规则？",
+          "原文": "用户端需求仅说明敏感词库由后台维护"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-PENDING-002",
+      "业务对象": "观看直播时网络中断",
+      "执行角色": "",
+      "动作": "",
+      "可观察结果": "网络中断后直播间应按哪一规则恢复或结束？",
+      "稳定规则标识": "BR-LIVE-PENDING-002",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "观看直播时网络中断",
+          "证明内容": "网络中断后直播间应按哪一规则恢复或结束？",
+          "原文": "当前原型和批注未定义断流重连时限"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-PENDING-003",
+      "业务对象": "主播直播时 App 进入后台或锁屏",
+      "执行角色": "",
+      "动作": "",
+      "可观察结果": "主播端进入后台或锁屏后，当前直播场次如何处理？",
+      "稳定规则标识": "BR-LIVE-PENDING-003",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "主播直播时 App 进入后台或锁屏",
+          "证明内容": "主播端进入后台或锁屏后，当前直播场次如何处理？",
+          "原文": "当前来源只定义主动关播和权限关闭关播"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-PENDING-004",
+      "业务对象": "用户首次通知授权选择系统不允许",
+      "执行角色": "",
+      "动作": "",
+      "可观察结果": "系统通知权限被拒绝后，产品在何时再次引导授权？",
+      "稳定规则标识": "BR-LIVE-PENDING-004",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "用户首次通知授权选择系统不允许",
+          "证明内容": "系统通知权限被拒绝后，产品在何时再次引导授权？",
+          "原文": "通知说明处理后不在后续登录重复展示"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-PENDING-005",
+      "业务对象": "主播查看当前房管列表",
+      "执行角色": "",
+      "动作": "",
+      "可观察结果": "房管列表按哪一字段排序？",
+      "稳定规则标识": "BR-LIVE-PENDING-005",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "主播查看当前房管列表",
+          "证明内容": "房管列表按哪一字段排序？",
+          "原文": "批注明确房管列表范围和上限"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-PENDING-006",
+      "业务对象": "主播查看直播数据明细",
+      "执行角色": "",
+      "动作": "",
+      "可观察结果": "直播数据明细按哪一字段排序？",
+      "稳定规则标识": "BR-LIVE-PENDING-006",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "主播查看直播数据明细",
+          "证明内容": "直播数据明细按哪一字段排序？",
+          "原文": "趋势按时间顺序展示"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-PENDING-007",
+      "业务对象": "门票购买请求失败但非余额不足",
+      "执行角色": "",
+      "动作": "",
+      "可观察结果": "购票请求失败时应如何反馈并保持进房状态？",
+      "稳定规则标识": "BR-LIVE-PENDING-007",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "门票购买请求失败但非余额不足",
+          "证明内容": "购票请求失败时应如何反馈并保持进房状态？",
+          "原文": "系统概要明确条件检查失败不扣金币"
+        }
+      ]
+    },
+    {
+      "原子标识": "ATOM-LIVE-PENDING-008",
+      "业务对象": "主播屏蔽一条公屏评论后查看处置记录",
+      "执行角色": "",
+      "动作": "",
+      "可观察结果": "屏蔽评论的后台处置记录必须保存哪些字段？",
+      "稳定规则标识": "BR-LIVE-PENDING-008",
+      "证据": [
+        {
+          "路径": "liveshow-proto/prototype/annotations/user.js",
+          "SHA-256": "f4dbedfa7249265c5fa8c9fd5eac16ce6c8b22f66b92f411a36b12d077a53e5d",
+          "位置": "主播屏蔽一条公屏评论后查看处置记录",
+          "证明内容": "屏蔽评论的后台处置记录必须保存哪些字段？",
+          "原文": "当前规则明确场次结束后保留处置记录"
+        }
+      ]
+    }
+  ]
+}

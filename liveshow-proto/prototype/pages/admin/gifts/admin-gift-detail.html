@@ -13,7 +13,7 @@
     />
     <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-gift-i18n-v1"></script>
   </head>
   <body>
     <div class="admin-shell">
@@ -128,7 +128,10 @@
               <div class="admin-form-row full admin-form-row-top">
                 <label>礼物名称</label>
                 <div class="admin-localized-inputs">
-                  <label for="nameEn"
+                  <label for="nameZh"
+                    ><span>中文</span
+                    ><input class="admin-input" id="nameZh" required /></label
+                  ><label for="nameEn"
                     ><span>英语</span
                     ><input class="admin-input" id="nameEn" required /></label
                   ><label for="nameId"
@@ -346,7 +349,7 @@
           1;
         return {
           id: `GFT${next}`,
-          names: { en: "", id: "", ms: "" },
+          names: { zh: "", en: "", id: "", ms: "" },
           icon: "未上传",
           category,
           price: category === "custom" ? 100 : 10,
@@ -366,9 +369,10 @@
       }
       function renderBase() {
         iconEl.innerHTML = `<span class="admin-media-placeholder">${item.icon === "未上传" ? "未上传" : "图标 占位"}</span>`;
-        nameEl.innerHTML = `${Luma.tip(item.names.id, "礼物名称")}（${Luma.id(item.id, "礼物ID")}）`;
+        const displayName = item.names.zh || item.names.id;
+        nameEl.innerHTML = `${Luma.tip(displayName, "礼物名称")}（${Luma.id(item.id, "礼物ID")}）`;
         statusEl.className = "admin-switch-control";
-        statusEl.innerHTML = `<label class="admin-switch"><input type="checkbox" data-detail-status-toggle aria-label="${item.names.id} 上下架状态" ${item.status === "online" ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${statusText[item.status]}</span>`;
+        statusEl.innerHTML = `<label class="admin-switch"><input type="checkbox" data-detail-status-toggle aria-label="${displayName} 上下架状态" ${item.status === "online" ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${statusText[item.status]}</span>`;
         actionsEl.innerHTML = `<a class="admin-btn secondary" href="admin-gift-detail.html?id=${item.id}&from=${from}&edit=1">编辑</a><button class="admin-btn danger" data-action="delete">删除</button>`;
         const schedule =
           item.category === "custom"
@@ -381,7 +385,7 @@
           .querySelectorAll("[data-tab]")
           .forEach((x) => x.classList.toggle("active", x.dataset.tab === tab));
         if (tab === "names")
-          panel.innerHTML = `<div class="admin-detail-grid"><div class="admin-detail-item"><span>英文</span><b>${item.names.en}</b></div><div class="admin-detail-item"><span>印尼语</span><b>${item.names.id}</b></div><div class="admin-detail-item"><span>马来语</span><b>${item.names.ms}</b></div></div>`;
+          panel.innerHTML = `<div class="admin-detail-grid"><div class="admin-detail-item"><span>中文</span><b>${item.names.zh || "-"}</b></div><div class="admin-detail-item"><span>英文</span><b>${item.names.en}</b></div><div class="admin-detail-item"><span>印尼语</span><b>${item.names.id}</b></div><div class="admin-detail-item"><span>马来语</span><b>${item.names.ms}</b></div></div>`;
         if (tab === "effect")
           panel.innerHTML = `<div class="admin-media-grid"><div><h4>礼物图标</h4><div class="admin-media large"><span class="admin-media-placeholder">${item.icon === "未上传" ? "未上传" : "图标 占位"}</span></div></div><div><h4>礼物特效</h4><div class="admin-media large"><span class="admin-media-placeholder">${item.effect === "未上传" ? "未上传" : "特效 占位"}</span></div></div></div>`;
         if (tab === "records") panel.innerHTML = table(item.changes);
@@ -415,6 +419,7 @@
         editGiftId.value = item.id;
         editGiftIdText.textContent = item.id;
         giftIdRow.classList.toggle("state-hide", isNew);
+        nameZh.value = item.names.zh || "";
         nameEn.value = item.names.en;
         nameId.value = item.names.id;
         nameMs.value = item.names.ms;
@@ -523,6 +528,7 @@
           return Luma.toast("礼物 ID 已存在");
         item.id = editGiftId.value.trim();
         item.names = {
+          zh: nameZh.value.trim(),
           en: nameEn.value.trim(),
           id: nameId.value.trim(),
           ms: nameMs.value.trim(),

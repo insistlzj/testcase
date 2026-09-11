@@ -68,7 +68,6 @@
                 <label for="categoryFilter">参数分类</label
                 ><select class="admin-select" id="categoryFilter">
                   <option value="">全部分类</option>
-                  <option>提现配置</option>
                   <option>汇率配置</option>
                   <option>收益配置</option>
                   <option>直播配置</option>
@@ -251,7 +250,6 @@
       );
       Luma.registerStates({
         全部参数: () => render(data),
-        提现配置: () => render(data.filter((x) => x.category === "提现配置")),
         直播配置: () => render(data.filter((x) => x.category === "直播配置")),
         停用确认: () => openStatus(data[0]),
         无查询结果: () => render([]),

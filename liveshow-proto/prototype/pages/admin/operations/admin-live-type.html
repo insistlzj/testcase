@@ -130,14 +130,14 @@
         </div>
         <form id="typeForm">
           <div class="admin-modal-body">
-            <div class="admin-form-row">
-              <label for="typeName">直播类型</label
-              ><input
-                class="admin-input"
-                id="typeName"
-                maxlength="20"
-                required
-              />
+            <div class="admin-form-row full admin-form-row-top">
+              <label>直播类型</label>
+              <div class="admin-localized-inputs">
+                <label for="typeNameZh"><span>中文</span><input class="admin-input" id="typeNameZh" maxlength="20" required /></label>
+                <label for="typeNameEn"><span>英语</span><input class="admin-input" id="typeNameEn" maxlength="40" required /></label>
+                <label for="typeNameId"><span>印尼语</span><input class="admin-input" id="typeNameId" maxlength="40" required /></label>
+                <label for="typeNameMs"><span>马来语</span><input class="admin-input" id="typeNameMs" maxlength="40" required /></label>
+              </div>
             </div>
             <div class="admin-form-row">
               <label>状态</label>
@@ -199,24 +199,28 @@
           {
             id: "LT001",
             name: "唱歌",
+            names: { zh: "唱歌", en: "Singing", id: "Menyanyi", ms: "Menyanyi" },
             enabled: true,
             updatedAt: "2026-08-12 10:20",
           },
           {
             id: "LT002",
             name: "聊天",
+            names: { zh: "聊天", en: "Chat", id: "Mengobrol", ms: "Berbual" },
             enabled: true,
             updatedAt: "2026-08-12 10:18",
           },
           {
             id: "LT003",
             name: "舞蹈",
+            names: { zh: "舞蹈", en: "Dance", id: "Menari", ms: "Menari" },
             enabled: true,
             updatedAt: "2026-08-12 10:16",
           },
           {
             id: "LT004",
             name: "才艺",
+            names: { zh: "才艺", en: "Talent", id: "Bakat", ms: "Bakat" },
             enabled: true,
             updatedAt: "2026-08-12 10:14",
           },
@@ -239,9 +243,18 @@
           const saved = JSON.parse(
             sharedStorage().getItem(storageKey) || "null",
           );
-          if (Array.isArray(saved)) return saved;
+          if (Array.isArray(saved)) return saved.map(normalizeItem);
         } catch (error) {}
-        return defaults.map((item) => ({ ...item }));
+        return defaults.map(normalizeItem);
+      }
+      function normalizeItem(item) {
+        const fallback = defaults.find((entry) => entry.id === item.id),
+          names = {
+            ...(fallback?.names || {}),
+            ...(item.names || {}),
+            zh: item.names?.zh || item.name || fallback?.name || "",
+          };
+        return { ...item, name: names.zh, names };
       }
       function saveItems() {
         try {
@@ -302,11 +315,14 @@
         editingId = id || null;
         const item = items.find((entry) => entry.id === id);
         modalTitle.textContent = item ? "编辑直播类型" : "新建直播类型";
-        typeName.value = item?.name || "";
+        typeNameZh.value = item?.names?.zh || item?.name || "";
+        typeNameEn.value = item?.names?.en || "";
+        typeNameId.value = item?.names?.id || "";
+        typeNameMs.value = item?.names?.ms || "";
         typeEnabled.checked = item?.enabled ?? true;
         syncModal();
         typeOverlay.classList.add("show");
-        typeName.focus();
+        typeNameZh.focus();
       }
       createBtn.onclick = () => openModal();
       typeEnabled.onchange = syncModal;
@@ -335,19 +351,27 @@
       };
       typeForm.onsubmit = (event) => {
         event.preventDefault();
-        const name = typeName.value.trim();
+        const names = {
+            zh: typeNameZh.value.trim(),
+            en: typeNameEn.value.trim(),
+            id: typeNameId.value.trim(),
+            ms: typeNameMs.value.trim(),
+          },
+          name = names.zh;
         if (!name) return;
         if (items.some((item) => item.id !== editingId && item.name === name))
           return Luma.toast("直播类型名称已存在");
         if (editingId) {
           const item = items.find((entry) => entry.id === editingId);
           item.name = name;
+          item.names = names;
           item.enabled = typeEnabled.checked;
           item.updatedAt = "2026-08-15 10:30";
         } else
           items.push({
             id: nextId(),
             name,
+            names,
             enabled: typeEnabled.checked,
             updatedAt: "2026-08-15 10:30",
           });

@@ -9,11 +9,11 @@
     <script src="../../../assets/admin-tokens.js"></script>
     <link
       rel="stylesheet"
-      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+      href="../../../assets/admin.css?v=20260901-single-column-v1"
     />
     <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-i18n-v2"></script>
   </head>
   <body>
     <div class="admin-shell">
@@ -76,7 +76,7 @@
           <a class="admin-back-link" href="admin-push-management.html"
             >‹ 返回推送管理</a
           >
-          <section class="admin-panel admin-profile-panel">
+          <section class="admin-panel admin-profile-panel admin-create-page">
             <div class="admin-section-head"><h2 id="formTitle"></h2></div>
             <div class="admin-metrics state-hide" id="pushMetrics"></div>
             <form id="pushForm">
@@ -85,21 +85,21 @@
                   <label>推送 ID</label>
                   <div class="admin-readonly-value" id="pushIdText"></div>
                 </div>
-                <div class="admin-form-row">
-                  <label for="pushTitle">推送标题</label
-                  ><input
-                    class="admin-input"
-                    id="pushTitle"
-                    maxlength="40"
-                    required
-                  />
+                <div class="admin-form-row full admin-form-row-top">
+                  <label>推送标题</label>
+                  <div class="admin-localized-inputs">
+                    <label for="pushTitleZh"><span>中文</span><input class="admin-input" id="pushTitleZh" maxlength="40" required /></label>
+                    <label for="pushTitleEn"><span>英语</span><input class="admin-input" id="pushTitleEn" maxlength="80" required /></label>
+                    <label for="pushTitleId"><span>印尼语</span><input class="admin-input" id="pushTitleId" maxlength="80" required /></label>
+                    <label for="pushTitleMs"><span>马来语</span><input class="admin-input" id="pushTitleMs" maxlength="80" required /></label>
+                  </div>
                 </div>
                 <div class="admin-form-row">
                   <label for="pushAudience">目标用户</label
                   ><select class="admin-select" id="pushAudience" required>
                     <option value="all">全部用户</option>
                     <option value="guild:G100021">
-                      公会用户（Aurora Guild）
+                      公会用户（Aurora Agency）
                     </option>
                     <option value="guild:G100018">
                       公会用户（Star House）
@@ -110,38 +110,25 @@
                     <option value="guild:G100009">公会用户（Moonlight）</option>
                   </select>
                 </div>
-                <div class="admin-form-row full">
-                  <label for="pushContent">推送内容</label
-                  ><textarea
-                    class="admin-textarea"
-                    id="pushContent"
-                    maxlength="120"
-                    required
-                  ></textarea>
-                </div>
-                <div class="admin-form-row">
-                  <label for="sendAt">发送时间</label
-                  ><input
-                    class="admin-input"
-                    id="sendAt"
-                    type="datetime-local"
-                    required
-                  />
+                <div class="admin-form-row full admin-form-row-top">
+                  <label>推送内容</label>
+                  <div class="admin-localized-inputs">
+                    <label for="pushContentZh"><span>中文</span><textarea class="admin-textarea" id="pushContentZh" maxlength="120" required></textarea></label>
+                    <label for="pushContentEn"><span>英语</span><textarea class="admin-textarea" id="pushContentEn" maxlength="240" required></textarea></label>
+                    <label for="pushContentId"><span>印尼语</span><textarea class="admin-textarea" id="pushContentId" maxlength="240" required></textarea></label>
+                    <label for="pushContentMs"><span>马来语</span><textarea class="admin-textarea" id="pushContentMs" maxlength="240" required></textarea></label>
+                  </div>
                 </div>
                 <div class="admin-form-row">
                   <label>最后操作人</label>
                   <div class="admin-readonly-value" id="operatorText"></div>
-                </div>
-                <div class="admin-form-row">
-                  <label>最后更新时间</label>
-                  <div class="admin-readonly-value" id="updatedAtText"></div>
                 </div>
               </div>
               <div class="admin-modal-foot">
                 <a class="admin-btn secondary" href="admin-push-management.html"
                   >取消</a
                 ><button class="admin-btn" id="saveBtn" type="submit">
-                  保存
+                  立即发送
                 </button>
               </div>
             </form>
@@ -163,10 +150,12 @@
         return {
           id: nextId(),
           title: "",
+          titles: { zh: "", en: "", id: "", ms: "" },
           audience: "all",
           guildName: "",
           content: "",
-          sendAt: "2026-08-06 15:00",
+          contents: { zh: "", en: "", id: "", ms: "" },
+          sendAt: "",
           status: "scheduled",
           sentCount: 0,
           readCount: 0,
@@ -177,7 +166,7 @@
       function guildName(value) {
         return (
           {
-            "guild:G100021": "Aurora Guild",
+            "guild:G100021": "Aurora Agency",
             "guild:G100018": "Star House",
             "guild:G100014": "Blue Ocean",
             "guild:G100009": "Moonlight",
@@ -192,49 +181,80 @@
       function readonlyRow(label, value) {
         return `<div class="admin-form-row"><label>${label}</label><div class="admin-readonly-value">${value || "-"}</div></div>`;
       }
+      function localized(entry, field, fallback) {
+        const values = entry[field] || {};
+        return {
+          zh: values.zh || entry[fallback] || "",
+          en: values.en || "",
+          id: values.id || "",
+          ms: values.ms || "",
+        };
+      }
       function render() {
-        const locked = item.status === "sent" || item.status === "canceled",
+        const locked = item.status === "sent",
           title = isNew ? "新建推送" : locked ? "查看推送" : "编辑推送";
         pageName.textContent = title;
         formTitle.textContent = title;
         pushIdText.textContent = item.id;
+        const titles = localized(item, "titles", "title"),
+          contents = localized(item, "contents", "content");
         if (locked) {
           pushMetrics.classList.remove("state-hide");
           pushMetrics.innerHTML = `<div class="admin-metric"><span>发送人数</span><b>${item.sentCount.toLocaleString("id-ID")}</b></div><div class="admin-metric"><span>已读用户</span><b>${item.readCount.toLocaleString("id-ID")}</b></div>`;
           pushFields.innerHTML =
             readonlyRow("推送 ID", item.id) +
-            readonlyRow("推送标题", item.title) +
+            readonlyRow("推送标题（中文）", titles.zh) +
+            readonlyRow("推送标题（英语）", titles.en) +
+            readonlyRow("推送标题（印尼语）", titles.id) +
+            readonlyRow("推送标题（马来语）", titles.ms) +
             readonlyRow("目标用户", audienceLabel(item)) +
-            readonlyRow("推送内容", item.content) +
-            readonlyRow("发送时间", item.sendAt) +
-            readonlyRow(
-              "推送状态",
-              item.status === "sent" ? "已发送" : "已取消",
-            ) +
-            readonlyRow("最后操作人", item.operator) +
-            readonlyRow("最后更新时间", item.updatedAt);
+            readonlyRow("推送内容（中文）", contents.zh) +
+            readonlyRow("推送内容（英语）", contents.en) +
+            readonlyRow("推送内容（印尼语）", contents.id) +
+            readonlyRow("推送内容（马来语）", contents.ms) +
+            readonlyRow("推送状态", "已发送") +
+            readonlyRow("最后操作人", item.operator);
           saveBtn.classList.add("state-hide");
           return;
         }
-        pushTitle.value = item.title;
+        pushTitleZh.value = titles.zh;
+        pushTitleEn.value = titles.en;
+        pushTitleId.value = titles.id;
+        pushTitleMs.value = titles.ms;
         pushAudience.value = item.audience;
-        pushContent.value = item.content;
-        sendAt.value = item.sendAt.replace(" ", "T");
+        pushContentZh.value = contents.zh;
+        pushContentEn.value = contents.en;
+        pushContentId.value = contents.id;
+        pushContentMs.value = contents.ms;
         operatorText.textContent = item.operator;
-        updatedAtText.textContent = item.updatedAt;
       }
       pushForm.onsubmit = (event) => {
         event.preventDefault();
         const created = isNew;
+        const titles = {
+            zh: pushTitleZh.value.trim(),
+            en: pushTitleEn.value.trim(),
+            id: pushTitleId.value.trim(),
+            ms: pushTitleMs.value.trim(),
+          },
+          contents = {
+            zh: pushContentZh.value.trim(),
+            en: pushContentEn.value.trim(),
+            id: pushContentId.value.trim(),
+            ms: pushContentMs.value.trim(),
+          };
+        const sentAt = new Date().toLocaleString("sv-SE").slice(0, 16);
         Object.assign(item, {
-          title: pushTitle.value.trim(),
+          title: titles.zh,
+          titles,
           audience: pushAudience.value,
           guildName: guildName(pushAudience.value),
-          content: pushContent.value.trim(),
-          sendAt: sendAt.value.replace("T", " "),
-          status: "scheduled",
+          content: contents.zh,
+          contents,
+          sendAt: sentAt,
+          status: "sent",
           operator: "后台管理员",
-          updatedAt: "2026-08-06 14:30",
+          updatedAt: sentAt,
         });
         if (created) {
           pushes.unshift(item);
@@ -246,7 +266,7 @@
           );
         }
         render();
-        Luma.toast(created ? "推送已新建" : "推送已保存");
+        Luma.toast("推送已发送");
       };
       render();
       window.parent.postMessage(

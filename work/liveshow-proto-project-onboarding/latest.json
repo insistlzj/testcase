@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "接入状态": "已确认",
+  "确认时间": "2026-09-10 14:10:13 CST",
+  "确认依据": "用户要求删除项目说明中的6个失效引用，全量扫描后生成用户App-直播模块",
+  "项目身份": {
+    "绝对路径": "/Users/geekonup/testcase/liveshow-proto",
+    "Git仓库根": "/Users/geekonup/testcase/liveshow-proto",
+    "Git远程地址": "https://github.com/geekonup/liveshow-proto.git"
+  },
+  "盘点基线": {
+    "Git分支": "main",
+    "Git提交": "46cad02f11ac563905f56684f5c35719bea8fb7f"
+  },
+  "来源策略": "prototype-primary",
+  "正式文件": [
+    {
+      "路径": "liveshow-proto/项目说明.md",
+      "SHA-256": "6411c37b7c7632fc7184b530f88a9cb124a57a5f594fb78ca6f862758dec6c74"
+    },
+    {
+      "路径": "liveshow-proto/需求来源策略.json",
+      "SHA-256": "68f130ad57add2a5c07e343324e46dd03325e9dcaa0a1e32141966afe79ee180"
+    }
+  ]
+}

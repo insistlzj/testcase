@@ -24,12 +24,13 @@
     </main>
     <div class="guild-homebar"><i></i></div>
     <script>
-      const seed = [
+      const allHostCount = LUMA_MOCK.guildPortal.guildHosts.length,
+        seed = [
         {
           id: "M26081001",
-          audience: "全体成员",
-          recipientCount: 268,
-          content: "请各位成员关注本周公会活动安排，主播报名请于周五前完成。",
+          audience: "全体主播",
+          recipientCount: allHostCount,
+          content: "请各位主播关注本周公会活动安排，主播报名请于周五前完成。",
           hasImage: true,
           sentAt: "2026-08-10 10:20",
           sender: "Rizky",
@@ -52,11 +53,15 @@
       );
       const item =
         [...saved, ...seed].find((record) => record.id === id) || seed[0];
+      const audience =
+        item.audience === "指定主播" ? item.audience : "全体主播";
+      const recipientCount =
+        item.audience === "指定主播" ? item.recipientCount : allHostCount;
       detail.innerHTML = /* HTML */ `<section class="guild-form-card">
         <div class="guild-message-detail-meta">
           <span
             ><small>发送对象</small
-            ><b>${item.audience} · ${item.recipientCount} 人</b></span
+            ><b>${audience} · ${recipientCount} 人</b></span
           ><span
             ><small>发送时间</small
             ><b>${LUMA_FORMAT.dateTime(item.sentAt)}</b></span

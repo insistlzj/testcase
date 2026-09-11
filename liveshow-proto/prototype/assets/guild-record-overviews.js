@@ -1,6 +1,5 @@
 (function () {
   const dataModel = window.LUMA_GUILD_DATA;
-  const viewType = document.body.dataset.recordOverview === 'violations' ? 'violations' : 'live';
   const params = new URLSearchParams(location.search);
   const requestedHostValue = params.has('hostIds') ? params.get('hostIds') : params.get('hostId') || '';
   const noHostsSelected = requestedHostValue === 'none';
@@ -55,11 +54,6 @@
     return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
   }
 
-  function compactDate(value) {
-    const [, month, day] = value.split('-');
-    return `${Number(day)}/${Number(month)}`;
-  }
-
   function addDays(date, amount) {
     const value = new Date(date);
     value.setDate(value.getDate() + amount);
@@ -98,33 +92,6 @@
   let pendingRangeEnd = rangeEnd;
   let calendarMonth = rangeEnd.slice(0, 7);
 
-  function liveRows() {
-    return dataModel.hosts.map(host => {
-      const days = allDates.filter(date => date >= rangeStart && date <= rangeEnd).map(date => dataModel.getDay(host.id, date));
-      return {
-        host,
-        sessions: days.reduce((sum, day) => sum + day.sessionCount, 0),
-        effectiveDays: days.reduce((sum, day) => sum + (day.effective ? 1 : 0), 0),
-        duration: days.reduce((sum, day) => sum + day.duration, 0)
-      };
-    }).filter(item => item.sessions > 0).sort((left, right) => right.sessions - left.sessions || right.duration - left.duration);
-  }
-
-  function renderLiveList() {
-    const rows = liveRows();
-    recordList.innerHTML = rows.length ? rows.map(item => {
-      const query = new URLSearchParams({ hostId: item.host.id, from: 'all-live', hostPeriod: rangeEnd.slice(0, 7), rangeStart, rangeEnd });
-      if (selectedShortcut !== 'custom') query.set('shortcut', selectedShortcut);
-      return `<a class="guild-record-overview-row" href="guild-host-data.html?${query}">
-        <span class="guild-record-overview-host"><i class="directory-avatar${item.host.live ? ' is-live' : ''}"${item.host.live ? ' aria-label="直播中"' : ''}>${item.host.avatar}</i><span><b>${item.host.name}</b><small>${item.host.id}</small></span></span>
-        <b>${LUMA_FORMAT.integer(item.sessions)}</b>
-        <b>${LUMA_FORMAT.integer(item.effectiveDays)}</b>
-        <b>${dataModel.formatDuration(item.duration)}</b>
-        <i class="review-arrow" aria-hidden="true">›</i>
-      </a>`;
-    }).join('') : '<div class="guild-page-empty"><b>暂无直播数据</b><span>请选择其他日期范围</span></div>';
-  }
-
   function renderViolationList() {
     const sourceRecords = currentViolationScope === 'account' ? accountViolations : dataModel.getViolations(rangeStart, rangeEnd);
     const records = sourceRecords.filter(record => violationTypes.includes(record.type)).filter(record => record.reportedAt.slice(0, 10) >= rangeStart && record.reportedAt.slice(0, 10) <= rangeEnd).filter(record => !hasHostFilter || selectedHostIds.has(record.hostId));
@@ -150,11 +117,6 @@
     }).join('') : emptyState;
   }
 
-  function renderList() {
-    if (viewType === 'violations') renderViolationList();
-    else renderLiveList();
-  }
-
   function renderFilters() {
     rangePickerValue.textContent = `${LUMA_FORMAT.date(rangeStart)}～${LUMA_FORMAT.date(rangeEnd)}`;
     rangePickerButton.setAttribute('aria-label', `选择日期范围，当前${rangePickerValue.textContent}`);
@@ -169,17 +131,8 @@
     }
     if (hostPicker) {
       const activeHosts = hasHostFilter ? selectedHosts : dataModel.hosts;
-      if (viewType === 'violations') {
-        hostPicker.innerHTML = `<span>已选${activeHosts.length}人</span><i aria-hidden="true">›</i>`;
-        hostPicker.setAttribute('aria-label', `选择主播，已选${activeHosts.length}人`);
-      } else if (activeHosts.length === 1) {
-        const host = activeHosts[0];
-        hostPicker.innerHTML = `<span><b>${host.name}</b><small>${host.id}</small></span><strong class="guild-selected-host-count">已选1人</strong><em aria-hidden="true">›</em>`;
-        hostPicker.setAttribute('aria-label', `选择主播，当前${host.name}，${host.id}，已选1人`);
-      } else {
-        hostPicker.innerHTML = `<span><b>主播</b></span><strong class="guild-selected-host-count">已选${activeHosts.length}人</strong><em aria-hidden="true">›</em>`;
-        hostPicker.setAttribute('aria-label', `选择主播，已选${activeHosts.length}人`);
-      }
+      hostPicker.innerHTML = `<span>已选${activeHosts.length}人</span><i aria-hidden="true">›</i>`;
+      hostPicker.setAttribute('aria-label', `选择主播，已选${activeHosts.length}人`);
       const selectParams = new URLSearchParams(location.search);
       selectParams.delete('hostId');
       selectParams.delete('hostIds');
@@ -324,11 +277,11 @@
     else if (!rangeSheet.hidden) closeRangeSheet();
   });
   renderFilters();
-  renderList();
-  if (viewType === 'violations' && selectedHost && params.get('from') === 'host-detail') {
+  renderViolationList();
+  if (selectedHost && params.get('from') === 'host-detail') {
     const backLink = document.getElementById('backLink');
     backLink.href = `../people/guild-host-detail.html?id=${encodeURIComponent(selectedHost.id)}`;
     backLink.setAttribute('aria-label', '返回主播主页');
   }
-  window.parent.postMessage({ type: 'luma-page', file: viewType === 'violations' ? 'guild-all-violations.html' : 'guild-all-live.html', query: location.search }, '*');
+  window.parent.postMessage({ type: 'luma-page', file: 'guild-all-violations.html', query: location.search }, '*');
 }());

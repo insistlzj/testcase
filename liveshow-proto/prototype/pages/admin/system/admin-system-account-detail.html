@@ -9,11 +9,11 @@
     <script src="../../../assets/admin-tokens.js"></script>
     <link
       rel="stylesheet"
-      href="../../../assets/admin.css?v=20260821-filter-layout-v4"
+      href="../../../assets/admin.css?v=20260901-single-column-v1"
     />
-    <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/common.js?v=20260901-system-nav-order-v3"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
-    <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
+    <script src="../../../assets/admin-mock.js?v=20260901-rbac-v1"></script>
   </head>
   <body class="admin-monochrome">
     <div class="admin-shell">
@@ -65,7 +65,7 @@
           <a class="admin-back-link" href="admin-system-account.html"
             >‹ 返回后台账号</a
           >
-          <section class="admin-panel admin-profile-panel">
+          <section class="admin-panel admin-profile-panel admin-create-page">
             <div class="admin-section-head">
               <h2 id="pageTitle">账号编辑</h2>
               <div class="admin-page-actions">
@@ -115,6 +115,19 @@
                     placeholder="至少 8 位字符"
                   />
                 </div>
+                <div class="admin-form-row" id="resetPasswordRow">
+                  <label>登录密码</label>
+                  <div class="admin-inline-actions">
+                    <span class="admin-readonly-value">••••••••</span>
+                    <button
+                      class="admin-btn secondary"
+                      id="resetPasswordBtn"
+                      type="button"
+                    >
+                      重置密码
+                    </button>
+                  </div>
+                </div>
                 <div class="admin-form-row">
                   <label>账号状态</label>
                   <div class="admin-switch-control">
@@ -141,6 +154,61 @@
           </section>
         </main>
       </div>
+    </div>
+    <div class="admin-overlay" id="resetPasswordOverlay">
+      <section class="admin-modal">
+        <form id="resetPasswordForm">
+          <div class="admin-modal-head">
+            <h2>重置密码</h2>
+            <button
+              class="admin-icon-btn"
+              id="closeResetPasswordBtn"
+              type="button"
+              aria-label="关闭"
+            >
+              ×
+            </button>
+          </div>
+          <div class="admin-modal-body">
+            <div class="admin-form-row">
+              <label for="newPassword">新密码</label>
+              <input
+                class="admin-input"
+                id="newPassword"
+                type="password"
+                minlength="8"
+                maxlength="32"
+                autocomplete="new-password"
+                placeholder="8-32 位字符"
+                required
+              />
+            </div>
+            <div class="admin-form-row">
+              <label for="confirmPassword">确认新密码</label>
+              <input
+                class="admin-input"
+                id="confirmPassword"
+                type="password"
+                minlength="8"
+                maxlength="32"
+                autocomplete="new-password"
+                placeholder="再次输入新密码"
+                required
+              />
+            </div>
+          </div>
+          <div class="admin-modal-foot">
+            <button
+              class="admin-btn secondary"
+              id="cancelResetPasswordBtn"
+              type="button"
+            >
+              取消
+            </button>
+            <button class="admin-btn" type="submit">确认重置</button>
+          </div>
+        </form>
+      </section>
     </div>
     <script>
       const data = LUMA_ADMIN_MOCK.system.accounts,
@@ -179,6 +247,7 @@
         createdAt.textContent = item.createdAt;
         lastLoginAt.textContent = item.lastLoginAt;
         passwordRow.classList.toggle("state-hide", !isNew);
+        resetPasswordRow.classList.toggle("state-hide", isNew);
         password.required = isNew;
         lockedNote.classList.toggle("state-hide", !item.locked);
         [username, displayName, roleId, enabled].forEach(
@@ -187,6 +256,27 @@
       }
       enabled.onchange = () =>
         (enabledText.textContent = enabled.checked ? "启用" : "停用");
+      function closeResetPassword() {
+        resetPasswordOverlay.classList.remove("show");
+        resetPasswordForm.reset();
+      }
+      resetPasswordBtn.onclick = () => {
+        resetPasswordOverlay.classList.add("show");
+        newPassword.focus();
+      };
+      closeResetPasswordBtn.onclick = closeResetPassword;
+      cancelResetPasswordBtn.onclick = closeResetPassword;
+      resetPasswordOverlay.onclick = (event) => {
+        if (event.target === resetPasswordOverlay) closeResetPassword();
+      };
+      resetPasswordForm.onsubmit = (event) => {
+        event.preventDefault();
+        if (newPassword.value !== confirmPassword.value)
+          return Luma.toast("两次输入的密码不一致");
+        item.passwordUpdatedAt = "2026-08-07 10:30";
+        closeResetPassword();
+        Luma.toast("密码已重置");
+      };
       accountForm.onsubmit = (e) => {
         e.preventDefault();
         if (item.locked) return Luma.toast("系统内置账号不可修改");

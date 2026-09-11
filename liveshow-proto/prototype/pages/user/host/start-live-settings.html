@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../assets/common.css" />
     <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/admin-mock.js?v=20260827-ticket-price-v1"></script>
     <script src="../../../assets/start-live-config.js"></script>
     <style>
       body {
@@ -290,11 +291,46 @@
       .options.state-hide {
         display: none;
       }
-      .options label {
+      .options > label,
+      .option-title {
         display: block;
         margin-bottom: 7px;
         color: var(--g3);
         font-size: 12px;
+      }
+      .option-title {
+        margin-top: 0;
+      }
+      .ticket-levels {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .ticket-level {
+        position: relative;
+        min-width: 0;
+        margin: 0;
+      }
+      .ticket-level input {
+        position: absolute;
+        opacity: 0;
+      }
+      .ticket-level span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 42px;
+        border: 1px solid var(--g5);
+        border-radius: 8px;
+        color: var(--g2);
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .ticket-level input:checked + span {
+        border-color: var(--g1);
+        background: var(--g6);
+        color: var(--g1);
+        font-weight: 600;
       }
       .inline {
         display: flex;
@@ -348,33 +384,80 @@
       .authorized.state-hide {
         display: none;
       }
-      .authorized p {
-        margin: 0 0 8px;
+      .authorized-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+      .authorized-head p,
+      .authorized-head span {
+        margin: 0;
         color: var(--g3);
         font-size: 12px;
       }
       .fans {
         display: flex;
-        gap: 9px;
+        align-items: flex-start;
+        gap: 7px;
       }
-      .fan {
-        width: 46px;
+      .visible-fan,
+      .fan-add {
+        position: relative;
+        width: 44px;
         padding: 0;
         border: 0;
         background: none;
         color: var(--g3);
         font: 10px inherit;
+      }
+      .fan-add {
         cursor: pointer;
       }
-      .fan .avatar {
+      .visible-fan .avatar,
+      .fan-add i {
         width: 30px;
         height: 30px;
         margin: 0 auto 4px;
-        border: 2px solid transparent;
+        border-radius: 50%;
+        background: var(--g6);
+        color: var(--g3);
+        display: grid;
+        place-items: center;
         font-size: 10px;
+        font-style: normal;
       }
-      .fan.selected .avatar {
-        border-color: var(--g1);
+      .fan-overflow {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--g6);
+        color: var(--g2);
+        display: grid;
+        place-items: center;
+        font: 12px inherit;
+      }
+      .visible-fan span,
+      .fan-add span {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .fan-add i {
+        border: 1px dashed var(--g3);
+        background: var(--g7);
+        color: var(--g1);
+        margin-bottom: 0;
+      }
+      .fan-add svg {
+        width: 15px;
+        height: 15px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
       }
       .beauty-sheet {
         padding: 0 16px 20px;
@@ -605,21 +688,20 @@
           >
         </div>
         <div class="options state-hide" id="ticketOptions">
-          <label for="ticketPrice">门票价格</label
-          ><span class="inline"
-            ><input
-              class="title-input"
-              id="ticketPrice"
-              inputmode="numeric"
-              placeholder="输入金币价格"
-            /><em>◆</em></span
-          >
+          <p class="option-title">门票价格</p>
+          <div
+            class="ticket-levels"
+            id="ticketPriceLevels"
+            role="radiogroup"
+            aria-label="门票价格"
+          ></div>
         </div>
         <div class="options state-hide" id="passwordOptions">
           <label for="roomPassword">房间密码</label
           ><input
             class="title-input"
             id="roomPassword"
+            inputmode="numeric"
             maxlength="12"
             placeholder="设置 4-12 位密码"
           />
@@ -636,7 +718,7 @@
             </button>
           </div>
           <section class="authorized state-hide" id="authorized">
-            <p>可见名单</p>
+            <header class="authorized-head"><p>可见名单</p><span id="visibleFanCount">已选 0 人</span></header>
             <div class="fans" id="fans"></div>
           </section>
         </div>
@@ -694,11 +776,14 @@
         categoryValue = document.querySelector("#categoryValue"),
         roomValue = document.querySelector("#roomValue"),
         ticketOptions = document.querySelector("#ticketOptions"),
+        ticketPriceLevels = document.querySelector("#ticketPriceLevels"),
         passwordOptions = document.querySelector("#passwordOptions"),
         authorizeSwitch = document.querySelector("#authorizeSwitch"),
         authorized = document.querySelector("#authorized"),
         plazaSwitch = document.querySelector("#plazaSwitch"),
         fans = document.querySelector("#fans"),
+        visibleFanCount = document.querySelector("#visibleFanCount"),
+        roomPassword = document.querySelector("#roomPassword"),
         cover = document.querySelector("#cover"),
         cameraSwitch = document.querySelector("#cameraSwitch"),
         cameraState = document.querySelector("#cameraState"),
@@ -721,6 +806,67 @@
             .flat()
             .map((item) => [item, 50]),
         );
+      const visibleFanStorageKey = "luma-visible-fans",
+        passwordDraftStorageKey = "luma-start-live-password-draft",
+        ticketPriceStorageKey = "luma-admin-ticket-price-levels-v1";
+      function readTicketPriceLevels() {
+        let levels;
+        try {
+          const storage =
+            window.parent && window.parent !== window
+              ? window.parent.localStorage
+              : localStorage;
+          levels = JSON.parse(storage.getItem(ticketPriceStorageKey) || "null");
+        } catch (_) {}
+        return (Array.isArray(levels)
+          ? levels
+          : LUMA_ADMIN_MOCK.ticketPriceLevels
+        )
+          .filter((item) => item.enabled)
+          .sort((left, right) => left.sort - right.sort || left.price - right.price);
+      }
+      function renderTicketPriceLevels() {
+        ticketPriceLevels.innerHTML = readTicketPriceLevels()
+          .map(
+            (item) =>
+              `<label class="ticket-level"><input type="radio" name="ticketPrice" value="${item.price}"><span>◆ ${item.price} 金币</span></label>`,
+          )
+          .join("");
+      }
+      const defaultVisibleFanNames = () =>
+        LUMA_MOCK.startLive.authorizedFans.map((fan) => fan.name);
+      function readVisibleFanNames() {
+        let names = defaultVisibleFanNames();
+        try {
+          const saved = JSON.parse(localStorage.getItem(visibleFanStorageKey));
+          if (Array.isArray(saved)) names = saved;
+        } catch (_) {}
+        const available = new Set(LUMA_MOCK.hostFans.map((fan) => fan.name));
+        return names.filter((name) => available.has(name));
+      }
+      function renderVisibleFans() {
+        const selected = new Set(readVisibleFanNames());
+        const selectedFans = LUMA_MOCK.hostFans.filter((fan) =>
+          selected.has(fan.name),
+        );
+        visibleFanCount.textContent = `已选 ${selectedFans.length} 人`;
+        fans.innerHTML = selectedFans
+          .slice(0, 5)
+          .map(
+            (fan) =>
+              `<span class="visible-fan"><i class="avatar">${fan.avatar}</i><span>${fan.name}</span></span>`,
+          )
+          .join("");
+        if (selectedFans.length > 5)
+          fans.insertAdjacentHTML(
+            "beforeend",
+            '<span class="fan-overflow" aria-label="还有更多可见粉丝">...</span>',
+          );
+        fans.insertAdjacentHTML(
+          "beforeend",
+          '<button class="fan-add" id="addVisibleFan" type="button" aria-label="编辑可见名单，支持添加或删除" title="编辑可见名单"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg></i></button>',
+        );
+      }
       function openSheet(id) {
         document.querySelector("#" + id).classList.remove("state-hide");
       }
@@ -794,18 +940,26 @@
           );
         closeSheet("categorySheet");
       };
+      renderTicketPriceLevels();
       cover.onchange = () => {
         if (cover.files?.[0]) Luma.toast(`已选择封面：${cover.files[0].name}`);
       };
-      fans.innerHTML = LUMA_MOCK.startLive.authorizedFans
-        .map(
-          (fan, index) =>
-            `<button class="fan ${index < 2 ? "selected" : ""}" type="button"><i class="avatar">${fan.avatar}</i>${fan.name}</button>`,
-        )
-        .join("");
       fans.onclick = (event) => {
-        const button = event.target.closest(".fan");
-        if (button) button.classList.toggle("selected");
+        if (!event.target.closest("#addVisibleFan")) return;
+        sessionStorage.setItem(
+          passwordDraftStorageKey,
+          JSON.stringify({
+            password: roomPassword.value,
+            plazaVisible: plazaSwitch.classList.contains("on"),
+          }),
+        );
+        try {
+          parent.postMessage(
+            { type: "luma-page", file: "visible-fan-select.html" },
+            "*",
+          );
+        } catch (_) {}
+        location.href = "visible-fan-select.html";
       };
       document.querySelectorAll('[name="roomType"]').forEach(
         (input) =>
@@ -829,21 +983,31 @@
                 "state-hide",
                 !button.classList.contains("on"),
               );
+            if (
+              button === authorizeSwitch &&
+              button.classList.contains("on")
+            )
+              renderVisibleFans();
           }),
       );
       document.querySelector("#saveRoom").onclick = () => {
         const type = document.querySelector('[name="roomType"]:checked').value;
+        const selectedTicketPrice =
+          document.querySelector('[name="ticketPrice"]:checked')?.value || "";
+        const password = roomPassword.value.trim();
         if (
           type === "ticket" &&
-          !document.querySelector("#ticketPrice").value.trim()
+          !readTicketPriceLevels().some(
+            (item) => String(item.price) === selectedTicketPrice,
+          )
         )
-          return Luma.toast("请设置门票价格");
-        if (
-          type === "password" &&
-          !document.querySelector("#roomPassword").value.trim()
-        )
-          return Luma.toast("请设置房间密码");
-        roomValue.textContent = roomNames[type];
+          return Luma.toast("请选择有效的门票价格");
+        if (type === "password" && !/^\d{4,12}$/.test(password))
+          return Luma.toast("密码必须是4-12个数字");
+        roomValue.textContent =
+          type === "ticket"
+            ? `${roomNames[type]} · ${selectedTicketPrice} ◆`
+            : roomNames[type];
         closeSheet("roomSheet");
       };
       document.querySelectorAll("[data-beauty-tab]").forEach(
@@ -900,6 +1064,21 @@
           Luma.toast("已开始直播");
         }, 1000);
       };
+      if (new URLSearchParams(location.search).get("room") === "password") {
+        document.querySelector('[name="roomType"][value="password"]').click();
+        authorizeSwitch.classList.add("on");
+        authorized.classList.remove("state-hide");
+        try {
+          const draft = JSON.parse(
+            sessionStorage.getItem(passwordDraftStorageKey) || "{}",
+          );
+          roomPassword.value = draft.password || "";
+          plazaSwitch.classList.toggle("on", draft.plazaVisible !== false);
+        } catch (_) {}
+        renderVisibleFans();
+        openSheet("roomSheet");
+        history.replaceState({}, "", location.pathname);
+      }
     </script>
   </body>
 </html>

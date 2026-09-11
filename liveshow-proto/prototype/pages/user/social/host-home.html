@@ -297,6 +297,51 @@
         background: var(--g6);
         color: var(--g2);
       }
+      .block-confirm {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        padding: 24px;
+        background: var(--overlay);
+        display: grid;
+        place-items: center;
+      }
+      .block-confirm-card {
+        width: 280px;
+        padding: 20px 16px 16px;
+        border-radius: 8px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .block-confirm-card b {
+        display: block;
+        font-size: 17px;
+      }
+      .block-confirm-card p {
+        margin: 8px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .block-confirm-card div {
+        display: flex;
+        gap: 10px;
+      }
+      .block-confirm-card button {
+        flex: 1;
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .block-confirm-card [data-cancel-block] {
+        background: var(--g6);
+        color: var(--g2);
+      }
+      .block-confirm-card [data-confirm-block] {
+        background: var(--g1);
+        color: var(--g7);
+      }
       .fan-club-sheet {
         position: fixed;
         left: 0;
@@ -544,6 +589,22 @@
       ><button type="button" data-block>拉黑</button
       ><button type="button" data-close-more>取消</button>
     </section>
+    <section
+      class="block-confirm state-hide"
+      id="blockConfirm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="blockConfirmTitle"
+    >
+      <div class="block-confirm-card">
+        <b id="blockConfirmTitle"></b>
+        <p>拉黑后将解除双方关注、好友和粉丝团关系，并删除会话和聊天记录。</p>
+        <div>
+          <button type="button" data-cancel-block>取消</button
+          ><button type="button" data-confirm-block>确认拉黑</button>
+        </div>
+      </div>
+    </section>
     <footer class="profile-actions">
       <button type="button" data-follow><b>+</b><span>关注</span></button
       ><button type="button" data-add-friend><b>+</b><span>加好友</span></button
@@ -670,6 +731,7 @@
       const followButton = document.querySelector("[data-follow]");
       const addFriendButton = document.querySelector("[data-add-friend]");
       const blacklistNotice = document.querySelector("#blacklistNotice");
+      const blockConfirm = document.querySelector("#blockConfirm");
       const profileActionButtons = document.querySelectorAll(
         ".profile-actions button",
       );
@@ -714,7 +776,14 @@
       };
       document.querySelector("[data-block]").onclick = () => {
         moreSheet.classList.add("state-hide");
-        Luma.toast("已拉黑该用户");
+        blockConfirm.querySelector("b").textContent = `确认拉黑 ${host.name}？`;
+        blockConfirm.classList.remove("state-hide");
+      };
+      document.querySelector("[data-cancel-block]").onclick = () =>
+        blockConfirm.classList.add("state-hide");
+      document.querySelector("[data-confirm-block]").onclick = () => {
+        setRelationshipState("blacklist");
+        Luma.toast(`已拉黑 ${host.name}`);
       };
       Luma.registerStates({
         粉丝团状态: {

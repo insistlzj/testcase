@@ -96,41 +96,36 @@
         color: var(--g4);
         font-size: 12px;
       }
-      .risk-modal {
+      .validation-loading {
         position: fixed;
         inset: 0;
-        z-index: 8;
-        padding: 24px;
-        background: var(--overlay);
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.82);
         display: grid;
         place-items: center;
+        cursor: wait;
       }
-      .risk-modal-card {
-        width: 280px;
-        padding: 20px 16px 16px;
-        border-radius: 8px;
-        background: var(--g7);
+      .validation-loading > div {
         text-align: center;
       }
-      .risk-modal-card b {
+      .validation-loading i {
+        width: 32px;
+        height: 32px;
+        margin: 0 auto 12px;
+        border: 3px solid var(--g5);
+        border-top-color: var(--g1);
+        border-radius: 50%;
         display: block;
-        font-size: 17px;
+        animation: validation-spin 0.8s linear infinite;
       }
-      .risk-modal-card p {
-        margin: 8px 0 18px;
-        color: var(--g3);
+      .validation-loading span {
+        color: var(--g2);
         font-size: 13px;
-        line-height: 1.45;
       }
-      .risk-modal-card button {
-        width: 100%;
-        height: 40px;
-        border: 0;
-        border-radius: 8px;
-        background: var(--g1);
-        color: var(--g7);
-        font: 14px inherit;
-        cursor: pointer;
+      @keyframes validation-spin {
+        to {
+          transform: rotate(360deg);
+        }
       }
       .form-section {
         margin-top: 12px;
@@ -243,24 +238,16 @@
         /></label>
       </section>
     </main>
-    <section
-      class="risk-modal state-hide"
-      id="riskDialog"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="riskDialogTitle"
-    >
-      <div class="risk-modal-card">
-        <b id="riskDialogTitle">提示</b>
-        <p>内容不合规，请重新修改。</p>
-        <button type="button" id="closeRiskDialog">知道了</button>
+    <section class="validation-loading state-hide" id="validationLoading">
+      <div role="status" aria-live="polite">
+        <i aria-hidden="true"></i><span>正在校验头像与昵称...</span>
       </div>
     </section>
     <div class="homebar"><i></i></div>
     <script>
       const profileMock = window.LUMA_MOCK.myProfile,
-        riskDemo = window.LUMA_MOCK.profileEditRiskDemo,
-        initialProfile = { ...profileMock };
+        initialProfile = { ...profileMock },
+        validationResults = ["success", "invalid", "network"];
       const avatarFile = document.querySelector("#avatarFile"),
         avatarButton = document.querySelector("#avatarButton"),
         coverFile = document.querySelector("#coverFile"),
@@ -272,9 +259,11 @@
         birthday = document.querySelector("#birthday"),
         signature = document.querySelector("#signature"),
         save = document.querySelector("#save"),
-        riskDialog = document.querySelector("#riskDialog"),
-        closeRiskDialog = document.querySelector("#closeRiskDialog");
-      let avatarChanged = false;
+        validationLoading = document.querySelector("#validationLoading");
+      let avatarChanged = false,
+        validationResultIndex = 0,
+        isValidating = false,
+        riskValidationDemoActive = false;
       function fillProfile() {
         nickname.value = profileMock.name;
         gender.value = profileMock.gender;
@@ -294,6 +283,7 @@
       avatarFile.onchange = () => {
         if (!avatarFile.files?.[0]) return;
         avatarChanged = true;
+        riskValidationDemoActive = true;
         document.querySelector("#avatarText").textContent = "新";
         Luma.toast("已选择新头像");
       };
@@ -308,16 +298,13 @@
         };
         reader.readAsDataURL(file);
       };
-      [nickname, gender, region, birthday, signature].forEach((element) =>
+      nickname.addEventListener("input", () => {
+        riskValidationDemoActive = true;
+        syncForm();
+      });
+      [gender, region, birthday, signature].forEach((element) =>
         element.addEventListener("input", syncForm),
       );
-      function closeRiskDialogHandler() {
-        riskDialog.classList.add("state-hide");
-      }
-      function openRiskDialog() {
-        riskDialog.classList.remove("state-hide");
-        closeRiskDialog.focus();
-      }
       function saveDirectFields() {
         profileMock.gender = gender.value;
         profileMock.region = region.value;
@@ -327,40 +314,49 @@
       function resetProfile() {
         Object.assign(profileMock, initialProfile);
         fillProfile();
-        closeRiskDialogHandler();
+        validationResultIndex = 0;
+        riskValidationDemoActive = false;
+        setValidationLoading(false);
       }
-      function applyRiskDemo(value) {
-        resetProfile();
-        nickname.value = value;
-        syncForm();
+      function saveRiskFields() {
+        profileMock.name = nickname.value.trim();
+        if (avatarChanged)
+          profileMock.avatar = document.querySelector("#avatarText").textContent;
+        avatarChanged = false;
       }
-      closeRiskDialog.onclick = closeRiskDialogHandler;
-      riskDialog.onclick = (event) => {
-        if (event.target === riskDialog) closeRiskDialogHandler();
-      };
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeRiskDialogHandler();
-      });
-      save.onclick = () => {
-        if (save.disabled) return;
-        saveDirectFields();
+      function setValidationLoading(loading) {
+        isValidating = loading;
+        validationLoading.classList.toggle("state-hide", !loading);
+        document.querySelector(".screen").setAttribute("aria-busy", String(loading));
+        save.disabled = loading || !nickname.value.trim();
+      }
+      save.onclick = async () => {
+        if (save.disabled || isValidating) return;
         const changesRiskContent =
-          avatarChanged || nickname.value.trim() !== profileMock.name;
-        if (
-          changesRiskContent &&
-          nickname.value.trim() === riskDemo.nonCompliantNickname
-        ) {
-          openRiskDialog();
+          riskValidationDemoActive ||
+          avatarChanged ||
+          nickname.value.trim() !== profileMock.name;
+        if (!changesRiskContent) {
+          saveDirectFields();
+          Luma.toast("资料已保存");
           return;
         }
-        if (changesRiskContent) {
-          profileMock.name = nickname.value.trim();
-          if (avatarChanged)
-            profileMock.avatar =
-              document.querySelector("#avatarText").textContent;
-          avatarChanged = false;
+        const result = validationResults[validationResultIndex];
+        validationResultIndex =
+          (validationResultIndex + 1) % validationResults.length;
+        setValidationLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        setValidationLoading(false);
+        if (result === "invalid") {
+          Luma.toast("头像或昵称不合规");
+          return;
         }
-        closeRiskDialogHandler();
+        if (result === "network") {
+          Luma.toast("网络异常，请重试");
+          return;
+        }
+        saveDirectFields();
+        saveRiskFields();
         Luma.toast("资料已保存");
       };
       fillProfile();
@@ -371,8 +367,7 @@
       Luma.registerStates({
         保存演示: {
           默认: resetProfile,
-          内容合规: () => applyRiskDemo(riskDemo.compliantNickname),
-          内容不合规: () => applyRiskDemo(riskDemo.nonCompliantNickname),
+          校验中: () => setValidationLoading(true),
         },
       });
     </script>

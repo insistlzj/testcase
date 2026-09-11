@@ -12,7 +12,7 @@
       href="../../../assets/guild.css?v=20260820-fiat-values-v1"
     />
     <script src="../../../assets/common.js?v=20260818-id-date-time-v1"></script>
-    <script src="../../../assets/mock.js?v=20260820-withdrawal-review-v1"></script>
+    <script src="../../../assets/mock.js?v=20260907-host-only-v1"></script>
   </head>
   <body>
     <main class="guild-screen">
@@ -25,7 +25,7 @@
           aria-label="切换公会"
           ><span class="guild-mark" id="guildMark">JS</span
           ><span class="guild-identity-copy"
-            ><b id="guildName">Jakarta Star Guild</b
+            ><b id="guildName">Jakarta Star Agency</b
             ><span id="guildId">G10021</span></span
           ><i class="guild-identity-switch">›</i></a
         >
@@ -151,7 +151,6 @@
                   "运营指标",
                   "公会收益",
                   "虚拟金币",
-                  "提现审核",
                 ].includes(item),
             );
             return `<section class="function-group"><h3>${group.title}</h3><div class="function-grid">${items.map((item) => `<button class="function-action" type="button" data-placeholder="${item}" data-route="${routes[item] || ""}"><span class="function-icon"><svg viewBox="0 0 24 24" aria-hidden="true">${functionIcons[item] || '<circle cx="12" cy="12" r="7"></circle>'}</svg></span>${item}</button>`).join("")}</div></section>`;

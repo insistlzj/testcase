@@ -115,6 +115,40 @@ window.LUMA_FORMAT = Object.freeze({
 
 window.Luma = {
   format: window.LUMA_FORMAT,
+  storage(type = 'local') {
+    const key = type === 'session' ? 'sessionStorage' : 'localStorage';
+    try {
+      return window.parent && window.parent !== window ? window.parent[key] : window[key];
+    } catch (_) {
+      return window[key];
+    }
+  },
+  setGuestMode(enabled) {
+    try {
+      enabled
+        ? sessionStorage.setItem('luma-guest-mode', '1')
+        : sessionStorage.removeItem('luma-guest-mode');
+    } catch (_) {}
+  },
+  isGuestMode() {
+    if (new URLSearchParams(location.search).get('guest') === '1') return true;
+    try {
+      return sessionStorage.getItem('luma-guest-mode') === '1';
+    } catch (_) {
+      return false;
+    }
+  },
+  guestUrl(path) {
+    if (!window.Luma.isGuestMode()) return path;
+    return `${path}${path.includes('?') ? '&' : '?'}guest=1`;
+  },
+  requireLogin() {
+    if (!window.Luma.isGuestMode()) return true;
+    window.Luma.setGuestMode(false);
+    window.parent.postMessage({ type: 'luma-page', file: 'auth-login-register.html' }, '*');
+    location.href = new URL('../auth/auth-login-register.html', location.href).href;
+    return false;
+  },
   tip(value, label) {
     const escape = (text) => String(text).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
     const displayValue = /\/pages\/admin\//.test(location.pathname) ? window.LUMA_FORMAT.time(window.LUMA_FORMAT.dateTime(value)) : value;
@@ -170,7 +204,7 @@ window.LUMA_GUILD_CONTEXT = (() => {
   const storageKey = 'luma-guild-current-v1';
   const guilds = [
     {
-      id: 'G10021', mark: 'JS', name: 'Jakarta Star Guild', region: 'Jakarta', role: '公会长',
+      id: 'G10021', mark: 'JS', name: 'Jakarta Star Agency', region: 'Jakarta', role: '公会长',
       summary: {
         month: { label: '本月', income: '$178,360', delta: '较上月同期 +11.2%', settleable: '$146,820' },
         week: { label: '近7天', income: '$128,460', delta: '较上周 +12.8%', settleable: '$102,680' }
@@ -181,7 +215,7 @@ window.LUMA_GUILD_CONTEXT = (() => {
       ]
     },
     {
-      id: 'G10046', mark: 'BN', name: 'Bandung Nova Guild', region: 'Bandung', role: '公会长',
+      id: 'G10046', mark: 'BN', name: 'Bandung Nova Agency', region: 'Bandung', role: '公会长',
       summary: {
         month: { label: '本月', income: '$96,240', delta: '较上月同期 +8.6%', settleable: '$77,820' },
         week: { label: '近7天', income: '$68,510', delta: '较上周 +6.9%', settleable: '$54,360' }
@@ -192,7 +226,7 @@ window.LUMA_GUILD_CONTEXT = (() => {
       ]
     },
     {
-      id: 'G10073', mark: 'SS', name: 'Surabaya Spark Guild', region: 'Surabaya', role: '公会长',
+      id: 'G10073', mark: 'SS', name: 'Surabaya Spark Agency', region: 'Surabaya', role: '公会长',
       summary: {
         month: { label: '本月', income: '$68,400', delta: '较上月同期 +15.4%', settleable: '$53,160' },
         week: { label: '近7天', income: '$47,820', delta: '较上周 +10.5%', settleable: '$36,940' }
@@ -523,9 +557,21 @@ window.LUMA_GUILD_CONTEXT = (() => {
 
 (() => {
   const groups = {
+    '运营配置': [
+      ['../operations/admin-placement-config.html', '展位配置'],
+      ['../operations/admin-push-management.html', '推送管理'],
+      ['../operations/admin-recharge-package.html', '充值套餐'],
+      ['../operations/admin-task-config.html', '任务配置'],
+      ['../operations/admin-guild-recommendation.html', '公会推荐'],
+      ['../operations/admin-live-type.html', '直播类型'],
+      ['../operations/admin-feature-switch.html', '直播房型'],
+      ['../operations/admin-sensitive-words.html', '敏感词库'],
+      ['../operations/admin-level-config.html', '等级配置']
+    ],
     '举报处理': [
       ['../content/admin-account-violation.html', '账号违规'],
-      ['../content/admin-report-handling.html', '直播间违规']
+      ['../content/admin-report-handling.html', '直播间违规'],
+      ['../content/admin-violation-types.html', '违规类型']
     ],
     '订单管理': [
       ['../orders/admin-recharge-order.html', '充值订单'],
@@ -547,12 +593,16 @@ window.LUMA_GUILD_CONTEXT = (() => {
       ['../accounts/admin-operation-issue-records.html', '发放记录'],
       ['../accounts/admin-operation-gift-records.html', '送礼记录'],
       ['../accounts/admin-operation-guild-controls.html', '额度限制']
+    ],
+    '系统配置': [
+      ['../system/admin-system-account.html', '后台账号'],
+      ['../system/admin-system-role.html', '角色管理']
     ]
   };
   const currentFile = location.pathname.split('/').pop();
   const currentCategory = location.pathname.split('/').slice(-2, -1)[0];
-  const categoryByGroup = { '订单管理': 'orders', '财务分成': 'finance', '数据分析': 'analytics', '运营账号': 'accounts' };
-  const reportFiles = ['admin-account-violation.html', 'admin-report-handling.html', 'admin-report-detail.html'];
+  const categoryByGroup = { '运营配置': 'operations', '订单管理': 'orders', '财务分成': 'finance', '数据分析': 'analytics', '运营账号': 'accounts', '系统配置': 'system' };
+  const reportFiles = ['admin-account-violation.html', 'admin-report-handling.html', 'admin-report-detail.html', 'admin-violation-types.html', 'admin-violation-type-detail.html'];
 
   function groupName(trigger) {
     const name = trigger.dataset.menu || trigger.querySelector('span')?.textContent.trim();
@@ -573,14 +623,6 @@ window.LUMA_GUILD_CONTEXT = (() => {
     if (!nav.children.length) {
       nav.innerHTML = '<a class="admin-nav-item" href="../user/admin-user-list.html"><span>用户管理</span><span>›</span></a><a class="admin-nav-item" href="../host/admin-host-list.html"><span>主播管理</span><span>›</span></a><a class="admin-nav-item" href="../guild/admin-guild-list.html"><span>公会管理</span><span>›</span></a><a class="admin-nav-item" href="../gifts/admin-gift-list.html"><span>礼物道具</span><span>›</span></a><a class="admin-nav-item" href="../operations/admin-placement-config.html"><span>运营配置</span><span>›</span></a><a class="admin-nav-item" href="../finance/admin-settlement-record.html"><span>财务分成</span><span>›</span></a><button class="admin-nav-item" data-menu="数据分析"><span>数据分析</span><span>›</span></button>';
     }
-
-    [...nav.querySelectorAll(':scope > .admin-nav-item')]
-      .filter((entry) => entry.textContent.trim().startsWith('系统配置'))
-      .forEach((entry) => {
-        const submenu = entry.nextElementSibling;
-        if (submenu?.classList.contains('admin-nav-submenu')) submenu.remove();
-        entry.remove();
-      });
 
     if (!nav.querySelector('a[href$="admin-dashboard.html"]')) {
       const dashboardEntry = document.createElement('a');
@@ -622,6 +664,28 @@ window.LUMA_GUILD_CONTEXT = (() => {
       operationAccountEntry.dataset.menu = '运营账号';
       operationAccountEntry.innerHTML = '<span>运营账号</span><span>›</span>';
       nav.appendChild(operationAccountEntry);
+    }
+
+    if (!nav.querySelector('[data-menu="系统配置"]')) {
+      const systemEntry = document.createElement('button');
+      systemEntry.className = 'admin-nav-item';
+      systemEntry.type = 'button';
+      systemEntry.dataset.menu = '系统配置';
+      systemEntry.innerHTML = '<span>系统配置</span><span>›</span>';
+      nav.appendChild(systemEntry);
+    }
+
+    const operationAccountEntry = nav.querySelector(':scope > [data-menu="运营账号"]');
+    const systemEntry = nav.querySelector(':scope > [data-menu="系统配置"]');
+    if (operationAccountEntry && systemEntry) {
+      const operationAccountSubmenu = operationAccountEntry.nextElementSibling?.classList.contains('admin-nav-submenu')
+        ? operationAccountEntry.nextElementSibling
+        : null;
+      const systemSubmenu = systemEntry.nextElementSibling?.classList.contains('admin-nav-submenu')
+        ? systemEntry.nextElementSibling
+        : null;
+      (operationAccountSubmenu || operationAccountEntry).insertAdjacentElement('afterend', systemEntry);
+      if (systemSubmenu) systemEntry.insertAdjacentElement('afterend', systemSubmenu);
     }
 
     if (reportFiles.includes(currentFile)) {
@@ -670,10 +734,21 @@ window.LUMA_GUILD_CONTEXT = (() => {
           const reportParent = currentFile === 'admin-report-detail.html'
             ? (reportScope === 'account' ? 'admin-account-violation' : 'admin-report-handling')
             : '';
-          if (currentFile === `${pageBase}.html` || currentFile.startsWith(`${pageBase}-detail`) || reportParent === pageBase) link.classList.add('active');
+          const violationTypeParent = currentFile === 'admin-violation-type-detail.html'
+            ? 'admin-violation-types'
+            : '';
+          if (currentFile === `${pageBase}.html` || currentFile.startsWith(`${pageBase}-detail`) || reportParent === pageBase || violationTypeParent === pageBase) link.classList.add('active');
           submenu.appendChild(link);
         });
         trigger.insertAdjacentElement('afterend', submenu);
+      }
+
+      if (name === '运营配置' && !submenu.querySelector('a[href$="admin-level-config.html"]')) {
+        const link = document.createElement('a');
+        link.className = 'admin-nav-sub';
+        link.href = '../operations/admin-level-config.html';
+        link.textContent = '等级配置';
+        submenu.appendChild(link);
       }
 
       if (configuredName === '财务分成') {
@@ -728,6 +803,7 @@ window.LUMA_GUILD_CONTEXT = (() => {
         setExpanded(trigger, submenu, willExpand);
       });
     });
+
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupAdminNavigation, { once: true });
@@ -825,7 +901,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.tool').forEach((tool) => {
     if (tool.textContent.trim() === '粉丝团管理') tool.onclick = () => { location.href = 'fan-club.html'; };
     if (tool.textContent.trim() === '直播记录') tool.onclick = () => { location.href = 'live-records.html'; };
-    if (tool.textContent.trim() === '分成记录') tool.onclick = () => { location.href = 'income-withdrawal.html'; };
+    if (tool.textContent.trim() === '分成记录') tool.onclick = () => { location.href = 'income-sharing.html'; };
   });
 
   document.querySelectorAll('.section-title button').forEach((button) => {
@@ -865,6 +941,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fanClubSheet.setAttribute('role', 'dialog');
     fanClubSheet.setAttribute('aria-modal', 'true');
     let joinedFanClub = false;
+    let fanClubEligible = true;
     const renderFanClubSheet = () => {
       fanClubSheet.innerHTML = `<button type="button" class="fan-club-sheet-close" aria-label="关闭粉丝团">×</button><header><i class="avatar">S</i><div class="fan-club-summary"><div class="fan-club-name"><b>Sari 粉丝团</b><i class="fan-club-level">Lv.3</i></div><div class="fan-club-meta"><span class="fan-club-count">356 人</span><div class="fan-club-rank"><em>粉丝榜</em><i>R</i><i>M</i><i>D</i></div></div></header><section class="fan-club-benefits"><h2>粉丝团权益</h2><div><article><i>◆</i><span><b>粉丝灯牌</b><small>发言展示主播专属灯牌</small></span></article><article><i>↗</i><span><b>进房提示</b><small>进入直播间时显示提示</small></span></article></div></section><button type="button" class="fan-club-primary" data-fan-club-action>${joinedFanClub ? '进入粉丝团群聊' : '加入粉丝团'}</button>`;
       fanClubSheet.querySelector('.fan-club-sheet-close').onclick = () => fanClubSheet.classList.add('state-hide');
@@ -875,6 +952,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       fanClubAction.onclick = () => {
         if (joinedFanClub) { location.href = 'fan-group-chat.html'; return; }
+        if (!fanClubEligible) { window.Luma.toast('未满足进群条件'); return; }
         joinedFanClub = true;
         renderFanClubSheet();
         window.Luma.toast('已加入 Sari 粉丝团');
@@ -906,6 +984,7 @@ document.addEventListener('DOMContentLoaded', () => {
     roomFollow?.addEventListener('click', () => setRoomFollowState(true));
     window.Luma.registerStates({
       '粉丝团状态': { '未加入': () => setFanClubState(false), '已加入': () => setFanClubState(true) },
+      '进团条件': { '满足': () => { fanClubEligible = true; }, '未满足': () => { fanClubEligible = false; setFanClubState(false); openFanClubSheet(false); } },
       '直播间角色': { '用户': () => window.setRoomRole?.('用户'), '房管': () => window.setRoomRole?.('房管') }
     });
   }
@@ -1102,9 +1181,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       const pages = [];
       for (let start = 0; start < giftSets[tab].length; start += 6) pages.push(giftSets[tab].slice(start, start + 6));
-      giftList.innerHTML = pages.map((page, pageIndex) => `<div class="gift-page">${page.map(([icon, name, cost, batch], itemIndex) => {
+      giftList.innerHTML = pages.map((page, pageIndex) => `<div class="gift-page">${page.map(([icon, name, cost, batch, totalCost], itemIndex) => {
         const index = pageIndex * 6 + itemIndex;
-        return `<button class="gift-item" data-gift-index="${index}">${batch ? `<span class="gift-batch">${batch}</span>` : ''}<i>${icon}</i>${name}<small class="coin">${cost}</small></button>`;
+        return `<button class="gift-item" data-gift-index="${index}">${batch ? `<span class="gift-batch">${batch}</span>` : ''}<i>${icon}</i>${name}<small class="coin">${totalCost ?? cost}</small></button>`;
       }).join('')}</div>`).join('');
       selectGift(giftSets[tab][0], 0);
     };
@@ -1151,7 +1230,7 @@ document.addEventListener('DOMContentLoaded', () => {
           contributionSheet.setAttribute('role', 'dialog');
           contributionSheet.setAttribute('aria-modal', 'true');
           contributionSheet.setAttribute('aria-label', '本场贡献');
-          contributionSheet.innerHTML = `<nav class="session-gift-tabs"><button type="button" class="active" data-session-tab="contribution">贡献榜</button><button type="button" data-session-tab="gifts">收到礼物</button><button type="button" data-close-session-gift aria-label="关闭本场贡献">×</button></nav><section data-session-panel="contribution"><div class="session-donor-list"><article><em>1</em><i>R</i><span><b>Rina</b><small>财富 Lv.18</small><small>粉丝 Lv.11</small></span><strong>◆ 3.260</strong></article><article><em>2</em><i>M</i><span><b>Maya</b><small>财富 Lv.15</small><small>粉丝 Lv.9</small></span><strong>◆ 1.860</strong></article><article><em>3</em><i>L</i><span><b>Lina</b><small>财富 Lv.18</small><small>粉丝 Lv.8</small></span><strong>◆ 960</strong></article><article><em>4</em><i>D</i><span><b>Dewi</b><small>财富 Lv.12</small><small>粉丝 Lv.7</small></span><strong>◆ 720</strong></article></div></section><section class="state-hide" data-session-panel="gifts"><div class="session-gift-grid"><article><i>✦</i><b>星光</b><strong>x28</strong></article><article><i>♔</i><b>钻石王冠</b><strong>x12</strong></article><article><i>✿</i><b>鲜花</b><strong>x36</strong></article></div></section>`;
+          contributionSheet.innerHTML = `<nav class="session-gift-tabs"><button type="button" class="active" data-session-tab="contribution">贡献榜（99）</button><button type="button" data-session-tab="gifts">收到礼物</button><button type="button" data-close-session-gift aria-label="关闭本场贡献">×</button></nav><section data-session-panel="contribution"><div class="session-donor-list"><article><em>1</em><i>R</i><span><b>Rina</b><small>财富 Lv.18</small><small>粉丝 Lv.11</small></span><strong>◆ 3.260</strong></article><article><em>2</em><i>M</i><span><b>Maya</b><small>财富 Lv.15</small><small>粉丝 Lv.9</small></span><strong>◆ 1.860</strong></article><article><em>3</em><i>L</i><span><b>Lina</b><small>财富 Lv.18</small><small>粉丝 Lv.8</small></span><strong>◆ 960</strong></article><article><em>4</em><i>D</i><span><b>Dewi</b><small>财富 Lv.12</small><small>粉丝 Lv.7</small></span><strong>◆ 720</strong></article></div></section><section class="state-hide" data-session-panel="gifts"><div class="session-gift-grid"><article><i>✦</i><b>星光</b><strong>x28</strong></article><article><i>♔</i><b>钻石王冠</b><strong>x12</strong></article><article><i>✿</i><b>鲜花</b><strong>x36</strong></article></div></section>`;
           cohostRoom.append(contributionSheet);
           contributionTrigger.onclick = () => contributionSheet.classList.remove('state-hide');
           contributionSheet.querySelector('[data-close-session-gift]').onclick = () => contributionSheet.classList.add('state-hide');
@@ -1165,11 +1244,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const cohostStyle = document.createElement('style');
       cohostStyle.textContent = `
-        .cohost-sheet{position:absolute;left:0;right:0;bottom:0;z-index:20;max-height:82%;padding:16px 16px 20px;border-top:1px solid var(--g5);border-radius:12px 12px 0 0;background:var(--g7);box-shadow:0 -10px 24px rgba(0,0,0,.12);overflow:auto}
+        .cohost-sheet{position:absolute;left:0;right:0;bottom:0;z-index:20;height:470px;max-height:82%;box-sizing:border-box;padding:16px 16px 20px;border-top:1px solid var(--g5);border-radius:12px 12px 0 0;background:var(--g7);box-shadow:0 -10px 24px rgba(0,0,0,.12);display:flex;flex-direction:column;overflow:hidden}
         .cohost-sheet.state-hide{display:none!important}
         .cohost-sheet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.cohost-sheet-head b{font-size:17px}.cohost-sheet-close{width:32px;height:32px;padding:0;border:0;background:transparent;color:var(--g2);font:26px/1 inherit;cursor:pointer}
         .cohost-search{display:flex;align-items:center;height:42px;padding:0 12px;border-radius:8px;background:var(--g6);color:var(--g3)}.cohost-search span{margin-right:7px;font-size:16px}.cohost-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--g1);font:14px inherit}.cohost-search input::placeholder{color:var(--g4)}
-        .cohost-section{margin-top:18px}.cohost-section h2{display:flex;align-items:center;justify-content:space-between;margin:0 0 8px;font-size:14px}.cohost-section h2 small{color:var(--g3);font-size:11px;font-weight:400}.cohost-row{display:flex;align-items:center;gap:10px;min-height:58px;padding:8px 0;border-bottom:1px solid var(--g6)}.cohost-row:last-child{border-bottom:0}.cohost-avatar{width:38px;height:38px;flex:none;border-radius:50%;background:var(--g5);color:var(--g1);display:grid;place-items:center;font-size:13px;font-style:normal}.cohost-copy{min-width:0;flex:1}.cohost-copy b{display:block;overflow:hidden;font-size:14px;white-space:nowrap;text-overflow:ellipsis}.cohost-copy small{display:block;margin-top:3px;color:var(--g3);font-size:11px}.cohost-action{height:30px;padding:0 12px;border:0;border-radius:8px;background:var(--g1);color:var(--g7);font:12px inherit;cursor:pointer}.cohost-action.secondary{background:var(--g6);color:var(--g2)}.cohost-action.icon{width:30px;padding:0;border-radius:50%;font:18px/1 inherit}.cohost-invite-actions{display:flex;gap:7px}.cohost-empty{margin:14px 0 0;color:var(--g3);font-size:13px;text-align:center}[data-host-pk].is-disabled{background:var(--g5);color:var(--g4);cursor:not-allowed}
+        .cohost-default-content{min-height:0;flex:1;overflow:auto}.cohost-section{margin-top:18px}.cohost-section h2{display:flex;align-items:center;justify-content:space-between;margin:0 0 8px;font-size:14px}.cohost-section h2 small{color:var(--g3);font-size:11px;font-weight:400}.cohost-search-results{position:absolute;top:120px;right:16px;bottom:20px;left:16px;z-index:2;margin:0;background:var(--g7);overflow:auto}.cohost-row{display:flex;align-items:center;gap:10px;min-height:58px;padding:8px 0;border-bottom:1px solid var(--g6)}.cohost-row:last-child{border-bottom:0}.cohost-avatar{width:38px;height:38px;flex:none;border-radius:50%;background:var(--g5);color:var(--g1);display:grid;place-items:center;font-size:13px;font-style:normal}.cohost-copy{min-width:0;flex:1}.cohost-copy b{display:block;overflow:hidden;font-size:14px;white-space:nowrap;text-overflow:ellipsis}.cohost-copy small{display:block;margin-top:3px;color:var(--g3);font-size:11px}.cohost-action{height:30px;padding:0 12px;border:0;border-radius:8px;background:var(--g1);color:var(--g7);font:12px inherit;cursor:pointer}.cohost-action.secondary{background:var(--g6);color:var(--g2)}.cohost-action.icon{width:30px;padding:0;border-radius:50%;font:18px/1 inherit}.cohost-action.is-unavailable{background:var(--g5);color:var(--g4);cursor:not-allowed}.cohost-invite-actions{display:flex;gap:7px}.cohost-empty{margin:14px 0 0;color:var(--g3);font-size:13px;text-align:center}[data-host-pk].is-disabled{background:var(--g5);color:var(--g4);cursor:not-allowed}
       `;
       document.head.append(cohostStyle);
       const cohostSheet = document.createElement('section');
@@ -1180,9 +1259,9 @@ document.addEventListener('DOMContentLoaded', () => {
       cohostSheet.innerHTML = `
         <header class="cohost-sheet-head"><b>连麦主播</b><button type="button" class="cohost-sheet-close" data-close-cohost aria-label="关闭连麦主播">×</button></header>
         <label class="cohost-search"><span>⌕</span><input type="search" data-cohost-search placeholder="搜索 ID、名字" aria-label="搜索 ID、名字"></label>
-        <section class="cohost-section state-hide" data-cohost-search-results><div data-cohost-search-hosts></div></section>
-        <section class="cohost-section" data-cohost-outgoing-section><h2>发出的请求</h2><div data-cohost-outgoing></div></section>
-        <section class="cohost-section" data-cohost-invite-section><h2>收到的邀请</h2><div data-cohost-invites></div></section>
+        <section class="cohost-section cohost-search-results state-hide" data-cohost-search-results><div data-cohost-search-hosts></div></section>
+        <div class="cohost-default-content"><section class="cohost-section" data-cohost-outgoing-section><h2>发出的请求</h2><div data-cohost-outgoing></div></section>
+        <section class="cohost-section" data-cohost-invite-section><h2>收到的邀请</h2><div data-cohost-invites></div></section></div>
       `;
       cohostRoom.append(cohostSheet);
       const incomingInvites = [
@@ -1191,9 +1270,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Ayu', id: '62874015', avatar: 'A' }
       ];
       const searchableHosts = [
-        { name: 'Zara', id: '62389741', avatar: 'Z' },
-        { name: 'Putri', id: '69017245', avatar: 'P' },
-        { name: 'Fajar', id: '69736281', avatar: 'F' }
+        { name: 'Zara', id: '62389741', avatar: 'Z', eligible: true },
+        { name: 'Putri', id: '69017245', avatar: 'P', eligible: false },
+        { name: 'Fajar', id: '69736281', avatar: 'F', eligible: false }
       ];
       let outgoingInvite = { name: 'Sinta', id: '69427158', avatar: 'S' };
       const searchResults = cohostSheet.querySelector('[data-cohost-search-results]');
@@ -1206,11 +1285,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const normalized = keyword.trim().toLowerCase();
         const items = incomingInvites.filter((host) => !normalized || host.name.toLowerCase().includes(normalized) || host.id.includes(normalized));
         const outgoingMatches = outgoingInvite && (!normalized || outgoingInvite.name.toLowerCase().includes(normalized) || outgoingInvite.id.includes(normalized));
-        const matchedHosts = normalized ? searchableHosts.filter((host) => host.name.toLowerCase().includes(normalized) || host.id.includes(normalized)) : [];
+        const matchedHosts = normalized ? searchableHosts.filter((host) => host.eligible && (host.name.toLowerCase().includes(normalized) || host.id.includes(normalized))) : [];
         searchResults.classList.toggle('state-hide', !normalized);
         outgoingSection.classList.toggle('state-hide', Boolean(normalized));
         inviteSection.classList.toggle('state-hide', Boolean(normalized));
-        searchHostList.innerHTML = matchedHosts.length ? matchedHosts.map((host) => `<article class="cohost-row"><i class="cohost-avatar">${host.avatar}</i><span class="cohost-copy"><b>${host.name}</b><small>ID：${host.id}</small></span><button type="button" class="cohost-action icon" data-start-cohost="${host.name}" aria-label="向 ${host.name} 发起连麦" title="发起连麦">↗</button></article>`).join('') : '<p class="cohost-empty">暂无匹配主播</p>';
+        searchHostList.innerHTML = matchedHosts.length ? matchedHosts.map((host) => `<article class="cohost-row"><i class="cohost-avatar">${host.avatar}</i><span class="cohost-copy"><b>${host.name}</b><small>ID：${host.id}</small></span><button type="button" class="cohost-action icon${outgoingInvite ? ' is-unavailable' : ''}" data-start-cohost="${host.name}" aria-label="向 ${host.name} 发起连麦${outgoingInvite ? '，已有发出请求，请先取消' : ''}" aria-disabled="${Boolean(outgoingInvite)}" title="${outgoingInvite ? '已有发出请求，请先取消' : '发起连麦'}">↗</button></article>`).join('') : '<p class="cohost-empty">查询结果为空或主播未在普通房直播</p>';
         outgoingList.innerHTML = outgoingMatches ? `<article class="cohost-row"><i class="cohost-avatar">${outgoingInvite.avatar}</i><span class="cohost-copy"><b>${outgoingInvite.name}</b><small>ID：${outgoingInvite.id}</small></span><button type="button" class="cohost-action secondary" data-cancel-outgoing>取消</button></article>` : '<p class="cohost-empty">暂无发出的请求</p>';
         inviteList.innerHTML = items.length ? items.map((host) => `<article class="cohost-row"><i class="cohost-avatar">${host.avatar}</i><span class="cohost-copy"><b>${host.name}</b><small>ID：${host.id}</small></span><span class="cohost-invite-actions"><button type="button" class="cohost-action secondary" data-decline-invite="${host.name}">拒绝</button><button type="button" class="cohost-action" data-accept-invite="${host.name}">接受</button></span></article>`).join('') : '<p class="cohost-empty">暂无收到的邀请</p>';
       };
@@ -1218,7 +1297,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isPasswordHostRoom) {
         pkButton.classList.add('is-disabled');
         pkButton.setAttribute('aria-disabled', 'true');
-        pkButton.setAttribute('aria-label', 'PK，密码房不可发起连麦');
+        pkButton.setAttribute('aria-label', '主播连麦不可用，密码房不可发起连麦');
         pkButton.title = '密码房无法发起连麦';
         pkButton.onclick = () => window.Luma.toast('密码房无法发起连麦');
       } else {
@@ -1232,7 +1311,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const host = searchableHosts.find((item) => item.name === button.dataset.startCohost);
         if (!host) return;
         if (outgoingInvite) {
-          window.Luma.toast('已有发出的连麦请求');
+          window.Luma.toast('已有发出请求，请先取消');
           return;
         }
         outgoingInvite = host;
@@ -1284,6 +1363,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <button type="button" data-host-setting="beauty"><i>美</i><span>美颜设置</span></button>
             <button type="button" data-host-setting="muted"><i>禁</i><span>禁言列表</span></button>
             <button type="button" data-host-setting="password"><i>密</i><span>房间密码</span></button>
+            ${isPasswordHostRoom ? '<button type="button" data-host-setting="scope"><i>范</i><span>可见范围</span></button>' : ''}
             <button type="button" data-host-setting="clear"><i>清</i><span>清屏</span></button>
           </div>
         `;
@@ -1378,7 +1458,7 @@ document.addEventListener('DOMContentLoaded', () => {
         roomPasswordSheet.setAttribute('role', 'dialog');
         roomPasswordSheet.setAttribute('aria-modal', 'true');
         roomPasswordSheet.setAttribute('aria-label', '房间密码');
-        roomPasswordSheet.innerHTML = '<header><b>房间密码</b><button type="button" data-close-room-password aria-label="关闭房间密码">×</button></header><div class="room-password-current"><span>当前房间密码</span><b data-current-room-password></b></div><label>新密码<input type="text" inputmode="numeric" maxlength="8" data-room-password-input aria-label="新密码，8 位数字"></label><button type="button" data-save-room-password>保存密码</button>';
+        roomPasswordSheet.innerHTML = '<header><b>房间密码</b><button type="button" data-close-room-password aria-label="关闭房间密码">×</button></header><div class="room-password-current"><span>当前房间密码</span><b data-current-room-password></b></div><label>新密码<input type="text" inputmode="numeric" maxlength="12" data-room-password-input aria-label="新密码，4-12 个数字"></label><button type="button" data-save-room-password>保存密码</button>';
         cohostRoom.append(roomPasswordSheet);
         const roomPasswordInput = roomPasswordSheet.querySelector('[data-room-password-input]');
         const syncRoomPassword = () => {
@@ -1388,7 +1468,7 @@ document.addEventListener('DOMContentLoaded', () => {
         roomPasswordSheet.querySelector('[data-close-room-password]').onclick = () => roomPasswordSheet.classList.add('state-hide');
         roomPasswordSheet.querySelector('[data-save-room-password]').onclick = () => {
           const nextPassword = roomPasswordInput.value.trim();
-          if (!/^\d{8}$/.test(nextPassword)) { window.Luma.toast('请输入 8 位数字密码'); return; }
+          if (!/^\d{4,12}$/.test(nextPassword)) { window.Luma.toast('密码必须是4-12个数字'); return; }
           roomPassword = nextPassword;
           syncRoomPassword();
           roomPasswordSheet.classList.add('state-hide');
@@ -1405,6 +1485,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (item.dataset.hostSetting === 'password' && isPasswordHostRoom) {
               syncRoomPassword();
               roomPasswordSheet.classList.remove('state-hide');
+              return;
+            }
+            if (item.dataset.hostSetting === 'scope' && isPasswordHostRoom) {
+              window.openLiveVisibleScope?.();
               return;
             }
             if (item.dataset.hostSetting === 'share') {
@@ -1458,8 +1542,30 @@ document.addEventListener('DOMContentLoaded', () => {
         hostProfileActions.classList.add('host-profile-actions-scroll');
         hostProfileActions.querySelectorAll('[data-host-profile-action]').forEach((button) => button.remove());
         const hostProfileActionStyle = document.createElement('style');
-        hostProfileActionStyle.textContent = '.host-profile-actions-scroll{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;width:100%!important;box-sizing:border-box!important;padding:14px 16px 2px!important;overflow-x:auto!important;overflow-y:hidden!important;overscroll-behavior-x:contain;scrollbar-width:none}.host-profile-actions-scroll::-webkit-scrollbar{display:none}.host-profile-actions-scroll button{box-sizing:border-box!important;flex:0 0 auto!important;width:auto!important;min-width:0!important;max-width:none!important;height:34px!important;padding:0 10px!important;white-space:nowrap!important}.host-profile-actions-scroll [data-host-profile-action] b{font-size:13px!important}.host-profile-actions-scroll [data-host-profile-action].active{background:var(--g1)!important;color:var(--g7)!important}';
+        hostProfileActionStyle.textContent = '.host-profile-actions-scroll{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;width:100%!important;box-sizing:border-box!important;padding:14px 16px 2px!important;overflow-x:auto!important;overflow-y:hidden!important;overscroll-behavior-x:contain;scrollbar-width:none}.host-profile-actions-scroll::-webkit-scrollbar{display:none}.host-profile-actions-scroll button{box-sizing:border-box!important;flex:0 0 auto!important;width:auto!important;min-width:0!important;max-width:none!important;height:34px!important;padding:0 10px!important;white-space:nowrap!important}.host-profile-actions-scroll [data-host-profile-action] b{font-size:13px!important}.host-profile-actions-scroll [data-host-profile-action].active{background:var(--g1)!important;color:var(--g7)!important}.host-profile-confirm{position:absolute;inset:0;z-index:32;display:grid;place-items:center;background:rgba(0,0,0,.32)}.host-profile-confirm.state-hide{display:none!important}.host-profile-confirm>div{width:276px;padding:20px 16px 16px;border-radius:8px;background:var(--g7);text-align:center}.host-profile-confirm b{display:block;font-size:17px}.host-profile-confirm p{margin:8px 0 18px;color:var(--g3);font-size:13px}.host-profile-confirm footer{display:flex;gap:10px}.host-profile-confirm button{flex:1;height:38px;border:0;border-radius:8px;font:14px inherit;cursor:pointer}.host-profile-confirm [data-host-confirm-cancel]{background:var(--g6);color:var(--g2)}.host-profile-confirm [data-host-confirm-ok]{background:var(--g1);color:var(--g7)}';
         document.head.append(hostProfileActionStyle);
+        const hostProfileConfirm = document.createElement('section');
+        hostProfileConfirm.className = 'host-profile-confirm state-hide';
+        hostProfileConfirm.innerHTML = '<div><b></b><p></p><footer><button type="button" data-host-confirm-cancel>取消</button><button type="button" data-host-confirm-ok>确认</button></footer></div>';
+        cohostRoom.append(hostProfileConfirm);
+        let pendingHostProfileAction = null;
+        let hostManagerCount = 2;
+        const openHostProfileConfirm = (title, copy, action) => {
+          hostProfileConfirm.querySelector('b').textContent = title;
+          hostProfileConfirm.querySelector('p').textContent = copy;
+          pendingHostProfileAction = action;
+          hostProfileConfirm.classList.remove('state-hide');
+        };
+        const closeHostProfileConfirm = () => {
+          pendingHostProfileAction = null;
+          hostProfileConfirm.classList.add('state-hide');
+        };
+        hostProfileConfirm.querySelector('[data-host-confirm-cancel]').onclick = closeHostProfileConfirm;
+        hostProfileConfirm.querySelector('[data-host-confirm-ok]').onclick = () => {
+          const action = pendingHostProfileAction;
+          closeHostProfileConfirm();
+          action?.();
+        };
         const operations = [
           ['report', '!', '举报'],
           ['mute', '−', '禁言'],
@@ -1477,17 +1583,25 @@ document.addEventListener('DOMContentLoaded', () => {
         hostProfileActions.querySelector('[data-host-profile-action="report"]').onclick = () => window.openRoomReportConfirm?.(hostProfileSheet.querySelector('[data-user-name]').textContent);
         hostProfileActions.querySelector('[data-host-profile-action="mute"]').onclick = (event) => {
           const button = event.currentTarget;
-          const muted = button.classList.toggle('active');
-          button.querySelector('span').textContent = muted ? '解除禁言' : '禁言';
-          window.Luma.toast(muted ? '已禁言' : '已解除禁言');
+          const muted = button.classList.contains('active');
+          openHostProfileConfirm(muted ? '解除禁言？' : '禁言该用户？', muted ? '解除后该用户可在本场继续发言。' : '确认后该用户本场不可发言。', () => {
+            button.classList.toggle('active', !muted);
+            button.querySelector('span').textContent = muted ? '禁言' : '解除禁言';
+            window.Luma.toast(muted ? '已解除禁言' : '已禁言');
+          });
         };
-        hostProfileActions.querySelector('[data-host-profile-action="remove"]').onclick = () => window.Luma.toast('已踢出直播间');
+        hostProfileActions.querySelector('[data-host-profile-action="remove"]').onclick = () => openHostProfileConfirm('踢出直播间？', '确认后该用户本场不可再次进入。', () => window.Luma.toast('已踢出直播间'));
         hostProfileActions.querySelector('[data-host-profile-action="block"]').onclick = () => window.Luma.toast('已拉黑该用户');
         hostProfileActions.querySelector('[data-host-profile-action="manager"]').onclick = (event) => {
           const button = event.currentTarget;
-          const manager = button.classList.toggle('active');
-          button.querySelector('span').textContent = manager ? '取消房管' : '设房管';
-          window.Luma.toast(manager ? '已设为房管' : '已取消房管');
+          const manager = button.classList.contains('active');
+          if (!manager && hostManagerCount >= 3) { window.Luma.toast('已达3人上限'); return; }
+          openHostProfileConfirm(manager ? '取消房管？' : '设为房管？', manager ? '取消后该用户将失去房管权限。' : '确认后该用户获得长期房管权限。', () => {
+            button.classList.toggle('active', !manager);
+            button.querySelector('span').textContent = manager ? '设房管' : '取消房管';
+            hostManagerCount += manager ? -1 : 1;
+            window.Luma.toast(manager ? '已取消房管' : '已设为房管');
+          });
         };
       }
 
@@ -1538,7 +1652,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeStream = activeRoom?.querySelector('.stream');
     const activePkButton = activeRoom?.querySelector('[data-host-pk]');
     if (activeRoom && activeStream) {
-      document.title = '直播间-连麦-主播 · 用户主播 App · Luma Live';
+      document.title = '直播间-连麦中-主播 · 用户主播 App · Luma Live';
       activeRoom.classList.add('cohost-active-room');
       activeStream.innerHTML = '<section class="cohost-video-grid" aria-label="主播连麦画面"><article class="cohost-video-panel cohost-video-self"><span class="cohost-video-label"><i>S</i>Sari</span><em>直播画面</em></article><article class="cohost-video-panel"><span class="cohost-video-label"><i>M</i>Maya</span><em>直播画面</em></article></section>';
       const activeStyle = document.createElement('style');
@@ -1555,8 +1669,8 @@ document.addEventListener('DOMContentLoaded', () => {
         cohostExitConfirm.setAttribute('aria-label', '退出连麦确认');
         cohostExitConfirm.innerHTML = '<div class="cohost-exit-confirm-card"><b>是否退出连麦？</b><p>退出后将恢复为单人直播。</p><footer><button type="button" data-cancel-cohost-exit>取消</button><button type="button" data-confirm-cohost-exit>确认退出</button></footer></div>';
         activeRoom.append(cohostExitConfirm);
-        activePkButton.textContent = '退出';
         activePkButton.setAttribute('aria-label', '退出连麦');
+        activePkButton.title = '退出连麦';
         activePkButton.onclick = () => cohostExitConfirm.classList.remove('state-hide');
         cohostExitConfirm.querySelector('[data-cancel-cohost-exit]').onclick = () => cohostExitConfirm.classList.add('state-hide');
         cohostExitConfirm.querySelector('[data-confirm-cohost-exit]').onclick = () => {
@@ -1564,9 +1678,9 @@ document.addEventListener('DOMContentLoaded', () => {
           activeRoom.classList.remove('cohost-active-room');
           activeStream.innerHTML = '<div class="stream-mark"><i>直播画面</i></div>';
           document.title = '直播间-主播 · 用户主播 App · Luma Live';
-          activePkButton.textContent = 'PK';
-          activePkButton.setAttribute('aria-label', '打开 PK');
-          activePkButton.onclick = () => window.Luma.toast('打开 PK');
+          activePkButton.setAttribute('aria-label', '发起主播连麦');
+          activePkButton.title = '主播连麦';
+          activePkButton.onclick = () => window.Luma.toast('打开连麦主播');
           window.Luma.toast('已退出连麦');
         };
       }

@@ -14,6 +14,7 @@
         background: var(--g7);
       }
       .auth-page {
+        position: relative;
         width: 390px;
         min-height: 844px;
         padding: 34px 24px 28px;
@@ -24,6 +25,16 @@
       .brand {
         padding-top: 94px;
         text-align: center;
+      }
+      .guest-entry {
+        position: absolute;
+        top: 82px;
+        right: 24px;
+        border: 0;
+        background: transparent;
+        color: var(--g3);
+        font: 12px inherit;
+        cursor: pointer;
       }
       .brand-mark {
         width: 66px;
@@ -183,11 +194,25 @@
         font: 14px inherit;
         cursor: pointer;
       }
+      .cooling-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .cooling-actions button {
+        flex: 1;
+      }
+      .cooling-actions .secondary {
+        background: var(--g6);
+        color: var(--g2);
+      }
     </style>
   </head>
   <body>
     <main class="auth-page">
       <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <button class="guest-entry" id="guestEntry" type="button">
+        游客进入 ›
+      </button>
       <header class="brand">
         <div class="brand-mark">L</div>
         <h1>Luma Live</h1>
@@ -202,8 +227,8 @@
       </div>
       <p class="other-title">其他登录方式</p>
       <div class="provider-grid">
-        <button type="button" data-provider="Email" aria-label="其他邮箱登录">
-          其他邮箱</button
+        <button type="button" id="openEmail" aria-label="邮箱登录">
+          邮箱</button
         ><button type="button" data-provider="Apple ID" aria-label="Apple 登录">
           Apple</button
         ><button type="button" data-provider="TikTok" aria-label="TikTok 登录">
@@ -236,21 +261,62 @@
         <button id="enterApp" type="button">进入首页</button>
       </div>
     </section>
+    <section
+      class="result-mask state-hide"
+      id="coolingMask"
+      role="dialog"
+      aria-modal="true"
+      aria-label="注销冷静期"
+    >
+      <div class="result-card">
+        <p id="coolingText"></p>
+        <div class="cooling-actions">
+          <button class="secondary" id="keepDeletion" type="button">
+            暂不取消</button
+          ><button id="cancelDeletion" type="button">取消注销</button>
+        </div>
+      </div>
+    </section>
     <div class="homebar"><i></i></div>
     <script>
       const authMock = window.LUMA_MOCK.auth,
         agreement = document.querySelector("#agreement"),
         formError = document.querySelector("#formError");
+      Luma.setGuestMode(false);
+      const deletionStorage = Luma.storage(),
+        deletionCoolingKey = "luma-account-deletion-cooling",
+        deletionDeadlineKey = "luma-account-deletion-deadline";
       let authScenario =
         new URLSearchParams(location.search).get("account") === "existing"
           ? "existingUser"
-          : "newUser";
+          : "newUser",
+        loginResult = "success";
+      if (deletionStorage.getItem(deletionCoolingKey) === "1") {
+        loginResult = "cooling";
+      }
       document.querySelector("#openPhone").onclick = () => {
+        sessionStorage.removeItem("luma-auth-phone-draft");
         window.parent.postMessage(
           { type: "luma-page", file: "auth-phone-login.html" },
           "*",
         );
         location.href = "auth-phone-login.html";
+      };
+      document.querySelector("#guestEntry").onclick = () => {
+        Luma.setGuestMode(true);
+        const target = "../home/live-plaza.html?guest=1";
+        window.parent.postMessage(
+          { type: "luma-page", file: "live-plaza.html", query: "?guest=1" },
+          "*",
+        );
+        location.href = target;
+      };
+      document.querySelector("#openEmail").onclick = () => {
+        window.parent.postMessage(
+          { type: "luma-page", file: "auth-email-login.html" },
+          "*",
+        );
+        location.href = "auth-email-login.html";
       };
       document.querySelectorAll("[data-policy]").forEach(
         (link) =>
@@ -262,6 +328,12 @@
       function setScenario(scenario) {
         authScenario = scenario;
         document.querySelector("#resultMask").classList.add("state-hide");
+        document.querySelector("#coolingMask").classList.add("state-hide");
+      }
+      function setLoginResult(result) {
+        loginResult = result;
+        document.querySelector("#resultMask").classList.add("state-hide");
+        document.querySelector("#coolingMask").classList.add("state-hide");
       }
       function goToProfileCompletion() {
         window.parent.postMessage(
@@ -277,6 +349,37 @@
         document.querySelector("#enterApp").textContent = "进入首页";
         document.querySelector("#resultMask").classList.remove("state-hide");
       }
+      function deletionDeadline(persist) {
+        let deadline = Number(deletionStorage.getItem(deletionDeadlineKey));
+        if (!deadline || deadline <= Date.now()) {
+          deadline = Date.now() + 7 * 24 * 60 * 60 * 1000;
+          if (persist) {
+            deletionStorage.setItem(deletionDeadlineKey, String(deadline));
+          }
+        }
+        if (persist) deletionStorage.setItem(deletionCoolingKey, "1");
+        return deadline;
+      }
+      function showDeletionCooling(persist = true) {
+        const deadline = deletionDeadline(persist);
+        document.querySelector("#coolingText").textContent =
+          `此账号正在进行注销流程，${new Date(deadline).toLocaleString("zh-CN", {
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          })} 前可取消，取消注销后将直接登录。`;
+        document.querySelector("#coolingMask").classList.remove("state-hide");
+      }
+      function enterHome() {
+        const target = "../home/live-plaza.html";
+        window.parent.postMessage(
+          { type: "luma-page", file: "live-plaza.html" },
+          "*",
+        );
+        location.href = target;
+      }
       document.querySelectorAll("[data-provider]").forEach(
         (button) =>
           (button.onclick = () => {
@@ -285,13 +388,37 @@
               return;
             }
             formError.textContent = "";
+            const failureMessage = {
+              banned: "账号已被封禁",
+              failed: "登录失败，请重试",
+              cancelled: "已取消授权",
+            }[loginResult];
+            if (loginResult === "cooling") {
+              showDeletionCooling();
+              return;
+            }
+            if (failureMessage) {
+              Luma.toast(failureMessage);
+              return;
+            }
             authScenario === "newUser" ? goToProfileCompletion() : showResult();
           }),
       );
       document.querySelector("#enterApp").onclick = () => {
         const target = "../home/live-plaza.html";
+        Luma.storage("session").setItem("luma-notification-intro-pending", "1");
         window.parent.postMessage({ type: "luma-page", file: target }, "*");
         location.href = target;
+      };
+      document.querySelector("#keepDeletion").onclick = () => {
+        document.querySelector("#coolingMask").classList.add("state-hide");
+      };
+      document.querySelector("#cancelDeletion").onclick = () => {
+        deletionStorage.removeItem(deletionCoolingKey);
+        deletionStorage.removeItem(deletionDeadlineKey);
+        loginResult = "success";
+        Luma.toast("注销申请已取消");
+        setTimeout(enterHome, 500);
       };
       window.parent.postMessage(
         {
@@ -306,7 +433,23 @@
           新用户注册: () => setScenario("newUser"),
           老用户登录: () => setScenario("existingUser"),
         },
+        登录结果: {
+          正常: () => setLoginResult("success"),
+          账号封禁: () => setLoginResult("banned"),
+          授权失败: () => setLoginResult("failed"),
+          取消授权: () => setLoginResult("cancelled"),
+          注销冷静期: () => {
+            setLoginResult("cooling");
+            showDeletionCooling(false);
+          },
+        },
       });
+      if (
+        new URLSearchParams(location.search).get("cooling") === "1" ||
+        deletionStorage.getItem(deletionCoolingKey) === "1"
+      ) {
+        showDeletionCooling();
+      }
     </script>
   </body>
 </html>

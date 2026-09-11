@@ -2519,7 +2519,9 @@
         room.querySelectorAll(".session-gift-sheet").forEach(function (node) {
           node.remove();
         });
-        var sheet = document.createElement("section");
+        var contributionCount = 99,
+          selfRank = 18,
+          sheet = document.createElement("section");
         sheet.className = "session-gift-sheet state-hide";
         sheet.setAttribute("role", "dialog");
         sheet.setAttribute("aria-modal", "true");
@@ -2530,7 +2532,7 @@
               class="active"
               data-session-tab="contribution"
             >
-              贡献榜</button
+              贡献榜（${Math.min(contributionCount, 99)}）</button
             ><button type="button" data-session-tab="gifts">收到礼物</button
             ><button
               type="button"
@@ -2582,8 +2584,10 @@
         if (!location.pathname.endsWith("live-room-host.html")) {
           var self = document.createElement("article");
           self.className = "session-self";
-          self.innerHTML = `<em>18</em><i>A</i><span><b>Andi</b><small>财富 Lv.12</small><small>粉丝 Lv.4</small><small>◆ 120</small></span><strong>x3</strong>`;
-          sheet.querySelector(".session-donor-list").append(self);
+          self.innerHTML = `<em>${selfRank > 0 && selfRank <= 99 ? selfRank : "-"}</em><i>A</i><span><b>Andi</b><small>财富 Lv.12</small><small>粉丝 Lv.4</small><small>◆ 120</small></span><strong>x3</strong>`;
+          sheet
+            .querySelector('[data-session-panel="contribution"]')
+            .append(self);
         }
         room.append(sheet);
         trigger.onclick = function () {
@@ -2665,12 +2669,20 @@
       .session-gift-sheet [data-session-panel="contribution"] {
         min-height: 0;
         flex: 1;
-        overflow: auto;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
       .session-gift-sheet [data-session-panel].state-hide {
         display: none !important;
       }
-      .session-donor-list article {
+      .session-donor-list {
+        min-height: 0;
+        flex: 1;
+        overflow: auto;
+      }
+      .session-donor-list article,
+      .session-self {
         min-height: 62px;
         padding: 7px 2px;
         border-bottom: 1px solid var(--g6);
@@ -2678,7 +2690,8 @@
         align-items: center;
         gap: 8px;
       }
-      .session-donor-list em {
+      .session-donor-list em,
+      .session-self em {
         width: 20px;
         flex: none;
         color: var(--g3);
@@ -2689,7 +2702,8 @@
         color: var(--g1);
         font-weight: 700;
       }
-      .session-donor-list article > i {
+      .session-donor-list article > i,
+      .session-self > i {
         width: 34px;
         height: 34px;
         flex: none;
@@ -2701,16 +2715,19 @@
         font-size: 12px;
         font-style: normal;
       }
-      .session-donor-list span {
+      .session-donor-list span,
+      .session-self span {
         min-width: 0;
         flex: 1;
       }
-      .session-donor-list span > b {
+      .session-donor-list span > b,
+      .session-self span > b {
         display: block;
         margin: 0 0 3px;
         font-size: 14px;
       }
-      .session-donor-list span > small {
+      .session-donor-list span > small,
+      .session-self span > small {
         display: inline-block;
         margin-right: 3px;
         padding: 2px 4px;
@@ -2720,14 +2737,17 @@
         font-size: 9px;
         white-space: nowrap;
       }
-      .session-donor-list strong {
+      .session-donor-list strong,
+      .session-self strong {
         min-width: 26px;
         color: var(--g2);
         font-size: 12px;
         white-space: nowrap;
       }
-      .session-donor-list .session-self {
+      .session-self {
+        flex: none;
         border-top: 1px solid var(--g5);
+        border-bottom: 0;
         background: var(--g7);
       }
       .session-gift-sheet [data-session-panel="gifts"] {
@@ -2777,7 +2797,7 @@
     <script>
       window.addEventListener("load", function () {
         document
-          .querySelectorAll(".session-donor-list article")
+          .querySelectorAll(".session-donor-list article,.session-self")
           .forEach(function (row) {
             var tags = row.querySelectorAll("span small"),
               value = tags[tags.length - 1],
@@ -3103,17 +3123,35 @@
         position: absolute;
         inset: 0;
         z-index: 20;
-        background: var(--overlay);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+      .room-access-cover {
+        position: absolute;
+        inset: -18px;
+        background: url("../../../assets/live-room-cover.svg") center / cover
+          no-repeat;
+        filter: blur(12px);
+        transform: scale(1.08);
+        pointer-events: none;
+      }
+      .room-access-mask::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.28);
+        backdrop-filter: blur(6px);
       }
       .room-access-sheet {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        min-height: 286px;
-        padding: 20px 16px 14px;
-        background: var(--g7);
-        border-top: 1px solid var(--g5);
+        position: relative;
+        z-index: 1;
+        width: 300px;
+        box-sizing: border-box;
+        padding: 22px 16px 16px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
       }
       .room-access-close {
         position: absolute;
@@ -3129,11 +3167,19 @@
         cursor: pointer;
       }
       .room-access-sheet h2 {
-        margin: 0 0 16px;
+        margin: 0;
         font-size: 17px;
+        text-align: center;
+      }
+      .room-access-subtitle {
+        margin: 8px 0 16px;
+        color: var(--g3);
+        font-size: 12px;
+        text-align: center;
       }
       .room-access-password input {
         width: 100%;
+        box-sizing: border-box;
         height: 44px;
         padding: 0 12px;
         border: 1px solid var(--g5);
@@ -3143,18 +3189,20 @@
         font: 14px inherit;
         outline: 0;
       }
-      .room-access-password p {
-        margin: 10px 0 0;
-        color: var(--g3);
-        font-size: 13px;
+      .room-access-password-error {
+        min-height: 18px;
+        margin: 6px 0 0;
+        color: var(--danger);
+        font-size: 12px;
       }
       .room-access-ticket-item {
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 12px;
-        border-radius: 8px;
-        background: var(--g6);
+        margin-top: 16px;
+        padding: 12px 0;
+        border-top: 1px solid var(--g6);
+        border-bottom: 1px solid var(--g6);
       }
       .room-access-ticket-item > i {
         display: grid;
@@ -3182,15 +3230,10 @@
         font-size: 15px;
       }
       .room-access-ticket-footer {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 12px 16px;
-        border-top: 1px solid var(--g5);
+        margin-top: 16px;
       }
       .room-access-balance {
         display: flex;
@@ -3223,6 +3266,55 @@
         color: var(--g7);
         font: 13px inherit;
       }
+      .room-access-primary {
+        width: 100%;
+        height: 40px;
+        margin-top: 8px;
+        padding: 0 14px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g1);
+        color: var(--g7);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .room-access-primary:disabled {
+        background: var(--g5);
+        color: var(--g4);
+        cursor: default;
+      }
+      .room-access-blocked p {
+        margin: 12px 0 18px;
+        color: var(--g3);
+        font-size: 13px;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .room-patrol-notice {
+        position: absolute;
+        top: 196px;
+        right: 16px;
+        z-index: 12;
+        width: 176px;
+        box-sizing: border-box;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: rgba(51, 51, 51, 0.94);
+        color: var(--g7);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+      }
+      .room-patrol-notice b,
+      .room-patrol-notice span {
+        display: block;
+      }
+      .room-patrol-notice b {
+        font-size: 14px;
+      }
+      .room-patrol-notice span {
+        margin-top: 4px;
+        font-size: 11px;
+        line-height: 1.45;
+      }
     </style>
     <script>
       window.addEventListener("load", function () {
@@ -3233,19 +3325,39 @@
         accessMask.className = "room-access-mask state-hide";
         accessMask.setAttribute("role", "presentation");
         accessMask.innerHTML =
+          '<div class="room-access-cover" aria-hidden="true"></div>' +
           '<section class="room-access-sheet room-access-password state-hide" data-access-sheet="password" role="dialog" aria-modal="true" aria-labelledby="passwordAccessTitle">' +
           '<button type="button" class="room-access-close" aria-label="关闭密码输入">×</button>' +
-          '<h2 id="passwordAccessTitle">请填写房间密码</h2>' +
-          '<input type="password" inputmode="numeric" maxlength="8" placeholder="请输入密码" aria-label="房间密码">' +
-          '<p>密码请联系主播</p>' +
+          '<h2 id="passwordAccessTitle">输入房间密码</h2>' +
+          '<p class="room-access-subtitle">Lala · 粉丝专属夜</p>' +
+          '<input type="password" inputmode="numeric" maxlength="12" placeholder="请输入密码" aria-label="房间密码，4-12 个数字">' +
+          '<p class="room-access-password-error" aria-live="polite"></p>' +
+          '<button type="button" class="room-access-primary" data-access-submit-password disabled>进入直播间</button>' +
           '</section>' +
           '<section class="room-access-sheet room-access-ticket state-hide" data-access-sheet="ticket" role="dialog" aria-modal="true" aria-labelledby="ticketAccessTitle">' +
           '<button type="button" class="room-access-close" aria-label="关闭购买门票">×</button>' +
           '<h2 id="ticketAccessTitle">购买门票</h2>' +
-          '<div class="room-access-ticket-item"><i>◆</i><div><b>Maya 的专场</b><span>入场门票 × 1</span></div><strong class="coin">10</strong></div>' +
+          '<p class="room-access-subtitle">Intan · 随机舞蹈</p>' +
+          '<div class="room-access-ticket-item"><i>◆</i><div><b>本场直播门票</b><span>仅限当前场次</span></div><strong class="coin">10</strong></div>' +
           '<footer class="room-access-ticket-footer"><div class="room-access-balance"><span class="coin">12.580</span><button type="button" data-access-recharge aria-label="充值">+</button></div><button type="button" data-access-buy-ticket>购买</button></footer>' +
+          '</section>' +
+          '<section class="room-access-sheet room-access-blocked state-hide" data-access-sheet="blocked" role="dialog" aria-modal="true" aria-labelledby="blockedAccessTitle">' +
+          '<h2 id="blockedAccessTitle">无法进入直播间</h2>' +
+          '<p>与主播存在拉黑或被踢出关系</p>' +
+          '<button type="button" class="room-access-primary" data-access-back-home>返回</button>' +
           '</section>';
         room.append(accessMask);
+
+        var patrolNotice = document.createElement("section");
+        patrolNotice.className = "room-patrol-notice state-hide";
+        patrolNotice.setAttribute("role", "status");
+        patrolNotice.innerHTML =
+          "<b>巡房中</b><span>本次巡房期间，主播和房管无法将你拉黑或踢出</span>";
+        room.append(patrolNotice);
+
+        var passwordInput = accessMask.querySelector(".room-access-password input"),
+          passwordError = accessMask.querySelector(".room-access-password-error"),
+          passwordSubmit = accessMask.querySelector("[data-access-submit-password]");
 
         function closeAccessSheet() {
           accessMask.classList.add("state-hide");
@@ -3255,26 +3367,70 @@
         }
         function openAccessSheet(type) {
           closeAccessSheet();
+          patrolNotice.classList.add("state-hide");
           accessMask.classList.remove("state-hide");
           accessMask.querySelector('[data-access-sheet="' + type + '"]').classList.remove("state-hide");
-          if (type === "password") accessMask.querySelector("input").focus();
+          if (type === "password") {
+            passwordInput.value = "";
+            passwordError.textContent = "";
+            passwordSubmit.disabled = true;
+            passwordInput.focus();
+          }
+        }
+        function returnToPlaza() {
+          window.parent.postMessage(
+            { type: "luma-page", file: "live-plaza.html" },
+            "*",
+          );
+          location.href = "../home/live-plaza.html";
+        }
+        function returnToSource() {
+          if (document.referrer.includes("/pages/")) history.back();
+          else returnToPlaza();
+        }
+        function grantRoomAccess(message) {
+          closeAccessSheet();
+          try {
+            history.replaceState(null, "", location.pathname);
+          } catch (_error) {}
+          Luma.toast(message);
         }
 
         accessMask.querySelectorAll(".room-access-close").forEach(function (button) {
-          button.onclick = closeAccessSheet;
+          button.onclick = returnToPlaza;
         });
         accessMask.onclick = function (event) {
-          if (event.target === accessMask) closeAccessSheet();
+          if (event.target === accessMask) returnToPlaza();
+        };
+        passwordInput.oninput = function () {
+          passwordSubmit.disabled = !passwordInput.value.trim();
+          passwordError.textContent = "";
+        };
+        passwordInput.onkeydown = function (event) {
+          if (event.key === "Enter" && !passwordSubmit.disabled)
+            passwordSubmit.click();
+        };
+        passwordSubmit.onclick = function () {
+          if (!/^\d{4,12}$/.test(passwordInput.value)) {
+            passwordError.textContent = "密码必须是4-12个数字";
+            return;
+          }
+          if (passwordInput.value !== "123456") {
+            passwordError.textContent = "密码错误，请重新输入";
+            return;
+          }
+          grantRoomAccess("密码验证成功");
         };
         accessMask.querySelector("[data-access-recharge]").onclick = function () {
           Luma.toast("打开充值");
         };
         accessMask.querySelector("[data-access-buy-ticket]").onclick = function () {
-          closeAccessSheet();
-          Luma.toast("购买门票成功");
+          grantRoomAccess("购买门票成功");
         };
+        accessMask.querySelector("[data-access-back-home]").onclick = returnToSource;
         document.addEventListener("keydown", function (event) {
-          if (event.key === "Escape") closeAccessSheet();
+          if (event.key === "Escape" && !accessMask.classList.contains("state-hide"))
+            returnToPlaza();
         });
 
         Luma.registerStates({
@@ -3285,8 +3441,23 @@
             "门票房-访问受限": function () {
               openAccessSheet("ticket");
             },
+            "被拉黑或踢出-访问受限": function () {
+              openAccessSheet("blocked");
+            },
+            "巡房身份-正常进入": function () {
+              closeAccessSheet();
+              patrolNotice.classList.remove("state-hide");
+            },
           },
         });
+        var requestedAccess = new URLSearchParams(location.search).get("access");
+        if (!requestedAccess || requestedAccess === "normal") {
+          closeAccessSheet();
+        } else if (requestedAccess === "patrol") {
+          closeAccessSheet();
+          patrolNotice.classList.remove("state-hide");
+        } else if (["password", "ticket", "blocked"].includes(requestedAccess))
+          openAccessSheet(requestedAccess);
       });
     </script>
   </body>
