@@ -1,0 +1,17 @@
+{
+  "任务": "Luma Live 前后两段流程与覆盖门禁修改",
+  "规则变更": "RCL-0050",
+  "业务用例重生成": false,
+  "测试命令": "node --test scripts/requirement-traceability.test.mjs scripts/mainbasis.test.mjs scripts/validate-generation-input.test.mjs",
+  "通过项": 5,
+  "失败项": 0,
+  "检查范围": ["源条目遗漏", "无来源目标", "业务图片缺少查看记录", "缺少 context checkpoint", "版本变化", "历史输入隔离", "场景契约不符", "状态转换缺少投影", "用例条件动作结果不符", "部分交付与虚假完整声明"],
+  "当前项目基线检查": {
+    "命令": "node scripts/mainbasis.mjs verify liveshow-proto",
+    "退出码": 1,
+    "结果": "MainBasis 缺少新版全量逐项对照基线：返回 context 与 MainBasis 同步核对",
+    "解释": "预期拒绝旧版基线；本次没有重新发布业务需求或重生成用例"
+  },
+  "差异检查": "git diff --check 通过",
+  "限制": "程序验证全文单元、映射、版本、契约和声明一致性，不代替业务语义理解；下一轮须按新规则完成真实逐项分析。"
+}

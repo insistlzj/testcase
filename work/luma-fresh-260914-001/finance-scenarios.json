@@ -1,0 +1,6795 @@
+[
+  {
+    "id": "SC-9e5b8d35770766",
+    "page": "recharge.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "余额充值（用户）",
+    "role": "用户",
+    "title": "验证充值基础与赠金合并到账",
+    "point": "充值余额计算",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额为 100，套餐基础金币 1000、赠金 200"
+    ],
+    "steps": [
+      "进入余额充值页",
+      "选择该套餐",
+      "选择可用渠道并完成支付"
+    ],
+    "result": "充值后金币余额=100+1000+200=1300",
+    "sourceIds": [
+      "REQ-USER-b0d84a7269",
+      "REQ-USER-c7532a2299",
+      "REQ-USER-0c7b14d2ab",
+      "REQ-USER-965c509387",
+      "REQ-USER-3b2b446d82",
+      "REQ-USER-e065e56aa7",
+      "REQ-USER-c453ed8455",
+      "REQ-USER-aa6f25336d",
+      "REQ-USER-d0b084d120",
+      "REQ-USER-471139b7a2",
+      "REQ-PUB-4576f25ecf"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "ST-93bee9d6c800",
+    "flow": "FLOW-2ba2481a",
+    "from": "待支付",
+    "to": "支付成功且金币入账",
+    "object": "充值订单",
+    "calculation": {
+      "公式": "原余额+基础金币+赠金",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "基础金币",
+          "业务含义": "基础金币",
+          "数值": 1000,
+          "单位": "金币"
+        },
+        {
+          "名称": "赠金",
+          "业务含义": "赠金",
+          "数值": 200,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "变量": "原余额"
+          },
+          {
+            "变量": "基础金币"
+          },
+          {
+            "变量": "赠金"
+          }
+        ]
+      },
+      "最终值": 1300
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-891eca97b05419",
+    "page": "recharge.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "余额充值（用户）",
+    "role": "用户",
+    "title": "验证充值取消不发金币",
+    "point": "充值取消",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额为 100"
+    ],
+    "steps": [
+      "进入余额充值页",
+      "选择套餐",
+      "进入支付页",
+      "取消支付"
+    ],
+    "result": "金币余额仍为 100",
+    "sourceIds": [
+      "REQ-USER-b0d84a7269",
+      "REQ-USER-c7532a2299",
+      "REQ-USER-0c7b14d2ab",
+      "REQ-USER-965c509387",
+      "REQ-USER-3b2b446d82",
+      "REQ-USER-e065e56aa7",
+      "REQ-USER-c453ed8455",
+      "REQ-USER-aa6f25336d",
+      "REQ-USER-d0b084d120",
+      "REQ-USER-471139b7a2",
+      "REQ-PUB-4576f25ecf"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额充值",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-6c6ce1686b46b2",
+    "page": "recharge.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "余额充值（用户）",
+    "role": "用户",
+    "title": "验证充值失败不发金币",
+    "point": "充值失败",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额为 100，支付渠道本次返回失败"
+    ],
+    "steps": [
+      "进入余额充值页",
+      "选择套餐",
+      "提交支付"
+    ],
+    "result": "金币余额仍为 100",
+    "sourceIds": [
+      "REQ-USER-b0d84a7269",
+      "REQ-USER-c7532a2299",
+      "REQ-USER-0c7b14d2ab",
+      "REQ-USER-965c509387",
+      "REQ-USER-3b2b446d82",
+      "REQ-USER-e065e56aa7",
+      "REQ-USER-c453ed8455",
+      "REQ-USER-aa6f25336d",
+      "REQ-USER-d0b084d120",
+      "REQ-USER-471139b7a2",
+      "REQ-PUB-4576f25ecf"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额充值",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-3a0f33b12dd13f",
+    "page": "recharge.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "余额充值（用户）",
+    "role": "用户",
+    "title": "验证支付超时不发金币",
+    "point": "充值超时",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额为 100，支付渠道本次返回超时"
+    ],
+    "steps": [
+      "进入余额充值页",
+      "选择套餐",
+      "提交支付"
+    ],
+    "result": "金币余额仍为 100",
+    "sourceIds": [
+      "REQ-USER-b0d84a7269",
+      "REQ-USER-c7532a2299",
+      "REQ-USER-0c7b14d2ab",
+      "REQ-USER-965c509387",
+      "REQ-USER-3b2b446d82",
+      "REQ-USER-e065e56aa7",
+      "REQ-USER-c453ed8455",
+      "REQ-USER-aa6f25336d",
+      "REQ-USER-d0b084d120",
+      "REQ-USER-471139b7a2",
+      "REQ-PUB-4576f25ecf"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额充值",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-89dfc93fd20cf3",
+    "page": "recharge.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "余额充值（用户）",
+    "role": "用户",
+    "title": "验证重复成功回调不重复入账",
+    "point": "充值幂等",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额为 100，套餐共到账 1200 金币，测试支付渠道对同一平台订单返回两次同一成功交易通知"
+    ],
+    "steps": [
+      "进入余额充值页",
+      "完成该订单支付"
+    ],
+    "result": "金币余额=100+1200=1300",
+    "sourceIds": [
+      "REQ-USER-b0d84a7269",
+      "REQ-USER-c7532a2299",
+      "REQ-USER-0c7b14d2ab",
+      "REQ-USER-965c509387",
+      "REQ-USER-3b2b446d82",
+      "REQ-USER-e065e56aa7",
+      "REQ-USER-c453ed8455",
+      "REQ-USER-aa6f25336d",
+      "REQ-USER-d0b084d120",
+      "REQ-USER-471139b7a2",
+      "REQ-PUB-4576f25ecf"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "ST-93bee9d6c800",
+    "flow": "FLOW-2ba2481a",
+    "from": "待支付",
+    "to": "支付成功且金币入账",
+    "object": "充值订单",
+    "calculation": {
+      "公式": "原余额+本订单到账金币",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "本订单到账金币",
+          "业务含义": "本订单到账金币",
+          "数值": 1200,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "变量": "原余额"
+          },
+          {
+            "变量": "本订单到账金币"
+          }
+        ]
+      },
+      "最终值": 1300
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-bef3a504f44d3d",
+    "page": "recharge.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "余额充值（用户）",
+    "role": "用户",
+    "title": "验证负余额充值先抵扣欠额",
+    "point": "充值抵扣负值",
+    "conditions": [
+      "用户账号可用且已登录",
+      "退款后余额为 -1000，选择到账 2000 金币的套餐"
+    ],
+    "steps": [
+      "进入余额充值页",
+      "支付该套餐"
+    ],
+    "result": "到账后金币余额=-1000+2000=1000",
+    "sourceIds": [
+      "REQ-USER-b0d84a7269",
+      "REQ-USER-c7532a2299",
+      "REQ-USER-0c7b14d2ab",
+      "REQ-USER-965c509387",
+      "REQ-USER-3b2b446d82",
+      "REQ-USER-e065e56aa7",
+      "REQ-USER-c453ed8455",
+      "REQ-USER-aa6f25336d",
+      "REQ-USER-d0b084d120",
+      "REQ-USER-471139b7a2",
+      "REQ-PUB-4576f25ecf"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额充值",
+    "calculation": {
+      "公式": "原余额+到账金币",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": -1000,
+          "单位": "金币"
+        },
+        {
+          "名称": "到账金币",
+          "业务含义": "到账金币",
+          "数值": 2000,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "变量": "原余额"
+          },
+          {
+            "变量": "到账金币"
+          }
+        ]
+      },
+      "最终值": 1000
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-31c13db79fd11f",
+    "page": "recharge.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "余额充值（用户）",
+    "role": "用户",
+    "title": "验证用户充值页不提供退款",
+    "point": "用户退款权限",
+    "conditions": [
+      "用户账号可用且已登录"
+    ],
+    "steps": [
+      "进入余额充值页",
+      "查看充值页操作"
+    ],
+    "result": "不提供退款操作",
+    "sourceIds": [
+      "REQ-USER-b0d84a7269",
+      "REQ-USER-c7532a2299",
+      "REQ-USER-0c7b14d2ab",
+      "REQ-USER-965c509387",
+      "REQ-USER-3b2b446d82",
+      "REQ-USER-e065e56aa7",
+      "REQ-USER-c453ed8455",
+      "REQ-USER-aa6f25336d",
+      "REQ-USER-d0b084d120",
+      "REQ-USER-471139b7a2",
+      "REQ-PUB-4576f25ecf"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额充值",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-31d8af56ef1b61",
+    "page": "views/live-room/gift-recharge.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "充值（观众）",
+    "role": "观众",
+    "title": "验证快捷充值后不自动补送礼物",
+    "point": "充值与赠礼分离",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原选择礼物尚未赠送，充值套餐可用"
+    ],
+    "steps": [
+      "在直播间选择一件礼物",
+      "打开充值视图",
+      "支付该充值套餐"
+    ],
+    "result": "返回礼物视图但不自动赠送原礼物",
+    "sourceIds": [
+      "REQ-USER-279742eabb",
+      "REQ-USER-0075c8a69f",
+      "REQ-USER-6904b2fdf3",
+      "REQ-USER-6d8a34e5d9",
+      "REQ-USER-9d1d8d930e",
+      "REQ-USER-9809c6d11d"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-620f8032faf081",
+    "page": "views/live-room/gift-recharge.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "充值（观众）",
+    "role": "观众",
+    "title": "验证关闭快捷充值保留礼物数量",
+    "point": "充值中断草稿",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原已选择普通礼物且数量为 10"
+    ],
+    "steps": [
+      "在直播间选择一件礼物",
+      "打开充值视图",
+      "关闭充值视图"
+    ],
+    "result": "原礼物赠送数量仍为 10",
+    "sourceIds": [
+      "REQ-USER-279742eabb",
+      "REQ-USER-0075c8a69f",
+      "REQ-USER-6904b2fdf3",
+      "REQ-USER-6d8a34e5d9",
+      "REQ-USER-9d1d8d930e",
+      "REQ-USER-9809c6d11d"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-89c54b18b724a4",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证普通礼物成功扣减金币",
+    "point": "普通赠礼扣款",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，当前上架普通礼物单价10，数量3"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "选择该普通礼物",
+      "选择数量3",
+      "点击赠送"
+    ],
+    "result": "金币余额=100-10×3=70",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": {
+      "公式": "原余额-单价×数量",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "单价",
+          "业务含义": "单价",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "数量",
+          "业务含义": "数量",
+          "数值": 3,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "-",
+        "参数": [
+          {
+            "变量": "原余额"
+          },
+          {
+            "运算": "*",
+            "参数": [
+              {
+                "变量": "单价"
+              },
+              {
+                "变量": "数量"
+              }
+            ]
+          }
+        ]
+      },
+      "最终值": 70
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-28320be3b3bb8a",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证普通礼物余额不足不扣减",
+    "point": "普通赠礼余额不足",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额29，当前上架普通礼物单价10，数量3"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "选择该普通礼物",
+      "选择数量3",
+      "点击赠送"
+    ],
+    "result": "金币余额保持29",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-be9430421e6233",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证普通礼物请求失败不扣减",
+    "point": "普通赠礼失败",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，普通礼物上架且可赠送，本次赠送请求返回失败"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "选择该普通礼物",
+      "点击赠送"
+    ],
+    "result": "金币余额保持100",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-5878c96586dcc9",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证普通礼物下架阻止新赠送",
+    "point": "普通礼物下架",
+    "conditions": [
+      "用户账号可用且已登录",
+      "面板选中该普通礼物后，平台已将其下架"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "点击赠送"
+    ],
+    "result": "不生成新的成功赠送记录",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-565f11607095cb",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证定制礼物成功扣减金币",
+    "point": "定制赠礼扣款",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，当前上架定制礼物单价10，数量3"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "选择该定制礼物",
+      "选择数量3",
+      "点击赠送"
+    ],
+    "result": "金币余额=100-10×3=70",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": {
+      "公式": "原余额-单价×数量",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "单价",
+          "业务含义": "单价",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "数量",
+          "业务含义": "数量",
+          "数值": 3,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "-",
+        "参数": [
+          {
+            "变量": "原余额"
+          },
+          {
+            "运算": "*",
+            "参数": [
+              {
+                "变量": "单价"
+              },
+              {
+                "变量": "数量"
+              }
+            ]
+          }
+        ]
+      },
+      "最终值": 70
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-7c60d81ea9a8d0",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证定制礼物余额不足不扣减",
+    "point": "定制赠礼余额不足",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额29，当前上架定制礼物单价10，数量3"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "选择该定制礼物",
+      "选择数量3",
+      "点击赠送"
+    ],
+    "result": "金币余额保持29",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ba5224bc5d183b",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证定制礼物请求失败不扣减",
+    "point": "定制赠礼失败",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，定制礼物上架且可赠送，本次赠送请求返回失败"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "选择该定制礼物",
+      "点击赠送"
+    ],
+    "result": "金币余额保持100",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-7fabe1d1974b34",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证定制礼物下架阻止新赠送",
+    "point": "定制礼物下架",
+    "conditions": [
+      "用户账号可用且已登录",
+      "面板选中该定制礼物后，平台已将其下架"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "点击赠送"
+    ],
+    "result": "不生成新的成功赠送记录",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-86a5c4b9610f5c",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证幸运礼物返还0金币后的余额",
+    "point": "开奖余额核算",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，礼物单价10，数量1；测试环境将本次独立开奖结果预置为0金币"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开幸运礼物面板",
+      "选择该幸运礼物",
+      "选择数量1",
+      "点击赠送"
+    ],
+    "result": "金币余额=100-10+0=90",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": {
+      "公式": "原余额-礼物价值+返还金币",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "礼物价值",
+          "业务含义": "礼物价值",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "返还金币",
+          "业务含义": "返还金币",
+          "数值": 0,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "运算": "-",
+            "参数": [
+              {
+                "变量": "原余额"
+              },
+              {
+                "变量": "礼物价值"
+              }
+            ]
+          },
+          {
+            "变量": "返还金币"
+          }
+        ]
+      },
+      "最终值": 90
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-fa510505a64800",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证幸运礼物返还5金币后的余额",
+    "point": "开奖余额核算",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，礼物单价10，数量1；测试环境将本次独立开奖结果预置为5金币"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开幸运礼物面板",
+      "选择该幸运礼物",
+      "选择数量1",
+      "点击赠送"
+    ],
+    "result": "金币余额=100-10+5=95",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": {
+      "公式": "原余额-礼物价值+返还金币",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "礼物价值",
+          "业务含义": "礼物价值",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "返还金币",
+          "业务含义": "返还金币",
+          "数值": 5,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "运算": "-",
+            "参数": [
+              {
+                "变量": "原余额"
+              },
+              {
+                "变量": "礼物价值"
+              }
+            ]
+          },
+          {
+            "变量": "返还金币"
+          }
+        ]
+      },
+      "最终值": 95
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-da51eeeb15ab00",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证幸运礼物返还10金币后的余额",
+    "point": "开奖余额核算",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，礼物单价10，数量1；测试环境将本次独立开奖结果预置为10金币"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开幸运礼物面板",
+      "选择该幸运礼物",
+      "选择数量1",
+      "点击赠送"
+    ],
+    "result": "金币余额=100-10+10=100",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": {
+      "公式": "原余额-礼物价值+返还金币",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "礼物价值",
+          "业务含义": "礼物价值",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "返还金币",
+          "业务含义": "返还金币",
+          "数值": 10,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "运算": "-",
+            "参数": [
+              {
+                "变量": "原余额"
+              },
+              {
+                "变量": "礼物价值"
+              }
+            ]
+          },
+          {
+            "变量": "返还金币"
+          }
+        ]
+      },
+      "最终值": 100
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-50f5bc539913e8",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证幸运礼物返还50金币后的余额",
+    "point": "开奖余额核算",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，礼物单价10，数量1；测试环境将本次独立开奖结果预置为50金币"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开幸运礼物面板",
+      "选择该幸运礼物",
+      "选择数量1",
+      "点击赠送"
+    ],
+    "result": "金币余额=100-10+50=140",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": {
+      "公式": "原余额-礼物价值+返还金币",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "礼物价值",
+          "业务含义": "礼物价值",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "返还金币",
+          "业务含义": "返还金币",
+          "数值": 50,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "运算": "-",
+            "参数": [
+              {
+                "变量": "原余额"
+              },
+              {
+                "变量": "礼物价值"
+              }
+            ]
+          },
+          {
+            "变量": "返还金币"
+          }
+        ]
+      },
+      "最终值": 140
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-8f34ab552be0da",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证幸运礼物返还100金币后的余额",
+    "point": "开奖余额核算",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，礼物单价10，数量1；测试环境将本次独立开奖结果预置为100金币"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开幸运礼物面板",
+      "选择该幸运礼物",
+      "选择数量1",
+      "点击赠送"
+    ],
+    "result": "金币余额=100-10+100=190",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": {
+      "公式": "原余额-礼物价值+返还金币",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "礼物价值",
+          "业务含义": "礼物价值",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "返还金币",
+          "业务含义": "返还金币",
+          "数值": 100,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "运算": "-",
+            "参数": [
+              {
+                "变量": "原余额"
+              },
+              {
+                "变量": "礼物价值"
+              }
+            ]
+          },
+          {
+            "变量": "返还金币"
+          }
+        ]
+      },
+      "最终值": 190
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-2bbdf4a9eb2fbd",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证幸运礼物返还1000金币后的余额",
+    "point": "开奖余额核算",
+    "conditions": [
+      "用户账号可用且已登录",
+      "原余额100，礼物单价10，数量1；测试环境将本次独立开奖结果预置为1000金币"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开幸运礼物面板",
+      "选择该幸运礼物",
+      "选择数量1",
+      "点击赠送"
+    ],
+    "result": "金币余额=100-10+1000=1090",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": {
+      "公式": "原余额-礼物价值+返还金币",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "礼物价值",
+          "业务含义": "礼物价值",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "返还金币",
+          "业务含义": "返还金币",
+          "数值": 1000,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "运算": "-",
+            "参数": [
+              {
+                "变量": "原余额"
+              },
+              {
+                "变量": "礼物价值"
+              }
+            ]
+          },
+          {
+            "变量": "返还金币"
+          }
+        ]
+      },
+      "最终值": 1090
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-191808708a3fba",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证负余额不能赠送礼物",
+    "point": "负余额消费限制",
+    "conditions": [
+      "用户账号可用且已登录",
+      "金币余额为-1，礼物可赠送"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "选择普通礼物",
+      "点击赠送"
+    ],
+    "result": "不生成成功赠送记录",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c",
+      "REQ-SYS-118ef76d58",
+      "REQ-SYS-a6a8ab1cc2",
+      "REQ-SYS-1a8f045273",
+      "REQ-SYS-40bfde7ae7",
+      "REQ-SYS-5848f2af01",
+      "REQ-SYS-df6223763e",
+      "REQ-SYS-954da369c9",
+      "REQ-SYS-499b86280c",
+      "REQ-SYS-8649bfc9ab",
+      "REQ-SYS-9f8d4dfed8",
+      "REQ-SYS-fc7ecd9286",
+      "REQ-SYS-0cde7145e8",
+      "REQ-SYS-8dee2d71ad",
+      "REQ-SYS-eeb035382d",
+      "REQ-SYS-29c0a26cf6",
+      "REQ-SYS-f17da1760c",
+      "REQ-SYS-8bbb0d9ff3",
+      "REQ-SYS-0f23dfe333",
+      "REQ-SYS-f6212bf1b9",
+      "REQ-SYS-97f6fd6716",
+      "REQ-SYS-02067a059c",
+      "REQ-SYS-93ee37dc7a",
+      "REQ-SYS-be841e89a4",
+      "REQ-SYS-2fd69eeac6",
+      "REQ-SYS-04fc9b2d8e",
+      "REQ-SYS-094dbef227",
+      "REQ-SYS-0f47b03082",
+      "REQ-SYS-6d0c02bdf3",
+      "REQ-SYS-7e05c45d60",
+      "REQ-SYS-5c48a00988",
+      "REQ-SYS-ebffadbb6b",
+      "REQ-SYS-058b3ea7e7",
+      "REQ-SYS-9d65ff99e4",
+      "REQ-SYS-1a2976b8bd",
+      "REQ-SYS-975cd32886",
+      "REQ-SYS-9b8a95cf10",
+      "REQ-SYS-b375268244",
+      "REQ-SYS-8bf66637fe",
+      "REQ-SYS-b066fb4a81",
+      "REQ-SYS-6febb76bba",
+      "REQ-SYS-21c588b3f1",
+      "REQ-SYS-5d73ded0bb",
+      "REQ-SYS-e38e2b3f1c",
+      "REQ-SYS-e27ff3ff8e",
+      "REQ-SYS-5cd8c097a9",
+      "REQ-SYS-53832764df",
+      "REQ-SYS-7480eab51f",
+      "REQ-SYS-79dd5d4146",
+      "REQ-SYS-7b7342cd34",
+      "REQ-SYS-ad375c4bbe",
+      "REQ-SYS-6d58f371d0",
+      "REQ-SYS-07b643d4ae",
+      "REQ-SYS-dd00ccdf6f",
+      "REQ-SYS-73be1ccf91",
+      "REQ-SYS-e7e6aee235",
+      "REQ-SYS-5b8abaaa6c",
+      "REQ-SYS-47e4f6cb7d",
+      "REQ-SYS-0bae4c6220",
+      "REQ-SYS-a0bf4bcdba",
+      "REQ-SYS-beaed55dcc",
+      "REQ-SYS-62094cf48f",
+      "REQ-SYS-e2845e6efd",
+      "REQ-SYS-b2dcb1c143",
+      "REQ-SYS-09a04aa578",
+      "REQ-SYS-5c0804b56b",
+      "REQ-SYS-849dc80539",
+      "REQ-SYS-c3833386ea",
+      "REQ-SYS-e03f417172",
+      "REQ-SYS-8d010470b5",
+      "REQ-SYS-79b960afbc",
+      "REQ-SYS-231ca4516f",
+      "REQ-SYS-027dca936d",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-fe9b882d08",
+      "REQ-SYS-5bb70806e8",
+      "REQ-SYS-57ecd00a68",
+      "REQ-SYS-b96f9841bb",
+      "REQ-SYS-27e1210f91",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-992d02eda5",
+      "REQ-SYS-4385592bb0",
+      "REQ-SYS-2513efb84f",
+      "REQ-SYS-e0ea814410",
+      "REQ-SYS-611a8f90cc",
+      "REQ-SYS-731bdf2b9a",
+      "REQ-SYS-3fe578cf59",
+      "REQ-SYS-9ef5fd86d6",
+      "REQ-SYS-53d9400e09",
+      "REQ-SYS-7a259a38f1",
+      "REQ-SYS-d01cd8f413",
+      "REQ-SYS-f6cdc3080f",
+      "REQ-SYS-56f3f175ce",
+      "REQ-SYS-bcc3eadfad",
+      "REQ-SYS-04793ea053",
+      "REQ-SYS-60122724cb",
+      "REQ-SYS-3ded211b9a",
+      "REQ-SYS-341c49eb53",
+      "REQ-SYS-0f1da9a97a",
+      "REQ-SYS-0a9deee752",
+      "REQ-SYS-54c430f1b2",
+      "REQ-SYS-e69d0c59a2",
+      "REQ-SYS-6791adc777",
+      "REQ-SYS-ba1a250e22",
+      "REQ-SYS-c1236a3377",
+      "REQ-SYS-b0c7b79caa",
+      "REQ-SYS-364c3805dd",
+      "REQ-SYS-afc21c5ff3",
+      "REQ-SYS-7a92c22709",
+      "REQ-SYS-ec71a016d5",
+      "REQ-SYS-d9950c5829",
+      "REQ-SYS-89a5c6a721",
+      "REQ-SYS-e8c32e7983",
+      "REQ-SYS-b0a8e0841b",
+      "REQ-SYS-5d8f7eb98b",
+      "REQ-SYS-8570d0cc38",
+      "REQ-SYS-2a8927ff1f",
+      "REQ-SYS-017d1c5e10",
+      "REQ-SYS-2cd8dd6a4e",
+      "REQ-SYS-eaa4a0f184",
+      "REQ-SYS-974df71a1e",
+      "REQ-SYS-097bd92b50",
+      "REQ-SYS-45fa1403a2",
+      "REQ-SYS-ee3645779e",
+      "REQ-SYS-eaf6304f26",
+      "REQ-SYS-6f60d0aebc",
+      "REQ-SYS-9b632ca69d",
+      "REQ-SYS-0e8052b9fb",
+      "REQ-SYS-fa5c4ba241",
+      "REQ-SYS-88529b834c",
+      "REQ-SYS-935eace9e8",
+      "REQ-SYS-8d2115cd37",
+      "REQ-SYS-87a1fa6119",
+      "REQ-SYS-c21a73698c",
+      "REQ-SYS-701b6f8f9a",
+      "REQ-SYS-9d1bd7b465",
+      "REQ-SYS-6dfb45ef11",
+      "REQ-SYS-ea98674cc2",
+      "REQ-SYS-f90d26d638",
+      "REQ-SYS-e5cc911bd0",
+      "REQ-SYS-f6c414f5c8",
+      "REQ-SYS-eb7f683d6b",
+      "REQ-SYS-2d3596eac5",
+      "REQ-SYS-781b0c6c23",
+      "REQ-SYS-662c1006d7",
+      "REQ-SYS-50aa1226ae",
+      "REQ-SYS-7905b4c0b7",
+      "REQ-SYS-f3edf65118",
+      "REQ-SYS-2dd4901fab",
+      "REQ-SYS-18046a16f3",
+      "REQ-SYS-428438ce85",
+      "REQ-SYS-ce2a33bbb7",
+      "REQ-SYS-811b7eba70",
+      "REQ-SYS-a4afe10ab7",
+      "REQ-SYS-d64d54fad9",
+      "REQ-SYS-ab624aaa66",
+      "REQ-SYS-a43a234c33",
+      "REQ-SYS-3445422fb6",
+      "REQ-SYS-5bebb25844",
+      "REQ-SYS-c92d50cd3b",
+      "REQ-SYS-00866478cb",
+      "REQ-SYS-b03dd22864",
+      "REQ-SYS-40e69ac4b6",
+      "REQ-SYS-ade0d78cbf",
+      "REQ-SYS-dbe6649b01",
+      "REQ-SYS-dfe3697466",
+      "REQ-SYS-d8905a9693",
+      "REQ-SYS-e3094879ed",
+      "REQ-SYS-9144d3e9f8",
+      "REQ-SYS-366b934a4a",
+      "REQ-SYS-b9354b1e1e",
+      "REQ-SYS-51f00fcbc3",
+      "REQ-SYS-9df3907a79",
+      "REQ-SYS-ca5b1e9f11",
+      "REQ-SYS-3ed0430a70",
+      "REQ-SYS-5b47931699",
+      "REQ-SYS-6ef1df945c",
+      "REQ-SYS-f8ecfb6560",
+      "REQ-SYS-a40ce5867d",
+      "REQ-SYS-cef2d37230",
+      "REQ-SYS-a6be5a9faf",
+      "REQ-SYS-da6b49f501",
+      "REQ-SYS-f06505b1cd",
+      "REQ-SYS-373203e76b",
+      "REQ-SYS-997370d91b",
+      "REQ-SYS-3ce029e34a",
+      "REQ-SYS-ad0538a3b6",
+      "REQ-SYS-60dad91217",
+      "REQ-SYS-020aec3006",
+      "REQ-SYS-6a856d1824",
+      "REQ-SYS-623f20da0a",
+      "REQ-SYS-9620680f23",
+      "REQ-SYS-2766e03f70",
+      "REQ-SYS-e25855e6ba",
+      "REQ-SYS-9fd830d3f1",
+      "REQ-SYS-e57ef8294a",
+      "REQ-SYS-150d632207",
+      "REQ-SYS-b21c1478e5",
+      "REQ-SYS-76257b5d3f",
+      "REQ-SYS-da78713c66",
+      "REQ-SYS-7249011964",
+      "REQ-SYS-05461efc46",
+      "REQ-SYS-6520d9d2fc"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4af101e95ae888",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（观众）",
+    "role": "观众",
+    "title": "验证幸运礼物批量独立开奖",
+    "point": "独立开奖次数",
+    "conditions": [
+      "用户账号可用且已登录",
+      "余额足够，幸运礼物每件10金币"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "选择数量10并赠送"
+    ],
+    "result": "本次生成10个独立开奖结果",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c",
+      "REQ-SYS-118ef76d58",
+      "REQ-SYS-a6a8ab1cc2",
+      "REQ-SYS-1a8f045273",
+      "REQ-SYS-40bfde7ae7",
+      "REQ-SYS-5848f2af01",
+      "REQ-SYS-df6223763e",
+      "REQ-SYS-954da369c9",
+      "REQ-SYS-499b86280c",
+      "REQ-SYS-8649bfc9ab",
+      "REQ-SYS-9f8d4dfed8",
+      "REQ-SYS-fc7ecd9286",
+      "REQ-SYS-0cde7145e8",
+      "REQ-SYS-8dee2d71ad",
+      "REQ-SYS-eeb035382d",
+      "REQ-SYS-29c0a26cf6",
+      "REQ-SYS-f17da1760c",
+      "REQ-SYS-8bbb0d9ff3",
+      "REQ-SYS-0f23dfe333",
+      "REQ-SYS-f6212bf1b9",
+      "REQ-SYS-97f6fd6716",
+      "REQ-SYS-02067a059c",
+      "REQ-SYS-93ee37dc7a",
+      "REQ-SYS-be841e89a4",
+      "REQ-SYS-2fd69eeac6",
+      "REQ-SYS-04fc9b2d8e",
+      "REQ-SYS-094dbef227",
+      "REQ-SYS-0f47b03082",
+      "REQ-SYS-6d0c02bdf3",
+      "REQ-SYS-7e05c45d60",
+      "REQ-SYS-5c48a00988",
+      "REQ-SYS-ebffadbb6b",
+      "REQ-SYS-058b3ea7e7",
+      "REQ-SYS-9d65ff99e4",
+      "REQ-SYS-1a2976b8bd",
+      "REQ-SYS-975cd32886",
+      "REQ-SYS-9b8a95cf10",
+      "REQ-SYS-b375268244",
+      "REQ-SYS-8bf66637fe",
+      "REQ-SYS-b066fb4a81",
+      "REQ-SYS-6febb76bba",
+      "REQ-SYS-21c588b3f1",
+      "REQ-SYS-5d73ded0bb",
+      "REQ-SYS-e38e2b3f1c",
+      "REQ-SYS-e27ff3ff8e",
+      "REQ-SYS-5cd8c097a9",
+      "REQ-SYS-53832764df",
+      "REQ-SYS-7480eab51f",
+      "REQ-SYS-79dd5d4146",
+      "REQ-SYS-7b7342cd34",
+      "REQ-SYS-ad375c4bbe",
+      "REQ-SYS-6d58f371d0",
+      "REQ-SYS-07b643d4ae",
+      "REQ-SYS-dd00ccdf6f",
+      "REQ-SYS-73be1ccf91",
+      "REQ-SYS-e7e6aee235",
+      "REQ-SYS-5b8abaaa6c",
+      "REQ-SYS-47e4f6cb7d",
+      "REQ-SYS-0bae4c6220",
+      "REQ-SYS-a0bf4bcdba",
+      "REQ-SYS-beaed55dcc",
+      "REQ-SYS-62094cf48f",
+      "REQ-SYS-e2845e6efd",
+      "REQ-SYS-b2dcb1c143",
+      "REQ-SYS-09a04aa578",
+      "REQ-SYS-5c0804b56b",
+      "REQ-SYS-849dc80539",
+      "REQ-SYS-c3833386ea",
+      "REQ-SYS-e03f417172",
+      "REQ-SYS-8d010470b5",
+      "REQ-SYS-79b960afbc",
+      "REQ-SYS-231ca4516f",
+      "REQ-SYS-027dca936d",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-fe9b882d08",
+      "REQ-SYS-5bb70806e8",
+      "REQ-SYS-57ecd00a68",
+      "REQ-SYS-b96f9841bb",
+      "REQ-SYS-27e1210f91",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-992d02eda5",
+      "REQ-SYS-4385592bb0",
+      "REQ-SYS-2513efb84f",
+      "REQ-SYS-e0ea814410",
+      "REQ-SYS-611a8f90cc",
+      "REQ-SYS-731bdf2b9a",
+      "REQ-SYS-3fe578cf59",
+      "REQ-SYS-9ef5fd86d6",
+      "REQ-SYS-53d9400e09",
+      "REQ-SYS-7a259a38f1",
+      "REQ-SYS-d01cd8f413",
+      "REQ-SYS-f6cdc3080f",
+      "REQ-SYS-56f3f175ce",
+      "REQ-SYS-bcc3eadfad",
+      "REQ-SYS-04793ea053",
+      "REQ-SYS-60122724cb",
+      "REQ-SYS-3ded211b9a",
+      "REQ-SYS-341c49eb53",
+      "REQ-SYS-0f1da9a97a",
+      "REQ-SYS-0a9deee752",
+      "REQ-SYS-54c430f1b2",
+      "REQ-SYS-e69d0c59a2",
+      "REQ-SYS-6791adc777",
+      "REQ-SYS-ba1a250e22",
+      "REQ-SYS-c1236a3377",
+      "REQ-SYS-b0c7b79caa",
+      "REQ-SYS-364c3805dd",
+      "REQ-SYS-afc21c5ff3",
+      "REQ-SYS-7a92c22709",
+      "REQ-SYS-ec71a016d5",
+      "REQ-SYS-d9950c5829",
+      "REQ-SYS-89a5c6a721",
+      "REQ-SYS-e8c32e7983",
+      "REQ-SYS-b0a8e0841b",
+      "REQ-SYS-5d8f7eb98b",
+      "REQ-SYS-8570d0cc38",
+      "REQ-SYS-2a8927ff1f",
+      "REQ-SYS-017d1c5e10",
+      "REQ-SYS-2cd8dd6a4e",
+      "REQ-SYS-eaa4a0f184",
+      "REQ-SYS-974df71a1e",
+      "REQ-SYS-097bd92b50",
+      "REQ-SYS-45fa1403a2",
+      "REQ-SYS-ee3645779e",
+      "REQ-SYS-eaf6304f26",
+      "REQ-SYS-6f60d0aebc",
+      "REQ-SYS-9b632ca69d",
+      "REQ-SYS-0e8052b9fb",
+      "REQ-SYS-fa5c4ba241",
+      "REQ-SYS-88529b834c",
+      "REQ-SYS-935eace9e8",
+      "REQ-SYS-8d2115cd37",
+      "REQ-SYS-87a1fa6119",
+      "REQ-SYS-c21a73698c",
+      "REQ-SYS-701b6f8f9a",
+      "REQ-SYS-9d1bd7b465",
+      "REQ-SYS-6dfb45ef11",
+      "REQ-SYS-ea98674cc2",
+      "REQ-SYS-f90d26d638",
+      "REQ-SYS-e5cc911bd0",
+      "REQ-SYS-f6c414f5c8",
+      "REQ-SYS-eb7f683d6b",
+      "REQ-SYS-2d3596eac5",
+      "REQ-SYS-781b0c6c23",
+      "REQ-SYS-662c1006d7",
+      "REQ-SYS-50aa1226ae",
+      "REQ-SYS-7905b4c0b7",
+      "REQ-SYS-f3edf65118",
+      "REQ-SYS-2dd4901fab",
+      "REQ-SYS-18046a16f3",
+      "REQ-SYS-428438ce85",
+      "REQ-SYS-ce2a33bbb7",
+      "REQ-SYS-811b7eba70",
+      "REQ-SYS-a4afe10ab7",
+      "REQ-SYS-d64d54fad9",
+      "REQ-SYS-ab624aaa66",
+      "REQ-SYS-a43a234c33",
+      "REQ-SYS-3445422fb6",
+      "REQ-SYS-5bebb25844",
+      "REQ-SYS-c92d50cd3b",
+      "REQ-SYS-00866478cb",
+      "REQ-SYS-b03dd22864",
+      "REQ-SYS-40e69ac4b6",
+      "REQ-SYS-ade0d78cbf",
+      "REQ-SYS-dbe6649b01",
+      "REQ-SYS-dfe3697466",
+      "REQ-SYS-d8905a9693",
+      "REQ-SYS-e3094879ed",
+      "REQ-SYS-9144d3e9f8",
+      "REQ-SYS-366b934a4a",
+      "REQ-SYS-b9354b1e1e",
+      "REQ-SYS-51f00fcbc3",
+      "REQ-SYS-9df3907a79",
+      "REQ-SYS-ca5b1e9f11",
+      "REQ-SYS-3ed0430a70",
+      "REQ-SYS-5b47931699",
+      "REQ-SYS-6ef1df945c",
+      "REQ-SYS-f8ecfb6560",
+      "REQ-SYS-a40ce5867d",
+      "REQ-SYS-cef2d37230",
+      "REQ-SYS-a6be5a9faf",
+      "REQ-SYS-da6b49f501",
+      "REQ-SYS-f06505b1cd",
+      "REQ-SYS-373203e76b",
+      "REQ-SYS-997370d91b",
+      "REQ-SYS-3ce029e34a",
+      "REQ-SYS-ad0538a3b6",
+      "REQ-SYS-60dad91217",
+      "REQ-SYS-020aec3006",
+      "REQ-SYS-6a856d1824",
+      "REQ-SYS-623f20da0a",
+      "REQ-SYS-9620680f23",
+      "REQ-SYS-2766e03f70",
+      "REQ-SYS-e25855e6ba",
+      "REQ-SYS-9fd830d3f1",
+      "REQ-SYS-e57ef8294a",
+      "REQ-SYS-150d632207",
+      "REQ-SYS-b21c1478e5",
+      "REQ-SYS-76257b5d3f",
+      "REQ-SYS-da78713c66",
+      "REQ-SYS-7249011964",
+      "REQ-SYS-05461efc46",
+      "REQ-SYS-6520d9d2fc"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4b4c005c0878af",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（运营人员）",
+    "role": "运营人员",
+    "title": "验证运营账号不能发送幸运礼物",
+    "point": "虚拟金币玩法限制",
+    "conditions": [
+      "用户账号可用且已登录",
+      "当前执行账号为运营账号且虚拟余额足够"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "查看幸运礼物入口"
+    ],
+    "result": "不能赠送幸运礼物",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-1b84c0113a1e93",
+    "page": "views/live-room/gift.html",
+    "end": "用户App",
+    "module": "直播模块",
+    "structure": "礼物（运营人员）",
+    "role": "运营人员",
+    "title": "验证运营账号虚拟余额不足无充值入口",
+    "point": "虚拟余额不足",
+    "conditions": [
+      "用户账号可用且已登录",
+      "当前执行账号为运营账号，虚拟金币不足本次礼物价值"
+    ],
+    "steps": [
+      "进入直播间",
+      "打开礼物面板",
+      "点击赠送"
+    ],
+    "result": "提示联系公会发放且不提供充值入口",
+    "sourceIds": [
+      "REQ-USER-ae7379524b",
+      "REQ-USER-b06bf86a7c",
+      "REQ-USER-ee66abaf03",
+      "REQ-USER-e1eaaa093f",
+      "REQ-USER-b7cf08f729",
+      "REQ-USER-0669b0009e",
+      "REQ-USER-f9d86fe8e5",
+      "REQ-USER-5c252c0a4b",
+      "REQ-USER-3dc7d1dc1d",
+      "REQ-USER-862620a76a",
+      "REQ-USER-676f14277c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-a60c90cbab39e1",
+    "page": "order-expense-detail.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "支出订单详情（用户）",
+    "role": "用户",
+    "title": "验证成功消费订单不可退款",
+    "point": "消费退款禁止",
+    "conditions": [
+      "用户账号可用且已登录",
+      "该赠礼已成功"
+    ],
+    "steps": [
+      "进入余额明细",
+      "选择一笔成功赠礼支出"
+    ],
+    "result": "不提供退款操作",
+    "sourceIds": [
+      "REQ-USER-4c7a6705e8",
+      "REQ-USER-77577ceb0b",
+      "REQ-USER-9a978b8c2c",
+      "REQ-USER-21842400f8",
+      "REQ-USER-bc7ac72b3b",
+      "REQ-USER-63d85f9041",
+      "REQ-USER-6bce4a4af4",
+      "REQ-USER-e2e27eaa23",
+      "REQ-USER-c127c7b753",
+      "REQ-USER-734b516dd8",
+      "REQ-USER-8b5d7bee35",
+      "REQ-PUB-e5535d7d00"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "支出订单详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-5bf17b7ce8afce",
+    "page": "order-expense-detail.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "支出订单详情（用户）",
+    "role": "用户",
+    "title": "验证消费订单使用购买时价格",
+    "point": "消费商品快照",
+    "conditions": [
+      "用户账号可用且已登录",
+      "购买时单价10数量3，平台后来将该商品单价改为20"
+    ],
+    "steps": [
+      "进入余额明细",
+      "选择一笔成功赠礼支出",
+      "查看扣款金币"
+    ],
+    "result": "扣款金币=10×3=30",
+    "sourceIds": [
+      "REQ-USER-4c7a6705e8",
+      "REQ-USER-77577ceb0b",
+      "REQ-USER-9a978b8c2c",
+      "REQ-USER-21842400f8",
+      "REQ-USER-bc7ac72b3b",
+      "REQ-USER-63d85f9041",
+      "REQ-USER-6bce4a4af4",
+      "REQ-USER-e2e27eaa23",
+      "REQ-USER-c127c7b753",
+      "REQ-USER-734b516dd8",
+      "REQ-USER-8b5d7bee35",
+      "REQ-PUB-e5535d7d00"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "支出订单详情",
+    "calculation": {
+      "公式": "购买时单价×数量",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "购买时单价",
+          "业务含义": "购买时单价",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "数量",
+          "业务含义": "数量",
+          "数值": 3,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "*",
+        "参数": [
+          {
+            "变量": "购买时单价"
+          },
+          {
+            "变量": "数量"
+          }
+        ]
+      },
+      "最终值": 30
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-69c9285f138865",
+    "page": "balance-detail.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "余额明细（用户）",
+    "role": "用户",
+    "title": "验证充值退款保留原消费流水",
+    "point": "充值退款不撤销消费",
+    "conditions": [
+      "用户账号可用且已登录",
+      "一笔充值已退款，用户此前用余额完成了一笔赠礼"
+    ],
+    "steps": [
+      "进入余额明细",
+      "查看该赠礼流水"
+    ],
+    "result": "原赠礼支出记录仍保留",
+    "sourceIds": [
+      "REQ-USER-3e9b8fcba7",
+      "REQ-USER-fa71943b13",
+      "REQ-USER-8756e3dc93",
+      "REQ-USER-2ec61dccfb",
+      "REQ-USER-386546daa5",
+      "REQ-USER-01541989ac",
+      "REQ-USER-670875eeb3",
+      "REQ-PUB-720f57c7a8"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额明细",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-51b153f2515b89",
+    "page": "balance-detail.html",
+    "end": "用户App",
+    "module": "钱包与充值",
+    "structure": "余额明细（用户）",
+    "role": "用户",
+    "title": "验证充值退款生成独立资产分录",
+    "point": "退款账务留痕",
+    "conditions": [
+      "用户账号可用且已登录",
+      "后台刚完成该账号的一笔充值退款"
+    ],
+    "steps": [
+      "进入余额明细",
+      "查看最新金币流水"
+    ],
+    "result": "新增一笔对应原充值订单的退款扣回流水",
+    "sourceIds": [
+      "REQ-USER-3e9b8fcba7",
+      "REQ-USER-fa71943b13",
+      "REQ-USER-8756e3dc93",
+      "REQ-USER-2ec61dccfb",
+      "REQ-USER-386546daa5",
+      "REQ-USER-01541989ac",
+      "REQ-USER-670875eeb3",
+      "REQ-PUB-720f57c7a8"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额明细",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-6139f3491b6212",
+    "page": "admin-recharge-order-detail.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "充值订单详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证整单退款扣回本金和赠金",
+    "point": "充值退款扣回",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "订单已支付未退款，基础1000赠金200，当前余额500"
+    ],
+    "steps": [
+      "进入充值订单",
+      "打开目标充值订单详情",
+      "点击退款",
+      "填写原因“支付渠道退款申请”",
+      "确认整单退款"
+    ],
+    "result": "用户金币余额=500-1000-200=-700",
+    "sourceIds": [
+      "REQ-ADMIN-91807a8a4d",
+      "REQ-ADMIN-9f5e2d8eb1",
+      "REQ-ADMIN-ff396b8c97",
+      "REQ-ADMIN-506b3cbbc6",
+      "REQ-ADMIN-e442fdfe65",
+      "REQ-ADMIN-88b1f2488d",
+      "REQ-ADMIN-2e2bea1931",
+      "REQ-ADMIN-c9a7f813d3",
+      "REQ-ADMIN-5e93a998fd",
+      "REQ-ADMIN-d44cebfe28",
+      "REQ-ADMIN-d13e760fe0"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "ST-6b0cb98ec3fe",
+    "flow": "FLOW-2ba2481a",
+    "from": "支付成功且未退款",
+    "to": "已退款且扣回原到账金币",
+    "object": "充值订单",
+    "calculation": {
+      "公式": "当前余额-基础金币-赠金",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "当前余额",
+          "业务含义": "当前余额",
+          "数值": 500,
+          "单位": "金币"
+        },
+        {
+          "名称": "基础金币",
+          "业务含义": "基础金币",
+          "数值": 1000,
+          "单位": "金币"
+        },
+        {
+          "名称": "赠金",
+          "业务含义": "赠金",
+          "数值": 200,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "-",
+        "参数": [
+          {
+            "变量": "当前余额"
+          },
+          {
+            "变量": "基础金币"
+          },
+          {
+            "变量": "赠金"
+          }
+        ]
+      },
+      "最终值": -700
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-904f6311689f10",
+    "page": "admin-recharge-order-detail.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "充值订单详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证退款金额使用原实付金额",
+    "point": "退款法币金额",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "原实付为10.99 USD，订单已支付未退款"
+    ],
+    "steps": [
+      "进入充值订单",
+      "打开目标充值订单详情",
+      "打开退款确认"
+    ],
+    "result": "退款金额显示10.99 USD",
+    "sourceIds": [
+      "REQ-ADMIN-91807a8a4d",
+      "REQ-ADMIN-9f5e2d8eb1",
+      "REQ-ADMIN-ff396b8c97",
+      "REQ-ADMIN-506b3cbbc6",
+      "REQ-ADMIN-e442fdfe65",
+      "REQ-ADMIN-88b1f2488d",
+      "REQ-ADMIN-2e2bea1931",
+      "REQ-ADMIN-c9a7f813d3",
+      "REQ-ADMIN-5e93a998fd",
+      "REQ-ADMIN-d44cebfe28",
+      "REQ-ADMIN-d13e760fe0"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值订单详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-1221510d646638",
+    "page": "admin-recharge-order-detail.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "充值订单详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证已退款订单不可重复退款",
+    "point": "退款幂等终态",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "该订单已完成整单退款"
+    ],
+    "steps": [
+      "进入充值订单",
+      "打开目标充值订单详情",
+      "查看退款入口"
+    ],
+    "result": "不提供再次退款操作",
+    "sourceIds": [
+      "REQ-ADMIN-91807a8a4d",
+      "REQ-ADMIN-9f5e2d8eb1",
+      "REQ-ADMIN-ff396b8c97",
+      "REQ-ADMIN-506b3cbbc6",
+      "REQ-ADMIN-e442fdfe65",
+      "REQ-ADMIN-88b1f2488d",
+      "REQ-ADMIN-2e2bea1931",
+      "REQ-ADMIN-c9a7f813d3",
+      "REQ-ADMIN-5e93a998fd",
+      "REQ-ADMIN-d44cebfe28",
+      "REQ-ADMIN-d13e760fe0"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值订单详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-30a568fa2fc157",
+    "page": "admin-recharge-order-detail.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "充值订单详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证失败充值订单不能退款",
+    "point": "退款订单资格",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "目标订单支付失败且没有金币入账"
+    ],
+    "steps": [
+      "进入充值订单",
+      "打开目标充值订单详情",
+      "查看订单操作"
+    ],
+    "result": "不允许发起充值退款",
+    "sourceIds": [
+      "REQ-ADMIN-91807a8a4d",
+      "REQ-ADMIN-9f5e2d8eb1",
+      "REQ-ADMIN-ff396b8c97",
+      "REQ-ADMIN-506b3cbbc6",
+      "REQ-ADMIN-e442fdfe65",
+      "REQ-ADMIN-88b1f2488d",
+      "REQ-ADMIN-2e2bea1931",
+      "REQ-ADMIN-c9a7f813d3",
+      "REQ-ADMIN-5e93a998fd",
+      "REQ-ADMIN-d44cebfe28",
+      "REQ-ADMIN-d13e760fe0"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值订单详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-172152bcbcee1d",
+    "page": "admin-recharge-order-detail.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "充值订单详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证退款不撤销完成的礼物消费",
+    "point": "退款消费隔离",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "用户此前已完成一笔赠礼，原充值订单可退款"
+    ],
+    "steps": [
+      "进入充值订单",
+      "打开目标充值订单详情",
+      "点击退款",
+      "填写原因并确认"
+    ],
+    "result": "该用户既有成功赠礼订单仍保留",
+    "sourceIds": [
+      "REQ-ADMIN-91807a8a4d",
+      "REQ-ADMIN-9f5e2d8eb1",
+      "REQ-ADMIN-ff396b8c97",
+      "REQ-ADMIN-506b3cbbc6",
+      "REQ-ADMIN-e442fdfe65",
+      "REQ-ADMIN-88b1f2488d",
+      "REQ-ADMIN-2e2bea1931",
+      "REQ-ADMIN-c9a7f813d3",
+      "REQ-ADMIN-5e93a998fd",
+      "REQ-ADMIN-d44cebfe28",
+      "REQ-ADMIN-d13e760fe0"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值订单详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-81900a26ec7685",
+    "page": "admin-consumption-order-detail.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "消费订单详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证普通礼物收益按礼物价值",
+    "point": "普通礼物收益计算",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "成功真实金币普通礼物单价20数量3"
+    ],
+    "steps": [
+      "进入消费订单详情"
+    ],
+    "result": "主播收益=20×3=60",
+    "sourceIds": [
+      "REQ-ADMIN-8870c91421",
+      "REQ-ADMIN-2cd1a8dfd1",
+      "REQ-ADMIN-358ec15ee2",
+      "REQ-ADMIN-9a5233e633",
+      "REQ-ADMIN-edf6f1d0e4",
+      "REQ-ADMIN-524bc1573c",
+      "REQ-ADMIN-78e1b508b9",
+      "REQ-ADMIN-78ec5f9b91",
+      "REQ-ADMIN-04310df16c",
+      "REQ-PUB-9a6c6938df",
+      "REQ-PUB-bb149a4491"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "消费订单详情",
+    "calculation": {
+      "公式": "单价×数量",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "单价",
+          "业务含义": "单价",
+          "数值": 20,
+          "单位": "金币"
+        },
+        {
+          "名称": "数量",
+          "业务含义": "数量",
+          "数值": 3,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "*",
+        "参数": [
+          {
+            "变量": "单价"
+          },
+          {
+            "变量": "数量"
+          }
+        ]
+      },
+      "最终值": 60
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-e78735060f6bbc",
+    "page": "admin-consumption-order-detail.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "消费订单详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证幸运礼物返奖不影响主播收益",
+    "point": "幸运收益与返奖隔离",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "成功幸运礼物价值1000，赠送时比例1%，用户实际返奖1500"
+    ],
+    "steps": [
+      "进入消费订单详情"
+    ],
+    "result": "主播收益=1000×0.01=10",
+    "sourceIds": [
+      "REQ-ADMIN-8870c91421",
+      "REQ-ADMIN-2cd1a8dfd1",
+      "REQ-ADMIN-358ec15ee2",
+      "REQ-ADMIN-9a5233e633",
+      "REQ-ADMIN-edf6f1d0e4",
+      "REQ-ADMIN-524bc1573c",
+      "REQ-ADMIN-78e1b508b9",
+      "REQ-ADMIN-78ec5f9b91",
+      "REQ-ADMIN-04310df16c",
+      "REQ-PUB-9a6c6938df",
+      "REQ-PUB-bb149a4491"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "消费订单详情",
+    "calculation": {
+      "公式": "礼物价值×赠送时比例",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "礼物价值",
+          "业务含义": "礼物价值",
+          "数值": 1000,
+          "单位": "金币"
+        },
+        {
+          "名称": "赠送时比例",
+          "业务含义": "赠送时比例",
+          "数值": 0.01,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "*",
+        "参数": [
+          {
+            "变量": "礼物价值"
+          },
+          {
+            "变量": "赠送时比例"
+          }
+        ]
+      },
+      "最终值": 10
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f619a8cb5e4165",
+    "page": "admin-consumption-order-detail.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "消费订单详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证幸运礼物净消耗可小于零",
+    "point": "用户净消费计算",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "该订单扣减100，独立开奖合计返奖150"
+    ],
+    "steps": [
+      "进入消费订单详情"
+    ],
+    "result": "用户净消耗=100-150=-50",
+    "sourceIds": [
+      "REQ-ADMIN-8870c91421",
+      "REQ-ADMIN-2cd1a8dfd1",
+      "REQ-ADMIN-358ec15ee2",
+      "REQ-ADMIN-9a5233e633",
+      "REQ-ADMIN-edf6f1d0e4",
+      "REQ-ADMIN-524bc1573c",
+      "REQ-ADMIN-78e1b508b9",
+      "REQ-ADMIN-78ec5f9b91",
+      "REQ-ADMIN-04310df16c",
+      "REQ-PUB-9a6c6938df",
+      "REQ-PUB-bb149a4491"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "消费订单详情",
+    "calculation": {
+      "公式": "订单扣减-实际返奖",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "订单扣减",
+          "业务含义": "订单扣减",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "实际返奖",
+          "业务含义": "实际返奖",
+          "数值": 150,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "-",
+        "参数": [
+          {
+            "变量": "订单扣减"
+          },
+          {
+            "变量": "实际返奖"
+          }
+        ]
+      },
+      "最终值": -50
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c6a4432c60ac3b",
+    "page": "admin-consumption-order-detail.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "消费订单详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证已支付消费订单不提供退款",
+    "point": "后台消费不可退款",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "目标为已支付门票或礼物订单"
+    ],
+    "steps": [
+      "进入消费订单详情",
+      "查看详情操作"
+    ],
+    "result": "不提供退款操作",
+    "sourceIds": [
+      "REQ-ADMIN-8870c91421",
+      "REQ-ADMIN-2cd1a8dfd1",
+      "REQ-ADMIN-358ec15ee2",
+      "REQ-ADMIN-9a5233e633",
+      "REQ-ADMIN-edf6f1d0e4",
+      "REQ-ADMIN-524bc1573c",
+      "REQ-ADMIN-78e1b508b9",
+      "REQ-ADMIN-78ec5f9b91",
+      "REQ-ADMIN-04310df16c",
+      "REQ-PUB-9a6c6938df",
+      "REQ-PUB-bb149a4491"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "消费订单详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-be565c4d787350",
+    "page": "admin-lucky-gift-config.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证比例变更不重算历史收益",
+    "point": "赠送时比例快照",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "历史订单礼物价值1000、比例1%，本次将比例改为2%"
+    ],
+    "steps": [
+      "进入幸运礼物配置",
+      "点击收益比例编辑",
+      "输入2%",
+      "点击保存"
+    ],
+    "result": "历史订单收益仍为10金币",
+    "sourceIds": [
+      "REQ-ADMIN-a8865e3906",
+      "REQ-ADMIN-f6bbe6340a",
+      "REQ-ADMIN-affaa26772",
+      "REQ-ADMIN-92b8af5260",
+      "REQ-ADMIN-abccae72be",
+      "REQ-ADMIN-873c4a546b",
+      "REQ-ADMIN-784ea0203b",
+      "REQ-ADMIN-17419d7b6f",
+      "REQ-ADMIN-b0fdc78961",
+      "REQ-ADMIN-12e8e89348",
+      "REQ-ADMIN-f3356fd6f9",
+      "REQ-ADMIN-f4fc23a623",
+      "REQ-ADMIN-dfbf58272c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ad3aecfe01c536",
+    "page": "admin-lucky-gift-config.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证新比例用于保存后赠送",
+    "point": "收益比例新单生效",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "比例已保存为2%，之后新发生价值1000的幸运赠礼"
+    ],
+    "steps": [
+      "进入幸运礼物配置",
+      "查看对应收益记录"
+    ],
+    "result": "新订单主播收益=1000×0.02=20",
+    "sourceIds": [
+      "REQ-ADMIN-a8865e3906",
+      "REQ-ADMIN-f6bbe6340a",
+      "REQ-ADMIN-affaa26772",
+      "REQ-ADMIN-92b8af5260",
+      "REQ-ADMIN-abccae72be",
+      "REQ-ADMIN-873c4a546b",
+      "REQ-ADMIN-784ea0203b",
+      "REQ-ADMIN-17419d7b6f",
+      "REQ-ADMIN-b0fdc78961",
+      "REQ-ADMIN-12e8e89348",
+      "REQ-ADMIN-f3356fd6f9",
+      "REQ-ADMIN-f4fc23a623",
+      "REQ-ADMIN-dfbf58272c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物",
+    "calculation": {
+      "公式": "礼物价值×赠送时比例",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "礼物价值",
+          "业务含义": "礼物价值",
+          "数值": 1000,
+          "单位": "金币"
+        },
+        {
+          "名称": "赠送时比例",
+          "业务含义": "赠送时比例",
+          "数值": 0.02,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "*",
+        "参数": [
+          {
+            "变量": "礼物价值"
+          },
+          {
+            "变量": "赠送时比例"
+          }
+        ]
+      },
+      "最终值": 20
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-452fb8aa380622",
+    "page": "admin-lucky-gift-config.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证收益比例零值允许保存",
+    "point": "收益比例下界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权"
+    ],
+    "steps": [
+      "进入幸运礼物配置",
+      "点击收益比例编辑",
+      "输入0%",
+      "点击保存"
+    ],
+    "result": "收益比例保存为0%",
+    "sourceIds": [
+      "REQ-ADMIN-a8865e3906",
+      "REQ-ADMIN-f6bbe6340a",
+      "REQ-ADMIN-affaa26772",
+      "REQ-ADMIN-92b8af5260",
+      "REQ-ADMIN-abccae72be",
+      "REQ-ADMIN-873c4a546b",
+      "REQ-ADMIN-784ea0203b",
+      "REQ-ADMIN-17419d7b6f",
+      "REQ-ADMIN-b0fdc78961",
+      "REQ-ADMIN-12e8e89348",
+      "REQ-ADMIN-f3356fd6f9",
+      "REQ-ADMIN-f4fc23a623",
+      "REQ-ADMIN-dfbf58272c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c54f30ddd0bc83",
+    "page": "admin-lucky-gift-config.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证收益比例百分之百允许保存",
+    "point": "收益比例上界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权"
+    ],
+    "steps": [
+      "进入幸运礼物配置",
+      "点击收益比例编辑",
+      "输入100%",
+      "点击保存"
+    ],
+    "result": "收益比例保存为100%",
+    "sourceIds": [
+      "REQ-ADMIN-a8865e3906",
+      "REQ-ADMIN-f6bbe6340a",
+      "REQ-ADMIN-affaa26772",
+      "REQ-ADMIN-92b8af5260",
+      "REQ-ADMIN-abccae72be",
+      "REQ-ADMIN-873c4a546b",
+      "REQ-ADMIN-784ea0203b",
+      "REQ-ADMIN-17419d7b6f",
+      "REQ-ADMIN-b0fdc78961",
+      "REQ-ADMIN-12e8e89348",
+      "REQ-ADMIN-f3356fd6f9",
+      "REQ-ADMIN-f4fc23a623",
+      "REQ-ADMIN-dfbf58272c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-5ad0ccf2a3a8cb",
+    "page": "admin-lucky-gift-config.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证收益比例超过百分之百拒绝",
+    "point": "收益比例越界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权"
+    ],
+    "steps": [
+      "进入幸运礼物配置",
+      "点击收益比例编辑",
+      "输入100.1%",
+      "点击保存"
+    ],
+    "result": "不保存100.1%的收益比例",
+    "sourceIds": [
+      "REQ-ADMIN-a8865e3906",
+      "REQ-ADMIN-f6bbe6340a",
+      "REQ-ADMIN-affaa26772",
+      "REQ-ADMIN-92b8af5260",
+      "REQ-ADMIN-abccae72be",
+      "REQ-ADMIN-873c4a546b",
+      "REQ-ADMIN-784ea0203b",
+      "REQ-ADMIN-17419d7b6f",
+      "REQ-ADMIN-b0fdc78961",
+      "REQ-ADMIN-12e8e89348",
+      "REQ-ADMIN-f3356fd6f9",
+      "REQ-ADMIN-f4fc23a623",
+      "REQ-ADMIN-dfbf58272c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4e2ab58ba06b13",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证概率之和不足100不能生效",
+    "point": "概率合计不足",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其他必填项合法，奖励档位概率之和为99.9%"
+    ],
+    "steps": [
+      "进入幸运礼物配置详情",
+      "点击保存"
+    ],
+    "result": "配置不能生效",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d381af1c34b532",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证概率之和超过100不能生效",
+    "point": "概率合计超限",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其他必填项合法，奖励档位概率之和为100.1%"
+    ],
+    "steps": [
+      "进入幸运礼物配置详情",
+      "点击保存"
+    ],
+    "result": "配置不能生效",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-8d1a9f59108b3c",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证奖励金币可为零",
+    "point": "零奖励档位",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其他档位合法且总概率100%"
+    ],
+    "steps": [
+      "进入幸运礼物配置详情",
+      "新增奖励0金币的档位"
+    ],
+    "result": "零金币奖励档位允许保留",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-12d92f31e89188",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证重复奖励档位不能保存",
+    "point": "开奖档位唯一",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已存在奖励10金币的档位"
+    ],
+    "steps": [
+      "进入幸运礼物配置详情",
+      "再新增奖励10金币档位",
+      "点击保存"
+    ],
+    "result": "不保存重复奖励档位",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-069af29eafb109",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证开奖单价按次数与消耗计算",
+    "point": "幸运礼物价格",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "单次消耗为10金币，开奖次数为10"
+    ],
+    "steps": [
+      "进入幸运礼物配置详情",
+      "查看自动计算单价"
+    ],
+    "result": "礼物单价=10×10=100",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": {
+      "公式": "单次消耗×开奖次数",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "单次消耗",
+          "业务含义": "单次消耗",
+          "数值": 10,
+          "单位": "金币"
+        },
+        {
+          "名称": "开奖次数",
+          "业务含义": "开奖次数",
+          "数值": 10,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "*",
+        "参数": [
+          {
+            "变量": "单次消耗"
+          },
+          {
+            "变量": "开奖次数"
+          }
+        ]
+      },
+      "最终值": 100
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-57c4322050a993",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证1连抽默认概率对应RTP",
+    "point": "返还期望核算",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "单礼物消耗10金币；奖励0/5/10/50/100/1000概率为10.4%/32%/55%/2%/0.5%/0.1%"
+    ],
+    "steps": [
+      "进入幸运礼物配置详情",
+      "查看配置计算的RTP"
+    ],
+    "result": "RTP=(0×0.104+5×0.32+10×0.55+50×0.02+100×0.005+1000×0.001)÷10×100=96",
+    "sourceIds": [
+      "REQ-SYS-118ef76d58",
+      "REQ-SYS-a6a8ab1cc2",
+      "REQ-SYS-1a8f045273",
+      "REQ-SYS-40bfde7ae7",
+      "REQ-SYS-5848f2af01",
+      "REQ-SYS-df6223763e",
+      "REQ-SYS-954da369c9",
+      "REQ-SYS-499b86280c",
+      "REQ-SYS-8649bfc9ab",
+      "REQ-SYS-9f8d4dfed8",
+      "REQ-SYS-fc7ecd9286",
+      "REQ-SYS-0cde7145e8",
+      "REQ-SYS-8dee2d71ad",
+      "REQ-SYS-eeb035382d",
+      "REQ-SYS-29c0a26cf6",
+      "REQ-SYS-f17da1760c",
+      "REQ-SYS-8bbb0d9ff3",
+      "REQ-SYS-0f23dfe333",
+      "REQ-SYS-f6212bf1b9",
+      "REQ-SYS-97f6fd6716",
+      "REQ-SYS-02067a059c",
+      "REQ-SYS-93ee37dc7a",
+      "REQ-SYS-be841e89a4",
+      "REQ-SYS-2fd69eeac6",
+      "REQ-SYS-04fc9b2d8e",
+      "REQ-SYS-094dbef227",
+      "REQ-SYS-0f47b03082",
+      "REQ-SYS-6d0c02bdf3",
+      "REQ-SYS-7e05c45d60",
+      "REQ-SYS-5c48a00988",
+      "REQ-SYS-ebffadbb6b",
+      "REQ-SYS-058b3ea7e7",
+      "REQ-SYS-9d65ff99e4",
+      "REQ-SYS-1a2976b8bd",
+      "REQ-SYS-975cd32886",
+      "REQ-SYS-9b8a95cf10",
+      "REQ-SYS-b375268244",
+      "REQ-SYS-8bf66637fe",
+      "REQ-SYS-b066fb4a81",
+      "REQ-SYS-6febb76bba",
+      "REQ-SYS-21c588b3f1",
+      "REQ-SYS-5d73ded0bb",
+      "REQ-SYS-e38e2b3f1c",
+      "REQ-SYS-e27ff3ff8e",
+      "REQ-SYS-5cd8c097a9",
+      "REQ-SYS-53832764df",
+      "REQ-SYS-7480eab51f",
+      "REQ-SYS-79dd5d4146",
+      "REQ-SYS-7b7342cd34",
+      "REQ-SYS-ad375c4bbe",
+      "REQ-SYS-6d58f371d0",
+      "REQ-SYS-07b643d4ae",
+      "REQ-SYS-dd00ccdf6f",
+      "REQ-SYS-73be1ccf91",
+      "REQ-SYS-e7e6aee235",
+      "REQ-SYS-5b8abaaa6c",
+      "REQ-SYS-47e4f6cb7d",
+      "REQ-SYS-0bae4c6220",
+      "REQ-SYS-a0bf4bcdba",
+      "REQ-SYS-beaed55dcc",
+      "REQ-SYS-62094cf48f",
+      "REQ-SYS-e2845e6efd",
+      "REQ-SYS-b2dcb1c143",
+      "REQ-SYS-09a04aa578",
+      "REQ-SYS-5c0804b56b",
+      "REQ-SYS-849dc80539",
+      "REQ-SYS-c3833386ea",
+      "REQ-SYS-e03f417172",
+      "REQ-SYS-8d010470b5",
+      "REQ-SYS-79b960afbc",
+      "REQ-SYS-231ca4516f",
+      "REQ-SYS-027dca936d",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-fe9b882d08",
+      "REQ-SYS-5bb70806e8",
+      "REQ-SYS-57ecd00a68",
+      "REQ-SYS-b96f9841bb",
+      "REQ-SYS-27e1210f91",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-992d02eda5",
+      "REQ-SYS-4385592bb0",
+      "REQ-SYS-2513efb84f",
+      "REQ-SYS-e0ea814410",
+      "REQ-SYS-611a8f90cc",
+      "REQ-SYS-731bdf2b9a",
+      "REQ-SYS-3fe578cf59",
+      "REQ-SYS-9ef5fd86d6",
+      "REQ-SYS-53d9400e09",
+      "REQ-SYS-7a259a38f1",
+      "REQ-SYS-d01cd8f413",
+      "REQ-SYS-f6cdc3080f",
+      "REQ-SYS-56f3f175ce",
+      "REQ-SYS-bcc3eadfad",
+      "REQ-SYS-04793ea053",
+      "REQ-SYS-60122724cb",
+      "REQ-SYS-3ded211b9a",
+      "REQ-SYS-341c49eb53",
+      "REQ-SYS-0f1da9a97a",
+      "REQ-SYS-0a9deee752",
+      "REQ-SYS-54c430f1b2",
+      "REQ-SYS-e69d0c59a2",
+      "REQ-SYS-6791adc777",
+      "REQ-SYS-ba1a250e22",
+      "REQ-SYS-c1236a3377",
+      "REQ-SYS-b0c7b79caa",
+      "REQ-SYS-364c3805dd",
+      "REQ-SYS-afc21c5ff3",
+      "REQ-SYS-7a92c22709",
+      "REQ-SYS-ec71a016d5",
+      "REQ-SYS-d9950c5829",
+      "REQ-SYS-89a5c6a721",
+      "REQ-SYS-e8c32e7983",
+      "REQ-SYS-b0a8e0841b",
+      "REQ-SYS-5d8f7eb98b",
+      "REQ-SYS-8570d0cc38",
+      "REQ-SYS-2a8927ff1f",
+      "REQ-SYS-017d1c5e10",
+      "REQ-SYS-2cd8dd6a4e",
+      "REQ-SYS-eaa4a0f184",
+      "REQ-SYS-974df71a1e",
+      "REQ-SYS-097bd92b50",
+      "REQ-SYS-45fa1403a2",
+      "REQ-SYS-ee3645779e",
+      "REQ-SYS-eaf6304f26",
+      "REQ-SYS-6f60d0aebc",
+      "REQ-SYS-9b632ca69d",
+      "REQ-SYS-0e8052b9fb",
+      "REQ-SYS-fa5c4ba241",
+      "REQ-SYS-88529b834c",
+      "REQ-SYS-935eace9e8",
+      "REQ-SYS-8d2115cd37",
+      "REQ-SYS-87a1fa6119",
+      "REQ-SYS-c21a73698c",
+      "REQ-SYS-701b6f8f9a",
+      "REQ-SYS-9d1bd7b465",
+      "REQ-SYS-6dfb45ef11",
+      "REQ-SYS-ea98674cc2",
+      "REQ-SYS-f90d26d638",
+      "REQ-SYS-e5cc911bd0",
+      "REQ-SYS-f6c414f5c8",
+      "REQ-SYS-eb7f683d6b",
+      "REQ-SYS-2d3596eac5",
+      "REQ-SYS-781b0c6c23",
+      "REQ-SYS-662c1006d7",
+      "REQ-SYS-50aa1226ae",
+      "REQ-SYS-7905b4c0b7",
+      "REQ-SYS-f3edf65118",
+      "REQ-SYS-2dd4901fab",
+      "REQ-SYS-18046a16f3",
+      "REQ-SYS-428438ce85",
+      "REQ-SYS-ce2a33bbb7",
+      "REQ-SYS-811b7eba70",
+      "REQ-SYS-a4afe10ab7",
+      "REQ-SYS-d64d54fad9",
+      "REQ-SYS-ab624aaa66",
+      "REQ-SYS-a43a234c33",
+      "REQ-SYS-3445422fb6",
+      "REQ-SYS-5bebb25844",
+      "REQ-SYS-c92d50cd3b",
+      "REQ-SYS-00866478cb",
+      "REQ-SYS-b03dd22864",
+      "REQ-SYS-40e69ac4b6",
+      "REQ-SYS-ade0d78cbf",
+      "REQ-SYS-dbe6649b01",
+      "REQ-SYS-dfe3697466",
+      "REQ-SYS-d8905a9693",
+      "REQ-SYS-e3094879ed",
+      "REQ-SYS-9144d3e9f8",
+      "REQ-SYS-366b934a4a",
+      "REQ-SYS-b9354b1e1e",
+      "REQ-SYS-51f00fcbc3",
+      "REQ-SYS-9df3907a79",
+      "REQ-SYS-ca5b1e9f11",
+      "REQ-SYS-3ed0430a70",
+      "REQ-SYS-5b47931699",
+      "REQ-SYS-6ef1df945c",
+      "REQ-SYS-f8ecfb6560",
+      "REQ-SYS-a40ce5867d",
+      "REQ-SYS-cef2d37230",
+      "REQ-SYS-a6be5a9faf",
+      "REQ-SYS-da6b49f501",
+      "REQ-SYS-f06505b1cd",
+      "REQ-SYS-373203e76b",
+      "REQ-SYS-997370d91b",
+      "REQ-SYS-3ce029e34a",
+      "REQ-SYS-ad0538a3b6",
+      "REQ-SYS-60dad91217",
+      "REQ-SYS-020aec3006",
+      "REQ-SYS-6a856d1824",
+      "REQ-SYS-623f20da0a",
+      "REQ-SYS-9620680f23",
+      "REQ-SYS-2766e03f70",
+      "REQ-SYS-e25855e6ba",
+      "REQ-SYS-9fd830d3f1",
+      "REQ-SYS-e57ef8294a",
+      "REQ-SYS-150d632207",
+      "REQ-SYS-b21c1478e5",
+      "REQ-SYS-76257b5d3f",
+      "REQ-SYS-da78713c66",
+      "REQ-SYS-7249011964",
+      "REQ-SYS-05461efc46",
+      "REQ-SYS-6520d9d2fc",
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": {
+      "公式": "各档期望之和÷单礼物消耗×100",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "%",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "零奖励",
+          "业务含义": "零奖励",
+          "数值": 0,
+          "单位": "%"
+        },
+        {
+          "名称": "五奖励",
+          "业务含义": "五奖励",
+          "数值": 5,
+          "单位": "%"
+        },
+        {
+          "名称": "十奖励",
+          "业务含义": "十奖励",
+          "数值": 10,
+          "单位": "%"
+        },
+        {
+          "名称": "五十奖励",
+          "业务含义": "五十奖励",
+          "数值": 50,
+          "单位": "%"
+        },
+        {
+          "名称": "百奖励",
+          "业务含义": "百奖励",
+          "数值": 100,
+          "单位": "%"
+        },
+        {
+          "名称": "千奖励",
+          "业务含义": "千奖励",
+          "数值": 1000,
+          "单位": "%"
+        },
+        {
+          "名称": "零概率",
+          "业务含义": "零概率",
+          "数值": 0.104,
+          "单位": "%"
+        },
+        {
+          "名称": "五概率",
+          "业务含义": "五概率",
+          "数值": 0.32,
+          "单位": "%"
+        },
+        {
+          "名称": "十概率",
+          "业务含义": "十概率",
+          "数值": 0.55,
+          "单位": "%"
+        },
+        {
+          "名称": "五十概率",
+          "业务含义": "五十概率",
+          "数值": 0.02,
+          "单位": "%"
+        },
+        {
+          "名称": "百概率",
+          "业务含义": "百概率",
+          "数值": 0.005,
+          "单位": "%"
+        },
+        {
+          "名称": "千概率",
+          "业务含义": "千概率",
+          "数值": 0.001,
+          "单位": "%"
+        },
+        {
+          "名称": "单礼物消耗",
+          "业务含义": "单礼物消耗",
+          "数值": 10,
+          "单位": "%"
+        },
+        {
+          "名称": "百分比系数",
+          "业务含义": "百分比系数",
+          "数值": 100,
+          "单位": "%"
+        }
+      ],
+      "表达式": {
+        "运算": "*",
+        "参数": [
+          {
+            "运算": "/",
+            "参数": [
+              {
+                "运算": "+",
+                "参数": [
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "零奖励"
+                      },
+                      {
+                        "变量": "零概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "五奖励"
+                      },
+                      {
+                        "变量": "五概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "十奖励"
+                      },
+                      {
+                        "变量": "十概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "五十奖励"
+                      },
+                      {
+                        "变量": "五十概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "百奖励"
+                      },
+                      {
+                        "变量": "百概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "千奖励"
+                      },
+                      {
+                        "变量": "千概率"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "变量": "单礼物消耗"
+              }
+            ]
+          },
+          {
+            "变量": "百分比系数"
+          }
+        ]
+      },
+      "最终值": 96
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f101c4ce86ac65",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证10连抽默认概率对应RTP",
+    "point": "返还期望核算",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "单礼物消耗10金币；奖励0/5/10/50/100/1000概率为8.4%/34%/55%/2%/0.5%/0.1%"
+    ],
+    "steps": [
+      "进入幸运礼物配置详情",
+      "查看配置计算的RTP"
+    ],
+    "result": "RTP=(0×0.084+5×0.34+10×0.55+50×0.02+100×0.005+1000×0.001)÷10×100=97",
+    "sourceIds": [
+      "REQ-SYS-118ef76d58",
+      "REQ-SYS-a6a8ab1cc2",
+      "REQ-SYS-1a8f045273",
+      "REQ-SYS-40bfde7ae7",
+      "REQ-SYS-5848f2af01",
+      "REQ-SYS-df6223763e",
+      "REQ-SYS-954da369c9",
+      "REQ-SYS-499b86280c",
+      "REQ-SYS-8649bfc9ab",
+      "REQ-SYS-9f8d4dfed8",
+      "REQ-SYS-fc7ecd9286",
+      "REQ-SYS-0cde7145e8",
+      "REQ-SYS-8dee2d71ad",
+      "REQ-SYS-eeb035382d",
+      "REQ-SYS-29c0a26cf6",
+      "REQ-SYS-f17da1760c",
+      "REQ-SYS-8bbb0d9ff3",
+      "REQ-SYS-0f23dfe333",
+      "REQ-SYS-f6212bf1b9",
+      "REQ-SYS-97f6fd6716",
+      "REQ-SYS-02067a059c",
+      "REQ-SYS-93ee37dc7a",
+      "REQ-SYS-be841e89a4",
+      "REQ-SYS-2fd69eeac6",
+      "REQ-SYS-04fc9b2d8e",
+      "REQ-SYS-094dbef227",
+      "REQ-SYS-0f47b03082",
+      "REQ-SYS-6d0c02bdf3",
+      "REQ-SYS-7e05c45d60",
+      "REQ-SYS-5c48a00988",
+      "REQ-SYS-ebffadbb6b",
+      "REQ-SYS-058b3ea7e7",
+      "REQ-SYS-9d65ff99e4",
+      "REQ-SYS-1a2976b8bd",
+      "REQ-SYS-975cd32886",
+      "REQ-SYS-9b8a95cf10",
+      "REQ-SYS-b375268244",
+      "REQ-SYS-8bf66637fe",
+      "REQ-SYS-b066fb4a81",
+      "REQ-SYS-6febb76bba",
+      "REQ-SYS-21c588b3f1",
+      "REQ-SYS-5d73ded0bb",
+      "REQ-SYS-e38e2b3f1c",
+      "REQ-SYS-e27ff3ff8e",
+      "REQ-SYS-5cd8c097a9",
+      "REQ-SYS-53832764df",
+      "REQ-SYS-7480eab51f",
+      "REQ-SYS-79dd5d4146",
+      "REQ-SYS-7b7342cd34",
+      "REQ-SYS-ad375c4bbe",
+      "REQ-SYS-6d58f371d0",
+      "REQ-SYS-07b643d4ae",
+      "REQ-SYS-dd00ccdf6f",
+      "REQ-SYS-73be1ccf91",
+      "REQ-SYS-e7e6aee235",
+      "REQ-SYS-5b8abaaa6c",
+      "REQ-SYS-47e4f6cb7d",
+      "REQ-SYS-0bae4c6220",
+      "REQ-SYS-a0bf4bcdba",
+      "REQ-SYS-beaed55dcc",
+      "REQ-SYS-62094cf48f",
+      "REQ-SYS-e2845e6efd",
+      "REQ-SYS-b2dcb1c143",
+      "REQ-SYS-09a04aa578",
+      "REQ-SYS-5c0804b56b",
+      "REQ-SYS-849dc80539",
+      "REQ-SYS-c3833386ea",
+      "REQ-SYS-e03f417172",
+      "REQ-SYS-8d010470b5",
+      "REQ-SYS-79b960afbc",
+      "REQ-SYS-231ca4516f",
+      "REQ-SYS-027dca936d",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-fe9b882d08",
+      "REQ-SYS-5bb70806e8",
+      "REQ-SYS-57ecd00a68",
+      "REQ-SYS-b96f9841bb",
+      "REQ-SYS-27e1210f91",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-992d02eda5",
+      "REQ-SYS-4385592bb0",
+      "REQ-SYS-2513efb84f",
+      "REQ-SYS-e0ea814410",
+      "REQ-SYS-611a8f90cc",
+      "REQ-SYS-731bdf2b9a",
+      "REQ-SYS-3fe578cf59",
+      "REQ-SYS-9ef5fd86d6",
+      "REQ-SYS-53d9400e09",
+      "REQ-SYS-7a259a38f1",
+      "REQ-SYS-d01cd8f413",
+      "REQ-SYS-f6cdc3080f",
+      "REQ-SYS-56f3f175ce",
+      "REQ-SYS-bcc3eadfad",
+      "REQ-SYS-04793ea053",
+      "REQ-SYS-60122724cb",
+      "REQ-SYS-3ded211b9a",
+      "REQ-SYS-341c49eb53",
+      "REQ-SYS-0f1da9a97a",
+      "REQ-SYS-0a9deee752",
+      "REQ-SYS-54c430f1b2",
+      "REQ-SYS-e69d0c59a2",
+      "REQ-SYS-6791adc777",
+      "REQ-SYS-ba1a250e22",
+      "REQ-SYS-c1236a3377",
+      "REQ-SYS-b0c7b79caa",
+      "REQ-SYS-364c3805dd",
+      "REQ-SYS-afc21c5ff3",
+      "REQ-SYS-7a92c22709",
+      "REQ-SYS-ec71a016d5",
+      "REQ-SYS-d9950c5829",
+      "REQ-SYS-89a5c6a721",
+      "REQ-SYS-e8c32e7983",
+      "REQ-SYS-b0a8e0841b",
+      "REQ-SYS-5d8f7eb98b",
+      "REQ-SYS-8570d0cc38",
+      "REQ-SYS-2a8927ff1f",
+      "REQ-SYS-017d1c5e10",
+      "REQ-SYS-2cd8dd6a4e",
+      "REQ-SYS-eaa4a0f184",
+      "REQ-SYS-974df71a1e",
+      "REQ-SYS-097bd92b50",
+      "REQ-SYS-45fa1403a2",
+      "REQ-SYS-ee3645779e",
+      "REQ-SYS-eaf6304f26",
+      "REQ-SYS-6f60d0aebc",
+      "REQ-SYS-9b632ca69d",
+      "REQ-SYS-0e8052b9fb",
+      "REQ-SYS-fa5c4ba241",
+      "REQ-SYS-88529b834c",
+      "REQ-SYS-935eace9e8",
+      "REQ-SYS-8d2115cd37",
+      "REQ-SYS-87a1fa6119",
+      "REQ-SYS-c21a73698c",
+      "REQ-SYS-701b6f8f9a",
+      "REQ-SYS-9d1bd7b465",
+      "REQ-SYS-6dfb45ef11",
+      "REQ-SYS-ea98674cc2",
+      "REQ-SYS-f90d26d638",
+      "REQ-SYS-e5cc911bd0",
+      "REQ-SYS-f6c414f5c8",
+      "REQ-SYS-eb7f683d6b",
+      "REQ-SYS-2d3596eac5",
+      "REQ-SYS-781b0c6c23",
+      "REQ-SYS-662c1006d7",
+      "REQ-SYS-50aa1226ae",
+      "REQ-SYS-7905b4c0b7",
+      "REQ-SYS-f3edf65118",
+      "REQ-SYS-2dd4901fab",
+      "REQ-SYS-18046a16f3",
+      "REQ-SYS-428438ce85",
+      "REQ-SYS-ce2a33bbb7",
+      "REQ-SYS-811b7eba70",
+      "REQ-SYS-a4afe10ab7",
+      "REQ-SYS-d64d54fad9",
+      "REQ-SYS-ab624aaa66",
+      "REQ-SYS-a43a234c33",
+      "REQ-SYS-3445422fb6",
+      "REQ-SYS-5bebb25844",
+      "REQ-SYS-c92d50cd3b",
+      "REQ-SYS-00866478cb",
+      "REQ-SYS-b03dd22864",
+      "REQ-SYS-40e69ac4b6",
+      "REQ-SYS-ade0d78cbf",
+      "REQ-SYS-dbe6649b01",
+      "REQ-SYS-dfe3697466",
+      "REQ-SYS-d8905a9693",
+      "REQ-SYS-e3094879ed",
+      "REQ-SYS-9144d3e9f8",
+      "REQ-SYS-366b934a4a",
+      "REQ-SYS-b9354b1e1e",
+      "REQ-SYS-51f00fcbc3",
+      "REQ-SYS-9df3907a79",
+      "REQ-SYS-ca5b1e9f11",
+      "REQ-SYS-3ed0430a70",
+      "REQ-SYS-5b47931699",
+      "REQ-SYS-6ef1df945c",
+      "REQ-SYS-f8ecfb6560",
+      "REQ-SYS-a40ce5867d",
+      "REQ-SYS-cef2d37230",
+      "REQ-SYS-a6be5a9faf",
+      "REQ-SYS-da6b49f501",
+      "REQ-SYS-f06505b1cd",
+      "REQ-SYS-373203e76b",
+      "REQ-SYS-997370d91b",
+      "REQ-SYS-3ce029e34a",
+      "REQ-SYS-ad0538a3b6",
+      "REQ-SYS-60dad91217",
+      "REQ-SYS-020aec3006",
+      "REQ-SYS-6a856d1824",
+      "REQ-SYS-623f20da0a",
+      "REQ-SYS-9620680f23",
+      "REQ-SYS-2766e03f70",
+      "REQ-SYS-e25855e6ba",
+      "REQ-SYS-9fd830d3f1",
+      "REQ-SYS-e57ef8294a",
+      "REQ-SYS-150d632207",
+      "REQ-SYS-b21c1478e5",
+      "REQ-SYS-76257b5d3f",
+      "REQ-SYS-da78713c66",
+      "REQ-SYS-7249011964",
+      "REQ-SYS-05461efc46",
+      "REQ-SYS-6520d9d2fc",
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": {
+      "公式": "各档期望之和÷单礼物消耗×100",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "%",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "零奖励",
+          "业务含义": "零奖励",
+          "数值": 0,
+          "单位": "%"
+        },
+        {
+          "名称": "五奖励",
+          "业务含义": "五奖励",
+          "数值": 5,
+          "单位": "%"
+        },
+        {
+          "名称": "十奖励",
+          "业务含义": "十奖励",
+          "数值": 10,
+          "单位": "%"
+        },
+        {
+          "名称": "五十奖励",
+          "业务含义": "五十奖励",
+          "数值": 50,
+          "单位": "%"
+        },
+        {
+          "名称": "百奖励",
+          "业务含义": "百奖励",
+          "数值": 100,
+          "单位": "%"
+        },
+        {
+          "名称": "千奖励",
+          "业务含义": "千奖励",
+          "数值": 1000,
+          "单位": "%"
+        },
+        {
+          "名称": "零概率",
+          "业务含义": "零概率",
+          "数值": 0.084,
+          "单位": "%"
+        },
+        {
+          "名称": "五概率",
+          "业务含义": "五概率",
+          "数值": 0.34,
+          "单位": "%"
+        },
+        {
+          "名称": "十概率",
+          "业务含义": "十概率",
+          "数值": 0.55,
+          "单位": "%"
+        },
+        {
+          "名称": "五十概率",
+          "业务含义": "五十概率",
+          "数值": 0.02,
+          "单位": "%"
+        },
+        {
+          "名称": "百概率",
+          "业务含义": "百概率",
+          "数值": 0.005,
+          "单位": "%"
+        },
+        {
+          "名称": "千概率",
+          "业务含义": "千概率",
+          "数值": 0.001,
+          "单位": "%"
+        },
+        {
+          "名称": "单礼物消耗",
+          "业务含义": "单礼物消耗",
+          "数值": 10,
+          "单位": "%"
+        },
+        {
+          "名称": "百分比系数",
+          "业务含义": "百分比系数",
+          "数值": 100,
+          "单位": "%"
+        }
+      ],
+      "表达式": {
+        "运算": "*",
+        "参数": [
+          {
+            "运算": "/",
+            "参数": [
+              {
+                "运算": "+",
+                "参数": [
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "零奖励"
+                      },
+                      {
+                        "变量": "零概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "五奖励"
+                      },
+                      {
+                        "变量": "五概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "十奖励"
+                      },
+                      {
+                        "变量": "十概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "五十奖励"
+                      },
+                      {
+                        "变量": "五十概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "百奖励"
+                      },
+                      {
+                        "变量": "百概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "千奖励"
+                      },
+                      {
+                        "变量": "千概率"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "变量": "单礼物消耗"
+              }
+            ]
+          },
+          {
+            "变量": "百分比系数"
+          }
+        ]
+      },
+      "最终值": 97
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-bdcda13be1950d",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证100连抽默认概率对应RTP",
+    "point": "返还期望核算",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "单礼物消耗10金币；奖励0/5/10/50/100/1000概率为6.4%/36%/55%/2%/0.5%/0.1%"
+    ],
+    "steps": [
+      "进入幸运礼物配置详情",
+      "查看配置计算的RTP"
+    ],
+    "result": "RTP=(0×0.064+5×0.36+10×0.55+50×0.02+100×0.005+1000×0.001)÷10×100=98",
+    "sourceIds": [
+      "REQ-SYS-118ef76d58",
+      "REQ-SYS-a6a8ab1cc2",
+      "REQ-SYS-1a8f045273",
+      "REQ-SYS-40bfde7ae7",
+      "REQ-SYS-5848f2af01",
+      "REQ-SYS-df6223763e",
+      "REQ-SYS-954da369c9",
+      "REQ-SYS-499b86280c",
+      "REQ-SYS-8649bfc9ab",
+      "REQ-SYS-9f8d4dfed8",
+      "REQ-SYS-fc7ecd9286",
+      "REQ-SYS-0cde7145e8",
+      "REQ-SYS-8dee2d71ad",
+      "REQ-SYS-eeb035382d",
+      "REQ-SYS-29c0a26cf6",
+      "REQ-SYS-f17da1760c",
+      "REQ-SYS-8bbb0d9ff3",
+      "REQ-SYS-0f23dfe333",
+      "REQ-SYS-f6212bf1b9",
+      "REQ-SYS-97f6fd6716",
+      "REQ-SYS-02067a059c",
+      "REQ-SYS-93ee37dc7a",
+      "REQ-SYS-be841e89a4",
+      "REQ-SYS-2fd69eeac6",
+      "REQ-SYS-04fc9b2d8e",
+      "REQ-SYS-094dbef227",
+      "REQ-SYS-0f47b03082",
+      "REQ-SYS-6d0c02bdf3",
+      "REQ-SYS-7e05c45d60",
+      "REQ-SYS-5c48a00988",
+      "REQ-SYS-ebffadbb6b",
+      "REQ-SYS-058b3ea7e7",
+      "REQ-SYS-9d65ff99e4",
+      "REQ-SYS-1a2976b8bd",
+      "REQ-SYS-975cd32886",
+      "REQ-SYS-9b8a95cf10",
+      "REQ-SYS-b375268244",
+      "REQ-SYS-8bf66637fe",
+      "REQ-SYS-b066fb4a81",
+      "REQ-SYS-6febb76bba",
+      "REQ-SYS-21c588b3f1",
+      "REQ-SYS-5d73ded0bb",
+      "REQ-SYS-e38e2b3f1c",
+      "REQ-SYS-e27ff3ff8e",
+      "REQ-SYS-5cd8c097a9",
+      "REQ-SYS-53832764df",
+      "REQ-SYS-7480eab51f",
+      "REQ-SYS-79dd5d4146",
+      "REQ-SYS-7b7342cd34",
+      "REQ-SYS-ad375c4bbe",
+      "REQ-SYS-6d58f371d0",
+      "REQ-SYS-07b643d4ae",
+      "REQ-SYS-dd00ccdf6f",
+      "REQ-SYS-73be1ccf91",
+      "REQ-SYS-e7e6aee235",
+      "REQ-SYS-5b8abaaa6c",
+      "REQ-SYS-47e4f6cb7d",
+      "REQ-SYS-0bae4c6220",
+      "REQ-SYS-a0bf4bcdba",
+      "REQ-SYS-beaed55dcc",
+      "REQ-SYS-62094cf48f",
+      "REQ-SYS-e2845e6efd",
+      "REQ-SYS-b2dcb1c143",
+      "REQ-SYS-09a04aa578",
+      "REQ-SYS-5c0804b56b",
+      "REQ-SYS-849dc80539",
+      "REQ-SYS-c3833386ea",
+      "REQ-SYS-e03f417172",
+      "REQ-SYS-8d010470b5",
+      "REQ-SYS-79b960afbc",
+      "REQ-SYS-231ca4516f",
+      "REQ-SYS-027dca936d",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-fe9b882d08",
+      "REQ-SYS-5bb70806e8",
+      "REQ-SYS-57ecd00a68",
+      "REQ-SYS-b96f9841bb",
+      "REQ-SYS-27e1210f91",
+      "REQ-SYS-e77356074a",
+      "REQ-SYS-992d02eda5",
+      "REQ-SYS-4385592bb0",
+      "REQ-SYS-2513efb84f",
+      "REQ-SYS-e0ea814410",
+      "REQ-SYS-611a8f90cc",
+      "REQ-SYS-731bdf2b9a",
+      "REQ-SYS-3fe578cf59",
+      "REQ-SYS-9ef5fd86d6",
+      "REQ-SYS-53d9400e09",
+      "REQ-SYS-7a259a38f1",
+      "REQ-SYS-d01cd8f413",
+      "REQ-SYS-f6cdc3080f",
+      "REQ-SYS-56f3f175ce",
+      "REQ-SYS-bcc3eadfad",
+      "REQ-SYS-04793ea053",
+      "REQ-SYS-60122724cb",
+      "REQ-SYS-3ded211b9a",
+      "REQ-SYS-341c49eb53",
+      "REQ-SYS-0f1da9a97a",
+      "REQ-SYS-0a9deee752",
+      "REQ-SYS-54c430f1b2",
+      "REQ-SYS-e69d0c59a2",
+      "REQ-SYS-6791adc777",
+      "REQ-SYS-ba1a250e22",
+      "REQ-SYS-c1236a3377",
+      "REQ-SYS-b0c7b79caa",
+      "REQ-SYS-364c3805dd",
+      "REQ-SYS-afc21c5ff3",
+      "REQ-SYS-7a92c22709",
+      "REQ-SYS-ec71a016d5",
+      "REQ-SYS-d9950c5829",
+      "REQ-SYS-89a5c6a721",
+      "REQ-SYS-e8c32e7983",
+      "REQ-SYS-b0a8e0841b",
+      "REQ-SYS-5d8f7eb98b",
+      "REQ-SYS-8570d0cc38",
+      "REQ-SYS-2a8927ff1f",
+      "REQ-SYS-017d1c5e10",
+      "REQ-SYS-2cd8dd6a4e",
+      "REQ-SYS-eaa4a0f184",
+      "REQ-SYS-974df71a1e",
+      "REQ-SYS-097bd92b50",
+      "REQ-SYS-45fa1403a2",
+      "REQ-SYS-ee3645779e",
+      "REQ-SYS-eaf6304f26",
+      "REQ-SYS-6f60d0aebc",
+      "REQ-SYS-9b632ca69d",
+      "REQ-SYS-0e8052b9fb",
+      "REQ-SYS-fa5c4ba241",
+      "REQ-SYS-88529b834c",
+      "REQ-SYS-935eace9e8",
+      "REQ-SYS-8d2115cd37",
+      "REQ-SYS-87a1fa6119",
+      "REQ-SYS-c21a73698c",
+      "REQ-SYS-701b6f8f9a",
+      "REQ-SYS-9d1bd7b465",
+      "REQ-SYS-6dfb45ef11",
+      "REQ-SYS-ea98674cc2",
+      "REQ-SYS-f90d26d638",
+      "REQ-SYS-e5cc911bd0",
+      "REQ-SYS-f6c414f5c8",
+      "REQ-SYS-eb7f683d6b",
+      "REQ-SYS-2d3596eac5",
+      "REQ-SYS-781b0c6c23",
+      "REQ-SYS-662c1006d7",
+      "REQ-SYS-50aa1226ae",
+      "REQ-SYS-7905b4c0b7",
+      "REQ-SYS-f3edf65118",
+      "REQ-SYS-2dd4901fab",
+      "REQ-SYS-18046a16f3",
+      "REQ-SYS-428438ce85",
+      "REQ-SYS-ce2a33bbb7",
+      "REQ-SYS-811b7eba70",
+      "REQ-SYS-a4afe10ab7",
+      "REQ-SYS-d64d54fad9",
+      "REQ-SYS-ab624aaa66",
+      "REQ-SYS-a43a234c33",
+      "REQ-SYS-3445422fb6",
+      "REQ-SYS-5bebb25844",
+      "REQ-SYS-c92d50cd3b",
+      "REQ-SYS-00866478cb",
+      "REQ-SYS-b03dd22864",
+      "REQ-SYS-40e69ac4b6",
+      "REQ-SYS-ade0d78cbf",
+      "REQ-SYS-dbe6649b01",
+      "REQ-SYS-dfe3697466",
+      "REQ-SYS-d8905a9693",
+      "REQ-SYS-e3094879ed",
+      "REQ-SYS-9144d3e9f8",
+      "REQ-SYS-366b934a4a",
+      "REQ-SYS-b9354b1e1e",
+      "REQ-SYS-51f00fcbc3",
+      "REQ-SYS-9df3907a79",
+      "REQ-SYS-ca5b1e9f11",
+      "REQ-SYS-3ed0430a70",
+      "REQ-SYS-5b47931699",
+      "REQ-SYS-6ef1df945c",
+      "REQ-SYS-f8ecfb6560",
+      "REQ-SYS-a40ce5867d",
+      "REQ-SYS-cef2d37230",
+      "REQ-SYS-a6be5a9faf",
+      "REQ-SYS-da6b49f501",
+      "REQ-SYS-f06505b1cd",
+      "REQ-SYS-373203e76b",
+      "REQ-SYS-997370d91b",
+      "REQ-SYS-3ce029e34a",
+      "REQ-SYS-ad0538a3b6",
+      "REQ-SYS-60dad91217",
+      "REQ-SYS-020aec3006",
+      "REQ-SYS-6a856d1824",
+      "REQ-SYS-623f20da0a",
+      "REQ-SYS-9620680f23",
+      "REQ-SYS-2766e03f70",
+      "REQ-SYS-e25855e6ba",
+      "REQ-SYS-9fd830d3f1",
+      "REQ-SYS-e57ef8294a",
+      "REQ-SYS-150d632207",
+      "REQ-SYS-b21c1478e5",
+      "REQ-SYS-76257b5d3f",
+      "REQ-SYS-da78713c66",
+      "REQ-SYS-7249011964",
+      "REQ-SYS-05461efc46",
+      "REQ-SYS-6520d9d2fc",
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": {
+      "公式": "各档期望之和÷单礼物消耗×100",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "%",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "零奖励",
+          "业务含义": "零奖励",
+          "数值": 0,
+          "单位": "%"
+        },
+        {
+          "名称": "五奖励",
+          "业务含义": "五奖励",
+          "数值": 5,
+          "单位": "%"
+        },
+        {
+          "名称": "十奖励",
+          "业务含义": "十奖励",
+          "数值": 10,
+          "单位": "%"
+        },
+        {
+          "名称": "五十奖励",
+          "业务含义": "五十奖励",
+          "数值": 50,
+          "单位": "%"
+        },
+        {
+          "名称": "百奖励",
+          "业务含义": "百奖励",
+          "数值": 100,
+          "单位": "%"
+        },
+        {
+          "名称": "千奖励",
+          "业务含义": "千奖励",
+          "数值": 1000,
+          "单位": "%"
+        },
+        {
+          "名称": "零概率",
+          "业务含义": "零概率",
+          "数值": 0.064,
+          "单位": "%"
+        },
+        {
+          "名称": "五概率",
+          "业务含义": "五概率",
+          "数值": 0.36,
+          "单位": "%"
+        },
+        {
+          "名称": "十概率",
+          "业务含义": "十概率",
+          "数值": 0.55,
+          "单位": "%"
+        },
+        {
+          "名称": "五十概率",
+          "业务含义": "五十概率",
+          "数值": 0.02,
+          "单位": "%"
+        },
+        {
+          "名称": "百概率",
+          "业务含义": "百概率",
+          "数值": 0.005,
+          "单位": "%"
+        },
+        {
+          "名称": "千概率",
+          "业务含义": "千概率",
+          "数值": 0.001,
+          "单位": "%"
+        },
+        {
+          "名称": "单礼物消耗",
+          "业务含义": "单礼物消耗",
+          "数值": 10,
+          "单位": "%"
+        },
+        {
+          "名称": "百分比系数",
+          "业务含义": "百分比系数",
+          "数值": 100,
+          "单位": "%"
+        }
+      ],
+      "表达式": {
+        "运算": "*",
+        "参数": [
+          {
+            "运算": "/",
+            "参数": [
+              {
+                "运算": "+",
+                "参数": [
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "零奖励"
+                      },
+                      {
+                        "变量": "零概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "五奖励"
+                      },
+                      {
+                        "变量": "五概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "十奖励"
+                      },
+                      {
+                        "变量": "十概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "五十奖励"
+                      },
+                      {
+                        "变量": "五十概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "百奖励"
+                      },
+                      {
+                        "变量": "百概率"
+                      }
+                    ]
+                  },
+                  {
+                    "运算": "*",
+                    "参数": [
+                      {
+                        "变量": "千奖励"
+                      },
+                      {
+                        "变量": "千概率"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "变量": "单礼物消耗"
+              }
+            ]
+          },
+          {
+            "变量": "百分比系数"
+          }
+        ]
+      },
+      "最终值": 98
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f521f04607f689",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证创建账号默认零初始发放",
+    "point": "初始发币默认",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限"
+    ],
+    "steps": [
+      "进入运营账号",
+      "点击创建运营账号"
+    ],
+    "result": "发放金币默认为0",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d5a24b62ba873d",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证运营账号全平台唯一",
+    "point": "运营登录名唯一",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "其他公会已经存在登录账号river2026，其他必填项合法"
+    ],
+    "steps": [
+      "进入运营账号",
+      "点击创建运营账号",
+      "输入账号river2026",
+      "点击创建"
+    ],
+    "result": "不创建重复登录账号",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-cabf4d1bc19fd4",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证本次可发上限取两种余额较小值",
+    "point": "发放额度交集",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "单账号本月剩余可得300，公会本月剩余可发200"
+    ],
+    "steps": [
+      "进入运营账号",
+      "点击创建运营账号",
+      "查看发放金币上限"
+    ],
+    "result": "本次可发上限=min(300,200)=200",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": {
+      "公式": "min(单账号剩余,公会剩余)",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "单账号剩余",
+          "业务含义": "单账号剩余",
+          "数值": 300,
+          "单位": "金币"
+        },
+        {
+          "名称": "公会剩余",
+          "业务含义": "公会剩余",
+          "数值": 200,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "min",
+        "参数": [
+          {
+            "变量": "单账号剩余"
+          },
+          {
+            "变量": "公会剩余"
+          }
+        ]
+      },
+      "最终值": 200
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-04cfedc64de6f3",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证额度不足阻止创建时超额发放",
+    "point": "初始发放越界",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "本次可发上限200，其他必填项合法"
+    ],
+    "steps": [
+      "进入运营账号",
+      "点击创建运营账号",
+      "输入发放金币201",
+      "点击创建"
+    ],
+    "result": "不能发放201虚拟金币",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-9d2e4ddaaf3ba8",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证创建独立运营账号",
+    "point": "运营账号创建",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "头像、唯一账号、名称、至少6位密码完整，初始发放为0"
+    ],
+    "steps": [
+      "进入运营账号",
+      "点击创建运营账号",
+      "点击创建"
+    ],
+    "result": "新增本公会独立运营账号",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-c3a02f29e9af",
+    "flow": "FLOW-9dd46ca2",
+    "from": "账号不存在且公会有管理权限",
+    "to": "账号已创建",
+    "object": "运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-fd1c73f5808930",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证名称长度为0时的校验",
+    "point": "名称越界拦截",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "除名称外的必填项已具备合法值"
+    ],
+    "steps": [
+      "进入创建运营账号",
+      "清空名称",
+      "输入名称为0 个“测”字符",
+      "点击创建"
+    ],
+    "result": "名称不能保存超出下限的值",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "输入边界",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-5f7766b34a4791",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证名称长度为1时的校验",
+    "point": "名称合法边界",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "除名称外的必填项已具备合法值"
+    ],
+    "steps": [
+      "进入创建运营账号",
+      "清空名称",
+      "输入名称为1 个“测”字符",
+      "点击创建"
+    ],
+    "result": "名称接受本次1 字符输入",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "输入边界",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-5e81d658d66262",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证名称长度为2时的校验",
+    "point": "名称合法边界",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "除名称外的必填项已具备合法值"
+    ],
+    "steps": [
+      "进入创建运营账号",
+      "清空名称",
+      "输入名称为2 个“测”字符",
+      "点击创建"
+    ],
+    "result": "名称接受本次2 字符输入",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "输入边界",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-8f8f074dcd01a7",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证名称长度为29时的校验",
+    "point": "名称合法边界",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "除名称外的必填项已具备合法值"
+    ],
+    "steps": [
+      "进入创建运营账号",
+      "清空名称",
+      "输入名称为29 个“测”字符",
+      "点击创建"
+    ],
+    "result": "名称接受本次29 字符输入",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "输入边界",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-b76459305e1337",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证名称长度为30时的校验",
+    "point": "名称合法边界",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "除名称外的必填项已具备合法值"
+    ],
+    "steps": [
+      "进入创建运营账号",
+      "清空名称",
+      "输入名称为30 个“测”字符",
+      "点击创建"
+    ],
+    "result": "名称接受本次30 字符输入",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "输入边界",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-83c0f8f5a6348e",
+    "page": "guild-operation-account-compose.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "创建运营账号（公会长）",
+    "role": "公会长",
+    "title": "验证名称长度为31时的校验",
+    "point": "名称越界拦截",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "除名称外的必填项已具备合法值"
+    ],
+    "steps": [
+      "进入创建运营账号",
+      "清空名称",
+      "输入名称为31 个“测”字符",
+      "点击创建"
+    ],
+    "result": "名称不能保存超出上限的值",
+    "sourceIds": [
+      "REQ-GUILD-f16ebcefb0",
+      "REQ-GUILD-1bb43b73b7",
+      "REQ-GUILD-679adcbd4f",
+      "REQ-GUILD-99dcd2a0a0",
+      "REQ-GUILD-50e00cdb53",
+      "REQ-GUILD-d991c0bf1b",
+      "REQ-GUILD-d9d4a78666",
+      "REQ-GUILD-fe71fd0de2",
+      "REQ-GUILD-b44bc1937a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "输入边界",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "创建运营账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-cc3747d97008ce",
+    "page": "guild-operation-account-detail.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "运营账号主页（公会长）",
+    "role": "公会长",
+    "title": "验证虚拟发放计入余额",
+    "point": "虚拟余额增加",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "账号原余额50，本次额度充足"
+    ],
+    "steps": [
+      "进入本公会运营账号详情",
+      "点击发放金币",
+      "输入发放数量100",
+      "点击确认"
+    ],
+    "result": "虚拟余额=50+100=150",
+    "sourceIds": [
+      "REQ-GUILD-0df7268274",
+      "REQ-GUILD-35f456e420",
+      "REQ-GUILD-b7e7abcf25",
+      "REQ-GUILD-5f5cf0067b",
+      "REQ-GUILD-07019146fc",
+      "REQ-GUILD-a1e56d4012",
+      "REQ-GUILD-b3598d4023",
+      "REQ-GUILD-1a716862b2"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "ST-41e180e8cbe4",
+    "flow": "FLOW-3751662b",
+    "from": "剩余额度足够",
+    "to": "虚拟余额增加并占用月度额度",
+    "object": "运营账号虚拟金币",
+    "calculation": {
+      "公式": "发放前余额+发放金币",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "发放前余额",
+          "业务含义": "发放前余额",
+          "数值": 50,
+          "单位": "金币"
+        },
+        {
+          "名称": "发放金币",
+          "业务含义": "发放金币",
+          "数值": 100,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "变量": "发放前余额"
+          },
+          {
+            "变量": "发放金币"
+          }
+        ]
+      },
+      "最终值": 150
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f613c8d49a847e",
+    "page": "guild-operation-account-detail.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "运营账号主页（公会长）",
+    "role": "公会长",
+    "title": "验证平台锁定后公会不能发币",
+    "point": "平台锁定发币",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "平台已锁定本公会运营账号管理权限"
+    ],
+    "steps": [
+      "进入本公会运营账号详情",
+      "查看发放入口"
+    ],
+    "result": "公会不能发放虚拟金币",
+    "sourceIds": [
+      "REQ-GUILD-0df7268274",
+      "REQ-GUILD-35f456e420",
+      "REQ-GUILD-b7e7abcf25",
+      "REQ-GUILD-5f5cf0067b",
+      "REQ-GUILD-07019146fc",
+      "REQ-GUILD-a1e56d4012",
+      "REQ-GUILD-b3598d4023",
+      "REQ-GUILD-1a716862b2"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "运营账号主页",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-174070f773231e",
+    "page": "guild-operation-account-detail.html",
+    "end": "公会App",
+    "module": "运营管理",
+    "structure": "运营账号主页（公会长）",
+    "role": "公会长",
+    "title": "验证停用运营账号保留余额",
+    "point": "运营账号停用资产",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "运营账号余额为150"
+    ],
+    "steps": [
+      "进入本公会运营账号详情",
+      "禁用运营账号并确认"
+    ],
+    "result": "虚拟金币余额仍为150",
+    "sourceIds": [
+      "REQ-GUILD-0df7268274",
+      "REQ-GUILD-35f456e420",
+      "REQ-GUILD-b7e7abcf25",
+      "REQ-GUILD-5f5cf0067b",
+      "REQ-GUILD-07019146fc",
+      "REQ-GUILD-a1e56d4012",
+      "REQ-GUILD-b3598d4023",
+      "REQ-GUILD-1a716862b2"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "运营账号主页",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-57a3ba2d6ea1a7",
+    "page": "admin-operation-guild-controls.html",
+    "end": "管理后台",
+    "module": "运营账号",
+    "structure": "额度限制（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证剩余月度额度不小于零",
+    "point": "月度剩余额度下界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "额度调整为100，本月已成功发放150"
+    ],
+    "steps": [
+      "进入公会运营账号权限配置",
+      "查看本月剩余额度"
+    ],
+    "result": "本月剩余额度=max(100-150,0)=0",
+    "sourceIds": [
+      "REQ-ADMIN-7c2fa9bdc0",
+      "REQ-ADMIN-1f3d863409",
+      "REQ-ADMIN-d74f5495a3",
+      "REQ-ADMIN-dfc5a03e9f",
+      "REQ-ADMIN-7781df07b0",
+      "REQ-ADMIN-12780bf6a9",
+      "REQ-ADMIN-eee93e14f1",
+      "REQ-ADMIN-4c0ad04178",
+      "REQ-ADMIN-7e1ab0a86b",
+      "REQ-ADMIN-00ba04135f",
+      "REQ-PUB-5768afc239",
+      "REQ-PUB-ca7c5744db",
+      "REQ-PUB-903bddd2c7"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "额度限制",
+    "calculation": {
+      "公式": "max(月度上限-本月已发放,0)",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "月度上限",
+          "业务含义": "月度上限",
+          "数值": 100,
+          "单位": "金币"
+        },
+        {
+          "名称": "本月已发放",
+          "业务含义": "本月已发放",
+          "数值": 150,
+          "单位": "金币"
+        },
+        {
+          "名称": "下界",
+          "业务含义": "下界",
+          "数值": 0,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "max",
+        "参数": [
+          {
+            "运算": "-",
+            "参数": [
+              {
+                "变量": "月度上限"
+              },
+              {
+                "变量": "本月已发放"
+              }
+            ]
+          },
+          {
+            "变量": "下界"
+          }
+        ]
+      },
+      "最终值": 0
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-1466d7fbb3214b",
+    "page": "admin-operation-guild-controls.html",
+    "end": "管理后台",
+    "module": "运营账号",
+    "structure": "额度限制（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证平台只配置额度不发币",
+    "point": "平台发币权限",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权"
+    ],
+    "steps": [
+      "进入公会运营账号权限配置",
+      "查看页面操作"
+    ],
+    "result": "不提供直接发放虚拟金币入口",
+    "sourceIds": [
+      "REQ-ADMIN-7c2fa9bdc0",
+      "REQ-ADMIN-1f3d863409",
+      "REQ-ADMIN-d74f5495a3",
+      "REQ-ADMIN-dfc5a03e9f",
+      "REQ-ADMIN-7781df07b0",
+      "REQ-ADMIN-12780bf6a9",
+      "REQ-ADMIN-eee93e14f1",
+      "REQ-ADMIN-4c0ad04178",
+      "REQ-ADMIN-7e1ab0a86b",
+      "REQ-ADMIN-00ba04135f",
+      "REQ-PUB-5768afc239",
+      "REQ-PUB-ca7c5744db",
+      "REQ-PUB-903bddd2c7"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "额度限制",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-677b7c90433e8f",
+    "page": "admin-operation-account-detail.html",
+    "end": "管理后台",
+    "module": "运营账号",
+    "structure": "运营账号主页（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证运营余额按虚拟资产计算",
+    "point": "虚拟余额对账",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "累计公会发放300，成功虚拟赠礼消费120"
+    ],
+    "steps": [
+      "进入运营账号详情",
+      "查看虚拟金币余额"
+    ],
+    "result": "虚拟金币余额=300-120=180",
+    "sourceIds": [
+      "REQ-ADMIN-b5c0580ddd",
+      "REQ-ADMIN-9fbe24b4a7",
+      "REQ-ADMIN-ebbc9f8234",
+      "REQ-ADMIN-6b373b04d4",
+      "REQ-ADMIN-0f52047389",
+      "REQ-ADMIN-03087793cf",
+      "REQ-ADMIN-bc38a3956e",
+      "REQ-ADMIN-e8766f5ce9",
+      "REQ-PUB-48e89dc13f",
+      "REQ-PUB-0b81985753"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "运营账号主页",
+    "calculation": {
+      "公式": "累计发放-累计成功消费",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "金币",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "累计发放",
+          "业务含义": "累计发放",
+          "数值": 300,
+          "单位": "金币"
+        },
+        {
+          "名称": "累计成功消费",
+          "业务含义": "累计成功消费",
+          "数值": 120,
+          "单位": "金币"
+        }
+      ],
+      "表达式": {
+        "运算": "-",
+        "参数": [
+          {
+            "变量": "累计发放"
+          },
+          {
+            "变量": "累计成功消费"
+          }
+        ]
+      },
+      "最终值": 180
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f311e9e8514038",
+    "page": "admin-settlement-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "主播分成记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证主播分成导入预览合计",
+    "point": "导入批次金额",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "按页面模板准备两个有效主播，金额分别100.50和200.25 USD"
+    ],
+    "steps": [
+      "进入主播分成记录",
+      "填写分成备注“本月线下结算”",
+      "上传该模板文件"
+    ],
+    "result": "预览分成总金额=100.50+200.25=300.75",
+    "sourceIds": [
+      "REQ-ADMIN-4b04c5d5c3",
+      "REQ-ADMIN-6c36a4fc19",
+      "REQ-ADMIN-a4542bed19",
+      "REQ-ADMIN-35f5d4ee21",
+      "REQ-ADMIN-b6a1275ff4",
+      "REQ-ADMIN-6189e23820",
+      "REQ-ADMIN-474f14ea36",
+      "REQ-ADMIN-81c3caec63",
+      "REQ-ADMIN-41fef2540e",
+      "REQ-PUB-c6f2afe930"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "主播分成记录",
+    "calculation": {
+      "公式": "明细金额之和",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "USD",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "第一笔",
+          "业务含义": "第一笔",
+          "数值": 100.5,
+          "单位": "USD"
+        },
+        {
+          "名称": "第二笔",
+          "业务含义": "第二笔",
+          "数值": 200.25,
+          "单位": "USD"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "变量": "第一笔"
+          },
+          {
+            "变量": "第二笔"
+          }
+        ]
+      },
+      "最终值": 300.75
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-cb817fef6cccb0",
+    "page": "admin-settlement-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "主播分成记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证主播确认导入后记录只读",
+    "point": "导入完成终态",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "导入文件已通过校验，备注已填写"
+    ],
+    "steps": [
+      "进入主播分成记录",
+      "点击确认导入"
+    ],
+    "result": "本批分成记录不提供编辑或删除",
+    "sourceIds": [
+      "REQ-ADMIN-4b04c5d5c3",
+      "REQ-ADMIN-6c36a4fc19",
+      "REQ-ADMIN-a4542bed19",
+      "REQ-ADMIN-35f5d4ee21",
+      "REQ-ADMIN-b6a1275ff4",
+      "REQ-ADMIN-6189e23820",
+      "REQ-ADMIN-474f14ea36",
+      "REQ-ADMIN-81c3caec63",
+      "REQ-ADMIN-41fef2540e",
+      "REQ-PUB-c6f2afe930"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-6ac9dcfe6036",
+    "flow": "FLOW-3263df8e",
+    "from": "导入校验通过且未确认",
+    "to": "结果已入账且不可改删",
+    "object": "线下分成批次",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-3248610da56299",
+    "page": "admin-settlement-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "主播分成记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证主播导入不在线计算分成",
+    "point": "线下结果录入",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "模板已填写财务确定的金额"
+    ],
+    "steps": [
+      "进入主播分成记录",
+      "查看导入表单"
+    ],
+    "result": "不要求在系统填写分成比例或发起结算审批",
+    "sourceIds": [
+      "REQ-ADMIN-4b04c5d5c3",
+      "REQ-ADMIN-6c36a4fc19",
+      "REQ-ADMIN-a4542bed19",
+      "REQ-ADMIN-35f5d4ee21",
+      "REQ-ADMIN-b6a1275ff4",
+      "REQ-ADMIN-6189e23820",
+      "REQ-ADMIN-474f14ea36",
+      "REQ-ADMIN-81c3caec63",
+      "REQ-ADMIN-41fef2540e",
+      "REQ-PUB-c6f2afe930"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "主播分成记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-92f2fa57d76392",
+    "page": "admin-host-balance-change-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "余额变更记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证主播正向分成修正",
+    "point": "分成正向修正",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前余额100 USD"
+    ],
+    "steps": [
+      "进入指定主播的余额变更记录",
+      "点击新建修正",
+      "输入金额20.50和备注“补充差额”",
+      "点击确认"
+    ],
+    "result": "变更后余额=100+20.50=120.50",
+    "sourceIds": [
+      "REQ-ADMIN-f9de15a24a",
+      "REQ-ADMIN-3041333119",
+      "REQ-ADMIN-8835726a7e",
+      "REQ-ADMIN-f03822c5e6",
+      "REQ-ADMIN-bf8e234c1f",
+      "REQ-ADMIN-a75dc1ae70",
+      "REQ-ADMIN-a8e4463544",
+      "REQ-ADMIN-7f223e8c24",
+      "REQ-PUB-62301e9e0e",
+      "REQ-PUB-49aedb4824"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额变更记录",
+    "calculation": {
+      "公式": "原余额+修正金额",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "USD",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "USD"
+        },
+        {
+          "名称": "修正金额",
+          "业务含义": "修正金额",
+          "数值": 20.5,
+          "单位": "USD"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "变量": "原余额"
+          },
+          {
+            "变量": "修正金额"
+          }
+        ]
+      },
+      "最终值": 120.5
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d2d4730e017d4f",
+    "page": "admin-host-balance-change-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "余额变更记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证主播负向修正可扣至零",
+    "point": "分成扣减允许边界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前余额100 USD"
+    ],
+    "steps": [
+      "进入指定主播的余额变更记录",
+      "点击新建修正",
+      "输入金额-100和备注“冲正”",
+      "点击确认"
+    ],
+    "result": "变更后余额=100-100=0",
+    "sourceIds": [
+      "REQ-ADMIN-f9de15a24a",
+      "REQ-ADMIN-3041333119",
+      "REQ-ADMIN-8835726a7e",
+      "REQ-ADMIN-f03822c5e6",
+      "REQ-ADMIN-bf8e234c1f",
+      "REQ-ADMIN-a75dc1ae70",
+      "REQ-ADMIN-a8e4463544",
+      "REQ-ADMIN-7f223e8c24",
+      "REQ-PUB-62301e9e0e",
+      "REQ-PUB-49aedb4824"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额变更记录",
+    "calculation": {
+      "公式": "原余额-扣减金额",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "USD",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "USD"
+        },
+        {
+          "名称": "扣减金额",
+          "业务含义": "扣减金额",
+          "数值": 100,
+          "单位": "USD"
+        }
+      ],
+      "表达式": {
+        "运算": "-",
+        "参数": [
+          {
+            "变量": "原余额"
+          },
+          {
+            "变量": "扣减金额"
+          }
+        ]
+      },
+      "最终值": 0
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-3fdfb723b34cb8",
+    "page": "admin-host-balance-change-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "余额变更记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证主播修正不能超过余额",
+    "point": "分成扣减越界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前余额100 USD"
+    ],
+    "steps": [
+      "进入指定主播的余额变更记录",
+      "点击新建修正",
+      "输入金额-100.01和备注“冲正”",
+      "点击确认"
+    ],
+    "result": "不保存超过余额的扣减",
+    "sourceIds": [
+      "REQ-ADMIN-f9de15a24a",
+      "REQ-ADMIN-3041333119",
+      "REQ-ADMIN-8835726a7e",
+      "REQ-ADMIN-f03822c5e6",
+      "REQ-ADMIN-bf8e234c1f",
+      "REQ-ADMIN-a75dc1ae70",
+      "REQ-ADMIN-a8e4463544",
+      "REQ-ADMIN-7f223e8c24",
+      "REQ-PUB-62301e9e0e",
+      "REQ-PUB-49aedb4824"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额变更记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0f484a2ab1824a",
+    "page": "admin-host-balance-change-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "余额变更记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证主播修正拒绝零金额",
+    "point": "分成修正零值",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前余额100 USD"
+    ],
+    "steps": [
+      "进入指定主播的余额变更记录",
+      "点击新建修正",
+      "输入金额0并填写备注",
+      "点击确认"
+    ],
+    "result": "不能保存零金额修正",
+    "sourceIds": [
+      "REQ-ADMIN-f9de15a24a",
+      "REQ-ADMIN-3041333119",
+      "REQ-ADMIN-8835726a7e",
+      "REQ-ADMIN-f03822c5e6",
+      "REQ-ADMIN-bf8e234c1f",
+      "REQ-ADMIN-a75dc1ae70",
+      "REQ-ADMIN-a8e4463544",
+      "REQ-ADMIN-7f223e8c24",
+      "REQ-PUB-62301e9e0e",
+      "REQ-PUB-49aedb4824"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额变更记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-e1de69c666808f",
+    "page": "admin-guild-settlement-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "公会分成记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证公会分成导入预览合计",
+    "point": "导入批次金额",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "按页面模板准备两个有效公会，金额分别100.50和200.25 USD"
+    ],
+    "steps": [
+      "进入公会分成记录",
+      "填写分成备注“本月线下结算”",
+      "上传该模板文件"
+    ],
+    "result": "预览分成总金额=100.50+200.25=300.75",
+    "sourceIds": [
+      "REQ-ADMIN-69e076fcf1",
+      "REQ-ADMIN-0aa73fea7d",
+      "REQ-ADMIN-688754c70e",
+      "REQ-ADMIN-feee96dabb",
+      "REQ-ADMIN-2f3c3a3327",
+      "REQ-ADMIN-819ad4b593",
+      "REQ-ADMIN-02a0a0855d",
+      "REQ-ADMIN-e6bb8f228b",
+      "REQ-ADMIN-d3618c4663",
+      "REQ-PUB-e2964e358b"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会分成记录",
+    "calculation": {
+      "公式": "明细金额之和",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "USD",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "第一笔",
+          "业务含义": "第一笔",
+          "数值": 100.5,
+          "单位": "USD"
+        },
+        {
+          "名称": "第二笔",
+          "业务含义": "第二笔",
+          "数值": 200.25,
+          "单位": "USD"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "变量": "第一笔"
+          },
+          {
+            "变量": "第二笔"
+          }
+        ]
+      },
+      "最终值": 300.75
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-a05dcdd400678a",
+    "page": "admin-guild-settlement-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "公会分成记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证公会确认导入后记录只读",
+    "point": "导入完成终态",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "导入文件已通过校验，备注已填写"
+    ],
+    "steps": [
+      "进入公会分成记录",
+      "点击确认导入"
+    ],
+    "result": "本批分成记录不提供编辑或删除",
+    "sourceIds": [
+      "REQ-ADMIN-69e076fcf1",
+      "REQ-ADMIN-0aa73fea7d",
+      "REQ-ADMIN-688754c70e",
+      "REQ-ADMIN-feee96dabb",
+      "REQ-ADMIN-2f3c3a3327",
+      "REQ-ADMIN-819ad4b593",
+      "REQ-ADMIN-02a0a0855d",
+      "REQ-ADMIN-e6bb8f228b",
+      "REQ-ADMIN-d3618c4663",
+      "REQ-PUB-e2964e358b"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会分成记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-5bb99f546e8807",
+    "page": "admin-guild-settlement-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "公会分成记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证公会导入不在线计算分成",
+    "point": "线下结果录入",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "模板已填写财务确定的金额"
+    ],
+    "steps": [
+      "进入公会分成记录",
+      "查看导入表单"
+    ],
+    "result": "不要求在系统填写分成比例或发起结算审批",
+    "sourceIds": [
+      "REQ-ADMIN-69e076fcf1",
+      "REQ-ADMIN-0aa73fea7d",
+      "REQ-ADMIN-688754c70e",
+      "REQ-ADMIN-feee96dabb",
+      "REQ-ADMIN-2f3c3a3327",
+      "REQ-ADMIN-819ad4b593",
+      "REQ-ADMIN-02a0a0855d",
+      "REQ-ADMIN-e6bb8f228b",
+      "REQ-ADMIN-d3618c4663",
+      "REQ-PUB-e2964e358b"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会分成记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-86123325c46ba4",
+    "page": "admin-guild-balance-change-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "余额变更记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证公会正向分成修正",
+    "point": "分成正向修正",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前余额100 USD"
+    ],
+    "steps": [
+      "进入指定公会的余额变更记录",
+      "点击新建修正",
+      "输入金额20.50和备注“补充差额”",
+      "点击确认"
+    ],
+    "result": "变更后余额=100+20.50=120.50",
+    "sourceIds": [
+      "REQ-ADMIN-0685164aa4",
+      "REQ-ADMIN-2f365cbc71",
+      "REQ-ADMIN-aca4fc05e3",
+      "REQ-ADMIN-4e59013d6f",
+      "REQ-ADMIN-b8b610f5cb",
+      "REQ-ADMIN-34c2834697",
+      "REQ-ADMIN-fff8646eaf",
+      "REQ-ADMIN-dd53c8d065",
+      "REQ-PUB-9ff6085277",
+      "REQ-PUB-1944aede61"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额变更记录",
+    "calculation": {
+      "公式": "原余额+修正金额",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "USD",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "USD"
+        },
+        {
+          "名称": "修正金额",
+          "业务含义": "修正金额",
+          "数值": 20.5,
+          "单位": "USD"
+        }
+      ],
+      "表达式": {
+        "运算": "+",
+        "参数": [
+          {
+            "变量": "原余额"
+          },
+          {
+            "变量": "修正金额"
+          }
+        ]
+      },
+      "最终值": 120.5
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-9a832a3f431975",
+    "page": "admin-guild-balance-change-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "余额变更记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证公会负向修正可扣至零",
+    "point": "分成扣减允许边界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前余额100 USD"
+    ],
+    "steps": [
+      "进入指定公会的余额变更记录",
+      "点击新建修正",
+      "输入金额-100和备注“冲正”",
+      "点击确认"
+    ],
+    "result": "变更后余额=100-100=0",
+    "sourceIds": [
+      "REQ-ADMIN-0685164aa4",
+      "REQ-ADMIN-2f365cbc71",
+      "REQ-ADMIN-aca4fc05e3",
+      "REQ-ADMIN-4e59013d6f",
+      "REQ-ADMIN-b8b610f5cb",
+      "REQ-ADMIN-34c2834697",
+      "REQ-ADMIN-fff8646eaf",
+      "REQ-ADMIN-dd53c8d065",
+      "REQ-PUB-9ff6085277",
+      "REQ-PUB-1944aede61"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "dimensions": [
+      "数据一致性",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额变更记录",
+    "calculation": {
+      "公式": "原余额-扣减金额",
+      "数据范围": "本条用例明确准备的业务记录",
+      "结果单位": "USD",
+      "证据": [
+        0
+      ],
+      "变量": [
+        {
+          "名称": "原余额",
+          "业务含义": "原余额",
+          "数值": 100,
+          "单位": "USD"
+        },
+        {
+          "名称": "扣减金额",
+          "业务含义": "扣减金额",
+          "数值": 100,
+          "单位": "USD"
+        }
+      ],
+      "表达式": {
+        "运算": "-",
+        "参数": [
+          {
+            "变量": "原余额"
+          },
+          {
+            "变量": "扣减金额"
+          }
+        ]
+      },
+      "最终值": 0
+    },
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-096dd59aa1b997",
+    "page": "admin-guild-balance-change-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "余额变更记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证公会修正不能超过余额",
+    "point": "分成扣减越界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前余额100 USD"
+    ],
+    "steps": [
+      "进入指定公会的余额变更记录",
+      "点击新建修正",
+      "输入金额-100.01和备注“冲正”",
+      "点击确认"
+    ],
+    "result": "不保存超过余额的扣减",
+    "sourceIds": [
+      "REQ-ADMIN-0685164aa4",
+      "REQ-ADMIN-2f365cbc71",
+      "REQ-ADMIN-aca4fc05e3",
+      "REQ-ADMIN-4e59013d6f",
+      "REQ-ADMIN-b8b610f5cb",
+      "REQ-ADMIN-34c2834697",
+      "REQ-ADMIN-fff8646eaf",
+      "REQ-ADMIN-dd53c8d065",
+      "REQ-PUB-9ff6085277",
+      "REQ-PUB-1944aede61"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额变更记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-459151140f01ce",
+    "page": "admin-guild-balance-change-record.html",
+    "end": "管理后台",
+    "module": "财务结算",
+    "structure": "余额变更记录（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证公会修正拒绝零金额",
+    "point": "分成修正零值",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前余额100 USD"
+    ],
+    "steps": [
+      "进入指定公会的余额变更记录",
+      "点击新建修正",
+      "输入金额0并填写备注",
+      "点击确认"
+    ],
+    "result": "不能保存零金额修正",
+    "sourceIds": [
+      "REQ-ADMIN-0685164aa4",
+      "REQ-ADMIN-2f365cbc71",
+      "REQ-ADMIN-aca4fc05e3",
+      "REQ-ADMIN-4e59013d6f",
+      "REQ-ADMIN-b8b610f5cb",
+      "REQ-ADMIN-34c2834697",
+      "REQ-ADMIN-fff8646eaf",
+      "REQ-ADMIN-dd53c8d065",
+      "REQ-PUB-9ff6085277",
+      "REQ-PUB-1944aede61"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "余额变更记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-153eaa4fe3cbc1",
+    "page": "income-sharing.html",
+    "end": "用户App",
+    "module": "主播中心",
+    "structure": "分成记录（主播）",
+    "role": "主播",
+    "title": "验证主播读取财务上传结果",
+    "point": "主播分成结果",
+    "conditions": [
+      "主播账号可用、认证通过、所属公会启用，平台和公会均允许开播",
+      "财务已上传本主播分成1234.56 USD"
+    ],
+    "steps": [
+      "进入分成记录",
+      "查看该分成记录"
+    ],
+    "result": "分成金额显示1.234,56美元",
+    "sourceIds": [
+      "REQ-USER-9e4322e116",
+      "REQ-USER-8f7ca3d283",
+      "REQ-USER-2b9d93dbc7",
+      "REQ-USER-aba5a30772",
+      "REQ-USER-915ac63ae6",
+      "REQ-USER-8005b7e183",
+      "REQ-USER-25c3486086",
+      "REQ-USER-4ef924cee8",
+      "REQ-USER-810c0fa5c2",
+      "REQ-PUB-60214d0b3a",
+      "REQ-ADMIN-4b04c5d5c3",
+      "REQ-ADMIN-6c36a4fc19",
+      "REQ-ADMIN-a4542bed19",
+      "REQ-ADMIN-35f5d4ee21",
+      "REQ-ADMIN-b6a1275ff4",
+      "REQ-ADMIN-6189e23820",
+      "REQ-ADMIN-474f14ea36",
+      "REQ-ADMIN-81c3caec63",
+      "REQ-ADMIN-41fef2540e",
+      "REQ-PUB-c6f2afe930"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-6ac9dcfe6036",
+    "flow": "FLOW-3263df8e",
+    "from": "导入校验通过且未确认",
+    "to": "结果已入账且不可改删",
+    "object": "线下分成批次",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ccb8b5b7c3108b",
+    "page": "income-sharing.html",
+    "end": "用户App",
+    "module": "主播中心",
+    "structure": "分成记录（主播）",
+    "role": "主播",
+    "title": "验证主播分成页不提供申请审批",
+    "point": "主播结算权限",
+    "conditions": [
+      "主播账号可用、认证通过、所属公会启用，平台和公会均允许开播"
+    ],
+    "steps": [
+      "进入分成记录",
+      "查看页面操作"
+    ],
+    "result": "不提供线上结算申请或审批",
+    "sourceIds": [
+      "REQ-USER-9e4322e116",
+      "REQ-USER-8f7ca3d283",
+      "REQ-USER-2b9d93dbc7",
+      "REQ-USER-aba5a30772",
+      "REQ-USER-915ac63ae6",
+      "REQ-USER-8005b7e183",
+      "REQ-USER-25c3486086",
+      "REQ-USER-4ef924cee8",
+      "REQ-USER-810c0fa5c2",
+      "REQ-PUB-60214d0b3a"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "分成记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-23e696f7deca4a",
+    "page": "guild-share-ledger.html",
+    "end": "公会App",
+    "module": "数据与收益",
+    "structure": "主播分成记录（公会长）",
+    "role": "公会长",
+    "title": "验证公会读取本会主播上传结果",
+    "point": "公会查看主播分成",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "财务已上传本会主播海风分成100 USD"
+    ],
+    "steps": [
+      "进入主播分成记录",
+      "筛选主播海风"
+    ],
+    "result": "列表包含该笔100 USD分成记录",
+    "sourceIds": [
+      "REQ-GUILD-3ff1775556",
+      "REQ-GUILD-5c2ae2c0b6",
+      "REQ-GUILD-8767458563",
+      "REQ-GUILD-2d8e867eda",
+      "REQ-GUILD-2609402806",
+      "REQ-GUILD-fe257f894c",
+      "REQ-ADMIN-4b04c5d5c3",
+      "REQ-ADMIN-6c36a4fc19",
+      "REQ-ADMIN-a4542bed19",
+      "REQ-ADMIN-35f5d4ee21",
+      "REQ-ADMIN-b6a1275ff4",
+      "REQ-ADMIN-6189e23820",
+      "REQ-ADMIN-474f14ea36",
+      "REQ-ADMIN-81c3caec63",
+      "REQ-ADMIN-41fef2540e",
+      "REQ-PUB-c6f2afe930"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-6ac9dcfe6036",
+    "flow": "FLOW-3263df8e",
+    "from": "导入校验通过且未确认",
+    "to": "结果已入账且不可改删",
+    "object": "线下分成批次",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c8cb289266ed8b",
+    "page": "guild-share-income.html",
+    "end": "公会App",
+    "module": "数据与收益",
+    "structure": "公会分成记录（公会长）",
+    "role": "公会长",
+    "title": "验证公会分成只展示当前公会",
+    "point": "公会分成隔离",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限",
+      "财务上传本会100 USD，另一公会200 USD"
+    ],
+    "steps": [
+      "进入公会分成",
+      "查看分成列表"
+    ],
+    "result": "列表只包含本会100 USD分成记录",
+    "sourceIds": [
+      "REQ-GUILD-576ab16c31",
+      "REQ-GUILD-8e2e55f2ef",
+      "REQ-GUILD-b2deabb1ee",
+      "REQ-GUILD-ff98feb1d0"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会分成记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-b996f8cd8b07da",
+    "page": "guild-share-income.html",
+    "end": "公会App",
+    "module": "数据与收益",
+    "structure": "公会分成记录（公会长）",
+    "role": "公会长",
+    "title": "验证公会分成没有日期筛选",
+    "point": "公会分成查询入口",
+    "conditions": [
+      "公会长账号已登录，当前公会启用，具备本页管理权限"
+    ],
+    "steps": [
+      "进入公会分成",
+      "查看查询区域"
+    ],
+    "result": "不提供日期筛选",
+    "sourceIds": [
+      "REQ-GUILD-576ab16c31",
+      "REQ-GUILD-8e2e55f2ef",
+      "REQ-GUILD-b2deabb1ee",
+      "REQ-GUILD-ff98feb1d0"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会分成记录",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  }
+]

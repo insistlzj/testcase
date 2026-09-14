@@ -1,0 +1,2255 @@
+{
+  "时间": "2026-09-14T02:44:27.727Z",
+  "用途": "只读归档，禁止作为后续生成输入",
+  "归档": [
+    {
+      "原路径": "work/indonesia-live-spec-260911-001",
+      "归档路径": "archive/Luma-Live/260914-001/work/indonesia-live-spec-260911-001",
+      "文件数": 51,
+      "文件": [
+        {
+          "路径": "admin/artifact-inspect.ndjson",
+          "字节": 5063032,
+          "SHA256": "a77069c253c14bd208a8a3912867b5c0630285656d7f6476d21a5cce84bafb96"
+        },
+        {
+          "路径": "admin/new-pending.json",
+          "字节": 41408,
+          "SHA256": "04bdc8eef2fc4a6c3230b6a787c147be1547d55707989c7f6e8c4aaf24c18bae"
+        },
+        {
+          "路径": "admin/new-testcases.json",
+          "字节": 143863,
+          "SHA256": "1cb8ef484f425ec64a4bf9d86272d8f800e4072a60f1cc3a34ca44d157e8d960"
+        },
+        {
+          "路径": "admin/previews/cases-added.png",
+          "字节": 949991,
+          "SHA256": "a85d68da9491f22f400cae599b389064ce76ce6fb7e9bf26dc3cc7132c227dc1"
+        },
+        {
+          "路径": "admin/previews/overview.png",
+          "字节": 48980,
+          "SHA256": "bfe77a912cbf4391970a518f3debd13dd458f4fbc27fcd142bd60a202170e112"
+        },
+        {
+          "路径": "admin/previews/pending-added.png",
+          "字节": 866741,
+          "SHA256": "7336d6078add1c99d2c32b96dcf2e7088bbcfbe7dd81c0c232dc81b447fd2fd8"
+        },
+        {
+          "路径": "admin/workbook-inspection.ndjson",
+          "字节": 16188,
+          "SHA256": "d5caf59a639593b4130831bd72458dd4a06227919e5861c3c17b54e212330fe7"
+        },
+        {
+          "路径": "admin/workbook-verification.json",
+          "字节": 483,
+          "SHA256": "08bab84ee6c92fd31960fcf2650e46490e2c60811ec0ec223331d3d03c30c7ea"
+        },
+        {
+          "路径": "admin/管理后台-全部模块-测试用例-260911-002.json",
+          "字节": 710136,
+          "SHA256": "2de08aa73a89de26694b47e42b0aab9d40cdca76ba2b25a263260c469b37ac4f"
+        },
+        {
+          "路径": "analyze-coverage.mjs",
+          "字节": 11045,
+          "SHA256": "380e53820e9088d452f663cc13de2d52e101ca9dd1351dcc9558bd9d796e4c63"
+        },
+        {
+          "路径": "baseline-lock.json",
+          "字节": 869,
+          "SHA256": "9ea8236e39f8b160564e973be4da0104cba7fe3fd2f762610a8025072f06bfc6"
+        },
+        {
+          "路径": "build-baseline.mjs",
+          "字节": 23291,
+          "SHA256": "e3619c83fc25263bce31fa48150b9b8f7ab5803d29e77470453f0301bd73e422"
+        },
+        {
+          "路径": "build-supplement.mjs",
+          "字节": 42954,
+          "SHA256": "56884702a5f293f2a940ea23e6c1d1b5da982a1e4141bd9b6ff933de479ae911"
+        },
+        {
+          "路径": "business-rule-catalog.json",
+          "字节": 289289,
+          "SHA256": "dcf520fce5ed308afa0f2099d007369c38e5531fca95a59d376a61c3a30a0614"
+        },
+        {
+          "路径": "coverage-after.json",
+          "字节": 151,
+          "SHA256": "c55c2f64ffcae2108453fc5acf1cbdf834ac4066f681649386c42ab3b80d667c"
+        },
+        {
+          "路径": "coverage-mapping.json",
+          "字节": 224332,
+          "SHA256": "c49a5b06f48b81f76bf4b815986eefbba3564f701adc5cb91f0213c825985d52"
+        },
+        {
+          "路径": "edit-workbooks.mjs",
+          "字节": 10373,
+          "SHA256": "f427d86505bb1913f7f314a789f20c157a4002e8761bce6f82cf62e5572e4e3b"
+        },
+        {
+          "路径": "entry-evidence-map.json",
+          "字节": 41820,
+          "SHA256": "a8387d0f35559bd1b59dd7d3ad2992580880e3b0f3d4649ea8908d3a53cb0d52"
+        },
+        {
+          "路径": "final-validation.json",
+          "字节": 2760,
+          "SHA256": "2149b77939506be6fec86711e523c4be1cfa9458cdfb75170d3e8678289449fc"
+        },
+        {
+          "路径": "finalize.mjs",
+          "字节": 11542,
+          "SHA256": "36610002e1b5c173c8ea6dd69ef2515f9859cb2ddd4f9b431a5f1051ecdba3d6"
+        },
+        {
+          "路径": "generation-input-manifest.json",
+          "字节": 3296,
+          "SHA256": "ab42876248d0ea132b51c116dc2a355495aea3a9bef9bbdef96063c41f226e0f"
+        },
+        {
+          "路径": "global-evidence-scan-result.json",
+          "字节": 902,
+          "SHA256": "e38ecd491668d600afaf53602117e46a7f1889af348c4480b8ad3b2b714d88d6"
+        },
+        {
+          "路径": "guild/artifact-inspect.ndjson",
+          "字节": 1761597,
+          "SHA256": "ec53004d19392caa2711e15b1787ac3f9f3c059a8933b82b5a2a6df5e7485453"
+        },
+        {
+          "路径": "guild/new-pending.json",
+          "字节": 6916,
+          "SHA256": "70d63383b97fe6e3cfbf0a75e94fd8a0dd17c1081ea76690b858a7a1da8a3f7a"
+        },
+        {
+          "路径": "guild/new-testcases.json",
+          "字节": 45993,
+          "SHA256": "5389cdbbd82a5efc8e50b208cc899e95cd027af4fb37099d95af3e296370eb7e"
+        },
+        {
+          "路径": "guild/previews/cases-added.png",
+          "字节": 945145,
+          "SHA256": "15eb96bcccca572789daacc8e0df668c017a60a66cf1f5f7d99955099ebee071"
+        },
+        {
+          "路径": "guild/previews/overview.png",
+          "字节": 49055,
+          "SHA256": "d645fff791da10116acd1c86cfb5458788d44e69412012019f2e78f24703e6b8"
+        },
+        {
+          "路径": "guild/previews/pending-added.png",
+          "字节": 494589,
+          "SHA256": "2ececb94b1c2a009d6eef72a4aa65944e45f4312f5de90ad08a7243d2131903b"
+        },
+        {
+          "路径": "guild/workbook-inspection.ndjson",
+          "字节": 20311,
+          "SHA256": "3da0ec18bdd7eefafa46526e4d13ef05f875909645c570f75dc7bfa136096fa2"
+        },
+        {
+          "路径": "guild/workbook-verification.json",
+          "字节": 478,
+          "SHA256": "3a08cb99701e3a6b5cdc4637ee1712d3120339ccd96174076ac3f0182e8b4739"
+        },
+        {
+          "路径": "guild/公会App-全部模块-测试用例-260911-002.json",
+          "字节": 231911,
+          "SHA256": "b9c170aabe6bdaf1a980b808e2023a269bedbe18fc90941165fb9e2315a25619"
+        },
+        {
+          "路径": "historical-case-comparison.json",
+          "字节": 897,
+          "SHA256": "b3d9496eee58111caa9c95c3add7b14531f621971b94e96d1da2424e54b1211e"
+        },
+        {
+          "路径": "pending-risk-baseline.json",
+          "字节": 34327,
+          "SHA256": "8e4da6613616eebd9123dbc2b079d739e0ac943b650d6e637f308323ced44d49"
+        },
+        {
+          "路径": "pipeline-metrics.json",
+          "字节": 1473,
+          "SHA256": "79ae4f956184e4f27c0f32d2513945a4db6007ec0bee51b8936a5430223a83ba"
+        },
+        {
+          "路径": "requirements-baseline.json",
+          "字节": 36217,
+          "SHA256": "774995d68cb72f0e6617a38b06210cfb8e7a19997b7dabdd3cf9b5a41ce264fa"
+        },
+        {
+          "路径": "scenario-baseline.json",
+          "字节": 167492,
+          "SHA256": "8121d3cad33cc2d364cd58e274583c7abd6ffaaa72107676acfbe50069beed2f"
+        },
+        {
+          "路径": "scenario-disposition.json",
+          "字节": 221721,
+          "SHA256": "b67385bfda15dff2bbf5bd3d7ddf37e9a4b93b671fb0f1c92813b548cfe1a965"
+        },
+        {
+          "路径": "semantic-dedup-review.json",
+          "字节": 522,
+          "SHA256": "f6c9ec1471a6233ff9cd85606db189700c54fbf1c90d57e3b2e0524ce77927c6"
+        },
+        {
+          "路径": "source-policy.json",
+          "字节": 461,
+          "SHA256": "167883658f26df837d9966e94c8b3286267519ec60fee504d8a6e044e7569b83"
+        },
+        {
+          "路径": "sources/需求待确认.md",
+          "字节": 10711,
+          "SHA256": "be3fa523551083911d6f6c54c6a82b5bfd2ea862211e8fd46d3a34a0801067b5"
+        },
+        {
+          "路径": "sources/需求规格说明.md",
+          "字节": 12386,
+          "SHA256": "b2ab2624d1a1f4afaab601ab0109e39c44870d4569acae2c321e5191e35994fa"
+        },
+        {
+          "路径": "supplement-summary.json",
+          "字节": 894,
+          "SHA256": "0c17453fa7803b42cfe144a2aa46b5874f961db33c6f64cf383d0d1e2906d869"
+        },
+        {
+          "路径": "user/artifact-inspect.ndjson",
+          "字节": 9503668,
+          "SHA256": "3bcd4cdb58613755af3ea24d7e84b7d40dabfce3b9e2c6d55010b60e831b465e"
+        },
+        {
+          "路径": "user/new-pending.json",
+          "字节": 62406,
+          "SHA256": "2c3a34cc52855139850c65f098568fe06588722a73beb155d069d598ce7282ee"
+        },
+        {
+          "路径": "user/new-testcases.json",
+          "字节": 247223,
+          "SHA256": "9aef32135ffef446debf0939343cc6b3ca12a847d656fdcd6751dcaa8f38f6f2"
+        },
+        {
+          "路径": "user/previews/cases-added.png",
+          "字节": 934718,
+          "SHA256": "e7fe02099ccdb623d957c5f5cb4971d66a6b426aa1bf15e9fba3790b2dc4f04f"
+        },
+        {
+          "路径": "user/previews/overview.png",
+          "字节": 48704,
+          "SHA256": "89b1061cdf65073c43fd6f9d40dd5f3a649d520f63221c3267f40977ae7a9524"
+        },
+        {
+          "路径": "user/previews/pending-added.png",
+          "字节": 909383,
+          "SHA256": "4c137c022fe0a5ee4290dfb1947c4f9118ae82ab17a32f2accf2e79e5b229715"
+        },
+        {
+          "路径": "user/workbook-inspection.ndjson",
+          "字节": 16663,
+          "SHA256": "68ef5cfbf8c0fc3bee1f1ea88b5597837674e2f11c00888acb42872182b70b0f"
+        },
+        {
+          "路径": "user/workbook-verification.json",
+          "字节": 482,
+          "SHA256": "0df12e35ce3692478a2d2123e0f836de222911262750cc4956d75754c561dc81"
+        },
+        {
+          "路径": "user/用户App-全部模块-测试用例-260911-002.json",
+          "字节": 1303821,
+          "SHA256": "015795a2e48d4b7c8338f208f69d35784b3709b872342d815cc8f1588fc2ec5d"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "work/liveshow-proto-global-evidence-cache",
+      "归档路径": "archive/Luma-Live/260914-001/work/liveshow-proto-global-evidence-cache",
+      "文件数": 2,
+      "文件": [
+        {
+          "路径": "latest.json",
+          "字节": 3234,
+          "SHA256": "b77fb26f81d588d50f1ea6c3e63fc0bac699ffcf9d0405816a31e84a3b721fc5"
+        },
+        {
+          "路径": "layers/inventory/latest.json",
+          "字节": 66581,
+          "SHA256": "9d3f5e71e1c2c546a597bf49f7a3d68c85702ae6e93f60f0f54ad53d65604c7d"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "work/liveshow-three-end-all-260911-001",
+      "归档路径": "archive/Luma-Live/260914-001/work/liveshow-three-end-all-260911-001",
+      "文件数": 96,
+      "文件": [
+        {
+          "路径": "admin/artifact-inspect.ndjson",
+          "字节": 5022430,
+          "SHA256": "1a488d194cd8cfb0a70086538cc984297394159dae3e84895e509ce1c6de25bd"
+        },
+        {
+          "路径": "admin/business-rule-catalog.json",
+          "字节": 2348641,
+          "SHA256": "62d10646889a86bc07cbe658b1eaab212dead7e701c6057001226f87a1bfcca0"
+        },
+        {
+          "路径": "admin/coverage-after.json",
+          "字节": 257266,
+          "SHA256": "bcafb8f3d44851d53284d5756b4d6441cc48201a63ec1fe82af1f83cef0a6cba"
+        },
+        {
+          "路径": "admin/coverage-before.json",
+          "字节": 225830,
+          "SHA256": "d052ba72c88f826d82d28f61e03ecdfc1a483ce5caf161156fccac50868959fc"
+        },
+        {
+          "路径": "admin/coverage-change-report.json",
+          "字节": 330,
+          "SHA256": "336d19aedf0df747151cd495d1ed035d5aec6fea2bdb89f3ee349d53f89ae54c"
+        },
+        {
+          "路径": "admin/coverage-dimensions.json",
+          "字节": 5001730,
+          "SHA256": "401fcda11fdaa11ffc994fd87b6acfb9a84236fc1ff092390c868600ce862dcc"
+        },
+        {
+          "路径": "admin/coverage-review-backlog.json",
+          "字节": 2856754,
+          "SHA256": "a5108f6fe8637f583c7e91b7bcee05d78aac6991b470ab0da2db1893d6fc8275"
+        },
+        {
+          "路径": "admin/current-testcase-candidate.json",
+          "字节": 524922,
+          "SHA256": "e8d8db860a9462c2c9c25b7ce8ece34f88ef05711f92d45bc7bc57b0c195a77e"
+        },
+        {
+          "路径": "admin/delivery-verification.json",
+          "字节": 453,
+          "SHA256": "2d02f68cc8f8b18d7668314a17754eaf346910afe872e186d3b3066bc595bca3"
+        },
+        {
+          "路径": "admin/dependency-analysis.json",
+          "字节": 814372,
+          "SHA256": "08dacb88cc813938dce5a6a573a523706a7a8427f960f098dc15c861754a4e28"
+        },
+        {
+          "路径": "admin/discovery-baseline.json",
+          "字节": 307,
+          "SHA256": "769337e34d846441cf077d1afdcd6022bd46759d16c019bc1dcf1793b39059c8"
+        },
+        {
+          "路径": "admin/final-validation.json",
+          "字节": 269,
+          "SHA256": "33934e417951f484bef12174ecd2465ed544df97387bbcd52fa8569c5d1f2834"
+        },
+        {
+          "路径": "admin/generation-input-manifest.json",
+          "字节": 44527,
+          "SHA256": "5cda6b0f266fc76d398ea1c53d1afaaaf2392e59015d5b247042693fea206801"
+        },
+        {
+          "路径": "admin/global-evidence-scan-result.json",
+          "字节": 121109,
+          "SHA256": "025ab37858182916bba44def1ab958b1ecc13b774f05bdf9cf80de912b6dc8b8"
+        },
+        {
+          "路径": "admin/historical-case-comparison.json",
+          "字节": 47,
+          "SHA256": "69f3ca592c066722a5b837adce56438f78393aedd0a41902bd666a02d3aa0331"
+        },
+        {
+          "路径": "admin/implementation-review.json",
+          "字节": 3,
+          "SHA256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "路径": "admin/input-validation.json",
+          "字节": 276,
+          "SHA256": "15b5b0d53b44be10dcebf91feaf3c0847a516942a05ddc63b84b91a7ca4ed362"
+        },
+        {
+          "路径": "admin/page-element-coverage.json",
+          "字节": 1376951,
+          "SHA256": "a7c56177255495d7084852197435a48f9929913ad9a23512e141bcbfab145b8c"
+        },
+        {
+          "路径": "admin/page-elements.json",
+          "字节": 1077057,
+          "SHA256": "01d983a3a666b67942f22d59cf95b7c84be52e614bac01eb4b5a09f1e942899f"
+        },
+        {
+          "路径": "admin/page-entry-map.json",
+          "字节": 45172,
+          "SHA256": "3f5d1111072a08e8c1a437d315712e6e25a97ee19fff5d7dd15c6508f29bf6eb"
+        },
+        {
+          "路径": "admin/pipeline-metrics.json",
+          "字节": 2428,
+          "SHA256": "4bce70f998c9a2be9a526d5e51d79b89ca3af7a549adda1e13c486fe94de18fa"
+        },
+        {
+          "路径": "admin/previews/cases-bottom.png",
+          "字节": 522837,
+          "SHA256": "d742b01578f2da7b43df2501593cc8c953123e4d5afde35e83d462cffe67b533"
+        },
+        {
+          "路径": "admin/previews/cases-top.png",
+          "字节": 630478,
+          "SHA256": "5f2f7be1bb38ed4dde4ec7f0ed07ecd827d3697e8e39ae6eeb4dfefff3128ad7"
+        },
+        {
+          "路径": "admin/previews/overview.png",
+          "字节": 47867,
+          "SHA256": "3c7d083266b1c74151d099a96d5b5d255710012084e1399992f6d85bb5f49219"
+        },
+        {
+          "路径": "admin/previews/pending.png",
+          "字节": 445639,
+          "SHA256": "3daa7a174e1ba1d1c52932e368191719b7601ba7df55688214c1f1868ca692ad"
+        },
+        {
+          "路径": "admin/prototype-context-sync-result.json",
+          "字节": 1546,
+          "SHA256": "65f2244a8b3318400a6d68ea144d11d4d98310bb1443496fc8e4da210a9a6527"
+        },
+        {
+          "路径": "admin/semantic-dedup-review.json",
+          "字节": 495183,
+          "SHA256": "1eb5f3fae052a585e2bbd23a4a2f5d2b6db200ea0a72df092905720f3016e54b"
+        },
+        {
+          "路径": "admin/source-documents.json",
+          "字节": 286728,
+          "SHA256": "1793314151a2ee37d5d2982ac2241d553aa44b5aa809b43650636e52a9dcb53b"
+        },
+        {
+          "路径": "admin/test-scenario-library.json",
+          "字节": 1879513,
+          "SHA256": "bb134e5bed49a130ed597c576aa618341d13a8fc057cfb68c58ab3bf5b74bd64"
+        },
+        {
+          "路径": "admin/workbook-inspection.ndjson",
+          "字节": 16380,
+          "SHA256": "62e1135dd75e618220983822f4a95837282d2d4d1fb8c722ce4ceeda6629ad75"
+        },
+        {
+          "路径": "admin/管理后台-全部模块-测试用例-260911-001.json",
+          "字节": 524922,
+          "SHA256": "e8d8db860a9462c2c9c25b7ce8ece34f88ef05711f92d45bc7bc57b0c195a77e"
+        },
+        {
+          "路径": "build-three-end.mjs",
+          "字节": 24263,
+          "SHA256": "2d37d3820b751a88370587146469a73ff8a7fa1af256119d6bc473e09a13b9b7"
+        },
+        {
+          "路径": "build-workbooks.mjs",
+          "字节": 13147,
+          "SHA256": "179c3baf43afd5b7ba51219d7ffa9b951a7f12f8d02257082d340d85c00d73b8"
+        },
+        {
+          "路径": "guild/artifact-inspect.ndjson",
+          "字节": 1795075,
+          "SHA256": "3be55bbaa0bbe3d50bda094e895f20e1a7dc5d134c4eada9581f79d16094d5bd"
+        },
+        {
+          "路径": "guild/business-rule-catalog.json",
+          "字节": 1176434,
+          "SHA256": "7d08c22261666e36a723573bbdea44a5b4ed1d804486ff2ccd173c810d3a0596"
+        },
+        {
+          "路径": "guild/coverage-after.json",
+          "字节": 88194,
+          "SHA256": "b2ffa9e5e0d23c8041648a86573ebb6e4ea8954ecbf8977d827d8a65761fe229"
+        },
+        {
+          "路径": "guild/coverage-before.json",
+          "字节": 77045,
+          "SHA256": "d061c253569c0c7be7080d99d748f3d246ec8076cc139855724d486d0de01a41"
+        },
+        {
+          "路径": "guild/coverage-change-report.json",
+          "字节": 326,
+          "SHA256": "b2b70951623c32275f23e2ddc49e7382d16f532f82ec705a8fe4dfefc7e5b876"
+        },
+        {
+          "路径": "guild/coverage-dimensions.json",
+          "字节": 2497867,
+          "SHA256": "c327043627fafcc5fb9162d3da0f3b9c5bbb64d65838f4588a91d5fe4446c450"
+        },
+        {
+          "路径": "guild/coverage-review-backlog.json",
+          "字节": 927407,
+          "SHA256": "b14acbd1e2b5564ce1f436cbf1ac0c35a143923da4397ef1acbe5b8c0cf9912f"
+        },
+        {
+          "路径": "guild/current-testcase-candidate.json",
+          "字节": 179059,
+          "SHA256": "19f0676115268292c874420c19343a80f6478658034c1afe5aa0ab40db95094d"
+        },
+        {
+          "路径": "guild/delivery-verification.json",
+          "字节": 453,
+          "SHA256": "6db544f2686e94418bc769c1ce78031b339e2e8de6278d5c6160cbdbf8bcde72"
+        },
+        {
+          "路径": "guild/dependency-analysis.json",
+          "字节": 284765,
+          "SHA256": "53e92d858ae71e7d5ecdd68508a887c66ed9887e393948eaea852b22be2da8cf"
+        },
+        {
+          "路径": "guild/discovery-baseline.json",
+          "字节": 307,
+          "SHA256": "139ef0df9dd14d6b70ad0aaeae6e43224e1eae58166b9621802d27969066d3a1"
+        },
+        {
+          "路径": "guild/final-validation.json",
+          "字节": 269,
+          "SHA256": "33934e417951f484bef12174ecd2465ed544df97387bbcd52fa8569c5d1f2834"
+        },
+        {
+          "路径": "guild/generation-input-manifest.json",
+          "字节": 27245,
+          "SHA256": "0596e927405d3dd24bd8e48da446df6e0daa70dcb1a1fc73f683d395f23670fd"
+        },
+        {
+          "路径": "guild/global-evidence-scan-result.json",
+          "字节": 71028,
+          "SHA256": "ce5421e4646d1b0d1827f52f10786cfb6f7bd04782d7917c306558391801e631"
+        },
+        {
+          "路径": "guild/historical-case-comparison.json",
+          "字节": 47,
+          "SHA256": "69f3ca592c066722a5b837adce56438f78393aedd0a41902bd666a02d3aa0331"
+        },
+        {
+          "路径": "guild/implementation-review.json",
+          "字节": 3,
+          "SHA256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "路径": "guild/input-validation.json",
+          "字节": 276,
+          "SHA256": "15b5b0d53b44be10dcebf91feaf3c0847a516942a05ddc63b84b91a7ca4ed362"
+        },
+        {
+          "路径": "guild/page-element-coverage.json",
+          "字节": 275240,
+          "SHA256": "5628c7484026cbfc9e8b7998f5f25796a41d8a93cbdb687a8bb0d5c0d7741377"
+        },
+        {
+          "路径": "guild/page-elements.json",
+          "字节": 219902,
+          "SHA256": "0bf4483acdb77603fe05d86bacf8ac6c9caf11d6a7381caa2318dab075bfd8cf"
+        },
+        {
+          "路径": "guild/page-entry-map.json",
+          "字节": 16144,
+          "SHA256": "edd98252fccdcc27955a29d67811871ecb35ed4ee67dfc2301e17de4c2696810"
+        },
+        {
+          "路径": "guild/pipeline-metrics.json",
+          "字节": 2420,
+          "SHA256": "3a6c43a316e48f398fe9c25a8ac6d192e282bef148c0d4cbc6504625bf492627"
+        },
+        {
+          "路径": "guild/previews/cases-bottom.png",
+          "字节": 505092,
+          "SHA256": "bc92b058c905758d0b77cd8b06ae28d90aebd4b2d4dac7921628928d970a2adc"
+        },
+        {
+          "路径": "guild/previews/cases-top.png",
+          "字节": 578940,
+          "SHA256": "6f456030c98d784e26a334bb8900c8e7efe7cbaf2472a42121284f40f86c5fc9"
+        },
+        {
+          "路径": "guild/previews/overview.png",
+          "字节": 48087,
+          "SHA256": "9aaca3765fbf5d800ad92299baf56e39a6335c0bcbd317b84bd70bcedcc50f12"
+        },
+        {
+          "路径": "guild/previews/pending.png",
+          "字节": 153138,
+          "SHA256": "e7948c6679983690b7ad7c84c3a34bacc3ac4d9f4258ecf9abe4f957bfd56589"
+        },
+        {
+          "路径": "guild/prototype-context-sync-result.json",
+          "字节": 1546,
+          "SHA256": "44d37ef09e1808aa5a62a125ab374f712de66bb313563ddb7075b398aa397504"
+        },
+        {
+          "路径": "guild/semantic-dedup-review.json",
+          "字节": 169488,
+          "SHA256": "a7ecfb14f1ad041bf9d0f15e32fd4cdbf8665a33088b8481e45b1b9b36d4969a"
+        },
+        {
+          "路径": "guild/source-documents.json",
+          "字节": 130201,
+          "SHA256": "a68462dec3f2b247b1eb2e48273e49acf8c8ff5cdbd4ce499ca9f4349679ca19"
+        },
+        {
+          "路径": "guild/test-scenario-library.json",
+          "字节": 630201,
+          "SHA256": "bbd86fd41a862844d9fab4f805e669ed692e22205eb7678a531c22f80d1c24ed"
+        },
+        {
+          "路径": "guild/workbook-inspection.ndjson",
+          "字节": 10406,
+          "SHA256": "3ccc8ecdf94e4ce8faf2126091bb5254f8e68081fa5afdfc0147a370b6b3cebd"
+        },
+        {
+          "路径": "guild/公会App-全部模块-测试用例-260911-001.json",
+          "字节": 179059,
+          "SHA256": "19f0676115268292c874420c19343a80f6478658034c1afe5aa0ab40db95094d"
+        },
+        {
+          "路径": "node_modules",
+          "链接目标": "/Users/geekonup/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules"
+        },
+        {
+          "路径": "user/artifact-inspect.ndjson",
+          "字节": 9603664,
+          "SHA256": "934f1ededbb622979c12ac3a52ffc0c7e9f3c5e6d7c02225ea4d7d0b3af86325"
+        },
+        {
+          "路径": "user/business-rule-catalog.json",
+          "字节": 3968109,
+          "SHA256": "2f69397abda816499c63d723e3862704d4547c73430aa05aaebaf9132b38952c"
+        },
+        {
+          "路径": "user/coverage-after.json",
+          "字节": 562278,
+          "SHA256": "ec85c0e80f774b8aea7320ce31b1bf37a3ceb4d041bd1e8c3035c6a69c9ad89e"
+        },
+        {
+          "路径": "user/coverage-before.json",
+          "字节": 502290,
+          "SHA256": "e7498d069829be2a76fb26f9742ca30085897722d1ae78cc6cd10e27cc4cd9ac"
+        },
+        {
+          "路径": "user/coverage-change-report.json",
+          "字节": 330,
+          "SHA256": "0390d77d6b0d4869a8c37bbe8aaafebc21af9b0ce9db65c889f53c1b208fc950"
+        },
+        {
+          "路径": "user/coverage-dimensions.json",
+          "字节": 8536357,
+          "SHA256": "65f4cb7c591a6d1997a424911ff00383d6e3a50c01115770961d0c523c865106"
+        },
+        {
+          "路径": "user/coverage-review-backlog.json",
+          "字节": 3224760,
+          "SHA256": "4cd4c936d7da6740a14a5730a2165b44508d3dc7ca7cd7c1ec2932146d5e418c"
+        },
+        {
+          "路径": "user/current-testcase-candidate.json",
+          "字节": 994249,
+          "SHA256": "8b2fdb29f344d825f5f86c79c9a88877d18a70510cd6ae0ec6f00ae3bc435ad4"
+        },
+        {
+          "路径": "user/delivery-verification.json",
+          "字节": 454,
+          "SHA256": "8513568685bfa508e4682fd2dcfeba50b0c537c351aa7dd77dba3dd6905aa35f"
+        },
+        {
+          "路径": "user/dependency-analysis.json",
+          "字节": 578818,
+          "SHA256": "5d459829ba0695e5584eaae60700654c41ed1428cc61ef407e3378183f87cc85"
+        },
+        {
+          "路径": "user/discovery-baseline.json",
+          "字节": 307,
+          "SHA256": "671f7459bd9fcfd288d3fc31a2fd20cc40cbf6b2b831ec04e8952a584ac3b19b"
+        },
+        {
+          "路径": "user/final-validation.json",
+          "字节": 269,
+          "SHA256": "33934e417951f484bef12174ecd2465ed544df97387bbcd52fa8569c5d1f2834"
+        },
+        {
+          "路径": "user/generation-input-manifest.json",
+          "字节": 36390,
+          "SHA256": "e30f03997b9bd4c2e86755ae153d2b12961f832784da591b3d3b23914044485e"
+        },
+        {
+          "路径": "user/global-evidence-scan-result.json",
+          "字节": 236112,
+          "SHA256": "c884330314635d019a8930b87519555d0cd8edabb3a837bcb8176323f232261f"
+        },
+        {
+          "路径": "user/historical-case-comparison.json",
+          "字节": 49789,
+          "SHA256": "e27ff416ab53c067583b2b6b11df0a7e1f1ecd4eccc906c690dfac6ed33a8467"
+        },
+        {
+          "路径": "user/implementation-review.json",
+          "字节": 3,
+          "SHA256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "路径": "user/input-validation.json",
+          "字节": 276,
+          "SHA256": "15b5b0d53b44be10dcebf91feaf3c0847a516942a05ddc63b84b91a7ca4ed362"
+        },
+        {
+          "路径": "user/page-element-coverage.json",
+          "字节": 616146,
+          "SHA256": "3ec7639c5d6907538093c66c395bc913a1c3171ecd512b1d2765bc2544c8852e"
+        },
+        {
+          "路径": "user/page-elements.json",
+          "字节": 497671,
+          "SHA256": "eab803a754291e9b79f2102d7ff6d7857d4fef3e8db31c6aed96cc1c796dec98"
+        },
+        {
+          "路径": "user/page-entry-map.json",
+          "字节": 63155,
+          "SHA256": "e3211dc4637476c1292a3aee56068904fe74f051b1c39d7d594adc99dd0a55c6"
+        },
+        {
+          "路径": "user/pipeline-metrics.json",
+          "字节": 2440,
+          "SHA256": "8c97e7ee478c8ae2f893b0794b9a2c041898820208ce54be944d88fcbd8d94f4"
+        },
+        {
+          "路径": "user/previews/cases-bottom.png",
+          "字节": 511691,
+          "SHA256": "a10e7aacceead7acd67169b5d70268a3982d26337450823cc7bf813a29acf293"
+        },
+        {
+          "路径": "user/previews/cases-top.png",
+          "字节": 603655,
+          "SHA256": "63444eb8003f477727677e5d60531987f9fd6963ac81c4ff18c5f88385d0edf9"
+        },
+        {
+          "路径": "user/previews/overview.png",
+          "字节": 47680,
+          "SHA256": "3b38149ab93281cccb0418552c98cb59fe3ac262d2d5bc03335694dd2fd1cce6"
+        },
+        {
+          "路径": "user/previews/pending.png",
+          "字节": 1743746,
+          "SHA256": "edc948ad784bdb1a2d61f968e44fd00dd16feb3ab400410ea4c65dde81134238"
+        },
+        {
+          "路径": "user/prototype-context-sync-result.json",
+          "字节": 1546,
+          "SHA256": "b3b477a45a0fc2517bc2885b8430f23c56b2ee6dc19f4e0cb50b589a1199e6cf"
+        },
+        {
+          "路径": "user/semantic-dedup-review.json",
+          "字节": 920184,
+          "SHA256": "45f6904fdcaba2f6b8a7ef639d3612cf7ad29b483a52a8e178bbb9caf5497bea"
+        },
+        {
+          "路径": "user/source-documents.json",
+          "字节": 430795,
+          "SHA256": "8199fcda187627a568c916b6641aa7e3a1f830e0b7f01cca1464d03cb5f4ae0d"
+        },
+        {
+          "路径": "user/test-scenario-library.json",
+          "字节": 4101513,
+          "SHA256": "900c4330ac80e1425d357832edb80f332707ca18e09ffa3ae93dfc4282e717db"
+        },
+        {
+          "路径": "user/workbook-inspection.ndjson",
+          "字节": 24501,
+          "SHA256": "7d5e3a72e22b4ef2d7610d3f398585e165f0ab9fe2fee92a4de9faae408ce225"
+        },
+        {
+          "路径": "user/用户App-全部模块-测试用例-260911-001.json",
+          "字节": 994249,
+          "SHA256": "8b2fdb29f344d825f5f86c79c9a88877d18a70510cd6ae0ec6f00ae3bc435ad4"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "work/liveshow-user-live-discovery-260910-005",
+      "归档路径": "archive/Luma-Live/260914-001/work/liveshow-user-live-discovery-260910-005",
+      "文件数": 41,
+      "文件": [
+        {
+          "路径": "business-rule-catalog.json",
+          "字节": 1596732,
+          "SHA256": "07aa91a756332a29e5f9643cca49084bc8645a6463b2fd947738df21c772a2f4"
+        },
+        {
+          "路径": "cache-isolation.json",
+          "字节": 2533,
+          "SHA256": "dd972dc08d025e6af7bd43a6960212e1d43200f8c0e9bb33741dac86e0ea0c59"
+        },
+        {
+          "路径": "cache-quarantine/1789034600126-evidence-atoms/evidence-atom-index.json",
+          "字节": 78442,
+          "SHA256": "9b5debb2a5ac2a46f3824c0da9d6053bf799f63c64d978b8c261e490a039985e"
+        },
+        {
+          "路径": "cache-quarantine/1789034600131-normalized-rules/business-rule-catalog.json",
+          "字节": 829990,
+          "SHA256": "56c934b738cba9dc8156da0470983b4cbc60fc3e2d04024cca4639ee9365606f"
+        },
+        {
+          "路径": "cache-quarantine/1789034600131-normalized-rules/dependency-index.json",
+          "字节": 82082,
+          "SHA256": "769ae4da8352c2e2c77f114fbc31b7f2973c68a0d1b62311d621ec84b196ea06"
+        },
+        {
+          "路径": "cache-quarantine/1789034600135-cases-history/historical-case-comparison.json",
+          "字节": 531,
+          "SHA256": "9926403458a4eb74f67d25475abc3ddc8f36a510b903b518c0b58a8de815e4a0"
+        },
+        {
+          "路径": "cache-quarantine/1789034600135-cases-history/quality-context.json",
+          "字节": 348,
+          "SHA256": "b0ef08e49a6e6361d383cea415b7e537f581e15429b6f64290459902780b11bd"
+        },
+        {
+          "路径": "cache-quarantine/1789034600135-cases-history/semantic-dedup-review.json",
+          "字节": 202520,
+          "SHA256": "dac5d5e09e257748e5e700990de4b7ffa4adb38cec74442e7a746c2fa990d9df"
+        },
+        {
+          "路径": "cache-quarantine/1789034600137-workbook/latest.json",
+          "字节": 187,
+          "SHA256": "6eb5bd94408b79a86b81c8de383353348cc9f7b9992ce45df7700153ae68dfb5"
+        },
+        {
+          "路径": "coverage-after.json",
+          "字节": 149165,
+          "SHA256": "952f5a349d9bce796ab86f71b257ca10783750b7a73aeb8298d240fc776d4d65"
+        },
+        {
+          "路径": "coverage-before.json",
+          "字节": 145475,
+          "SHA256": "97a7fef619a9fa7d17d35307115feea8e87acd6eeac422ce9ceed637cef58597"
+        },
+        {
+          "路径": "coverage-change-report.json",
+          "字节": 6904,
+          "SHA256": "0795d215d6c074dd1bb32a1f0d02a885b4693b8cc8738bbdc931f9195d6ce6a5"
+        },
+        {
+          "路径": "coverage-dimensions.json",
+          "字节": 3052831,
+          "SHA256": "2152b8ce91c13f72d5839b22d2ad8e84b1ade91f4a93a39d8f1adfaa393ce485"
+        },
+        {
+          "路径": "current-testcase-candidate.json",
+          "字节": 222770,
+          "SHA256": "eb0d84c03b9eca55e11ac7095c275c2c2c22680985fe07ff80528aa8cef51a4f"
+        },
+        {
+          "路径": "delivery-verification.json",
+          "字节": 529,
+          "SHA256": "4a93ed2e4d3b1698ff82be85e7670071611e2c4489c6edc0e3442fe53da98f96"
+        },
+        {
+          "路径": "dependency-analysis.json",
+          "字节": 465872,
+          "SHA256": "d6ff61852452d0c94def05190d1eb895c92b0a3ec9d5baba65dfc51fbf231a32"
+        },
+        {
+          "路径": "discovery-baseline.json",
+          "字节": 325,
+          "SHA256": "f3c227b444816fb552a90a1427980800d136fc59a7fce7985b6186223b6c18d1"
+        },
+        {
+          "路径": "final-validation.json",
+          "字节": 269,
+          "SHA256": "33934e417951f484bef12174ecd2465ed544df97387bbcd52fa8569c5d1f2834"
+        },
+        {
+          "路径": "generation-input-manifest.json",
+          "字节": 32901,
+          "SHA256": "98632f1289dd0f8ad0ab3ac9c0633abf97acf622d4fe180bafe028a76db627df"
+        },
+        {
+          "路径": "global-evidence-scan-result.json",
+          "字节": 504220,
+          "SHA256": "1498d63856aa59b5bf2c0d6f7ec34c3759f79f033a8363d96a008716afb3da17"
+        },
+        {
+          "路径": "governance-before/AGENTS.md",
+          "字节": 97287,
+          "SHA256": "4d2ecea1deb81bf7711ec54e9ba3337f853adbd3c0e001e1e2d19ba7e992097c"
+        },
+        {
+          "路径": "governance-before/Cem Kaner.txt",
+          "字节": 8458,
+          "SHA256": "42c3a7e2b7fcc3d3a56263fc76c0853e618d20cf9f4063ddbdc106156ce365c1"
+        },
+        {
+          "路径": "historical-case-comparison.json",
+          "字节": 73957,
+          "SHA256": "950f4fc18a8e2da1fcd4c713c63a4722838c14fd9fa517b090e7e1bb327d50a1"
+        },
+        {
+          "路径": "historical-question-review.json",
+          "字节": 2856,
+          "SHA256": "8dc046571d12fb2e1c82cc3c919657b3737da7c2a0c6d1f347427190710d3346"
+        },
+        {
+          "路径": "implementation-review.json",
+          "字节": 1116563,
+          "SHA256": "a8f115012b4270bccbbd74309e0962873bf58397724f137ebb5a628ddd4b5d0c"
+        },
+        {
+          "路径": "input-validation.json",
+          "字节": 276,
+          "SHA256": "15b5b0d53b44be10dcebf91feaf3c0847a516942a05ddc63b84b91a7ca4ed362"
+        },
+        {
+          "路径": "page-element-coverage.json",
+          "字节": 164623,
+          "SHA256": "8dca537366b3c03452bf96ed0a45907d4393bfe89edd838654fd7978884b5936"
+        },
+        {
+          "路径": "page-elements.json",
+          "字节": 134184,
+          "SHA256": "217edd26d70b1b53c7e69ac9788d77128df2794d4317f69b899dd99d53ecbbb5"
+        },
+        {
+          "路径": "page-entry-map.json",
+          "字节": 26620,
+          "SHA256": "3d599b0343c5081560ed1eacf2bd83ef999e4117660cfb66d90d7cce0b97cc4d"
+        },
+        {
+          "路径": "pipeline-metrics.json",
+          "字节": 2896,
+          "SHA256": "0d98617ca8bcc634fad4b934ed0c3c16759bc3d5f1a18134758dc99f18d2a5ed"
+        },
+        {
+          "路径": "previews/cases-bottom.png",
+          "字节": 745443,
+          "SHA256": "87223ea0de151f23e39542956e911bb1e632ad5c87db8f8e23517e14f0f5ba65"
+        },
+        {
+          "路径": "previews/cases-top.png",
+          "字节": 769085,
+          "SHA256": "2116fa88c2666cb666826e845271e00fae154498dc5907b071b3ce3ace7e20b8"
+        },
+        {
+          "路径": "previews/overview.png",
+          "字节": 47760,
+          "SHA256": "742824228fe0d825744a78a09ae445445ee4ba44a01ba7566248a3a0f5565a2c"
+        },
+        {
+          "路径": "previews/pending.png",
+          "字节": 379672,
+          "SHA256": "14517009d87c96410928f8b186c66b6de951c25a4c1ea71f0c81bab76cb55e8d"
+        },
+        {
+          "路径": "prototype-context-sync-result.json",
+          "字节": 596,
+          "SHA256": "4ba829ef7c79c10b3768947a3c5ad7556b629bfc1a01f75491d77f4c1c36b6d0"
+        },
+        {
+          "路径": "semantic-dedup-review.json",
+          "字节": 9031,
+          "SHA256": "a07d78b09ca4190ccc52c883de19c82a52de62f4d0ba2fb8019503e04e976979"
+        },
+        {
+          "路径": "source-documents.json",
+          "字节": 177226,
+          "SHA256": "af6205460fdf4fe0deda9b3ff87c915f42ae45878ca70f19541651c6e58209b3"
+        },
+        {
+          "路径": "test-scenario-library.json",
+          "字节": 850624,
+          "SHA256": "f109b533310128a78334f52c99cb7f40e770b2206d9c67842fa4708f4f58a7e5"
+        },
+        {
+          "路径": "workbook-inspection.ndjson",
+          "字节": 23602,
+          "SHA256": "b01123909eb7a679dd83d9d13ea9e62631c9e8227a32d42e98a3af578f2ff387"
+        },
+        {
+          "路径": "修改与覆盖核查报告.md",
+          "字节": 10000,
+          "SHA256": "446f9a5c6a907ca027ead70b14f1b67c81361f91bc2c5ff02b0503ae4a4f295c"
+        },
+        {
+          "路径": "用户App-直播模块-测试用例-260910-003.json",
+          "字节": 222770,
+          "SHA256": "eb0d84c03b9eca55e11ac7095c275c2c2c22680985fe07ff80528aa8cef51a4f"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "work/liveshow-user-live-discovery-260910-006",
+      "归档路径": "archive/Luma-Live/260914-001/work/liveshow-user-live-discovery-260910-006",
+      "文件数": 32,
+      "文件": [
+        {
+          "路径": "business-rule-catalog.json",
+          "字节": 1695427,
+          "SHA256": "cd203965ee9af8d878564dfe3576be525e45dfcb9a77727cc73b259c7060c520"
+        },
+        {
+          "路径": "coverage-after.json",
+          "字节": 202723,
+          "SHA256": "8ce0fe14421b2b8456c4fcaadd7d4a9714c2bc488d0651d4a565090ae4103d64"
+        },
+        {
+          "路径": "coverage-before.json",
+          "字节": 199460,
+          "SHA256": "f918934f5d369506a0494dbf376f22e89ac9194433d4be8512f75568dec5546b"
+        },
+        {
+          "路径": "coverage-change-report.json",
+          "字节": 5275,
+          "SHA256": "6568c3a58645e898c50da3f3728ffbedc3de325927e027cee6c1d97636ba2dcc"
+        },
+        {
+          "路径": "coverage-dimensions.json",
+          "字节": 3620797,
+          "SHA256": "016f8cbb6b99e67e886b14fd7663f100a95c3f677129721226bad910527561d8"
+        },
+        {
+          "路径": "coverage-review-backlog.json",
+          "字节": 2115751,
+          "SHA256": "bd912c9109042cb87cbd478286d10689130c333c2613adf55eaa42958d51de04"
+        },
+        {
+          "路径": "current-testcase-candidate.json",
+          "字节": 261389,
+          "SHA256": "a94ca957fe14d9a698662644411f6dafe334fa9df1afc55f04b1da082e733c41"
+        },
+        {
+          "路径": "delivery-verification.json",
+          "字节": 529,
+          "SHA256": "e43aeb782d90b57e25a2cf90c6b62cc29a2167c891608fcf9031b1ed57bd065e"
+        },
+        {
+          "路径": "dependency-analysis.json",
+          "字节": 465872,
+          "SHA256": "d6ff61852452d0c94def05190d1eb895c92b0a3ec9d5baba65dfc51fbf231a32"
+        },
+        {
+          "路径": "discovery-baseline.json",
+          "字节": 325,
+          "SHA256": "d8fad021a4ef16b24e976e07c11d785965d990e186b7fe90e66a0075e897e1c4"
+        },
+        {
+          "路径": "final-validation.json",
+          "字节": 269,
+          "SHA256": "33934e417951f484bef12174ecd2465ed544df97387bbcd52fa8569c5d1f2834"
+        },
+        {
+          "路径": "generation-input-manifest.json",
+          "字节": 33625,
+          "SHA256": "33cc473e3a34a7d744c0805b43dbef94ed7bc33a7713328d8d8f359f2c50aaf9"
+        },
+        {
+          "路径": "global-evidence-scan-result.json",
+          "字节": 369657,
+          "SHA256": "52e1fb4d001016f3944d67ae9e9cdbb503d41d76d6ac7cf7ccad2d4760912076"
+        },
+        {
+          "路径": "historical-case-comparison.json",
+          "字节": 93977,
+          "SHA256": "f976c38789a8b24c45eb603ed75622ed422e0b2c56fca4f123a6dbbd9226c548"
+        },
+        {
+          "路径": "historical-question-review.json",
+          "字节": 1528,
+          "SHA256": "0842c901ef953e2e5f22288b7fc7d4c83fbf8246682b302c2923d6b2d3c01c82"
+        },
+        {
+          "路径": "implementation-review.json",
+          "字节": 1116563,
+          "SHA256": "a8f115012b4270bccbbd74309e0962873bf58397724f137ebb5a628ddd4b5d0c"
+        },
+        {
+          "路径": "input-validation.json",
+          "字节": 276,
+          "SHA256": "15b5b0d53b44be10dcebf91feaf3c0847a516942a05ddc63b84b91a7ca4ed362"
+        },
+        {
+          "路径": "page-element-coverage.json",
+          "字节": 650901,
+          "SHA256": "573dbdccfc0b25850f25fb0f9fe46745d29c57fe87dfebdf8c6c4cf8b5644ecf"
+        },
+        {
+          "路径": "page-elements.json",
+          "字节": 579753,
+          "SHA256": "a05a73c5c79b1e9682e208e735669183e6d299e71da2db1da118964032980386"
+        },
+        {
+          "路径": "page-entry-map.json",
+          "字节": 27221,
+          "SHA256": "e21caf2bf4854cce870a00b1abb0ab5c4f11d7bddc01c4ff10b7470aaaacad02"
+        },
+        {
+          "路径": "pipeline-metrics.json",
+          "字节": 2387,
+          "SHA256": "14595d8a705ee1391bbd7fd6fbf56e90ed73ba4daacef9f694b813b1c39d3e20"
+        },
+        {
+          "路径": "previews/cases-bottom.png",
+          "字节": 627338,
+          "SHA256": "bacd2ec306b8be71eef8f6b77c813c00bc47f6faf65d6bf84df7400385e24ec6"
+        },
+        {
+          "路径": "previews/cases-top.png",
+          "字节": 769085,
+          "SHA256": "2116fa88c2666cb666826e845271e00fae154498dc5907b071b3ce3ace7e20b8"
+        },
+        {
+          "路径": "previews/overview.png",
+          "字节": 47760,
+          "SHA256": "742824228fe0d825744a78a09ae445445ee4ba44a01ba7566248a3a0f5565a2c"
+        },
+        {
+          "路径": "previews/pending.png",
+          "字节": 382665,
+          "SHA256": "7cae1871df6291a3d0646ff86c52422616db1ad88192aee7a2eb5e04536fdbed"
+        },
+        {
+          "路径": "prototype-context-sync-result.json",
+          "字节": 596,
+          "SHA256": "4ba829ef7c79c10b3768947a3c5ad7556b629bfc1a01f75491d77f4c1c36b6d0"
+        },
+        {
+          "路径": "semantic-dedup-review.json",
+          "字节": 8359,
+          "SHA256": "93aedafe8ce51d821ca57ff4fecc54de14ef7b1b2b668c6c89dff329e7ed4fa7"
+        },
+        {
+          "路径": "source-documents.json",
+          "字节": 180952,
+          "SHA256": "97abbb332ec896ef6fe9f64d9e03ab09c745c839c459dc8cc5e0ac825f5c50c7"
+        },
+        {
+          "路径": "test-scenario-library.json",
+          "字节": 1333316,
+          "SHA256": "81b1b4669a52a389b0a4145d719cd41c8bd12287ff44435300b7f54451f574ed"
+        },
+        {
+          "路径": "workbook-inspection.ndjson",
+          "字节": 22902,
+          "SHA256": "83aa91f38f198a1fbcb4108afdc534b4f625e3eba6f385977ff050855bcbb0e6"
+        },
+        {
+          "路径": "修复与覆盖复核报告.md",
+          "字节": 9170,
+          "SHA256": "d38000ed0d53cde97d43b279c783ef2fff31ba6fc454aeab6f2b195e4b2e3eb3"
+        },
+        {
+          "路径": "用户App-直播模块-测试用例-260910-004.json",
+          "字节": 261389,
+          "SHA256": "a94ca957fe14d9a698662644411f6dafe334fa9df1afc55f04b1da082e733c41"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "work/liveshow-user-live-profile-260910-003",
+      "归档路径": "archive/Luma-Live/260914-001/work/liveshow-user-live-profile-260910-003",
+      "文件数": 28,
+      "文件": [
+        {
+          "路径": "artifact-tool-inspection.ndjson",
+          "字节": 1546142,
+          "SHA256": "8b7d109a03a17a378f6975de819dd935204267b15bc40976a4c85671474b26f4"
+        },
+        {
+          "路径": "build-live-module.mjs",
+          "字节": 107723,
+          "SHA256": "f0137b7a8d65703c830aef03ad55518646fbd6b4e3dc26b9fa17d7cb0fd54a5d"
+        },
+        {
+          "路径": "build-live-workbook.mjs",
+          "字节": 14491,
+          "SHA256": "ddcd71e0a944307e4c55a5526c539c3c94bacd9b3a1ddce5d7e44e5b0745a704"
+        },
+        {
+          "路径": "business-rule-catalog.json",
+          "字节": 372206,
+          "SHA256": "9cf6c852ea37cac7861a1b4acdc56ccf49ad92ae6023e29732f4c35dd9198139"
+        },
+        {
+          "路径": "cache-publication-result.json",
+          "字节": 149,
+          "SHA256": "d2a06c8436336aff4592c5947d756e38294a72eddaeb9e041fccb4552133d1ad"
+        },
+        {
+          "路径": "coverage-matrix.json",
+          "字节": 36072,
+          "SHA256": "16bb7b421f504bfd06ba279c1da7025acaaa6c0e23e912a35d39187e47ce0383"
+        },
+        {
+          "路径": "cross-module-flow-map.json",
+          "字节": 1465,
+          "SHA256": "4ed656722bef63da786790aa1b746a955c4d972e254ec54a69f037003e076cb4"
+        },
+        {
+          "路径": "current-testcase-candidate.json",
+          "字节": 146785,
+          "SHA256": "a2f7206523b8fa4383c7e66a1d7c82c08c69482aefa9998d99d34ff5be128adf"
+        },
+        {
+          "路径": "delivery-verification.json",
+          "字节": 529,
+          "SHA256": "1ddfcd9b746f513241ac6b3b75582b8369c5ba99f6ce79fe02a368366910075d"
+        },
+        {
+          "路径": "evidence-atom-index.json",
+          "字节": 106891,
+          "SHA256": "518897df4b925e6604dd34907cdb083c2817a62752fa1e0dd7ae710f69a82dc8"
+        },
+        {
+          "路径": "generation-input-manifest.json",
+          "字节": 12732,
+          "SHA256": "ab10d4ca7a7f070795bed3709b351019055f6d3daed72c59a0027d7bdc758851"
+        },
+        {
+          "路径": "global-evidence-scan-result.json",
+          "字节": 197811,
+          "SHA256": "4ba871e3a82bd57bb450ea168650717bc7a4d156aeca530026098e89127dca13"
+        },
+        {
+          "路径": "historical-case-comparison.json",
+          "字节": 531,
+          "SHA256": "d942cb532348972c64f30820cc5aac4c7ae3ba333f45e57fa49c0905c7d9ee1b"
+        },
+        {
+          "路径": "node_modules",
+          "链接目标": "/Users/geekonup/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules"
+        },
+        {
+          "路径": "page-coverage-map.json",
+          "字节": 6974,
+          "SHA256": "e05a67bbd63430d2f5a38d7177f980eb0008720876307195a2933f911c3f55ea"
+        },
+        {
+          "路径": "pipeline-metrics.json",
+          "字节": 2392,
+          "SHA256": "19b977164cfd5db1529029ef378278f9c9b92bed1781a2b2edd3cd46798edf7b"
+        },
+        {
+          "路径": "previews/cases-bottom.png",
+          "字节": 475947,
+          "SHA256": "d3a99781fb705eabd2c103ab2086db30444fcda544a8fbb9f3508fc64049dfdd"
+        },
+        {
+          "路径": "previews/cases-top.png",
+          "字节": 664017,
+          "SHA256": "f9c48eb9c977fb1086616bfa8379f16ca28f29641d495d3763711d9f94e8a2f8"
+        },
+        {
+          "路径": "previews/overview.png",
+          "字节": 48755,
+          "SHA256": "f67544b736c5ca77e8f5e6464092645b9f48f2c196a7da5875b3ade592b78f83"
+        },
+        {
+          "路径": "previews/pending.png",
+          "字节": 626241,
+          "SHA256": "65fe48731c0fa90a347c6994a8054c7acb903614c2e7a3c611e625676e6aceb4"
+        },
+        {
+          "路径": "project-onboarding-result.json",
+          "字节": 2865,
+          "SHA256": "45d3edf30d8c7cf69bdd366f1afb9444e29d3e6a5d601221771500331754db43"
+        },
+        {
+          "路径": "prototype-context-sync-result.json",
+          "字节": 1747,
+          "SHA256": "70a24732ef576e5b4b2b72bdc542e49816af4318e0df4cbeaa71ed2a06cb4e23"
+        },
+        {
+          "路径": "quality-context.json",
+          "字节": 348,
+          "SHA256": "c68b3eccad2f5a26a98db87aa73b10feb71d87c8d676b5ae5519b2e85e38f3f8"
+        },
+        {
+          "路径": "semantic-dedup-review.json",
+          "字节": 173744,
+          "SHA256": "2ee43082d1805f3fb29c451de3eb6c2d31a31bee6132ccf34112db20215f0267"
+        },
+        {
+          "路径": "workbook-inspection.ndjson",
+          "字节": 27226,
+          "SHA256": "b83bdd67754a0661f97560a57f7d462792d6406a7814c589580931a34cc159f8"
+        },
+        {
+          "路径": "用户App-直播模块-测试用例-260910-001.json",
+          "字节": 146785,
+          "SHA256": "a2f7206523b8fa4383c7e66a1d7c82c08c69482aefa9998d99d34ff5be128adf"
+        },
+        {
+          "路径": "需求来源策略草稿.json",
+          "字节": 511,
+          "SHA256": "b3735478f4f13e18b8ea884d3362be5477c04a90db51dbc0ea8d5eb770dceace"
+        },
+        {
+          "路径": "项目说明草稿.md",
+          "字节": 1690,
+          "SHA256": "b5713d0fba187dc753a1b8e81f4db70754676e84cf8a105af8cdefd6d9e07ee2"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "work/liveshow-user-live-profile-260910-004",
+      "归档路径": "archive/Luma-Live/260914-001/work/liveshow-user-live-profile-260910-004",
+      "文件数": 25,
+      "文件": [
+        {
+          "路径": "business-rule-catalog.json",
+          "字节": 829990,
+          "SHA256": "56c934b738cba9dc8156da0470983b4cbc60fc3e2d04024cca4639ee9365606f"
+        },
+        {
+          "路径": "cache-publication-result.json",
+          "字节": 149,
+          "SHA256": "7279eb8d9addf327e101930f51156eb3b8890274e55d616972a2b63c3a5173f6"
+        },
+        {
+          "路径": "coverage-comparison.json",
+          "字节": 8134,
+          "SHA256": "11b0f94da14d86702d1aaf58f93c2a76dc954678bcbe04be27656835cb9f1bd2"
+        },
+        {
+          "路径": "coverage-expansion-review.json",
+          "字节": 128406,
+          "SHA256": "70dae18667d634156616c59883c98de190ea73e9af80a9c7612e3f13ec2dcdb7"
+        },
+        {
+          "路径": "coverage-matrix.json",
+          "字节": 85223,
+          "SHA256": "d30c00346fb22ff3f9ca3452385b8bf27547257035854982dd014850ce26ffa0"
+        },
+        {
+          "路径": "cross-module-flow-map.json",
+          "字节": 1466,
+          "SHA256": "db5fd713ef6cb1465f3be4e1f5d50b29f7729394f7d989f1b19be86b96a755ee"
+        },
+        {
+          "路径": "current-testcase-candidate.json",
+          "字节": 177941,
+          "SHA256": "88a3537e76e4e189f1479fd99764e651c8cd0aaea8146a08ec6133705d01ee14"
+        },
+        {
+          "路径": "delivery-verification.json",
+          "字节": 529,
+          "SHA256": "29c2a24c23efba8c8da1522b36aa738627154510428e8472f49dfc8111f61900"
+        },
+        {
+          "路径": "dependency-analysis.json",
+          "字节": 64656,
+          "SHA256": "d6a2767e250035212d2921c67c298e7e0513545e383a9cb10097f2393ac0ece3"
+        },
+        {
+          "路径": "evidence-atom-index.json",
+          "字节": 78442,
+          "SHA256": "9b5debb2a5ac2a46f3824c0da9d6053bf799f63c64d978b8c261e490a039985e"
+        },
+        {
+          "路径": "generation-input-manifest.json",
+          "字节": 27446,
+          "SHA256": "20aa6534766a43a633ee6971155b06bcfab0a3a9bb24245eb38bbdd7bd89aca7"
+        },
+        {
+          "路径": "global-evidence-scan-result.json",
+          "字节": 259012,
+          "SHA256": "d7d2c8ab4d58908cc5581183334545629fa2aab56b2edb6d5bda98b5ac37d287"
+        },
+        {
+          "路径": "historical-case-comparison.json",
+          "字节": 531,
+          "SHA256": "9926403458a4eb74f67d25475abc3ddc8f36a510b903b518c0b58a8de815e4a0"
+        },
+        {
+          "路径": "page-behavior-map.json",
+          "字节": 77619,
+          "SHA256": "0791790aa64e80f97259584d50d079dfc0781a2bb1d744be07943112b4c0a0d1"
+        },
+        {
+          "路径": "page-coverage-map.json",
+          "字节": 7081,
+          "SHA256": "1e7d84a217466c8dd3dd9c79054a0b00e57d771791a9f81ef66674f3a1fde048"
+        },
+        {
+          "路径": "pipeline-metrics.json",
+          "字节": 2392,
+          "SHA256": "1be620fd9446d0118bf7fd2cfd3bc39b106afbb77501230bab108f4bf6fcaca4"
+        },
+        {
+          "路径": "previews/cases-bottom.png",
+          "字节": 548201,
+          "SHA256": "06ce9189bafd3a5c5ebe87d2e8b0bed3600e05a0271b71d022d2e4807b679760"
+        },
+        {
+          "路径": "previews/cases-top.png",
+          "字节": 763025,
+          "SHA256": "720743aaaf8d1d95d436349861c2f36f0357eda7bc4f1b9f8737884ff95bf540"
+        },
+        {
+          "路径": "previews/overview.png",
+          "字节": 48755,
+          "SHA256": "f67544b736c5ca77e8f5e6464092645b9f48f2c196a7da5875b3ade592b78f83"
+        },
+        {
+          "路径": "previews/pending.png",
+          "字节": 626241,
+          "SHA256": "65fe48731c0fa90a347c6994a8054c7acb903614c2e7a3c611e625676e6aceb4"
+        },
+        {
+          "路径": "prototype-context-sync-result.json",
+          "字节": 1747,
+          "SHA256": "312e5b811925cbfa83ac06cdeb961421db6a7c6a9740978c3084338e60242453"
+        },
+        {
+          "路径": "quality-context.json",
+          "字节": 348,
+          "SHA256": "b0ef08e49a6e6361d383cea415b7e537f581e15429b6f64290459902780b11bd"
+        },
+        {
+          "路径": "semantic-dedup-review.json",
+          "字节": 202520,
+          "SHA256": "dac5d5e09e257748e5e700990de4b7ffa4adb38cec74442e7a746c2fa990d9df"
+        },
+        {
+          "路径": "workbook-inspection.ndjson",
+          "字节": 27640,
+          "SHA256": "b05bedaf4bde536adfdc685f9b70044b898b052938a009e10c64ce64fb1f2f6c"
+        },
+        {
+          "路径": "用户App-直播模块-测试用例-260910-002.json",
+          "字节": 177941,
+          "SHA256": "88a3537e76e4e189f1479fd99764e651c8cd0aaea8146a08ec6133705d01ee14"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "work/mainbasis-three-end-260911-001",
+      "归档路径": "archive/Luma-Live/260914-001/work/mainbasis-three-end-260911-001",
+      "文件数": 71,
+      "文件": [
+        {
+          "路径": "admin/artifact-inspect.ndjson",
+          "字节": 2105510,
+          "SHA256": "f5c8182adb35bbde9de9c10404dab0ae7dfc4f3cc86bb2d50a1f746c94c8151f"
+        },
+        {
+          "路径": "admin/business-rule-catalog.json",
+          "字节": 401483,
+          "SHA256": "6ce0c6350981f0e5de415d22ace33fe6768b2d2a399cd42f27f862b213ad093b"
+        },
+        {
+          "路径": "admin/candidate.json",
+          "字节": 241984,
+          "SHA256": "dff3fed422c1233a3578ba343a53a0c3ef8bb4521f752b14796263e389bea495"
+        },
+        {
+          "路径": "admin/delivery-verification.json",
+          "字节": 454,
+          "SHA256": "f44d45fb2e7e147dced23e5fc0d049b6ebe0d4d42bb661d323a3abe0a3e031d8"
+        },
+        {
+          "路径": "admin/final-validation.json",
+          "字节": 803,
+          "SHA256": "3382dab83d541d702a636e6cb05b869a2883cbd534a82e4c40aabff4355fbb69"
+        },
+        {
+          "路径": "admin/final.json",
+          "字节": 241984,
+          "SHA256": "dff3fed422c1233a3578ba343a53a0c3ef8bb4521f752b14796263e389bea495"
+        },
+        {
+          "路径": "admin/generation-input-manifest.json",
+          "字节": 6768,
+          "SHA256": "733a53620a503bf6af3a8561e289fbbd94a0b1e79ee5ff750bd634174d0be933"
+        },
+        {
+          "路径": "admin/historical-case-comparison.json",
+          "字节": 273146,
+          "SHA256": "65ac417d89a59d79b979ef51dd391c7cbcd9fc3ee138259f639e5ed32ebabcc1"
+        },
+        {
+          "路径": "admin/json-validation.json",
+          "字节": 95,
+          "SHA256": "d7db878ea18e4da8c2501109c48d55d66f073af73eec754427850c11cab229d3"
+        },
+        {
+          "路径": "admin/pipeline-metrics.json",
+          "字节": 590,
+          "SHA256": "2b9feeb9d86c8c4a545a3f6c952768fc740c4babbacec3b76dc121aa11800570"
+        },
+        {
+          "路径": "admin/pre-generate-validation.json",
+          "字节": 318,
+          "SHA256": "ebf256e305102bdc886252089f57c446e927779e504061847dc1864ba1c4bf4a"
+        },
+        {
+          "路径": "admin/previews/cases-bottom.png",
+          "字节": 382413,
+          "SHA256": "ba1e9ff2f3232be773ac753336a6f4209b15cda10ed88d12a2a87672362f57a7"
+        },
+        {
+          "路径": "admin/previews/cases-top.png",
+          "字节": 455298,
+          "SHA256": "d86a780b1dd9471a74d055a00e4ac5727a62004f666ce30c9a8606e2314ee0ab"
+        },
+        {
+          "路径": "admin/previews/overview.png",
+          "字节": 52850,
+          "SHA256": "f05f12ddd6c8a56417eee80634c3d633aa701b3c7421d0a96f61019ebc3bb77e"
+        },
+        {
+          "路径": "admin/previews/pending.png",
+          "字节": 662817,
+          "SHA256": "3f454331a5a7a422d6b4b46ba9084b6f626fc9a1ac37eeb7279cf0ef718bbf01"
+        },
+        {
+          "路径": "admin/workbook-inspection.ndjson",
+          "字节": 27701,
+          "SHA256": "ca644f107c41551618a80409cfba09333ad6828524a8dc42f1f4e85c5f887b38"
+        },
+        {
+          "路径": "build-cases.mjs",
+          "字节": 19815,
+          "SHA256": "9a0daa3dd9139ef15456e57d1428b11fccf025be18c8f53fcf4fa05777452668"
+        },
+        {
+          "路径": "build-workbooks.mjs",
+          "字节": 13815,
+          "SHA256": "87c844b4263ab2c388f0a08b44d80dba51b332adf4ad2ab89dcc2528596a0a17"
+        },
+        {
+          "路径": "decisions.mjs",
+          "字节": 17554,
+          "SHA256": "050b768e90ced393f90492ec281ad744fbb55d77f6deeb473dcd1bd15e0e134c"
+        },
+        {
+          "路径": "deduplication-review.json",
+          "字节": 282,
+          "SHA256": "2d6d22a6526e36fc0c07351947829aad9f9fd8c11629f07be03c569f29ddafd9"
+        },
+        {
+          "路径": "design-problems.json",
+          "字节": 3,
+          "SHA256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "路径": "excel-outputs.json",
+          "字节": 904,
+          "SHA256": "eaa6d5ff221866966a232efb06b7f2f15d1ed46a9e41a0265ae6e1bf3542ddf4"
+        },
+        {
+          "路径": "excel-plan.json",
+          "字节": 324,
+          "SHA256": "7efb0e11e3023afc3c56eaf247742d242822204a055fd4df8b597fba28b0328f"
+        },
+        {
+          "路径": "finalize.mjs",
+          "字节": 8576,
+          "SHA256": "710404ac166da780020891f622dadddbcef1123e7e6ca555e840c0f987bc8792"
+        },
+        {
+          "路径": "generation-summary.json",
+          "字节": 1252,
+          "SHA256": "df9c59b492116ac47bcbf312b09cc9ee3aeaf0b6516344d1b7ef03a3720918af"
+        },
+        {
+          "路径": "global-evidence-scan-result.json",
+          "字节": 2478,
+          "SHA256": "881c4d376a5229f4499e85fb6903a46cca58f31b7d68e602e3785a73b3c4bd24"
+        },
+        {
+          "路径": "guild/artifact-inspect.ndjson",
+          "字节": 1411580,
+          "SHA256": "cb9f59d15389c53c61eb3918ad76f0114f4a21f59e507b48ad3455d1cb234ad8"
+        },
+        {
+          "路径": "guild/business-rule-catalog.json",
+          "字节": 230420,
+          "SHA256": "cb7d400894a40432e97a90a697c79e97ad0be69759dff936e192561eaaa39fa6"
+        },
+        {
+          "路径": "guild/candidate.json",
+          "字节": 154860,
+          "SHA256": "a747a4858a2a2169b37ab98827b461e9d398d7df579aa38f1e313b5b83596bab"
+        },
+        {
+          "路径": "guild/delivery-verification.json",
+          "字节": 453,
+          "SHA256": "ebb4d08316e9a16025d88a271f38419827bfb43d36bac09b8c9efefc2c327c99"
+        },
+        {
+          "路径": "guild/final-validation.json",
+          "字节": 800,
+          "SHA256": "67751b7e3c3603a5a052e6a165415a65bfb8144d2da2bfaed1faefe5e7287b9f"
+        },
+        {
+          "路径": "guild/final.json",
+          "字节": 154860,
+          "SHA256": "a747a4858a2a2169b37ab98827b461e9d398d7df579aa38f1e313b5b83596bab"
+        },
+        {
+          "路径": "guild/generation-input-manifest.json",
+          "字节": 6690,
+          "SHA256": "aa10b989139c1d01452c4f44aed73b457384578891c383996b121a71e8ef0579"
+        },
+        {
+          "路径": "guild/historical-case-comparison.json",
+          "字节": 96214,
+          "SHA256": "18d739067f841ee2c32e40561dbd7716698762dd280d514592e42c660e9953a9"
+        },
+        {
+          "路径": "guild/json-validation.json",
+          "字节": 94,
+          "SHA256": "c6f640a5fe64fa18f0bd8dbf0efa665e0b09094c5fadc7ebe50b11a45040bb76"
+        },
+        {
+          "路径": "guild/pipeline-metrics.json",
+          "字节": 590,
+          "SHA256": "4e8cda283f26370185d4d7672fb6ab57b080ceb2d406abd159844695775ae57a"
+        },
+        {
+          "路径": "guild/pre-generate-validation.json",
+          "字节": 316,
+          "SHA256": "64413350ec927fd0395b67bd9d35cbcb32ddaf083725fff70fc83b26b103129d"
+        },
+        {
+          "路径": "guild/previews/cases-bottom.png",
+          "字节": 303106,
+          "SHA256": "26ceb4ab5ab6f694f4c3a1c096af6701db4b0ccc8b98438703acfadaaef75e05"
+        },
+        {
+          "路径": "guild/previews/cases-top.png",
+          "字节": 435509,
+          "SHA256": "1f4db1575690be535fb7da0e44ce0eb9c1e01502c995b240f02db82910a64f0d"
+        },
+        {
+          "路径": "guild/previews/overview.png",
+          "字节": 53137,
+          "SHA256": "881355ff7f2ad8b2fda15db41d1351a7732d924589f92897122ad77082dfa56f"
+        },
+        {
+          "路径": "guild/previews/pending.png",
+          "字节": 662817,
+          "SHA256": "3f454331a5a7a422d6b4b46ba9084b6f626fc9a1ac37eeb7279cf0ef718bbf01"
+        },
+        {
+          "路径": "guild/workbook-inspection.ndjson",
+          "字节": 61648,
+          "SHA256": "86cc1a16fbf56560085ac3a82bfa6d895b8593050d3570a5153939c8883157d4"
+        },
+        {
+          "路径": "independent-scenario-baseline.json",
+          "字节": 205788,
+          "SHA256": "03b91d71b93ec0dc9e8628ea04237e752700903bce383dfc5341c4fdd864685a"
+        },
+        {
+          "路径": "isolated-scenarios.json",
+          "字节": 715,
+          "SHA256": "24e91c54aff24e0169c3986da84642ce6f80c418ff4ce54b1c947f548b81f5f9"
+        },
+        {
+          "路径": "node_modules",
+          "链接目标": "/Users/geekonup/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules"
+        },
+        {
+          "路径": "pipeline-metrics.json",
+          "字节": 371,
+          "SHA256": "696a5729f19a147773d24aeb951c9c3e4a72a62a16b82b75496afc4382ef09bc"
+        },
+        {
+          "路径": "prepare.mjs",
+          "字节": 3994,
+          "SHA256": "c2293680b232f52d2ebd67c567547a8f1bbe9d5093a4c31519573c28d6ad2713"
+        },
+        {
+          "路径": "reviewed-model.mjs",
+          "字节": 67165,
+          "SHA256": "c119a775d3f513cff93d4731a951d7bda9b7a8d68f40abdffd2db478fc84a0ed"
+        },
+        {
+          "路径": "risk-decisions.json",
+          "字节": 146663,
+          "SHA256": "a0e1f70d3948e752548192badc75f2ac943393abbce3581fded967d254201917"
+        },
+        {
+          "路径": "source-baseline.json",
+          "字节": 1658955,
+          "SHA256": "98cd3d88aab3b00efd652651461c2b8c9d9b1d8ddef7544c5cb56cec6e5177e6"
+        },
+        {
+          "路径": "source-coverage-ledger.json",
+          "字节": 1733171,
+          "SHA256": "14ebf676a9079d83f60a89c9dcbbe96eae8912c83a0544ce1df415074f4387a4"
+        },
+        {
+          "路径": "source-policy-override.json",
+          "字节": 704,
+          "SHA256": "36fae7d4d8b61524ad892760221b9437549895082a01a529b1f4866077b4f17a"
+        },
+        {
+          "路径": "state-transition-baseline.json",
+          "字节": 20120,
+          "SHA256": "1c9a7a3fee976133af0e201b0507adaaa1fc6f5935a7fb885efff9b6a9f3d197"
+        },
+        {
+          "路径": "user/artifact-inspect.ndjson",
+          "字节": 3020420,
+          "SHA256": "cc912fab25be8c006366416fc962f26e5f5768bbb9ae0e1ed43038b7ebfa84ef"
+        },
+        {
+          "路径": "user/business-rule-catalog.json",
+          "字节": 642387,
+          "SHA256": "922d2a924679500b1bbfa5d97c3a3932b654142c2a65a4b2ee4c0f10b2a1435a"
+        },
+        {
+          "路径": "user/candidate.json",
+          "字节": 327168,
+          "SHA256": "3988612d55dff28caf4da22ae0858ac87de8c3b49bf9c4147690032fddf3f589"
+        },
+        {
+          "路径": "user/delivery-verification.json",
+          "字节": 454,
+          "SHA256": "a174d21c2ca05de75e161bd2ef647e5d462dd7be3422c34a93ca68519a340dbb"
+        },
+        {
+          "路径": "user/final-validation.json",
+          "字节": 802,
+          "SHA256": "e2bf31d1ff2717a7c7bf0cf54003536654ae862f08f859537cfb9b9bdc48fe7f"
+        },
+        {
+          "路径": "user/final.json",
+          "字节": 327168,
+          "SHA256": "3988612d55dff28caf4da22ae0858ac87de8c3b49bf9c4147690032fddf3f589"
+        },
+        {
+          "路径": "user/generation-input-manifest.json",
+          "字节": 6772,
+          "SHA256": "8ea6d23f82e166533f8f3ddc1a1a2e36ed7b2dc2076e53bf0b1101d8fed53dc7"
+        },
+        {
+          "路径": "user/historical-case-comparison.json",
+          "字节": 511681,
+          "SHA256": "124240bb1e3e48d66007771508a9bafe681b8a38486c905af17e87caa4218fcc"
+        },
+        {
+          "路径": "user/json-validation.json",
+          "字节": 95,
+          "SHA256": "9a18155092e4890761b6e804e61249bfdcdfd3906ceb1c092fd97466f12899bd"
+        },
+        {
+          "路径": "user/pipeline-metrics.json",
+          "字节": 591,
+          "SHA256": "6b59069e03500564aad50f117520dc88f5546d7c5b8193da5a2af71ac4da8a9f"
+        },
+        {
+          "路径": "user/pre-generate-validation.json",
+          "字节": 317,
+          "SHA256": "96f0167bc3f69832ebcb0b194648b9ca9fb4cfdadab997899b75ccc61abafdf5"
+        },
+        {
+          "路径": "user/previews/cases-bottom.png",
+          "字节": 310392,
+          "SHA256": "07512cc4b82ac55b8c104df3fb949e36c0dafbb763edd0baf159d69f4a82c697"
+        },
+        {
+          "路径": "user/previews/cases-top.png",
+          "字节": 381366,
+          "SHA256": "e686806c877cf7891ec7e4f4de120b5c2c496faba366d5c546217524e9cf5577"
+        },
+        {
+          "路径": "user/previews/overview.png",
+          "字节": 53012,
+          "SHA256": "ab789e1f66720eae6974b6ae0020a0aece26921b545a2f45c8d35ab4223a753e"
+        },
+        {
+          "路径": "user/previews/pending.png",
+          "字节": 662817,
+          "SHA256": "3f454331a5a7a422d6b4b46ba9084b6f626fc9a1ac37eeb7279cf0ef718bbf01"
+        },
+        {
+          "路径": "user/workbook-inspection.ndjson",
+          "字节": 26981,
+          "SHA256": "e49d020ae9c60275e72f07313491487767c3114ad40c5bc0e38d9eb739091de4"
+        },
+        {
+          "路径": "verify-delivery.py",
+          "字节": 4650,
+          "SHA256": "54aa1c2d539adfbf0201cc14b0530d8b07f118f7da39261e093dc9a2c47f282e"
+        },
+        {
+          "路径": "交付与覆盖说明.md",
+          "字节": 4490,
+          "SHA256": "0f22cff6682d8ac435a76a3faf140374599a7b037414e86d3bddb84618a9d93e"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "work/mainbasis-three-end-260911-002",
+      "归档路径": "archive/Luma-Live/260914-001/work/mainbasis-three-end-260911-002",
+      "文件数": 66,
+      "文件": [
+        {
+          "路径": "accounts.mjs",
+          "字节": 19053,
+          "SHA256": "f8dfdca9c540d027e23d8ce46c060f75dcb129fe37ac0b90076b994298e1a6fe"
+        },
+        {
+          "路径": "admin.mjs",
+          "字节": 18497,
+          "SHA256": "42b0a074c7c43ac42f92607bf3ffe45c6ed82eef93d38f24459ee85d92f834bc"
+        },
+        {
+          "路径": "admin/artifact-inspect.ndjson",
+          "字节": 9447920,
+          "SHA256": "f0163d764724ec27e372ef0d2817b7e3b90eb681476bb3d10ae322aadbdcc13e"
+        },
+        {
+          "路径": "admin/candidate.json",
+          "字节": 960981,
+          "SHA256": "d14fed8682dc0024a8ed8d3c7a3dc418fb3bcd738261628e5a490347a7fc2e92"
+        },
+        {
+          "路径": "admin/current-testcase-candidate.json",
+          "字节": 960981,
+          "SHA256": "d14fed8682dc0024a8ed8d3c7a3dc418fb3bcd738261628e5a490347a7fc2e92"
+        },
+        {
+          "路径": "admin/delivery-verification.json",
+          "字节": 454,
+          "SHA256": "e604417763ed9fb0c17de3613998af71b3fb2a76bb1b715d670b6d797e6db20e"
+        },
+        {
+          "路径": "admin/final.json",
+          "字节": 960981,
+          "SHA256": "d14fed8682dc0024a8ed8d3c7a3dc418fb3bcd738261628e5a490347a7fc2e92"
+        },
+        {
+          "路径": "admin/pipeline-metrics.json",
+          "字节": 591,
+          "SHA256": "8ed9faeb0f969a1cc26de4ad88ce38f45124d4f28bcb3f618ad7b8d9b0327da1"
+        },
+        {
+          "路径": "admin/previews/cases-bottom.png",
+          "字节": 263530,
+          "SHA256": "d17e402214adca17d8fb4a6fd072ce1e8ec08106ca127964e9e94a758a4258a3"
+        },
+        {
+          "路径": "admin/previews/cases-top.png",
+          "字节": 445994,
+          "SHA256": "d7ede01d12c9d3cb481f7cfcd3239423fcaaa40b5fe606e8814f7f033d5f5403"
+        },
+        {
+          "路径": "admin/previews/overview.png",
+          "字节": 60608,
+          "SHA256": "a6a9cb30e6acbe236bc46753723bab07954aa404df460c3212b70a54f4f54afd"
+        },
+        {
+          "路径": "admin/previews/pending.png",
+          "字节": 662817,
+          "SHA256": "3f454331a5a7a422d6b4b46ba9084b6f626fc9a1ac37eeb7279cf0ef718bbf01"
+        },
+        {
+          "路径": "admin/workbook-inspection.ndjson",
+          "字节": 27293,
+          "SHA256": "d190fa41b7a6c3bf8133918aa3aa5257ab6eb2fa43d5b7e931dddab76e3ff68b"
+        },
+        {
+          "路径": "basic-design.mjs",
+          "字节": 1884,
+          "SHA256": "ec197f3883d766b4b29f92186ee4d92a344cb9a6cab28dc1c180da5a72f36dba"
+        },
+        {
+          "路径": "build-workbooks.mjs",
+          "字节": 14389,
+          "SHA256": "4e8e15d26d04df218904813084210abe8d1bf7e70f0bd9c2591bccc4b00458ab"
+        },
+        {
+          "路径": "business-rule-catalog.json",
+          "字节": 1528408,
+          "SHA256": "94d05e0f5f5b8213bb5efd8caa5d259d9aa2f9d01708484f532b9aa436decb08"
+        },
+        {
+          "路径": "closing-design.mjs",
+          "字节": 12412,
+          "SHA256": "aa2c97e3bb02222a3360b590e3a769bfe33407efd028fe3ee66831736c0b0619"
+        },
+        {
+          "路径": "commerce.mjs",
+          "字节": 19103,
+          "SHA256": "f5105c53efd09724d7568bd52971e455605b4a1fe6e74c0e6a9b657e5e24485d"
+        },
+        {
+          "路径": "coverage-links.mjs",
+          "字节": 15553,
+          "SHA256": "114f063382bc2c7d28610102c05f1dbaf2dfca391edd88c05a1cb87a095e465a"
+        },
+        {
+          "路径": "design-review-issues.json",
+          "字节": 276536,
+          "SHA256": "521929c9114cc30dea48ba6d2331c4107bdc391cecbb4be47bfb4117b7535659"
+        },
+        {
+          "路径": "design.mjs",
+          "字节": 5888,
+          "SHA256": "e7772ef000a0134620ce89d9869c19a9ae130eac82944d69f0d4af6fadce90ed"
+        },
+        {
+          "路径": "direct-export-instruction.json",
+          "字节": 550,
+          "SHA256": "0173520dd20d4a0ce0c809622a6d8a9b7d13aade420bdb2af7a592baf666305b"
+        },
+        {
+          "路径": "direct-export-summary.json",
+          "字节": 786,
+          "SHA256": "87144ff21d7180498e5d77459aef27c0f6b2096fde74e088ef12f1155297dbaa"
+        },
+        {
+          "路径": "entry-checks.mjs",
+          "字节": 3378,
+          "SHA256": "4b22cea6c8e42ca772e154df9b2843539d17b7d7f181bd653f32c4736a08918e"
+        },
+        {
+          "路径": "excel-outputs.json",
+          "字节": 906,
+          "SHA256": "d7ef7a85c0155128526772ec3a630b262a7c0a8c478b2597c28e82f35af6bb5f"
+        },
+        {
+          "路径": "excel-plan.json",
+          "字节": 324,
+          "SHA256": "d6e2ecae1c0a5ac9d70173ef151c725a8b3be0d9f3eda009ba771dc0804bf2b5"
+        },
+        {
+          "路径": "export-current.mjs",
+          "字节": 5043,
+          "SHA256": "c098f5af39330fd33a8f8c7fd401712de0f892d9ebe6e1f6f8e50c8850f8e209"
+        },
+        {
+          "路径": "generation-input-manifest.json",
+          "字节": 1358,
+          "SHA256": "df0e6aa4207c0974665770f06029c104e2bb233f69107cb86c89dd76aa0b4077"
+        },
+        {
+          "路径": "guild-fans.mjs",
+          "字节": 29625,
+          "SHA256": "4ed0d0c597999235f8c015d99e5c44bba1a67360dfedd65040f7bd7560d228e3"
+        },
+        {
+          "路径": "guild/artifact-inspect.ndjson",
+          "字节": 3847308,
+          "SHA256": "9cb44d2c3a501bd9d877e7dce76d8fac7b3b6a13970e20579c1bf77782d43f42"
+        },
+        {
+          "路径": "guild/candidate.json",
+          "字节": 387841,
+          "SHA256": "da286339d9edd46ef9c57b960980ca379cfdd69adff88837ccfbe389e17a1d84"
+        },
+        {
+          "路径": "guild/current-testcase-candidate.json",
+          "字节": 387841,
+          "SHA256": "da286339d9edd46ef9c57b960980ca379cfdd69adff88837ccfbe389e17a1d84"
+        },
+        {
+          "路径": "guild/delivery-verification.json",
+          "字节": 454,
+          "SHA256": "e6e646326cd4f9f92f3f119dd857fc9797d9ad7201a5d484d64f623dba5f720f"
+        },
+        {
+          "路径": "guild/final.json",
+          "字节": 387841,
+          "SHA256": "da286339d9edd46ef9c57b960980ca379cfdd69adff88837ccfbe389e17a1d84"
+        },
+        {
+          "路径": "guild/pipeline-metrics.json",
+          "字节": 590,
+          "SHA256": "d63719b3cc167a06bbb835795e132fc9d22341c7d0f36ca56d483a94b55406c1"
+        },
+        {
+          "路径": "guild/previews/cases-bottom.png",
+          "字节": 281528,
+          "SHA256": "ac1d7d272a5569913090417d525329f8012e0e2b6eec20673c6efe32610efce9"
+        },
+        {
+          "路径": "guild/previews/cases-top.png",
+          "字节": 342442,
+          "SHA256": "c3d706ed007fd4063ed72478225065af3b3f6fefe2f928604f7ac92f176f3547"
+        },
+        {
+          "路径": "guild/previews/overview.png",
+          "字节": 60762,
+          "SHA256": "2b3921892d3e88b1ec337dbe2c70bc2ca5c5420dbd2fa8f5455d077cf98c9423"
+        },
+        {
+          "路径": "guild/previews/pending.png",
+          "字节": 662817,
+          "SHA256": "3f454331a5a7a422d6b4b46ba9084b6f626fc9a1ac37eeb7279cf0ef718bbf01"
+        },
+        {
+          "路径": "guild/workbook-inspection.ndjson",
+          "字节": 60971,
+          "SHA256": "7d83154e099e50df28639bf7762188fb309ab348433c44da22d2d157706c7bce"
+        },
+        {
+          "路径": "independent-scenario-baseline.json",
+          "字节": 2221375,
+          "SHA256": "76fd8e5874cbdd3ccb6607654edc0ea16a4c463e08bbaaaa11e94f3ac9e4363b"
+        },
+        {
+          "路径": "last-review.mjs",
+          "字节": 27351,
+          "SHA256": "e3606a86f5f7de4bf8270b5dbeae849c83f1ef5c984a9791deb7722d779ab3ef"
+        },
+        {
+          "路径": "lifecycles.mjs",
+          "字节": 9755,
+          "SHA256": "01c833c262960bf56acf59acfc08f6dca6ab05956d9b6e400a09ba25561101f5"
+        },
+        {
+          "路径": "live.mjs",
+          "字节": 29276,
+          "SHA256": "a8d4a671b8a8980a740b427d7579283c003a88a964c09bab3b79e4d8dff8d361"
+        },
+        {
+          "路径": "model.mjs",
+          "字节": 852,
+          "SHA256": "4fc8426db536f0c5ff787c37bf99b728e097b9e5893b2d329de86981d989ab71"
+        },
+        {
+          "路径": "node_modules",
+          "链接目标": "/Users/geekonup/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules"
+        },
+        {
+          "路径": "pipeline-metrics.json",
+          "字节": 241,
+          "SHA256": "b614ff21cda50f91e933a05b58aa93ac3a0d41bd2ea1580a0cd82d4a47311220"
+        },
+        {
+          "路径": "reports.mjs",
+          "字节": 14736,
+          "SHA256": "4c6ced7aa9fd2f335424790d74fe7b15c19010e7bf73d9ecf9da59216f0b2396"
+        },
+        {
+          "路径": "review.mjs",
+          "字节": 1918,
+          "SHA256": "9253029624616dd29ba91ea597818c8120ffd59089ccfd6994c3729ed5632f1c"
+        },
+        {
+          "路径": "social.mjs",
+          "字节": 26464,
+          "SHA256": "4deb17bba45035a4e655e7dd4dc9f5d1be6163dd46c65571414dcf564f8a48eb"
+        },
+        {
+          "路径": "source-baseline.json",
+          "字节": 1658955,
+          "SHA256": "98cd3d88aab3b00efd652651461c2b8c9d9b1d8ddef7544c5cb56cec6e5177e6"
+        },
+        {
+          "路径": "source.mjs",
+          "字节": 2720,
+          "SHA256": "eba4d7e514064ee1ebb8087a0a765a037b17a7e9be97e1eec7a8c660cb63b1b5"
+        },
+        {
+          "路径": "state-transition-baseline.json",
+          "字节": 21359,
+          "SHA256": "f959ed457fbb01a92b99acff58785aa3797d45c501110817baf746893950d961"
+        },
+        {
+          "路径": "supplement.mjs",
+          "字节": 12619,
+          "SHA256": "14aa9ad477ec3f7e456ffe4adfd3ec85c3a665f389632d5edf369b1a47e7e48f"
+        },
+        {
+          "路径": "user/artifact-inspect.ndjson",
+          "字节": 14079594,
+          "SHA256": "2aec390acb9ec494ffb6413e0c2cbeea1d25482f829f9c891e95e60ada26c633"
+        },
+        {
+          "路径": "user/candidate.json",
+          "字节": 1419768,
+          "SHA256": "17beeea1a8d4c541cd0f5f1e8273fb15f53356b531b88c3ed4b12f8c790f0143"
+        },
+        {
+          "路径": "user/current-testcase-candidate.json",
+          "字节": 1419768,
+          "SHA256": "17beeea1a8d4c541cd0f5f1e8273fb15f53356b531b88c3ed4b12f8c790f0143"
+        },
+        {
+          "路径": "user/delivery-verification.json",
+          "字节": 455,
+          "SHA256": "f8ad7af92e98f645b1704885cbfade84ae8428b415da23f4cf20e15928565ce9"
+        },
+        {
+          "路径": "user/final.json",
+          "字节": 1419768,
+          "SHA256": "17beeea1a8d4c541cd0f5f1e8273fb15f53356b531b88c3ed4b12f8c790f0143"
+        },
+        {
+          "路径": "user/pipeline-metrics.json",
+          "字节": 591,
+          "SHA256": "37807ecb8b714ea6d3fc412e36f2a9a19f98f723e6a06b9184c1ef22fc700fbf"
+        },
+        {
+          "路径": "user/previews/cases-bottom.png",
+          "字节": 272301,
+          "SHA256": "6d39b06f07f7563743c1e7b9238781a9ee1f806a01330e009cce1b50dc295e27"
+        },
+        {
+          "路径": "user/previews/cases-top.png",
+          "字节": 314035,
+          "SHA256": "4ea55b082ef503af3e6d54288223613a556d924f5c76bfdc64ad900d8f603623"
+        },
+        {
+          "路径": "user/previews/overview.png",
+          "字节": 60940,
+          "SHA256": "ac771128b154bc61d78eab0b5bdcae61525ef535dbd8353f8add46b83d8d3227"
+        },
+        {
+          "路径": "user/previews/pending.png",
+          "字节": 662817,
+          "SHA256": "3f454331a5a7a422d6b4b46ba9084b6f626fc9a1ac37eeb7279cf0ef718bbf01"
+        },
+        {
+          "路径": "user/workbook-inspection.ndjson",
+          "字节": 26559,
+          "SHA256": "d489b1393f8415d4d55df31d1a2e05bb8b2482c27560cca7e1818d00cc7dd6a2"
+        },
+        {
+          "路径": "verify-delivery.py",
+          "字节": 4871,
+          "SHA256": "a49e9ec96d0033c8c758f8f3dc22cabf7f87b14f86fcb641aa56eb142eb181dd"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "outputs/Luma Live-case",
+      "归档路径": "archive/Luma-Live/260914-001/outputs/Luma Live-case",
+      "文件数": 19,
+      "文件": [
+        {
+          "路径": "公会App-全部模块-260911-001.xlsx",
+          "字节": 31968,
+          "SHA256": "b1d1d3a4561186eace59e63c2ca1bb4306914ecaf811f7f4c5e8c0c83adda87f"
+        },
+        {
+          "路径": "公会App-全部模块-260911-002.xlsx",
+          "字节": 39012,
+          "SHA256": "88bbb5214ac5ebcb76072618f0e8032b80653b18e995f24b3f8369a70b604838"
+        },
+        {
+          "路径": "公会App-全部模块-260911-003.xlsx",
+          "字节": 33180,
+          "SHA256": "b76d4f7a6552da5ba576a4bb4086a2060671016c225d09930041dabae300b88d"
+        },
+        {
+          "路径": "公会App-全部模块-260911-004.xlsx",
+          "字节": 60978,
+          "SHA256": "f60e477119552914f41e6118e61d6f2e842a723e04b5c10f1689a56de23f060c"
+        },
+        {
+          "路径": "用户App-全部模块-260911-001.xlsx",
+          "字节": 131233,
+          "SHA256": "d2306abfb546cc3ad4a2096bb6230a07cb634be492fc1755c171b3d38dcf4d19"
+        },
+        {
+          "路径": "用户App-全部模块-260911-002.xlsx",
+          "字节": 167903,
+          "SHA256": "2980c717ec7d87bb53b88b85ddba481f8e85cc8e1d2fccd898cf497efa3e77be"
+        },
+        {
+          "路径": "用户App-全部模块-260911-003.xlsx",
+          "字节": 58346,
+          "SHA256": "545287cd47118543fc578369ba07ca1d2a7d3341c20cb8f23bdd258a5275cc95"
+        },
+        {
+          "路径": "用户App-全部模块-260911-004.xlsx",
+          "字节": 196931,
+          "SHA256": "dea98e08aa74caf28f6dcffab4111c8a0f2bf40797a66128a0562ebbb7f375c5"
+        },
+        {
+          "路径": "用户App-直播模块-260910-001.xlsx",
+          "字节": 33639,
+          "SHA256": "2e3221c48cf3aff682b59d17049ea5afc42bdfff41ac63b2c7032f727c931791"
+        },
+        {
+          "路径": "用户App-直播模块-260910-002.xlsx",
+          "字节": 35550,
+          "SHA256": "6da55251ea589b4bfc255f8b4b0b70e9c7cfa367987a68b305ef639b26367b62"
+        },
+        {
+          "路径": "用户App-直播模块-260910-002.xlsx.inspect.ndjson",
+          "字节": 1776023,
+          "SHA256": "51d05df67e076ba51909adb589d8bdeeb7fe9ca15e109960d328c1d785444652"
+        },
+        {
+          "路径": "用户App-直播模块-260910-003.xlsx",
+          "字节": 40108,
+          "SHA256": "63aa1f2a23e7e6c7172dc7d0f974c38789aaf17065e8a0420846ee33c4fd7322"
+        },
+        {
+          "路径": "用户App-直播模块-260910-003.xlsx.inspect.ndjson",
+          "字节": 2174538,
+          "SHA256": "f8f54655d5dd0f3bad156400acb382d04dd219ed122c9d5866702c7bed44cf66"
+        },
+        {
+          "路径": "用户App-直播模块-260910-004.xlsx",
+          "字节": 46348,
+          "SHA256": "b733383a558fd8ae80356b12b88b2126ae33510c85a71e23fa513d517b4ed9ca"
+        },
+        {
+          "路径": "用户App-直播模块-260910-004.xlsx.inspect.ndjson",
+          "字节": 2543266,
+          "SHA256": "d10cf3401646db65f581b769ed9c43ba55fab35eb5ef66d091b8f918c2ae340a"
+        },
+        {
+          "路径": "管理后台-全部模块-260911-001.xlsx",
+          "字节": 71194,
+          "SHA256": "c3c392a08cc9cd1d4ce99f379788792631ddffc9316669882c47eeb620e02aa0"
+        },
+        {
+          "路径": "管理后台-全部模块-260911-002.xlsx",
+          "字节": 93569,
+          "SHA256": "2c4b35158484fd10389d890011760ed6976fd5afd6910adc94a8ffeb976fe088"
+        },
+        {
+          "路径": "管理后台-全部模块-260911-003.xlsx",
+          "字节": 44447,
+          "SHA256": "0f0f71d3eeb767e9b9452328592e166121a64a3d9b438ef1e7e66195f22c8f5c"
+        },
+        {
+          "路径": "管理后台-全部模块-260911-004.xlsx",
+          "字节": 131297,
+          "SHA256": "6183011d809df4737a5b43cba73917c3bfaf5f71b32936b3e6e718f4185f7fb5"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    },
+    {
+      "原路径": "liveshow-proto/MainBasis",
+      "归档路径": "archive/Luma-Live/260914-001/liveshow-proto/MainBasis",
+      "文件数": 2,
+      "文件": [
+        {
+          "路径": "统一需求文档.md",
+          "字节": 880133,
+          "SHA256": "86a256fcad797592d2be1ba21941a642fe44bafea6d207b15394e1d7aba663c5"
+        },
+        {
+          "路径": "需求待确认清单.md",
+          "字节": 186002,
+          "SHA256": "4412cece5361e84c5d9a9ba2f816608639b8eba52ed74746ef5df2f83bd4036d"
+        }
+      ],
+      "状态": "已归档并核对一致"
+    }
+  ]
+}

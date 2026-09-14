@@ -6,10 +6,13 @@ import { collectLiveEvidence } from './liveshow-evidence.mjs';
 import { collectScopeEvidence, supportedScopeEnds } from './liveshow-scope-evidence.mjs';
 import { designScopeScenario, discoverScopeScenarios, mapScopeCoverage, projectStateTransitions, validateStateTransitionBaseline } from './scope-scenario-design.mjs';
 import { loadTestcaseLanguageRules, validateTestcaseRecords } from './validate-testcase-json.mjs';
+import { validateMainBasisInput } from './mainbasis.mjs';
 
 export async function validateDiscovery(taskDir, root, { phase = 'final', workbook } = {}) {
   const read = async name => JSON.parse(await fs.readFile(path.join(taskDir, name), 'utf8'));
   const manifest = await read('generation-input-manifest.json');
+  const mainBasis = await validateMainBasisInput(root, manifest);
+  if (mainBasis) throw new Error('此发现入口会重读原型；MainBasis 项目须使用只读两份文档的 Schema 1.0 生成与共用覆盖校验');
   const problems = [];
   const entries = new Map(manifest.输入文件.map(i => [i.路径, i]));
   if (entries.size !== manifest.输入文件.length) problems.push('输入路径重复或角色冲突');

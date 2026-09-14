@@ -1,0 +1,8102 @@
+[
+  {
+    "id": "SC-30eea9b79c9e12",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证礼物 ID未填写时不能提交",
+    "point": "礼物 ID必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除礼物 ID外必填项均为合法值"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "清空礼物 ID",
+      "点击保存"
+    ],
+    "result": "不提交缺少礼物 ID的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-7a5c6ccbba3218",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证中文名称未填写时不能提交",
+    "point": "中文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除中文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "清空中文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少中文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ccd58f03a22124",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证英文名称未填写时不能提交",
+    "point": "英文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除英文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "清空英文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少英文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d432007241f813",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证印尼语名称未填写时不能提交",
+    "point": "印尼语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除印尼语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "清空印尼语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少印尼语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-96b67b0f5eaaff",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证马来语名称未填写时不能提交",
+    "point": "马来语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除马来语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "清空马来语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少马来语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c398e95ea8ee5b",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证图标未填写时不能提交",
+    "point": "图标必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除图标外必填项均为合法值"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "清空图标",
+      "点击保存"
+    ],
+    "result": "不提交缺少图标的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-e874474b77aa04",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证单价输入0",
+    "point": "单价整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "输入单价为0",
+      "点击保存"
+    ],
+    "result": "不保存单价为0的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-9fd6a880403a7e",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证单价输入-1",
+    "point": "单价整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "输入单价为-1",
+      "点击保存"
+    ],
+    "result": "不保存单价为-1的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-12bcbbd7a64f46",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证单价输入1.5",
+    "point": "单价整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "输入单价为1.5",
+      "点击保存"
+    ],
+    "result": "不保存单价为1.5的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0dca03ec2cd906",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证单价输入1",
+    "point": "单价合法整数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入礼物详情的新建表单",
+      "输入单价为1",
+      "点击保存"
+    ],
+    "result": "记录保存的单价为1",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-3af4db428643b3",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证礼物 ID未填写时不能提交",
+    "point": "礼物 ID必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除礼物 ID外必填项均为合法值"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "清空礼物 ID",
+      "点击保存"
+    ],
+    "result": "不提交缺少礼物 ID的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-cc08d048391fba",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证中文名称未填写时不能提交",
+    "point": "中文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除中文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "清空中文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少中文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-601ae6e0dbc289",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证英文名称未填写时不能提交",
+    "point": "英文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除英文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "清空英文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少英文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4729253e8ff873",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证印尼语名称未填写时不能提交",
+    "point": "印尼语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除印尼语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "清空印尼语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少印尼语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-7c059cd275e300",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证马来语名称未填写时不能提交",
+    "point": "马来语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除马来语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "清空马来语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少马来语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-35ed7072b0abdc",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证图标未填写时不能提交",
+    "point": "图标必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除图标外必填项均为合法值"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "清空图标",
+      "点击保存"
+    ],
+    "result": "不提交缺少图标的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4cd00c480f7fd8",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证单次消耗输入0",
+    "point": "单次消耗整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "输入单次消耗为0",
+      "点击保存"
+    ],
+    "result": "不保存单次消耗为0的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-47070eca129607",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证单次消耗输入-1",
+    "point": "单次消耗整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "输入单次消耗为-1",
+      "点击保存"
+    ],
+    "result": "不保存单次消耗为-1的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f85bca315f0326",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证单次消耗输入1.5",
+    "point": "单次消耗整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "输入单次消耗为1.5",
+      "点击保存"
+    ],
+    "result": "不保存单次消耗为1.5的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-54041198781a92",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证单次消耗输入1",
+    "point": "单次消耗合法整数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "输入单次消耗为1",
+      "点击保存"
+    ],
+    "result": "记录保存的单次消耗为1",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-41a467302acc83",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证开奖次数输入0",
+    "point": "开奖次数整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "输入开奖次数为0",
+      "点击保存"
+    ],
+    "result": "不保存开奖次数为0的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-23c31f30a2bfbb",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证开奖次数输入-1",
+    "point": "开奖次数整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "输入开奖次数为-1",
+      "点击保存"
+    ],
+    "result": "不保存开奖次数为-1的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-038d22c10ef58c",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证开奖次数输入1.5",
+    "point": "开奖次数整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "输入开奖次数为1.5",
+      "点击保存"
+    ],
+    "result": "不保存开奖次数为1.5的记录",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-b163dcf1b5bd93",
+    "page": "admin-lucky-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "幸运礼物编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证开奖次数输入1",
+    "point": "开奖次数合法整数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入幸运礼物编辑的新建表单",
+      "输入开奖次数为1",
+      "点击保存"
+    ],
+    "result": "记录保存的开奖次数为1",
+    "sourceIds": [
+      "REQ-ADMIN-ff629f570a",
+      "REQ-ADMIN-04d6e08412",
+      "REQ-ADMIN-bb7db57270",
+      "REQ-ADMIN-def453c6f9",
+      "REQ-ADMIN-913a016c2b",
+      "REQ-ADMIN-35c78d549f",
+      "REQ-ADMIN-305f1020f0",
+      "REQ-ADMIN-1f85f48511",
+      "REQ-ADMIN-94e63922c0",
+      "REQ-ADMIN-e57cd32b00",
+      "REQ-ADMIN-234a0b0b5a",
+      "REQ-PUB-ea1c0115d1",
+      "REQ-PUB-1ea13f57a7",
+      "REQ-PUB-dbdd332b03",
+      "REQ-PUB-2b711f163c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "幸运礼物编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0878ee535e8e17",
+    "page": "admin-prop-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证道具 ID未填写时不能提交",
+    "point": "道具 ID必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除道具 ID外必填项均为合法值"
+    ],
+    "steps": [
+      "进入道具详情的新建表单",
+      "清空道具 ID",
+      "点击保存"
+    ],
+    "result": "不提交缺少道具 ID的记录",
+    "sourceIds": [
+      "REQ-ADMIN-3c7b603e07",
+      "REQ-ADMIN-e7c2fbbd7d",
+      "REQ-ADMIN-69947234e7",
+      "REQ-ADMIN-738a741c75",
+      "REQ-ADMIN-320b946cb7",
+      "REQ-ADMIN-e0cacd0605",
+      "REQ-ADMIN-240568faf6",
+      "REQ-ADMIN-b6f188a772",
+      "REQ-ADMIN-82231ae35b",
+      "REQ-PUB-cb0ee65039"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f3b55489efb000",
+    "page": "admin-prop-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证中文名称未填写时不能提交",
+    "point": "中文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除中文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入道具详情的新建表单",
+      "清空中文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少中文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-3c7b603e07",
+      "REQ-ADMIN-e7c2fbbd7d",
+      "REQ-ADMIN-69947234e7",
+      "REQ-ADMIN-738a741c75",
+      "REQ-ADMIN-320b946cb7",
+      "REQ-ADMIN-e0cacd0605",
+      "REQ-ADMIN-240568faf6",
+      "REQ-ADMIN-b6f188a772",
+      "REQ-ADMIN-82231ae35b",
+      "REQ-PUB-cb0ee65039"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f1d495d637691f",
+    "page": "admin-prop-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证英文名称未填写时不能提交",
+    "point": "英文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除英文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入道具详情的新建表单",
+      "清空英文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少英文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-3c7b603e07",
+      "REQ-ADMIN-e7c2fbbd7d",
+      "REQ-ADMIN-69947234e7",
+      "REQ-ADMIN-738a741c75",
+      "REQ-ADMIN-320b946cb7",
+      "REQ-ADMIN-e0cacd0605",
+      "REQ-ADMIN-240568faf6",
+      "REQ-ADMIN-b6f188a772",
+      "REQ-ADMIN-82231ae35b",
+      "REQ-PUB-cb0ee65039"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-99384849180eff",
+    "page": "admin-prop-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证印尼语名称未填写时不能提交",
+    "point": "印尼语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除印尼语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入道具详情的新建表单",
+      "清空印尼语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少印尼语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-3c7b603e07",
+      "REQ-ADMIN-e7c2fbbd7d",
+      "REQ-ADMIN-69947234e7",
+      "REQ-ADMIN-738a741c75",
+      "REQ-ADMIN-320b946cb7",
+      "REQ-ADMIN-e0cacd0605",
+      "REQ-ADMIN-240568faf6",
+      "REQ-ADMIN-b6f188a772",
+      "REQ-ADMIN-82231ae35b",
+      "REQ-PUB-cb0ee65039"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ad23666c25850b",
+    "page": "admin-prop-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证马来语名称未填写时不能提交",
+    "point": "马来语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除马来语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入道具详情的新建表单",
+      "清空马来语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少马来语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-3c7b603e07",
+      "REQ-ADMIN-e7c2fbbd7d",
+      "REQ-ADMIN-69947234e7",
+      "REQ-ADMIN-738a741c75",
+      "REQ-ADMIN-320b946cb7",
+      "REQ-ADMIN-e0cacd0605",
+      "REQ-ADMIN-240568faf6",
+      "REQ-ADMIN-b6f188a772",
+      "REQ-ADMIN-82231ae35b",
+      "REQ-PUB-cb0ee65039"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-71c08713c639f6",
+    "page": "admin-prop-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证图标未填写时不能提交",
+    "point": "图标必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除图标外必填项均为合法值"
+    ],
+    "steps": [
+      "进入道具详情的新建表单",
+      "清空图标",
+      "点击保存"
+    ],
+    "result": "不提交缺少图标的记录",
+    "sourceIds": [
+      "REQ-ADMIN-3c7b603e07",
+      "REQ-ADMIN-e7c2fbbd7d",
+      "REQ-ADMIN-69947234e7",
+      "REQ-ADMIN-738a741c75",
+      "REQ-ADMIN-320b946cb7",
+      "REQ-ADMIN-e0cacd0605",
+      "REQ-ADMIN-240568faf6",
+      "REQ-ADMIN-b6f188a772",
+      "REQ-ADMIN-82231ae35b",
+      "REQ-PUB-cb0ee65039"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-588ef6c6b8613e",
+    "page": "admin-prop-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证素材未填写时不能提交",
+    "point": "素材必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除素材外必填项均为合法值"
+    ],
+    "steps": [
+      "进入道具详情的新建表单",
+      "清空素材",
+      "点击保存"
+    ],
+    "result": "不提交缺少素材的记录",
+    "sourceIds": [
+      "REQ-ADMIN-3c7b603e07",
+      "REQ-ADMIN-e7c2fbbd7d",
+      "REQ-ADMIN-69947234e7",
+      "REQ-ADMIN-738a741c75",
+      "REQ-ADMIN-320b946cb7",
+      "REQ-ADMIN-e0cacd0605",
+      "REQ-ADMIN-240568faf6",
+      "REQ-ADMIN-b6f188a772",
+      "REQ-ADMIN-82231ae35b",
+      "REQ-PUB-cb0ee65039"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-57ffbc4fa60fe6",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证中文标题未填写时不能提交",
+    "point": "中文标题必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除中文标题外必填项均为合法值"
+    ],
+    "steps": [
+      "进入推送配置的新建表单",
+      "清空中文标题",
+      "点击立即发送"
+    ],
+    "result": "不提交缺少中文标题的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-a181fa96f0af2c",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证英文标题未填写时不能提交",
+    "point": "英文标题必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除英文标题外必填项均为合法值"
+    ],
+    "steps": [
+      "进入推送配置的新建表单",
+      "清空英文标题",
+      "点击立即发送"
+    ],
+    "result": "不提交缺少英文标题的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-cdc49aaa20ebe6",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证印尼语标题未填写时不能提交",
+    "point": "印尼语标题必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除印尼语标题外必填项均为合法值"
+    ],
+    "steps": [
+      "进入推送配置的新建表单",
+      "清空印尼语标题",
+      "点击立即发送"
+    ],
+    "result": "不提交缺少印尼语标题的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-74c9904801d806",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证马来语标题未填写时不能提交",
+    "point": "马来语标题必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除马来语标题外必填项均为合法值"
+    ],
+    "steps": [
+      "进入推送配置的新建表单",
+      "清空马来语标题",
+      "点击立即发送"
+    ],
+    "result": "不提交缺少马来语标题的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-5c508b181880ec",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证中文内容未填写时不能提交",
+    "point": "中文内容必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除中文内容外必填项均为合法值"
+    ],
+    "steps": [
+      "进入推送配置的新建表单",
+      "清空中文内容",
+      "点击立即发送"
+    ],
+    "result": "不提交缺少中文内容的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-44383201ebe739",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证英文内容未填写时不能提交",
+    "point": "英文内容必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除英文内容外必填项均为合法值"
+    ],
+    "steps": [
+      "进入推送配置的新建表单",
+      "清空英文内容",
+      "点击立即发送"
+    ],
+    "result": "不提交缺少英文内容的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-6114f10cc4c486",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证印尼语内容未填写时不能提交",
+    "point": "印尼语内容必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除印尼语内容外必填项均为合法值"
+    ],
+    "steps": [
+      "进入推送配置的新建表单",
+      "清空印尼语内容",
+      "点击立即发送"
+    ],
+    "result": "不提交缺少印尼语内容的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-fd35a6a7400b8f",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证马来语内容未填写时不能提交",
+    "point": "马来语内容必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除马来语内容外必填项均为合法值"
+    ],
+    "steps": [
+      "进入推送配置的新建表单",
+      "清空马来语内容",
+      "点击立即发送"
+    ],
+    "result": "不提交缺少马来语内容的记录",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d21fe9ed8d83d1",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证套餐 ID未填写时不能提交",
+    "point": "套餐 ID必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除套餐 ID外必填项均为合法值"
+    ],
+    "steps": [
+      "进入充值套餐编辑的新建表单",
+      "清空套餐 ID",
+      "点击保存"
+    ],
+    "result": "不提交缺少套餐 ID的记录",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ad79dc99e9d4a5",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证类型未填写时不能提交",
+    "point": "类型必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除类型外必填项均为合法值"
+    ],
+    "steps": [
+      "进入充值套餐编辑的新建表单",
+      "清空类型",
+      "点击保存"
+    ],
+    "result": "不提交缺少类型的记录",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d75d4320b7191d",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证封面未填写时不能提交",
+    "point": "封面必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除封面外必填项均为合法值"
+    ],
+    "steps": [
+      "进入充值套餐编辑的新建表单",
+      "清空封面",
+      "点击保存"
+    ],
+    "result": "不提交缺少封面的记录",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-1010ca608ba277",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证充值金币输入0",
+    "point": "充值金币整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入充值套餐编辑的新建表单",
+      "输入充值金币为0",
+      "点击保存"
+    ],
+    "result": "不保存充值金币为0的记录",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-01db5d7039ed0a",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证充值金币输入-1",
+    "point": "充值金币整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入充值套餐编辑的新建表单",
+      "输入充值金币为-1",
+      "点击保存"
+    ],
+    "result": "不保存充值金币为-1的记录",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ab889d4e5c63d9",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证充值金币输入1.5",
+    "point": "充值金币整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入充值套餐编辑的新建表单",
+      "输入充值金币为1.5",
+      "点击保存"
+    ],
+    "result": "不保存充值金币为1.5的记录",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-2584f1dc568800",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证充值金币输入1",
+    "point": "充值金币合法整数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入充值套餐编辑的新建表单",
+      "输入充值金币为1",
+      "点击保存"
+    ],
+    "result": "记录保存的充值金币为1",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0e6c4a05a5082c",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证中文名称未填写时不能提交",
+    "point": "中文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除中文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "清空中文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少中文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-a3fd3f221eb9c3",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证英文名称未填写时不能提交",
+    "point": "英文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除英文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "清空英文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少英文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4568cb9ba093fb",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证印尼语名称未填写时不能提交",
+    "point": "印尼语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除印尼语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "清空印尼语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少印尼语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0ab1e39483b42c",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证马来语名称未填写时不能提交",
+    "point": "马来语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除马来语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "清空马来语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少马来语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-9a52c76de786f1",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证生效开始时间未填写时不能提交",
+    "point": "生效开始时间必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除生效开始时间外必填项均为合法值"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "清空生效开始时间",
+      "点击保存"
+    ],
+    "result": "不提交缺少生效开始时间的记录",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-3e7cf3488b7d69",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证生效结束时间未填写时不能提交",
+    "point": "生效结束时间必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除生效结束时间外必填项均为合法值"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "清空生效结束时间",
+      "点击保存"
+    ],
+    "result": "不提交缺少生效结束时间的记录",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-b4368027974ffc",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证达成奖励输入0",
+    "point": "达成奖励整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "输入达成奖励为0",
+      "点击保存"
+    ],
+    "result": "不保存达成奖励为0的记录",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-e6e8bcfae60644",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证达成奖励输入-1",
+    "point": "达成奖励整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "输入达成奖励为-1",
+      "点击保存"
+    ],
+    "result": "不保存达成奖励为-1的记录",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-769d0f6e81376e",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证达成奖励输入1.5",
+    "point": "达成奖励整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "输入达成奖励为1.5",
+      "点击保存"
+    ],
+    "result": "不保存达成奖励为1.5的记录",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-589b7be2c7bfd9",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证达成奖励输入1",
+    "point": "达成奖励合法整数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入通用任务编辑的新建表单",
+      "输入达成奖励为1",
+      "点击保存"
+    ],
+    "result": "记录保存的达成奖励为1",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d01e6bc3d3fdfa",
+    "page": "admin-guild-recommendation-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "公会推荐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证推荐公会未填写时不能提交",
+    "point": "推荐公会必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除推荐公会外必填项均为合法值"
+    ],
+    "steps": [
+      "进入公会推荐编辑的新建表单",
+      "清空推荐公会",
+      "点击保存"
+    ],
+    "result": "不提交缺少推荐公会的记录",
+    "sourceIds": [
+      "REQ-ADMIN-91567974f0",
+      "REQ-ADMIN-c8dc2e5952",
+      "REQ-ADMIN-d9f26cd09e",
+      "REQ-ADMIN-0c0a51dd50"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会推荐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-38811f6959eb66",
+    "page": "admin-guild-recommendation-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "公会推荐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序权重输入0",
+    "point": "排序权重整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入公会推荐编辑的新建表单",
+      "输入排序权重为0",
+      "点击保存"
+    ],
+    "result": "不保存排序权重为0的记录",
+    "sourceIds": [
+      "REQ-ADMIN-91567974f0",
+      "REQ-ADMIN-c8dc2e5952",
+      "REQ-ADMIN-d9f26cd09e",
+      "REQ-ADMIN-0c0a51dd50"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会推荐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-3337a4959ac2dc",
+    "page": "admin-guild-recommendation-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "公会推荐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序权重输入-1",
+    "point": "排序权重整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入公会推荐编辑的新建表单",
+      "输入排序权重为-1",
+      "点击保存"
+    ],
+    "result": "不保存排序权重为-1的记录",
+    "sourceIds": [
+      "REQ-ADMIN-91567974f0",
+      "REQ-ADMIN-c8dc2e5952",
+      "REQ-ADMIN-d9f26cd09e",
+      "REQ-ADMIN-0c0a51dd50"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会推荐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ac0bcb4ac1ba1a",
+    "page": "admin-guild-recommendation-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "公会推荐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序权重输入1.5",
+    "point": "排序权重整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入公会推荐编辑的新建表单",
+      "输入排序权重为1.5",
+      "点击保存"
+    ],
+    "result": "不保存排序权重为1.5的记录",
+    "sourceIds": [
+      "REQ-ADMIN-91567974f0",
+      "REQ-ADMIN-c8dc2e5952",
+      "REQ-ADMIN-d9f26cd09e",
+      "REQ-ADMIN-0c0a51dd50"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会推荐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-6e93fdeab13e15",
+    "page": "admin-guild-recommendation-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "公会推荐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序权重输入1",
+    "point": "排序权重合法整数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入公会推荐编辑的新建表单",
+      "输入排序权重为1",
+      "点击保存"
+    ],
+    "result": "记录保存的排序权重为1",
+    "sourceIds": [
+      "REQ-ADMIN-91567974f0",
+      "REQ-ADMIN-c8dc2e5952",
+      "REQ-ADMIN-d9f26cd09e",
+      "REQ-ADMIN-0c0a51dd50"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会推荐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-034071caf6bc77",
+    "page": "admin-live-type.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "直播类型（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证中文名称未填写时不能提交",
+    "point": "中文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除中文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入直播类型的新建表单",
+      "清空中文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少中文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-874c7689d0",
+      "REQ-ADMIN-f8058197ad",
+      "REQ-ADMIN-ec34b42500",
+      "REQ-ADMIN-3ec2e57a0e",
+      "REQ-ADMIN-444460953e",
+      "REQ-ADMIN-aaf129cc6e",
+      "REQ-PUB-f3e06096b1"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "直播类型",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-e2620f0e1d877f",
+    "page": "admin-live-type.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "直播类型（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证英文名称未填写时不能提交",
+    "point": "英文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除英文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入直播类型的新建表单",
+      "清空英文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少英文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-874c7689d0",
+      "REQ-ADMIN-f8058197ad",
+      "REQ-ADMIN-ec34b42500",
+      "REQ-ADMIN-3ec2e57a0e",
+      "REQ-ADMIN-444460953e",
+      "REQ-ADMIN-aaf129cc6e",
+      "REQ-PUB-f3e06096b1"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "直播类型",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-429c045b89e3a4",
+    "page": "admin-live-type.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "直播类型（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证印尼语名称未填写时不能提交",
+    "point": "印尼语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除印尼语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入直播类型的新建表单",
+      "清空印尼语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少印尼语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-874c7689d0",
+      "REQ-ADMIN-f8058197ad",
+      "REQ-ADMIN-ec34b42500",
+      "REQ-ADMIN-3ec2e57a0e",
+      "REQ-ADMIN-444460953e",
+      "REQ-ADMIN-aaf129cc6e",
+      "REQ-PUB-f3e06096b1"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "直播类型",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-5f517e4c2c9b1e",
+    "page": "admin-live-type.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "直播类型（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证马来语名称未填写时不能提交",
+    "point": "马来语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除马来语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入直播类型的新建表单",
+      "清空马来语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少马来语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-874c7689d0",
+      "REQ-ADMIN-f8058197ad",
+      "REQ-ADMIN-ec34b42500",
+      "REQ-ADMIN-3ec2e57a0e",
+      "REQ-ADMIN-444460953e",
+      "REQ-ADMIN-aaf129cc6e",
+      "REQ-PUB-f3e06096b1"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "直播类型",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4ef3f5cde16de9",
+    "page": "admin-ticket-price-level-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证门票价格输入0",
+    "point": "门票价格整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入门票价格档位编辑的新建表单",
+      "输入门票价格为0",
+      "点击保存"
+    ],
+    "result": "不保存门票价格为0的记录",
+    "sourceIds": [
+      "REQ-ADMIN-209c9f098d",
+      "REQ-ADMIN-b82deaf426",
+      "REQ-ADMIN-d9f7bfa1f1",
+      "REQ-ADMIN-6854c6d003",
+      "REQ-ADMIN-742f1c79a8",
+      "REQ-ADMIN-ecdc4fd876",
+      "REQ-PUB-2acff394de"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-2ea9762610ecf1",
+    "page": "admin-ticket-price-level-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证门票价格输入-1",
+    "point": "门票价格整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入门票价格档位编辑的新建表单",
+      "输入门票价格为-1",
+      "点击保存"
+    ],
+    "result": "不保存门票价格为-1的记录",
+    "sourceIds": [
+      "REQ-ADMIN-209c9f098d",
+      "REQ-ADMIN-b82deaf426",
+      "REQ-ADMIN-d9f7bfa1f1",
+      "REQ-ADMIN-6854c6d003",
+      "REQ-ADMIN-742f1c79a8",
+      "REQ-ADMIN-ecdc4fd876",
+      "REQ-PUB-2acff394de"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c2fe4b1466a3e1",
+    "page": "admin-ticket-price-level-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证门票价格输入1.5",
+    "point": "门票价格整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入门票价格档位编辑的新建表单",
+      "输入门票价格为1.5",
+      "点击保存"
+    ],
+    "result": "不保存门票价格为1.5的记录",
+    "sourceIds": [
+      "REQ-ADMIN-209c9f098d",
+      "REQ-ADMIN-b82deaf426",
+      "REQ-ADMIN-d9f7bfa1f1",
+      "REQ-ADMIN-6854c6d003",
+      "REQ-ADMIN-742f1c79a8",
+      "REQ-ADMIN-ecdc4fd876",
+      "REQ-PUB-2acff394de"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0914ac7eb4569e",
+    "page": "admin-ticket-price-level-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证门票价格输入1",
+    "point": "门票价格合法整数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入门票价格档位编辑的新建表单",
+      "输入门票价格为1",
+      "点击保存"
+    ],
+    "result": "记录保存的门票价格为1",
+    "sourceIds": [
+      "REQ-ADMIN-209c9f098d",
+      "REQ-ADMIN-b82deaf426",
+      "REQ-ADMIN-d9f7bfa1f1",
+      "REQ-ADMIN-6854c6d003",
+      "REQ-ADMIN-742f1c79a8",
+      "REQ-ADMIN-ecdc4fd876",
+      "REQ-PUB-2acff394de"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-71c208dc32e514",
+    "page": "admin-ticket-price-level-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序输入0",
+    "point": "排序整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入门票价格档位编辑的新建表单",
+      "输入排序为0",
+      "点击保存"
+    ],
+    "result": "不保存排序为0的记录",
+    "sourceIds": [
+      "REQ-ADMIN-209c9f098d",
+      "REQ-ADMIN-b82deaf426",
+      "REQ-ADMIN-d9f7bfa1f1",
+      "REQ-ADMIN-6854c6d003",
+      "REQ-ADMIN-742f1c79a8",
+      "REQ-ADMIN-ecdc4fd876",
+      "REQ-PUB-2acff394de"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-6698c77353463e",
+    "page": "admin-ticket-price-level-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序输入-1",
+    "point": "排序整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入门票价格档位编辑的新建表单",
+      "输入排序为-1",
+      "点击保存"
+    ],
+    "result": "不保存排序为-1的记录",
+    "sourceIds": [
+      "REQ-ADMIN-209c9f098d",
+      "REQ-ADMIN-b82deaf426",
+      "REQ-ADMIN-d9f7bfa1f1",
+      "REQ-ADMIN-6854c6d003",
+      "REQ-ADMIN-742f1c79a8",
+      "REQ-ADMIN-ecdc4fd876",
+      "REQ-PUB-2acff394de"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-e8bce4cef6b464",
+    "page": "admin-ticket-price-level-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序输入1.5",
+    "point": "排序整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入门票价格档位编辑的新建表单",
+      "输入排序为1.5",
+      "点击保存"
+    ],
+    "result": "不保存排序为1.5的记录",
+    "sourceIds": [
+      "REQ-ADMIN-209c9f098d",
+      "REQ-ADMIN-b82deaf426",
+      "REQ-ADMIN-d9f7bfa1f1",
+      "REQ-ADMIN-6854c6d003",
+      "REQ-ADMIN-742f1c79a8",
+      "REQ-ADMIN-ecdc4fd876",
+      "REQ-PUB-2acff394de"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-60311e0f079cf7",
+    "page": "admin-ticket-price-level-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序输入1",
+    "point": "排序合法整数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入门票价格档位编辑的新建表单",
+      "输入排序为1",
+      "点击保存"
+    ],
+    "result": "记录保存的排序为1",
+    "sourceIds": [
+      "REQ-ADMIN-209c9f098d",
+      "REQ-ADMIN-b82deaf426",
+      "REQ-ADMIN-d9f7bfa1f1",
+      "REQ-ADMIN-6854c6d003",
+      "REQ-ADMIN-742f1c79a8",
+      "REQ-ADMIN-ecdc4fd876",
+      "REQ-PUB-2acff394de"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-6bf68e214489b7",
+    "page": "admin-sensitive-words-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "敏感词编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证敏感词未填写时不能提交",
+    "point": "敏感词必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除敏感词外必填项均为合法值"
+    ],
+    "steps": [
+      "进入敏感词编辑的新建表单",
+      "清空敏感词",
+      "点击保存"
+    ],
+    "result": "不提交缺少敏感词的记录",
+    "sourceIds": [
+      "REQ-ADMIN-2773181d58",
+      "REQ-ADMIN-d6f319f352",
+      "REQ-ADMIN-69272fc1db",
+      "REQ-ADMIN-96597e760d",
+      "REQ-ADMIN-e948fe9728",
+      "REQ-ADMIN-57c8d33ba3",
+      "REQ-ADMIN-92183483f8",
+      "REQ-ADMIN-70e8febea3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "敏感词编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-fce062383a9cc0",
+    "page": "admin-sensitive-words-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "敏感词编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证分类未填写时不能提交",
+    "point": "分类必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除分类外必填项均为合法值"
+    ],
+    "steps": [
+      "进入敏感词编辑的新建表单",
+      "清空分类",
+      "点击保存"
+    ],
+    "result": "不提交缺少分类的记录",
+    "sourceIds": [
+      "REQ-ADMIN-2773181d58",
+      "REQ-ADMIN-d6f319f352",
+      "REQ-ADMIN-69272fc1db",
+      "REQ-ADMIN-96597e760d",
+      "REQ-ADMIN-e948fe9728",
+      "REQ-ADMIN-57c8d33ba3",
+      "REQ-ADMIN-92183483f8",
+      "REQ-ADMIN-70e8febea3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "敏感词编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f33b431bd260a9",
+    "page": "admin-sensitive-words-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "敏感词编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证替换内容未填写时不能提交",
+    "point": "替换内容必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除替换内容外必填项均为合法值"
+    ],
+    "steps": [
+      "进入敏感词编辑的新建表单",
+      "清空替换内容",
+      "点击保存"
+    ],
+    "result": "不提交缺少替换内容的记录",
+    "sourceIds": [
+      "REQ-ADMIN-2773181d58",
+      "REQ-ADMIN-d6f319f352",
+      "REQ-ADMIN-69272fc1db",
+      "REQ-ADMIN-96597e760d",
+      "REQ-ADMIN-e948fe9728",
+      "REQ-ADMIN-57c8d33ba3",
+      "REQ-ADMIN-92183483f8",
+      "REQ-ADMIN-70e8febea3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "敏感词编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4abfad837b7dcc",
+    "page": "admin-violation-type-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证中文名称未填写时不能提交",
+    "point": "中文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除中文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入违规类型编辑的新建表单",
+      "清空中文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少中文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-351fff565b",
+      "REQ-ADMIN-d3e6ec4386",
+      "REQ-ADMIN-358c04fd2e",
+      "REQ-ADMIN-0f946bf44a",
+      "REQ-ADMIN-d879a799ee",
+      "REQ-ADMIN-4ca4de1fa8",
+      "REQ-ADMIN-6748893fb6",
+      "REQ-PUB-3ed5538087",
+      "REQ-PUB-69035fe877"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d0868c69b59a22",
+    "page": "admin-violation-type-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证英文名称未填写时不能提交",
+    "point": "英文名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除英文名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入违规类型编辑的新建表单",
+      "清空英文名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少英文名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-351fff565b",
+      "REQ-ADMIN-d3e6ec4386",
+      "REQ-ADMIN-358c04fd2e",
+      "REQ-ADMIN-0f946bf44a",
+      "REQ-ADMIN-d879a799ee",
+      "REQ-ADMIN-4ca4de1fa8",
+      "REQ-ADMIN-6748893fb6",
+      "REQ-PUB-3ed5538087",
+      "REQ-PUB-69035fe877"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-7533e0ecac1266",
+    "page": "admin-violation-type-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证印尼语名称未填写时不能提交",
+    "point": "印尼语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除印尼语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入违规类型编辑的新建表单",
+      "清空印尼语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少印尼语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-351fff565b",
+      "REQ-ADMIN-d3e6ec4386",
+      "REQ-ADMIN-358c04fd2e",
+      "REQ-ADMIN-0f946bf44a",
+      "REQ-ADMIN-d879a799ee",
+      "REQ-ADMIN-4ca4de1fa8",
+      "REQ-ADMIN-6748893fb6",
+      "REQ-PUB-3ed5538087",
+      "REQ-PUB-69035fe877"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-704954460c9ab2",
+    "page": "admin-violation-type-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证马来语名称未填写时不能提交",
+    "point": "马来语名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除马来语名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入违规类型编辑的新建表单",
+      "清空马来语名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少马来语名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-351fff565b",
+      "REQ-ADMIN-d3e6ec4386",
+      "REQ-ADMIN-358c04fd2e",
+      "REQ-ADMIN-0f946bf44a",
+      "REQ-ADMIN-d879a799ee",
+      "REQ-ADMIN-4ca4de1fa8",
+      "REQ-ADMIN-6748893fb6",
+      "REQ-PUB-3ed5538087",
+      "REQ-PUB-69035fe877"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-660309e924162f",
+    "page": "admin-violation-type-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序输入0",
+    "point": "排序整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入违规类型编辑的新建表单",
+      "输入排序为0",
+      "点击保存"
+    ],
+    "result": "不保存排序为0的记录",
+    "sourceIds": [
+      "REQ-ADMIN-351fff565b",
+      "REQ-ADMIN-d3e6ec4386",
+      "REQ-ADMIN-358c04fd2e",
+      "REQ-ADMIN-0f946bf44a",
+      "REQ-ADMIN-d879a799ee",
+      "REQ-ADMIN-4ca4de1fa8",
+      "REQ-ADMIN-6748893fb6",
+      "REQ-PUB-3ed5538087",
+      "REQ-PUB-69035fe877"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0665a4955ee644",
+    "page": "admin-violation-type-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序输入-1",
+    "point": "排序整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入违规类型编辑的新建表单",
+      "输入排序为-1",
+      "点击保存"
+    ],
+    "result": "不保存排序为-1的记录",
+    "sourceIds": [
+      "REQ-ADMIN-351fff565b",
+      "REQ-ADMIN-d3e6ec4386",
+      "REQ-ADMIN-358c04fd2e",
+      "REQ-ADMIN-0f946bf44a",
+      "REQ-ADMIN-d879a799ee",
+      "REQ-ADMIN-4ca4de1fa8",
+      "REQ-ADMIN-6748893fb6",
+      "REQ-PUB-3ed5538087",
+      "REQ-PUB-69035fe877"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-6823f2fff65627",
+    "page": "admin-violation-type-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序输入1.5",
+    "point": "排序整数校验",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入违规类型编辑的新建表单",
+      "输入排序为1.5",
+      "点击保存"
+    ],
+    "result": "不保存排序为1.5的记录",
+    "sourceIds": [
+      "REQ-ADMIN-351fff565b",
+      "REQ-ADMIN-d3e6ec4386",
+      "REQ-ADMIN-358c04fd2e",
+      "REQ-ADMIN-0f946bf44a",
+      "REQ-ADMIN-d879a799ee",
+      "REQ-ADMIN-4ca4de1fa8",
+      "REQ-ADMIN-6748893fb6",
+      "REQ-PUB-3ed5538087",
+      "REQ-PUB-69035fe877"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-55c8ba39717a3e",
+    "page": "admin-violation-type-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证排序输入1",
+    "point": "排序合法整数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法，数值1未与现有唯一值冲突"
+    ],
+    "steps": [
+      "进入违规类型编辑的新建表单",
+      "输入排序为1",
+      "点击保存"
+    ],
+    "result": "记录保存的排序为1",
+    "sourceIds": [
+      "REQ-ADMIN-351fff565b",
+      "REQ-ADMIN-d3e6ec4386",
+      "REQ-ADMIN-358c04fd2e",
+      "REQ-ADMIN-0f946bf44a",
+      "REQ-ADMIN-d879a799ee",
+      "REQ-ADMIN-4ca4de1fa8",
+      "REQ-ADMIN-6748893fb6",
+      "REQ-PUB-3ed5538087",
+      "REQ-PUB-69035fe877"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-34ad4d1a97d59f",
+    "page": "admin-guild-detail.html",
+    "end": "管理后台",
+    "module": "公会管理",
+    "structure": "公会详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证公会名称未填写时不能提交",
+    "point": "公会名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除公会名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入公会详情的新建表单",
+      "清空公会名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少公会名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-4ef461e2a0",
+      "REQ-ADMIN-e80f4db877",
+      "REQ-ADMIN-d13cbc8518",
+      "REQ-ADMIN-7dd40db9fc",
+      "REQ-ADMIN-3d8dcd8ee2",
+      "REQ-ADMIN-b4ecd379e9",
+      "REQ-ADMIN-64f7845def",
+      "REQ-ADMIN-d2cdb2e4a3",
+      "REQ-ADMIN-b1d1539c08",
+      "REQ-ADMIN-0f37342da8",
+      "REQ-ADMIN-cabf72851d",
+      "REQ-ADMIN-836fdf6189",
+      "REQ-PUB-16de884e24",
+      "REQ-PUB-c5ec2a0c42",
+      "REQ-PUB-9264a7bbe6",
+      "REQ-PUB-d76ebede0f",
+      "REQ-PUB-4c7c3b5e12"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-27a32f57e0e236",
+    "page": "admin-guild-detail.html",
+    "end": "管理后台",
+    "module": "公会管理",
+    "structure": "公会详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证Logo未填写时不能提交",
+    "point": "Logo必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除Logo外必填项均为合法值"
+    ],
+    "steps": [
+      "进入公会详情的新建表单",
+      "清空Logo",
+      "点击保存"
+    ],
+    "result": "不提交缺少Logo的记录",
+    "sourceIds": [
+      "REQ-ADMIN-4ef461e2a0",
+      "REQ-ADMIN-e80f4db877",
+      "REQ-ADMIN-d13cbc8518",
+      "REQ-ADMIN-7dd40db9fc",
+      "REQ-ADMIN-3d8dcd8ee2",
+      "REQ-ADMIN-b4ecd379e9",
+      "REQ-ADMIN-64f7845def",
+      "REQ-ADMIN-d2cdb2e4a3",
+      "REQ-ADMIN-b1d1539c08",
+      "REQ-ADMIN-0f37342da8",
+      "REQ-ADMIN-cabf72851d",
+      "REQ-ADMIN-836fdf6189",
+      "REQ-PUB-16de884e24",
+      "REQ-PUB-c5ec2a0c42",
+      "REQ-PUB-9264a7bbe6",
+      "REQ-PUB-d76ebede0f",
+      "REQ-PUB-4c7c3b5e12"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-512509442a792f",
+    "page": "admin-guild-detail.html",
+    "end": "管理后台",
+    "module": "公会管理",
+    "structure": "公会详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证公会长未填写时不能提交",
+    "point": "公会长必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除公会长外必填项均为合法值"
+    ],
+    "steps": [
+      "进入公会详情的新建表单",
+      "清空公会长",
+      "点击保存"
+    ],
+    "result": "不提交缺少公会长的记录",
+    "sourceIds": [
+      "REQ-ADMIN-4ef461e2a0",
+      "REQ-ADMIN-e80f4db877",
+      "REQ-ADMIN-d13cbc8518",
+      "REQ-ADMIN-7dd40db9fc",
+      "REQ-ADMIN-3d8dcd8ee2",
+      "REQ-ADMIN-b4ecd379e9",
+      "REQ-ADMIN-64f7845def",
+      "REQ-ADMIN-d2cdb2e4a3",
+      "REQ-ADMIN-b1d1539c08",
+      "REQ-ADMIN-0f37342da8",
+      "REQ-ADMIN-cabf72851d",
+      "REQ-ADMIN-836fdf6189",
+      "REQ-PUB-16de884e24",
+      "REQ-PUB-c5ec2a0c42",
+      "REQ-PUB-9264a7bbe6",
+      "REQ-PUB-d76ebede0f",
+      "REQ-PUB-4c7c3b5e12"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-efa824b4b21a4a",
+    "page": "admin-guild-detail.html",
+    "end": "管理后台",
+    "module": "公会管理",
+    "structure": "公会详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证管理账号未填写时不能提交",
+    "point": "管理账号必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除管理账号外必填项均为合法值"
+    ],
+    "steps": [
+      "进入公会详情的新建表单",
+      "清空管理账号",
+      "点击保存"
+    ],
+    "result": "不提交缺少管理账号的记录",
+    "sourceIds": [
+      "REQ-ADMIN-4ef461e2a0",
+      "REQ-ADMIN-e80f4db877",
+      "REQ-ADMIN-d13cbc8518",
+      "REQ-ADMIN-7dd40db9fc",
+      "REQ-ADMIN-3d8dcd8ee2",
+      "REQ-ADMIN-b4ecd379e9",
+      "REQ-ADMIN-64f7845def",
+      "REQ-ADMIN-d2cdb2e4a3",
+      "REQ-ADMIN-b1d1539c08",
+      "REQ-ADMIN-0f37342da8",
+      "REQ-ADMIN-cabf72851d",
+      "REQ-ADMIN-836fdf6189",
+      "REQ-PUB-16de884e24",
+      "REQ-PUB-c5ec2a0c42",
+      "REQ-PUB-9264a7bbe6",
+      "REQ-PUB-d76ebede0f",
+      "REQ-PUB-4c7c3b5e12"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-1194988469a420",
+    "page": "admin-guild-detail.html",
+    "end": "管理后台",
+    "module": "公会管理",
+    "structure": "公会详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证初始密码未填写时不能提交",
+    "point": "初始密码必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除初始密码外必填项均为合法值"
+    ],
+    "steps": [
+      "进入公会详情的新建表单",
+      "清空初始密码",
+      "点击保存"
+    ],
+    "result": "不提交缺少初始密码的记录",
+    "sourceIds": [
+      "REQ-ADMIN-4ef461e2a0",
+      "REQ-ADMIN-e80f4db877",
+      "REQ-ADMIN-d13cbc8518",
+      "REQ-ADMIN-7dd40db9fc",
+      "REQ-ADMIN-3d8dcd8ee2",
+      "REQ-ADMIN-b4ecd379e9",
+      "REQ-ADMIN-64f7845def",
+      "REQ-ADMIN-d2cdb2e4a3",
+      "REQ-ADMIN-b1d1539c08",
+      "REQ-ADMIN-0f37342da8",
+      "REQ-ADMIN-cabf72851d",
+      "REQ-ADMIN-836fdf6189",
+      "REQ-PUB-16de884e24",
+      "REQ-PUB-c5ec2a0c42",
+      "REQ-PUB-9264a7bbe6",
+      "REQ-PUB-d76ebede0f",
+      "REQ-PUB-4c7c3b5e12"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ae5ccbbedfb763",
+    "page": "admin-system-account-detail.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "账号编辑（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证后台账号未填写时不能提交",
+    "point": "后台账号必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除后台账号外必填项均为合法值"
+    ],
+    "steps": [
+      "进入账号编辑的新建表单",
+      "清空后台账号",
+      "点击保存"
+    ],
+    "result": "不提交缺少后台账号的记录",
+    "sourceIds": [
+      "REQ-ADMIN-f9a22b0633",
+      "REQ-ADMIN-9df1741af2",
+      "REQ-ADMIN-c59fc9b3ec",
+      "REQ-ADMIN-652e56f63b",
+      "REQ-ADMIN-10b4ed4c28",
+      "REQ-ADMIN-2ba8ca3b55",
+      "REQ-ADMIN-27a1cbdebb",
+      "REQ-ADMIN-8b3041faab",
+      "REQ-ADMIN-60587dd816",
+      "REQ-PUB-b78658bb99",
+      "REQ-PUB-59117dd1b1",
+      "REQ-PUB-2bc554e667"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "账号编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-8c24e16988eda7",
+    "page": "admin-system-account-detail.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "账号编辑（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证姓名未填写时不能提交",
+    "point": "姓名必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除姓名外必填项均为合法值"
+    ],
+    "steps": [
+      "进入账号编辑的新建表单",
+      "清空姓名",
+      "点击保存"
+    ],
+    "result": "不提交缺少姓名的记录",
+    "sourceIds": [
+      "REQ-ADMIN-f9a22b0633",
+      "REQ-ADMIN-9df1741af2",
+      "REQ-ADMIN-c59fc9b3ec",
+      "REQ-ADMIN-652e56f63b",
+      "REQ-ADMIN-10b4ed4c28",
+      "REQ-ADMIN-2ba8ca3b55",
+      "REQ-ADMIN-27a1cbdebb",
+      "REQ-ADMIN-8b3041faab",
+      "REQ-ADMIN-60587dd816",
+      "REQ-PUB-b78658bb99",
+      "REQ-PUB-59117dd1b1",
+      "REQ-PUB-2bc554e667"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "账号编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c0ffc513b4ad48",
+    "page": "admin-system-account-detail.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "账号编辑（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证所属角色未填写时不能提交",
+    "point": "所属角色必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除所属角色外必填项均为合法值"
+    ],
+    "steps": [
+      "进入账号编辑的新建表单",
+      "清空所属角色",
+      "点击保存"
+    ],
+    "result": "不提交缺少所属角色的记录",
+    "sourceIds": [
+      "REQ-ADMIN-f9a22b0633",
+      "REQ-ADMIN-9df1741af2",
+      "REQ-ADMIN-c59fc9b3ec",
+      "REQ-ADMIN-652e56f63b",
+      "REQ-ADMIN-10b4ed4c28",
+      "REQ-ADMIN-2ba8ca3b55",
+      "REQ-ADMIN-27a1cbdebb",
+      "REQ-ADMIN-8b3041faab",
+      "REQ-ADMIN-60587dd816",
+      "REQ-PUB-b78658bb99",
+      "REQ-PUB-59117dd1b1",
+      "REQ-PUB-2bc554e667"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "账号编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-80ff3604f64d2c",
+    "page": "admin-system-account-detail.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "账号编辑（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证初始密码未填写时不能提交",
+    "point": "初始密码必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除初始密码外必填项均为合法值"
+    ],
+    "steps": [
+      "进入账号编辑的新建表单",
+      "清空初始密码",
+      "点击保存"
+    ],
+    "result": "不提交缺少初始密码的记录",
+    "sourceIds": [
+      "REQ-ADMIN-f9a22b0633",
+      "REQ-ADMIN-9df1741af2",
+      "REQ-ADMIN-c59fc9b3ec",
+      "REQ-ADMIN-652e56f63b",
+      "REQ-ADMIN-10b4ed4c28",
+      "REQ-ADMIN-2ba8ca3b55",
+      "REQ-ADMIN-27a1cbdebb",
+      "REQ-ADMIN-8b3041faab",
+      "REQ-ADMIN-60587dd816",
+      "REQ-PUB-b78658bb99",
+      "REQ-PUB-59117dd1b1",
+      "REQ-PUB-2bc554e667"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "账号编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-9422d2d74aa4f1",
+    "page": "admin-system-role-detail.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "角色编辑（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证角色名称未填写时不能提交",
+    "point": "角色名称必填",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "除角色名称外必填项均为合法值"
+    ],
+    "steps": [
+      "进入角色编辑的新建表单",
+      "清空角色名称",
+      "点击保存"
+    ],
+    "result": "不提交缺少角色名称的记录",
+    "sourceIds": [
+      "REQ-ADMIN-a0f143749f",
+      "REQ-ADMIN-f59656672e",
+      "REQ-ADMIN-75e6575149",
+      "REQ-ADMIN-c538e3f0b9",
+      "REQ-ADMIN-8391a40d85",
+      "REQ-ADMIN-54c459dbb7",
+      "REQ-ADMIN-8b41748ac4",
+      "REQ-ADMIN-59b756040b",
+      "REQ-PUB-76dc9a384a",
+      "REQ-PUB-845dd2c618"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "角色编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-a4cd790f8fa019",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证编辑时礼物 ID不可修改",
+    "point": "礼物 ID只读",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有记录的礼物 ID已生成"
+    ],
+    "steps": [
+      "进入已有礼物详情",
+      "查看礼物 ID"
+    ],
+    "result": "礼物 ID不可编辑",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4ae06da65e043a",
+    "page": "admin-prop-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证编辑时道具 ID不可修改",
+    "point": "道具 ID只读",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有记录的道具 ID已生成"
+    ],
+    "steps": [
+      "进入已有道具详情",
+      "查看道具 ID"
+    ],
+    "result": "道具 ID不可编辑",
+    "sourceIds": [
+      "REQ-ADMIN-3c7b603e07",
+      "REQ-ADMIN-e7c2fbbd7d",
+      "REQ-ADMIN-69947234e7",
+      "REQ-ADMIN-738a741c75",
+      "REQ-ADMIN-320b946cb7",
+      "REQ-ADMIN-e0cacd0605",
+      "REQ-ADMIN-240568faf6",
+      "REQ-ADMIN-b6f188a772",
+      "REQ-ADMIN-82231ae35b",
+      "REQ-PUB-cb0ee65039"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-a052bdb48423d7",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证编辑时套餐 ID不可修改",
+    "point": "套餐 ID只读",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有记录的套餐 ID已生成"
+    ],
+    "steps": [
+      "进入已有充值套餐编辑",
+      "查看套餐 ID"
+    ],
+    "result": "套餐 ID不可编辑",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-9244d72119b030",
+    "page": "admin-system-account-detail.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "账号编辑（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证编辑时账号 ID不可修改",
+    "point": "账号 ID只读",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有记录的账号 ID已生成"
+    ],
+    "steps": [
+      "进入已有账号编辑",
+      "查看账号 ID"
+    ],
+    "result": "账号 ID不可编辑",
+    "sourceIds": [
+      "REQ-ADMIN-f9a22b0633",
+      "REQ-ADMIN-9df1741af2",
+      "REQ-ADMIN-c59fc9b3ec",
+      "REQ-ADMIN-652e56f63b",
+      "REQ-ADMIN-10b4ed4c28",
+      "REQ-ADMIN-2ba8ca3b55",
+      "REQ-ADMIN-27a1cbdebb",
+      "REQ-ADMIN-8b3041faab",
+      "REQ-ADMIN-60587dd816",
+      "REQ-PUB-b78658bb99",
+      "REQ-PUB-59117dd1b1",
+      "REQ-PUB-2bc554e667"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "账号编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f0ee3723582c8f",
+    "page": "admin-system-role-detail.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "角色编辑（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证编辑时角色 ID不可修改",
+    "point": "角色 ID只读",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有记录的角色 ID已生成"
+    ],
+    "steps": [
+      "进入已有角色编辑",
+      "查看角色 ID"
+    ],
+    "result": "角色 ID不可编辑",
+    "sourceIds": [
+      "REQ-ADMIN-a0f143749f",
+      "REQ-ADMIN-f59656672e",
+      "REQ-ADMIN-75e6575149",
+      "REQ-ADMIN-c538e3f0b9",
+      "REQ-ADMIN-8391a40d85",
+      "REQ-ADMIN-54c459dbb7",
+      "REQ-ADMIN-8b41748ac4",
+      "REQ-ADMIN-59b756040b",
+      "REQ-PUB-76dc9a384a",
+      "REQ-PUB-845dd2c618"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "角色编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-7700c98efbbf21",
+    "page": "admin-ticket-price-level-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证编辑时档位 ID不可修改",
+    "point": "档位 ID只读",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有记录的档位 ID已生成"
+    ],
+    "steps": [
+      "进入已有门票价格档位编辑",
+      "查看档位 ID"
+    ],
+    "result": "档位 ID不可编辑",
+    "sourceIds": [
+      "REQ-ADMIN-209c9f098d",
+      "REQ-ADMIN-b82deaf426",
+      "REQ-ADMIN-d9f7bfa1f1",
+      "REQ-ADMIN-6854c6d003",
+      "REQ-ADMIN-742f1c79a8",
+      "REQ-ADMIN-ecdc4fd876",
+      "REQ-PUB-2acff394de"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ab3070baaa8a81",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证定制礼物结束时间不能等于开始",
+    "point": "礼物时间零区间",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其他必填项合法"
+    ],
+    "steps": [
+      "进入定制礼物详情",
+      "输入生效时间2026-10-01 10:00",
+      "输入失效时间2026-10-01 10:00",
+      "点击保存"
+    ],
+    "result": "不保存零长度的投放时间区间",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-e1e33f56538619",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证定制礼物结束时间必须晚于开始",
+    "point": "礼物时间逆序",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其他必填项合法"
+    ],
+    "steps": [
+      "进入定制礼物详情",
+      "输入生效时间2026-10-01 10:00",
+      "输入失效时间2026-10-01 09:59",
+      "点击保存"
+    ],
+    "result": "不保存结束早于开始的时间区间",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c38c07498b1045",
+    "page": "admin-gift-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "礼物详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证定制礼物到期自动下架",
+    "point": "礼物到期",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "礼物已上架，本次已到配置失效时间"
+    ],
+    "steps": [
+      "进入定制礼物详情",
+      "刷新礼物详情"
+    ],
+    "result": "礼物显示已下架",
+    "sourceIds": [
+      "REQ-ADMIN-1d2b85f630",
+      "REQ-ADMIN-206d15251e",
+      "REQ-ADMIN-9ef6c11fee",
+      "REQ-ADMIN-5082a78976",
+      "REQ-ADMIN-38f9e5f793",
+      "REQ-ADMIN-72c51c5fad",
+      "REQ-ADMIN-7ee497310f",
+      "REQ-ADMIN-9a63cdc3a1",
+      "REQ-ADMIN-e136132ea1",
+      "REQ-ADMIN-e56fa487e5",
+      "REQ-PUB-446bdb25b3"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "礼物详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c066bd1b814a60",
+    "page": "admin-gift-list.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "普通礼物（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证普通礼物下架保留历史收益",
+    "point": "商品历史保留",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "该礼物已有真实成功赠送及收益记录"
+    ],
+    "steps": [
+      "进入普通礼物列表",
+      "下架该礼物并确认"
+    ],
+    "result": "已有收益记录不被删除",
+    "sourceIds": [
+      "REQ-ADMIN-89b41a7fba",
+      "REQ-ADMIN-0daf46fee3",
+      "REQ-ADMIN-512a54dffd",
+      "REQ-ADMIN-7f9a747012",
+      "REQ-ADMIN-2739f9ca0c",
+      "REQ-ADMIN-6d07fcecc2",
+      "REQ-ADMIN-f962fe5d6a",
+      "REQ-ADMIN-18035dbdde",
+      "REQ-ADMIN-94c7c6d110"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "普通礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0399c13ee146de",
+    "page": "admin-gift-list.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "普通礼物（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证礼物ID重复不能新增",
+    "point": "礼物标识唯一",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已经存在礼物ID1001，其余新增字段合法"
+    ],
+    "steps": [
+      "进入普通礼物列表",
+      "点击新增",
+      "填写礼物ID1001",
+      "点击保存"
+    ],
+    "result": "不创建重复礼物ID",
+    "sourceIds": [
+      "REQ-ADMIN-89b41a7fba",
+      "REQ-ADMIN-0daf46fee3",
+      "REQ-ADMIN-512a54dffd",
+      "REQ-ADMIN-7f9a747012",
+      "REQ-ADMIN-2739f9ca0c",
+      "REQ-ADMIN-6d07fcecc2",
+      "REQ-ADMIN-f962fe5d6a",
+      "REQ-ADMIN-18035dbdde",
+      "REQ-ADMIN-94c7c6d110"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "普通礼物",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-27eb16532e0a7a",
+    "page": "admin-prop-list.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证道具下架不提前收回已发资产",
+    "point": "道具有效期保留",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "目标道具已发放给用户，尚未到期"
+    ],
+    "steps": [
+      "进入道具列表",
+      "下架该道具并确认"
+    ],
+    "result": "用户已有道具仍可在原有效期内使用",
+    "sourceIds": [
+      "REQ-ADMIN-14156cd3cb",
+      "REQ-ADMIN-8adfebad28",
+      "REQ-ADMIN-175c3a85b1",
+      "REQ-ADMIN-29eb1cdb20",
+      "REQ-ADMIN-f1c1fb8c45",
+      "REQ-ADMIN-d4e65f30f8",
+      "REQ-ADMIN-a407cf113b",
+      "REQ-PUB-fbfbcd3897",
+      "REQ-PUB-5a7a8ce7b6"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-96fb5f309cf95b",
+    "page": "admin-prop-list.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "道具配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证下架道具不再用于新发放",
+    "point": "道具发放限制",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "目标道具已下架"
+    ],
+    "steps": [
+      "进入道具列表",
+      "查看发放选择范围"
+    ],
+    "result": "不可新发放该下架道具",
+    "sourceIds": [
+      "REQ-ADMIN-14156cd3cb",
+      "REQ-ADMIN-8adfebad28",
+      "REQ-ADMIN-175c3a85b1",
+      "REQ-ADMIN-29eb1cdb20",
+      "REQ-ADMIN-f1c1fb8c45",
+      "REQ-ADMIN-d4e65f30f8",
+      "REQ-ADMIN-a407cf113b",
+      "REQ-PUB-fbfbcd3897",
+      "REQ-PUB-5a7a8ce7b6"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "道具配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-08b4c47ed7de6b",
+    "page": "admin-gift-send-count-rule-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "购买份数配置详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证赠送数量不能为空",
+    "point": "赠送数量最低项数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其他必填项合法"
+    ],
+    "steps": [
+      "进入赠送数量规则详情",
+      "删除全部赠送数量",
+      "点击保存"
+    ],
+    "result": "不能保存没有赠送数量的规则",
+    "sourceIds": [
+      "REQ-ADMIN-d3840ac491",
+      "REQ-ADMIN-1159c4c1c1",
+      "REQ-ADMIN-3256e2a43a",
+      "REQ-ADMIN-413eda2d56",
+      "REQ-ADMIN-51c1ca47a3",
+      "REQ-ADMIN-3f219b96b0",
+      "REQ-PUB-6ebeacc102",
+      "REQ-PUB-3686d6e21b"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "购买份数配置详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-dd39416f2b5e8d",
+    "page": "admin-gift-send-count-rule-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "购买份数配置详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证赠送数量不能重复",
+    "point": "赠送数量去重",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "数量列表已有1"
+    ],
+    "steps": [
+      "进入赠送数量规则详情",
+      "新增数量1",
+      "点击保存"
+    ],
+    "result": "不能保存重复数量",
+    "sourceIds": [
+      "REQ-ADMIN-d3840ac491",
+      "REQ-ADMIN-1159c4c1c1",
+      "REQ-ADMIN-3256e2a43a",
+      "REQ-ADMIN-413eda2d56",
+      "REQ-ADMIN-51c1ca47a3",
+      "REQ-ADMIN-3f219b96b0",
+      "REQ-PUB-6ebeacc102",
+      "REQ-PUB-3686d6e21b"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "购买份数配置详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f1d31892897d99",
+    "page": "admin-gift-send-count-rule-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "购买份数配置详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证默认数量必须属于列表",
+    "point": "默认数量关联",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "数量列表仅有1和10"
+    ],
+    "steps": [
+      "进入赠送数量规则详情",
+      "查看默认数量选项"
+    ],
+    "result": "默认数量选项仅包含1和10",
+    "sourceIds": [
+      "REQ-ADMIN-d3840ac491",
+      "REQ-ADMIN-1159c4c1c1",
+      "REQ-ADMIN-3256e2a43a",
+      "REQ-ADMIN-413eda2d56",
+      "REQ-ADMIN-51c1ca47a3",
+      "REQ-ADMIN-3f219b96b0",
+      "REQ-PUB-6ebeacc102",
+      "REQ-PUB-3686d6e21b"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "购买份数配置详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f22fe6960b69c2",
+    "page": "admin-gift-send-count-rule-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "购买份数配置详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证删除数量同步更新默认选项",
+    "point": "数量配置联动",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "数量列表为1、10、100，默认值为1"
+    ],
+    "steps": [
+      "进入赠送数量规则详情",
+      "删除数量100"
+    ],
+    "result": "默认数量选项不再包含100",
+    "sourceIds": [
+      "REQ-ADMIN-d3840ac491",
+      "REQ-ADMIN-1159c4c1c1",
+      "REQ-ADMIN-3256e2a43a",
+      "REQ-ADMIN-413eda2d56",
+      "REQ-ADMIN-51c1ca47a3",
+      "REQ-ADMIN-3f219b96b0",
+      "REQ-PUB-6ebeacc102",
+      "REQ-PUB-3686d6e21b"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "购买份数配置详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-b0b371b06147fc",
+    "page": "admin-gift-send-count-rule-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "购买份数配置详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证未选择礼物不能保存",
+    "point": "适用礼物必选",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "数量与默认值合法，未选择礼物"
+    ],
+    "steps": [
+      "进入赠送数量规则详情",
+      "点击保存"
+    ],
+    "result": "不能保存无适用礼物的规则",
+    "sourceIds": [
+      "REQ-ADMIN-d3840ac491",
+      "REQ-ADMIN-1159c4c1c1",
+      "REQ-ADMIN-3256e2a43a",
+      "REQ-ADMIN-413eda2d56",
+      "REQ-ADMIN-51c1ca47a3",
+      "REQ-ADMIN-3f219b96b0",
+      "REQ-PUB-6ebeacc102",
+      "REQ-PUB-3686d6e21b"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "购买份数配置详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-a8f8091503f258",
+    "page": "admin-gift-send-count-rule-detail.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "购买份数配置详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证同一礼物不能关联两条启用规则",
+    "point": "礼物数量规则互斥",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "礼物海星已关联启用规则"
+    ],
+    "steps": [
+      "进入赠送数量规则详情",
+      "选择海星并启用保存新规则"
+    ],
+    "result": "新规则因关联冲突不能启用",
+    "sourceIds": [
+      "REQ-ADMIN-d3840ac491",
+      "REQ-ADMIN-1159c4c1c1",
+      "REQ-ADMIN-3256e2a43a",
+      "REQ-ADMIN-413eda2d56",
+      "REQ-ADMIN-51c1ca47a3",
+      "REQ-ADMIN-3f219b96b0",
+      "REQ-PUB-6ebeacc102",
+      "REQ-PUB-3686d6e21b"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "购买份数配置详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-fea187d4ad2fe2",
+    "page": "admin-gift-send-count-rules.html",
+    "end": "管理后台",
+    "module": "礼物与道具",
+    "structure": "购买份数配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证停用数量规则后礼物仅支持单件",
+    "point": "数量规则停用",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "目标礼物当前使用1、10、100数量规则"
+    ],
+    "steps": [
+      "进入赠送数量规则列表",
+      "停用该规则并确认"
+    ],
+    "result": "关联礼物默认仅支持数量1",
+    "sourceIds": [
+      "REQ-ADMIN-ece8678758",
+      "REQ-ADMIN-05ef076b58",
+      "REQ-ADMIN-8ad8085865",
+      "REQ-ADMIN-b207aa9406",
+      "REQ-ADMIN-a22be6fd9a",
+      "REQ-ADMIN-8a4dad81df",
+      "REQ-ADMIN-ae169969d3",
+      "REQ-ADMIN-528c59d35f",
+      "REQ-PUB-27475600eb",
+      "REQ-PUB-a4c4a4e746",
+      "REQ-PUB-ba224a0d2c"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "购买份数配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-134f76ea75a280",
+    "page": "admin-placement-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "展示素材编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证轮播至少保留一项",
+    "point": "轮播最小项数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前只有1项轮播内容"
+    ],
+    "steps": [
+      "进入运营位配置详情",
+      "点击删除该项"
+    ],
+    "result": "该唯一轮播项不能删除",
+    "sourceIds": [
+      "REQ-ADMIN-3cc5316b4b",
+      "REQ-ADMIN-bc5dcc3cad",
+      "REQ-ADMIN-6c3bc8ae0b",
+      "REQ-ADMIN-fc14633413",
+      "REQ-ADMIN-1576f270ce",
+      "REQ-ADMIN-6bc6766177",
+      "REQ-ADMIN-54f61f4d76",
+      "REQ-ADMIN-4d431d0bd9",
+      "REQ-ADMIN-4b8b98a165",
+      "REQ-ADMIN-5d4adf01cb",
+      "REQ-ADMIN-13b73aa3a7",
+      "REQ-ADMIN-86d44faaf9",
+      "REQ-PUB-86486d9331",
+      "REQ-PUB-c2699f8b74",
+      "REQ-PUB-66552e2139",
+      "REQ-PUB-72f07ea6a9"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "展示素材编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4e2f358a7e3062",
+    "page": "admin-placement-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "展示素材编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证轮播五项后不能再添加",
+    "point": "轮播最大项数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "当前已有5项轮播内容"
+    ],
+    "steps": [
+      "进入运营位配置详情",
+      "点击添加"
+    ],
+    "result": "不新增第6项轮播内容",
+    "sourceIds": [
+      "REQ-ADMIN-3cc5316b4b",
+      "REQ-ADMIN-bc5dcc3cad",
+      "REQ-ADMIN-6c3bc8ae0b",
+      "REQ-ADMIN-fc14633413",
+      "REQ-ADMIN-1576f270ce",
+      "REQ-ADMIN-6bc6766177",
+      "REQ-ADMIN-54f61f4d76",
+      "REQ-ADMIN-4d431d0bd9",
+      "REQ-ADMIN-4b8b98a165",
+      "REQ-ADMIN-5d4adf01cb",
+      "REQ-ADMIN-13b73aa3a7",
+      "REQ-ADMIN-86d44faaf9",
+      "REQ-PUB-86486d9331",
+      "REQ-PUB-c2699f8b74",
+      "REQ-PUB-66552e2139",
+      "REQ-PUB-72f07ea6a9"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "展示素材编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d3bc2a3003f9ba",
+    "page": "admin-placement-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "展示素材编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证未保存轮播项可直接移除",
+    "point": "新增素材删除",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "刚新建一项尚未保存的内容，另有一项已保存内容"
+    ],
+    "steps": [
+      "进入运营位配置详情",
+      "删除新建项"
+    ],
+    "result": "新建项直接移除",
+    "sourceIds": [
+      "REQ-ADMIN-3cc5316b4b",
+      "REQ-ADMIN-bc5dcc3cad",
+      "REQ-ADMIN-6c3bc8ae0b",
+      "REQ-ADMIN-fc14633413",
+      "REQ-ADMIN-1576f270ce",
+      "REQ-ADMIN-6bc6766177",
+      "REQ-ADMIN-54f61f4d76",
+      "REQ-ADMIN-4d431d0bd9",
+      "REQ-ADMIN-4b8b98a165",
+      "REQ-ADMIN-5d4adf01cb",
+      "REQ-ADMIN-13b73aa3a7",
+      "REQ-ADMIN-86d44faaf9",
+      "REQ-PUB-86486d9331",
+      "REQ-PUB-c2699f8b74",
+      "REQ-PUB-66552e2139",
+      "REQ-PUB-72f07ea6a9"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "展示素材编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-7d13408518e715",
+    "page": "admin-placement-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "展示素材编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证已保存轮播项删除需要确认",
+    "point": "已有素材删除",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有2项已保存轮播内容"
+    ],
+    "steps": [
+      "进入运营位配置详情",
+      "删除其中1项"
+    ],
+    "result": "显示删除确认",
+    "sourceIds": [
+      "REQ-ADMIN-3cc5316b4b",
+      "REQ-ADMIN-bc5dcc3cad",
+      "REQ-ADMIN-6c3bc8ae0b",
+      "REQ-ADMIN-fc14633413",
+      "REQ-ADMIN-1576f270ce",
+      "REQ-ADMIN-6bc6766177",
+      "REQ-ADMIN-54f61f4d76",
+      "REQ-ADMIN-4d431d0bd9",
+      "REQ-ADMIN-4b8b98a165",
+      "REQ-ADMIN-5d4adf01cb",
+      "REQ-ADMIN-13b73aa3a7",
+      "REQ-ADMIN-86d44faaf9",
+      "REQ-PUB-86486d9331",
+      "REQ-PUB-c2699f8b74",
+      "REQ-PUB-66552e2139",
+      "REQ-PUB-72f07ea6a9"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "展示素材编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-73f684e6bb93ca",
+    "page": "admin-placement-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "展示素材编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证App跳转目标必选",
+    "point": "运营位页面目标",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "本项素材已上传，跳转类型为APP已有页面但未选目标"
+    ],
+    "steps": [
+      "进入运营位配置详情",
+      "点击保存"
+    ],
+    "result": "本项因缺少目标页面不能保存",
+    "sourceIds": [
+      "REQ-ADMIN-3cc5316b4b",
+      "REQ-ADMIN-bc5dcc3cad",
+      "REQ-ADMIN-6c3bc8ae0b",
+      "REQ-ADMIN-fc14633413",
+      "REQ-ADMIN-1576f270ce",
+      "REQ-ADMIN-6bc6766177",
+      "REQ-ADMIN-54f61f4d76",
+      "REQ-ADMIN-4d431d0bd9",
+      "REQ-ADMIN-4b8b98a165",
+      "REQ-ADMIN-5d4adf01cb",
+      "REQ-ADMIN-13b73aa3a7",
+      "REQ-ADMIN-86d44faaf9",
+      "REQ-PUB-86486d9331",
+      "REQ-PUB-c2699f8b74",
+      "REQ-PUB-66552e2139",
+      "REQ-PUB-72f07ea6a9"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "展示素材编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-394099d8d7dac3",
+    "page": "admin-placement-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "展示素材编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证活动长图跳转必须上传内容",
+    "point": "运营位长图目标",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "本项素材已上传，跳转类型为活动长图但未上传详情图"
+    ],
+    "steps": [
+      "进入运营位配置详情",
+      "点击保存"
+    ],
+    "result": "本项因缺少活动长图不能保存",
+    "sourceIds": [
+      "REQ-ADMIN-3cc5316b4b",
+      "REQ-ADMIN-bc5dcc3cad",
+      "REQ-ADMIN-6c3bc8ae0b",
+      "REQ-ADMIN-fc14633413",
+      "REQ-ADMIN-1576f270ce",
+      "REQ-ADMIN-6bc6766177",
+      "REQ-ADMIN-54f61f4d76",
+      "REQ-ADMIN-4d431d0bd9",
+      "REQ-ADMIN-4b8b98a165",
+      "REQ-ADMIN-5d4adf01cb",
+      "REQ-ADMIN-13b73aa3a7",
+      "REQ-ADMIN-86d44faaf9",
+      "REQ-PUB-86486d9331",
+      "REQ-PUB-c2699f8b74",
+      "REQ-PUB-66552e2139",
+      "REQ-PUB-72f07ea6a9"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "展示素材编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-2317b2338674e4",
+    "page": "admin-placement-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "展示素材编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证同位置不同配置不能排期重叠",
+    "point": "运营位排期冲突",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已启用配置覆盖10月1日至3日，新配置同一位置且覆盖10月3日至5日"
+    ],
+    "steps": [
+      "进入运营位配置详情",
+      "点击保存新配置"
+    ],
+    "result": "新配置因10月3日重叠不能生效",
+    "sourceIds": [
+      "REQ-ADMIN-3cc5316b4b",
+      "REQ-ADMIN-bc5dcc3cad",
+      "REQ-ADMIN-6c3bc8ae0b",
+      "REQ-ADMIN-fc14633413",
+      "REQ-ADMIN-1576f270ce",
+      "REQ-ADMIN-6bc6766177",
+      "REQ-ADMIN-54f61f4d76",
+      "REQ-ADMIN-4d431d0bd9",
+      "REQ-ADMIN-4b8b98a165",
+      "REQ-ADMIN-5d4adf01cb",
+      "REQ-ADMIN-13b73aa3a7",
+      "REQ-ADMIN-86d44faaf9",
+      "REQ-PUB-86486d9331",
+      "REQ-PUB-c2699f8b74",
+      "REQ-PUB-66552e2139",
+      "REQ-PUB-72f07ea6a9"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "展示素材编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-9400cf0fbf270a",
+    "page": "admin-placement-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "展示素材编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证同一轮播内多素材可共享排期",
+    "point": "轮播内部排期",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "同一配置有2项素材，位置无其他重叠配置"
+    ],
+    "steps": [
+      "进入运营位配置详情",
+      "点击保存"
+    ],
+    "result": "该配置的两项素材均按同一排期生效",
+    "sourceIds": [
+      "REQ-ADMIN-3cc5316b4b",
+      "REQ-ADMIN-bc5dcc3cad",
+      "REQ-ADMIN-6c3bc8ae0b",
+      "REQ-ADMIN-fc14633413",
+      "REQ-ADMIN-1576f270ce",
+      "REQ-ADMIN-6bc6766177",
+      "REQ-ADMIN-54f61f4d76",
+      "REQ-ADMIN-4d431d0bd9",
+      "REQ-ADMIN-4b8b98a165",
+      "REQ-ADMIN-5d4adf01cb",
+      "REQ-ADMIN-13b73aa3a7",
+      "REQ-ADMIN-86d44faaf9",
+      "REQ-PUB-86486d9331",
+      "REQ-PUB-c2699f8b74",
+      "REQ-PUB-66552e2139",
+      "REQ-PUB-72f07ea6a9"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "展示素材编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c3cd3a79b1ba84",
+    "page": "admin-placement-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "展示素材编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证拖动素材保存轮播顺序",
+    "point": "轮播顺序保存",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有素材海星、晨光两项"
+    ],
+    "steps": [
+      "进入运营位配置详情",
+      "拖动晨光到海星之前",
+      "点击保存"
+    ],
+    "result": "轮播顺序保存为晨光、海星",
+    "sourceIds": [
+      "REQ-ADMIN-3cc5316b4b",
+      "REQ-ADMIN-bc5dcc3cad",
+      "REQ-ADMIN-6c3bc8ae0b",
+      "REQ-ADMIN-fc14633413",
+      "REQ-ADMIN-1576f270ce",
+      "REQ-ADMIN-6bc6766177",
+      "REQ-ADMIN-54f61f4d76",
+      "REQ-ADMIN-4d431d0bd9",
+      "REQ-ADMIN-4b8b98a165",
+      "REQ-ADMIN-5d4adf01cb",
+      "REQ-ADMIN-13b73aa3a7",
+      "REQ-ADMIN-86d44faaf9",
+      "REQ-PUB-86486d9331",
+      "REQ-PUB-c2699f8b74",
+      "REQ-PUB-66552e2139",
+      "REQ-PUB-72f07ea6a9"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "展示素材编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-40b25499042b90",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证指定公会推送仅发目标用户",
+    "point": "推送目标范围",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "四语文案完整，选择晨星公会；用户海风在晨星，晨光在另一公会"
+    ],
+    "steps": [
+      "进入推送详情",
+      "点击立即发送"
+    ],
+    "result": "目标接收范围不包含晨光",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-6a402624f43477",
+    "page": "admin-push-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "推送配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证发送后推送任务只读",
+    "point": "推送发送终态",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "目标范围及四语文案完整"
+    ],
+    "steps": [
+      "进入推送详情",
+      "点击立即发送"
+    ],
+    "result": "页面切换为已发送只读状态",
+    "sourceIds": [
+      "REQ-ADMIN-1459bb74ef",
+      "REQ-ADMIN-2618b4914c",
+      "REQ-ADMIN-c5743bedf5",
+      "REQ-ADMIN-b440ae96d0",
+      "REQ-ADMIN-63d7d7cbd9",
+      "REQ-ADMIN-6d9b07aef7",
+      "REQ-PUB-e2f525ec4d",
+      "REQ-PUB-54a3ce6dd5"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "推送配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-deeb2b5a0f7d12",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证销售价格最多两位小数",
+    "point": "套餐金额精度",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其他必填项合法"
+    ],
+    "steps": [
+      "进入活动充值套餐详情",
+      "输入销售价格1.001",
+      "点击保存"
+    ],
+    "result": "不能保存三位小数销售价格",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-596796e6ebd4c7",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证赠送金币允许零",
+    "point": "套餐零赠金",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "基础金币为100，其余必填项合法"
+    ],
+    "steps": [
+      "进入活动充值套餐详情",
+      "输入赠送金币0",
+      "点击保存"
+    ],
+    "result": "套餐赠送金币保存为0",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c2259d66c0d1ae",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证限购零表示不限",
+    "point": "活动限购关闭",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "活动时间有效且账号已有成功购买记录"
+    ],
+    "steps": [
+      "进入活动充值套餐详情",
+      "输入限购次数0",
+      "点击保存"
+    ],
+    "result": "该账号不因已有购买次数被限购",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0c28147dc0b0db",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证退款不恢复活动限购次数",
+    "point": "活动购买资格",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "限购1次，用户成功购买后已全额退款"
+    ],
+    "steps": [
+      "进入活动充值套餐详情",
+      "查看用户该套餐购买资格"
+    ],
+    "result": "该用户仍已用完此套餐限购次数",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-cf52798afaece7",
+    "page": "admin-recharge-package-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "充值套餐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证套餐修改不追溯历史订单",
+    "point": "充值套餐快照",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "历史订单基础1000赠金100，新配置赠金改为200"
+    ],
+    "steps": [
+      "进入活动充值套餐详情",
+      "保存新配置"
+    ],
+    "result": "历史订单赠送金币仍为100",
+    "sourceIds": [
+      "REQ-ADMIN-03b9df7690",
+      "REQ-ADMIN-85f546b445",
+      "REQ-ADMIN-f5c0665f17",
+      "REQ-ADMIN-9efa98e5e6",
+      "REQ-ADMIN-d847d02c6e",
+      "REQ-ADMIN-dd484cf1a1",
+      "REQ-ADMIN-9ee54399d9",
+      "REQ-ADMIN-10d1dfd825",
+      "REQ-ADMIN-c765deabe8",
+      "REQ-ADMIN-69b0e8e8e1",
+      "REQ-PUB-92d6404e00"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "充值套餐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-be114690b7a86c",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证任务条件不能为空",
+    "point": "任务条件最低数量",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "没有达成条件，其他字段合法"
+    ],
+    "steps": [
+      "进入任务详情",
+      "点击保存"
+    ],
+    "result": "不能保存无达成条件任务",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-f0a21430d84dc2",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证同任务阈值不能重复",
+    "point": "任务阈值唯一",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有阈值10及其奖励"
+    ],
+    "steps": [
+      "进入任务详情",
+      "新增阈值10",
+      "点击保存"
+    ],
+    "result": "不能保存重复阈值",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-cfb99f76bf8e7d",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证用户动作限制可选指标",
+    "point": "动作指标关联",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已选择观看直播动作"
+    ],
+    "steps": [
+      "进入任务详情",
+      "查看可选指标"
+    ],
+    "result": "仅提供该动作预置支持的指标",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-a710d74e0ba30f",
+    "page": "admin-task-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "通用任务编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证切换动作清除不适用周期",
+    "point": "任务配置切换",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "原动作及指标已选定"
+    ],
+    "steps": [
+      "进入任务详情",
+      "选择另一用户动作"
+    ],
+    "result": "指标和周期重新按新动作的预置组合选择",
+    "sourceIds": [
+      "REQ-ADMIN-c3e23a0fe9",
+      "REQ-ADMIN-e9ffe4d454",
+      "REQ-ADMIN-39e3514de9",
+      "REQ-ADMIN-da27cade58",
+      "REQ-ADMIN-86741e5cf0",
+      "REQ-ADMIN-9bea90089e",
+      "REQ-ADMIN-fe27b5660a",
+      "REQ-ADMIN-40fca8e276",
+      "REQ-ADMIN-f1bf6ea7f4",
+      "REQ-PUB-f33bf6913f",
+      "REQ-PUB-de3f6f59f7",
+      "REQ-PUB-ad67ae8cf6"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "通用任务编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d064ae8c7db75f",
+    "page": "admin-task-config.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "任务配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证停用任务停止新进度",
+    "point": "任务停止累计",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "任务已启用，有用户已有进度"
+    ],
+    "steps": [
+      "进入任务配置",
+      "停用任务并确认"
+    ],
+    "result": "停用之后的新动作不再增加该任务进度",
+    "sourceIds": [
+      "REQ-ADMIN-45a60cd422",
+      "REQ-ADMIN-37eb7d9d45",
+      "REQ-ADMIN-06cc85f9a9",
+      "REQ-ADMIN-547c614cbb",
+      "REQ-ADMIN-6020d1207f",
+      "REQ-ADMIN-d4cceec962",
+      "REQ-ADMIN-c3b6d3d3ca",
+      "REQ-PUB-0b4fe8efe8",
+      "REQ-PUB-b3946d1525"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "任务配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c092edcc3a33e9",
+    "page": "admin-task-config.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "任务配置（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证停用任务不收回已领奖励",
+    "point": "任务资产保留",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "用户已领取该任务金币奖励"
+    ],
+    "steps": [
+      "进入任务配置",
+      "停用任务并确认"
+    ],
+    "result": "已领金币不因停用而被回收",
+    "sourceIds": [
+      "REQ-ADMIN-45a60cd422",
+      "REQ-ADMIN-37eb7d9d45",
+      "REQ-ADMIN-06cc85f9a9",
+      "REQ-ADMIN-547c614cbb",
+      "REQ-ADMIN-6020d1207f",
+      "REQ-ADMIN-d4cceec962",
+      "REQ-ADMIN-c3b6d3d3ca",
+      "REQ-PUB-0b4fe8efe8",
+      "REQ-PUB-b3946d1525"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "任务配置",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-8ee61a212e169d",
+    "page": "admin-guild-recommendation-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "公会推荐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证推荐公会必须启用",
+    "point": "推荐对象状态",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "晨星公会已停用"
+    ],
+    "steps": [
+      "进入公会推荐详情",
+      "打开推荐公会选择器"
+    ],
+    "result": "不可选择晨星公会",
+    "sourceIds": [
+      "REQ-ADMIN-91567974f0",
+      "REQ-ADMIN-c8dc2e5952",
+      "REQ-ADMIN-d9f26cd09e",
+      "REQ-ADMIN-0c0a51dd50"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会推荐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c5d5449d2fa9af",
+    "page": "admin-guild-recommendation-detail.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "公会推荐编辑（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证同公会不能重复推荐",
+    "point": "公会推荐唯一",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "晨星公会已有推荐记录"
+    ],
+    "steps": [
+      "进入公会推荐详情",
+      "新建晨星公会推荐并保存"
+    ],
+    "result": "不能新增重复推荐记录",
+    "sourceIds": [
+      "REQ-ADMIN-91567974f0",
+      "REQ-ADMIN-c8dc2e5952",
+      "REQ-ADMIN-d9f26cd09e",
+      "REQ-ADMIN-0c0a51dd50"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会推荐编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-762e89b66af4dc",
+    "page": "admin-feature-switch.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "直播房型（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证关闭门票房不结束已有场次",
+    "point": "房型开关在播范围",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "存在一场已开始的门票直播"
+    ],
+    "steps": [
+      "进入房型功能开关",
+      "关闭门票房开关"
+    ],
+    "result": "该已开始场次继续直播",
+    "sourceIds": [
+      "REQ-ADMIN-f1d1218c8c",
+      "REQ-ADMIN-5e1f3cc0b5",
+      "REQ-ADMIN-0f22b6bf47",
+      "REQ-ADMIN-fd88a0aa57",
+      "REQ-ADMIN-9a4834559c",
+      "REQ-ADMIN-045e314f07",
+      "REQ-PUB-195524a518"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "直播房型",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-139d3d5824e849",
+    "page": "admin-feature-switch.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "直播房型（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证关闭密码房不改变历史快照",
+    "point": "房型开关历史范围",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "存在已结束密码房场次"
+    ],
+    "steps": [
+      "进入房型功能开关",
+      "关闭密码房开关"
+    ],
+    "result": "历史场次仍记录原密码房类型",
+    "sourceIds": [
+      "REQ-ADMIN-f1d1218c8c",
+      "REQ-ADMIN-5e1f3cc0b5",
+      "REQ-ADMIN-0f22b6bf47",
+      "REQ-ADMIN-fd88a0aa57",
+      "REQ-ADMIN-9a4834559c",
+      "REQ-ADMIN-045e314f07",
+      "REQ-PUB-195524a518"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "直播房型",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-df1283f1f4673d",
+    "page": "admin-ticket-price-level.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证最后有效档位不能停用",
+    "point": "有效档位最低数量",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "只剩一个启用门票价格档位"
+    ],
+    "steps": [
+      "进入门票价格档位列表",
+      "停用该档位"
+    ],
+    "result": "该档位仍保持启用",
+    "sourceIds": [
+      "REQ-ADMIN-a99674e0be",
+      "REQ-ADMIN-0f90b6880d",
+      "REQ-ADMIN-6b6fefd78c",
+      "REQ-ADMIN-3f79f61625",
+      "REQ-ADMIN-20293e34e7",
+      "REQ-ADMIN-af3fc40401",
+      "REQ-ADMIN-be08427d7f",
+      "REQ-PUB-7070b51d09",
+      "REQ-PUB-852db98c84"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-be4a27560a5afe",
+    "page": "admin-ticket-price-level.html",
+    "end": "管理后台",
+    "module": "运营配置",
+    "structure": "门票价格档位（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证价格停用不改变已开播票价",
+    "point": "门票价格快照",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "某场次已按50金币开播，另有有效档位"
+    ],
+    "steps": [
+      "进入门票价格档位列表",
+      "停用50金币档位"
+    ],
+    "result": "已开播场次门票价格仍为50金币",
+    "sourceIds": [
+      "REQ-ADMIN-a99674e0be",
+      "REQ-ADMIN-0f90b6880d",
+      "REQ-ADMIN-6b6fefd78c",
+      "REQ-ADMIN-3f79f61625",
+      "REQ-ADMIN-20293e34e7",
+      "REQ-ADMIN-af3fc40401",
+      "REQ-ADMIN-be08427d7f",
+      "REQ-PUB-7070b51d09",
+      "REQ-PUB-852db98c84"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "门票价格档位",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-aa5984d73f3b29",
+    "page": "admin-user-list.html",
+    "end": "管理后台",
+    "module": "用户管理",
+    "structure": "用户列表（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证账号封禁强制退出登录",
+    "point": "账号封禁在线效果",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "海风当前已登录用户App"
+    ],
+    "steps": [
+      "进入用户列表",
+      "封禁海风并填写原因确认"
+    ],
+    "result": "海风已建立的登录会话被强制下线",
+    "sourceIds": [
+      "REQ-ADMIN-c18946e195",
+      "REQ-ADMIN-683356ae89",
+      "REQ-ADMIN-0993ca8ece",
+      "REQ-ADMIN-3c67edaf29",
+      "REQ-ADMIN-24d2608b4f",
+      "REQ-ADMIN-50459407e8",
+      "REQ-ADMIN-6981e54194",
+      "REQ-ADMIN-13552567ba",
+      "REQ-ADMIN-9051784747",
+      "REQ-ADMIN-6d3d51b163",
+      "REQ-ADMIN-2648bcb6dc",
+      "REQ-ADMIN-2ab612c482",
+      "REQ-PUB-5ffffbea47"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-ae39e68f1894",
+    "flow": "FLOW-311bb313",
+    "from": "可登录",
+    "to": "禁止登录且当前直播已结束",
+    "object": "账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c58e73976c0558",
+    "page": "admin-user-list.html",
+    "end": "管理后台",
+    "module": "用户管理",
+    "structure": "用户列表（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证主播账号封禁结束在播场次",
+    "point": "账号封禁关播",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "海风有主播身份且正在直播"
+    ],
+    "steps": [
+      "进入用户列表",
+      "封禁海风并填写原因确认"
+    ],
+    "result": "海风当前直播场次结束",
+    "sourceIds": [
+      "REQ-ADMIN-c18946e195",
+      "REQ-ADMIN-683356ae89",
+      "REQ-ADMIN-0993ca8ece",
+      "REQ-ADMIN-3c67edaf29",
+      "REQ-ADMIN-24d2608b4f",
+      "REQ-ADMIN-50459407e8",
+      "REQ-ADMIN-6981e54194",
+      "REQ-ADMIN-13552567ba",
+      "REQ-ADMIN-9051784747",
+      "REQ-ADMIN-6d3d51b163",
+      "REQ-ADMIN-2648bcb6dc",
+      "REQ-ADMIN-2ab612c482",
+      "REQ-PUB-5ffffbea47"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-ae39e68f1894",
+    "flow": "FLOW-311bb313",
+    "from": "可登录",
+    "to": "禁止登录且当前直播已结束",
+    "object": "账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-72e5560152340a",
+    "page": "admin-user-list.html",
+    "end": "管理后台",
+    "module": "用户管理",
+    "structure": "用户列表（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证账号状态只有正常和封禁",
+    "point": "账号状态枚举",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权"
+    ],
+    "steps": [
+      "进入用户列表",
+      "查看账号状态筛选"
+    ],
+    "result": "选项不包含直播间禁言状态",
+    "sourceIds": [
+      "REQ-ADMIN-c18946e195",
+      "REQ-ADMIN-683356ae89",
+      "REQ-ADMIN-0993ca8ece",
+      "REQ-ADMIN-3c67edaf29",
+      "REQ-ADMIN-24d2608b4f",
+      "REQ-ADMIN-50459407e8",
+      "REQ-ADMIN-6981e54194",
+      "REQ-ADMIN-13552567ba",
+      "REQ-ADMIN-9051784747",
+      "REQ-ADMIN-6d3d51b163",
+      "REQ-ADMIN-2648bcb6dc",
+      "REQ-ADMIN-2ab612c482",
+      "REQ-PUB-5ffffbea47"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "用户列表",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-db1757d6d09287",
+    "page": "admin-user-list.html",
+    "end": "管理后台",
+    "module": "用户管理",
+    "structure": "用户列表（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证财富等级范围不能倒置",
+    "point": "等级筛选上下界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权"
+    ],
+    "steps": [
+      "进入用户列表",
+      "输入等级下限10和上限9",
+      "点击查询"
+    ],
+    "result": "不能执行倒置等级范围查询",
+    "sourceIds": [
+      "REQ-ADMIN-c18946e195",
+      "REQ-ADMIN-683356ae89",
+      "REQ-ADMIN-0993ca8ece",
+      "REQ-ADMIN-3c67edaf29",
+      "REQ-ADMIN-24d2608b4f",
+      "REQ-ADMIN-50459407e8",
+      "REQ-ADMIN-6981e54194",
+      "REQ-ADMIN-13552567ba",
+      "REQ-ADMIN-9051784747",
+      "REQ-ADMIN-6d3d51b163",
+      "REQ-ADMIN-2648bcb6dc",
+      "REQ-ADMIN-2ab612c482",
+      "REQ-PUB-5ffffbea47"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "用户列表",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4cd83b644181d8",
+    "page": "admin-host-review-detail.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "审核详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证平台终审通过才授予主播身份",
+    "point": "认证终审通过",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "用户已获目标公会初审通过"
+    ],
+    "steps": [
+      "进入平台认证审核",
+      "打开待审核申请",
+      "选择通过并确认"
+    ],
+    "result": "用户加入申请公会并获得主播身份",
+    "sourceIds": [
+      "REQ-ADMIN-64724c65c0",
+      "REQ-ADMIN-680859b13d",
+      "REQ-ADMIN-187f8ad1a1",
+      "REQ-ADMIN-2db358b32f",
+      "REQ-ADMIN-1ab4b011f6",
+      "REQ-ADMIN-8d206c6d5c",
+      "REQ-ADMIN-ccf2d699d7",
+      "REQ-ADMIN-1358d766db",
+      "REQ-ADMIN-afa547b300"
+    ],
+    "type": "功能需求",
+    "priority": "P0",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-e4dcab6ca7be",
+    "flow": "FLOW-904d54d7",
+    "from": "待平台终审",
+    "to": "已加入公会并具有主播身份",
+    "object": "入会认证申请",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-2fe2671cd8f8da",
+    "page": "admin-host-review-detail.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "审核详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证平台驳回必须填写原因",
+    "point": "终审驳回原因",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权"
+    ],
+    "steps": [
+      "进入平台认证审核",
+      "打开待审核申请",
+      "选择驳回",
+      "清空驳回原因",
+      "点击确认"
+    ],
+    "result": "不提交缺少原因的驳回结果",
+    "sourceIds": [
+      "REQ-ADMIN-64724c65c0",
+      "REQ-ADMIN-680859b13d",
+      "REQ-ADMIN-187f8ad1a1",
+      "REQ-ADMIN-2db358b32f",
+      "REQ-ADMIN-1ab4b011f6",
+      "REQ-ADMIN-8d206c6d5c",
+      "REQ-ADMIN-ccf2d699d7",
+      "REQ-ADMIN-1358d766db",
+      "REQ-ADMIN-afa547b300"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "审核详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-8f672692ed0b3a",
+    "page": "admin-host-review-detail.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "审核详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证平台驳回使申请失效",
+    "point": "认证终审驳回",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权"
+    ],
+    "steps": [
+      "进入平台认证审核",
+      "打开待审核申请",
+      "选择驳回",
+      "填写原因“材料不可辨认”",
+      "点击确认"
+    ],
+    "result": "该申请终态为已驳回",
+    "sourceIds": [
+      "REQ-ADMIN-64724c65c0",
+      "REQ-ADMIN-680859b13d",
+      "REQ-ADMIN-187f8ad1a1",
+      "REQ-ADMIN-2db358b32f",
+      "REQ-ADMIN-1ab4b011f6",
+      "REQ-ADMIN-8d206c6d5c",
+      "REQ-ADMIN-ccf2d699d7",
+      "REQ-ADMIN-1358d766db",
+      "REQ-ADMIN-afa547b300"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-ade660f389e0",
+    "flow": "FLOW-904d54d7",
+    "from": "待平台终审",
+    "to": "申请失效且未入会",
+    "object": "入会认证申请",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-bb32f04532b2c6",
+    "page": "admin-host-review-detail.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "审核详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证认证已通过记录不能重审",
+    "point": "认证终态保护",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "该申请已通过"
+    ],
+    "steps": [
+      "进入平台认证审核",
+      "打开待审核申请",
+      "查看审核操作"
+    ],
+    "result": "不提供再次通过或驳回入口",
+    "sourceIds": [
+      "REQ-ADMIN-64724c65c0",
+      "REQ-ADMIN-680859b13d",
+      "REQ-ADMIN-187f8ad1a1",
+      "REQ-ADMIN-2db358b32f",
+      "REQ-ADMIN-1ab4b011f6",
+      "REQ-ADMIN-8d206c6d5c",
+      "REQ-ADMIN-ccf2d699d7",
+      "REQ-ADMIN-1358d766db",
+      "REQ-ADMIN-afa547b300"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "审核详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-c01b6c908ad3df",
+    "page": "admin-host-list.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "主播列表（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证关闭平台权限使在播场次结束",
+    "point": "平台权限关闭",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "海风正直播，公会权限开启"
+    ],
+    "steps": [
+      "进入主播列表",
+      "关闭海风平台直播权限并确认"
+    ],
+    "result": "海风当前场次结束",
+    "sourceIds": [
+      "REQ-ADMIN-c21736b6b7",
+      "REQ-ADMIN-cbc88fd888",
+      "REQ-ADMIN-9b7dfb6bb1",
+      "REQ-ADMIN-b909d2723a",
+      "REQ-ADMIN-69bfe359fc",
+      "REQ-ADMIN-14a331483d",
+      "REQ-ADMIN-d389df27ff",
+      "REQ-ADMIN-eac0d030b1",
+      "REQ-ADMIN-1d36dd2f89"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-a0313d8dfc77",
+    "flow": "FLOW-29684c4a",
+    "from": "账号公会认证有效且直播中",
+    "to": "无开播权限且当前场次已结束",
+    "object": "主播直播权限",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-ffba949ff350e4",
+    "page": "admin-host-list.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "主播列表（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证平台锁定开启覆盖公会关闭",
+    "point": "平台权限锁定",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "平台开启、公会原设置关闭"
+    ],
+    "steps": [
+      "进入主播列表",
+      "锁定海风公会管理权限并确认"
+    ],
+    "result": "最终开播权限跟随平台开启",
+    "sourceIds": [
+      "REQ-ADMIN-c21736b6b7",
+      "REQ-ADMIN-cbc88fd888",
+      "REQ-ADMIN-9b7dfb6bb1",
+      "REQ-ADMIN-b909d2723a",
+      "REQ-ADMIN-69bfe359fc",
+      "REQ-ADMIN-14a331483d",
+      "REQ-ADMIN-d389df27ff",
+      "REQ-ADMIN-eac0d030b1",
+      "REQ-ADMIN-1d36dd2f89"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "主播列表",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-89c418d4f045a0",
+    "page": "admin-host-list.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "主播列表（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证解锁恢复原公会关闭设置",
+    "point": "权限解锁恢复",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "锁定前公会关闭，平台目前开启且锁定"
+    ],
+    "steps": [
+      "进入主播列表",
+      "解锁公会管理权限并确认"
+    ],
+    "result": "最终开播权限恢复为关闭",
+    "sourceIds": [
+      "REQ-ADMIN-c21736b6b7",
+      "REQ-ADMIN-cbc88fd888",
+      "REQ-ADMIN-9b7dfb6bb1",
+      "REQ-ADMIN-b909d2723a",
+      "REQ-ADMIN-69bfe359fc",
+      "REQ-ADMIN-14a331483d",
+      "REQ-ADMIN-d389df27ff",
+      "REQ-ADMIN-eac0d030b1",
+      "REQ-ADMIN-1d36dd2f89"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "主播列表",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-3bedec19254e58",
+    "page": "admin-host-list.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "主播列表（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证解封不自动恢复直播权限",
+    "point": "账号与开播分离",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "海风账号封禁且直播权限关闭"
+    ],
+    "steps": [
+      "进入主播列表",
+      "解封海风并确认"
+    ],
+    "result": "海风直播权限仍为关闭",
+    "sourceIds": [
+      "REQ-ADMIN-c21736b6b7",
+      "REQ-ADMIN-cbc88fd888",
+      "REQ-ADMIN-9b7dfb6bb1",
+      "REQ-ADMIN-b909d2723a",
+      "REQ-ADMIN-69bfe359fc",
+      "REQ-ADMIN-14a331483d",
+      "REQ-ADMIN-d389df27ff",
+      "REQ-ADMIN-eac0d030b1",
+      "REQ-ADMIN-1d36dd2f89"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "主播列表",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-a6258263e51eae",
+    "page": "admin-guild-detail.html",
+    "end": "管理后台",
+    "module": "公会管理",
+    "structure": "公会详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证停用公会解绑旗下主播",
+    "point": "公会组织停用",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "公会启用且有在会主播海风"
+    ],
+    "steps": [
+      "进入晨星公会详情",
+      "停用公会并确认"
+    ],
+    "result": "海风与晨星公会的成员关系解除",
+    "sourceIds": [
+      "REQ-ADMIN-4ef461e2a0",
+      "REQ-ADMIN-e80f4db877",
+      "REQ-ADMIN-d13cbc8518",
+      "REQ-ADMIN-7dd40db9fc",
+      "REQ-ADMIN-3d8dcd8ee2",
+      "REQ-ADMIN-b4ecd379e9",
+      "REQ-ADMIN-64f7845def",
+      "REQ-ADMIN-d2cdb2e4a3",
+      "REQ-ADMIN-b1d1539c08",
+      "REQ-ADMIN-0f37342da8",
+      "REQ-ADMIN-cabf72851d",
+      "REQ-ADMIN-836fdf6189",
+      "REQ-PUB-16de884e24",
+      "REQ-PUB-c5ec2a0c42",
+      "REQ-PUB-9264a7bbe6",
+      "REQ-PUB-d76ebede0f",
+      "REQ-PUB-4c7c3b5e12"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "ST-e30590c30822",
+    "flow": "FLOW-8c94b4fc",
+    "from": "启用且有在会主播",
+    "to": "公会停用且主播关系已解除",
+    "object": "公会组织",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-3a4741fc956ada",
+    "page": "admin-guild-detail.html",
+    "end": "管理后台",
+    "module": "公会管理",
+    "structure": "公会详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证只停用公会长账号不解绑主播",
+    "point": "公会账号独立",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "公会启用且海风在会"
+    ],
+    "steps": [
+      "进入晨星公会详情",
+      "停用公会长账号并完成两次确认"
+    ],
+    "result": "海风仍属于晨星公会",
+    "sourceIds": [
+      "REQ-ADMIN-4ef461e2a0",
+      "REQ-ADMIN-e80f4db877",
+      "REQ-ADMIN-d13cbc8518",
+      "REQ-ADMIN-7dd40db9fc",
+      "REQ-ADMIN-3d8dcd8ee2",
+      "REQ-ADMIN-b4ecd379e9",
+      "REQ-ADMIN-64f7845def",
+      "REQ-ADMIN-d2cdb2e4a3",
+      "REQ-ADMIN-b1d1539c08",
+      "REQ-ADMIN-0f37342da8",
+      "REQ-ADMIN-cabf72851d",
+      "REQ-ADMIN-836fdf6189",
+      "REQ-PUB-16de884e24",
+      "REQ-PUB-c5ec2a0c42",
+      "REQ-PUB-9264a7bbe6",
+      "REQ-PUB-d76ebede0f",
+      "REQ-PUB-4c7c3b5e12"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-0a38e97ba48e9f",
+    "page": "admin-guild-detail.html",
+    "end": "管理后台",
+    "module": "公会管理",
+    "structure": "公会详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证解散公会需清零未结收益",
+    "point": "公会解散门槛",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "公会存在未结收益"
+    ],
+    "steps": [
+      "进入晨星公会详情",
+      "点击解散公会"
+    ],
+    "result": "不允许解散该公会",
+    "sourceIds": [
+      "REQ-ADMIN-4ef461e2a0",
+      "REQ-ADMIN-e80f4db877",
+      "REQ-ADMIN-d13cbc8518",
+      "REQ-ADMIN-7dd40db9fc",
+      "REQ-ADMIN-3d8dcd8ee2",
+      "REQ-ADMIN-b4ecd379e9",
+      "REQ-ADMIN-64f7845def",
+      "REQ-ADMIN-d2cdb2e4a3",
+      "REQ-ADMIN-b1d1539c08",
+      "REQ-ADMIN-0f37342da8",
+      "REQ-ADMIN-cabf72851d",
+      "REQ-ADMIN-836fdf6189",
+      "REQ-PUB-16de884e24",
+      "REQ-PUB-c5ec2a0c42",
+      "REQ-PUB-9264a7bbe6",
+      "REQ-PUB-d76ebede0f",
+      "REQ-PUB-4c7c3b5e12"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "公会详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-737e3b12e697d1",
+    "page": "admin-report-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "举报详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证警告不结束直播",
+    "point": "举报警告",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "被举报场次仍在直播"
+    ],
+    "steps": [
+      "进入举报处理",
+      "打开待处理直播举报",
+      "选择警告",
+      "填写原因并确认"
+    ],
+    "result": "当前直播场次继续直播",
+    "sourceIds": [
+      "REQ-ADMIN-89b22d14be",
+      "REQ-ADMIN-e7c23b0a6f",
+      "REQ-ADMIN-d5208511ba",
+      "REQ-ADMIN-5b75c765e8",
+      "REQ-ADMIN-564f4b9a35",
+      "REQ-ADMIN-99a64ef358",
+      "REQ-ADMIN-4bff9e969c",
+      "REQ-ADMIN-42f36ab588",
+      "REQ-ADMIN-4139f87ec8",
+      "REQ-PUB-16a2c96bad",
+      "REQ-PUB-e90f76e069",
+      "REQ-PUB-9c6b2eb32d"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "举报详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-31fcf6804e18a9",
+    "page": "admin-report-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "举报详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证关播只结束当前被举报场次",
+    "point": "举报关播",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "被举报场次仍在直播"
+    ],
+    "steps": [
+      "进入举报处理",
+      "打开待处理直播举报",
+      "选择关播",
+      "填写原因并确认"
+    ],
+    "result": "被举报场次显示已结束",
+    "sourceIds": [
+      "REQ-ADMIN-89b22d14be",
+      "REQ-ADMIN-e7c23b0a6f",
+      "REQ-ADMIN-d5208511ba",
+      "REQ-ADMIN-5b75c765e8",
+      "REQ-ADMIN-564f4b9a35",
+      "REQ-ADMIN-99a64ef358",
+      "REQ-ADMIN-4bff9e969c",
+      "REQ-ADMIN-42f36ab588",
+      "REQ-ADMIN-4139f87ec8",
+      "REQ-PUB-16a2c96bad",
+      "REQ-PUB-e90f76e069",
+      "REQ-PUB-9c6b2eb32d"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "举报详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-191af9b981d6ae",
+    "page": "admin-report-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "举报详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证关闭直播权限阻止下一次开播",
+    "point": "举报关闭权限",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "被举报主播仍在直播"
+    ],
+    "steps": [
+      "进入举报处理",
+      "打开待处理直播举报",
+      "选择关闭直播权限",
+      "填写原因并确认"
+    ],
+    "result": "该主播直播权限显示关闭",
+    "sourceIds": [
+      "REQ-ADMIN-89b22d14be",
+      "REQ-ADMIN-e7c23b0a6f",
+      "REQ-ADMIN-d5208511ba",
+      "REQ-ADMIN-5b75c765e8",
+      "REQ-ADMIN-564f4b9a35",
+      "REQ-ADMIN-99a64ef358",
+      "REQ-ADMIN-4bff9e969c",
+      "REQ-ADMIN-42f36ab588",
+      "REQ-ADMIN-4139f87ec8",
+      "REQ-PUB-16a2c96bad",
+      "REQ-PUB-e90f76e069",
+      "REQ-PUB-9c6b2eb32d"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "举报详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-b5eb291106e6cb",
+    "page": "admin-report-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "举报详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证已结束场次举报不可继续处罚",
+    "point": "举报作废",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "被举报场次已结束且工单原待处理"
+    ],
+    "steps": [
+      "进入举报处理",
+      "打开待处理直播举报",
+      "查看处理操作"
+    ],
+    "result": "不提供继续处罚该场次的操作",
+    "sourceIds": [
+      "REQ-ADMIN-89b22d14be",
+      "REQ-ADMIN-e7c23b0a6f",
+      "REQ-ADMIN-d5208511ba",
+      "REQ-ADMIN-5b75c765e8",
+      "REQ-ADMIN-564f4b9a35",
+      "REQ-ADMIN-99a64ef358",
+      "REQ-ADMIN-4bff9e969c",
+      "REQ-ADMIN-42f36ab588",
+      "REQ-ADMIN-4139f87ec8",
+      "REQ-PUB-16a2c96bad",
+      "REQ-PUB-e90f76e069",
+      "REQ-PUB-9c6b2eb32d"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "举报详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-b57caf3dc2438e",
+    "page": "admin-report-detail.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "举报详情（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证已处理工单不能再次提交",
+    "point": "举报终态保护",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "该工单已处理"
+    ],
+    "steps": [
+      "进入举报处理",
+      "打开待处理直播举报",
+      "查看详情操作"
+    ],
+    "result": "不提供再次提交处理结果",
+    "sourceIds": [
+      "REQ-ADMIN-89b22d14be",
+      "REQ-ADMIN-e7c23b0a6f",
+      "REQ-ADMIN-d5208511ba",
+      "REQ-ADMIN-5b75c765e8",
+      "REQ-ADMIN-564f4b9a35",
+      "REQ-ADMIN-99a64ef358",
+      "REQ-ADMIN-4bff9e969c",
+      "REQ-ADMIN-42f36ab588",
+      "REQ-ADMIN-4139f87ec8",
+      "REQ-PUB-16a2c96bad",
+      "REQ-PUB-e90f76e069",
+      "REQ-PUB-9c6b2eb32d"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "举报详情",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-84602d13a56ab9",
+    "page": "admin-violation-types.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证预置类型不可删除",
+    "point": "预置类型保护",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "目标类型为系统预置"
+    ],
+    "steps": [
+      "进入违规类型列表",
+      "查看该类型操作"
+    ],
+    "result": "不提供删除入口",
+    "sourceIds": [
+      "REQ-ADMIN-424dae46e0",
+      "REQ-ADMIN-06eb8e3ac0",
+      "REQ-ADMIN-3a19b9e35a",
+      "REQ-ADMIN-bbc45809e6",
+      "REQ-ADMIN-451703ddd2",
+      "REQ-ADMIN-1b4185f07d",
+      "REQ-ADMIN-71cd3e4b92",
+      "REQ-ADMIN-a47b04d2e5",
+      "REQ-PUB-42e913d498",
+      "REQ-PUB-7fac1011ba",
+      "REQ-PUB-5efe486613"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-1a9dfc51c39f33",
+    "page": "admin-violation-types.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证预置类型保持启用",
+    "point": "预置类型状态",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "目标类型为系统预置"
+    ],
+    "steps": [
+      "进入违规类型列表",
+      "查看状态开关"
+    ],
+    "result": "预置类型不能停用",
+    "sourceIds": [
+      "REQ-ADMIN-424dae46e0",
+      "REQ-ADMIN-06eb8e3ac0",
+      "REQ-ADMIN-3a19b9e35a",
+      "REQ-ADMIN-bbc45809e6",
+      "REQ-ADMIN-451703ddd2",
+      "REQ-ADMIN-1b4185f07d",
+      "REQ-ADMIN-71cd3e4b92",
+      "REQ-ADMIN-a47b04d2e5",
+      "REQ-PUB-42e913d498",
+      "REQ-PUB-7fac1011ba",
+      "REQ-PUB-5efe486613"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-4464c07edbe40a",
+    "page": "admin-violation-types.html",
+    "end": "管理后台",
+    "module": "内容审核",
+    "structure": "违规类型（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证删除自定义类型保留举报快照",
+    "point": "举报类型历史保留",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "自定义类型已有历史举报"
+    ],
+    "steps": [
+      "进入违规类型列表",
+      "删除该类型并确认"
+    ],
+    "result": "历史举报仍保留提交时类型名称",
+    "sourceIds": [
+      "REQ-ADMIN-424dae46e0",
+      "REQ-ADMIN-06eb8e3ac0",
+      "REQ-ADMIN-3a19b9e35a",
+      "REQ-ADMIN-bbc45809e6",
+      "REQ-ADMIN-451703ddd2",
+      "REQ-ADMIN-1b4185f07d",
+      "REQ-ADMIN-71cd3e4b92",
+      "REQ-ADMIN-a47b04d2e5",
+      "REQ-PUB-42e913d498",
+      "REQ-PUB-7fac1011ba",
+      "REQ-PUB-5efe486613"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "违规类型",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-04536851228c09",
+    "page": "admin-inspection-schedule-create.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "新建排班（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证巡房日期不能早于当天",
+    "point": "巡房日期下界",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "其余必填项合法"
+    ],
+    "steps": [
+      "进入新建巡房排班",
+      "选择昨天并保存"
+    ],
+    "result": "不能创建过去日期的新排班",
+    "sourceIds": [
+      "REQ-ADMIN-636938fee1",
+      "REQ-ADMIN-5da9e5c9fd",
+      "REQ-ADMIN-4af40a4896",
+      "REQ-ADMIN-d962300871",
+      "REQ-ADMIN-acea948e6d",
+      "REQ-ADMIN-ff7a37f338"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "新建排班",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-237f1081a97392",
+    "page": "admin-inspection-schedule-create.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "新建排班（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证巡房至少选择一人",
+    "point": "巡房人员最低数量",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "日期及时间段合法，未选择人员"
+    ],
+    "steps": [
+      "进入新建巡房排班",
+      "点击保存"
+    ],
+    "result": "不能创建无人员排班",
+    "sourceIds": [
+      "REQ-ADMIN-636938fee1",
+      "REQ-ADMIN-5da9e5c9fd",
+      "REQ-ADMIN-4af40a4896",
+      "REQ-ADMIN-d962300871",
+      "REQ-ADMIN-acea948e6d",
+      "REQ-ADMIN-ff7a37f338"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "新建排班",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-3d61181311eb2b",
+    "page": "admin-inspection-schedule-create.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "新建排班（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证平台封禁账号不能选为巡房人员",
+    "point": "巡房账号资格",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "海风已被平台封禁"
+    ],
+    "steps": [
+      "进入新建巡房排班",
+      "搜索并选择海风"
+    ],
+    "result": "海风不可加入排班",
+    "sourceIds": [
+      "REQ-ADMIN-636938fee1",
+      "REQ-ADMIN-5da9e5c9fd",
+      "REQ-ADMIN-4af40a4896",
+      "REQ-ADMIN-d962300871",
+      "REQ-ADMIN-acea948e6d",
+      "REQ-ADMIN-ff7a37f338"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "新建排班",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-30283f4d949d37",
+    "page": "admin-inspection-schedule-create.html",
+    "end": "管理后台",
+    "module": "主播管理",
+    "structure": "新建排班（平台管理员）",
+    "role": "平台管理员",
+    "title": "验证巡房全选仅限当前搜索结果",
+    "point": "巡房全选范围",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "人员库有海风、晨光，搜索结果仅海风"
+    ],
+    "steps": [
+      "进入新建巡房排班",
+      "输入搜索词海风",
+      "点击全选"
+    ],
+    "result": "只选中当前搜索结果中的海风",
+    "sourceIds": [
+      "REQ-ADMIN-636938fee1",
+      "REQ-ADMIN-5da9e5c9fd",
+      "REQ-ADMIN-4af40a4896",
+      "REQ-ADMIN-d962300871",
+      "REQ-ADMIN-acea948e6d",
+      "REQ-ADMIN-ff7a37f338"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "新建排班",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d96b3805441fed",
+    "page": "admin-system-account.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "后台账号（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证超级管理员账号不可停用",
+    "point": "保留维护账号",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "执行账号为超级管理员"
+    ],
+    "steps": [
+      "进入后台账号列表",
+      "查看超级管理员账号状态操作"
+    ],
+    "result": "不提供停用超级管理员账号的操作",
+    "sourceIds": [
+      "REQ-ADMIN-4962ab0ca5",
+      "REQ-ADMIN-c86f258773",
+      "REQ-ADMIN-cea57da21a",
+      "REQ-ADMIN-f9e721bd66",
+      "REQ-ADMIN-c147e85e0f",
+      "REQ-ADMIN-23818b9dc3",
+      "REQ-ADMIN-22e541c70e",
+      "REQ-ADMIN-6551e340a8",
+      "REQ-PUB-2daab99cab",
+      "REQ-PUB-07d020077f"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "后台账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-1d102bf87197ef",
+    "page": "admin-system-account.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "后台账号（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证普通后台账号停用禁止登录",
+    "point": "后台登录限制",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "目标为可用普通后台账号"
+    ],
+    "steps": [
+      "进入后台账号列表",
+      "停用目标账号并填写原因确认"
+    ],
+    "result": "目标账号不能再登录管理后台",
+    "sourceIds": [
+      "REQ-ADMIN-4962ab0ca5",
+      "REQ-ADMIN-c86f258773",
+      "REQ-ADMIN-cea57da21a",
+      "REQ-ADMIN-f9e721bd66",
+      "REQ-ADMIN-c147e85e0f",
+      "REQ-ADMIN-23818b9dc3",
+      "REQ-ADMIN-22e541c70e",
+      "REQ-ADMIN-6551e340a8",
+      "REQ-PUB-2daab99cab",
+      "REQ-PUB-07d020077f"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "后台账号",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-5881f782e47c59",
+    "page": "admin-system-role.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "角色管理（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证超级管理员角色不可修改",
+    "point": "超级角色保护",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "执行账号为超级管理员"
+    ],
+    "steps": [
+      "进入角色列表",
+      "查看超级管理员角色操作"
+    ],
+    "result": "不提供编辑或停用入口",
+    "sourceIds": [
+      "REQ-ADMIN-9a1c974e99",
+      "REQ-ADMIN-e644934514",
+      "REQ-ADMIN-f678ca805c",
+      "REQ-ADMIN-9a481661e9",
+      "REQ-ADMIN-d0f15fe9f7",
+      "REQ-ADMIN-7466b84920",
+      "REQ-ADMIN-6fbf3fefc8",
+      "REQ-PUB-621d8e1021",
+      "REQ-PUB-8f116bc934"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "角色管理",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-041c1cb97bd8ce",
+    "page": "admin-system-role.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "角色管理（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证停用角色收回关联账号权限",
+    "point": "角色权限收回",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "普通角色已绑定后台账号海风"
+    ],
+    "steps": [
+      "进入角色列表",
+      "停用该角色并确认"
+    ],
+    "result": "海风失去该角色授予的菜单权限",
+    "sourceIds": [
+      "REQ-ADMIN-9a1c974e99",
+      "REQ-ADMIN-e644934514",
+      "REQ-ADMIN-f678ca805c",
+      "REQ-ADMIN-9a481661e9",
+      "REQ-ADMIN-d0f15fe9f7",
+      "REQ-ADMIN-7466b84920",
+      "REQ-ADMIN-6fbf3fefc8",
+      "REQ-PUB-621d8e1021",
+      "REQ-PUB-8f116bc934"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "角色管理",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-d252d3c5cf987f",
+    "page": "admin-system-role-detail.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "角色编辑（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证权限树选中数量只计叶子",
+    "point": "权限树计数",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "执行账号为超级管理员，已清空所选权限"
+    ],
+    "steps": [
+      "进入普通角色详情",
+      "勾选一个包含2个叶子权限的父节点"
+    ],
+    "result": "已选权限数显示2",
+    "sourceIds": [
+      "REQ-ADMIN-a0f143749f",
+      "REQ-ADMIN-f59656672e",
+      "REQ-ADMIN-75e6575149",
+      "REQ-ADMIN-c538e3f0b9",
+      "REQ-ADMIN-8391a40d85",
+      "REQ-ADMIN-54c459dbb7",
+      "REQ-ADMIN-8b41748ac4",
+      "REQ-ADMIN-59b756040b",
+      "REQ-PUB-76dc9a384a",
+      "REQ-PUB-845dd2c618"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "角色编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  },
+  {
+    "id": "SC-392877e493c462",
+    "page": "admin-system-role-detail.html",
+    "end": "管理后台",
+    "module": "系统配置",
+    "structure": "角色编辑（超级管理员）",
+    "role": "超级管理员",
+    "title": "验证角色名称全局唯一",
+    "point": "角色名称唯一",
+    "conditions": [
+      "后台账号已登录且拥有本页及本次操作的授权",
+      "已有角色“审核员”"
+    ],
+    "steps": [
+      "进入普通角色详情",
+      "新建同名角色并保存"
+    ],
+    "result": "不能保存重复角色名称",
+    "sourceIds": [
+      "REQ-ADMIN-a0f143749f",
+      "REQ-ADMIN-f59656672e",
+      "REQ-ADMIN-75e6575149",
+      "REQ-ADMIN-c538e3f0b9",
+      "REQ-ADMIN-8391a40d85",
+      "REQ-ADMIN-54c459dbb7",
+      "REQ-ADMIN-8b41748ac4",
+      "REQ-ADMIN-59b756040b",
+      "REQ-PUB-76dc9a384a",
+      "REQ-PUB-845dd2c618"
+    ],
+    "type": "功能需求",
+    "priority": "P1",
+    "dimensions": [
+      "正常主流程",
+      "可观察结果"
+    ],
+    "transition": "",
+    "flow": "",
+    "from": "",
+    "to": "",
+    "object": "角色编辑",
+    "calculation": null,
+    "notes": [],
+    "review": "已按当前 MainBasis 对照角色、入口、必要数据和唯一观察点；未从演示固定值推断业务阈值"
+  }
+]

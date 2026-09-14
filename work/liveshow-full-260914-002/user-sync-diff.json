@@ -1,0 +1,592 @@
+{
+  "sourceOnly": [
+    {
+      "id": "SRC-220c031203ac",
+      "end": "用户App",
+      "page": "live-plaza.html",
+      "section": "交互",
+      "text": "3. 进房演示固定为：Ayu 显示拉黑或踢出拦截，Intan 显示门票拦截，Lala 显示密码拦截；其他直播卡片直接进入并展示直播内容。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-e4eb5e5b6d3a",
+      "end": "用户App",
+      "page": "host-ranking.html",
+      "section": "业务规则",
+      "text": "3. 退款或冲正后重新计算收礼值和排名。账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-143e197e2682",
+      "end": "用户App",
+      "page": "contribution-ranking.html",
+      "section": "业务规则",
+      "text": "3. 退款或冲正后重新计算贡献值和排名。账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-ae626d4be99f",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 入口 | 功能说明 | 权限判断 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-ad00e259e21c",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 编辑资料 | 修改头像、昵称等个人资料。 | 登录用户可用。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-4dea09d7c768",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 设置 | 管理账号、通知和隐私设置。 | 登录用户可用。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-37abd32eccf8",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 充值 | 进入充值流程购买金币。 | 登录用户可用；受支付渠道限制。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-2f242c5620c8",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 我的装扮 | 查看和佩戴头像框、聊天气泡、勋章。 | 登录用户可用。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-323dc321b2b6",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 粉丝团 | 查看已加入的主播粉丝团。 | 登录用户可用。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-53bf5b633464",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 邀请奖励 | 查看邀请规则并邀请好友。 | 登录用户可用。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-f2de1a11c6f7",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 开始直播 | 进入开播设置或主播申请流程。 | 已具备主播身份进入主播中心，否则进入申请流程，页面：申请成为主播 P014-1。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-ff4f555990c0",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 主播中心 | 查看主播数据和主播工具。 | 已具备主播身份进入主播中心，否则进入申请流程，页面：申请成为主播 P014-1。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-dc66cdb2b110",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 公会中心 | 进入公会申请和关系页面。 | 登录用户可用；申请、管理操作按公会关系判断。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-97280db93d84",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 黑名单 | 查看和管理已拉黑账号。 | 登录用户可用。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-d9c9f0d21eaf",
+      "end": "用户App",
+      "page": "profile.html",
+      "section": "交互",
+      "text": "| 联系客服 | 打开客服会话。 | 登录用户可用。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-eff7c106239f",
+      "end": "用户App",
+      "page": "live-room-host-password.html",
+      "section": "业务",
+      "text": "4. 排序所需等级缺失时按 0 级处理；退款或冲正后重新计算贡献值和排名。账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-271d0e2841e9",
+      "end": "用户App",
+      "page": "live-room-cohost-active.html",
+      "section": "业务",
+      "text": "3. 排序所需等级缺失时按 0 级处理；退款或冲正后重新计算贡献值和排名。账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-96a6576867be",
+      "end": "用户App",
+      "page": "guild-application-form.html",
+      "section": "业务规则",
+      "text": "3. 提交后进入公会审核；公会同意后，可在申请成为主播页继续申请直播权限。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-cdbfa29cb930",
+      "end": "用户App",
+      "page": "guild-application-form.html",
+      "section": "业务规则",
+      "text": "4. 公会驳回后可重新选择公会并提交申请；平台驳回直播权限申请不撤销已获同意的公会关系。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-8c28f33eb050",
+      "end": "用户App",
+      "page": "guild-detail.html",
+      "section": "业务规则",
+      "text": "3. 加入公会与申请直播权限分开审核；公会同意后，才可提交直播权限申请。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-20d09da01a4a",
+      "end": "用户App",
+      "page": "fan-contribution-ranking.html",
+      "section": "业务规则",
+      "text": "2. 失败或撤销赠送不计入；退款或冲正后重新计算贡献值和排名；虚拟金币赠礼可计入榜单但不计入收益。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-9c0f785327da",
+      "end": "用户App",
+      "page": "host-center-pending.html",
+      "section": "业务规则",
+      "text": "1. 加入公会与申请直播权限分步提交、分别审核；公会同意后，才可提交直播权限申请。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-6ac29971618a",
+      "end": "用户App",
+      "page": "host-center-pending.html",
+      "section": "业务规则",
+      "text": "5. 平台驳回：保留公会“已同意”状态；修改认证资料后重新提交直播权限申请。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-917c76c45ae2",
+      "end": "用户App",
+      "page": "live-data.html",
+      "section": "业务规则",
+      "text": "1. 数据来自已开始的直播场次；场次结束后保留历史快照，退款和冲正按财务口径更新收益。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-a3de49d132aa",
+      "end": "用户App",
+      "page": "balance-detail.html",
+      "section": "字段",
+      "text": "| 变动类型 | 当前页面展示充值、充值退款、礼物打赏、礼物退款和购买门票。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-1bea6d587134",
+      "end": "用户App",
+      "page": "profile-edit.html",
+      "section": "交互",
+      "text": "4. 原型中头像或昵称修改后，每次点击保存均按成功、不合规、网络异常依次循环，失败或异常时保留编辑内容。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-73e48c5dc8a1",
+      "end": "用户App",
+      "page": "settings.html",
+      "section": "交互",
+      "text": "4. 同一会话内每次点击注销账号，按金币余额不少于 100、低于 100 两种情况持续交替；离开设置页后不重置。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-1f47f11c4dbd",
+      "end": "用户App",
+      "page": "views/live-room/contribution-rank.html",
+      "section": "业务",
+      "text": "2. 失败或撤销赠送不计入；退款或冲正后重新计算贡献值和排名；虚拟金币可计入榜单展示但不计入主播收益。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-1888ef8c075f",
+      "end": "用户App",
+      "page": "views/live-room-host/contribution-rank.html",
+      "section": "业务",
+      "text": "4. 失败或撤销赠送不计入；退款或冲正后重新计算贡献值和排名；虚拟金币可计入榜单展示，但不计入主播收益。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-db71e95cd866",
+      "end": "用户App",
+      "page": "views/live-room-host/cohost-hosts.html",
+      "section": "业务",
+      "text": "4. 任一方结束直播、变更为受限房型或进入连麦 -> 不再满足的邀请失效。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-d1c6b45f7691",
+      "end": "用户App",
+      "page": "views/live-room-host/cohost-invite-notice.html",
+      "section": "业务",
+      "text": "3. 接受一条邀请并建立连麦后，其他邀请失效。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-a9e22e8f748d",
+      "end": "用户App",
+      "page": "live-plaza.html",
+      "section": "UI 建议",
+      "text": "主播榜与贡献榜可采用不同底色，分别突出主播与金币；关注主播头像用边框动效或绿色状态点表示正在直播。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-bd918addc184",
+      "end": "用户App",
+      "page": "live-plaza.html",
+      "section": "进房",
+      "text": "仅 Ayu、Intan、Lala 展示拦截：Ayu 为拉黑或踢出受限，Intan 为门票房，Lala 为密码房；其他直播卡片直接进入。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-80faebc963b7",
+      "end": "用户App",
+      "page": "search-results.html",
+      "section": "默认结果",
+      "text": "默认关键词为 620100，展示 1 个直播中和 1 个非直播中的匹配结果。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-59045d4132cf",
+      "end": "用户App",
+      "page": "host-center-pending.html",
+      "section": "申请路径",
+      "text": "加入公会与申请直播权限分步提交、分别审核；公会同意后，才可提交直播权限申请，申请通过后进入主播中心。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-7b1040d6df7c",
+      "end": "用户App",
+      "page": "host-center-pending.html",
+      "section": "驳回重申",
+      "text": "公会驳回后可重新选择公会申请；平台驳回后保留公会已同意状态，可修改认证资料重新提交直播权限申请。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-216dbf669512",
+      "end": "用户App",
+      "page": "settings.html",
+      "section": "账号注销",
+      "text": "同一会话内每次点击注销时，原型交替展示两种余额结果。提示明确“注销后七日内可取消注销”。倒计时结束后提交申请、记录最终删除时间并退出登录；冷静期内保留账号数据，期满后才解除社交关系、解散创建的粉丝团并删除账号。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    }
+  ],
+  "contextOnly": [
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 47,
+      "raw": "- REQ-USER-46c6175a3e：【Q-017，该条预期待确认】账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "id": "REQ-USER-46c6175a3e",
+      "text": "【Q-017，该条预期待确认】账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "page": "host-ranking.html",
+      "heading": "首页与发现 · 主播榜",
+      "normalized": "账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 66,
+      "raw": "- REQ-USER-f4ff5aa92d：【Q-017，该条预期待确认】账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "id": "REQ-USER-f4ff5aa92d",
+      "text": "【Q-017，该条预期待确认】账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "page": "contribution-ranking.html",
+      "heading": "首页与发现 · 贡献榜",
+      "normalized": "账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 222,
+      "raw": "- REQ-USER-1974651e29：编辑资料：修改头像、昵称等个人资料。；登录用户可用。",
+      "id": "REQ-USER-1974651e29",
+      "text": "编辑资料：修改头像、昵称等个人资料。；登录用户可用。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "编辑资料：修改头像、昵称等个人资料。；登录用户可用。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 223,
+      "raw": "- REQ-USER-2596704b28：设置：管理账号、通知和隐私设置。；登录用户可用。",
+      "id": "REQ-USER-2596704b28",
+      "text": "设置：管理账号、通知和隐私设置。；登录用户可用。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "设置：管理账号、通知和隐私设置。；登录用户可用。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 224,
+      "raw": "- REQ-USER-dac06c0fbe：充值：进入充值流程购买金币。；登录用户可用；受支付渠道限制。",
+      "id": "REQ-USER-dac06c0fbe",
+      "text": "充值：进入充值流程购买金币。；登录用户可用；受支付渠道限制。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "充值：进入充值流程购买金币。；登录用户可用；受支付渠道限制。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 225,
+      "raw": "- REQ-USER-15b03e4a56：我的装扮：查看和佩戴头像框、聊天气泡、勋章。；登录用户可用。",
+      "id": "REQ-USER-15b03e4a56",
+      "text": "我的装扮：查看和佩戴头像框、聊天气泡、勋章。；登录用户可用。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "我的装扮：查看和佩戴头像框、聊天气泡、勋章。；登录用户可用。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 226,
+      "raw": "- REQ-USER-4c0397376e：粉丝团：查看已加入的主播粉丝团。；登录用户可用。",
+      "id": "REQ-USER-4c0397376e",
+      "text": "粉丝团：查看已加入的主播粉丝团。；登录用户可用。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "粉丝团：查看已加入的主播粉丝团。；登录用户可用。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 227,
+      "raw": "- REQ-USER-81ab28e4f6：邀请奖励：查看邀请规则并邀请好友。；登录用户可用。",
+      "id": "REQ-USER-81ab28e4f6",
+      "text": "邀请奖励：查看邀请规则并邀请好友。；登录用户可用。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "邀请奖励：查看邀请规则并邀请好友。；登录用户可用。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 228,
+      "raw": "- REQ-USER-e914d59a12：开始直播：进入开播设置或主播申请流程。；已具备主播身份进入主播中心，否则进入申请流程，页面：申请成为主播 P014-1。",
+      "id": "REQ-USER-e914d59a12",
+      "text": "开始直播：进入开播设置或主播申请流程。；已具备主播身份进入主播中心，否则进入申请流程，页面：申请成为主播 P014-1。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "开始直播：进入开播设置或主播申请流程。；已具备主播身份进入主播中心，否则进入申请流程，页面：申请成为主播 P014-1。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 229,
+      "raw": "- REQ-USER-7ca130d871：主播中心：查看主播数据和主播工具。；已具备主播身份进入主播中心，否则进入申请流程，页面：申请成为主播 P014-1。",
+      "id": "REQ-USER-7ca130d871",
+      "text": "主播中心：查看主播数据和主播工具。；已具备主播身份进入主播中心，否则进入申请流程，页面：申请成为主播 P014-1。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "主播中心：查看主播数据和主播工具。；已具备主播身份进入主播中心，否则进入申请流程，页面：申请成为主播 P014-1。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 230,
+      "raw": "- REQ-USER-598a05a07b：公会中心：进入公会申请和关系页面。；登录用户可用；申请、管理操作按公会关系判断。",
+      "id": "REQ-USER-598a05a07b",
+      "text": "公会中心：进入公会申请和关系页面。；登录用户可用；申请、管理操作按公会关系判断。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "公会中心：进入公会申请和关系页面。；登录用户可用；申请、管理操作按公会关系判断。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 231,
+      "raw": "- REQ-USER-dff39a0aa4：黑名单：查看和管理已拉黑账号。；登录用户可用。",
+      "id": "REQ-USER-dff39a0aa4",
+      "text": "黑名单：查看和管理已拉黑账号。；登录用户可用。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "黑名单：查看和管理已拉黑账号。；登录用户可用。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 232,
+      "raw": "- REQ-USER-5694819acb：联系客服：打开客服会话。；登录用户可用。",
+      "id": "REQ-USER-5694819acb",
+      "text": "联系客服：打开客服会话。；登录用户可用。",
+      "page": "profile.html",
+      "heading": "个人中心 · 我的",
+      "normalized": "联系客服：打开客服会话。；登录用户可用。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 410,
+      "raw": "- REQ-USER-3af1e0c64f：【Q-017，该条预期待确认】排序所需等级缺失时按 0 级处理；账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "id": "REQ-USER-3af1e0c64f",
+      "text": "【Q-017，该条预期待确认】排序所需等级缺失时按 0 级处理；账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "page": "live-room-host-password.html",
+      "heading": "直播模块 · 直播间",
+      "normalized": "排序所需等级缺失时按 0 级处理；账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 429,
+      "raw": "- REQ-USER-cecf464c53：【Q-017，该条预期待确认】排序所需等级缺失时按 0 级处理；账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "id": "REQ-USER-cecf464c53",
+      "text": "【Q-017，该条预期待确认】排序所需等级缺失时按 0 级处理；账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "page": "live-room-cohost-active.html",
+      "heading": "直播模块 · 直播间",
+      "normalized": "排序所需等级缺失时按 0 级处理；账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 627,
+      "raw": "- REQ-USER-38611ed7fc：认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "id": "REQ-USER-38611ed7fc",
+      "text": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "page": "guild-application-form.html",
+      "heading": "公会 · 申请加入公会",
+      "normalized": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 628,
+      "raw": "- REQ-USER-ecaa8a8b39：公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。",
+      "id": "REQ-USER-ecaa8a8b39",
+      "text": "公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。",
+      "page": "guild-application-form.html",
+      "heading": "公会 · 申请加入公会",
+      "normalized": "公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 670,
+      "raw": "- REQ-USER-01ca6edb63：认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "id": "REQ-USER-01ca6edb63",
+      "text": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "page": "guild-detail.html",
+      "heading": "公会 · 公会详情",
+      "normalized": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 786,
+      "raw": "- REQ-USER-23a064a974：【Q-017，该条预期待确认】失败或撤销赠送不计入；虚拟金币赠礼可计入榜单但不计入收益。",
+      "id": "REQ-USER-23a064a974",
+      "text": "【Q-017，该条预期待确认】失败或撤销赠送不计入；虚拟金币赠礼可计入榜单但不计入收益。",
+      "page": "fan-contribution-ranking.html",
+      "heading": "粉丝团 · 贡献榜",
+      "normalized": "失败或撤销赠送不计入；虚拟金币赠礼可计入榜单但不计入收益。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 853,
+      "raw": "- REQ-USER-0123110311：认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "id": "REQ-USER-0123110311",
+      "text": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "page": "host-center-pending.html",
+      "heading": "主播中心 · 申请成为主播",
+      "normalized": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 857,
+      "raw": "- REQ-USER-1b3f88f716：公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。",
+      "id": "REQ-USER-1b3f88f716",
+      "text": "公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。",
+      "page": "host-center-pending.html",
+      "heading": "主播中心 · 申请成为主播",
+      "normalized": "公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 862,
+      "raw": "- REQ-PUB-b26154e20d：认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "id": "REQ-PUB-b26154e20d",
+      "text": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "page": "host-center-pending.html",
+      "heading": "主播中心 · 申请成为主播",
+      "normalized": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 864,
+      "raw": "- REQ-PUB-f91b971917：公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。",
+      "id": "REQ-PUB-f91b971917",
+      "text": "公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。",
+      "page": "host-center-pending.html",
+      "heading": "主播中心 · 申请成为主播",
+      "normalized": "公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 971,
+      "raw": "- REQ-USER-07a902e767：数据来自已开始的直播场次；场次结束后保留历史快照，充值退款或拒付不改变已完成消费对应的主播收益和分成。",
+      "id": "REQ-USER-07a902e767",
+      "text": "数据来自已开始的直播场次；场次结束后保留历史快照，充值退款或拒付不改变已完成消费对应的主播收益和分成。",
+      "page": "live-data.html",
+      "heading": "主播中心 · 直播数据",
+      "normalized": "数据来自已开始的直播场次；场次结束后保留历史快照，充值退款或拒付不改变已完成消费对应的主播收益和分成。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 1037,
+      "raw": "- REQ-USER-fa71943b13：变动类型：充值、充值退款、礼物打赏、购买门票；成功礼物和门票不提供退款，不以演示中的礼物退款建立新业务。",
+      "id": "REQ-USER-fa71943b13",
+      "text": "变动类型：充值、充值退款、礼物打赏、购买门票；成功礼物和门票不提供退款，不以演示中的礼物退款建立新业务。",
+      "page": "balance-detail.html",
+      "heading": "钱包与充值 · 余额明细",
+      "normalized": "变动类型：充值、充值退款、礼物打赏、购买门票；成功礼物和门票不提供退款，不以演示中的礼物退款建立新业务。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 1466,
+      "raw": "- REQ-USER-bf0830d2fe：【Q-017，该条预期待确认】失败或撤销赠送不计入；虚拟金币可计入榜单展示但不计入主播收益。",
+      "id": "REQ-USER-bf0830d2fe",
+      "text": "【Q-017，该条预期待确认】失败或撤销赠送不计入；虚拟金币可计入榜单展示但不计入主播收益。",
+      "page": "views/live-room/contribution-rank.html",
+      "heading": "直播模块 · 本场贡献-贡献榜",
+      "normalized": "失败或撤销赠送不计入；虚拟金币可计入榜单展示但不计入主播收益。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 1512,
+      "raw": "- REQ-USER-b97571a750：【Q-017，该条预期待确认】失败或撤销赠送不计入；虚拟金币可计入榜单展示，但不计入主播收益。",
+      "id": "REQ-USER-b97571a750",
+      "text": "【Q-017，该条预期待确认】失败或撤销赠送不计入；虚拟金币可计入榜单展示，但不计入主播收益。",
+      "page": "views/live-room-host/contribution-rank.html",
+      "heading": "直播模块 · 本场贡献-贡献榜",
+      "normalized": "失败或撤销赠送不计入；虚拟金币可计入榜单展示，但不计入主播收益。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 1599,
+      "raw": "- REQ-USER-9f258c25a1：任一方结束直播使对应邀请和连麦失效；进入连麦后本人已发出的邀请失效，其他收到的邀请保留。",
+      "id": "REQ-USER-9f258c25a1",
+      "text": "任一方结束直播使对应邀请和连麦失效；进入连麦后本人已发出的邀请失效，其他收到的邀请保留。",
+      "page": "views/live-room-host/cohost-hosts.html",
+      "heading": "直播模块 · 连麦主播",
+      "normalized": "任一方结束直播使对应邀请和连麦失效；进入连麦后本人已发出的邀请失效，其他收到的邀请保留。"
+    },
+    {
+      "file": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "line": 1619,
+      "raw": "- REQ-USER-7cc3f2927f：接受邀请进入连麦后，本人已发出的邀请失效；其他收到的邀请保留，连麦中不可继续接受或邀请。",
+      "id": "REQ-USER-7cc3f2927f",
+      "text": "接受邀请进入连麦后，本人已发出的邀请失效；其他收到的邀请保留，连麦中不可继续接受或邀请。",
+      "page": "views/live-room-host/cohost-invite-notice.html",
+      "heading": "直播模块 · 收到连麦邀请",
+      "normalized": "接受邀请进入连麦后，本人已发出的邀请失效；其他收到的邀请保留，连麦中不可继续接受或邀请。"
+    }
+  ]
+}

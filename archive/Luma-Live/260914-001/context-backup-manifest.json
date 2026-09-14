@@ -1,0 +1,20 @@
+[
+  {
+    "原文件": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+    "备份": "archive/Luma-Live/260914-001/context-before/01-用户主播App-项目需求清单.md",
+    "备份SHA256": "0010516fa103419b9ec6a33b541ee0efacde9302aff12e6dec4ae4af9cf620b6",
+    "现文件SHA256": "7aff0a21f51773dc3d1e9729cc3f59e7ab5f7feef4f7cd039d78f4624e17240f"
+  },
+  {
+    "原文件": "liveshow-proto/context/02-公会App-项目需求清单.md",
+    "备份": "archive/Luma-Live/260914-001/context-before/02-公会App-项目需求清单.md",
+    "备份SHA256": "156583c0272ad08cdd321084c36602c652179ffd8a23cc2d79765da195aa8085",
+    "现文件SHA256": "c4e29a0ec8dede4fa5c118f7d59ef2b845001ce77d2b95f533c31cfab7ccdc12"
+  },
+  {
+    "原文件": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+    "备份": "archive/Luma-Live/260914-001/context-before/03-管理后台-项目需求清单.md",
+    "备份SHA256": "93999216ef62c371bbc5fc194b7256b3ca5bd26c5ecd3252d183e6d6e5cc20e0",
+    "现文件SHA256": "6066a1a5935821f9b59be29a1b082cdf568c871288ad19dfde0cad556f08bd16"
+  }
+]

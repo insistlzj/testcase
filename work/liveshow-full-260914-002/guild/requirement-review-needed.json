@@ -1,0 +1,6086 @@
+[
+  {
+    "id": "7adecb17d82e6c57cfbbee0fd8cf7e5f4eecddff652c6b4ede74d2984fa07d8a",
+    "line": 5,
+    "page": "系统概要",
+    "text": "以下保留系统概要全部正文及三端条款；重复条款是多入口来源，生成时依据角色、条件、动作和结果归一化。风险清单不定义确定预期。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "ccafa5d4d59b045e47a0ef3071d7266264c351cfaee7a737fe442ca3cf57c5dc",
+    "line": 8,
+    "page": "系统概要",
+    "text": "<!-- 当前来源：liveshow-proto/context/系统概要 .md；SHA-256：4cec33838d4c53e4a95dc61d0bb0c0f71c1b4a66862064dbd45f7465957e8c24 -->",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "5a0a8ce9d693b0d445ef82937791ea37c76854652df87cee30131b982f6a4456",
+    "line": 13,
+    "page": "系统概要",
+    "text": "|参与方|说明|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "498796b590fadeea34f071f6f02d424099e9ae83cf178a80b80fd895ef834192",
+    "line": 15,
+    "page": "系统概要",
+    "text": "|用户|使用账号、观看直播、互动消费并维护社交关系。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "22b4539504b387c0c672cd93741b58b27f47f320e5f63280f1d3e0f05d138c78",
+    "line": 16,
+    "page": "系统概要",
+    "text": "|主播|由用户完成入会和认证后获得的身份，负责创建和经营直播间。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d6a125ea272c3c49bcddc581c9884dab99ee6c65650ca7b93c30249f393d3346",
+    "line": 17,
+    "page": "系统概要",
+    "text": "|公会|由公会长操作公会端，管理公会、主播、直播权限和运营账号。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "105773fb5320ffabbc634734be16c9ed58c20c00b2f555acdd1b612487a0e70f",
+    "line": 18,
+    "page": "系统概要",
+    "text": "|平台|通过管理后台负责审核、运营、风控和财务核算，并在线下与主播完成分成结算。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2ebdf74de81ca9ec8e19185b504185a6a339b9abe6a5153dee886a4fe8065c4b",
+    "line": 20,
+    "page": "系统概要",
+    "text": "- 用户端/主播端：中文/英文/印尼/马来",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "250eb8d6464418865e9d4806e3953e300310766a351c7ce41878b913acb0bedb",
+    "line": 21,
+    "page": "系统概要",
+    "text": "- 公会端：中文/英文/印尼/马来",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "629266ec3b5747e8100993f2900e9624f0f1dc2a5388833ee8796507dcedd5bb",
+    "line": 22,
+    "page": "系统概要",
+    "text": "- 管理后台：中文",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1a110f9c12c7578c9a10a7c07285013e836bd896e2336f1e6e217edb77fa6786",
+    "line": 25,
+    "page": "系统概要",
+    "text": "|用例名称|概要说明|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2af33cba4b4f3a0eae5b2daa7d8aec3acdb79c5835940f854034d601ad48bd26",
+    "line": 27,
+    "page": "系统概要",
+    "text": "|管理账号|注册、登录、退出、重置密码和注销账号。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "c6fd8be2424cadcde22d8cae36a3bef25f9f68de37cd1522e10e37c98e35d396",
+    "line": 28,
+    "page": "系统概要",
+    "text": "|维护个人信息|维护个人资料、隐私、通知、语言及装扮设置。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "7421b465d2a528145cd781ff8a5c9ed079a576ac65c0589f7714446b508fcc7e",
+    "line": 29,
+    "page": "系统概要",
+    "text": "|观看直播|进入普通房、门票房或密码房并观看直播。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "43877042667d3976039a2d31aa56bda2c72d3bc1ba7aaea4a923a05b3c32af23",
+    "line": 30,
+    "page": "系统概要",
+    "text": "|直播互动|发送公屏消息、点赞、关注和分享直播。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "301d99416b16838147d09f413ae527e7cc61bcefae44f63924643bf4e310af1c",
+    "line": 31,
+    "page": "系统概要",
+    "text": "|赠送礼物|赠送常规、连续或幸运礼物，并接收赠送及中奖结果。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a31d6bebb4c89e242553e8bfcea96747c8fb05e32febcbdc11e8ba6628514d33",
+    "line": 32,
+    "page": "系统概要",
+    "text": "|参与平台活动|参与签到、任务和邀请活动。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "804da9df5fac53dda0e9c4125158a97ebf15c42f71846794b75a9798ddda6662",
+    "line": 33,
+    "page": "系统概要",
+    "text": "|管理社交关系|管理关注、好友、私信和账号拉黑关系。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "6c21a3830de076627d5142d9bda6ee18fe4a4a631c55ae428e14b1c377ff08da",
+    "line": 34,
+    "page": "系统概要",
+    "text": "|管理粉丝团关系|加入或退出粉丝团并参与粉丝团群聊。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1b652b1bdcdc3a1dc4695d78c73c01c1946dca1a0dd0c3ceca12f5411f9e8fa3",
+    "line": 35,
+    "page": "系统概要",
+    "text": "|充值和消费金币|充值金币，并使用金币购买门票或赠送礼物。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "47381ff38d9e355735a46885353029cfae2299f3c2a8f43d601728a18fe5973a",
+    "line": 36,
+    "page": "系统概要",
+    "text": "|管理公会关系|申请加入或退出公会。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "ee0ccf4471fc2b0bf18871eab0bbc4c0e58a5d8af96c04099fc4280347d4a8b6",
+    "line": 37,
+    "page": "系统概要",
+    "text": "|举报|举报用户、主播|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "e3159f6c0cae9337f8a09ceaa863c7e403a3e4f3e19fb4863ee6caf294400aad",
+    "line": 39,
+    "page": "系统概要",
+    "text": "|用例名称|概要说明|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4e4cc4ee20c55b2435e91de114a1146c3bb40f3f200e5d4df0e3edad40af43c1",
+    "line": 41,
+    "page": "系统概要",
+    "text": "|管理主播认证和直播权限|提交或补充认证资料，处理主播身份和直播权限状态。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "c5609f38775d412e1afa09333a71d25797fb7a0d4828e6f1b6dde10fcb5020f7",
+    "line": 42,
+    "page": "系统概要",
+    "text": "|配置并开始直播|设置直播信息、房间类型和画面参数后开始直播。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a9483242a2fe57136fdda0079a01c546fed2e83a18ebdd655968b00694425419",
+    "line": 43,
+    "page": "系统概要",
+    "text": "|经营并结束直播|管理直播过程中的观众互动并结束直播。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d5880a12293cb03b202b7c2ca8a881e0457b14bb4105992117ece527402cb75e",
+    "line": 44,
+    "page": "系统概要",
+    "text": "|管理直播间秩序|清屏、禁言、踢出、管理黑名单。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0d9fd8e355375b46de1b2eb912429e40dc9f412a3e8edc3a4a2cfb1dce669363",
+    "line": 45,
+    "page": "系统概要",
+    "text": "|管理连麦|发起、接受和结束主播连麦。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "8d129e3766a4943d576f8f8ee9787b1d633ad0f4a41c1d1932bf21145949daf9",
+    "line": 46,
+    "page": "系统概要",
+    "text": "|管理粉丝团|创建并设置粉丝团，管理成员、群聊和禁言。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "bd87a807e2ec83aa80511a3f2f265e85b28763dbc4e7265b5e0220431002e25e",
+    "line": 47,
+    "page": "系统概要",
+    "text": "|管理房管|添加、移除房管，在直播间内执行禁言、踢出和评论管理。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "7ef2b3bdfa47b6368d902624f334e91a9623415f3920c064bfbb974a33c2a8e6",
+    "line": 49,
+    "page": "系统概要",
+    "text": "|用例名称|概要说明|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1ea008e42f35041ed48cb6f9d9e91be1ca8a26bdd1e71fcffb17abf27c744938",
+    "line": 51,
+    "page": "系统概要",
+    "text": "|管理公会信息|维护公会资料、公告和公会账号。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "dd7006dc2f77fb04fb2cf0f3fa95076dad5c62e723b17230917ddfcb4aebed3a",
+    "line": 52,
+    "page": "系统概要",
+    "text": "|管理公会主播|审批入会和退会申请，并管理名下主播及其状态。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0e89c47500334ca7de606d94d2559e9a23e8e4a146141d38ef2730472bf16623",
+    "line": 53,
+    "page": "系统概要",
+    "text": "|管理直播权限|在平台授权范围内开启或关闭主播直播权限。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "dec890cb093b2fde63901dfce89c73897eb760115909ae312d62e32b46c16858",
+    "line": 54,
+    "page": "系统概要",
+    "text": "|开展公会运营|向名下主播发送运营消息。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "3918b6025efe41f4c16a0fb597d3feb6055b74def40cd8cb191b6e5e67a3350f",
+    "line": 55,
+    "page": "系统概要",
+    "text": "|管理运营账号和虚拟金币|创建、启停本公会运营账号，并在平台额度内发放虚拟金币。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f1916e56c917673e8b034d26369c488a4d051e78dad25e9c04ff1c5a56acb2a8",
+    "line": 57,
+    "page": "系统概要",
+    "text": "|用例名称|概要说明|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "59620873f900b8f39a35c6990481ca891d6ab48673239ed8aefca7369b6ca4dd",
+    "line": 59,
+    "page": "系统概要",
+    "text": "|管理用户|管理用户资料、账号状态、封禁。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "abd87cb7744e184f33075d57e880cac328a1721e18a8497db006f69a51e21aac",
+    "line": 60,
+    "page": "系统概要",
+    "text": "|管理主播|审核主播认证，管理直播权限及主播封禁。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "06731e8722b28358b10d9d11802e47c37387013f5e86192ec0c15d09644a180c",
+    "line": 61,
+    "page": "系统概要",
+    "text": "|管理公会|创建、启停或解散公会，并管理公会长和登录账号。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "80a8673bb45885800fcf1eab022e7258bbb53cff38faaae220d6839516ad8832",
+    "line": 62,
+    "page": "系统概要",
+    "text": "|监控和处置直播|监控、巡查和抽检直播，并执行警告、关播或断流。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a4bd337e49d622f2cdf331f9dcb0553eede9efd424707e31316468f6a9f0ef04",
+    "line": 63,
+    "page": "系统概要",
+    "text": "|内容审核与违规处置|处理机审告警、人工复审、举报，进行关播、关播直播权限、封禁操作。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4c63cc328018e456dc8eb7d00a00841a33ea0213c26be14f6d95b8e8435a0ac5",
+    "line": 64,
+    "page": "系统概要",
+    "text": "|配置礼物、商品及分成规则|管理礼物、商品 SKU、道具及其分成规则。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0683823e274246ef080c73be0af276122e84c0930a574311669e8f6ff8cca817",
+    "line": 65,
+    "page": "系统概要",
+    "text": "|配置运营内容|管理展示位、推送、榜单、充值、签到、任务和公会推荐。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "9c0bbcd5461eb899e0e8236621c5b9f002e010f902fbcab3961ae78816bae093",
+    "line": 66,
+    "page": "系统概要",
+    "text": "|管理充值订单退款与渠道账务|处理充值订单退款、拒付、渠道对账和资金对账。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "b727e81a70c56b2967611d2190fe9c6ebd672c2c3951c4d5bcb8810f3f4988a0",
+    "line": 67,
+    "page": "系统概要",
+    "text": "|核算并记录分成结算|由平台财务核算主播收益，并记录线下结算结果。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0fbb27df2243d8102b54f2c81a9d07a8335a2cd1879a66ade2e4bbb8381b0fe6",
+    "line": 68,
+    "page": "系统概要",
+    "text": "|管理运营账号与虚拟金币|创建、分配、启停运营账号，管理公会权限、虚拟金币额度和明细。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1649ace2ce98ba088fd9e6dc491f5c4e6dcd344df05c9eef91cebf97fc396fdb",
+    "line": 72,
+    "page": "系统概要",
+    "text": "- 用户成为主播，需上传认证资料（ktp身份证或驾照）并提交入会申请。公会初审和平台终审均通过后，加入公会并获得主播身份。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2c8dd9041e7b67b48ad2aafd0b3974fab8355df97172c08ee850fcd5a637bd6d",
+    "line": 73,
+    "page": "系统概要",
+    "text": "- 用户身份和主播身份共用账号、个人资料、社交关系及金币资产。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "6b729942eba799bc02bacc23c932a6ffcc1cda5d28a4e2d796a9e313c9565c69",
+    "line": 74,
+    "page": "系统概要",
+    "text": "- 主播身份与直播权限分别管理。成为主播且直播权限开启后才能开播。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4f5f5bf7184d9b71c49bfea6b4e149bc08250a700ff458f910366ebb5bcaff17",
+    "line": 75,
+    "page": "系统概要",
+    "text": "- 头像和昵称修改后进入平台风控检测，通过后生效；检测不通过时保留原资料。其他资料直接保存。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "de04e0b732f347cf735356a4e28102b6c35f8fbfc4758406dd4cbd2daaa3255f",
+    "line": 76,
+    "page": "系统概要",
+    "text": "| 状态 | 说明 |",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4daa2c64ef255454a1dcc73ee26bf46ed1810dd737dd6678388665a1cf9a3b69",
+    "line": 78,
+    "page": "系统概要",
+    "text": "| 正常 | 可登录用户APP|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "c658138eaed9c6a9313efcb940e672512ca4336d0f07743f15f6a11649e355d5",
+    "line": 79,
+    "page": "系统概要",
+    "text": "| 封禁 | 不管是否有主播身份，均无法登录用户APP|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "33ca0cf490927042e0946a8a74a5ce42aac8db0ebf439ce541ca9ec91974dc05",
+    "line": 81,
+    "page": "系统概要",
+    "text": "1. 同一用户只能存在一笔处理中入会申请，且只能加入一个公会。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "37880dff2272613e3ceabc0109263a0065bc3e5e7947bb26579f2cffb0820af3",
+    "line": 82,
+    "page": "系统概要",
+    "text": "2. 公会驳回后，申请单作废，用户可以重新提交申请。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a562cb5555576456ab01050017162983be28d092f0853d8fa49d9ac4c8729f28",
+    "line": 83,
+    "page": "系统概要",
+    "text": "3. 公会通过后，申请进入平台终审，此时用户尚未加入公会，也未获得主播身份。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1852fc540b51b8768c8ea29ac580ec6581f5162882d4db6493b7d8832d0726c0",
+    "line": 84,
+    "page": "系统概要",
+    "text": "4. 平台驳回后，申请单作废，用户可以重新提交申请。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "8e795923f42cd94f1f4d02656a9241c3c753946ded9df3214c86154b04d37789",
+    "line": 85,
+    "page": "系统概要",
+    "text": "5. 平台通过后，用户加入公会并获得主播身份。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "dd08b32a07f070a65e3c544e91b7b81fdc11a8ca638d55fc181c93c91fbe84c4",
+    "line": 86,
+    "page": "系统概要",
+    "text": "6. 主播可申请退会，公会也可直接移除主播；退出公会将失去主播身份。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "69ed5afd34118ce40b72f8e84c9068f3c6573b1f470782e4e741384ccb7e46f8",
+    "line": 88,
+    "page": "系统概要",
+    "text": "|状态|身份/关系|用户/主播|公会|平台|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "926122eae8cb875b26dd86a5eda58a31f0dce74c31ea68176f79f83a5fc7b5f4",
+    "line": 90,
+    "page": "系统概要",
+    "text": "|待审核|用户|\\-\\-|通过/驳回|\\-\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "181d3ecd57bf490791cd64cb24ecd53563e6f36b09aeaa758d6d1574862a54ca",
+    "line": 91,
+    "page": "系统概要",
+    "text": "|公会驳回|用户|重新提交申请|\\-\\-|\\-\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "ce08626b9ba6de1954f13a6565a737d2caac14ac7490bf23ba6b72fe3a2adc20",
+    "line": 92,
+    "page": "系统概要",
+    "text": "|公会通过|用户|\\-\\-|\\-\\-|通过/驳回|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "78662195abd7f4c1560ccaf03c4bcd295fd537fc13ba1f6726cbd1ba8674d41f",
+    "line": 93,
+    "page": "系统概要",
+    "text": "|平台驳回|用户|重新提交申请|\\-\\-|\\-\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "b4fa6a5bfc891533fa88665eb634fe57ec350c62a643aeae9aca02530be93436",
+    "line": 94,
+    "page": "系统概要",
+    "text": "|平台通过|主播|直播权限开启时可开播|移除主播；开/关直播权限|开/关直播权限；开/关公会管理权限|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "05df8484b572d6210d8466703735cb68d06cada9994479eafd3417ebbed6ad8a",
+    "line": 96,
+    "page": "系统概要",
+    "text": "|状态|身份/关系|用户/主播|公会|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2dd5af6930926e98efca666c295c2aee044d978516842383d1646ad42e595e18",
+    "line": 98,
+    "page": "系统概要",
+    "text": "|待审核|主播|\\-\\-|同意/驳回|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "676977de1a73e0cafdf26b4140b0a2985f170c7fd7d1108324717fe87e771b2e",
+    "line": 99,
+    "page": "系统概要",
+    "text": "|驳回|主播|重新提交退会申请|\\-\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "e57fec60f5489e1897f498fc1bbcb07631bfffa5d703f7fe7893bfae21d786f7",
+    "line": 100,
+    "page": "系统概要",
+    "text": "|通过|用户，退出公会并失去主播身份|申请加入公会|\\-\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "7f7ea52a6013dc342a7287448461866e9502d02e82bdf26afcc68984a9deaabe",
+    "line": 102,
+    "page": "系统概要",
+    "text": "- 公会创建：",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "8392df338962fc1d2e549c7ce612bcea792931b6a08d8d7ad794302e850f0ff2",
+    "line": 103,
+    "page": "系统概要",
+    "text": "\t- 平台创建公会 + 开通公会长账号",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "6c85bca0900a39b7113f5c2c69ad68f3f1dc1e191dfbca449f83290a08451b8c",
+    "line": 104,
+    "page": "系统概要",
+    "text": "\t- 公会只能管理本公会主播及其直播权限；平台权限高于公会权限。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "112839409746f98cddedcefb3001971d4faad2c3aa2909493e786a9ed842cd2a",
+    "line": 105,
+    "page": "系统概要",
+    "text": "- 公会状态：",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0ebe5c4fae5d13696f7db0c3b7b3e0582e08a5bd191d71702de882177d3c97dc",
+    "line": 106,
+    "page": "系统概要",
+    "text": "| 状态 | 说明 |",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d55e230fc34d716e1cb8cd347385c08ac4686db58c24172da7f3a14ae252755f",
+    "line": 108,
+    "page": "系统概要",
+    "text": "| 正常 | 正常使用|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "67813385b1c869fc0ef26128e0cadec45bb63f05da7cc0bb5888313240f65685",
+    "line": 109,
+    "page": "系统概要",
+    "text": "| 停用 | 由平台操作，公会冻结后，平台搜索不到、公会长无法登录、主播关系解除，名下主播失去主播身份并停止开播。所有业务数据保留，平台后台可查看 |",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "3fc71dbb609006626c6f6702e2a528aabdb5ca6ca7da788c270e589f93a0d360",
+    "line": 110,
+    "page": "系统概要",
+    "text": "- 公会长账号：",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "8dd924b0aff47da1878504631276cdd65a6315eda3531acd605ea1325eb3210d",
+    "line": 111,
+    "page": "系统概要",
+    "text": "\t- 公会长即公会超管，1期仅公会长可登录公会端APP，后期会有公会内部成员。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "e80d32ef9a5b4a815bc947b73e867cb837594d29708c5d69b9c62d91359f8fad",
+    "line": 112,
+    "page": "系统概要",
+    "text": "- 公会长账号状态：",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "122f689391721b8a4cf61d247ba6a34e278b98c5e1bd48e271a8a9a7f44d6564",
+    "line": 113,
+    "page": "系统概要",
+    "text": "| 状态 | 说明 |",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "97bfe8c030c808a47746737d810df5bf69518e739d55d00443800ab8e7672ecf",
+    "line": 115,
+    "page": "系统概要",
+    "text": "| 正常 | 可登录公会APP|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f89ae43d6f2d9fc1e8de2176f68252b7d81b0efc3f53b5a357f82443feb0c955",
+    "line": 116,
+    "page": "系统概要",
+    "text": "| 停用 | 无法登录公会APP，对公会中主播无影响|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2d7b3ca66feaffd9ba7663fabc8431952c91a53bcb80bebe10dec85dc2a44a6c",
+    "line": 119,
+    "page": "系统概要",
+    "text": "- 每个主播对应一个长期存在的直播间ID；每次开播创建一个新的直播场次。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1ddb4c6b06afb81ea6873c8bfcc38da3060e26eb02fc9d6cf3be9be9f79308ed",
+    "line": 120,
+    "page": "系统概要",
+    "text": "- 直播标题、封面、分类、房间类型、门票价格和密码等内容归属于当前直播场次。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "95a4869413337c3953b97472e2b5b8cb4c68001d3c73825f70a90468400512bc",
+    "line": 121,
+    "page": "系统概要",
+    "text": "- 直播结束后关闭当前场次，历史消息、消费、处置和收益记录继续保留。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "6ceb4116ec5d88ef7bb878ce48ab4f3fe39d6ff7d321390a013aedad00db0394",
+    "line": 123,
+    "page": "系统概要",
+    "text": "|房间类型|进入规则|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "077c8e4ece0a98f2c6accd7cfad78463970b34a132fc9337d45fc0da98a7516d",
+    "line": 125,
+    "page": "系统概要",
+    "text": "|普通房|用户账号状态未禁用，用户和直播间对应主播无拉黑关系。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1b028e4a4d10e58b9e18c45d63659312d39bed7a526e534f8cb9c54ad51887db",
+    "line": 126,
+    "page": "系统概要",
+    "text": "|门票房|用户支付当前场次门票后进入；同一场次重复进入不重复收费。场次结束或用户被踢出后门票失效，不退还已支付金币。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2e702a3d9080197702cb7752d694944a9caa25d7ab5d799e33b155e34882ab58",
+    "line": 127,
+    "page": "系统概要",
+    "text": "|密码房|用户通过房间密码校验后进入；|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "601985f321acf0ee341292d533ecc93c7f2ed8e69b310788200714b8a4e6efbf",
+    "line": 128,
+    "page": "系统概要",
+    "text": "- 门票房和密码房由平台功能开关控制，关闭时主播不能选择对应房型。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "65c781f2fc5a8c7df32cd3900d5b772daa0521e1918aeb4103e05efe86bc149b",
+    "line": 129,
+    "page": "系统概要",
+    "text": "- 账号封禁、账号拉黑和本场踢出等限制优先于房间准入规则。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "157eefbd78f9cdc2f5d4ab953a0ea1b04fa67dab6e44dde9a895223bbdbca1a2",
+    "line": 131,
+    "page": "系统概要",
+    "text": "- 开播条件为：账号可用、公会有效、主播认证通过且直播权限已开启。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4b31e1ba4c54d77d5f5910b3928934bec39856643c47cfca1c725e7a4dd5139b",
+    "line": 132,
+    "page": "系统概要",
+    "text": "- 直播权限被关闭后，主播不能再次开播；正在直播时立即结束当前场次。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1ba0152a9fae9ed6ffbe3189f0295f350849bae1662bf3eb80369ec7736d865a",
+    "line": 133,
+    "page": "系统概要",
+    "text": "- 平台、公会对主播开播权限的管理规则：",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "e7f2126730f39142dad27ebf6a8c58950db2d6f9182f4c83304a55bfbc28d610",
+    "line": 134,
+    "page": "系统概要",
+    "text": "|平台|公会|主播最终开播权限|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4ce35bece4191891bc728eae651d5ed106fe1156d8a6d01429e8be3cc7f8138a",
+    "line": 136,
+    "page": "系统概要",
+    "text": "|开启|开启|开启|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "18f60c2c9ffdc8053ff211675034da9deb8f05e05297e7eb44dc8d40ea1a4909",
+    "line": 137,
+    "page": "系统概要",
+    "text": "|开启|关闭|关闭|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "3a11fbc084518726cb1262a82d5c1678694b43b369ae391843a98f3bcfe4bd59",
+    "line": 138,
+    "page": "系统概要",
+    "text": "|关闭（权限锁定/未锁定）|跟随平台显示，页面提示“权限已锁定”|关闭|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "00fc17810d7763788df393ee078a637551cd53ea4fd145ef974a7035d68d68ba",
+    "line": 139,
+    "page": "系统概要",
+    "text": "|开启（权限锁定）|跟随平台显示，页面提示“权限已锁定”|开启|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "67a205bc178be9a0c9e71f2977dcc237994f70a8fddcccd27350a896ad1c4b40",
+    "line": 140,
+    "page": "系统概要",
+    "text": "|开启（权限锁定后又取消锁定）|显示锁定前的公会权限状态。如：锁定前平台开启，公会关闭；然后平台锁定，则公会跟随平台显示开启，并提示“权限已锁定”；然后平台取消锁定，此时公会将显示关闭|显示锁定前公会设定|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "e949670c0f9ea2dfb13afa470eb46cbd10df3c38e46858a2d9aa29c5d57c7cff",
+    "line": 141,
+    "page": "系统概要",
+    "text": "|关闭（关闭后又开启）|同上||",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "9f55ff1bab40073127d6ad286d7affd5a44fde62b03c99e275dd860b6abc88df",
+    "line": 142,
+    "page": "系统概要",
+    "text": "- 锁定期间保留公会原设置，公会设定跟随平台；取消锁定后，按当前平台设置和公会原设置，重新计算主播的开播权限。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "bd732aa18f886f831efccd5fbb686febccb393ad38a06818417dcfb3a5d94be9",
+    "line": 144,
+    "page": "系统概要",
+    "text": "- 一期仅普通房支持连麦，门票房、密码房不提供入口。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "ceb39badb4f33e671febf676e02d9d37b3cf2f89f1f89a317f7a0fde26f22bbe",
+    "line": 145,
+    "page": "系统概要",
+    "text": "- 一期只支持两位主播连线，不支持观众上麦或超过两位主播的连线。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0dc86118ea44f9a322fe954f48edefe1f7f287fb28fd99565466aa148ab97f54",
+    "line": 146,
+    "page": "系统概要",
+    "text": "- 连麦结束不影响双方原直播场次，主播仍可继续直播。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "dc6fab6977c87faf7f547412fe705b5598dcfd5e3f88207daa8dbda3bc4c1fbc",
+    "line": 149,
+    "page": "系统概要",
+    "text": "|动作|规则或后果|是否可取消|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "58e14068ed75bc26bc66c93506e2b47e947a900eb8310e717f0cd4063139317d",
+    "line": 151,
+    "page": "系统概要",
+    "text": "|拉黑|双方禁止相互搜索、关注、申请好友、私信、观看直播和加入粉丝群；<br>解除粉丝、关注、好友和粉丝团关系，取消拉黑后不恢复；<br>已有好友申请失效|是|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "510feb89d11b4ca34830be38811cde566e98d6e10aa6a3ba6a29fa87af9bcf7b",
+    "line": 152,
+    "page": "系统概要",
+    "text": "|关注|本人关注量及被关注人粉丝量加 1；<br>关注账号为主播时，可以收到其开播提醒|是|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "dc965aa9b2f628548592fbf6d34724c8bc56326e54deb222b385981bab6be834",
+    "line": 153,
+    "page": "系统概要",
+    "text": "|申请好友|向被申请人发送申请通知，已有申请时不能重复申请；被申请人同意后，双方成为好友|\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "05e1f05621130057a27382eae6883a888ae3872878246250187179eb682ffe9f",
+    "line": 154,
+    "page": "系统概要",
+    "text": "|删除好友|解除双方的好友关系，清楚聊天记录|\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "70685c6a366369d00ee8bdefe6db19a1b3a780a80461055dddcbe282ddc3f502",
+    "line": 155,
+    "page": "系统概要",
+    "text": "|举报|生成举报工单|\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "62bc67c75e17867a8af79cbb5d8a6c273ea2d67bcd14a9a0c828270000392235",
+    "line": 156,
+    "page": "系统概要",
+    "text": "|私信|好友之间可以私信；非好友最多发送三条私信|\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "9dce26ca2155d526e519fdd32e63abf102e6f750c71fdc746ed98058bb44eab1",
+    "line": 158,
+    "page": "系统概要",
+    "text": "|动作|后果|是否可取消|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2548cd3acd3655352e6aee3520326979df606cb493e2c0aaaee03a4d9c378cf9",
+    "line": 160,
+    "page": "系统概要",
+    "text": "|禁言|观众本场次不能继续发送公屏消息，下一场次恢复|是|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "233679da70349745fcbb22d111446fc268fe3c0062c5984e6604b399c0eab60b",
+    "line": 161,
+    "page": "系统概要",
+    "text": "|踢出直播间|观众退出直播间，本场次不可重进，下一场次恢复；门票房门票不退款|\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "659c29e6bebbd9ffa0eae74c19dbfeb733f9db2a3bd94d173f0edf3331fa1097",
+    "line": 162,
+    "page": "系统概要",
+    "text": "|设置房管|房管可以对直播间观众执行禁言、踢出和屏蔽单条评论；<br>每位主播最多设置 3 名房管，授权长期有效|是|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "6c3330cfe43c2dfabb887eec4eb20421c9cb015ee4eb84434a84ad09d71b0ee3",
+    "line": 163,
+    "page": "系统概要",
+    "text": "|屏蔽单条评论、清屏|主播和观众均不能看到被屏蔽的评论；清空当前公屏消息|\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "b7992700f2b8b23205a4c5eb30f3b7da9b11066a7d57960e1241c9d1ae848e6c",
+    "line": 165,
+    "page": "系统概要",
+    "text": "|动作|后果|是否可取消|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d06cd5da30d943cab768a94c0f104adcef34a536f727c47b7a9c145160418f60",
+    "line": 167,
+    "page": "系统概要",
+    "text": "|移除粉丝群成员<br>/ 主动退出粉丝群|退出粉丝群并卸下粉丝身份标识；<br>用户粉丝等级和亲密度清零，重新入团后从 0 开始累计|\\-|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d83b1b885ff46224a0c7dfa8273534ef435205c79473f66c41aa65091de91dff",
+    "line": 168,
+    "page": "系统概要",
+    "text": "|单人 / 全员禁言|只限制对应成员的群内发言|是|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4adce87fa39e227d9edbe997c2e837c8eaf4598b6c7df27d745a02b1371b6734",
+    "line": 170,
+    "page": "系统概要",
+    "text": "- 连麦的前提条件：双方主播均在普通房型中直播、均处于未连麦状态，且不存在账号拉黑关系。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "be84ff71d3f3283d2b326fcb020d14a54fd694a6315f617f9c3343779ac1fee7",
+    "line": 171,
+    "page": "系统概要",
+    "text": "- 任一方中途结束直播，其发出的邀请和进行中的连麦均立即失效。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d0ecc510254f3caac3590ffa71d628456b30af53c26a67e993f1af78e1514ab5",
+    "line": 172,
+    "page": "系统概要",
+    "text": "|动作（A → B）|规则或后果|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "dc93308f875d038094427350a7ccf58065044a9efa78dbbc51f184297eb64ab3",
+    "line": 174,
+    "page": "系统概要",
+    "text": "|邀请连麦|A 只能发起一个邀请；B 可以收到多个邀请|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f386f56dd8bac2bc739da2231416a89732b9ef8783bc90126686e16c544e6493",
+    "line": 175,
+    "page": "系统概要",
+    "text": "|取消邀请|已发起的邀请失效|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "59f42192bb38a4117f6da4b34285fafb3a253cf3c3a07797363b7bd324669a5a",
+    "line": 176,
+    "page": "系统概要",
+    "text": "|拒绝邀请|已发起的邀请失效|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "62c67cc3cc3e2917695a983c7d85275f976154683913294736cc62fdf32ae5ec",
+    "line": 177,
+    "page": "系统概要",
+    "text": "|接受邀请|已发起的邀请失效；已收到的其他邀请保留|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "aa7314c755750aeee07309517badfc74c79eeff5c8f6042453b3ecc8ff25cb09",
+    "line": 178,
+    "page": "系统概要",
+    "text": "|被接受邀请|不能发起邀请，也不能接受邀请|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "21bbf71dfaadcb14ac25895af36fc79eb4bd432995a19b53bdebfb8ff4a01abf",
+    "line": 179,
+    "page": "系统概要",
+    "text": "|结束连麦|双方立即退出连麦画面，各自原直播仍继续|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2b6a657b45dec5d88947fe8cfb36d911188e069d518f90ee9c13c9da58ba650e",
+    "line": 181,
+    "page": "系统概要",
+    "text": "- 举报对象：账号、直播场次。直播场次的举报入口仅在直播中开放。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "9be43fb6339678f21bb4dba87c97086164cf141f0ea3163ce77edca7c1f36f02",
+    "line": 182,
+    "page": "系统概要",
+    "text": "- 举报类型：色情低俗、涉及宗教政治、暴恐血腥、未成年人有害、其他。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f00af44dfefbda1e276fadc78d9a9861a62806658cb74cd7448a8a00bde28139",
+    "line": 184,
+    "page": "系统概要",
+    "text": "|处置类型|即时后果|处置前/后直播间状态|通知|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "6555fce68629be6f3be047834030a3736e08efb0a3090fe7339ef68b13536834",
+    "line": 186,
+    "page": "系统概要",
+    "text": "|不处置|\\-\\-<br>|直播中 → 直播中|通知举报人：“举报内容暂无可处置违规，感谢您的反馈”|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2bfef3b684c0818d28518cf68a0353cbd678a62351f6f68d4fe6affdfbae0144",
+    "line": 187,
+    "page": "系统概要",
+    "text": "|警告|主播直播间弹窗强提示<br>|直播中 → 直播中|通知举报人：“举报成立，平台已依规处理”；消息通知并弹窗提示主播：“直播间存在违规，请及时调整”|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "b59b03b96d04dd4581b37425ef8d0e63c57bbd204babf5730575786f2aa552cd",
+    "line": 188,
+    "page": "系统概要",
+    "text": "|关播<br>|关闭当前直播间，不影响下次开播|直播中 → 已结束<br>|通知举报人同“警告”；通知主播：“直播间存在违规，平台已关闭直播间”|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d38084c286c8315c5eca7d564a59cb27c58335a91ad7aab42a1eb9b6847e4b5b",
+    "line": 189,
+    "page": "系统概要",
+    "text": "|关闭直播权限|关闭当前直播间，并关闭主播直播权限|直播中 → 已结束|通知举报人同“警告”；通知主播：“直播间严重违规，平台已关闭直播间，并关闭直播权限”|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "3f3edd27b2656256871e5198260c508a0c653f0f2e483508304cf2313d5e572a",
+    "line": 190,
+    "page": "系统概要",
+    "text": "**直播间结束后，举报工单自动作废。**",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "9a2ee7b6a2c839cb67ad65871bfef402739e105c86a9dbece68e0e99f47eb9b8",
+    "line": 192,
+    "page": "系统概要",
+    "text": "账号状态分为正常和封禁。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "049c2ae61299fd4bde7164ec2ffe70ee090defafb9f3e78b41dd8ca851d70b74",
+    "line": 193,
+    "page": "系统概要",
+    "text": "|处置类型|即时后果|通知|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f0021cd40473ac2c77538174d4e986314d56907cd289d0237fc117d0d5224740",
+    "line": 195,
+    "page": "系统概要",
+    "text": "|不处置|\\-\\-|通知举报人：“举报账号暂无可处置的违规，感谢您的反馈”|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "39eb376e00c1c9f17abbec51e003abe426b3b8d2804a847f9bbe75f485650093",
+    "line": 196,
+    "page": "系统概要",
+    "text": "|封禁账号|- 已登录账号强制下线，包含正在直播的账号；未登录账号禁止登录。- 封禁是「账号」级别，用户/主播封禁后均无法登录APP|通知举报人：“举报成立，平台已依规处理”；被举报人登录时提示：“账号已封禁”|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d2643e29c1f452368f91174e95c8030c4d98296bbee29925b90e29bf00a16323",
+    "line": 199,
+    "page": "系统概要",
+    "text": "- 用户金币来自充值、充值赠送、签到、任务、邀请奖励、活动奖励和幸运礼物返奖。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "5d994803e20f436fddf5e78ae5346fa470efa194462f5f3a030db6d08fce0941",
+    "line": 200,
+    "page": "系统概要",
+    "text": "- 不同来源的真实金币进入同一金币账户，可用于赠送礼物或购买门票，不能兑换现金。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1e91f664a92bd8c3958f9d0d6b6331b9653785dc609f3306bdc65a8dcc82c793",
+    "line": 201,
+    "page": "系统概要",
+    "text": "- 充值成功后增加金币并生成充值记录；",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "3f82946a5cee9b55184c12b74b679811dbac1eb3a87d9d38bce7695cc6f419d7",
+    "line": 202,
+    "page": "系统概要",
+    "text": "- 消费成功只扣减一次金币并生成消费记录，余额不足或条件检查失败时不扣减。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a802a3a89728ed828bb01dc2db58cfd7304c69975c37eaa5f732158c16fa1668",
+    "line": 203,
+    "page": "系统概要",
+    "text": "- 金币余额为负数时不能继续消费；后续充值到账的金币先抵扣负余额，剩余部分计入可用余额。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "79d60883267caa571264ca23b88afc08d6d41248705961c5489583c7c6f21558",
+    "line": 205,
+    "page": "系统概要",
+    "text": "|类型|规则|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "697c3b4ffba3d1727f870ce54f718b362ec4d212bdc209d7318202074041ce40",
+    "line": 207,
+    "page": "系统概要",
+    "text": "|普通礼物|按平台配置的金币价格长期上架，由平台手动上下架。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "b721a55c4f8d6a00809e9dce697a3752eead9053fbc3d162692396aa4cddc3cc",
+    "line": 208,
+    "page": "系统概要",
+    "text": "|定制礼物|按配置时间生效和失效，平台可提前下架。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "71d630bc3ec38dae64ed4a9b9cb976c4f006b16cd0b08bf6053c0d59a8af617e",
+    "line": 209,
+    "page": "系统概要",
+    "text": "|幸运礼物|每个礼物独立开奖，中奖金币返还用户；价格、奖励档位和概率由平台配置。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d2c6cf6c534a0bd9d70a2d2069d52de9b90a34354fb1e8b87bac13772d85b389",
+    "line": 210,
+    "page": "系统概要",
+    "text": "|门票|购买后获得当前直播场次的进入资格，按礼物类商品参与收益和分成。|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4ede15d33a33c8568169a999e8f7fddd738a26a32e236423c748bbf9882a399b",
+    "line": 211,
+    "page": "系统概要",
+    "text": "- 礼物下架后不能继续赠送，已完成的赠送、开奖、消费和结算记录继续保留。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "92c1cee3ba6a1069c1e1635e067c3377beb631d02e8df7f8ed3a822f7c5eda50",
+    "line": 212,
+    "page": "系统概要",
+    "text": "- 连续赠送按每个礼物分别扣减金币并记录结果。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "ff832af1533f2aa6152419dd626defc7e3416d77e7c6addafece2f58bcfc49e6",
+    "line": 213,
+    "page": "系统概要",
+    "text": "- 已成功赠送的礼物和已购买的门票不支持退款或退回，充值订单退款不撤销已完成的礼物和门票消费。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "3e6e9f8c77936c4c4b8d6c1ecc03bdcab302585a198f71f43b938f6ef3f5e74d",
+    "line": 215,
+    "page": "系统概要",
+    "text": "**玩法****介绍****：**",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f20abe9ae41f8e140684cda19f03906cd6fa315c37c6005378fc1a3c477a8743",
+    "line": 216,
+    "page": "系统概要",
+    "text": "用户送出幸运礼物，平台立即开奖并进行金币返奖，返奖金额按后台配置返奖概率计算，用户的实际消耗金币=幸运礼物价值\\-返奖",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "ed9ae19544fa66b60dff4e8125e199892c0931085ec15ded68411b017f33b364",
+    "line": 217,
+    "page": "系统概要",
+    "text": "平台可调整价格、奖励档位和概率；各档概率合计必须为 100%，验证实际返奖率后才能生效。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "108f78bcaa0f88ae94453af5382dc0ed3504d87fc4f7ff9deede73989ad9b763",
+    "line": 218,
+    "page": "系统概要",
+    "text": "**赠送规则：**",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "bdce4ea5ea9edbc4b005807e6f14fb454d63773c42cbe37e9a018a472843c879",
+    "line": 219,
+    "page": "系统概要",
+    "text": "|一次送出数量|每个礼物消耗|长期平均返还比例|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "8d8bb6c9543b16af80f064add5055711201df24fbd4dc7686fcfbbf47a480ccc",
+    "line": 221,
+    "page": "系统概要",
+    "text": "|1 个|10 金币|96%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4ba049e756adcabf6eae10ea6edbc44eb46d93620ea645ea55da0cb0eec1a554",
+    "line": 222,
+    "page": "系统概要",
+    "text": "|10 个|10 金币|97%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "7da130e4b20d131e2c1642e8fdf6edd526c65c642970c643bab0173f4d36a623",
+    "line": 223,
+    "page": "系统概要",
+    "text": "|100 个及以上|10 金币|98%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a7315699f17dd3c3ef270353122a7d3f7f683f5defbb62299e216727d610013b",
+    "line": 224,
+    "page": "系统概要",
+    "text": "“长期平均返还比例”是大量赠送后的平均值，不代表每个礼物或每次赠送都能获得对应比例的金币。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "2b13a460507093fa919bfad46164954f144f375b928def4c648aa3f007482465",
+    "line": 225,
+    "page": "系统概要",
+    "text": "**开奖规则：**",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a0921f698e7c43ba5b916e5daa58f99a7107a7a5a6777cc2949197d537c399d6",
+    "line": 226,
+    "page": "系统概要",
+    "text": "每个礼物独立开奖，用户可能获得 0、5、10、50、100 或 1000 金币，获得的金币直接进入用户余额。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a83b748ec237b4a1b98d58bfccefe08a820caad8d298fcd7f57338c3403fafa9",
+    "line": 227,
+    "page": "系统概要",
+    "text": "|单次开奖返还金币|【1 连抽】概率|【10 连抽】概率|【100 连抽】概率|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "349fce31738d5b85f1b5f0dce221e932e1bca3603fe0bfa523562ca2110677c3",
+    "line": 229,
+    "page": "系统概要",
+    "text": "|0|10\\.4%|8\\.4%|6\\.4%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a5a1d316766044cdb74473a7356496239404e8aa55b2d55640125f285fbca235",
+    "line": 230,
+    "page": "系统概要",
+    "text": "|5|32%|34%|36%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4b558ecfa33a6c45f56ceaa3e1dc36519a720c41e30579d96eb198ab8f2f0da4",
+    "line": 231,
+    "page": "系统概要",
+    "text": "|10|55%|55%|55%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "97786baf474a0af31b5ab8f30128948b53c0a056c883dc50c2da91549231fa1a",
+    "line": 232,
+    "page": "系统概要",
+    "text": "|50|2%|2%|2%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "e001113c596531c3a685d844baffe0c932b94693097e2991c4979ea4e96460d9",
+    "line": 233,
+    "page": "系统概要",
+    "text": "|100|0\\.5%|0\\.5%|0\\.5%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "e50340d8ac614a986f407283a762f41c484ab55cded25f439d8e535e487f7039",
+    "line": 234,
+    "page": "系统概要",
+    "text": "|1000|0\\.1%|0\\.1%|0\\.1%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f98ce7f591580f1e1938b3327a2662937aeef7549bed095a15f5956f2c94275d",
+    "line": 235,
+    "page": "系统概要",
+    "text": "|合计|100%|100%|100%|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "32261ed837c34a0e3953155bf33dfb5445200a0b8d4f45e66e8d5dbad92aeb0b",
+    "line": 236,
+    "page": "系统概要",
+    "text": "**示例：**",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1e02caaf3d8cbdcdf69be5fc6f7674d4c804d5f7eef4b8cdf4a534b6e5189d77",
+    "line": 237,
+    "page": "系统概要",
+    "text": "- 用户送出 1 个礼物，先扣除 10 金币。若获得 50 金币，余额净增加 40 金币；若获得 0 金币，则实际消耗 10 金币。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f66786f381bffb7ffb96e46fdee58b4bbcd6fb1a948eb0126c185ecc67197ea0",
+    "line": 238,
+    "page": "系统概要",
+    "text": "- 用户一次送出 10 个礼物时，先扣除 100 金币，10 个礼物分别开奖。长期平均返还约 97 金币，单次实际结果可能高于或低于该数值。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "fde001ad2830b4d0443be983d4406132b856b1431d1b0cc131e5c30a59ace93c",
+    "line": 240,
+    "page": "系统概要",
+    "text": "- 道具（头像框、气泡、勋章\\.\\.\\.）由平台配置获取条件、有效期和上下架状态。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a3b2395cffcc1a3f9ee06213103f361dd0cd63ca454928ffc2b5c4aeeded6c1d",
+    "line": 241,
+    "page": "系统概要",
+    "text": "- 用户只能使用已获得且处于有效期内的道具；道具到期后自动停止展示。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "ff86f4dfc2473bcbf4353769226640e2eb61f3c429676f36407b6c86f4080a3e",
+    "line": 242,
+    "page": "系统概要",
+    "text": "- 道具下架后停止新发放，已发放道具按原有效期继续使用。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "06dd41ab66cbbd56eb3356ac25149cabf5c2eb2ceb0a04d050aacf8c8b041436",
+    "line": 244,
+    "page": "系统概要",
+    "text": "- 只有充值订单支持退款或支付渠道拒付处理。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "c3aeb63e47847f5d1f1d924b71f1a6972e0c779938044afb872a24a15308712d",
+    "line": 245,
+    "page": "系统概要",
+    "text": "- 充值订单用户侧不提供退款操作",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "924ed358507e10a20378bb512f794c44f223de22bb8682d51d3f06e93a0cbf8c",
+    "line": 246,
+    "page": "系统概要",
+    "text": "- 充值订单退款后，从用户当前金币余额中扣除该订单到账的金币。余额不足时允许形成负数余额，不撤销用户已经完成的礼物或门票消费。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "ebc5a9ded07b204e8d10a41152129ca31716c97934da97880efe3ce09665e25c",
+    "line": 247,
+    "page": "系统概要",
+    "text": "- 用户后续充值时，到账金币先抵扣负余额，剩余金币进入可用余额。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "b033f5344e110c34541c4b9bc6e7b6a35cad1ecad2c522114be3cd8215878a4a",
+    "line": 248,
+    "page": "系统概要",
+    "text": "- 示例：用户充值获得 1000 金币并全部消费后，余额为 0；该充值订单退款后，余额变为 \\-1000；再次充值 2000 金币后，余额变为 1000。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "8dacc1d5091e5906f6e3a15d790fa8306fe5af912787d756743d13027503cac5",
+    "line": 251,
+    "page": "系统概要",
+    "text": "|类型|收益规则|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "ab675196100658c7634f4f5106fe501cb79efc4163b999443d7df3b2cf7a78e1",
+    "line": 253,
+    "page": "系统概要",
+    "text": "|普通礼物|主播收益等于用户实际消费的金币|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0fe507b5c4f8f8da4b979948e63813778bbe09f97813211c3bad424c0b8ddf62",
+    "line": 254,
+    "page": "系统概要",
+    "text": "|定制礼物|主播收益等于用户实际消费的金币|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "b9468c7f5f029f9424737f6edc3d2e8e9fa435020ed113a50bba24f9f6de5ed2",
+    "line": 255,
+    "page": "系统概要",
+    "text": "|幸运礼物|主播收益等于用户送出礼物价值*1%（1%后台可配），返奖结果不影响主播收益|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0379bfbd0fad26a05585a90274d79a2267845b6e032f02ea27c21c10603687fa",
+    "line": 256,
+    "page": "系统概要",
+    "text": "|门票|主播收益等于用户购买门票实际消费的金币|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0f4c98920e31162a3f53b9fdd648ef978cfc9eebab1e2f74f9a37b79116d7a03",
+    "line": 257,
+    "page": "系统概要",
+    "text": "- 虚拟金币消费、失败或撤销的消费不计入主播收益。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "36f4ee9bbee4daef00294494678ae54fb7d7816d796099f8d2b9782ade7b53d9",
+    "line": 258,
+    "page": "系统概要",
+    "text": "- 已消费完成的礼物和门票不因充值订单退款或拒付而撤销，对应主播收益和分成不受影响。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4adb7611b7a4c542d71d3e3bd13a6c1f1e37326c85b72c83ca73ecad7e298b0f",
+    "line": 260,
+    "page": "系统概要",
+    "text": "- 系统不提供线上结算申请或审批流程。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "5726c60c9a92712684f0b47866b6d2e5b5c8eec5ef324d3400a44d7a2139a3b7",
+    "line": 261,
+    "page": "系统概要",
+    "text": "- 后台输出数据的汇总/明细报表等，不计算具体的分成金额。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "bbe557d4b58e1a16f7cb26af0450b3b816b6ba8eafed2b6e9d3151837c2f3d85",
+    "line": 262,
+    "page": "系统概要",
+    "text": "- 分成比例和应结金额由财务根据报表中心数据确定。财务在线下与主播完成结算，并在系统中上传结果。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "be27d6bea914f448970f491c407f02752b8af9acccc8dd50d39d0830aa2ebf2a",
+    "line": 264,
+    "page": "系统概要",
+    "text": "|类型|用户充值（印尼盾）|平台奖励（金币）|赠送礼物价值（金币）|主播收益（金币）|平台分成（50%，印尼盾）|公会分成（10%，印尼盾）|主播分成（40%，印尼盾）|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1eacbda7a3f73b1e4e395784271e50523a873025b1ee0f06e3abbf4e7d15b632",
+    "line": 266,
+    "page": "系统概要",
+    "text": "|普通礼物 / 定制礼物 / 门票|75,000|5,000|80,000|80,000|40,000|8,000|32,000|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f174bb21afc2758a11a29f8096d68bdc15184d61036e7dc09823b0265075cbcd",
+    "line": 267,
+    "page": "系统概要",
+    "text": "|幸运礼物|15,000|0|15,000|150（按1%计算）|75|15|60|",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "03d2e08e7b6acf8767d6a5b8a7d3041b50077ee3c8888e6dda6b5f1f42464c84",
+    "line": 270,
+    "page": "系统概要",
+    "text": "- 由公会创建，由公会运营人员登录使用。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "889493bb7f94ff029c195e47cb1ba14061ccfd5c0ee7827cfb632e23983edf8d",
+    "line": 271,
+    "page": "系统概要",
+    "text": "- 可在直播间手动发送公屏消息或赠送礼物，不能赠送幸运礼物。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "8fe482e5d6a09fe4c535a8cc77a31bc6d4b937c963bcc64424a2225381b36f9b",
+    "line": 272,
+    "page": "系统概要",
+    "text": "- 进入门票房不需要购买门票，进入密码房无需输入密码。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "7ecb77d1ab04e91e47643bf2afb36357939924e34e2ac7781a25846a8e85ae5b",
+    "line": 273,
+    "page": "系统概要",
+    "text": "- 运营账号下单独设置虚拟金币账户。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "98c306488d0cda2f51f6b79e9950bebdc6a2aef4b8c43167b5e614288f95fcf3",
+    "line": 275,
+    "page": "系统概要",
+    "text": "- 公会可以创建本公会运营账号、发放虚拟金币、启用或禁用账号，并查看运营账号数据。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "9c964ce3b87b3568024673a18b6a0faca0c83f9b8159fe38c1ae22ef13a940d2",
+    "line": 276,
+    "page": "系统概要",
+    "text": "- 平台不创建运营账号、不发放虚拟金币，可以启用或禁用运营账号。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "15bda7ae40b832d6d0cae8c785747988191d420b9b0e7487a51b6e4720509cee",
+    "line": 277,
+    "page": "系统概要",
+    "text": "- 平台可以锁定或解除公会的运营账号管理权限。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a205b1628fdf282bc2d728799f96fed58448c8d9d4bac5699d263e41d0a9d56d",
+    "line": 278,
+    "page": "系统概要",
+    "text": "- 平台可限制单个公会每月累计发放虚拟金币的上限，及各公会内单运营账号每月累计获得虚拟金币的上限。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "8e731515cb221aadc53ed1424e1bac61695240ce4a2210c643272969e97a143e",
+    "line": 279,
+    "page": "系统概要",
+    "text": "- 平台可以查看运营账号列表、虚拟金币发放明细和消费明细。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "5680609b493a6b20985fb99f2e9c54606cdd4f9a5bf92091b0a78654c784620d",
+    "line": 281,
+    "page": "系统概要",
+    "text": "- 虚拟金币与用户真实金币分账户记录，不可互相转换。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "abc97381e635542dc85ef08ff3ac5a1d83d158e425e12100a9ba2f3034816420",
+    "line": 282,
+    "page": "系统概要",
+    "text": "- 运营账号使用虚拟金币送礼，可计入直播间氛围和榜单展示，但不形成主播收益或分成。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "52e980b46146d7e30c8158c909f917a935b01c39b74d1952baad986bc536f543",
+    "line": 284,
+    "page": "系统概要",
+    "text": "<!-- 当前来源：liveshow-proto/context/01-用户主播App-项目需求清单.md；SHA-256：e2bcb984a3d9c28b8795419e1e106e52cf66cb9a1456bbe248bb62ea8cc906aa -->",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4d3ee5c890bf3ad0b60ee62992913445e73da27f5c1db407c53c2e6df6a7b0c0",
+    "line": 287,
+    "page": "系统概要",
+    "text": "来源：当前系统概要、活动原型页面和明确批注；同步批次 RSL-0034。系统概要优先；历史生成附录和历史任务链接已退出当前需求依据。原文件逐字保存在归档的 context-before 中。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "75e4a8c93d1633ed13f31d0c327c432f620f0b2e012c9b9b6e1397e884c454fd",
+    "line": 289,
+    "page": "系统概要",
+    "text": "用户与主播共用账号；入会材料随申请提交，公会初审及平台终审均通过后入会成为主播；任一方驳回后申请失效。平台权限优先，锁定期间公会只读，解锁恢复原公会设置。公会停用解除主播关系、身份并结束直播，停用公会长账号只限制该账号登录。只有充值可退款，已完成礼物及门票消费不撤销；幸运礼物收益取赠送时配置比例，返奖不影响主播收益；虚拟金币不形成主播收益。系统不在线申请或审批结算，不计算具体分成；财务线下完成后上传结果。细则以 context/系统概要 .md 对应章节为准。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "57242a1aa6476019b3fad4cee6805163c742aa6e8129c96bdb6a4d757ec89fe6",
+    "line": 1058,
+    "page": "start-live-settings.html",
+    "text": "- REQ-USER-4cfa8233c3：每次开播创建新的直播场次；主题、封面、分类、房型、门票和密码均保存到本场，不覆盖历史场次。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-8f502f9b33b8a036",
+        "label": "主播新开播在公会形成场次记录",
+        "result": "列表存在新场次S"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "ac2d58fbf7b9dc543d491bed8c1fb00302ef8c9fa8f5720d62857bdd8327b653",
+    "line": 1877,
+    "page": "系统概要",
+    "text": "<!-- 当前来源：liveshow-proto/context/02-公会App-项目需求清单.md；SHA-256：d5988dfba8cd8ccb03512c70c1a9a6fdce24a19eab4143eff29b69931066940e -->",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "18e614a3a4843debb9b3e7a2109f262acc83d2b767aab583d8b12c6e6f429f5f",
+    "line": 1880,
+    "page": "系统概要",
+    "text": "来源：当前系统概要、活动原型页面和明确批注；同步批次 RSL-0034。系统概要优先；历史生成附录和历史任务链接已退出当前需求依据。原文件逐字保存在归档的 context-before 中。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "30d1f33f98cbbce368603749a19280c3355265c7b476a73acd003438b66ef17b",
+    "line": 1882,
+    "page": "系统概要",
+    "text": "用户与主播共用账号；入会材料随申请提交，公会初审及平台终审均通过后入会成为主播；任一方驳回后申请失效。平台权限优先，锁定期间公会只读，解锁恢复原公会设置。公会停用解除主播关系、身份并结束直播，停用公会长账号只限制该账号登录。只有充值可退款，已完成礼物及门票消费不撤销；幸运礼物收益取赠送时配置比例，返奖不影响主播收益；虚拟金币不形成主播收益。系统不在线申请或审批结算，不计算具体分成；财务线下完成后上传结果。细则以 context/系统概要 .md 对应章节为准。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "224a020504d713ad945d8d5812ea9a4165223d8b531a2ec44f97f4838359a6b9",
+    "line": 1886,
+    "page": "guild-login.html",
+    "text": "- REQ-GUILD-4c260c7f86：公会账号：必填；使用平台创建的公会长账号。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-aea6e94f33b1a2ce",
+        "label": "未填写公会登录账号时提交",
+        "result": "不建立公会端登录会话"
+      },
+      {
+        "id": "SC-5610ddce5587755f",
+        "label": "停用公会后原启用账号A不能登录",
+        "result": "账号A不能登录公会端"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9e451888bbc2581e614127bb28fa5d603c1cf254d87dea40e0d014b28bb9a2f9",
+    "line": 1887,
+    "page": "guild-login.html",
+    "text": "- REQ-GUILD-b219660bdb：密码：必填；错误时统一提示账号或密码错误。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-40692d3b0ac6a3f9",
+        "label": "公会登录密码留空",
+        "result": "不建立公会端登录会话"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "3645e60c250b27dad769a6889afb030a2402ccf860e3ae5c9249222fc2136233",
+    "line": 1888,
+    "page": "guild-login.html",
+    "text": "- REQ-GUILD-3016605a40：一期仅公会长可登录公会端；运营账号不能登录公会端。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-e1609a1ea9a7495f",
+        "label": "运营账号通过公会登录页提交凭证",
+        "result": "不建立公会端登录会话"
+      },
+      {
+        "id": "SC-b770779a95e642b0",
+        "label": "公会密码提交后的提示：更新密码为NewPass12",
+        "result": "进入选择公会页"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "f0b91d56ec0b72dbff635a4266a3f618bc3454fb452fa6b338df0e50885fa556",
+    "line": 1889,
+    "page": "guild-login.html",
+    "text": "- REQ-GUILD-0ce3597fd2：公会长账号被停用后不可登录，不影响公会内主播账号。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7f5e2dc97de4da04",
+        "label": "公会登录公会长已停用",
+        "result": "不建立公会端登录会话"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "1a4a09ef7f367ec9f6275ae59e6d98b6334ce7ae3b5cb6cdd85c52e0b4147c56",
+    "line": 1890,
+    "page": "guild-login.html",
+    "text": "- REQ-GUILD-422b478e0e：登录校验通过 -> 进入「选择公会」；账号或密码错误 -> 停留当前页并提示“账号或密码错误”。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7f906ed92aecba38",
+        "label": "公会登录正常公会长",
+        "result": "进入选择公会页"
+      },
+      {
+        "id": "SC-de755f4f13e66e35",
+        "label": "公会登录账号错误",
+        "result": "显示“账号或密码错误”"
+      },
+      {
+        "id": "SC-af4b9ce36b670292",
+        "label": "公会登录密码错误",
+        "result": "显示“账号或密码错误”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "c4edc4abb51f52fbd0be4c50d6a010a378c3a40fae03b9b91a830b9fe1f6f055",
+    "line": 1894,
+    "page": "guild-switch.html",
+    "text": "- REQ-GUILD-57ea6a0920：公会长：显示名称、用户 ID 和“公会长”身份。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f2b16f5a6bc88b80",
+        "label": "选择公会核对公会长名称",
+        "result": "公会长名称显示“会长甲”"
+      },
+      {
+        "id": "SC-b7ab21f23577d5c0",
+        "label": "选择公会核对公会长用户ID",
+        "result": "公会长用户ID显示“620101”"
+      },
+      {
+        "id": "SC-2ebac6c639563770",
+        "label": "选择公会核对公会长身份标签",
+        "result": "公会长身份标签显示“公会长”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "60616b1bcda0939a81bf46ab12cf6be985608183199d86ecdadf7c50e2c4f1d8",
+    "line": 1895,
+    "page": "guild-switch.html",
+    "text": "- REQ-GUILD-ba93d1b5d2：公会：显示公会名称、公会 ID 和当前公会状态；不显示城市。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-e5a3e1cc3f34130a",
+        "label": "选择公会中公会名称对应当前记录",
+        "result": "“公会名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-4be4ccb22b936df2",
+        "label": "选择公会中公会 ID对应当前记录",
+        "result": "“公会 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "4b9127cefd8b8b03fcfe4cec2629da8c8c90dca7e695487dd84b096bfdeda1e3",
+    "line": 1896,
+    "page": "guild-switch.html",
+    "text": "- REQ-GUILD-d5be20b876：仅展示当前账号可管理且未解散的公会；已解散公会不可选择。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-ed887659e0caf13d",
+        "label": "选择公会范围可管理未解散",
+        "result": "列表展示G1"
+      },
+      {
+        "id": "SC-40508361c99ae3dc",
+        "label": "选择公会范围不可管理",
+        "result": "列表不提供G1可选项"
+      },
+      {
+        "id": "SC-da0fa70f2483f539",
+        "label": "选择公会范围已解散",
+        "result": "列表不提供G1可选项"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "d5f0198997912740b7069fdf51cddc54d7ef73720f49c1fb8298af439eef38ff",
+    "line": 1897,
+    "page": "guild-switch.html",
+    "text": "- REQ-GUILD-f8b3b08691：选择公会 -> 更新当前公会，返回首页并重新加载该公会数据。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-edbe51f7ea6f6686",
+        "label": "公会切换刷新数据",
+        "result": "首页展示G2的200金币收益"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "4aa3ac035fc77b735917740e44e92adbf9b4f694a0e5e66350d74ad1e4128334",
+    "line": 1901,
+    "page": "guild-home.html",
+    "text": "- REQ-GUILD-71b26ef779：当前公会：显示公会 Logo、名称和公会 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f34f041845e7a15f",
+        "label": "首页核对公会名称",
+        "result": "公会名称显示“公会甲”"
+      },
+      {
+        "id": "SC-715d8b26e1157600",
+        "label": "首页核对公会ID",
+        "result": "公会ID显示“710101”"
+      },
+      {
+        "id": "SC-542e9f1b3eac2113",
+        "label": "首页核对公会Logo",
+        "result": "公会Logo显示“已上传的测试Logo A”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "ee9dc7c3ce912f29051d0170b99ff0a52dba66daa87af3cf4159f64ea64b733d",
+    "line": 1902,
+    "page": "guild-home.html",
+    "text": "- REQ-GUILD-e051472edc：今日概况：仅统计当前公会当日数据。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-eaa14890232d5435",
+        "label": "公会首页隔离日期和公会",
+        "result": "今日收益仅显示100金币"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "841da7a8ba5f7eb53bb85549a02d899696213c3f9b99cbf893bf71772587f920",
+    "line": 1903,
+    "page": "guild-home.html",
+    "text": "- REQ-GUILD-ff872f852f：当日收益：当前公会主播当日直播间计入收益的礼物金币总和；直播中：当前时刻正在直播的去重主播数；达成有效天：当日累计直播时长达到 3 小时的主播数。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-16d5ac84f875132a",
+        "label": "首页单日179分钟有效天",
+        "result": "达成有效天=0人"
+      },
+      {
+        "id": "SC-d66812e834383fb1",
+        "label": "首页单日180分钟有效天",
+        "result": "达成有效天=1人"
+      },
+      {
+        "id": "SC-b3fd3eef52bde0c0",
+        "label": "首页单日181分钟有效天",
+        "result": "达成有效天=1人"
+      },
+      {
+        "id": "SC-c534c57582bda8be",
+        "label": "首页单日360分钟有效天",
+        "result": "达成有效天=1人"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "7ac1e8c8f8068c3cd4026801bdcea60bf6ddfad5bc66fc0bb676b9a6905faf8c",
+    "line": 1904,
+    "page": "guild-home.html",
+    "text": "- REQ-GUILD-6b470d98b1：普通礼物、定制礼物按成功实际消费金币计入；幸运礼物按礼物总价值 × 后台配置比例计入，默认 1%，返奖不影响主播收益。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-5d325a2494b78de2",
+        "label": "首页统计普通礼物收益",
+        "result": "收益=60金币"
+      },
+      {
+        "id": "SC-3f2eab50a47d47d4",
+        "label": "首页统计定制礼物收益",
+        "result": "收益=60金币"
+      },
+      {
+        "id": "SC-882f9bd874df65cd",
+        "label": "首页统计幸运礼物收益",
+        "result": "收益=0.6金币"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "62f7f5f26a110177e58369cb76b77747ae56ac7c1da61967c966078a529ed7ab",
+        "page": "guild-live-gift-detail.html",
+        "cases": [
+          "SC-0a2de9f908c44af4",
+          "SC-253023a2d9c2bb7a",
+          "SC-e2ff52c6af3453b0"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "94e2c464dc9d0bacb15f2c20ce93e98e1c408a8e42ca726e4a9cf62cea31269f",
+    "line": 1905,
+    "page": "guild-home.html",
+    "text": "- REQ-GUILD-ab86979826：运营账号虚拟金币送礼、失败或已冲正消费不计入主播收益。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-9916622215b8852b",
+        "label": "公会首页不计运营虚拟金币",
+        "result": "今日收益为10金币"
+      },
+      {
+        "id": "SC-9c647f6605d12b1b",
+        "label": "公会首页不计失败消费",
+        "result": "今日收益为10金币"
+      },
+      {
+        "id": "SC-e140628955edcbf4",
+        "label": "公会首页不计已冲正消费",
+        "result": "今日收益为10金币"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "f353a01c1b9e1f292831f66ae160c05adda1ac3cd1521cb8e74b01ea954488c8",
+    "line": 1906,
+    "page": "guild-home.html",
+    "text": "- REQ-GUILD-54af699a17：点击今日概况 -> 进入当日经营详情；功能入口进入对应列表。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-8f216b52fcd13167",
+        "label": "首页通过今日概况进入关联页面",
+        "result": "进入当日经营详情"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "022f0506a20e4344836c4f994bdcc1da6d1c92d0feb831f3771f51a2c1dfbb9d",
+    "line": 1910,
+    "page": "guild-notifications.html",
+    "text": "- REQ-GUILD-203d433f4c：标题：表达业务事件和当前结果。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-6bf3bf4f63f98867",
+        "label": "通知消息核对通知标题",
+        "result": "通知标题显示“入会申请待初审”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "07e9cbba31dfc38dd2d56fef8df58228323d090f2a0da28c27c4ce52b150198e",
+    "line": 1911,
+    "page": "guild-notifications.html",
+    "text": "- REQ-GUILD-ad41688c39：摘要：展示对象、结果或待处理数量。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-037636d59114857c",
+        "label": "通知消息核对通知摘要",
+        "result": "通知摘要显示“用户甲提交入会申请”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "92e6d62e30dc7e90eeef31a96d9766e93b383df6f4680df648932cc1ef2015b1",
+    "line": 1912,
+    "page": "guild-notifications.html",
+    "text": "- REQ-GUILD-b03616b010：时间：通知生成时间，按时间倒序。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-21bb5718031a5d5d",
+        "label": "公会通知新事件优先",
+        "result": "N2排列在N1之前"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "82eca0ab2b961acf1b5d7417d8f1f63450e421b5fb1cfed8b7488de865440d01",
+    "line": 1913,
+    "page": "guild-notifications.html",
+    "text": "- REQ-GUILD-221be2a3d6：已读状态：未读显示标记；进入详情后标记为已读。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-0ca93786d618d28d",
+        "label": "通知消息中已读状态对应当前记录",
+        "result": "通知A仍显示未读标记"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "7d0c73a0080ca7ea5405db9911988c322047f9fd48c480a70cf43f5945f96b62",
+    "line": 1914,
+    "page": "guild-notifications.html",
+    "text": "- REQ-GUILD-a4f392a47c：入会申请待初审、平台终审结果；退会申请待审核。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7c55be4950e59f2c",
+        "label": "公会通知承载入会待初审",
+        "result": "通知表达E1的入会待初审及事件结果"
+      },
+      {
+        "id": "SC-245d42fe55f515d3",
+        "label": "公会通知承载平台终审通过",
+        "result": "通知表达E1的平台终审通过及事件结果"
+      },
+      {
+        "id": "SC-491f33944a0326ba",
+        "label": "公会通知承载平台终审驳回",
+        "result": "通知表达E1的平台终审驳回及事件结果"
+      },
+      {
+        "id": "SC-8aa3f660c4b7417d",
+        "label": "公会通知承载退会待审核",
+        "result": "通知表达E1的退会待审核及事件结果"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "2e917927364dfc9bdd4054140a3f45318d5ec27893fbadddfd117488b7835066",
+    "line": 1915,
+    "page": "guild-notifications.html",
+    "text": "- REQ-GUILD-25cc4b6322：平台关闭直播场次、关闭或恢复直播权限。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-a4ef886d213d169a",
+        "label": "公会通知承载平台关闭场次",
+        "result": "通知表达E1的平台关闭场次及事件结果"
+      },
+      {
+        "id": "SC-06f87a3e0a9f4bac",
+        "label": "公会通知承载平台关闭直播权限",
+        "result": "通知表达E1的平台关闭直播权限及事件结果"
+      },
+      {
+        "id": "SC-ec56ec52a7b4246a",
+        "label": "公会通知承载平台恢复直播权限",
+        "result": "通知表达E1的平台恢复直播权限及事件结果"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "42328cc0f5f121a405fcf502bdb1d1ba4470bba85969fda771f7724b231430ff",
+    "line": 1916,
+    "page": "guild-notifications.html",
+    "text": "- REQ-GUILD-835a3cd01a：公会状态、公会长账号状态或运营账号管理权限变更。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-fc8c8df64046943d",
+        "label": "公会通知承载公会状态变更",
+        "result": "通知表达G由停用恢复为启用"
+      },
+      {
+        "id": "SC-f7212fcd25be6e44",
+        "label": "公会通知承载公会长账号状态变更",
+        "result": "通知表达当前公会长账号由停用恢复为启用"
+      },
+      {
+        "id": "SC-21aac8b062467566",
+        "label": "公会通知承载运营账号管理权限变更",
+        "result": "通知表达平台已锁定运营账号A的公会管理权限"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "dba873e42b63757058e17811ca0d3f8531ba264117ba5b9682fc108e677f9e48",
+    "line": 1917,
+    "page": "guild-notifications.html",
+    "text": "- REQ-GUILD-956d70ce40：主播分成、公会分成结果新增或冲正。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-68c60304ce9441d8",
+        "label": "公会通知承载主播分成新增",
+        "result": "通知表达E1的主播分成新增及事件结果"
+      },
+      {
+        "id": "SC-d35615de58374a6b",
+        "label": "公会通知承载主播分成冲正",
+        "result": "通知表达E1的主播分成冲正及事件结果"
+      },
+      {
+        "id": "SC-e82b1209349c9848",
+        "label": "公会通知承载公会分成新增",
+        "result": "通知表达E1的公会分成新增及事件结果"
+      },
+      {
+        "id": "SC-7b20c92124e6fe30",
+        "label": "公会通知承载公会分成冲正",
+        "result": "通知表达E1的公会分成冲正及事件结果"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "5d29dfa1f3421f86a14bd42a46908e337492666a8f4d4b88745d66b5922f4b02",
+    "line": 1918,
+    "page": "guild-notifications.html",
+    "text": "- REQ-GUILD-4f825376c3：点击通知 -> 进入通知详情；有关联业务时由详情进入对应记录。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-18c22b57d1998d2a",
+        "label": "通知消息通过通知进入关联页面",
+        "result": "进入通知详情"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "1c64beb2e79e939f964ba197751ada0c011516361227a7ceeec0255965e47af9",
+    "line": 1922,
+    "page": "guild-notification-detail.html",
+    "text": "- REQ-GUILD-02f397e9d4：标题：与列表标题一致。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-e9e0ab3ac5be7423",
+        "label": "通知详情核对详情标题",
+        "result": "详情标题显示“入会申请待初审”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9de250171c8df2b08a4c08ed93ce1bb37d6b05f7f3b08c2fe805b7fdce59bd97",
+    "line": 1923,
+    "page": "guild-notification-detail.html",
+    "text": "- REQ-GUILD-f5b6d50b7c：发送时间：通知生成时间。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-5e91127ea50b523d",
+        "label": "通知详情中发送时间对应当前记录",
+        "result": "“发送时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "c84b36a5cccbc7acb5509d3c7d024033eecffe733c15149084b3c46e3877deb4",
+    "line": 1924,
+    "page": "guild-notification-detail.html",
+    "text": "- REQ-GUILD-6c3478a4d5：正文：展示业务对象、状态变化和必要处理信息。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-ae8c0f8ce652f667",
+        "label": "通知详情中正文对应当前记录",
+        "result": "“正文”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9b867ee854eee6c35a78afcb34b1e46b0450c9888463b7a91e6b526460fd73ab",
+    "line": 1925,
+    "page": "guild-notification-detail.html",
+    "text": "- REQ-GUILD-40d3386382：业务入口：仅有关联记录且当前账号有权限时显示。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-16a1b123262a7900",
+        "label": "通知关联入口有权限可见",
+        "result": "展示进入J1的业务入口"
+      },
+      {
+        "id": "SC-9b21a18a548ec562",
+        "label": "通知无关联记录不提供入口",
+        "result": "不展示关联业务入口"
+      },
+      {
+        "id": "SC-7423442766b23a85",
+        "label": "通知无关联记录查看权限不提供入口",
+        "result": "不展示关联业务入口"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "cefaa613936922828c03757faf45510372dbb62d2e82a29d58a6f8feb6221055",
+    "line": 1926,
+    "page": "guild-notification-detail.html",
+    "text": "- REQ-GUILD-c206a640a4：进入详情 -> 标记为已读；点击业务入口 -> 进入对应记录。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-601fc2d3f4c5297f",
+        "label": "通知详情通过业务入口进入关联页面",
+        "result": "进入J1入会申请详情"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "0af2b4bce094b6197b046840c9edb2ae66227d5b230b39326df2567234d7e41a",
+    "line": 1930,
+    "page": "guild-join-review.html",
+    "text": "- REQ-GUILD-40e43de8cd：申请人：用户名称、用户 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-59e1a67cbc2767f2",
+        "label": "入会申请中用户 ID对应当前记录",
+        "result": "“用户 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "fc70d2c7d29b3a3e70ec26e2fb1fe91d170ccddab11f52c2f27d7c41fb75a3cd",
+    "line": 1931,
+    "page": "guild-join-review.html",
+    "text": "- REQ-GUILD-37f4677588：申请时间：用户提交时间。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-e3c750ef434743be",
+        "label": "入会申请中申请时间对应当前记录",
+        "result": "“申请时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "1b6dba1f5ef77b5d7bf92d54bb142351fd6b8d6d42102ce88a21cc3b6edce390",
+    "line": 1932,
+    "page": "guild-join-review.html",
+    "text": "- REQ-GUILD-1c4425d923：状态：审核中包含待公会审核、平台审核中；已通过为平台终审通过；已驳回包含公会驳回、平台驳回。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7b8e30a0f22c37f0",
+        "label": "入会列表审核中归类",
+        "result": "结果中的申请状态仅允许待公会审核或平台审核中"
+      },
+      {
+        "id": "SC-ad26c64d9787886e",
+        "label": "入会列表已通过归类",
+        "result": "结果中的申请状态仅允许平台终审通过"
+      },
+      {
+        "id": "SC-7f6fb777711f718d",
+        "label": "入会列表已驳回归类",
+        "result": "结果中的申请状态仅允许公会驳回或平台驳回"
+      },
+      {
+        "id": "SC-aa6f12608b084d48",
+        "label": "用户提交入会后的公会待审单",
+        "result": "J处于待公会审核"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "93c0f275910517e0724abbd3097283c9585a3629e7872bd8060d2714eb15b3f2",
+    "line": 1933,
+    "page": "guild-join-review.html",
+    "text": "- REQ-GUILD-7bf433486a：同一用户同时只能有一笔待处理入会申请，且只能加入一个公会。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "bf9fb3a7b3a0eb2739f18a8256e4582213c931af4d88202e45cb109f15b3a7c8",
+    "line": 1934,
+    "page": "guild-join-review.html",
+    "text": "- REQ-GUILD-7b22c2026c：公会驳回或平台驳回后本次申请结束，用户可重新提交。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4dfa3b3168dbb6edfc795ecc2e470d0b31dae0b5f2dc59111dca72a2b980c9b8",
+    "line": 1935,
+    "page": "guild-join-review.html",
+    "text": "- REQ-GUILD-4aaf45066c：公会通过后进入平台终审；平台通过后加入公会并获得主播身份。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-df64cc036d228e19",
+        "label": "公会入会记录显示公会初审通过待平台",
+        "result": "J1出现在审核中列表"
+      },
+      {
+        "id": "SC-0ab29503cba94647",
+        "label": "公会入会记录显示平台终审通过",
+        "result": "J1出现在已通过列表"
+      },
+      {
+        "id": "SC-7da463e6ce8fcf50",
+        "label": "公会入会记录显示平台终审驳回",
+        "result": "J1出现在已驳回列表"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "7722bc5259eb98fd219917edaf013302052a32bf63e29124df733f409a7f7eda",
+    "line": 1936,
+    "page": "guild-join-review.html",
+    "text": "- REQ-GUILD-ebebfb5db0：状态 Tab -> 筛选对应状态；点击申请卡片 -> 进入申请详情。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-9f9790b104e2aa34",
+        "label": "入会申请通过申请卡片进入关联页面",
+        "result": "进入申请详情"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "60e2bfeb7f15bf393b1caedaba57020550493e1ca4746725266c66a0c175d91d",
+        "page": "guild-leave-review.html",
+        "cases": [
+          "SC-10e725858bac4a2c"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "909a2ced61f4dfe2a089b1d982ec0d4c48c2a3bbf9e7dfaf89bd4bf590f85b60",
+    "line": 1940,
+    "page": "guild-join-review-detail.html",
+    "text": "- REQ-GUILD-0d3084ce76：申请信息：用户名称、用户 ID、申请公会、姓名、电话。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-2317ec3231a146d9",
+        "label": "入会申请详情中用户 ID对应当前记录",
+        "result": "“用户 ID”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-0f6b5f49a7628d18",
+        "label": "入会申请详情中姓名对应当前记录",
+        "result": "“姓名”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-0a31c2996bcd3712",
+        "label": "入会申请详情中电话对应当前记录",
+        "result": "“电话”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "03cce97ea601efde420fd8d4cd333b06a42fb0373d344ec6d57d37b358797a72",
+    "line": 1941,
+    "page": "guild-join-review-detail.html",
+    "text": "- REQ-GUILD-d6a605b8a2：认证材料：本人照片、证件照正面、证件照反面。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-8a9143484bed6927",
+        "label": "入会申请详情中本人照片对应当前记录",
+        "result": "“本人照片”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-1144ff453c89b9e6",
+        "label": "入会申请详情中证件照正面对应当前记录",
+        "result": "“证件照正面”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-d28659a7d3db45b5",
+        "label": "入会申请详情中证件照反面对应当前记录",
+        "result": "“证件照反面”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "807c13fd26ba150e903ccacc44fe50e7986ac0b8e47dd770d00f30414b5ac9bf",
+    "line": 1942,
+    "page": "guild-join-review-detail.html",
+    "text": "- REQ-GUILD-d2ad417fe6：审核进度：用户提交、公会审核、平台终审、成为主播。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-ee24d10b5aed0306",
+        "label": "入会进度对应待公会审核",
+        "result": "用户提交节点已完成，公会审核待处理"
+      },
+      {
+        "id": "SC-4c59a6485f32e66a",
+        "label": "入会进度对应平台审核中",
+        "result": "公会审核节点显示通过，平台终审待处理"
+      },
+      {
+        "id": "SC-33447e1b130f8bfa",
+        "label": "入会进度对应平台终审通过",
+        "result": "成为主播节点已完成"
+      },
+      {
+        "id": "SC-84f35c8f33bcc384",
+        "label": "入会进度对应平台终审驳回",
+        "result": "平台终审节点显示驳回"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "da3ac28fe5857ec1754c6d8d20f90c9f50e65581e35f751b07ebc610414cd67e",
+    "line": 1943,
+    "page": "guild-join-review-detail.html",
+    "text": "- REQ-GUILD-4ea172e8d1：驳回理由：驳回时选填，最多 200 字；显示在对应驳回节点下。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-85f7dfbfd2a31dc5",
+        "label": "入会驳回理由0字",
+        "result": "J1更新为公会驳回"
+      },
+      {
+        "id": "SC-fbbd768925ee0754",
+        "label": "入会驳回理由200字",
+        "result": "J1更新为公会驳回"
+      },
+      {
+        "id": "SC-4faaff6741ff4f68",
+        "label": "入会驳回理由201字",
+        "result": "不保存超过200字的驳回理由"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "5dbe349d7d435740c66377ecd3e7319104704f1260ac54e2494e4e6e3d5872e1",
+    "line": 1944,
+    "page": "guild-join-review-detail.html",
+    "text": "- REQ-GUILD-133b2a87c6：公会通过仅提交平台终审；终审通过前申请人仍为普通用户。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-201df6820286028a",
+        "label": "公会初审通过后提交平台终审",
+        "result": "J1进入平台待终审阶段"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "3e84515dc84be4756a49b008b45544754ec650bcbf276d235e10a5ed22118d96",
+    "line": 1945,
+    "page": "guild-join-review-detail.html",
+    "text": "- REQ-GUILD-44e4be1243：平台通过 -> 加入当前公会并获得主播身份；平台驳回 -> 本次申请结束。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-201df6820286028a",
+        "label": "公会初审通过后提交平台终审",
+        "result": "J1进入平台待终审阶段"
+      },
+      {
+        "id": "SC-68396c4f2a08ee4f",
+        "label": "公会初审驳回后本次申请结束",
+        "result": "本次申请结束"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "8eeef55275a3075f219b34a1326bb456fbf1caae17c9568178184041b226b4a7",
+    "line": 1946,
+    "page": "guild-join-review-detail.html",
+    "text": "- REQ-GUILD-d1fc88685f：已处理申请只读，不可重复审核。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-81fec004c6caa80e",
+        "label": "公会已通过申请不可重复初审",
+        "result": "申请仅可查看，不可重复公会审核"
+      },
+      {
+        "id": "SC-244b7d65cda0cc17",
+        "label": "公会已驳回申请不可重复初审",
+        "result": "申请仅可查看，不可重复公会审核"
+      },
+      {
+        "id": "SC-1a41a758d35c8c98",
+        "label": "平台已通过申请不可重复初审",
+        "result": "申请仅可查看，不可重复公会审核"
+      },
+      {
+        "id": "SC-5e41abc0727c5bce",
+        "label": "平台已驳回申请不可重复初审",
+        "result": "申请仅可查看，不可重复公会审核"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "de4d5a6d84251403be5bd5d69c17e95ebaacab15697d428bf5d4e2f6db45e079",
+    "line": 1947,
+    "page": "guild-join-review-detail.html",
+    "text": "- REQ-GUILD-387900e87e：通过 -> 二次确认 -> 提交平台终审；驳回 -> 填写可选理由 -> 结束申请。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-aad6371b65e9d4f8",
+        "label": "初审通过取消确认",
+        "result": "J1仍为待公会审核"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9ffaead2bcf93f5cd72a3662b7c63866dacc0c72158e360613452cae1ef04dc1",
+    "line": 1948,
+    "page": "guild-join-review-detail.html",
+    "text": "- REQ-GUILD-25facb0ef4：点击认证材料 -> 查看大图；成为主播后可进入主播详情。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7a28d40b9c1aad67",
+        "label": "入会证件材料查看",
+        "result": "展示证件正面B大图"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "286a326deaf52a552ce31672ab9b32f8b368f87f5a8e0584f0e8d5d1be1de091",
+    "line": 1952,
+    "page": "guild-leave-review.html",
+    "text": "- REQ-GUILD-aa4af48349：申请人：主播名称、主播 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-ba872e778814aed5",
+        "label": "退会申请中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "35f4bdb4e13c542c139b6a523331cbce211ceb17299e8c121473f84cb982a49f",
+    "line": 1953,
+    "page": "guild-leave-review.html",
+    "text": "- REQ-GUILD-8d3987fbf4：申请时间：主播提交时间。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-1ff578aa03650665",
+        "label": "退会申请中申请时间对应当前记录",
+        "result": "“申请时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "dc2291dda563f19c807628965b3dbb4ab312f8da4e35629f614951dc3e37a50b",
+        "page": "guild-leave-review-detail.html",
+        "cases": [
+          "SC-3acc75740f4f6343"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a7ab7aceaf8bfd8601538feef14e6d594bfe85284112de3baa7409171312139c",
+    "line": 1954,
+    "page": "guild-leave-review.html",
+    "text": "- REQ-GUILD-888a8728e6：状态：待审核、已通过、已驳回。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-d667fff3073c0da0",
+        "label": "主播提交退会后的公会待审单",
+        "result": "L处于待审核"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "36b3bfd29325588e4b97eccff49a2b744baeff77d43dfad390da9d8ea667d156",
+    "line": 1955,
+    "page": "guild-leave-review.html",
+    "text": "- REQ-GUILD-a76daa735b：退会申请仅由公会审核，不进入平台终审。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "a6289b3bd21f9fa3eced05b7c89fd5c07ce9c3033362842b13c8554ccf9c09d2",
+    "line": 1956,
+    "page": "guild-leave-review.html",
+    "text": "- REQ-GUILD-b97e1963f1：通过后立即结束当前直播、解除公会关系并失去主播身份；驳回后保留主播身份。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "60e2bfeb7f15bf393b1caedaba57020550493e1ca4746725266c66a0c175d91d",
+    "line": 1957,
+    "page": "guild-leave-review.html",
+    "text": "- REQ-GUILD-edba8098af：状态 Tab -> 筛选对应状态；点击申请卡片 -> 进入申请详情。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-10e725858bac4a2c",
+        "label": "退会申请通过申请卡片进入关联页面",
+        "result": "进入申请详情"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "7722bc5259eb98fd219917edaf013302052a32bf63e29124df733f409a7f7eda",
+        "page": "guild-join-review.html",
+        "cases": [
+          "SC-9f9790b104e2aa34"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1b1a0bdbea2291aab0270549fd12f2043d2733db6788312afe2fb121d4a4ad55",
+    "line": 1961,
+    "page": "guild-leave-review-detail.html",
+    "text": "- REQ-GUILD-81c7cb83f9：主播：名称、主播 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-d8f9bc572db920a0",
+        "label": "退会申请详情中名称对应当前记录",
+        "result": "“名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-d1928285a5a9cf0f",
+        "label": "退会申请详情中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "c859fee3c23eac8b7b36a44f1d5a54917c516df397f284e8a12c22dca8d682a7",
+    "line": 1962,
+    "page": "guild-leave-review-detail.html",
+    "text": "- REQ-GUILD-9c5bea0a64：加入时间：当前公会关系生效时间。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-15465a9dfc54debf",
+        "label": "退会申请详情中加入时间对应当前记录",
+        "result": "“加入时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "5046ff5d57aa0a73354f5527deb0e1bd535fae22173e7c6c25dc64423fd8cbfd",
+        "page": "guild-member-list.html",
+        "cases": [
+          "SC-a7be2fd0ea4b0dc8"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dc2291dda563f19c807628965b3dbb4ab312f8da4e35629f614951dc3e37a50b",
+    "line": 1963,
+    "page": "guild-leave-review-detail.html",
+    "text": "- REQ-GUILD-2b6a7b9b04：申请时间：主播提交时间。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-3acc75740f4f6343",
+        "label": "退会申请详情中申请时间对应当前记录",
+        "result": "“申请时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "35f4bdb4e13c542c139b6a523331cbce211ceb17299e8c121473f84cb982a49f",
+        "page": "guild-leave-review.html",
+        "cases": [
+          "SC-1ff578aa03650665"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c9e48da9522deff14067db4d1048812fa889a1ded984d21235737540bad78c46",
+    "line": 1964,
+    "page": "guild-leave-review-detail.html",
+    "text": "- REQ-GUILD-94c4278fd4：退会原因：申请人填写内容。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-cf37f4eebe5d0890",
+        "label": "退会申请详情核对退会原因",
+        "result": "退会原因显示“个人时间安排变化”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "a0e13e03504fdc270f74d9325ba21a736129107171bd6f4127ef07e6ed153f47",
+    "line": 1965,
+    "page": "guild-leave-review-detail.html",
+    "text": "- REQ-GUILD-04848ee279：处理信息：已处理记录显示处理时间、结果；驳回理由显示在驳回节点下。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-3205150a64a9fd9b",
+        "label": "退会审核详情显示处理时间",
+        "result": "处理时间对应2026-09-14 10:00"
+      },
+      {
+        "id": "SC-9cca1e1600ca62a3",
+        "label": "退会审核详情显示处理结果",
+        "result": "处理结果显示已驳回"
+      },
+      {
+        "id": "SC-17bf7b4a5b2388ca",
+        "label": "退会审核详情驳回节点显示理由“资料需补充”",
+        "result": "驳回节点显示理由“资料需补充”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "eb71c4837995c6697573e7d9a057abc39057681b86f36521a347c38822ed1372",
+    "line": 1966,
+    "page": "guild-leave-review-detail.html",
+    "text": "- REQ-GUILD-d6058775bb：通过 -> 立即结束当前直播、解除公会关系并失去主播身份。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-821408ff444e3329",
+        "label": "退会通过后公会关系解除",
+        "result": "A显示“退会”标记"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "f1be39396fa1eb884869aebaf629e2b29d158e383ea7bd14f8de5862c1304f09",
+    "line": 1967,
+    "page": "guild-leave-review-detail.html",
+    "text": "- REQ-GUILD-80143e98b2：驳回 -> 保留主播身份和公会关系；主播可重新申请。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-e9ae40ae0c0da48e",
+        "label": "退会驳回后公会关系保留",
+        "result": "A仍显示在会状态"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "030b9754cf71dcba1c26f91ba4adb695464f863de43ca463b1fda6afe3b6503d",
+    "line": 1968,
+    "page": "guild-leave-review-detail.html",
+    "text": "- REQ-GUILD-c0751a803f：通过需二次确认；驳回理由选填，最多 200 字；已处理记录只读。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-5792a0873e427f82",
+        "label": "取消退会通过",
+        "result": "L1保留待审核状态"
+      },
+      {
+        "id": "SC-da6d827fd63a0d4f",
+        "label": "退会已通过记录只读",
+        "result": "不提供再次审核操作"
+      },
+      {
+        "id": "SC-5ebe5f364325904f",
+        "label": "退会已驳回记录只读",
+        "result": "不提供再次审核操作"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "e34fa2b75911e79b91a209094f147648af20725f0a89c54fce31b594aa328c99",
+    "line": 1972,
+    "page": "guild-member-list.html",
+    "text": "- REQ-GUILD-befaac84de：主播：头像、名称、主播 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-02505008beaff6cc",
+        "label": "主播列表中头像对应当前记录",
+        "result": "“头像”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-9004c19fb8ffd1d7",
+        "label": "主播列表中名称对应当前记录",
+        "result": "“名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-9b00cfecb68fa3a4",
+        "label": "主播列表中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "5046ff5d57aa0a73354f5527deb0e1bd535fae22173e7c6c25dc64423fd8cbfd",
+    "line": 1973,
+    "page": "guild-member-list.html",
+    "text": "- REQ-GUILD-9eec853ddb：加入时间：当前公会关系生效时间。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-a7be2fd0ea4b0dc8",
+        "label": "主播列表中加入时间对应当前记录",
+        "result": "“加入时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "c859fee3c23eac8b7b36a44f1d5a54917c516df397f284e8a12c22dca8d682a7",
+        "page": "guild-leave-review-detail.html",
+        "cases": [
+          "SC-15465a9dfc54debf"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cd4c9799aa2db9a3a47c0bf7015c8572916e9496c1f315d7e2fec23c93724810",
+    "line": 1974,
+    "page": "guild-member-list.html",
+    "text": "- REQ-GUILD-378892d6a6：状态：在会或已退会；已退会显示【退会】。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-821408ff444e3329",
+        "label": "退会通过后公会关系解除",
+        "result": "A显示“退会”标记"
+      },
+      {
+        "id": "SC-e9ae40ae0c0da48e",
+        "label": "退会驳回后公会关系保留",
+        "result": "A仍显示在会状态"
+      },
+      {
+        "id": "SC-4e08443b9737a5d5",
+        "label": "移出主播解除公会关系",
+        "result": "A显示“退会”标记"
+      },
+      {
+        "id": "SC-f7c159548b7ea10d",
+        "label": "公会在会成员不带退会标记",
+        "result": "A不显示“退会”标记"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "5e34e8a35f2d3edb4df5e6092064233d51cbc92bcd9a16065f8ac84ab5a0d4ea",
+    "line": 1975,
+    "page": "guild-member-list.html",
+    "text": "- REQ-GUILD-d5838d320f：仅展示当前公会的在会主播和历史退会主播；普通用户不进入主播列表。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7180a3167a334699",
+        "label": "公会保留退会主播",
+        "result": "展示带“退会”标记的A"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "7ca214df66cbab1d749bd3f59c827297c0c1814f98b272168b244496b3c101c7",
+    "line": 1976,
+    "page": "guild-member-list.html",
+    "text": "- REQ-GUILD-df82e0c6b7：状态 Tab 和名称或 ID 搜索共同生效；点击主播 -> 进入主播详情。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-9eaa6f0e1c815509",
+        "label": "成员状态与搜索组合",
+        "result": "仅显示测试B"
+      },
+      {
+        "id": "SC-8e20bcc4dc8ab6e7",
+        "label": "主播列表通过主播进入关联页面",
+        "result": "进入主播详情"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "795a3d72f62e15f638d327983f3fdd54a4bb3dd35907e6bf1f0b3d9cb166a9ac",
+    "line": 1980,
+    "page": "guild-host-list.html",
+    "text": "- REQ-GUILD-6694d48805：支持今日、昨日、本周、上周、本月、上月、自定义；默认今日。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-ac62981be3539b34",
+        "label": "主播业绩默认日期",
+        "result": "默认选中今日"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "a62c8381cb235c3d9bed2ff67d5c1197e49a68c3087c200f0aeed51073127940",
+    "line": 1981,
+    "page": "guild-host-list.html",
+    "text": "- REQ-GUILD-9d6e9a3c51：主播收益：所选日期范围内所有主播直播间计入收益的礼物金币总和；开播人数：所选日期范围内至少完成 1 场直播的去重主播数；达标人数：在开播主播中，累计有效天达到全部开播主播累计有效天中位数及以上的去重主播数；金币收益：当前主播在所选日期范围内直播间计入收益的礼物金币总和。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-2632c136137fb3ba",
+        "label": "主播达标人数采用奇数样本中位数",
+        "result": "达标人数=2人"
+      },
+      {
+        "id": "SC-3239c6c53d0b0189",
+        "label": "主播达标人数采用偶数样本中位数",
+        "result": "达标人数=2人"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "bb545a20b5cb020055c4013bfd62f2a620e25f345d5d99a5fe4b1d54f8dd7d8e",
+    "line": 1982,
+    "page": "guild-host-list.html",
+    "text": "- REQ-GUILD-98b172065f：有效天按主播自然日累计直播时长达到 3 小时计 1 天。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-a7f6fc9fb29c7dde",
+        "label": "主播业绩单日179分钟有效天",
+        "result": "A当日有效天=0天"
+      },
+      {
+        "id": "SC-0361326975e808d6",
+        "label": "主播业绩单日180分钟有效天",
+        "result": "A当日有效天=1天"
+      },
+      {
+        "id": "SC-f828105474bec277",
+        "label": "主播业绩单日181分钟有效天",
+        "result": "A当日有效天=1天"
+      },
+      {
+        "id": "SC-1723c76586254196",
+        "label": "主播业绩单日360分钟有效天",
+        "result": "A当日有效天=1天"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "fd832be0eeef08a4cbabf0b6f000553aa8b2ea6224130163e99646b8644a68c7",
+    "line": 1983,
+    "page": "guild-host-list.html",
+    "text": "- REQ-GUILD-e93617bfda：已退会主播保留历史业绩并显示【退会】；统计以直播发生时的公会关系为准。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f812c1b6dde768ec",
+        "label": "退会后历史业绩仍归发生公会",
+        "result": "G1只计A在会期间的100金币收益"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "985e36883094e2d9a21f6e07881dad7d1c8924c1dc88aa1dac508bdb3957ee45",
+    "line": 1984,
+    "page": "guild-host-list.html",
+    "text": "- REQ-GUILD-49dffa95e2：日期变化 -> 刷新指标与列表；点击主播行 -> 进入「主播数据」。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-1d3c991f71eba051",
+        "label": "主播业绩通过主播行进入关联页面",
+        "result": "进入「主播数据」"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "2cf05cb51f7672eaa9b3e1222d9815882ba0f7d64e22c8b8ee469c967f3fbf95",
+    "line": 1988,
+    "page": "guild-host-summary.html",
+    "text": "- REQ-GUILD-cd24c66145：显示头像、名称、主播 ID、等级；已退会主播显示【退会】。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-26db1eb5760289e2",
+        "label": "历史主播资料带退会标记",
+        "result": "A显示“退会”标记"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "040e92d9bb2e9de4c606210d608af0a084f04e41990ca27cddb83daa100010de",
+    "line": 1989,
+    "page": "guild-host-summary.html",
+    "text": "- REQ-GUILD-9d0b7bc8b9：支持日数据、月数据。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "7f55aeeb050f3dbac638ba6c324c0e25c2268af614f52c2a08649e839268cf5d",
+    "line": 1990,
+    "page": "guild-host-summary.html",
+    "text": "- REQ-GUILD-87cd0c2ad9：日数据支持本周、上周、本月、上月、自定义，默认本月；月数据支持月份范围、近半年、近一年，默认近半年。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-35879d0f528ce77f",
+        "label": "主播月数据默认近半年",
+        "result": "默认选中近半年"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "f7a084aaecc8158ee6e71c12b83a1081eb360c7bd23942077bd6879e79667c6d",
+    "line": 1991,
+    "page": "guild-host-summary.html",
+    "text": "- REQ-GUILD-405d909252：有效天：主播当日累计直播时长达到 3 小时计 1 天，否则为 0 天；直播时长：主播当日全部直播场次时长之和，并区分是否达成有效天；新增粉丝：当日新增关注人数减去取消关注人数；金币收益：主播当日直播间计入收益的礼物金币总和。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-bf770300824769e8",
+        "label": "主播数据单日179分钟有效天",
+        "result": "A当日有效天=0天"
+      },
+      {
+        "id": "SC-3ff8b61628e822ce",
+        "label": "主播数据单日180分钟有效天",
+        "result": "A当日有效天=1天"
+      },
+      {
+        "id": "SC-66a3953b474c27b1",
+        "label": "主播数据单日181分钟有效天",
+        "result": "A当日有效天=1天"
+      },
+      {
+        "id": "SC-94cfaea7f748fa94",
+        "label": "主播数据单日360分钟有效天",
+        "result": "A当日有效天=1天"
+      },
+      {
+        "id": "SC-373fd3b829daebc2",
+        "label": "主播数据涨粉3减1",
+        "result": "新增粉丝=2人"
+      },
+      {
+        "id": "SC-9bcf1284d4ff3f41",
+        "label": "主播数据涨粉1减3",
+        "result": "新增粉丝=-2人"
+      },
+      {
+        "id": "SC-4b0be7795d6b509b",
+        "label": "主播数据涨粉0减0",
+        "result": "新增粉丝=0人"
+      },
+      {
+        "id": "SC-9b57e9644f7a82a3",
+        "label": "主播月数据月直播时长",
+        "result": "当月直播时长=60分钟"
+      },
+      {
+        "id": "SC-1cc0ff39a3ce9605",
+        "label": "主播月数据月礼物收益",
+        "result": "当月金币收益=150金币"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "10bd15d56bc77b9a84e4daea9ccd782a2493e6c3efbb02f306b2eee07e754036",
+    "line": 1992,
+    "page": "guild-host-summary.html",
+    "text": "- REQ-GUILD-d847f21d91：直播时长：主播当月全部直播场次时长之和；新增粉丝：当月新增关注人数减去取消关注人数；金币收益：主播当月直播间计入收益的礼物金币总和。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "706907b154caa4174899173e5d2fda72e64718db72a89b7de9e412424ea6e307",
+    "line": 1993,
+    "page": "guild-host-summary.html",
+    "text": "- REQ-GUILD-4c7ba2a9f0：点击日或月数据行 -> 进入「直播记录」，带入主播和对应日期或月份。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-25ffa30848a5c467",
+        "label": "主播日数据进入对应直播记录",
+        "result": "直播记录带入主播B与2026-09-14日期"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "c3645d48ec60121480a7e10288e776db6d6c3562e3f944801ade32f569ea3437",
+    "line": 1994,
+    "page": "guild-host-summary.html",
+    "text": "- REQ-GUILD-57ff5e6a38：点击主页入口 -> 进入主播详情。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-a0823f13b84d8c4d",
+        "label": "主播数据通过主页入口进入关联页面",
+        "result": "进入主播详情"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "4536e449f095e861df54255f709da43f087b2a9ac8582716ff0411464368638d",
+    "line": 1998,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-c1a0929b52：主播信息：头像、名称、主播 ID、主播等级。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-489f4a5c952472a2",
+        "label": "主播主页中头像对应当前记录",
+        "result": "“头像”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-aed300d0b55ac1ec",
+        "label": "主播主页中名称对应当前记录",
+        "result": "“名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-bfc38c09514fc269",
+        "label": "主播主页中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-8755558281ab4be1",
+        "label": "主播主页中主播等级对应当前记录",
+        "result": "“主播等级”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9511a46d79f7de8d158b2dfe62396524a450b810e1453694fc85846e5c086758",
+    "line": 1999,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-1605381521：退会状态：已退会主播显示【退会】。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7e395dcaf7d6d32b",
+        "label": "退会批准后公会主播详情",
+        "result": "显示【退会】标记"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "3d94cc6c67b072b14888f976a79a9a0b7fbc39012f756c909418a31ce1ec4580",
+    "line": 2000,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-f0f96bcd8b：快捷入口：直播记录、违规记录、主播分成。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-b790f0dd8df4faa3",
+        "label": "主播详情进入直播记录",
+        "result": "进入A的直播记录页面"
+      },
+      {
+        "id": "SC-f2aa9fe6c96817fd",
+        "label": "主播详情进入违规记录",
+        "result": "进入A的违规记录页面"
+      },
+      {
+        "id": "SC-60a65bbeb795f0e6",
+        "label": "主播详情进入主播分成记录",
+        "result": "进入A的主播分成记录页面"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9b4ab5b20baa58f44c3fb014dd36f30c00c7b12dd141e8bd9dbb6b62298672f8",
+    "line": 2001,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-241bf5e0e0：申请记录：加入或退出申请的申请时间、审核状态、处理时间、申请原因、驳回原因。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-a06d6ff94e8e13c3",
+        "label": "主播主页中处理时间对应当前记录",
+        "result": "“处理时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "2dd2b8789f8bd46bc861ebc82b393f9156ffdd6d3888130e51239d6fd37ad809",
+    "line": 2002,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-a7dee71ee5：粉丝数：当前主播的累计净粉丝数；总收益：当前主播历史直播间计入收益的礼物金币总和；直播次数：累计完成的直播场次数；直播时长：全部已完成直播场次时长总和；累计违规：直播间违规和账号违规记录总数。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-d8b2952f1b973c4a",
+        "label": "主播详情累计净粉丝",
+        "result": "累计净粉丝数=3人"
+      },
+      {
+        "id": "SC-1a69e405f9bdd908",
+        "label": "主播详情历史礼物收益",
+        "result": "总收益=300金币"
+      },
+      {
+        "id": "SC-15cf7d23463923e9",
+        "label": "主播详情完成场次次数",
+        "result": "直播次数=2次"
+      },
+      {
+        "id": "SC-28f62e18bbbc0f05",
+        "label": "主播详情完成场次时长",
+        "result": "直播时长=70分钟"
+      },
+      {
+        "id": "SC-74a3762aa9d86074",
+        "label": "主播详情跨类型违规计数",
+        "result": "累计违规=5条"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "c18faeefa2fea576e6b0b2956b01adc2069a07b35838d3ccb3ec94952fe2e907",
+    "line": 2003,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-b16dd026e8：开播需同时满足账号可用、公会有效、主播认证通过、最终直播权限开启（平台关闭时关闭；平台开启且未锁定时取公会设置，锁定开启时跟随平台；解锁恢复公会原设置）。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f724f4db0db6a7ba",
+        "label": "平台开且未锁定、公会原开",
+        "result": "公会开关显示开启"
+      },
+      {
+        "id": "SC-2f2aee82b851793d",
+        "label": "平台开且未锁定、公会原关",
+        "result": "公会开关显示关闭"
+      },
+      {
+        "id": "SC-a9dd602cff5cf598",
+        "label": "平台开且锁定、公会原关",
+        "result": "公会开关只读并跟随平台开启"
+      },
+      {
+        "id": "SC-c803912fded6fc27",
+        "label": "平台关且锁定、公会原开",
+        "result": "公会开关只读并跟随平台关闭"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "6b125edba136774b7c8a12bd75e55ee254891457b7b046a02a1ac60f1433bc6c",
+    "line": 2004,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-0b114d55e3：平台锁定公会管理权限时，公会直播权限开关只读；解除锁定后恢复锁定前设置。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f724f4db0db6a7ba",
+        "label": "平台开且未锁定、公会原开",
+        "result": "公会开关显示开启"
+      },
+      {
+        "id": "SC-2f2aee82b851793d",
+        "label": "平台开且未锁定、公会原关",
+        "result": "公会开关显示关闭"
+      },
+      {
+        "id": "SC-a9dd602cff5cf598",
+        "label": "平台开且锁定、公会原关",
+        "result": "公会开关只读并跟随平台开启"
+      },
+      {
+        "id": "SC-c803912fded6fc27",
+        "label": "平台关且锁定、公会原开",
+        "result": "公会开关只读并跟随平台关闭"
+      },
+      {
+        "id": "SC-bce3e86707858b0a",
+        "label": "平台解锁恢复公会原设置",
+        "result": "公会权限恢复显示关闭"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "a85ca4169ad2cf23281c4e2754d2c8fe06c0a6e1cc2737a63fd8e4f36dcaff00",
+    "line": 2005,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-89fe20dee1：关闭正在直播主播的权限 -> 二次确认后立即结束当前直播，并禁止再次开播。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "5a10fa2e025f0cc209d718026f903094ea1edf34bfbbbab6c8e7d1d7259eac55",
+    "line": 2006,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-5c30e8b3bb：存在未结清收益时移出公会按钮置灰；确认移出后结束当前直播并解除公会关系。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-020b1253c296b27e",
+        "label": "主播有未结清收益时移出禁用",
+        "result": "移出公会按钮不可用"
+      },
+      {
+        "id": "SC-4e08443b9737a5d5",
+        "label": "移出主播解除公会关系",
+        "result": "A显示“退会”标记"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "883063cfe67290433bfcb30ca6e11cf3b51ee38add6df1e20bbabde052419e3b",
+    "line": 2007,
+    "page": "guild-host-detail.html",
+    "text": "- REQ-GUILD-16b48895b9：点击业绩 -> 进入「主播数据」；点击认证材料 -> 查看大图；管理操作均需确认。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-06dc1eef0b48c89c",
+        "label": "主播详情进入主播数据",
+        "result": "进入A的主播数据页面"
+      },
+      {
+        "id": "SC-30058e02d6df6b3f",
+        "label": "主播主页通过业绩进入关联页面",
+        "result": "进入「主播数据」"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "d3c0ab3f34a4e198261077302d1dfe52efee2a3a6f47e42d65aefdd1dcddc34b",
+    "line": 2011,
+    "page": "guild-messages.html",
+    "text": "- REQ-GUILD-7fa183e6dc：发送对象：全体主播，或指定主播的名称和主播 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-cc82f02ff631f7cb",
+        "label": "运营消息核对指定主播",
+        "result": "指定主播显示“主播甲（620101）”"
+      },
+      {
+        "id": "SC-499243759b8513b9",
+        "label": "运营消息核对全部对象标签",
+        "result": "全部对象标签显示“全体主播”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "cc3e2ba086676cf5e32d1766527f6e5f8cc7898670a952660ca7e71a633d9273",
+    "line": 2012,
+    "page": "guild-messages.html",
+    "text": "- REQ-GUILD-2f4bfcaedd：发送时间：消息实际发送时间。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-65301dc68be6b92d",
+        "label": "运营消息中发送时间对应当前记录",
+        "result": "“发送时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "88aa57017fb28dd781575aad656310f257819eed28c66e07834fc7f84561c430",
+        "page": "guild-message-detail.html",
+        "cases": [
+          "SC-663df24c0557021d"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8e5d7ed97e2c9fcd21a088e5e7e6574441fa3c85532f30a4bc64ed321b175003",
+    "line": 2013,
+    "page": "guild-messages.html",
+    "text": "- REQ-GUILD-892a5425d6：消息摘要：展示消息文字，超出列表长度截断。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "4c99a78a33352700cf49b3a18174293609227f0de86f6d26b8ea4223ee3c0c71",
+    "line": 2014,
+    "page": "guild-messages.html",
+    "text": "- REQ-GUILD-a556170a3c：日期范围按发送时间筛选，默认本月。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-fe58e46fb7d7cf28",
+        "label": "运营消息默认月份",
+        "result": "默认范围为本月"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "8920f2b438f37ff4ea3cc06757ea9b418cf3f2c55a71315ff86e9be880a8afdf",
+    "line": 2015,
+    "page": "guild-messages.html",
+    "text": "- REQ-GUILD-b481e0233b：新建 -> 进入发送页；点击消息记录 -> 进入消息详情。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-afdd9e353cbdbb06",
+        "label": "运营消息通过消息记录进入关联页面",
+        "result": "进入消息详情"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "4afbcb44920ccbce22e954a6de0051928f20cde00df65e23d3e14b24a8d8e6bc",
+    "line": 2019,
+    "page": "guild-message-compose.html",
+    "text": "- REQ-GUILD-7f4e5d2ca1：发送对象：全体主播或指定 1 名当前公会主播；指定主播时必选。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-0bf8ecf7256bf5bf",
+        "label": "指定主播模式未选人",
+        "result": "不生成未指定接收人的消息"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "d7c0c2ada7ce78d91ff444f743a93b446e86c6785395e880dc85e93be4d170fc",
+    "line": 2020,
+    "page": "guild-message-compose.html",
+    "text": "- REQ-GUILD-96de91147e：消息内容：必填，去除首尾空格后最多 500 字。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-3dce5dadf916c8c9",
+        "label": "公会消息正文0字",
+        "result": "不发送空正文消息"
+      },
+      {
+        "id": "SC-2ef7e4252695842a",
+        "label": "公会消息正文1字",
+        "result": "生成正文长度1字的消息记录"
+      },
+      {
+        "id": "SC-f513145475dde090",
+        "label": "公会消息正文499字",
+        "result": "生成正文长度499字的消息记录"
+      },
+      {
+        "id": "SC-dfe60bc3c18dbdc1",
+        "label": "公会消息正文500字",
+        "result": "生成正文长度500字的消息记录"
+      },
+      {
+        "id": "SC-8d46b11b288fb330",
+        "label": "公会消息正文501字",
+        "result": "不发送501字消息"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "50fe320c4d80f42c1dd22b89bca3e525f4e8efcc01221e24cddfa171ec611404",
+    "line": 2021,
+    "page": "guild-message-compose.html",
+    "text": "- REQ-GUILD-cf1de5cde0：图片：选填，最多 1 张；支持 JPG、PNG、WebP。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-300a2fe58236af7f",
+        "label": "公会消息附加JPG图片",
+        "result": "消息记录包含上传图片A"
+      },
+      {
+        "id": "SC-909f14de3a81768c",
+        "label": "公会消息附加PNG图片",
+        "result": "消息记录包含上传图片A"
+      },
+      {
+        "id": "SC-77980f788cb4f168",
+        "label": "公会消息附加WebP图片",
+        "result": "消息记录包含上传图片A"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "3df83271b32df51921e305249a6d22580bee40d3c9b9460cc0b1e2d9499fbef8",
+    "line": 2022,
+    "page": "guild-message-compose.html",
+    "text": "- REQ-GUILD-6f7caf01c1：发送对象和内容按确认时快照生成记录；发送后不支持编辑或撤回。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-51f7a0af3d76e2e1",
+        "label": "已发送公会消息不可修改",
+        "result": "不提供编辑或撤回操作"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "03bce72bcdb6513f7379de7ca2bd27c47a371b52812cdfa9a3c8f947861c216b",
+    "line": 2023,
+    "page": "guild-message-compose.html",
+    "text": "- REQ-GUILD-684d47f0cd：发送 -> 校验必填项 -> 二次确认接收范围 -> 生成记录并返回列表。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-b5103f642ec81853",
+        "label": "公会消息发送给全体主播",
+        "result": "生成面向主播A及主播B的消息记录"
+      },
+      {
+        "id": "SC-76eb0e54feb8992f",
+        "label": "公会消息发送给指定主播",
+        "result": "生成面向A的消息记录"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "618fc18dded16072c2a0c203f60477236f909bae3ccffe477cfc9b0f22ce0d26",
+    "line": 2027,
+    "page": "guild-host-select.html",
+    "text": "- REQ-GUILD-4fa968b41e：搜索：按主播名称或主播 ID 模糊匹配。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-1f4697eae79d37cd",
+        "label": "选择主播按测试A搜索",
+        "result": "仅显示主播测试A"
+      },
+      {
+        "id": "SC-981fda82b37e204a",
+        "label": "选择主播按620100搜索",
+        "result": "仅显示主播测试A"
+      },
+      {
+        "id": "SC-158c2bd65e96f69a",
+        "label": "选择主播按不存在XYZ搜索",
+        "result": "列表显示无匹配结果"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "9c9f2d2e32feb056e7228524f0bd5368b0b80ec113a19e519877af2df914fa47",
+        "page": "guild-violation-host-select.html",
+        "cases": [
+          "SC-4d6f27ad97192cae",
+          "SC-6d3faeca8b0e6409",
+          "SC-0135120a4286a1fd"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "abf193199d7a5dcf6bed125a85855a3d16271d4babc1b18df4445d3143816ba3",
+    "line": 2028,
+    "page": "guild-host-select.html",
+    "text": "- REQ-GUILD-f4899d5715：选择结果：仅可选择 1 名当前公会主播。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-d265620772636029",
+        "label": "公会消息接收人单选",
+        "result": "消息发送页仅回填主播B"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "29d7a92ea814cd9121fe3940a590ed799eb5794446b61d2f7dce505cd3f28a63",
+    "line": 2029,
+    "page": "guild-host-select.html",
+    "text": "- REQ-GUILD-c634b883ca：完成 -> 回填新建运营消息；未选择时提示选择主播。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f3ed174f7353a707",
+        "label": "指定主播选择为空",
+        "result": "提示选择主播"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "8629462c32ecd3f6210ac0d3548e73b60f15c2f5e78244931986f418978b7990",
+    "line": 2030,
+    "page": "guild-host-select.html",
+    "text": "- REQ-PUB-682fded69b：仅可选择一位主播；完成后返回新建运营消息页并回填主播。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "059eaf2a25dfd0f725c3f98b4f13e03c5eae0d1274190cf340a08b1c678fb13b",
+    "line": 2034,
+    "page": "guild-message-detail.html",
+    "text": "- REQ-GUILD-02aaa569a7：发送对象：对象类型和实际接收人数；指定主播时显示主播。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-b5103f642ec81853",
+        "label": "公会消息发送给全体主播",
+        "result": "生成面向主播A及主播B的消息记录"
+      },
+      {
+        "id": "SC-76eb0e54feb8992f",
+        "label": "公会消息发送给指定主播",
+        "result": "生成面向A的消息记录"
+      },
+      {
+        "id": "SC-a1b6eaba501a32a3",
+        "label": "指定主播消息接收人数",
+        "result": "实际接收人数显示1人"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "88aa57017fb28dd781575aad656310f257819eed28c66e07834fc7f84561c430",
+    "line": 2035,
+    "page": "guild-message-detail.html",
+    "text": "- REQ-GUILD-c719f40c07：发送时间：消息实际发送时间。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-663df24c0557021d",
+        "label": "运营消息详情中发送时间对应当前记录",
+        "result": "“发送时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "cc3e2ba086676cf5e32d1766527f6e5f8cc7898670a952660ca7e71a633d9273",
+        "page": "guild-messages.html",
+        "cases": [
+          "SC-65301dc68be6b92d"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7d4cb207f2b2451551f330c673bc66fdff235aa19c40ac809e809bdb478aea2f",
+    "line": 2036,
+    "page": "guild-message-detail.html",
+    "text": "- REQ-GUILD-db505c3095：发送人：执行发送的公会长名称。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-69c1f449735c2094",
+        "label": "运营消息详情中发送人对应当前记录",
+        "result": "“发送人”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "5e1a8c2af36084e425d03973cd6a7ad57cc35ad740462bbeb2c9751d4441efac",
+    "line": 2037,
+    "page": "guild-message-detail.html",
+    "text": "- REQ-GUILD-7ea17f4e91：消息内容：发送时的文字和图片快照。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-3dd33feea64d2710",
+        "label": "运营消息详情核对消息文字",
+        "result": "消息文字显示“今日活动18点开始”"
+      },
+      {
+        "id": "SC-54e299f81f9eb477",
+        "label": "运营消息详情核对消息图片",
+        "result": "消息图片显示“已发送测试图片A”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "46d75b0c37ce59825d99578255305e992ee5a510bea728428eab3e4778e6df7b",
+    "line": 2038,
+    "page": "guild-message-detail.html",
+    "text": "- REQ-GUILD-e99d1cfe8c：详情只读；接收人后续退会不改变历史记录。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-8390f75720bef12a",
+        "label": "接收人退会不改消息快照",
+        "result": "实际接收人数仍显示2"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "781cc5d13280d620d0d35101f3ae6507ea1b49da69526e0f5b2afbc69933d0bf",
+    "line": 2042,
+    "page": "guild-operation-accounts.html",
+    "text": "- REQ-GUILD-bf89b53228：本月已发放：当前公会本月向全部运营账号成功发放的虚拟金币总和；本月剩余可发：公会本月累计发放上限减去本月已发放，不小于 0；账户余额累计：全部运营账号可用虚拟金币余额之和；本月累计消费：全部运营账号本月成功送礼实际消费虚拟金币总和。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-960085866dd2a4f3",
+        "label": "运营账户余额跨账号汇总",
+        "result": "账户余额累计=300"
+      },
+      {
+        "id": "SC-0f3dbaf16c7a6713",
+        "label": "公会月剩余发放额度",
+        "result": "本月剩余可发=400"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "7716ff8dda3ad4fa7f2b0823e73e7bc3c751df6f1549bd6a077a16657d724d95",
+    "line": 2043,
+    "page": "guild-operation-accounts.html",
+    "text": "- REQ-GUILD-98cacb73c8：运营账号：名称、账号 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-9050a4ecfdd16d12",
+        "label": "运营账号中名称对应当前记录",
+        "result": "“名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-60f0e079ba057e8c",
+        "label": "运营账号中账号 ID对应当前记录",
+        "result": "“账号 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "ac6fc1ceafec8e64e9bf7e89334a8ce07c25e9eba2891a95a51660fb6eba71a3",
+    "line": 2044,
+    "page": "guild-operation-accounts.html",
+    "text": "- REQ-GUILD-5eb770523c：账户余额：当前可用虚拟金币。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "1dcce7c4d18ccfcd7b2718b0f342c4cd1a6f8c20b52d02f1024804da98c8a260",
+    "line": 2045,
+    "page": "guild-operation-accounts.html",
+    "text": "- REQ-GUILD-999591f114：本月消费：本月成功送礼实际消费虚拟金币之和。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-0739156e662343bc",
+        "label": "运营账号列表只计本月成功虚拟消费",
+        "result": "本月消费=300虚拟金币"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "e59f790eb9c930f17343bb3945621e47b68e7da737d681f160a1c2522c74729e",
+    "line": 2046,
+    "page": "guild-operation-accounts.html",
+    "text": "- REQ-GUILD-37e76eae9d：运营账号由公会创建，不对应真实用户。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "f06c1a5e8a88ab946caf623ea840ef9676267a081d65d8af276ffc3a60331067",
+    "line": 2047,
+    "page": "guild-operation-accounts.html",
+    "text": "- REQ-GUILD-6cd2d019f6：运营账号没有真实金币，只有虚拟金币；虚拟金币只能由所属公会发放，不能通过充值或任务获得。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "65314c8b714fb18b87ff7c14f095008d75852d4149053e54a5723f209a9dfb51",
+    "line": 2048,
+    "page": "guild-operation-accounts.html",
+    "text": "- REQ-GUILD-7808da3c55：运营账号只能使用虚拟金币赠送普通、定制礼物，不可赠送幸运礼物；虚拟金币不可兑换，也不计入主播收益和分成。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "cad14ed911f1a3207a7086c6319fee2f2e737d79d12eb7b2e8f5f3ed892303a4",
+    "line": 2049,
+    "page": "guild-operation-accounts.html",
+    "text": "- REQ-GUILD-efccbf1bf6：搜索按名称或账号 ID 匹配；创建 -> 新建账号；点击账号 -> 进入账号主页。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-33046ebc521c20e2",
+        "label": "运营账号通过账号进入关联页面",
+        "result": "进入账号主页"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "7d8a7926a516570c201a17e0b8741f759188249808e771f204d010f045161500",
+    "line": 2053,
+    "page": "guild-operation-account-compose.html",
+    "text": "- REQ-GUILD-f16ebcefb0：头像：必填；支持 JPG、PNG、WebP。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-8f12592164c9d306",
+        "label": "头像上传JPG",
+        "result": "头像显示图片A预览"
+      },
+      {
+        "id": "SC-32c403b21395494b",
+        "label": "头像上传PNG",
+        "result": "头像显示图片A预览"
+      },
+      {
+        "id": "SC-3420c7ce8f1bb0a0",
+        "label": "头像上传WebP",
+        "result": "头像显示图片A预览"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "fa7793567fcf693f8a0c8cbd9d62eb8c4877d617d99c6e1ec8a0c93066f25959",
+    "line": 2054,
+    "page": "guild-operation-account-compose.html",
+    "text": "- REQ-GUILD-1bb43b73b7：名称：必填，最多 30 字。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-19fede5d1979b939",
+        "label": "创建运营账号名称0字",
+        "result": "不保存空名称"
+      },
+      {
+        "id": "SC-0307edf000b97834",
+        "label": "创建运营账号名称1字",
+        "result": "保存长度1字的名称"
+      },
+      {
+        "id": "SC-b2c94040f9aac12e",
+        "label": "创建运营账号名称30字",
+        "result": "保存长度30字的名称"
+      },
+      {
+        "id": "SC-fa80af903acfff19",
+        "label": "创建运营账号名称31字",
+        "result": "不保存超过30字的名称"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "58093fa3a829a5022cbeb14cdeecd50a2cd50b7340c2a07f48836b937bba30ea",
+    "line": 2055,
+    "page": "guild-operation-account-compose.html",
+    "text": "- REQ-GUILD-679adcbd4f：账号：必填，最多 30 字；全平台唯一；仅支持用户端登录。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-dc4e00c4d825ac39",
+        "label": "不同公会不能创建同名登录账号",
+        "result": "不创建重复登录账号"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "a0c2d9dfe5d8f100a611de52e5c09fb5fc1d174d9969aa540136e1e0e8d9b6ea",
+    "line": 2056,
+    "page": "guild-operation-account-compose.html",
+    "text": "- REQ-GUILD-99dcd2a0a0：初始密码：必填，至少 6 位。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-41e913ad123fe7c3",
+        "label": "运营账号初始密码5位",
+        "result": "不保存少于6位的初始密码"
+      },
+      {
+        "id": "SC-5ef224a06c184149",
+        "label": "运营账号初始密码6位",
+        "result": "创建运营账号"
+      },
+      {
+        "id": "SC-2a5736ae93392199",
+        "label": "运营账号初始密码7位",
+        "result": "创建运营账号"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "543f4e13eb28a6582500a154d8386560927c7f2b401b3937362f9f4736548c4b",
+    "line": 2057,
+    "page": "guild-operation-account-compose.html",
+    "text": "- REQ-GUILD-50e00cdb53：发放金币：必填，默认 0；不得小于 0 或超过本次可发上限。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-2b02d2f4e433d9a3",
+        "label": "创建运营账号初始发放-1",
+        "result": "不创建负数发放的账号"
+      },
+      {
+        "id": "SC-6fe18173b3516820",
+        "label": "创建运营账号初始发放0",
+        "result": "新账号qa_ops_new账户余额为0虚拟金币"
+      },
+      {
+        "id": "SC-77d8eb0b6cc06316",
+        "label": "创建运营账号初始发放99",
+        "result": "新账号qa_ops_new账户余额为99虚拟金币"
+      },
+      {
+        "id": "SC-9304b79f9ce22bea",
+        "label": "创建运营账号初始发放100",
+        "result": "新账号qa_ops_new账户余额为100虚拟金币"
+      },
+      {
+        "id": "SC-b195baebbfc9bd94",
+        "label": "创建运营账号初始发放101",
+        "result": "不创建发放101超额的账号"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "453e2d850501f53b550dbf8e4a78960e19364bfb088ab2ba1fc19b3ad2d52e01",
+    "line": 2058,
+    "page": "guild-operation-account-compose.html",
+    "text": "- REQ-GUILD-d991c0bf1b：账号状态：默认启用；禁用账号不可登录或送礼。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-27b1e2a5e5f9cc14",
+        "label": "创建运营账号默认启用",
+        "result": "新运营账号状态为启用"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9a79a1b9dd31e530887d4e82f979b0b691770ea098e27c73fedcee0333cf79b3",
+    "line": 2059,
+    "page": "guild-operation-account-compose.html",
+    "text": "- REQ-GUILD-d9d4a78666：本次可发上限：取单账号月发放上限剩余额度与公会月累计发放上限剩余额度的较小值。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-fa267f72982b3ab0",
+        "label": "创建运营账号剩余额度100与200",
+        "result": "本次可发上限=100虚拟金币"
+      },
+      {
+        "id": "SC-68ff37483e72ea3b",
+        "label": "创建运营账号剩余额度200与100",
+        "result": "本次可发上限=100虚拟金币"
+      },
+      {
+        "id": "SC-52a2396a9cab41b6",
+        "label": "创建运营账号剩余额度0与100",
+        "result": "本次可发上限=0虚拟金币"
+      },
+      {
+        "id": "SC-c2cf913b42430b8e",
+        "label": "创建运营账号剩余额度100与0",
+        "result": "本次可发上限=0虚拟金币"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "5767d4572dcf3ad0173ded44ee65769a1c55d585edc15f4618477241ece363cd",
+    "line": 2060,
+    "page": "guild-operation-account-compose.html",
+    "text": "- REQ-GUILD-fe71fd0de2：创建时发放的是虚拟金币，资金来源为所属公会；运营账号没有真实金币，不能充值或通过任务获得金币。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "c596b0e3cbbd5ac61ee207c867df413ecfb487551d30eb4f99fb735309f8a725",
+    "line": 2061,
+    "page": "guild-operation-account-compose.html",
+    "text": "- REQ-GUILD-b44bc1937a：确认创建 -> 校验字段和额度 -> 创建账号、记入发放额度并返回列表。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "cbb77c9e4fbf908e32b7844695ba6df090f26e3942d24bdf1deb2eb425a7b913",
+    "line": 2065,
+    "page": "guild-operation-account-detail.html",
+    "text": "- REQ-GUILD-0df7268274：账号信息：头像、名称、账号 ID、启用状态。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-e26db63f0ce8549a",
+        "label": "运营账号主页中头像对应当前记录",
+        "result": "“头像”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-643a379e1e226f3f",
+        "label": "运营账号主页中名称对应当前记录",
+        "result": "“名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-6dda329e3d64212c",
+        "label": "运营账号主页中账号 ID对应当前记录",
+        "result": "“账号 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "70c67d341fc1e77a71d18c6911c6f9fa7e841a1b8ef6dac30578322abc60f475",
+    "line": 2066,
+    "page": "guild-operation-account-detail.html",
+    "text": "- REQ-GUILD-35f456e420：消费明细：按日期汇总成功送礼实际消费虚拟金币；默认本月。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-25332d0899efe29c",
+        "label": "运营账号主页默认月份",
+        "result": "默认范围为本月"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "3b8066ba88f2e3b2e3e277efcc2f1336cce376c010e5525e0333311cc71a2e16",
+    "line": 2067,
+    "page": "guild-operation-account-detail.html",
+    "text": "- REQ-GUILD-b7e7abcf25：账户余额：累计成功发放虚拟金币减去累计成功消费虚拟金币；累计消费：账号历史成功送礼实际消费虚拟金币总和；本月发放：账号本月成功发放虚拟金币总和；本月消费：账号本月成功送礼实际消费虚拟金币总和。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-6fe18173b3516820",
+        "label": "创建运营账号初始发放0",
+        "result": "新账号qa_ops_new账户余额为0虚拟金币"
+      },
+      {
+        "id": "SC-77d8eb0b6cc06316",
+        "label": "创建运营账号初始发放99",
+        "result": "新账号qa_ops_new账户余额为99虚拟金币"
+      },
+      {
+        "id": "SC-9304b79f9ce22bea",
+        "label": "创建运营账号初始发放100",
+        "result": "新账号qa_ops_new账户余额为100虚拟金币"
+      },
+      {
+        "id": "SC-77b6ce96b429904d",
+        "label": "运营账号账户余额的统计口径",
+        "result": "账户余额显示70虚拟金币"
+      },
+      {
+        "id": "SC-87585d0140db0dab",
+        "label": "运营账号本月发放的统计口径",
+        "result": "本月发放显示100虚拟金币"
+      },
+      {
+        "id": "SC-763d1abeaccaa458",
+        "label": "运营账号本月消费的统计口径",
+        "result": "本月消费显示30虚拟金币"
+      },
+      {
+        "id": "SC-b5cfbd46f729658b",
+        "label": "运营账号累计消费的统计口径",
+        "result": "累计消费显示80虚拟金币"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "031173c35b2ad4d331bc08e3ca856f0c986ddf61add4b3e8ffdd8899bce9e3f3",
+    "line": 2068,
+    "page": "guild-operation-account-detail.html",
+    "text": "- REQ-GUILD-5f5cf0067b：运营账号没有真实金币；虚拟金币只能由所属公会发放，不能充值或通过任务获得。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": [
+      {
+        "id": "b3d9aa731828ba776798d541fe2f35c64ea45f1ba357f6a5741a08fbc448eace",
+        "page": "admin-operation-account-detail.html",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "ae014a2c99f52c4ac9b1f5d995b1d928b2b6c3c721da7627c08fd059fc1fd10c",
+    "line": 2069,
+    "page": "guild-operation-account-detail.html",
+    "text": "- REQ-GUILD-07019146fc：禁用后不可登录或送礼，历史记录和余额保留；重新启用后恢复。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-1a1ebbd045d4ac89",
+        "label": "公会停用运营账号后的状态",
+        "result": "账号状态显示已停用"
+      },
+      {
+        "id": "SC-605cd412e5b7daf3",
+        "label": "公会禁用运营账号后原虚拟余额保留",
+        "result": "原虚拟余额保留"
+      },
+      {
+        "id": "SC-2dde9895bdf9c31d",
+        "label": "公会禁用运营账号后历史消费记录保留",
+        "result": "历史消费记录保留"
+      },
+      {
+        "id": "SC-605eae6c09b1250f",
+        "label": "公会重新启用运营账号",
+        "result": "账号状态显示已启用"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "6577af5b7cb5ca104e894454d84e624e571d6b31ecb5c248127f245618a9c6a6",
+    "line": 2070,
+    "page": "guild-operation-account-detail.html",
+    "text": "- REQ-GUILD-a1e56d4012：平台锁定公会管理权限时仅可查看，不能启停或发放金币。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-8ec32e2bf09e3de4",
+        "label": "平台锁定后公会不能启停",
+        "result": "启停操作不可用"
+      },
+      {
+        "id": "SC-6be5ade3c66fd611",
+        "label": "平台锁定后公会不能发放金币",
+        "result": "发放金币操作不可用"
+      },
+      {
+        "id": "SC-2230ee1a0996131a",
+        "label": "平台锁定公会管理权限运营账号",
+        "result": "启停及金币发放操作不可用"
+      },
+      {
+        "id": "SC-22faa305bd42b503",
+        "label": "平台解除公会管理权限锁定运营账号",
+        "result": "启停及金币发放操作恢复可用"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "1b1b5dcbe3e4d8b6aa56028f4eefa08dcdecef5a776ea2ee785dceec45710792",
+    "line": 2071,
+    "page": "guild-operation-account-detail.html",
+    "text": "- REQ-GUILD-b3598d4023：发放上限取账号月剩余额度与公会月剩余额度的较小值。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "92b238988ac44e0fa588c4fc9779691e3d630facd0cd00ecd6820bd7cfb31cbe",
+    "line": 2072,
+    "page": "guild-operation-account-detail.html",
+    "text": "- REQ-GUILD-1a716862b2：点击日期消费 -> 进入送礼记录并带入账号和日期；启停或发放成功后刷新指标。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-5ee2368c1ead5967",
+        "label": "运营日消费进入明细",
+        "result": "送礼记录筛选为账号A与2026-09-14"
+      },
+      {
+        "id": "SC-594435cbf694750d",
+        "label": "公会成功发币后的余额",
+        "result": "账户余额=150虚拟金币"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "556840defd6e10b578778b3625e2366a9217c0f09b94cabc25f93ddd0bdfcffd",
+    "line": 2076,
+    "page": "guild-operation-gift-records.html",
+    "text": "- REQ-GUILD-fb37ed1937：支持多选运营账号和今日、昨日、本周、上周、本月、上月、自定义；默认全部运营账号、今日。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-627e7b2409183d64",
+        "label": "送礼记录默认日期",
+        "result": "默认选中今日"
+      },
+      {
+        "id": "SC-bd82861b6932d9bc",
+        "label": "送礼记录默认对象范围",
+        "result": "默认范围包含A与B全部对象"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "686e0aa6b3e6fb2ec265da46d7175481750c21650b7462a198cda2b1dd707614",
+    "line": 2077,
+    "page": "guild-operation-gift-records.html",
+    "text": "- REQ-GUILD-0e39df42e9：总送礼次数：筛选范围内成功送礼记录数；总消费金币：筛选范围内各成功送礼记录的礼物单价乘赠送数量之和。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-533e011e46858b94",
+        "label": "运营送礼按成功订单计次",
+        "result": "总送礼次数为2"
+      },
+      {
+        "id": "SC-adffa385d9d15410",
+        "label": "运营送礼金币按单价数量",
+        "result": "总消费金币=120"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "c56b64d3d870e0b59a01752fb76b83aebb3c86d165fa76717f2e3d194c9d3e73",
+    "line": 2078,
+    "page": "guild-operation-gift-records.html",
+    "text": "- REQ-GUILD-d7a0afa32a：列表：礼物名称、赠送时间、消费金币。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-d5973c7a5fc9ce73",
+        "label": "送礼记录中礼物名称对应当前记录",
+        "result": "“礼物名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-ec07261d07e29aad",
+        "label": "送礼记录中赠送时间对应当前记录",
+        "result": "“赠送时间”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-62897131b67213c9",
+        "label": "送礼记录中消费金币对应当前记录",
+        "result": "“消费金币”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "bb73cc5aac18233eb9a504fdfff9cf4e036990c490773ff438433231d36977dc",
+    "line": 2079,
+    "page": "guild-operation-gift-records.html",
+    "text": "- REQ-GUILD-43e9b4c0c2：送礼详情：赠送时间、礼物名称、消费金币、礼物单价、礼物类型、赠送数量、主播名称、主播 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-4a5b12984cc96505",
+        "label": "送礼记录中赠送时间对应当前记录",
+        "result": "“赠送时间”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-4dd1b72274c18728",
+        "label": "送礼记录中礼物名称对应当前记录",
+        "result": "“礼物名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-427c4fb7357e1a83",
+        "label": "送礼记录中消费金币对应当前记录",
+        "result": "“消费金币”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-08a72d4472fd92b3",
+        "label": "送礼记录中礼物单价对应当前记录",
+        "result": "“礼物单价”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-53e178a4d7f33af8",
+        "label": "送礼记录中礼物类型对应当前记录",
+        "result": "“礼物类型”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-0c986e732f10d6a8",
+        "label": "送礼记录中赠送数量对应当前记录",
+        "result": "“赠送数量”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-b94439ba0481197e",
+        "label": "送礼记录中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "5993146f5022439e05563b0c61d299739bafc0e0c8d9ccaf857f2cd2a9df2562",
+    "line": 2080,
+    "page": "guild-operation-gift-records.html",
+    "text": "- REQ-GUILD-f4bddcf80b：运营账号只能使用所属公会发放的虚拟金币赠送普通、定制礼物，不可赠送幸运礼物；虚拟金币送礼不计入主播收益或分成。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "41a0d6a1d1ee996d813b8144276a27c38fb84e48e5d84dbc53af7fadea467cbf",
+    "line": 2081,
+    "page": "guild-operation-gift-records.html",
+    "text": "- REQ-GUILD-58832b30a1：点击记录 -> 打开送礼详情；筛选变化 -> 刷新汇总和列表。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-2b86e9447b2de03f",
+        "label": "送礼记录通过记录进入关联页面",
+        "result": "打开送礼详情"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "e2ba49d171b849693050834edb4e5f7a4b2155c6732f37d00844a3037d63f7f2",
+    "line": 2085,
+    "page": "guild-operation-account-select.html",
+    "text": "- REQ-GUILD-8b4dc314a0：搜索：按运营账号名称或账号 ID 模糊匹配。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-51e3eb06bef044c3",
+        "label": "选择运营账号按测试A搜索",
+        "result": "仅显示运营账号测试A"
+      },
+      {
+        "id": "SC-5cb40dde75026e75",
+        "label": "选择运营账号按620100搜索",
+        "result": "仅显示运营账号测试A"
+      },
+      {
+        "id": "SC-da2077e8786c39eb",
+        "label": "选择运营账号按不存在XYZ搜索",
+        "result": "列表显示无匹配结果"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "df10d4fd059f6535b3ad62641aa299b03e25ed265a6d2235b173c9e9231a7592",
+    "line": 2086,
+    "page": "guild-operation-account-select.html",
+    "text": "- REQ-GUILD-23252d8e84：选择结果：支持多选和全选；全选作用于全部运营账号。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-1eaeeca0a1d34941",
+        "label": "选择运营账号全选",
+        "result": "选中本公会全部3个对象"
+      },
+      {
+        "id": "SC-9b062d29b8b893a2",
+        "label": "选择运营账号取消全选",
+        "result": "全部对象取消选中"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "225bbe28dab6f06909d67f13807663acd60e3918b1c3ba83b3bc8aabb400732f",
+    "line": 2087,
+    "page": "guild-operation-account-select.html",
+    "text": "- REQ-GUILD-8770640f7e：完成 -> 返回送礼记录，回填账号并保留日期条件；取消全选 -> 清空选择。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-b3c5aa51e71ba63e",
+        "label": "运营账号选择返回保留日期",
+        "result": "送礼记录保留原日期条件"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "be752236b5afc94f1a62384b7f2e3593b3b4a85131c82bba41908a24034929fc",
+    "line": 2091,
+    "page": "guild-profile.html",
+    "text": "- REQ-GUILD-6d027ebbe2：公会 ID：平台创建，永久只读。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-9ada2f29941d4bfd",
+        "label": "公会资料中公会 ID对应当前记录",
+        "result": "“公会 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "55420c634b979f410958db3543e816f3a9d22652968b8b664f191265733f58b5",
+    "line": 2092,
+    "page": "guild-profile.html",
+    "text": "- REQ-GUILD-49a29a93a3：公会 Logo：支持 JPG、PNG、WebP。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-db41f2f185f8a9f9",
+        "label": "公会Logo上传JPG",
+        "result": "公会Logo显示图片A预览"
+      },
+      {
+        "id": "SC-4ce5ff3d8e1f43a3",
+        "label": "公会Logo上传PNG",
+        "result": "公会Logo显示图片A预览"
+      },
+      {
+        "id": "SC-d724978724bfe65c",
+        "label": "公会Logo上传WebP",
+        "result": "公会Logo显示图片A预览"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "f61f8e06f239508755a545d644c5b770dea98a2fe8e88e2a93eff9f8415e260c",
+    "line": 2093,
+    "page": "guild-profile.html",
+    "text": "- REQ-GUILD-8f36dd7843：公会名称：必填，去除首尾空格后最多 40 字。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-17ba9f2dd1baeecf",
+        "label": "切换语言不改业务资料",
+        "result": "公会名称仍为公会A"
+      },
+      {
+        "id": "SC-1062ca05d9c9f7f6",
+        "label": "公会资料公会名称0字",
+        "result": "不保存空公会名称"
+      },
+      {
+        "id": "SC-7fa6f67c8996c7d9",
+        "label": "公会资料公会名称1字",
+        "result": "保存长度1字的公会名称"
+      },
+      {
+        "id": "SC-88d5b2f7edebbaed",
+        "label": "公会资料公会名称40字",
+        "result": "保存长度40字的公会名称"
+      },
+      {
+        "id": "SC-70cfab69dd83bdf6",
+        "label": "公会资料公会名称41字",
+        "result": "不保存超过40字的公会名称"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "95ea6ef81216ce8f2a19005e32dab9f6587932aad2e3f7e11fcebe179a7cbcb8",
+    "line": 2094,
+    "page": "guild-profile.html",
+    "text": "- REQ-GUILD-ba7269c678：公会简介：选填，最多 200 字。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7f8ca5e55c5550cc",
+        "label": "公会资料公会简介0字",
+        "result": "保存长度0字的公会简介"
+      },
+      {
+        "id": "SC-ff76824e22a0b3cc",
+        "label": "公会资料公会简介1字",
+        "result": "保存长度1字的公会简介"
+      },
+      {
+        "id": "SC-45fd8f8b18c4566a",
+        "label": "公会资料公会简介200字",
+        "result": "保存长度200字的公会简介"
+      },
+      {
+        "id": "SC-eefbfe217801fd3b",
+        "label": "公会资料公会简介201字",
+        "result": "不保存超过200字的公会简介"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "2b45e619ea4ac7cc1712dd02b3ae9a72ec1495d03ece3eb7ca200f1d7b683256",
+    "line": 2095,
+    "page": "guild-profile.html",
+    "text": "- REQ-GUILD-431b87c74a：保存 -> 校验字段 -> 更新当前公会资料；不改变公会 ID 和公会关系。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-cb79bdf11df9466e",
+        "label": "修改公会资料不改身份",
+        "result": "公会ID仍为原G1编号"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "01403ee36d0b84184fbcd9c7f57be8f3e0cc5c0c3dffadd8931e9c7794f4d5bd",
+    "line": 2099,
+    "page": "guild-settings.html",
+    "text": "- REQ-GUILD-36797f8b8c：账号信息：公会长名称、公会 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-287a230a02f0f1d3",
+        "label": "账号设置中公会 ID对应当前记录",
+        "result": "“公会 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9cab886cf03439699cafd1c8efb0017e5a509f0cfed1d9edc5246e104fae791c",
+    "line": 2100,
+    "page": "guild-settings.html",
+    "text": "- REQ-GUILD-0c79823e75：语言：简体中文、英文、印尼语、马来语。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-cb63a74ff3454873",
+        "label": "公会端切换简体中文",
+        "result": "公会端界面切换为简体中文"
+      },
+      {
+        "id": "SC-efd95521ce7deb09",
+        "label": "公会端切换英文",
+        "result": "公会端界面切换为英文"
+      },
+      {
+        "id": "SC-e95785a4952edbcc",
+        "label": "公会端切换印尼语",
+        "result": "公会端界面切换为印尼语"
+      },
+      {
+        "id": "SC-c13fe72c7ffc30ff",
+        "label": "公会端切换马来语",
+        "result": "公会端界面切换为马来语"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "28de311e916fc7a0ef8f78ebc99bbeab8f3e8dba6916e5ee411e476c2ea45712",
+    "line": 2101,
+    "page": "guild-settings.html",
+    "text": "- REQ-GUILD-a1b3620d12：语言设置作用于当前登录账号的公会端，不修改公会或主播资料。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-17ba9f2dd1baeecf",
+        "label": "切换语言不改业务资料",
+        "result": "公会名称仍为公会A"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "ca06ceca248b54e9f95523bed65e34b9022e62bc1d16225c7a19c5ca4d5ca898",
+    "line": 2102,
+    "page": "guild-settings.html",
+    "text": "- REQ-GUILD-4f6cf43762：修改密码 -> 独立页面；退出登录 -> 二次确认 -> 清除会话并返回登录页。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-096f11d3ec6d5e76",
+        "label": "公会退出登录确认",
+        "result": "返回公会登录页"
+      },
+      {
+        "id": "SC-b770779a95e642b0",
+        "label": "公会密码提交后的提示：更新密码为NewPass12",
+        "result": "进入选择公会页"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "5bba02f13bcb7b497e4cc2e27cea803a45d39dd5b60f01f825e1c8788655450c",
+    "line": 2106,
+    "page": "guild-password.html",
+    "text": "- REQ-GUILD-c709043325：当前密码：必填，必须与当前密码一致。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-532800c337351655",
+        "label": "公会修改密码当前密码必填",
+        "result": "不更新当前账号密码"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "d8a1160056f933085ca7669f1ded2890b39db5b32fc19ae3c3318d9ade0a197b",
+    "line": 2107,
+    "page": "guild-password.html",
+    "text": "- REQ-GUILD-9fea9b5d82：新密码：必填，至少 8 位，不能与当前密码相同。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7e1339b15ec2255d",
+        "label": "公会密码提交后的提示：显示“当前密码错误”",
+        "result": "显示“当前密码错误”"
+      },
+      {
+        "id": "SC-c4cf0416ac3c4e1b",
+        "label": "公会密码提交后的提示：显示“新密码不能和旧密码一样”",
+        "result": "提示文案为“新密码不能和旧密码一样”"
+      },
+      {
+        "id": "SC-1d7efeda5aee2f08",
+        "label": "公会密码提交后的提示：不更新密码",
+        "result": "不更新密码"
+      },
+      {
+        "id": "SC-13a52038e4d8d580",
+        "label": "公会密码提交后的提示：不保存少于8位的新密码",
+        "result": "不保存少于8位的新密码"
+      },
+      {
+        "id": "SC-b770779a95e642b0",
+        "label": "公会密码提交后的提示：更新密码为NewPass12",
+        "result": "进入选择公会页"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9bfc611b17c90ae96d2d1bd7a503c22b4882fecf245bec18f26b214ae51fcd45",
+    "line": 2108,
+    "page": "guild-password.html",
+    "text": "- REQ-GUILD-4076e219a3：确认新密码：必填，必须与新密码一致。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7e1339b15ec2255d",
+        "label": "公会密码提交后的提示：显示“当前密码错误”",
+        "result": "显示“当前密码错误”"
+      },
+      {
+        "id": "SC-c4cf0416ac3c4e1b",
+        "label": "公会密码提交后的提示：显示“新密码不能和旧密码一样”",
+        "result": "提示文案为“新密码不能和旧密码一样”"
+      },
+      {
+        "id": "SC-1d7efeda5aee2f08",
+        "label": "公会密码提交后的提示：不更新密码",
+        "result": "不更新密码"
+      },
+      {
+        "id": "SC-13a52038e4d8d580",
+        "label": "公会密码提交后的提示：不保存少于8位的新密码",
+        "result": "不保存少于8位的新密码"
+      },
+      {
+        "id": "SC-b770779a95e642b0",
+        "label": "公会密码提交后的提示：更新密码为NewPass12",
+        "result": "进入选择公会页"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "088a12a93f574d5397bd9561e785900edace3f2a234a3696b80aa5ace0760309",
+    "line": 2109,
+    "page": "guild-password.html",
+    "text": "- REQ-GUILD-57ab51f7ca：当前密码错误 -> 保留输入并提示“当前密码错误”；新密码与旧密码相同 -> 保留输入并提示“新密码不能和旧密码一样”；请求失败 -> 保留输入并提示“保存失败”；校验成功后更新密码并返回账号设置。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7e1339b15ec2255d",
+        "label": "公会密码提交后的提示：显示“当前密码错误”",
+        "result": "显示“当前密码错误”"
+      },
+      {
+        "id": "SC-c4cf0416ac3c4e1b",
+        "label": "公会密码提交后的提示：显示“新密码不能和旧密码一样”",
+        "result": "提示文案为“新密码不能和旧密码一样”"
+      },
+      {
+        "id": "SC-1d7efeda5aee2f08",
+        "label": "公会密码提交后的提示：不更新密码",
+        "result": "不更新密码"
+      },
+      {
+        "id": "SC-13a52038e4d8d580",
+        "label": "公会密码提交后的提示：不保存少于8位的新密码",
+        "result": "不保存少于8位的新密码"
+      },
+      {
+        "id": "SC-b770779a95e642b0",
+        "label": "公会密码提交后的提示：更新密码为NewPass12",
+        "result": "进入选择公会页"
+      },
+      {
+        "id": "SC-7c60229bf9322add",
+        "label": "修改公会密码请求失败",
+        "result": "显示“保存失败”"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "e8ece8646b2d0ae7d0681356616e98b1d054f1e4f923a61aeb655045a5a11264",
+    "line": 2113,
+    "page": "guild-host-data.html",
+    "text": "- REQ-GUILD-111705c81b：主播支持多选，默认全部；日期支持今日、昨日、本周、上周、本月、上月、自定义，默认今日。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-14328b000fb1d70b",
+        "label": "直播记录默认日期",
+        "result": "默认选中今日"
+      },
+      {
+        "id": "SC-6d8142013859da5b",
+        "label": "直播记录默认对象范围",
+        "result": "默认范围包含A与B全部对象"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "51a57ce98c9ddfd223b9e0e05bb536aac6ddbc04da55c5e61eab1f47ab11c274",
+    "line": 2114,
+    "page": "guild-host-data.html",
+    "text": "- REQ-GUILD-7fe57fc0ec：收益：所选主播在所选日期范围内计入收益的礼物金币总和；开播人数：所选日期范围内至少完成 1 场直播的去重主播数；直播场次：所选主播在所选日期范围内创建的直播场次总数。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7665201ab6e3ddd3",
+        "label": "公会开播人数按完成场次去重",
+        "result": "开播人数为2"
+      },
+      {
+        "id": "SC-e70d78e791d11a18",
+        "label": "公会场次含已创建未结束",
+        "result": "直播场次为4"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "cbffbbe1de45defe1dad5329f601f66792a19d803797cade5ced3113d9028aec",
+    "line": 2115,
+    "page": "guild-host-data.html",
+    "text": "- REQ-GUILD-4767cfa784：直播场次：直播主题、主播名称、主播 ID、开播时间、直播时长。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-8a6e310667711e43",
+        "label": "直播记录中直播主题对应当前记录",
+        "result": "“直播主题”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-21253eca7da9ce3f",
+        "label": "直播记录中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "cf7203cf630771cab51b585bbf2c2cc850d9ced7bc425f2cbd96de7f896dbaef",
+    "line": 2116,
+    "page": "guild-host-data.html",
+    "text": "- REQ-GUILD-033a6d48e4：收益：当前场次计入收益的礼物金币总和。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "574c68ec02172b93af5d515e2585fd28f4f16649a39422989d689039f00e0acf",
+    "line": 2117,
+    "page": "guild-host-data.html",
+    "text": "- REQ-GUILD-5843185dea：观众：当前场次进入直播间的去重用户数。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7cf1ecba18523e0d",
+        "label": "直播记录同人反复进房只计一名观众",
+        "result": "本场观众人数=2"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "1de23fe25560105ca3bd4e43ee762e2788941500adf571b41ac69e67d0847d44",
+    "line": 2118,
+    "page": "guild-host-data.html",
+    "text": "- REQ-GUILD-64a1a5ea32：收礼数量：当前场次成功收到的礼物件数之和。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-a4f270b1da227488",
+        "label": "公会场次收礼按件数累加",
+        "result": "收礼数量=5件"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "bc34374511861de805da64df418f633363f14c2ed3850f1cf15828bb8f6756a8",
+    "line": 2119,
+    "page": "guild-host-data.html",
+    "text": "- REQ-GUILD-a1f06b296a：每次开播创建一个新场次；场次结束后消息、消费、处置和收益记录继续保留。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-8f502f9b33b8a036",
+        "label": "主播新开播在公会形成场次记录",
+        "result": "列表存在新场次S"
+      },
+      {
+        "id": "SC-fb8b6586849c4b8d",
+        "label": "主动下播后公会保留历史场次",
+        "result": "S场次记录仍存在"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "6c0118a22fb67709a5a253d8fac0a84579b8d05d18f4a70a97441d144e42bdbe",
+    "line": 2120,
+    "page": "guild-host-data.html",
+    "text": "- REQ-GUILD-5ce224805e：点击直播场次 -> 进入「直播场次详情」，带入主播 ID、日期和场次 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-1ef1bfa630c5cc99",
+        "label": "直播场次详情参数绑定",
+        "result": "进入主播B的S1场次详情"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "a774299177ca89c6d3adb1d5860922dcb35ddd75125b563c7124e7e12488e89c",
+    "line": 2124,
+    "page": "guild-live-gift-detail.html",
+    "text": "- REQ-GUILD-fac09c456a：场次信息：直播主题、场次 ID、主播名称、主播 ID、开播时间、直播时长。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-a93390ea99d401ec",
+        "label": "直播场次详情中直播主题对应当前记录",
+        "result": "“直播主题”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-af3b5527d7b18f0d",
+        "label": "直播场次详情中场次 ID对应当前记录",
+        "result": "“场次 ID”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-95e8a8360708b636",
+        "label": "直播场次详情中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "12e8bc332bb5f7c991827d933f03d98a443f52d68e617992d85224c501e2485c",
+    "line": 2125,
+    "page": "guild-live-gift-detail.html",
+    "text": "- REQ-GUILD-522c723ee0：送礼列表：赠送时间、礼物名称、消费金币。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-45c821ccbf8b1107",
+        "label": "直播场次详情中赠送时间对应当前记录",
+        "result": "“赠送时间”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-863dbba78537bc7f",
+        "label": "直播场次详情中礼物名称对应当前记录",
+        "result": "“礼物名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-1ee7e822dc8d41cb",
+        "label": "直播场次详情中消费金币对应当前记录",
+        "result": "“消费金币”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "c8cc081bdb1958650b280c614356b2c35a08ff0cd294714525152fd9c7c51a51",
+    "line": 2126,
+    "page": "guild-live-gift-detail.html",
+    "text": "- REQ-GUILD-a3b1ec8963：送礼详情：赠送时间、礼物名称、消费金币、礼物单价、礼物类型、赠送数量、用户名称、用户 ID、用户等级。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-add515185420132e",
+        "label": "直播场次详情中赠送时间对应当前记录",
+        "result": "“赠送时间”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-c45f5b4af77a9451",
+        "label": "直播场次详情中礼物名称对应当前记录",
+        "result": "“礼物名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-ceb822aca0855523",
+        "label": "直播场次详情中消费金币对应当前记录",
+        "result": "“消费金币”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-889800833a68aa14",
+        "label": "直播场次详情中礼物单价对应当前记录",
+        "result": "“礼物单价”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-b0e122cef91d7145",
+        "label": "直播场次详情中礼物类型对应当前记录",
+        "result": "“礼物类型”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-80dc051909d76110",
+        "label": "直播场次详情中赠送数量对应当前记录",
+        "result": "“赠送数量”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-2ac9430c1ec7ce45",
+        "label": "直播场次详情中用户 ID对应当前记录",
+        "result": "“用户 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "beaf2c27a7503f55847dcab470fce764dde2b8a8fbf40240d4c093ff4f02cbe3",
+    "line": 2127,
+    "page": "guild-live-gift-detail.html",
+    "text": "- REQ-GUILD-148a060873：观众数量：当前场次进入直播间的去重用户数；送礼观众：当前场次成功送礼的去重用户数；礼物数量：当前场次成功收到的礼物件数之和；礼物收益：当前场次计入主播收益的礼物金币总和。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-48544a08dd76c47d",
+        "label": "直播场次详情同人反复进房只计一名观众",
+        "result": "本场观众人数=2"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "62f7f5f26a110177e58369cb76b77747ae56ac7c1da61967c966078a529ed7ab",
+    "line": 2128,
+    "page": "guild-live-gift-detail.html",
+    "text": "- REQ-GUILD-e98ca16385：普通礼物、定制礼物按成功实际消费金币计入；幸运礼物按礼物总价值 × 后台配置比例计入，默认 1%，返奖不影响主播收益。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-0a2de9f908c44af4",
+        "label": "直播场次详情统计普通礼物收益",
+        "result": "收益=60金币"
+      },
+      {
+        "id": "SC-253023a2d9c2bb7a",
+        "label": "直播场次详情统计定制礼物收益",
+        "result": "收益=60金币"
+      },
+      {
+        "id": "SC-e2ff52c6af3453b0",
+        "label": "直播场次详情统计幸运礼物收益",
+        "result": "收益=0.6金币"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "7ac1e8c8f8068c3cd4026801bdcea60bf6ddfad5bc66fc0bb676b9a6905faf8c",
+        "page": "guild-home.html",
+        "cases": [
+          "SC-5d325a2494b78de2",
+          "SC-3f2eab50a47d47d4",
+          "SC-882f9bd874df65cd"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "76c220bf4eaa78a301165ed759c737868ae8a61655b9b8340794278f4b1135e7",
+    "line": 2129,
+    "page": "guild-live-gift-detail.html",
+    "text": "- REQ-GUILD-01d3777327：运营账号赠送的礼物不计入主播实际收益。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-5997e829a343e610",
+        "label": "公会场次收益排除运营送礼",
+        "result": "场次收益=100金币"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "f54ef4b2f855fde975a34e80835d30aace158eab8df34a319fe5ceb398cb6ae7",
+    "line": 2130,
+    "page": "guild-live-gift-detail.html",
+    "text": "- REQ-GUILD-e136f472d2：点击送礼记录 -> 查看送礼详情；返回时保留主播和日期筛选条件。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-4f97b017b6b094ca",
+        "label": "送礼详情返回保留范围",
+        "result": "主播B及2026-09-14筛选保留"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "fd87d354f3125540225b60ba7ee3882bec4b5c995d964fdc816db348722b7f49",
+    "line": 2134,
+    "page": "guild-all-violations.html",
+    "text": "- REQ-GUILD-9321757e74：违规范围支持直播间违规、账号违规；主播支持多选，默认全部；日期支持今日、昨日、本周、上周、本月、上月、自定义，默认今日。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-347b4581a22fe4bb",
+        "label": "违规记录默认日期",
+        "result": "默认选中今日"
+      },
+      {
+        "id": "SC-0ba56a24d11f6cc1",
+        "label": "违规记录默认对象范围",
+        "result": "默认范围包含A与B全部对象"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "140398cae60604ad97aea5dd46354adf5b67cb553d33ff54f4e59dbc83d417a3",
+    "line": 2135,
+    "page": "guild-all-violations.html",
+    "text": "- REQ-GUILD-d542e490ae：违规主播：主播名称、主播 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-0953bed1627d4bca",
+        "label": "违规记录中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "da2bdc228792487cbdb4b662120266176b56a1cd9f2a13e7a672157b51347aa0",
+    "line": 2136,
+    "page": "guild-all-violations.html",
+    "text": "- REQ-GUILD-0d06ea13d4：违规类型：读取管理后台启用的违规类型配置。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "3b11acea60ab73b180febafb1d86bbaae40cb31ceedf73be3fd57247f51a23ff",
+    "line": 2137,
+    "page": "guild-all-violations.html",
+    "text": "- REQ-GUILD-9902db8804：发生时间：违规或举报记录生成时间。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-83992653e3ada758",
+        "label": "违规记录中发生时间对应当前记录",
+        "result": "“发生时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "eb6c1cb13ff5335d1aa709f49bffffc309c53098b50f1fba7692457d634e2dd3",
+    "line": 2138,
+    "page": "guild-all-violations.html",
+    "text": "- REQ-GUILD-16ea1da16c：处理结果：警告、关闭场次、关闭直播权限、账号封禁或无处置；无结果显示“-”。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f1723f82c86f6dd8",
+        "label": "违规尚无处置结果",
+        "result": "处理结果显示“-”"
+      },
+      {
+        "id": "SC-4535b1a9b204f6ef",
+        "label": "公会接收平台警告结果",
+        "result": "V1处理结果显示警告"
+      },
+      {
+        "id": "SC-a74f331e999c0a8e",
+        "label": "公会接收平台关播结果",
+        "result": "V1处理结果显示关闭场次"
+      },
+      {
+        "id": "SC-57aef61c2690d4fe",
+        "label": "公会接收平台关闭直播权限结果",
+        "result": "V1处理结果显示关闭直播权限"
+      },
+      {
+        "id": "SC-57f402eac135f76f",
+        "label": "公会接收平台封禁账号结果",
+        "result": "V1处理结果显示账号封禁"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "77cba74e1e45aaa85cd6a7228dd66701edff3efc5e9a260a9ef3e1380b649fe8",
+    "line": 2139,
+    "page": "guild-all-violations.html",
+    "text": "- REQ-GUILD-a5c0c94011：警告不结束直播；关闭场次仅结束当前直播；关闭直播权限立即结束当前直播并阻止再次开播。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "94af2d4b9f322fd04601478542ce0ee4a43b1074ae946691daa67dad06912f75",
+    "line": 2140,
+    "page": "guild-all-violations.html",
+    "text": "- REQ-GUILD-43263125f2：账号封禁后当前会话下线；直播中同时结束当前场次。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "b962c16ee0ec72c18d5e1d04b07f3508a20a320b35ad2642a154b30892fcd454",
+    "line": 2141,
+    "page": "guild-all-violations.html",
+    "text": "- REQ-GUILD-6b5adfb547：筛选变化 -> 刷新记录；点击主播 -> 进入主播详情。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-4cd9bbe20b642db2",
+        "label": "违规记录通过主播进入关联页面",
+        "result": "进入主播详情"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9711ea30c2229a6319aa0d429fce9fddda1fc19ad007269f9e1066d32185a334",
+    "line": 2145,
+    "page": "guild-income.html",
+    "text": "- REQ-GUILD-14ec09beb8：支持日数据、月数据；日数据支持本周、上周、本月、上月、自定义，默认本月。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f264107edd5737a7",
+        "label": "公会业绩日数据默认本月",
+        "result": "日期筛选默认本月"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "1cc174562289e0880432df737d757e8945e5bf996d2cac753cedfbf70ca584ea",
+    "line": 2146,
+    "page": "guild-income.html",
+    "text": "- REQ-GUILD-8062268f3e：公会收益：所选日期范围内全部主播计入收益的礼物金币总和；直播场次：所选日期范围内全部主播创建的直播场次总数；开播人数：所选日期范围内至少完成 1 场直播的去重主播数；达成有效天：所选日期范围内全部主播自然日累计直播满 3 小时产生的有效天总数。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-cae2f0f8c8dff97e",
+        "label": "公会业绩单日179分钟有效天",
+        "result": "A当日有效天=0天"
+      },
+      {
+        "id": "SC-e366d2bccdc8e008",
+        "label": "公会业绩单日180分钟有效天",
+        "result": "A当日有效天=1天"
+      },
+      {
+        "id": "SC-1293016c906caba6",
+        "label": "公会业绩单日181分钟有效天",
+        "result": "A当日有效天=1天"
+      },
+      {
+        "id": "SC-b95d0e30f2931336",
+        "label": "公会业绩单日360分钟有效天",
+        "result": "A当日有效天=1天"
+      },
+      {
+        "id": "SC-58f43689493510ae",
+        "label": "公会业绩计算历史公会收益",
+        "result": "公会收益=300金币"
+      },
+      {
+        "id": "SC-29716156bece5c47",
+        "label": "公会业绩计算累计创建场次",
+        "result": "直播场次=3场"
+      },
+      {
+        "id": "SC-1366e292583b27a8",
+        "label": "公会业绩计算历史开播去重人数",
+        "result": "开播人数=2人"
+      },
+      {
+        "id": "SC-aace3560dc22f89a",
+        "label": "公会业绩计算历史有效天合计",
+        "result": "达成有效天=5天"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "b975d56fb27fdbe47dd228c96311ff77f8fc515ad7ab0a056df25d86e77c891e",
+    "line": 2147,
+    "page": "guild-income.html",
+    "text": "- REQ-GUILD-4fc7d12382：公会收益：历史全部月份计入收益的礼物金币总和；直播场次：历史全部月份创建的直播场次总数；开播人数：历史全部月份至少完成 1 场直播的去重主播数；达成有效天：历史全部月份产生的有效天总数。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "5b44434f65cf586268f80de1c282dc3b58a855bce22d9106e4d7151b95c685fc",
+    "line": 2148,
+    "page": "guild-income.html",
+    "text": "- REQ-GUILD-39bcd7bca2：日数据列表：日期、直播场次、达标主播、收益。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "25d035d81a685c3c91c98b6db2d8264cec727e0c26ca710c62435c80237f0fd7",
+    "line": 2149,
+    "page": "guild-income.html",
+    "text": "- REQ-GUILD-3d66cf0de7：月数据列表：月份、收益、开播人数。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "3cf90e5bca63a19834e7b72ea3710b145919047d34f01fe0dfcca1eddee504da",
+    "line": 2150,
+    "page": "guild-income.html",
+    "text": "- REQ-GUILD-fdc94a857a：点击指标卡片 -> 切换对应趋势；日数据按日期展示，月数据按月份展示。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-d3f74ec06e8cbf2d",
+        "label": "公会业绩指标卡切换趋势",
+        "result": "趋势显示直播场次指标"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "d2b51314161eb8e8a398b155b7a939b335c5ce06e8535fa1cad5620f0b71baf7",
+    "line": 2151,
+    "page": "guild-income.html",
+    "text": "- REQ-GUILD-0bda2dc8b2：点击日数据行 -> 进入主播业绩并带入日期；点击月数据行 -> 带入月份。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f229c4ae5a70c3c6",
+        "label": "公会业绩日数据联查",
+        "result": "主播业绩带入2026-09-14范围"
+      },
+      {
+        "id": "SC-83f014f631f58610",
+        "label": "公会业绩月数据联查",
+        "result": "主播业绩带入2026-09范围"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "2b2535fc7b5f27403da80edf856e319f4b20f5dd107970fa27fe4dd28a2c0900",
+    "line": 2155,
+    "page": "guild-income-day-detail.html",
+    "text": "- REQ-GUILD-758abdd6fe：日期：当前查看的自然日。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "d79a81276cbfdee2a1cb1abd4aa3a92a9791303ef890dbd06b8fea4a64ae30b3",
+    "line": 2156,
+    "page": "guild-income-day-detail.html",
+    "text": "- REQ-GUILD-7ea4fd386a：主播列表：头像、名称、主播 ID、等级、当日收益、当日直播时长、有效天状态。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-2fd152f9e5d21265",
+        "label": "每日中头像对应当前记录",
+        "result": "“头像”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-e0f8d2ee774b7666",
+        "label": "每日中名称对应当前记录",
+        "result": "“名称”显示记录A的数据准备值，不串用记录B的数据"
+      },
+      {
+        "id": "SC-8b3db8e1cae59948",
+        "label": "每日中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "6619d6f025209ddadf24549a80e33b32aa8f21a7dddec8864d97a59c62a8425d",
+    "line": 2157,
+    "page": "guild-income-day-detail.html",
+    "text": "- REQ-GUILD-39d35988a7：开播状态：已开播、未开播；已开播按当日收益倒序。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-817f7efb705423ca",
+        "label": "每日中开播状态对应当前记录",
+        "result": "A显示直播中"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "11310a63850c9e1defcbd0f97018c6e391b50da7750f778ec1899571c26e3836",
+    "line": 2158,
+    "page": "guild-income-day-detail.html",
+    "text": "- REQ-GUILD-79dc795bd9：当日收益：全部主播当日计入收益的礼物金币总和；直播中：查看今日时为当前正在直播的去重主播数，查看历史日期时为当日开播主播数；达成有效天：当日累计直播时长达到 3 小时的主播数。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-1b37e973c799f28d",
+        "label": "每日单日179分钟有效天",
+        "result": "达成有效天=0人"
+      },
+      {
+        "id": "SC-4433a7ea1b4d8d7f",
+        "label": "每日单日180分钟有效天",
+        "result": "达成有效天=1人"
+      },
+      {
+        "id": "SC-c379fe70cef4c2eb",
+        "label": "每日单日181分钟有效天",
+        "result": "达成有效天=1人"
+      },
+      {
+        "id": "SC-99834b6f094cb01c",
+        "label": "每日单日360分钟有效天",
+        "result": "达成有效天=1人"
+      },
+      {
+        "id": "SC-7f6a57305a534f4d",
+        "label": "历史日期直播中指标采用当日开播人数",
+        "result": "历史日直播中指标显示2人"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "b92852733d98e3f1c47529708de9385367fb920af5af7fe473b50e528bb66e38",
+    "line": 2159,
+    "page": "guild-income-day-detail.html",
+    "text": "- REQ-GUILD-e9469e919e：切换开播状态 -> 更新列表；点击主播 -> 进入主播数据并带入当前日期。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-d52ef2b6857639c3",
+        "label": "公会每日按开播状态过滤",
+        "result": "主播列表仅显示A"
+      },
+      {
+        "id": "SC-d6aaee75d184a7ec",
+        "label": "每日主播联查继承日期",
+        "result": "进入A的主播数据并带入2026-09-13"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "cac75b89d4afdf57e71509531f753eecbdec089e0ce0dce9afdddbcc6cb52333",
+    "line": 2163,
+    "page": "guild-share-ledger.html",
+    "text": "- REQ-GUILD-3ff1775556：主播支持多选，默认全部；日期支持今日、昨日、本周、上周、本月、上月、自定义，默认本月；按分成时间筛选。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-d3380fdbcc15bf68",
+        "label": "主播分成记录默认月份",
+        "result": "默认范围为本月"
+      },
+      {
+        "id": "SC-fbab1bfda4ea676a",
+        "label": "主播分成记录默认对象范围",
+        "result": "默认范围包含A与B全部对象"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "c5ce8db9b85b45d19b819f7c806a4251233f72a63c7ad452fa6d51c38ff1e8e6",
+    "line": 2164,
+    "page": "guild-share-ledger.html",
+    "text": "- REQ-GUILD-5c2ae2c0b6：主播：主播名称、主播 ID。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-3920f331be6e79b0",
+        "label": "主播分成记录中主播 ID对应当前记录",
+        "result": "“主播 ID”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "5a7660da9a6cdff1d4e09075282d14a32cd7676d002353e3e2916713caf23563",
+    "line": 2165,
+    "page": "guild-share-ledger.html",
+    "text": "- REQ-GUILD-8767458563：分成时间：财务结果入账时间，格式为日/月/年/时.分。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-497b02dfecd16f16",
+        "label": "主播分成记录中分成时间对应当前记录",
+        "result": "“分成时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "b938ffc7eb6791abcfc4942af198a2d88b809d210917d53f34469ca54e923f59",
+    "line": 2166,
+    "page": "guild-share-ledger.html",
+    "text": "- REQ-GUILD-2d8e867eda：分成金额：法定货币；正数为增加，绿色；负数为冲正或扣减，红色。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-1c7ad5c0d8a1454a",
+        "label": "主播负向分成修正展示",
+        "result": "该笔金额显示-10USD"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "b9597c93886f925ea7f595c083770a0037aa03cd892bc977d0c356082e63c7c1",
+        "page": "guild-share-income.html",
+        "cases": [
+          "SC-250d8d88d420656e"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f1b6e99cfd0861850ffa91565b2e1c601f3919834ce0ff538ca8a618a7bebc4a",
+    "line": 2167,
+    "page": "guild-share-ledger.html",
+    "text": "- REQ-GUILD-2609402806：系统不在线计算或审批最终分成；财务线下确定比例和金额后上传结果。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-c80fe155f10c76d8",
+        "label": "主播分成记录不提供在线审批",
+        "result": "不提供在线分成申请或审批操作"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "89744464f12d35d01ae7ec125b918b01bebb98ca29c31daa48d2dedb4200e3d0",
+    "line": 2168,
+    "page": "guild-share-ledger.html",
+    "text": "- REQ-GUILD-fe257f894c：分成时间与收益所属周期可以跨月；按分成时间倒序。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-f1014bada3459865",
+        "label": "主播分成按入账时间处理跨月",
+        "result": "分成时间对应2026年9月14日10时00分，而非8月收益周期"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "733866fcd0489d2302cbe02ff5393e899d56e97541db730c62e6548c2a5451bb",
+    "line": 2172,
+    "page": "guild-share-income.html",
+    "text": "- REQ-GUILD-576ab16c31：分成时间：当前公会分成结果入账时间，格式为日/月/年/时.分。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-8aaa2f7d75f7c455",
+        "label": "公会分成记录中分成时间对应当前记录",
+        "result": "“分成时间”显示记录A的数据准备值，不串用记录B的数据"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "b9597c93886f925ea7f595c083770a0037aa03cd892bc977d0c356082e63c7c1",
+    "line": 2173,
+    "page": "guild-share-income.html",
+    "text": "- REQ-GUILD-8e2e55f2ef：分成金额：法定货币；正数为增加，绿色；负数为冲正或扣减，红色。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-250d8d88d420656e",
+        "label": "公会负向分成修正展示",
+        "result": "该笔金额显示-10USD"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "b938ffc7eb6791abcfc4942af198a2d88b809d210917d53f34469ca54e923f59",
+        "page": "guild-share-ledger.html",
+        "cases": [
+          "SC-1c7ad5c0d8a1454a"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4cf768a1ec67eaeef8e02d274f8d838ea82360cafd3e4d60d9523b1c6e2fa22a",
+    "line": 2174,
+    "page": "guild-share-income.html",
+    "text": "- REQ-GUILD-b2deabb1ee：仅展示当前公会的财务上传结果，不提供日期筛选或在线分成计算。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-7b2babdd4981b7f8",
+        "label": "公会分成记录不提供在线审批",
+        "result": "不提供在线分成申请或审批操作"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "3ec8d5c4159d40db32f7f9dc2a6d94d196779dae7debe2adecc474216a29f871",
+    "line": 2175,
+    "page": "guild-share-income.html",
+    "text": "- REQ-GUILD-ff98feb1d0：按分成时间倒序；分成时间与收益所属周期可以跨月。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-b0705c91ebb0b996",
+        "label": "公会分成按入账时间处理跨月",
+        "result": "分成时间对应2026年9月14日10时00分，而非8月收益周期"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "9c9f2d2e32feb056e7228524f0bd5368b0b80ec113a19e519877af2df914fa47",
+    "line": 2179,
+    "page": "guild-violation-host-select.html",
+    "text": "- REQ-GUILD-39c40631ef：搜索：按主播名称或主播 ID 模糊匹配。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-4d6f27ad97192cae",
+        "label": "选择主播按测试A搜索",
+        "result": "仅显示主播测试A"
+      },
+      {
+        "id": "SC-6d3faeca8b0e6409",
+        "label": "选择主播按620100搜索",
+        "result": "仅显示主播测试A"
+      },
+      {
+        "id": "SC-0135120a4286a1fd",
+        "label": "选择主播按不存在XYZ搜索",
+        "result": "列表显示无匹配结果"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "618fc18dded16072c2a0c203f60477236f909bae3ccffe477cfc9b0f22ce0d26",
+        "page": "guild-host-select.html",
+        "cases": [
+          "SC-1f4697eae79d37cd",
+          "SC-981fda82b37e204a",
+          "SC-158c2bd65e96f69a"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "86ba866a0539c78523c9724b0a0fd14db49bbc2653198c8beb790e3f6fe0ac6b",
+    "line": 2180,
+    "page": "guild-violation-host-select.html",
+    "text": "- REQ-GUILD-87de936b64：已选人数：实时显示已选择主播数。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-4fe5889f65fe384b",
+        "label": "违规主播选择实时计数",
+        "result": "已选人数显示2人"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "23cb7179bdb2b0b62d8eafa66531989ab9d6a95cb5e5961ea95ef6f84e1ccd28",
+    "line": 2181,
+    "page": "guild-violation-host-select.html",
+    "text": "- REQ-GUILD-c375190340：全选：全选全部主播；全部已选时切换为取消全选。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-c7442e912283b143",
+        "label": "选择主播全选",
+        "result": "选中本公会全部3个对象"
+      },
+      {
+        "id": "SC-94a6f415fa7246bb",
+        "label": "选择主播取消全选",
+        "result": "全部对象取消选中"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "bc1ac6684d97047420d019ab3d21b997e8de303a02d2f61091b8faf084b6770e",
+    "line": 2182,
+    "page": "guild-violation-host-select.html",
+    "text": "- REQ-GUILD-7f36ab0fea：支持多选；完成后返回违规记录、直播记录或主播分成记录，回填主播并保留其他筛选条件。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-bb56799832f07ecc",
+        "label": "主播选择返回保留违规范围",
+        "result": "违规记录保留账号违规及原日期范围"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "73e9cead1b7496af0e8e3838e979e8f17834bb92aba2587bf501c3933d11a9a7",
+    "line": 2184,
+    "page": "系统概要",
+    "text": "<!-- 当前来源：liveshow-proto/context/03-管理后台-项目需求清单.md；SHA-256：cf6803b3a98c9207a158060dae3ea6a3d0db46630bde91d203f91b3e3efbd8bb -->",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "0e9179bbb97cc876ef2f7153fab8f134a35be385f768c45ad8df4ed49ca3c5eb",
+    "line": 2187,
+    "page": "系统概要",
+    "text": "来源：当前系统概要、活动原型页面和明确批注；同步批次 RSL-0034。系统概要优先；历史生成附录和历史任务链接已退出当前需求依据。原文件逐字保存在归档的 context-before 中。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "e8f94d5fa541985faf21a71ceaa32eeae495dbb82ef7afea0050ed7c39a9a898",
+    "line": 2189,
+    "page": "系统概要",
+    "text": "用户与主播共用账号；入会材料随申请提交，公会初审及平台终审均通过后入会成为主播；任一方驳回后申请失效。平台权限优先，锁定期间公会只读，解锁恢复原公会设置。公会停用解除主播关系、身份并结束直播，停用公会长账号只限制该账号登录。只有充值可退款，已完成礼物及门票消费不撤销；幸运礼物收益取赠送时配置比例，返奖不影响主播收益；虚拟金币不形成主播收益。系统不在线申请或审批结算，不计算具体分成；财务线下完成后上传结果。细则以 context/系统概要 .md 对应章节为准。",
+    "status": "未覆盖",
+    "cases": [],
+    "exactRelated": []
+  },
+  {
+    "id": "181ea1145677f6084548bc0d54c222b026e272b76aedb2da7345a2b1fbde7a29",
+    "line": 2435,
+    "page": "admin-guild-list.html",
+    "text": "- REQ-ADMIN-5ea00223b4：公会停用时，该公会所有管理账号均不能登录，但各账号自身状态不变。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-5610ddce5587755f",
+        "label": "停用公会后原启用账号A不能登录",
+        "result": "账号A不能登录公会端"
+      }
+    ],
+    "exactRelated": []
+  },
+  {
+    "id": "0091c6dbdadaf012bc9d7a4a64094908690e8092f7e1dfd43b8852288957ecb8",
+    "line": 2439,
+    "page": "admin-guild-list.html",
+    "text": "- REQ-PUB-1cd823ea50：公会停用后不可被搜索；公会长无法登录，旗下主播将退出公会并失去直播权限。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-5610ddce5587755f",
+        "label": "停用公会后原启用账号A不能登录",
+        "result": "账号A不能登录公会端"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "30f685e53f0579384e755717523c03f385a5a8dfc526b5e37b688f4e38c4762d",
+        "page": "admin-guild-detail.html",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "405cd4ab7131ebdb6b87038f8ee1d56be047e8275ec8fd5d76422e3e32edaf8c",
+    "line": 3164,
+    "page": "admin-operation-account-detail.html",
+    "text": "- REQ-ADMIN-fd038806ba：平台可启停运营账号及锁定或解除公会管理权限。",
+    "status": "部分覆盖",
+    "cases": [
+      {
+        "id": "SC-2230ee1a0996131a",
+        "label": "平台锁定公会管理权限运营账号",
+        "result": "启停及金币发放操作不可用"
+      },
+      {
+        "id": "SC-22faa305bd42b503",
+        "label": "平台解除公会管理权限锁定运营账号",
+        "result": "启停及金币发放操作恢复可用"
+      }
+    ],
+    "exactRelated": [
+      {
+        "id": "08e6b58e2ca2a0bb4e4f8d85d1410735a0723e47b0f5f7bd38d105a41b7cb687",
+        "page": "admin-operation-account-detail.html",
+        "cases": []
+      }
+    ]
+  }
+]

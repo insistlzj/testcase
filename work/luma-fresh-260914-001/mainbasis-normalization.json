@@ -1,0 +1,191 @@
+{
+  "来源记录数": 2433,
+  "页面数": 243,
+  "问题数": 38,
+  "差异": [
+    {
+      "id": "REQ-USER-46c6175a3e",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "host-ranking.html / 业务规则 / 3.3",
+      "before": "3. 退款或冲正后重新计算收礼值和排名。账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "after": "账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "question": "Q-017"
+    },
+    {
+      "id": "REQ-USER-f4ff5aa92d",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "contribution-ranking.html / 业务规则 / 3.3",
+      "before": "3. 退款或冲正后重新计算贡献值和排名。账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "after": "账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。",
+      "question": "Q-017"
+    },
+    {
+      "id": "REQ-USER-3af1e0c64f",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "live-room-host-password.html / 业务 / 2.4",
+      "before": "4. 排序所需等级缺失时按 0 级处理；退款或冲正后重新计算贡献值和排名。账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "after": "排序所需等级缺失时按 0 级处理；账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "question": "Q-017"
+    },
+    {
+      "id": "REQ-USER-cecf464c53",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "live-room-cohost-active.html / 业务 / 2.3",
+      "before": "3. 排序所需等级缺失时按 0 级处理；退款或冲正后重新计算贡献值和排名。账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "after": "排序所需等级缺失时按 0 级处理；账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。",
+      "question": "Q-017"
+    },
+    {
+      "id": "REQ-USER-38611ed7fc",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "guild-application-form.html / 业务规则 / 3.3",
+      "before": "3. 提交后进入公会审核；公会同意后，可在申请成为主播页继续申请直播权限。",
+      "after": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "question": ""
+    },
+    {
+      "id": "REQ-USER-ecaa8a8b39",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "guild-application-form.html / 业务规则 / 3.4",
+      "before": "4. 公会驳回后可重新选择公会并提交申请；平台驳回直播权限申请不撤销已获同意的公会关系。",
+      "after": "公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。",
+      "question": ""
+    },
+    {
+      "id": "REQ-USER-01ca6edb63",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "guild-detail.html / 业务规则 / 3.3",
+      "before": "3. 加入公会与申请直播权限分开审核；公会同意后，才可提交直播权限申请。",
+      "after": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "question": ""
+    },
+    {
+      "id": "REQ-USER-23a064a974",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "fan-contribution-ranking.html / 业务规则 / 3.2",
+      "before": "2. 失败或撤销赠送不计入；退款或冲正后重新计算贡献值和排名；虚拟金币赠礼可计入榜单但不计入收益。",
+      "after": "失败或撤销赠送不计入；虚拟金币赠礼可计入榜单但不计入收益。",
+      "question": "Q-017"
+    },
+    {
+      "id": "REQ-USER-0123110311",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "host-center-pending.html / 业务规则 / 3.1",
+      "before": "1. 加入公会与申请直播权限分步提交、分别审核；公会同意后，才可提交直播权限申请。",
+      "after": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "question": ""
+    },
+    {
+      "id": "REQ-USER-1b3f88f716",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "host-center-pending.html / 业务规则 / 3.5",
+      "before": "5. 平台驳回：保留公会“已同意”状态；修改认证资料后重新提交直播权限申请。",
+      "after": "公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。",
+      "question": ""
+    },
+    {
+      "id": "REQ-USER-07a902e767",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "live-data.html / 业务规则 / 3.1",
+      "before": "1. 数据来自已开始的直播场次；场次结束后保留历史快照，退款和冲正按财务口径更新收益。",
+      "after": "数据来自已开始的直播场次；场次结束后保留历史快照，充值退款或拒付不改变已完成消费对应的主播收益和分成。",
+      "question": ""
+    },
+    {
+      "id": "REQ-USER-bf0830d2fe",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "views/live-room/contribution-rank.html / 业务 / 2.2",
+      "before": "2. 失败或撤销赠送不计入；退款或冲正后重新计算贡献值和排名；虚拟金币可计入榜单展示但不计入主播收益。",
+      "after": "失败或撤销赠送不计入；虚拟金币可计入榜单展示但不计入主播收益。",
+      "question": "Q-017"
+    },
+    {
+      "id": "REQ-USER-b97571a750",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "views/live-room-host/contribution-rank.html / 业务 / 2.4",
+      "before": "4. 失败或撤销赠送不计入；退款或冲正后重新计算贡献值和排名；虚拟金币可计入榜单展示，但不计入主播收益。",
+      "after": "失败或撤销赠送不计入；虚拟金币可计入榜单展示，但不计入主播收益。",
+      "question": "Q-017"
+    },
+    {
+      "id": "REQ-USER-9f258c25a1",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "views/live-room-host/cohost-hosts.html / 业务 / 2.4",
+      "before": "4. 任一方结束直播、变更为受限房型或进入连麦 -> 不再满足的邀请失效。",
+      "after": "任一方结束直播使对应邀请和连麦失效；进入连麦后本人已发出的邀请失效，其他收到的邀请保留。",
+      "question": ""
+    },
+    {
+      "id": "REQ-USER-7cc3f2927f",
+      "source": "liveshow-proto/prototype/annotations/user.js",
+      "position": "views/live-room-host/cohost-invite-notice.html / 业务 / 2.3",
+      "before": "3. 接受一条邀请并建立连麦后，其他邀请失效。",
+      "after": "接受邀请进入连麦后，本人已发出的邀请失效；其他收到的邀请保留，连麦中不可继续接受或邀请。",
+      "question": ""
+    },
+    {
+      "id": "REQ-PUB-b26154e20d",
+      "source": "liveshow-proto/prototype/assets/annotations.js",
+      "position": "host-center-pending.html / 申请路径 / 2",
+      "before": "加入公会与申请直播权限分步提交、分别审核；公会同意后，才可提交直播权限申请，申请通过后进入主播中心。",
+      "after": "认证资料随入会申请提交；公会初审和平台终审均通过后，才加入公会并获得主播身份。公会初审通过、平台终审未通过时仍为普通用户。",
+      "question": ""
+    },
+    {
+      "id": "REQ-PUB-f91b971917",
+      "source": "liveshow-proto/prototype/assets/annotations.js",
+      "position": "host-center-pending.html / 驳回重申 / 4",
+      "before": "公会驳回后可重新选择公会申请；平台驳回后保留公会已同意状态，可修改认证资料重新提交直播权限申请。",
+      "after": "公会初审或平台终审任一方驳回，当前申请失效；用户可重新提交新的入会申请，不能保留已加入关系或绕过公会初审。",
+      "question": ""
+    },
+    {
+      "id": "REQ-PUB-dbdd332b03",
+      "source": "liveshow-proto/prototype/assets/annotations.js",
+      "position": "admin-lucky-gift-detail.html / RTP 计算 / 3",
+      "before": "实际 RTP = 各档奖励金币期望值 ÷（单次消耗金币 × 开奖次数）；结果超过一位小数时，向上取整至一位小数。",
+      "after": "单礼物独立开奖，返还期望为各奖励值乘各自概率之和；RTP 为返还期望除以单礼物消耗。批量购买的总期望和总消耗同时乘礼物数量，比例不额外除以数量。",
+      "question": ""
+    },
+    {
+      "id": "REQ-PUB-d681912ffe",
+      "source": "liveshow-proto/prototype/assets/annotations.js",
+      "position": "admin-report-handling.html / 工单状态 / 2",
+      "before": "仅保留待处理和已处理；进入详情不会改变工单状态。",
+      "after": "直播举报仅在直播中生成；场次结束后，未处理举报作废，不继续处罚后续场次。",
+      "question": ""
+    },
+    {
+      "id": "REQ-PUB-169024b79c",
+      "source": "liveshow-proto/prototype/assets/annotations.js",
+      "position": "admin-report-handling.html / 直播结束 / 3",
+      "before": "举报入口仅在直播中开放；已提交工单不因直播结束而终止审核。",
+      "after": "直播举报仅在直播中生成；场次结束后，未处理举报作废，不继续处罚后续场次。",
+      "question": ""
+    },
+    {
+      "id": "REQ-PUB-e90f76e069",
+      "source": "liveshow-proto/prototype/assets/annotations.js",
+      "position": "admin-report-detail.html / 动态处置 / 2",
+      "before": "直播中可警告、强制关播或关闭直播权限；场次已结束时，强制关播改记为关播级违规，不补关下一场直播。",
+      "after": "直播中可警告、关播或关闭直播权限；场次结束后未处理直播举报失效，不补关下一场直播。",
+      "question": ""
+    },
+    {
+      "id": "REQ-PUB-9a6c6938df",
+      "source": "liveshow-proto/prototype/assets/annotations.js",
+      "position": "admin-consumption-order-detail.html / 退款条件 / 1",
+      "before": "仅已支付且未退款的消费订单可整笔退款，不支持部分退款。",
+      "after": "已成功赠送的礼物和已购买的门票不支持退款；只有充值订单支持整单退款或拒付，既有消费及主播收益不撤销。",
+      "question": ""
+    },
+    {
+      "id": "REQ-PUB-bb149a4491",
+      "source": "liveshow-proto/prototype/assets/annotations.js",
+      "position": "admin-consumption-order-detail.html / 退款结果 / 2",
+      "before": "按原消费记录退回本金和赠金；主播已分成收益不追回。",
+      "after": "已成功赠送的礼物和已购买的门票不支持退款；只有充值订单支持整单退款或拒付，既有消费及主播收益不撤销。",
+      "question": ""
+    }
+  ]
+}

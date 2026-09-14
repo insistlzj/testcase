@@ -1,0 +1,37 @@
+import {test,ref,page} from './design-cases.mjs';
+import {calculation} from './manual-finance.mjs';
+const t=(k,w,l,g,s,e,x={})=>test(k,w,l,g,[`打开${page(k).entry}`,...s],e,x);
+for(const [k,type]of [['live-room-report.html','直播场次'],['live-room-user-report.html','账号']]){
+ t(k,'未选择举报原因',`${type}举报未选择原因`,['直播中场次S，举报对象B有效'],['查看提交按钮'],'提交按钮不可用',{point:'举报必选'});
+ t(k,'提交成功',`${type}举报提交`,['直播中场次S，举报对象B有效；平台启用类型“其他”'],['选择“其他”','输入补充说明“测试举报说明”','点击“提交”'],'提示“举报已提交”',{point:'举报提交',flow:type==='直播场次'?'FLOW-LIVE-REPORT':'FLOW-ACCOUNT-REPORT',sources:[ref(k,'举报已提交')]});
+ for(const n of [0,200,201])t(k,'最多 200',`${type}补充说明${n}字符`,['直播中场次S，举报对象B有效；已选择“其他”'],[n?`输入由${n}个“测”组成的补充说明`:'清空补充说明','点击“提交”'],n<=200?'举报可提交':'不提交超过200字符的补充说明',{point:'举报说明边界',dimension:'输入边界'});
+}
+for(const button of ['主播中心','开播'])t('host-center-pending.html','用户无主播身份',`普通用户点击${button}`,['账号A尚未获得主播身份'],[`点击“${button}”`],'进入申请成为主播页',{point:'主播入口权限'});
+for(const state of ['公会审核中','直播权限审核中'])t('host-center-pending.html',state,`${state}禁止开播`,['账号A当前处于'+state],['查看开始直播入口'],'不能开始直播',{point:'审核中权限',flow:'FLOW-GUILD-JOIN'});
+for(const action of ['评论','送礼'])t('live-end-viewer.html','不能继续',`场次结束后不能${action}`,['当前场次S已结束'],[`查看${action}入口`],`不能对场次S${action}`,{point:'结束终态',flow:'FLOW-LIVE'});
+t('live-end-viewer.html','重复打开已结束房间','再次打开已结束场次',['场次S已结束，主播已创建新场次T；历史分享链接指向S'],['打开场次S的原分享链接'],'进入场次S结束状态',{point:'历史场次不可重开',flow:'FLOW-LIVE'});
+t('live-end-host.html','本场收益：','结束页四类收益',['场次S普通100、定制20、门票30、幸运价值1000按1%收益10，虚拟500不计'],['查看本场收益'],'本场收益=160',{point:'场次收益',role:'主播',calc:calculation('+',[100,20,30,10],['普通','定制','门票','幸运'],'金币')});
+t('income-sharing.html','千位用“.”','分成金额印尼格式',['线下财务上传当前主播金额1234.56 USD'],['查看分成金额'],'金额显示1.234,56美元',{point:'分成金额格式',role:'主播',flow:'FLOW-OFFLINE-SHARE'});
+t('income-sharing.html','不提供主播线上结算申请','主播分成结果只读',['当前主播有已上传分成记录A'],['查看分成页面操作区'],'不提供线上结算申请或审批操作',{point:'线下分成边界',role:'主播'});
+t('invite-friends.html','游客可浏览','游客发起邀请登录拦截',['当前为游客会话'],['点击“邀请好友”'],'进入登录页',{point:'游客邀请权限',role:'游客'});
+t('invite-friends.html','日期倒序','邀请记录倒序',['当前账号有9月12日邀请B、9月14日邀请C两条成功记录'],['切换“邀请记录”'],'C记录排在B前',{point:'邀请记录排序'});
+for(const [action,e]of [['复制链接','提示“复制成功”'],['发送给好友','调起系统分享'],['取消','关闭分享选项']])t('views/invite-friends/share-options.html',action,`邀请分享${action}`,['账号A已登录且有自己的邀请信息'],[`点击“${action}”`],e,{point:'邀请分享方式'});
+t('views/invite-friends/share-options.html','本身不计为成功邀请','分享不增加成功邀请人数',['当前成功邀请人数2；未有新用户完成邀请资格'],['点击“复制链接”','返回邀请奖励页'],'成功邀请人数仍为2',{point:'邀请资格边界'});
+for(const outcome of ['允许','不允许'])t('views/live-plaza/notification-permission.html','允许后记录',`系统通知选择${outcome}`,['本设备从未申请通知权限'],[`点击“${outcome}”`,'打开设置页'],outcome==='允许'?'系统通知状态显示已开启':'系统通知状态显示已拒绝',{point:'通知授权状态'});
+t('views/settings/notification-default.html','点击入口调起','从未申请通知时授权',['本设备通知权限从未申请'],['点击“系统通知”'],'展示系统通知授权弹窗',{point:'通知首次授权'});
+for(const action of ['暂不开启','前往设置'])t('views/settings/notification-denied.html','提供暂不开启',`通知拒绝后${action}`,['系统已拒绝本App通知权限'],['点击“系统通知”',`点击“${action}”`],action==='暂不开启'?'关闭通知设置提示':'进入手机系统设置',{point:'通知拒绝后恢复'});
+t('views/settings/notification-granted.html','提示“系统通知已开启”','已授权通知点击反馈',['系统已授予通知权限'],['点击“系统通知”'],'提示“系统通知已开启”',{point:'通知当前授权'});
+for(const outcome of ['支付成功','关闭','支付失败'])t('views/live-room/gift-recharge.html',outcome==='支付成功'?'原礼物不自动补送':'保留原礼物和数量',`快捷充值${outcome}`,['原选中礼物G数量10；余额不足进入快捷充值；成功套餐到账100金币'],outcome==='关闭'?['点击“关闭”']:['选择当前可用套餐',`确认支付并由测试渠道返回${outcome}`],outcome==='支付成功'?'不会自动赠送原礼物G':'保留礼物G和数量10选择',{point:'快捷充值恢复',flow:'FLOW-RECHARGE'});
+for(const n of [99,100,101])t('views/live-room/gift.html','余额不足',`普通礼物价值100余额${n}`,[`真实金币余额${n}；已上架礼物G单价10，主播场次S直播中`],['选择礼物G','选择数量10','点击“赠送”'],n<100?'打开快捷充值视图':`余额扣除100金币后为${n-100}`,{point:'赠礼余额边界',dimension:'输入边界',flow:'FLOW-GIFT'});
+t('views/live-room/gift.html','实际扣减金币 =','选择礼物后的总价',['礼物G单价10金币，支持赠送数量10'],['选择礼物G','选择数量10'],'本次所需金币=100',{point:'赠礼总价',calc:calculation('*',[10,10],['单价','数量'],'金币')});
+t('views/live-room/gift.html','请求失败','赠礼失败不扣款',['真实余额100，礼物G价值10，赠礼服务返回失败'],['选择礼物G','选择数量1','点击“赠送”'],'真实金币余额保持100',{point:'赠礼失败',flow:'FLOW-GIFT'});
+for(const result of ['已下架','已过期'])t('views/live-room/gift.html','上架且未过期',`礼物${result}不可新送`,['礼物G当前'+result+'，曾经有成功赠送记录'],['查看可选礼物'],'礼物G不可赠送',{point:'礼物有效期'});
+t('views/live-room-host/thank-message.html','不自动发送','快捷答谢仅预填',['主播已打开昵称为用户B的资料卡'],['点击“答谢”'],'公屏尚未发送答谢消息',{point:'快捷答谢未发送',role:'主播'});
+t('views/live-room-host/thank-message.html','预填“@用户名','快捷答谢昵称与正文',['主播已打开昵称为用户B的资料卡'],['点击“答谢”'],'输入框预填“@用户B 谢谢你送的礼物！”',{point:'答谢预填',role:'主播'});
+t('views/live-room/fan-club-joined.html','退出粉丝团 ->','退出粉丝团取消',['账号A有效加入主播B粉丝团，关注关系有效'],['点击“退出粉丝团”','点击“取消”'],'保留有效团籍',{point:'退出取消',flow:'FLOW-FAN-CLUB'});
+for(const roomtype of ['门票房','密码房'])t('admin-feature-switch.html','关闭房型后','关闭'+roomtype+'保留已开播场次',[`已有${roomtype}场次S直播中，历史场次T已结束`],[`关闭${roomtype}开关`,'打开直播场次','查看场次S状态'],'场次S仍为直播中',{point:'房型关闭影响',role:'平台管理员',flow:'FLOW-ROOM-CONFIG',sources:[ref('admin-live-management.html','统一展示')]});
+for(const action of ['停用','删除'])t('admin-violation-types.html','默认前三类不可删除',`系统违规类型不可${action}`,['类型A为默认前三个系统预置类型之一'],['查看类型A操作区'],`类型A不能${action}`,{point:'系统类型保护',role:'平台管理员'});
+for(const lang of ['中文','英文','印尼语','马来语'])t('admin-violation-type-detail.html','四语名称：',`违规类型${lang}名称重复`,['已存在类型A；正在新增类型B，四语名称和排序1已填写'],[`输入${lang}名称为类型A的同语言名称`,'点击“保存”'],'不保存同语言重复名称',{point:'类型名称唯一',role:'平台管理员'});
+t('admin-host-list.html','违规次数：','违规次数排除作废与不成立',['主播B确认违规2条、不成立1条、作废1条'],['查询主播B'],'违规次数显示2',{point:'违规计数',role:'平台管理员'});
+t('admin-live-management.html','收礼数量：','连送按成功份数计数',['场次S成功连送礼物G10份、H1份，另有失败G5份'],['查询场次S'],'收礼数量为11',{point:'连送数量',role:'平台管理员'});
+t('admin-consumption-order.html','支持按主播 ID 或昵称查询','按消费主播筛选',['订单A接收主播B，订单C接收主播D；已记录B的主播ID'],['输入主播ID为B的实际ID','点击“查询”'],'结果仅包含主播B的订单A',{point:'消费对象筛选',role:'平台管理员'});

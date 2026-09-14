@@ -1,0 +1,132 @@
+{
+  "sourceOnly": [
+    {
+      "id": "SRC-a9e12057fef9",
+      "end": "管理后台",
+      "page": "admin-host-list.html",
+      "section": "字段",
+      "text": "| 开播权限 | 最终权限 = 账号可用且公会有效且认证通过且平台开启且公会开启。 |",
+      "file": "liveshow-proto/prototype/annotations/admin.js"
+    },
+    {
+      "id": "SRC-67d471aa6ea5",
+      "end": "管理后台",
+      "page": "admin-lucky-gift-detail.html",
+      "section": "RTP 计算",
+      "text": "实际 RTP = 各档奖励金币期望值 ÷（单次消耗金币 × 开奖次数）；结果超过一位小数时，向上取整至一位小数。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-9e049b48e13f",
+      "end": "管理后台",
+      "page": "admin-report-handling.html",
+      "section": "工单状态",
+      "text": "仅保留待处理和已处理；进入详情不会改变工单状态。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-e9fa3bf931ad",
+      "end": "管理后台",
+      "page": "admin-report-handling.html",
+      "section": "直播结束",
+      "text": "举报入口仅在直播中开放；已提交工单不因直播结束而终止审核。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-9aee7874234e",
+      "end": "管理后台",
+      "page": "admin-report-detail.html",
+      "section": "动态处置",
+      "text": "直播中可警告、强制关播或关闭直播权限；场次已结束时，强制关播改记为关播级违规，不补关下一场直播。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-7753aeb0af53",
+      "end": "管理后台",
+      "page": "admin-consumption-order-detail.html",
+      "section": "退款条件",
+      "text": "仅已支付且未退款的消费订单可整笔退款，不支持部分退款。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-cc3711c834ff",
+      "end": "管理后台",
+      "page": "admin-consumption-order-detail.html",
+      "section": "退款结果",
+      "text": "按原消费记录退回本金和赠金；主播已分成收益不追回。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    }
+  ],
+  "contextOnly": [
+    {
+      "file": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "line": 65,
+      "raw": "- REQ-ADMIN-b909d2723a：开播权限：账号可用、公会有效、认证通过；平台关闭时关闭，平台开启且未锁定时取公会设置，平台锁定开启时跟随平台，解锁恢复公会原设置。",
+      "id": "REQ-ADMIN-b909d2723a",
+      "text": "开播权限：账号可用、公会有效、认证通过；平台关闭时关闭，平台开启且未锁定时取公会设置，平台锁定开启时跟随平台，解锁恢复公会原设置。",
+      "page": "admin-host-list.html",
+      "heading": "主播管理 · 主播列表",
+      "normalized": "开播权限：账号可用、公会有效、认证通过；平台关闭时关闭，平台开启且未锁定时取公会设置，平台锁定开启时跟随平台，解锁恢复公会原设置。"
+    },
+    {
+      "file": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "line": 232,
+      "raw": "- REQ-PUB-d681912ffe：直播举报仅在直播中生成；场次结束后，未处理举报作废，不继续处罚后续场次。",
+      "id": "REQ-PUB-d681912ffe",
+      "text": "直播举报仅在直播中生成；场次结束后，未处理举报作废，不继续处罚后续场次。",
+      "page": "admin-report-handling.html",
+      "heading": "内容审核 · 直播间违规",
+      "normalized": "直播举报仅在直播中生成；场次结束后，未处理举报作废，不继续处罚后续场次。"
+    },
+    {
+      "file": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "line": 233,
+      "raw": "- REQ-PUB-169024b79c：直播举报仅在直播中生成；场次结束后，未处理举报作废，不继续处罚后续场次。",
+      "id": "REQ-PUB-169024b79c",
+      "text": "直播举报仅在直播中生成；场次结束后，未处理举报作废，不继续处罚后续场次。",
+      "page": "admin-report-handling.html",
+      "heading": "内容审核 · 直播间违规",
+      "normalized": "直播举报仅在直播中生成；场次结束后，未处理举报作废，不继续处罚后续场次。"
+    },
+    {
+      "file": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "line": 249,
+      "raw": "- REQ-PUB-e90f76e069：直播中可警告、关播或关闭直播权限；场次结束后未处理直播举报失效，不补关下一场直播。",
+      "id": "REQ-PUB-e90f76e069",
+      "text": "直播中可警告、关播或关闭直播权限；场次结束后未处理直播举报失效，不补关下一场直播。",
+      "page": "admin-report-detail.html",
+      "heading": "内容审核 · 举报详情",
+      "normalized": "直播中可警告、关播或关闭直播权限；场次结束后未处理直播举报失效，不补关下一场直播。"
+    },
+    {
+      "file": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "line": 396,
+      "raw": "- REQ-PUB-dbdd332b03：单礼物独立开奖，返还期望为各奖励值乘各自概率之和；RTP 为返还期望除以单礼物消耗。批量购买的总期望和总消耗同时乘礼物数量，比例不额外除以数量。",
+      "id": "REQ-PUB-dbdd332b03",
+      "text": "单礼物独立开奖，返还期望为各奖励值乘各自概率之和；RTP 为返还期望除以单礼物消耗。批量购买的总期望和总消耗同时乘礼物数量，比例不额外除以数量。",
+      "page": "admin-lucky-gift-detail.html",
+      "heading": "礼物与道具 · 幸运礼物编辑",
+      "normalized": "单礼物独立开奖，返还期望为各奖励值乘各自概率之和；RTP 为返还期望除以单礼物消耗。批量购买的总期望和总消耗同时乘礼物数量，比例不额外除以数量。"
+    },
+    {
+      "file": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "line": 750,
+      "raw": "- REQ-PUB-9a6c6938df：已成功赠送的礼物和已购买的门票不支持退款；只有充值订单支持整单退款或拒付，既有消费及主播收益不撤销。",
+      "id": "REQ-PUB-9a6c6938df",
+      "text": "已成功赠送的礼物和已购买的门票不支持退款；只有充值订单支持整单退款或拒付，既有消费及主播收益不撤销。",
+      "page": "admin-consumption-order-detail.html",
+      "heading": "财务结算 · 消费订单详情",
+      "normalized": "已成功赠送的礼物和已购买的门票不支持退款；只有充值订单支持整单退款或拒付，既有消费及主播收益不撤销。"
+    },
+    {
+      "file": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "line": 751,
+      "raw": "- REQ-PUB-bb149a4491：已成功赠送的礼物和已购买的门票不支持退款；只有充值订单支持整单退款或拒付，既有消费及主播收益不撤销。",
+      "id": "REQ-PUB-bb149a4491",
+      "text": "已成功赠送的礼物和已购买的门票不支持退款；只有充值订单支持整单退款或拒付，既有消费及主播收益不撤销。",
+      "page": "admin-consumption-order-detail.html",
+      "heading": "财务结算 · 消费订单详情",
+      "normalized": "已成功赠送的礼物和已购买的门票不支持退款；只有充值订单支持整单退款或拒付，既有消费及主播收益不撤销。"
+    }
+  ]
+}

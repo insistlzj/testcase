@@ -1,0 +1,397 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "任务标识": "liveshow-full-260914-002-guild",
+  "项目目录": "liveshow-proto",
+  "任务工作目录": "work/liveshow-full-260914-002/guild",
+  "生成策略": "current-evidence-only",
+  "历史策略": "不读取不比较",
+  "目标范围": {
+    "端名": "公会App",
+    "模块名称": "公会账号、公会首页、审批管理、主播管理、数据与收益、运营管理、公会管理"
+  },
+  "MainBasis基线": {
+    "路径": "work/liveshow-proto-mainbasis/latest.json",
+    "SHA-256": "f3e24cb08e3b21f0a8b18aeefeff26152ce20cf0017a3bb342750ada4ecfe624"
+  },
+  "输入文件": [
+    {
+      "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+      "SHA-256": "b829176e7f71883cd308c92d32fcefe7f596af1ed5be4dc9b8c7f9a308ae7014",
+      "角色": "当前业务证据",
+      "内容类型": "统一需求",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/MainBasis/需求待确认清单.md",
+      "SHA-256": "5bb471cb26b5863d240671b46630095ad4693ef36452bc53e9bc9241ef8ed13e",
+      "角色": "风险与缺口",
+      "内容类型": "需求待确认",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/assemble.mjs",
+      "SHA-256": "a2d6633109d9ae9923ccd541da044249e73d2a7f753596b59609d3d667ca05b5",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/bind-review.mjs",
+      "SHA-256": "ab45ca97e1ed430c077447f34cc1c9ec51085183f75d71b6456c18079028eb66",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/check-design.mjs",
+      "SHA-256": "059cb4d19bfd40c2e16273e02f390f94fc8e7cf9e586f30b1245cc1361e3670e",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/current-design.mjs",
+      "SHA-256": "c1ab65884c895a441a583a1aa48c19ae31bb09bf52afd5ec2a2310718c66ec48",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/design-cases.mjs",
+      "SHA-256": "92a0eb7a7406d57ec1598212943ac41b8a75dc1a77977621b82f9a0804433b82",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/design-corrections.mjs",
+      "SHA-256": "26a5e0063b9ad56bd8bab9dd27aa1fa391ea77e5af4e45867227f273e592d854",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/field-design.mjs",
+      "SHA-256": "4980620d6b4b903bbfbc113f04770afc5212771b9779f4173e6526091aab31fd",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/finish-coverage.mjs",
+      "SHA-256": "1b239efa1f282bb511c07a8674067b83c547cce3f618eed44996a749c9cb2b15",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-admin-coverage.mjs",
+      "SHA-256": "29b83789d866b5c9eab5baf88486c3893ce1a7d145f0500f1bd2c8865fdbe541",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-admin.mjs",
+      "SHA-256": "cb7b0cd325b36c7342f2f1d84f146065dd9ead4320fc8ccc8012a8a236537737",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-config-completion.mjs",
+      "SHA-256": "ceafff3b590bc5650c31ce3ff9be3c270a748a37788baf7a0781ca6503a3afc0",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-config.mjs",
+      "SHA-256": "2c3b75101e9aa0d77e14cf63f648370688ee8641ac76dfb03c411666aac4c814",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-final-branches.mjs",
+      "SHA-256": "70d296c10c8b136512ae7e01428af306ff81a36e888751fce8fd6cbce25effda",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-finance.mjs",
+      "SHA-256": "337f0b753df9380c9a15a5e2202d937120ba23db874d64fc06b2886a3ab3f8e4",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-gap-admin.mjs",
+      "SHA-256": "879bedaa460ea335332b74383809de2656b541615b9e26b3bddd1ff01dcedfe1",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-gap-guild.mjs",
+      "SHA-256": "9c122ee6e3e4fdfa7a208fdd1d433d77652a17af323ff36b53ce220668da9cbc",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-gap-social.mjs",
+      "SHA-256": "84e08f44a367bfd7ba3d93054608e1247e2878d33747803ef5c1bd65ba06273a",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-gap-user.mjs",
+      "SHA-256": "1175b467d4af4fd86ca448a80b39e6198e646eb9e6544caa9244336e952e632a",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-guild-completion.mjs",
+      "SHA-256": "36b4def0175a7e05c6b731828742b11dc6cd065d1cc629ce83ec8ab10363172a",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-guild.mjs",
+      "SHA-256": "1b8a76e5a95fc7c93ba82e31c9efc8106f64114e0afa982cdb459a774c255264",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-host-fans.mjs",
+      "SHA-256": "24bac765daf5cff142d1f02d8314150ecc96d05af9f070c3553aa8eff32d6100",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-live.mjs",
+      "SHA-256": "6592a68a7297cb73eb7c61ce9088d79f3d540a1fb9ad31a443c72ca282c39dd1",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-operations.mjs",
+      "SHA-256": "4184471749604a2bd1b5c7bcd7a4cd2f8a9bbf4ad26fae5bfb837674e54c6103",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-projections.mjs",
+      "SHA-256": "d98f7ecf6fa8b4e3a7fe7bd7613352f6356e448a51c6431ccc68415e520f6aa1",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-reports.mjs",
+      "SHA-256": "f42984ef5cdf75dbe6bc0a476de8aa15cfa3502401f15fcb5c43cdd7aa06c082",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-social.mjs",
+      "SHA-256": "e5aaed24cbd7d59131736b649752236297b13b63a7efc78ecbfef90d5155ee1b",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-statistics.mjs",
+      "SHA-256": "fbedfafb2b472eb5eccd823f3383fc3daa038fd9d2863242ebbe78682f6235ff",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-user-complete.mjs",
+      "SHA-256": "adff1086b9004a37f020ae2653bc0a205c253811895c9f6d2121cafddbd73efc",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-user-coverage.mjs",
+      "SHA-256": "74aece688e61a076ef5fb28e90954348826b7c507b77ee15ce41dbaa1aafc5a7",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/manual-user.mjs",
+      "SHA-256": "f08625a7ca3ca78a852c9c3a386bc05d510cca112a4de65a4e3270a9e8763c7b",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/merge-decisions.mjs",
+      "SHA-256": "8ae828ee57f9b36f215bc5259c915e0de0f863cd6eb9a3c2fc7d7d869a04fbf0",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/navigation-design.mjs",
+      "SHA-256": "8dcd2c9dd23b26f632198433d931016c82918be68e17e7bf6d83704296c7f51a",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/prepare-current-review.mjs",
+      "SHA-256": "51fa49306d2b6906e81ee66b646ec974baa5ae12001eae48add612ce6883375c",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/prepare-review.mjs",
+      "SHA-256": "c9811033e9cced31d0456ea15bf142088aea4c73ce7b446b9c5c387bff485b0e",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/read-basis.mjs",
+      "SHA-256": "8e4a854503c63dca5ebb001d2d67fba42a6a470c618544682c3068f42b49afd4",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/release-reviewed.mjs",
+      "SHA-256": "6947fc3df98fd38740d624098b111951be7b4fc6f6b1cf271041f3de01c56eb5",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/review-fixes.mjs",
+      "SHA-256": "b4d14381c57e1b3f6dad077e03e77d5d3b9ed147f972a26d69fbcb9266ab36b5",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/state-basis.mjs",
+      "SHA-256": "abbf70771421803176d07f6e5f81c10fdd19ee19f333e4d748c6fc1b820943dd",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/transition-projections.mjs",
+      "SHA-256": "dbfd01cab7f7cc32be7590912c0d35fbe1ffe35191d992a59667cf3bf5bdfaf5",
+      "角色": "执行工具",
+      "内容类型": "本次需求设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/business-rule-catalog.json",
+      "SHA-256": "e30238346b1174c32532b97ecf99a18b46170e6d22283394acdd3de6cb9f96be",
+      "角色": "本次派生产物",
+      "内容类型": "业务规则清单",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/requirement-coverage.json",
+      "SHA-256": "d4d2bf216bf54acf86755630a3ab6777b3fbf16509a71bc53f4f49434ccf1b9a",
+      "角色": "本次派生产物",
+      "内容类型": "requirement-coverage.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/independent-scenario-library.json",
+      "SHA-256": "810c311a1ebbac0cf1985418f14efec03d1891ba0d3f82e8544ed18b1314a42b",
+      "角色": "本次派生产物",
+      "内容类型": "independent-scenario-library.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/state-transition-baseline.json",
+      "SHA-256": "47e3c2283b836413b0483b748693ad19c280386d5b74e251394ead00aaa976e1",
+      "角色": "本次派生产物",
+      "内容类型": "state-transition-baseline.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/pending-requirements.json",
+      "SHA-256": "8f1695ed3556302d18988b2214f6896408cfcda6ddb23f9f7da2e95bffc78af3",
+      "角色": "本次派生产物",
+      "内容类型": "pending-requirements.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/evidence-atom-index.json",
+      "SHA-256": "058897e658afa94c20ce3519f60fad389c743ef740975bef7760aafc770f3c5c",
+      "角色": "本次派生产物",
+      "内容类型": "evidence-atom-index.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/coverage-matrix.json",
+      "SHA-256": "2778a6223f0ac3df2666599cec34a612e27973bc9e665cbf230b8eadcc54be8b",
+      "角色": "本次派生产物",
+      "内容类型": "coverage-matrix.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/global-evidence-scan-result.json",
+      "SHA-256": "be45f907e64ed155e7aa77d9b48e94b82abc6f77e91560c0c08b01d11c89f96e",
+      "角色": "本次派生产物",
+      "内容类型": "global-evidence-scan-result.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/prototype-context-sync-result.json",
+      "SHA-256": "f9631b6feed4a5d6a01fc80615a3c518f9ccd732cd404b685e787b01b156ae70",
+      "角色": "本次派生产物",
+      "内容类型": "prototype-context-sync-result.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/current-testcase-candidate.json",
+      "SHA-256": "e6fb231aeb95750ea3787339945c6164ce7f72d2022b8797a3625244ac428684",
+      "角色": "本次派生产物",
+      "内容类型": "当前候选用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/final-testcases.json",
+      "SHA-256": "e6fb231aeb95750ea3787339945c6164ce7f72d2022b8797a3625244ac428684",
+      "角色": "本次派生产物",
+      "内容类型": "最终用例JSON",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260914-002/guild/semantic-dedup-review.json",
+      "SHA-256": "88f760154a90f93651bd3dbfefd96eb524bd82738b8b811d4e791a175a2e62ce",
+      "角色": "本次派生产物",
+      "内容类型": "语义去重复核",
+      "允许定义业务规则": false
+    }
+  ],
+  "当前业务规则清单": "work/liveshow-full-260914-002/guild/business-rule-catalog.json",
+  "需求覆盖清单": "work/liveshow-full-260914-002/guild/requirement-coverage.json",
+  "独立场景库": "work/liveshow-full-260914-002/guild/independent-scenario-library.json",
+  "状态转换基线": "work/liveshow-full-260914-002/guild/state-transition-baseline.json",
+  "生成脚本": "work/liveshow-full-260914-002/release-reviewed.mjs",
+  "当前候选用例": "work/liveshow-full-260914-002/guild/current-testcase-candidate.json",
+  "最终用例JSON": "work/liveshow-full-260914-002/guild/final-testcases.json"
+}

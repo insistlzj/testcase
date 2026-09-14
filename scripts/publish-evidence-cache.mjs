@@ -16,6 +16,11 @@ const writeJson = async (file, value) => fs.writeFile(file, `${JSON.stringify(va
 
 const manifestFile = path.join(taskDir, "generation-input-manifest.json");
 await validateTestcaseDelivery(taskDir, repoRoot, { workbook: workbookPath });
+const inputPolicy = JSON.parse(await fs.readFile(manifestFile, 'utf8'));
+if (inputPolicy.历史策略 === '不读取不比较') {
+  process.stdout.write('全新生成模式不发布用例历史缓存。\n');
+  process.exit(0);
+}
 const [scan, verification, comparison, metrics, manifest] = await Promise.all([
   fs.readFile(path.join(taskDir, "global-evidence-scan-result.json"), "utf8").then(JSON.parse),
   fs.readFile(path.join(taskDir, "delivery-verification.json"), "utf8").then(JSON.parse),

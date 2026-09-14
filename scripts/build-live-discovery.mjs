@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import { mainBasisConfig } from './mainbasis.mjs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { collectLiveEvidence } from './liveshow-evidence.mjs';
@@ -9,6 +10,7 @@ import { loadTestcaseLanguageRules, validateTestcaseRecords } from './validate-t
 import { startStage, finishStage } from './pipeline-metrics.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
+if (await mainBasisConfig(root, 'liveshow-proto')) throw new Error('本项目已使用 MainBasis 新任务流程，禁止旧原型发现入口重建历史任务目录。');
 const task = 'work/liveshow-user-live-discovery-260910-006';
 const finalName = '用户App-直播模块-测试用例-260910-004.json';
 const taskDir = path.join(root, task);

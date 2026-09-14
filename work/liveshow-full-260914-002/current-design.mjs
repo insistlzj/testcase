@@ -1,0 +1,37 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import './manual-user.mjs';
+import './manual-live.mjs';
+import './manual-social.mjs';
+import './manual-guild.mjs';
+import './manual-finance.mjs';
+import './manual-statistics.mjs';
+import './manual-operations.mjs';
+import './manual-admin.mjs';
+import './manual-user-complete.mjs';
+import './manual-config.mjs';
+import './manual-reports.mjs';
+import './manual-projections.mjs';
+import './manual-gap-user.mjs';
+import './manual-gap-social.mjs';
+import './manual-gap-guild.mjs';
+import './manual-gap-admin.mjs';
+import './manual-final-branches.mjs';
+import './manual-config-completion.mjs';
+import './manual-guild-completion.mjs';
+import './manual-user-coverage.mjs';
+import './manual-admin-coverage.mjs';
+import './manual-host-fans.mjs';
+import './field-design.mjs';
+import './navigation-design.mjs';
+import './design-corrections.mjs';
+import './merge-decisions.mjs';
+import './review-fixes.mjs';
+import {designs} from './design-cases.mjs';
+import {pages,rules,task} from './read-basis.mjs';
+export {designs};
+if(process.argv[1]===import.meta.filename){
+ const used=new Set(designs.flatMap(d=>d.sourceIds));
+ await fs.writeFile(path.join(task,'design-review.json'),JSON.stringify({设计:designs,页面:pages.map(p=>({page:p.key,rules:p.rules.length,designed:p.rules.filter(r=>used.has(r.标识)).length,cases:designs.filter(d=>d.page===p.key).length})),未映射:rules.filter(r=>!used.has(r.标识)).map(({page,...r})=>({...r,page:page.key}))},null,2)+'\n');
+ console.log(JSON.stringify({drafts:designs.length,sourceUsed:used.size,total:rules.length,emptyPages:pages.filter(p=>!designs.some(d=>d.page===p.key)).map(p=>p.key)}));
+}

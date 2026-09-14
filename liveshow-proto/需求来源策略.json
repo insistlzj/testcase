@@ -12,5 +12,12 @@
     "context/系统概要 .md"
   ],
   "生成前同步": true,
-  "历史来源只读": true
+  "历史来源只读": true,
+  "用例生成模式": "全新生成",
+  "历史比较": false,
+  "MainBasis": {
+    "生成前更新": true,
+    "正式需求": "MainBasis/统一需求文档.md",
+    "风险清单": "MainBasis/需求待确认清单.md"
+  }
 }

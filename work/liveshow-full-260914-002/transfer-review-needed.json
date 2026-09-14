@@ -1,0 +1,189 @@
+{
+  "未映射": [],
+  "批注差异": [
+    {
+      "id": "SRC-220c031203ac",
+      "end": "用户App",
+      "page": "live-plaza.html",
+      "section": "交互",
+      "text": "3. 进房演示固定为：Ayu 显示拉黑或踢出拦截，Intan 显示门票拦截，Lala 显示密码拦截；其他直播卡片直接进入并展示直播内容。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-96a6576867be",
+      "end": "用户App",
+      "page": "guild-application-form.html",
+      "section": "业务规则",
+      "text": "3. 提交后进入公会审核；公会同意后，可在申请成为主播页继续申请直播权限。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-cdbfa29cb930",
+      "end": "用户App",
+      "page": "guild-application-form.html",
+      "section": "业务规则",
+      "text": "4. 公会驳回后可重新选择公会并提交申请；平台驳回直播权限申请不撤销已获同意的公会关系。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-8c28f33eb050",
+      "end": "用户App",
+      "page": "guild-detail.html",
+      "section": "业务规则",
+      "text": "3. 加入公会与申请直播权限分开审核；公会同意后，才可提交直播权限申请。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-9c0f785327da",
+      "end": "用户App",
+      "page": "host-center-pending.html",
+      "section": "业务规则",
+      "text": "1. 加入公会与申请直播权限分步提交、分别审核；公会同意后，才可提交直播权限申请。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-6ac29971618a",
+      "end": "用户App",
+      "page": "host-center-pending.html",
+      "section": "业务规则",
+      "text": "5. 平台驳回：保留公会“已同意”状态；修改认证资料后重新提交直播权限申请。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-a3de49d132aa",
+      "end": "用户App",
+      "page": "balance-detail.html",
+      "section": "字段",
+      "text": "| 变动类型 | 当前页面展示充值、充值退款、礼物打赏、礼物退款和购买门票。 |",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-1bea6d587134",
+      "end": "用户App",
+      "page": "profile-edit.html",
+      "section": "交互",
+      "text": "4. 原型中头像或昵称修改后，每次点击保存均按成功、不合规、网络异常依次循环，失败或异常时保留编辑内容。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-73e48c5dc8a1",
+      "end": "用户App",
+      "page": "settings.html",
+      "section": "交互",
+      "text": "4. 同一会话内每次点击注销账号，按金币余额不少于 100、低于 100 两种情况持续交替；离开设置页后不重置。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-db71e95cd866",
+      "end": "用户App",
+      "page": "views/live-room-host/cohost-hosts.html",
+      "section": "业务",
+      "text": "4. 任一方结束直播、变更为受限房型或进入连麦 -> 不再满足的邀请失效。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-d1c6b45f7691",
+      "end": "用户App",
+      "page": "views/live-room-host/cohost-invite-notice.html",
+      "section": "业务",
+      "text": "3. 接受一条邀请并建立连麦后，其他邀请失效。",
+      "file": "liveshow-proto/prototype/annotations/user.js"
+    },
+    {
+      "id": "SRC-a9e22e8f748d",
+      "end": "用户App",
+      "page": "live-plaza.html",
+      "section": "UI 建议",
+      "text": "主播榜与贡献榜可采用不同底色，分别突出主播与金币；关注主播头像用边框动效或绿色状态点表示正在直播。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-bd918addc184",
+      "end": "用户App",
+      "page": "live-plaza.html",
+      "section": "进房",
+      "text": "仅 Ayu、Intan、Lala 展示拦截：Ayu 为拉黑或踢出受限，Intan 为门票房，Lala 为密码房；其他直播卡片直接进入。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-80faebc963b7",
+      "end": "用户App",
+      "page": "search-results.html",
+      "section": "默认结果",
+      "text": "默认关键词为 620100，展示 1 个直播中和 1 个非直播中的匹配结果。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-59045d4132cf",
+      "end": "用户App",
+      "page": "host-center-pending.html",
+      "section": "申请路径",
+      "text": "加入公会与申请直播权限分步提交、分别审核；公会同意后，才可提交直播权限申请，申请通过后进入主播中心。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-7b1040d6df7c",
+      "end": "用户App",
+      "page": "host-center-pending.html",
+      "section": "驳回重申",
+      "text": "公会驳回后可重新选择公会申请；平台驳回后保留公会已同意状态，可修改认证资料重新提交直播权限申请。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-216dbf669512",
+      "end": "用户App",
+      "page": "settings.html",
+      "section": "账号注销",
+      "text": "同一会话内每次点击注销时，原型交替展示两种余额结果。提示明确“注销后七日内可取消注销”。倒计时结束后提交申请、记录最终删除时间并退出登录；冷静期内保留账号数据，期满后才解除社交关系、解散创建的粉丝团并删除账号。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-a9e12057fef9",
+      "end": "管理后台",
+      "page": "admin-host-list.html",
+      "section": "字段",
+      "text": "| 开播权限 | 最终权限 = 账号可用且公会有效且认证通过且平台开启且公会开启。 |",
+      "file": "liveshow-proto/prototype/annotations/admin.js"
+    },
+    {
+      "id": "SRC-67d471aa6ea5",
+      "end": "管理后台",
+      "page": "admin-lucky-gift-detail.html",
+      "section": "RTP 计算",
+      "text": "实际 RTP = 各档奖励金币期望值 ÷（单次消耗金币 × 开奖次数）；结果超过一位小数时，向上取整至一位小数。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-9e049b48e13f",
+      "end": "管理后台",
+      "page": "admin-report-handling.html",
+      "section": "工单状态",
+      "text": "仅保留待处理和已处理；进入详情不会改变工单状态。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-9aee7874234e",
+      "end": "管理后台",
+      "page": "admin-report-detail.html",
+      "section": "动态处置",
+      "text": "直播中可警告、强制关播或关闭直播权限；场次已结束时，强制关播改记为关播级违规，不补关下一场直播。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-7753aeb0af53",
+      "end": "管理后台",
+      "page": "admin-consumption-order-detail.html",
+      "section": "退款条件",
+      "text": "仅已支付且未退款的消费订单可整笔退款，不支持部分退款。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    },
+    {
+      "id": "SRC-cc3711c834ff",
+      "end": "管理后台",
+      "page": "admin-consumption-order-detail.html",
+      "section": "退款结果",
+      "text": "按原消费记录退回本金和赠金；主播已分成收益不追回。",
+      "file": "liveshow-proto/prototype/assets/annotations.js"
+    }
+  ]
+}

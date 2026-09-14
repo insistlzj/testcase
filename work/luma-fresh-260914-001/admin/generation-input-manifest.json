@@ -1,0 +1,268 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "任务标识": "luma-fresh-260914-001-admin",
+  "生成策略": "current-evidence-only",
+  "项目目录": "liveshow-proto",
+  "任务工作目录": "work/luma-fresh-260914-001/admin",
+  "目标范围": {
+    "端名": "管理后台",
+    "模块名称": "财务结算、公会管理、礼物与道具、内容审核、数据报表、系统配置、用户管理、运营配置、运营账号、主播管理"
+  },
+  "历史策略": "不读取不比较",
+  "MainBasis基线": {
+    "路径": "work/liveshow-proto-mainbasis/latest.json",
+    "SHA-256": "ac5aae216255d1da61b948d4216474ebd99e8b1ecf007a0232140b744258aff1"
+  },
+  "当前业务规则清单": "work/luma-fresh-260914-001/admin/business-rule-catalog.json",
+  "生成脚本": "work/luma-fresh-260914-001/compile.mjs",
+  "输入文件": [
+    {
+      "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+      "SHA-256": "86441236d1abcac4e81f7ed3b65c14c6539b4035b672581f8885642b802a4bac",
+      "角色": "当前业务证据",
+      "内容类型": "统一需求文档",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/MainBasis/需求待确认清单.md",
+      "SHA-256": "813379fb4363277eae1c167b11501602a88566eab639bfb064ab467073407470",
+      "角色": "风险与缺口",
+      "内容类型": "需求待确认清单",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/business-rule-catalog.json",
+      "SHA-256": "88ea62f8da98c35f003cd3538969e2cf972f6ad292490ee189f2da0c997ef934",
+      "角色": "本次派生产物",
+      "内容类型": "业务规则清单",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/global-evidence-scan-result.json",
+      "SHA-256": "b5b1db44e89c1374c6976ff8a9cb117cf7f063f8c8830f96534e061b098ffaa9",
+      "角色": "本次派生产物",
+      "内容类型": "本轮流程核验记录",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/prototype-context-sync-result.json",
+      "SHA-256": "b4c67fa475a1e730b870e03f42ff4503f3a50e228ac9abcc3f2738bf0ff41afb",
+      "角色": "本次派生产物",
+      "内容类型": "本轮流程核验记录",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/coverage-matrix.json",
+      "SHA-256": "6f4197e4b3a6c16838a1c3cf97ce926812b040e2b55ea13e5b05790d61def182",
+      "角色": "本次派生产物",
+      "内容类型": "本轮流程核验记录",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/evidence-atom-index.json",
+      "SHA-256": "4f7321011698d4d8d2ddb7eeafa46ac5a2f50f35a2799dc9f02bd7bbd79851d7",
+      "角色": "本次派生产物",
+      "内容类型": "本轮流程核验记录",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/independent-rule-baseline.json",
+      "SHA-256": "23980c59b87d7da427650234b09b601da9644797b53ecc7a57ac6b6c9f21e553",
+      "角色": "本次派生产物",
+      "内容类型": "本轮流程核验记录",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/state-transition-baseline.json",
+      "SHA-256": "4ab7c98d1e7b0e880f11be656ed9f24445b4ab020040b24d80c15153deea1e76",
+      "角色": "本次派生产物",
+      "内容类型": "本轮流程核验记录",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/state-scenario-map.json",
+      "SHA-256": "c2ceaaf6e6cdff7a6bd061c1ffa96642e7e03ac0fab0ac9141a1c2028550bebc",
+      "角色": "本次派生产物",
+      "内容类型": "本轮流程核验记录",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/test-scenario-library.json",
+      "SHA-256": "ebb7d725bf874b8e52dbe1b92ae39b922187e56e0df706b48a2f2a6bb85b52a1",
+      "角色": "本次派生产物",
+      "内容类型": "本轮流程核验记录",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "AGENTS.md",
+      "SHA-256": "e5229d28ec41490a91227078160c194a509bf9a86282d7040c60a5fb16804597",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "Cem Kaner.txt",
+      "SHA-256": "3355d829337dedf86390130421051a87d227eff433f13c76624925d2c4d4506f",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/testcase-design.mjs",
+      "SHA-256": "aa312711deafb9f795d2f5f89ad915204e2b8d44214e158fe5179e227a322f24",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-generation-input.mjs",
+      "SHA-256": "e8461ae13a3b4ab12cba974ba0d979cae80b6e3121691d5ae3bb3f990288a536",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-testcase-json.mjs",
+      "SHA-256": "a441260924499787f4619d0be82dd3ba0573d651d09f7ead95a410ef580d92f6",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-testcase-delivery.mjs",
+      "SHA-256": "f819da70c157f53989c4d9b6ddf5bdc06081c2cea6d1d3a2a4ecb1d8072359de",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/build-testcase-workbook.mjs",
+      "SHA-256": "9cd67b020eccc6fa7c092f1c68955bf9b4e4acac7b45d990b8bf9a961274b932",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/model.mjs",
+      "SHA-256": "b767fe46891ee460854d6a2288a1ec599a54baa68a075a6fb5a8e315a349e21c",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/states.mjs",
+      "SHA-256": "ed63a13136a74b3423a84b9533036e04f07a675c4c18b2bbd8ff24f9e96f59f8",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-helpers.mjs",
+      "SHA-256": "111d209c2fce296119f41c600408df348c4918962d8e3a712971d811b335b0c5",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/compile.mjs",
+      "SHA-256": "778050e8f77a0c7f5d6ec9fb97e4cc81eb245b59432d6bbdfbeeac595479dded",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/finalize.mjs",
+      "SHA-256": "9b987851846a7e75855a39af72b1cb8b73fb8e091a65e673f344a32a3461ffba",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-account-social.mjs",
+      "SHA-256": "969a7df30da5d6f83aeaff1727ad927bee7a41b68afc509065edd371d89e174f",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-admin.mjs",
+      "SHA-256": "a74f435b7e0059e715b5b7c80349448f11beccfa97b6ba628c0f4803b7576e4b",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-discovery-fans.mjs",
+      "SHA-256": "f713fe5ab878d381ea50dce9edf67a9d60c341557870fcf55816f0123b636794",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-finance.mjs",
+      "SHA-256": "49d33fb2a27904833a1d37134db6bf577fec4439d98adcf08d53abd3a9bb9bb0",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-live-guild.mjs",
+      "SHA-256": "1d63e7653b26d286f230008a8c61e02089dfa3f8f0db7fbfa47c47a5c21568cd",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-navigation.mjs",
+      "SHA-256": "d6abb22ac75ebce8d1af2105daec3df5150486e68fea8833d18eb593f9e54dde",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-remaining.mjs",
+      "SHA-256": "60e8cadf8a8fcf3228a1ae4e0fb17dd5be79c9972be2a98279e20a9230f7159b",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-statistics.mjs",
+      "SHA-256": "311942e76e0f630628ebf01c8e6017ec4c6eaff34cf32653946162aca4f6682b",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/design-views-reports.mjs",
+      "SHA-256": "45971631237a933e1cf79a425f7418b5deff400912798e4b72a4a96f049247bf",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/current-testcase-candidate.json",
+      "SHA-256": "310db1fe1b171843eb149c69a05d25d10d5ee8b3b0f178ed591a791197916cbc",
+      "角色": "本次派生产物",
+      "内容类型": "当前候选用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/final.json",
+      "SHA-256": "310db1fe1b171843eb149c69a05d25d10d5ee8b3b0f178ed591a791197916cbc",
+      "角色": "本次派生产物",
+      "内容类型": "最终用例JSON",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/luma-fresh-260914-001/admin/semantic-dedup-review.json",
+      "SHA-256": "41722c41a2c21ab6b52ecd834dfac95cc2cc35aa0f1267a254b7c995a41103cd",
+      "角色": "本次派生产物",
+      "内容类型": "本轮语义去重记录",
+      "允许定义业务规则": false
+    }
+  ],
+  "当前候选用例": "work/luma-fresh-260914-001/admin/current-testcase-candidate.json",
+  "最终用例JSON": "work/luma-fresh-260914-001/admin/final.json"
+}

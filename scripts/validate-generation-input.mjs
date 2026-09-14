@@ -6,8 +6,10 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { hasBalancedDelimiters, splitAtomicResults, loadTestcaseLanguageRules, validateTestcaseJson } from "./validate-testcase-json.mjs";
 import { caseFromRule, casesFromRule, coverageBranches, validateCoverageExpansion, validateRuleDesign } from "./testcase-design.mjs";
+import { validateMainBasisInput } from './mainbasis.mjs';
+import { validateCoverageInput } from './requirement-traceability.mjs';
 
-const ROLES = new Set(["当前业务证据", "本次派生产物", "历史参照", "样式参照", "执行工具"]);
+const ROLES = new Set(["当前业务证据", "风险与缺口", "本次派生产物", "历史参照", "样式参照", "执行工具"]);
 const RULE_STATUSES = new Set(["已确认规则", "实现推导", "来源冲突", "证据缺口", "生成待复核"]);
 const HISTORY_DECISIONS = new Set(["继续有效", "需要重写", "合并", "已被替代", "应当废弃", "待人工复核"]);
 const GENERATABLE_STATUSES = new Set(["已确认规则", "实现推导"]);
@@ -58,6 +60,18 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
   const manifestPath = path.resolve(manifestFile);
   const manifest = await readJson(manifestPath, "生成输入角色清单");
 
+  const { freshOnly = false, requiresCoverage = false } = await validateMainBasisInput(root, manifest) || {};
+  if (freshOnly) {
+    const taskFamily = String(manifest.任务工作目录 || '').split('/').slice(0, 2).join('/');
+    for (const input of manifest.输入文件) {
+      if (input.角色 === '执行工具' && input.路径?.startsWith('work/')
+        && (!/^work\/[^/]+$/.test(taskFamily) || !isInside(input.路径, taskFamily))) {
+        fail(`全新生成不得读取旧任务脚本作为工具：${input.路径}；请使用 scripts/ 通用工具或本次任务内新建设计`);
+      }
+    }
+  }
+
+  const requirementCoverage = requiresCoverage ? await validateCoverageInput(root, manifest, phase) : null;
   if (['3.0','3.1','3.2'].includes(manifest.schemaVersion)) {
     const { validateDiscovery } = await import('./validate-discovery.mjs');
     return validateDiscovery(path.dirname(manifestPath), root, { phase });
@@ -118,7 +132,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
       if (raw.允许定义业务规则 !== mayDefine) fail(`本次派生产物的规则权限错误：${relativePath}`);
       if (!isInside(relativePath, taskWork)) fail(`本次派生产物必须位于任务工作目录：${relativePath}`);
     }
-    if (new Set(["历史参照", "样式参照", "执行工具"]).has(raw.角色) && raw.允许定义业务规则) {
+    if (new Set(["风险与缺口", "历史参照", "样式参照", "执行工具"]).has(raw.角色) && raw.允许定义业务规则) {
       fail(`${raw.角色}不得定义业务规则：${relativePath}`);
     }
     if (/历史|旧用例/.test(raw.内容类型) && raw.内容类型 !== "历史用例比较结果" && raw.角色 !== "历史参照") {
@@ -239,7 +253,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
       requireString(evidence.位置, `${evidenceLabel}.位置`);
       requireString(evidence.证明内容, `${evidenceLabel}.证明内容`);
       const evidenceEntry = entries.get(evidencePath);
-      if (!evidenceEntry || evidenceEntry.角色 !== "当前业务证据") {
+      if (!evidenceEntry || (evidenceEntry.角色 !== "当前业务证据" && !(evidenceEntry.角色 === "风险与缺口" && !rule.可生成正式用例))) {
         fail(`规则只能引用当前业务证据：${rule.稳定规则标识} -> ${evidencePath}`);
       }
       if (evidenceEntry["SHA-256"] !== evidence["SHA-256"]) {
@@ -307,6 +321,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
       if (!usedRules.has(rule.稳定规则标识)) fail(`当前可生成规则没有正式用例覆盖：${rule.稳定规则标识}`);
     }
 
+    if (!freshOnly) {
     const comparisonRelative = normalizeRelative(manifest.历史用例比较结果, "历史用例比较结果");
     const comparisonEntry = entries.get(comparisonRelative);
     if (!comparisonEntry || comparisonEntry.角色 !== "本次派生产物" || comparisonEntry.内容类型 !== "历史用例比较结果" || comparisonEntry.允许定义业务规则) {
@@ -375,6 +390,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
       }
     }
     for (const key of historicalCases.keys()) if (!comparedHistory.has(key)) fail(`历史用例未记录处理去向：${key}`);
+    }
   }
 
   return {
@@ -388,6 +404,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
     当前规则数: catalog.规则.length,
     可生成规则数: coverageV2 ? validationRules.filter((rule) => rule.可生成正式用例).length : catalog.规则.filter((rule) => rule.可生成正式用例).length,
     历史比较记录数: historyCount,
+    ...(requirementCoverage ? { 需求覆盖: requirementCoverage } : {}),
   };
 }
 

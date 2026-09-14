@@ -1,0 +1,52 @@
+{
+  "历史输入文件数": 0,
+  "历史比较": "未执行",
+  "MainBasis基线": {
+    "路径": "work/liveshow-proto-mainbasis/latest.json",
+    "SHA-256": "ac5aae216255d1da61b948d4216474ebd99e8b1ecf007a0232140b744258aff1"
+  },
+  "交付": [
+    {
+      "端": "用户App",
+      "目录": "work/luma-fresh-260914-001/user",
+      "用例数": 428,
+      "待确认数": 34,
+      "JSON": "work/luma-fresh-260914-001/user/final.json",
+      "SHA256": "aae5bacee7831f0b595ea19d515889b0020744d904173fa007fc361ef83a3256",
+      "输入校验": {
+        "状态": "通过",
+        "阶段": "final",
+        "输入清单SHA256": "be8531814071b07563499304b0abf4c62ac01346f9a1113505dfa95c075996de",
+        "候选SHA256": "aae5bacee7831f0b595ea19d515889b0020744d904173fa007fc361ef83a3256"
+      }
+    },
+    {
+      "端": "公会App",
+      "目录": "work/luma-fresh-260914-001/guild",
+      "用例数": 105,
+      "待确认数": 5,
+      "JSON": "work/luma-fresh-260914-001/guild/final.json",
+      "SHA256": "559c34f04d4dd53d3396e0c0a8f2bf807b136130abdc832ae789e27336b43aa7",
+      "输入校验": {
+        "状态": "通过",
+        "阶段": "final",
+        "输入清单SHA256": "50708b17441423a1a828cd95701086bed776d2dbf683b21340fe49098c652644",
+        "候选SHA256": "559c34f04d4dd53d3396e0c0a8f2bf807b136130abdc832ae789e27336b43aa7"
+      }
+    },
+    {
+      "端": "管理后台",
+      "目录": "work/luma-fresh-260914-001/admin",
+      "用例数": 287,
+      "待确认数": 14,
+      "JSON": "work/luma-fresh-260914-001/admin/final.json",
+      "SHA256": "310db1fe1b171843eb149c69a05d25d10d5ee8b3b0f178ed591a791197916cbc",
+      "输入校验": {
+        "状态": "通过",
+        "阶段": "final",
+        "输入清单SHA256": "f290a44a5e9ab44a7dcadceede2309b6e5eaf956710077398cb3eb86b06d5e23",
+        "候选SHA256": "310db1fe1b171843eb149c69a05d25d10d5ee8b3b0f178ed591a791197916cbc"
+      }
+    }
+  ]
+}

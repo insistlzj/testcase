@@ -1,0 +1,7538 @@
+{
+  "schemaVersion": "1.0",
+  "类型": "由当前需求独立设计的端侧场景原子；不是把整段来源引用算作完整覆盖",
+  "证据原子": [
+    {
+      "原子标识": "SC-477dc133a40c80",
+      "共同业务对象": "充值订单",
+      "执行角色": "平台管理员",
+      "来源状态": "支付成功且未退款",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "订单已支付未退款，基础1000赠金200，当前余额500"
+      ],
+      "动作": "查看金币余额",
+      "可观察结果": "用户金币余额计算结果=500-1000-200=-700",
+      "来源需求": [
+        "REQ-ADMIN-91807a8a4d",
+        "REQ-ADMIN-9f5e2d8eb1",
+        "REQ-ADMIN-ff396b8c97",
+        "REQ-ADMIN-506b3cbbc6",
+        "REQ-ADMIN-e442fdfe65",
+        "REQ-ADMIN-88b1f2488d",
+        "REQ-ADMIN-2e2bea1931",
+        "REQ-ADMIN-c9a7f813d3",
+        "REQ-ADMIN-5e93a998fd",
+        "REQ-ADMIN-d44cebfe28",
+        "REQ-ADMIN-d13e760fe0",
+        "REQ-ADMIN-bc9733471e",
+        "REQ-ADMIN-9f866d7979",
+        "REQ-ADMIN-bcf72d442b",
+        "REQ-ADMIN-c5982c7d3b",
+        "REQ-ADMIN-cf99c37655",
+        "REQ-ADMIN-6cb4820287",
+        "REQ-ADMIN-d010dbe61b",
+        "REQ-ADMIN-9e75aad000",
+        "REQ-ADMIN-c25ad4ca88",
+        "REQ-ADMIN-42a155b9ac",
+        "REQ-ADMIN-13615e7a7c"
+      ]
+    },
+    {
+      "原子标识": "SC-904f6311689f10",
+      "共同业务对象": "充值订单详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "原实付为10.99 USD，订单已支付未退款"
+      ],
+      "动作": "打开退款确认",
+      "可观察结果": "退款金额显示10.99 USD",
+      "来源需求": [
+        "REQ-ADMIN-91807a8a4d",
+        "REQ-ADMIN-9f5e2d8eb1",
+        "REQ-ADMIN-ff396b8c97",
+        "REQ-ADMIN-506b3cbbc6",
+        "REQ-ADMIN-e442fdfe65",
+        "REQ-ADMIN-88b1f2488d",
+        "REQ-ADMIN-2e2bea1931",
+        "REQ-ADMIN-c9a7f813d3",
+        "REQ-ADMIN-5e93a998fd",
+        "REQ-ADMIN-d44cebfe28",
+        "REQ-ADMIN-d13e760fe0"
+      ]
+    },
+    {
+      "原子标识": "SC-1221510d646638",
+      "共同业务对象": "充值订单详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "该订单已完成整单退款"
+      ],
+      "动作": "查看退款入口",
+      "可观察结果": "不提供再次退款操作",
+      "来源需求": [
+        "REQ-ADMIN-91807a8a4d",
+        "REQ-ADMIN-9f5e2d8eb1",
+        "REQ-ADMIN-ff396b8c97",
+        "REQ-ADMIN-506b3cbbc6",
+        "REQ-ADMIN-e442fdfe65",
+        "REQ-ADMIN-88b1f2488d",
+        "REQ-ADMIN-2e2bea1931",
+        "REQ-ADMIN-c9a7f813d3",
+        "REQ-ADMIN-5e93a998fd",
+        "REQ-ADMIN-d44cebfe28",
+        "REQ-ADMIN-d13e760fe0"
+      ]
+    },
+    {
+      "原子标识": "SC-30a568fa2fc157",
+      "共同业务对象": "充值订单详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "目标订单支付失败且没有金币入账"
+      ],
+      "动作": "查看订单操作",
+      "可观察结果": "不允许发起充值退款",
+      "来源需求": [
+        "REQ-ADMIN-91807a8a4d",
+        "REQ-ADMIN-9f5e2d8eb1",
+        "REQ-ADMIN-ff396b8c97",
+        "REQ-ADMIN-506b3cbbc6",
+        "REQ-ADMIN-e442fdfe65",
+        "REQ-ADMIN-88b1f2488d",
+        "REQ-ADMIN-2e2bea1931",
+        "REQ-ADMIN-c9a7f813d3",
+        "REQ-ADMIN-5e93a998fd",
+        "REQ-ADMIN-d44cebfe28",
+        "REQ-ADMIN-d13e760fe0"
+      ]
+    },
+    {
+      "原子标识": "SC-603cdf6848821f",
+      "共同业务对象": "充值订单详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "用户此前已完成一笔赠礼，原充值订单可退款"
+      ],
+      "动作": "切换消费流水并查询原赠礼订单",
+      "可观察结果": "该用户既有成功赠礼订单仍保留",
+      "来源需求": [
+        "REQ-ADMIN-91807a8a4d",
+        "REQ-ADMIN-9f5e2d8eb1",
+        "REQ-ADMIN-ff396b8c97",
+        "REQ-ADMIN-506b3cbbc6",
+        "REQ-ADMIN-e442fdfe65",
+        "REQ-ADMIN-88b1f2488d",
+        "REQ-ADMIN-2e2bea1931",
+        "REQ-ADMIN-c9a7f813d3",
+        "REQ-ADMIN-5e93a998fd",
+        "REQ-ADMIN-d44cebfe28",
+        "REQ-ADMIN-d13e760fe0",
+        "REQ-ADMIN-bc9733471e",
+        "REQ-ADMIN-9f866d7979",
+        "REQ-ADMIN-bcf72d442b",
+        "REQ-ADMIN-c5982c7d3b",
+        "REQ-ADMIN-cf99c37655",
+        "REQ-ADMIN-6cb4820287",
+        "REQ-ADMIN-d010dbe61b",
+        "REQ-ADMIN-9e75aad000",
+        "REQ-ADMIN-c25ad4ca88",
+        "REQ-ADMIN-42a155b9ac",
+        "REQ-ADMIN-13615e7a7c"
+      ]
+    },
+    {
+      "原子标识": "SC-81900a26ec7685",
+      "共同业务对象": "消费订单详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "成功真实金币普通礼物单价20数量3"
+      ],
+      "动作": "进入消费订单详情",
+      "可观察结果": "主播收益计算结果=20×3=60",
+      "来源需求": [
+        "REQ-ADMIN-8870c91421",
+        "REQ-ADMIN-2cd1a8dfd1",
+        "REQ-ADMIN-358ec15ee2",
+        "REQ-ADMIN-9a5233e633",
+        "REQ-ADMIN-edf6f1d0e4",
+        "REQ-ADMIN-524bc1573c",
+        "REQ-ADMIN-78e1b508b9",
+        "REQ-ADMIN-78ec5f9b91",
+        "REQ-ADMIN-04310df16c",
+        "REQ-PUB-9a6c6938df",
+        "REQ-PUB-bb149a4491"
+      ]
+    },
+    {
+      "原子标识": "SC-e78735060f6bbc",
+      "共同业务对象": "消费订单详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "成功幸运礼物价值1000，赠送时比例1%，用户实际返奖1500"
+      ],
+      "动作": "进入消费订单详情",
+      "可观察结果": "主播收益计算结果=1000×0.01=10",
+      "来源需求": [
+        "REQ-ADMIN-8870c91421",
+        "REQ-ADMIN-2cd1a8dfd1",
+        "REQ-ADMIN-358ec15ee2",
+        "REQ-ADMIN-9a5233e633",
+        "REQ-ADMIN-edf6f1d0e4",
+        "REQ-ADMIN-524bc1573c",
+        "REQ-ADMIN-78e1b508b9",
+        "REQ-ADMIN-78ec5f9b91",
+        "REQ-ADMIN-04310df16c",
+        "REQ-PUB-9a6c6938df",
+        "REQ-PUB-bb149a4491"
+      ]
+    },
+    {
+      "原子标识": "SC-f619a8cb5e4165",
+      "共同业务对象": "消费订单详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "该订单扣减100，独立开奖合计返奖150"
+      ],
+      "动作": "进入消费订单详情",
+      "可观察结果": "用户净消耗计算结果=100-150=-50",
+      "来源需求": [
+        "REQ-ADMIN-8870c91421",
+        "REQ-ADMIN-2cd1a8dfd1",
+        "REQ-ADMIN-358ec15ee2",
+        "REQ-ADMIN-9a5233e633",
+        "REQ-ADMIN-edf6f1d0e4",
+        "REQ-ADMIN-524bc1573c",
+        "REQ-ADMIN-78e1b508b9",
+        "REQ-ADMIN-78ec5f9b91",
+        "REQ-ADMIN-04310df16c",
+        "REQ-PUB-9a6c6938df",
+        "REQ-PUB-bb149a4491"
+      ]
+    },
+    {
+      "原子标识": "SC-c6a4432c60ac3b",
+      "共同业务对象": "消费订单详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "目标为已支付门票或礼物订单"
+      ],
+      "动作": "查看详情操作",
+      "可观察结果": "不提供退款操作",
+      "来源需求": [
+        "REQ-ADMIN-8870c91421",
+        "REQ-ADMIN-2cd1a8dfd1",
+        "REQ-ADMIN-358ec15ee2",
+        "REQ-ADMIN-9a5233e633",
+        "REQ-ADMIN-edf6f1d0e4",
+        "REQ-ADMIN-524bc1573c",
+        "REQ-ADMIN-78e1b508b9",
+        "REQ-ADMIN-78ec5f9b91",
+        "REQ-ADMIN-04310df16c",
+        "REQ-PUB-9a6c6938df",
+        "REQ-PUB-bb149a4491"
+      ]
+    },
+    {
+      "原子标识": "SC-f311e9e8514038",
+      "共同业务对象": "主播分成记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "按页面模板准备两个有效主播，金额分别100.50和200.25 USD"
+      ],
+      "动作": "上传该模板文件",
+      "可观察结果": "预览分成总金额计算结果=100.50+200.25=300.75",
+      "来源需求": [
+        "REQ-ADMIN-4b04c5d5c3",
+        "REQ-ADMIN-6c36a4fc19",
+        "REQ-ADMIN-a4542bed19",
+        "REQ-ADMIN-35f5d4ee21",
+        "REQ-ADMIN-b6a1275ff4",
+        "REQ-ADMIN-6189e23820",
+        "REQ-ADMIN-474f14ea36",
+        "REQ-ADMIN-81c3caec63",
+        "REQ-ADMIN-41fef2540e",
+        "REQ-PUB-c6f2afe930"
+      ]
+    },
+    {
+      "原子标识": "SC-cb817fef6cccb0",
+      "共同业务对象": "线下分成批次",
+      "执行角色": "平台管理员",
+      "来源状态": "导入校验通过且未确认",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "导入文件已通过校验，备注已填写"
+      ],
+      "动作": "点击确认导入",
+      "可观察结果": "本批分成记录不提供编辑或删除",
+      "来源需求": [
+        "REQ-ADMIN-4b04c5d5c3",
+        "REQ-ADMIN-6c36a4fc19",
+        "REQ-ADMIN-a4542bed19",
+        "REQ-ADMIN-35f5d4ee21",
+        "REQ-ADMIN-b6a1275ff4",
+        "REQ-ADMIN-6189e23820",
+        "REQ-ADMIN-474f14ea36",
+        "REQ-ADMIN-81c3caec63",
+        "REQ-ADMIN-41fef2540e",
+        "REQ-PUB-c6f2afe930"
+      ]
+    },
+    {
+      "原子标识": "SC-3248610da56299",
+      "共同业务对象": "主播分成记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "模板已填写财务确定的金额"
+      ],
+      "动作": "查看导入表单",
+      "可观察结果": "不要求在系统填写分成比例或发起结算审批",
+      "来源需求": [
+        "REQ-ADMIN-4b04c5d5c3",
+        "REQ-ADMIN-6c36a4fc19",
+        "REQ-ADMIN-a4542bed19",
+        "REQ-ADMIN-35f5d4ee21",
+        "REQ-ADMIN-b6a1275ff4",
+        "REQ-ADMIN-6189e23820",
+        "REQ-ADMIN-474f14ea36",
+        "REQ-ADMIN-81c3caec63",
+        "REQ-ADMIN-41fef2540e",
+        "REQ-PUB-c6f2afe930"
+      ]
+    },
+    {
+      "原子标识": "SC-92f2fa57d76392",
+      "共同业务对象": "余额变更记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前余额100 USD"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "变更后余额计算结果=100+20.50=120.50",
+      "来源需求": [
+        "REQ-ADMIN-f9de15a24a",
+        "REQ-ADMIN-3041333119",
+        "REQ-ADMIN-8835726a7e",
+        "REQ-ADMIN-f03822c5e6",
+        "REQ-ADMIN-bf8e234c1f",
+        "REQ-ADMIN-a75dc1ae70",
+        "REQ-ADMIN-a8e4463544",
+        "REQ-ADMIN-7f223e8c24",
+        "REQ-PUB-62301e9e0e",
+        "REQ-PUB-49aedb4824"
+      ]
+    },
+    {
+      "原子标识": "SC-d2d4730e017d4f",
+      "共同业务对象": "余额变更记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前余额100 USD"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "变更后余额计算结果=100-100=0",
+      "来源需求": [
+        "REQ-ADMIN-f9de15a24a",
+        "REQ-ADMIN-3041333119",
+        "REQ-ADMIN-8835726a7e",
+        "REQ-ADMIN-f03822c5e6",
+        "REQ-ADMIN-bf8e234c1f",
+        "REQ-ADMIN-a75dc1ae70",
+        "REQ-ADMIN-a8e4463544",
+        "REQ-ADMIN-7f223e8c24",
+        "REQ-PUB-62301e9e0e",
+        "REQ-PUB-49aedb4824"
+      ]
+    },
+    {
+      "原子标识": "SC-3fdfb723b34cb8",
+      "共同业务对象": "余额变更记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前余额100 USD"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "不保存超过余额的扣减",
+      "来源需求": [
+        "REQ-ADMIN-f9de15a24a",
+        "REQ-ADMIN-3041333119",
+        "REQ-ADMIN-8835726a7e",
+        "REQ-ADMIN-f03822c5e6",
+        "REQ-ADMIN-bf8e234c1f",
+        "REQ-ADMIN-a75dc1ae70",
+        "REQ-ADMIN-a8e4463544",
+        "REQ-ADMIN-7f223e8c24",
+        "REQ-PUB-62301e9e0e",
+        "REQ-PUB-49aedb4824"
+      ]
+    },
+    {
+      "原子标识": "SC-0f484a2ab1824a",
+      "共同业务对象": "余额变更记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前余额100 USD"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "不能保存零金额修正",
+      "来源需求": [
+        "REQ-ADMIN-f9de15a24a",
+        "REQ-ADMIN-3041333119",
+        "REQ-ADMIN-8835726a7e",
+        "REQ-ADMIN-f03822c5e6",
+        "REQ-ADMIN-bf8e234c1f",
+        "REQ-ADMIN-a75dc1ae70",
+        "REQ-ADMIN-a8e4463544",
+        "REQ-ADMIN-7f223e8c24",
+        "REQ-PUB-62301e9e0e",
+        "REQ-PUB-49aedb4824"
+      ]
+    },
+    {
+      "原子标识": "SC-e1de69c666808f",
+      "共同业务对象": "公会分成记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "按页面模板准备两个有效公会，金额分别100.50和200.25 USD"
+      ],
+      "动作": "上传该模板文件",
+      "可观察结果": "预览分成总金额计算结果=100.50+200.25=300.75",
+      "来源需求": [
+        "REQ-ADMIN-69e076fcf1",
+        "REQ-ADMIN-0aa73fea7d",
+        "REQ-ADMIN-688754c70e",
+        "REQ-ADMIN-feee96dabb",
+        "REQ-ADMIN-2f3c3a3327",
+        "REQ-ADMIN-819ad4b593",
+        "REQ-ADMIN-02a0a0855d",
+        "REQ-ADMIN-e6bb8f228b",
+        "REQ-ADMIN-d3618c4663",
+        "REQ-PUB-e2964e358b"
+      ]
+    },
+    {
+      "原子标识": "SC-a05dcdd400678a",
+      "共同业务对象": "公会分成记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "导入文件已通过校验，备注已填写"
+      ],
+      "动作": "点击确认导入",
+      "可观察结果": "本批分成记录不提供编辑或删除",
+      "来源需求": [
+        "REQ-ADMIN-69e076fcf1",
+        "REQ-ADMIN-0aa73fea7d",
+        "REQ-ADMIN-688754c70e",
+        "REQ-ADMIN-feee96dabb",
+        "REQ-ADMIN-2f3c3a3327",
+        "REQ-ADMIN-819ad4b593",
+        "REQ-ADMIN-02a0a0855d",
+        "REQ-ADMIN-e6bb8f228b",
+        "REQ-ADMIN-d3618c4663",
+        "REQ-PUB-e2964e358b"
+      ]
+    },
+    {
+      "原子标识": "SC-5bb99f546e8807",
+      "共同业务对象": "公会分成记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "模板已填写财务确定的金额"
+      ],
+      "动作": "查看导入表单",
+      "可观察结果": "不要求在系统填写分成比例或发起结算审批",
+      "来源需求": [
+        "REQ-ADMIN-69e076fcf1",
+        "REQ-ADMIN-0aa73fea7d",
+        "REQ-ADMIN-688754c70e",
+        "REQ-ADMIN-feee96dabb",
+        "REQ-ADMIN-2f3c3a3327",
+        "REQ-ADMIN-819ad4b593",
+        "REQ-ADMIN-02a0a0855d",
+        "REQ-ADMIN-e6bb8f228b",
+        "REQ-ADMIN-d3618c4663",
+        "REQ-PUB-e2964e358b"
+      ]
+    },
+    {
+      "原子标识": "SC-86123325c46ba4",
+      "共同业务对象": "余额变更记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前余额100 USD"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "变更后余额计算结果=100+20.50=120.50",
+      "来源需求": [
+        "REQ-ADMIN-0685164aa4",
+        "REQ-ADMIN-2f365cbc71",
+        "REQ-ADMIN-aca4fc05e3",
+        "REQ-ADMIN-4e59013d6f",
+        "REQ-ADMIN-b8b610f5cb",
+        "REQ-ADMIN-34c2834697",
+        "REQ-ADMIN-fff8646eaf",
+        "REQ-ADMIN-dd53c8d065",
+        "REQ-PUB-9ff6085277",
+        "REQ-PUB-1944aede61"
+      ]
+    },
+    {
+      "原子标识": "SC-9a832a3f431975",
+      "共同业务对象": "余额变更记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前余额100 USD"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "变更后余额计算结果=100-100=0",
+      "来源需求": [
+        "REQ-ADMIN-0685164aa4",
+        "REQ-ADMIN-2f365cbc71",
+        "REQ-ADMIN-aca4fc05e3",
+        "REQ-ADMIN-4e59013d6f",
+        "REQ-ADMIN-b8b610f5cb",
+        "REQ-ADMIN-34c2834697",
+        "REQ-ADMIN-fff8646eaf",
+        "REQ-ADMIN-dd53c8d065",
+        "REQ-PUB-9ff6085277",
+        "REQ-PUB-1944aede61"
+      ]
+    },
+    {
+      "原子标识": "SC-096dd59aa1b997",
+      "共同业务对象": "余额变更记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前余额100 USD"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "不保存超过余额的扣减",
+      "来源需求": [
+        "REQ-ADMIN-0685164aa4",
+        "REQ-ADMIN-2f365cbc71",
+        "REQ-ADMIN-aca4fc05e3",
+        "REQ-ADMIN-4e59013d6f",
+        "REQ-ADMIN-b8b610f5cb",
+        "REQ-ADMIN-34c2834697",
+        "REQ-ADMIN-fff8646eaf",
+        "REQ-ADMIN-dd53c8d065",
+        "REQ-PUB-9ff6085277",
+        "REQ-PUB-1944aede61"
+      ]
+    },
+    {
+      "原子标识": "SC-459151140f01ce",
+      "共同业务对象": "余额变更记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前余额100 USD"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "不能保存零金额修正",
+      "来源需求": [
+        "REQ-ADMIN-0685164aa4",
+        "REQ-ADMIN-2f365cbc71",
+        "REQ-ADMIN-aca4fc05e3",
+        "REQ-ADMIN-4e59013d6f",
+        "REQ-ADMIN-b8b610f5cb",
+        "REQ-ADMIN-34c2834697",
+        "REQ-ADMIN-fff8646eaf",
+        "REQ-ADMIN-dd53c8d065",
+        "REQ-PUB-9ff6085277",
+        "REQ-PUB-1944aede61"
+      ]
+    },
+    {
+      "原子标识": "SC-8c2c225cce2d24",
+      "共同业务对象": "主播账户余额",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "财务已上传主播分成收入100 USD，另有负向修正40 USD，无其他收支"
+      ],
+      "动作": "查看账户余额",
+      "可观察结果": "账户余额为60 USD",
+      "来源需求": [
+        "REQ-ADMIN-4353d0edd1",
+        "REQ-ADMIN-3e0e0746cf",
+        "REQ-ADMIN-1ef2c092a8",
+        "REQ-ADMIN-82aea95d07",
+        "REQ-PUB-13f0f57d70",
+        "REQ-PUB-7d10018fa5"
+      ]
+    },
+    {
+      "原子标识": "SC-08cebf6d6ad58e",
+      "共同业务对象": "公会账户余额",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "财务已上传公会分成收入100 USD，另有负向修正40 USD，无其他收支"
+      ],
+      "动作": "查看账户余额",
+      "可观察结果": "账户余额为60 USD",
+      "来源需求": [
+        "REQ-ADMIN-0b8f982933",
+        "REQ-ADMIN-460a8cfa07",
+        "REQ-ADMIN-e9ee6aa9d7",
+        "REQ-ADMIN-df3099d438",
+        "REQ-PUB-ca911c183d",
+        "REQ-PUB-0049dbb4a4"
+      ]
+    },
+    {
+      "原子标识": "SC-34ad4d1a97d59f",
+      "共同业务对象": "公会详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除公会名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少公会名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-4ef461e2a0",
+        "REQ-ADMIN-e80f4db877",
+        "REQ-ADMIN-d13cbc8518",
+        "REQ-ADMIN-7dd40db9fc",
+        "REQ-ADMIN-3d8dcd8ee2",
+        "REQ-ADMIN-b4ecd379e9",
+        "REQ-ADMIN-64f7845def",
+        "REQ-ADMIN-d2cdb2e4a3",
+        "REQ-ADMIN-b1d1539c08",
+        "REQ-ADMIN-0f37342da8",
+        "REQ-ADMIN-cabf72851d",
+        "REQ-ADMIN-836fdf6189",
+        "REQ-PUB-16de884e24",
+        "REQ-PUB-c5ec2a0c42",
+        "REQ-PUB-9264a7bbe6",
+        "REQ-PUB-d76ebede0f",
+        "REQ-PUB-4c7c3b5e12"
+      ]
+    },
+    {
+      "原子标识": "SC-e16b18c1a66feb",
+      "共同业务对象": "公会详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除Logo外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少Logo的记录",
+      "来源需求": [
+        "REQ-ADMIN-4ef461e2a0",
+        "REQ-ADMIN-e80f4db877",
+        "REQ-ADMIN-d13cbc8518",
+        "REQ-ADMIN-7dd40db9fc",
+        "REQ-ADMIN-3d8dcd8ee2",
+        "REQ-ADMIN-b4ecd379e9",
+        "REQ-ADMIN-64f7845def",
+        "REQ-ADMIN-d2cdb2e4a3",
+        "REQ-ADMIN-b1d1539c08",
+        "REQ-ADMIN-0f37342da8",
+        "REQ-ADMIN-cabf72851d",
+        "REQ-ADMIN-836fdf6189",
+        "REQ-PUB-16de884e24",
+        "REQ-PUB-c5ec2a0c42",
+        "REQ-PUB-9264a7bbe6",
+        "REQ-PUB-d76ebede0f",
+        "REQ-PUB-4c7c3b5e12"
+      ]
+    },
+    {
+      "原子标识": "SC-c626d79fd7cdd7",
+      "共同业务对象": "公会详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除公会长外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少公会长的记录",
+      "来源需求": [
+        "REQ-ADMIN-4ef461e2a0",
+        "REQ-ADMIN-e80f4db877",
+        "REQ-ADMIN-d13cbc8518",
+        "REQ-ADMIN-7dd40db9fc",
+        "REQ-ADMIN-3d8dcd8ee2",
+        "REQ-ADMIN-b4ecd379e9",
+        "REQ-ADMIN-64f7845def",
+        "REQ-ADMIN-d2cdb2e4a3",
+        "REQ-ADMIN-b1d1539c08",
+        "REQ-ADMIN-0f37342da8",
+        "REQ-ADMIN-cabf72851d",
+        "REQ-ADMIN-836fdf6189",
+        "REQ-PUB-16de884e24",
+        "REQ-PUB-c5ec2a0c42",
+        "REQ-PUB-9264a7bbe6",
+        "REQ-PUB-d76ebede0f",
+        "REQ-PUB-4c7c3b5e12"
+      ]
+    },
+    {
+      "原子标识": "SC-efa824b4b21a4a",
+      "共同业务对象": "公会详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除管理账号外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少管理账号的记录",
+      "来源需求": [
+        "REQ-ADMIN-4ef461e2a0",
+        "REQ-ADMIN-e80f4db877",
+        "REQ-ADMIN-d13cbc8518",
+        "REQ-ADMIN-7dd40db9fc",
+        "REQ-ADMIN-3d8dcd8ee2",
+        "REQ-ADMIN-b4ecd379e9",
+        "REQ-ADMIN-64f7845def",
+        "REQ-ADMIN-d2cdb2e4a3",
+        "REQ-ADMIN-b1d1539c08",
+        "REQ-ADMIN-0f37342da8",
+        "REQ-ADMIN-cabf72851d",
+        "REQ-ADMIN-836fdf6189",
+        "REQ-PUB-16de884e24",
+        "REQ-PUB-c5ec2a0c42",
+        "REQ-PUB-9264a7bbe6",
+        "REQ-PUB-d76ebede0f",
+        "REQ-PUB-4c7c3b5e12"
+      ]
+    },
+    {
+      "原子标识": "SC-1194988469a420",
+      "共同业务对象": "公会详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除初始密码外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少初始密码的记录",
+      "来源需求": [
+        "REQ-ADMIN-4ef461e2a0",
+        "REQ-ADMIN-e80f4db877",
+        "REQ-ADMIN-d13cbc8518",
+        "REQ-ADMIN-7dd40db9fc",
+        "REQ-ADMIN-3d8dcd8ee2",
+        "REQ-ADMIN-b4ecd379e9",
+        "REQ-ADMIN-64f7845def",
+        "REQ-ADMIN-d2cdb2e4a3",
+        "REQ-ADMIN-b1d1539c08",
+        "REQ-ADMIN-0f37342da8",
+        "REQ-ADMIN-cabf72851d",
+        "REQ-ADMIN-836fdf6189",
+        "REQ-PUB-16de884e24",
+        "REQ-PUB-c5ec2a0c42",
+        "REQ-PUB-9264a7bbe6",
+        "REQ-PUB-d76ebede0f",
+        "REQ-PUB-4c7c3b5e12"
+      ]
+    },
+    {
+      "原子标识": "SC-a6258263e51eae",
+      "共同业务对象": "公会组织",
+      "执行角色": "平台管理员",
+      "来源状态": "启用且有在会主播",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "公会启用且有在会主播海风"
+      ],
+      "动作": "停用公会并确认",
+      "可观察结果": "海风与晨星公会的成员关系解除",
+      "来源需求": [
+        "REQ-ADMIN-4ef461e2a0",
+        "REQ-ADMIN-e80f4db877",
+        "REQ-ADMIN-d13cbc8518",
+        "REQ-ADMIN-7dd40db9fc",
+        "REQ-ADMIN-3d8dcd8ee2",
+        "REQ-ADMIN-b4ecd379e9",
+        "REQ-ADMIN-64f7845def",
+        "REQ-ADMIN-d2cdb2e4a3",
+        "REQ-ADMIN-b1d1539c08",
+        "REQ-ADMIN-0f37342da8",
+        "REQ-ADMIN-cabf72851d",
+        "REQ-ADMIN-836fdf6189",
+        "REQ-PUB-16de884e24",
+        "REQ-PUB-c5ec2a0c42",
+        "REQ-PUB-9264a7bbe6",
+        "REQ-PUB-d76ebede0f",
+        "REQ-PUB-4c7c3b5e12"
+      ]
+    },
+    {
+      "原子标识": "SC-3a4741fc956ada",
+      "共同业务对象": "公会详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "公会启用且海风在会"
+      ],
+      "动作": "停用公会长账号并完成两次确认",
+      "可观察结果": "海风仍属于晨星公会",
+      "来源需求": [
+        "REQ-ADMIN-4ef461e2a0",
+        "REQ-ADMIN-e80f4db877",
+        "REQ-ADMIN-d13cbc8518",
+        "REQ-ADMIN-7dd40db9fc",
+        "REQ-ADMIN-3d8dcd8ee2",
+        "REQ-ADMIN-b4ecd379e9",
+        "REQ-ADMIN-64f7845def",
+        "REQ-ADMIN-d2cdb2e4a3",
+        "REQ-ADMIN-b1d1539c08",
+        "REQ-ADMIN-0f37342da8",
+        "REQ-ADMIN-cabf72851d",
+        "REQ-ADMIN-836fdf6189",
+        "REQ-PUB-16de884e24",
+        "REQ-PUB-c5ec2a0c42",
+        "REQ-PUB-9264a7bbe6",
+        "REQ-PUB-d76ebede0f",
+        "REQ-PUB-4c7c3b5e12"
+      ]
+    },
+    {
+      "原子标识": "SC-0a38e97ba48e9f",
+      "共同业务对象": "公会详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "公会存在未结收益"
+      ],
+      "动作": "点击解散公会",
+      "可观察结果": "不允许解散该公会",
+      "来源需求": [
+        "REQ-ADMIN-4ef461e2a0",
+        "REQ-ADMIN-e80f4db877",
+        "REQ-ADMIN-d13cbc8518",
+        "REQ-ADMIN-7dd40db9fc",
+        "REQ-ADMIN-3d8dcd8ee2",
+        "REQ-ADMIN-b4ecd379e9",
+        "REQ-ADMIN-64f7845def",
+        "REQ-ADMIN-d2cdb2e4a3",
+        "REQ-ADMIN-b1d1539c08",
+        "REQ-ADMIN-0f37342da8",
+        "REQ-ADMIN-cabf72851d",
+        "REQ-ADMIN-836fdf6189",
+        "REQ-PUB-16de884e24",
+        "REQ-PUB-c5ec2a0c42",
+        "REQ-PUB-9264a7bbe6",
+        "REQ-PUB-d76ebede0f",
+        "REQ-PUB-4c7c3b5e12"
+      ]
+    },
+    {
+      "原子标识": "SC-be565c4d787350",
+      "共同业务对象": "幸运礼物",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "历史订单礼物价值1000、比例1%，本次将比例改为2%"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "历史订单收益仍为10金币",
+      "来源需求": [
+        "REQ-ADMIN-a8865e3906",
+        "REQ-ADMIN-f6bbe6340a",
+        "REQ-ADMIN-affaa26772",
+        "REQ-ADMIN-92b8af5260",
+        "REQ-ADMIN-abccae72be",
+        "REQ-ADMIN-873c4a546b",
+        "REQ-ADMIN-784ea0203b",
+        "REQ-ADMIN-17419d7b6f",
+        "REQ-ADMIN-b0fdc78961",
+        "REQ-ADMIN-12e8e89348",
+        "REQ-ADMIN-f3356fd6f9",
+        "REQ-ADMIN-f4fc23a623",
+        "REQ-ADMIN-dfbf58272c"
+      ]
+    },
+    {
+      "原子标识": "SC-ad3aecfe01c536",
+      "共同业务对象": "幸运礼物",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "比例已保存为2%，之后新发生价值1000的幸运赠礼"
+      ],
+      "动作": "查看对应收益记录",
+      "可观察结果": "新订单主播收益计算结果=1000×0.02=20",
+      "来源需求": [
+        "REQ-ADMIN-a8865e3906",
+        "REQ-ADMIN-f6bbe6340a",
+        "REQ-ADMIN-affaa26772",
+        "REQ-ADMIN-92b8af5260",
+        "REQ-ADMIN-abccae72be",
+        "REQ-ADMIN-873c4a546b",
+        "REQ-ADMIN-784ea0203b",
+        "REQ-ADMIN-17419d7b6f",
+        "REQ-ADMIN-b0fdc78961",
+        "REQ-ADMIN-12e8e89348",
+        "REQ-ADMIN-f3356fd6f9",
+        "REQ-ADMIN-f4fc23a623",
+        "REQ-ADMIN-dfbf58272c"
+      ]
+    },
+    {
+      "原子标识": "SC-452fb8aa380622",
+      "共同业务对象": "幸运礼物",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "收益比例保存为0%",
+      "来源需求": [
+        "REQ-ADMIN-a8865e3906",
+        "REQ-ADMIN-f6bbe6340a",
+        "REQ-ADMIN-affaa26772",
+        "REQ-ADMIN-92b8af5260",
+        "REQ-ADMIN-abccae72be",
+        "REQ-ADMIN-873c4a546b",
+        "REQ-ADMIN-784ea0203b",
+        "REQ-ADMIN-17419d7b6f",
+        "REQ-ADMIN-b0fdc78961",
+        "REQ-ADMIN-12e8e89348",
+        "REQ-ADMIN-f3356fd6f9",
+        "REQ-ADMIN-f4fc23a623",
+        "REQ-ADMIN-dfbf58272c"
+      ]
+    },
+    {
+      "原子标识": "SC-c54f30ddd0bc83",
+      "共同业务对象": "幸运礼物",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "收益比例保存为100%",
+      "来源需求": [
+        "REQ-ADMIN-a8865e3906",
+        "REQ-ADMIN-f6bbe6340a",
+        "REQ-ADMIN-affaa26772",
+        "REQ-ADMIN-92b8af5260",
+        "REQ-ADMIN-abccae72be",
+        "REQ-ADMIN-873c4a546b",
+        "REQ-ADMIN-784ea0203b",
+        "REQ-ADMIN-17419d7b6f",
+        "REQ-ADMIN-b0fdc78961",
+        "REQ-ADMIN-12e8e89348",
+        "REQ-ADMIN-f3356fd6f9",
+        "REQ-ADMIN-f4fc23a623",
+        "REQ-ADMIN-dfbf58272c"
+      ]
+    },
+    {
+      "原子标识": "SC-5ad0ccf2a3a8cb",
+      "共同业务对象": "幸运礼物",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存100.1%的收益比例",
+      "来源需求": [
+        "REQ-ADMIN-a8865e3906",
+        "REQ-ADMIN-f6bbe6340a",
+        "REQ-ADMIN-affaa26772",
+        "REQ-ADMIN-92b8af5260",
+        "REQ-ADMIN-abccae72be",
+        "REQ-ADMIN-873c4a546b",
+        "REQ-ADMIN-784ea0203b",
+        "REQ-ADMIN-17419d7b6f",
+        "REQ-ADMIN-b0fdc78961",
+        "REQ-ADMIN-12e8e89348",
+        "REQ-ADMIN-f3356fd6f9",
+        "REQ-ADMIN-f4fc23a623",
+        "REQ-ADMIN-dfbf58272c"
+      ]
+    },
+    {
+      "原子标识": "SC-4e2ab58ba06b13",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其他必填项合法，奖励档位概率之和为99.9%"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "配置不能生效",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-d381af1c34b532",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其他必填项合法，奖励档位概率之和为100.1%"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "配置不能生效",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-8d1a9f59108b3c",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其他档位合法且总概率100%"
+      ],
+      "动作": "新增奖励0金币的档位",
+      "可观察结果": "零金币奖励档位允许保留",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-12d92f31e89188",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已存在奖励10金币的档位"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存重复奖励档位",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-069af29eafb109",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "单次消耗为10金币，开奖次数为10"
+      ],
+      "动作": "查看自动计算单价",
+      "可观察结果": "礼物单价计算结果=10×10=100",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-57c4322050a993",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "单礼物消耗10金币；奖励0/5/10/50/100/1000概率为10.4%/32%/55%/2%/0.5%/0.1%"
+      ],
+      "动作": "查看配置计算的RTP",
+      "可观察结果": "RTP计算结果=(0×0.104+5×0.32+10×0.55+50×0.02+100×0.005+1000×0.001)÷10×100=96",
+      "来源需求": [
+        "REQ-SYS-118ef76d58",
+        "REQ-SYS-a6a8ab1cc2",
+        "REQ-SYS-1a8f045273",
+        "REQ-SYS-40bfde7ae7",
+        "REQ-SYS-5848f2af01",
+        "REQ-SYS-df6223763e",
+        "REQ-SYS-954da369c9",
+        "REQ-SYS-499b86280c",
+        "REQ-SYS-8649bfc9ab",
+        "REQ-SYS-9f8d4dfed8",
+        "REQ-SYS-fc7ecd9286",
+        "REQ-SYS-0cde7145e8",
+        "REQ-SYS-8dee2d71ad",
+        "REQ-SYS-eeb035382d",
+        "REQ-SYS-29c0a26cf6",
+        "REQ-SYS-f17da1760c",
+        "REQ-SYS-8bbb0d9ff3",
+        "REQ-SYS-0f23dfe333",
+        "REQ-SYS-f6212bf1b9",
+        "REQ-SYS-97f6fd6716",
+        "REQ-SYS-02067a059c",
+        "REQ-SYS-93ee37dc7a",
+        "REQ-SYS-be841e89a4",
+        "REQ-SYS-2fd69eeac6",
+        "REQ-SYS-04fc9b2d8e",
+        "REQ-SYS-094dbef227",
+        "REQ-SYS-0f47b03082",
+        "REQ-SYS-6d0c02bdf3",
+        "REQ-SYS-7e05c45d60",
+        "REQ-SYS-5c48a00988",
+        "REQ-SYS-ebffadbb6b",
+        "REQ-SYS-058b3ea7e7",
+        "REQ-SYS-9d65ff99e4",
+        "REQ-SYS-1a2976b8bd",
+        "REQ-SYS-975cd32886",
+        "REQ-SYS-9b8a95cf10",
+        "REQ-SYS-b375268244",
+        "REQ-SYS-8bf66637fe",
+        "REQ-SYS-b066fb4a81",
+        "REQ-SYS-6febb76bba",
+        "REQ-SYS-21c588b3f1",
+        "REQ-SYS-5d73ded0bb",
+        "REQ-SYS-e38e2b3f1c",
+        "REQ-SYS-e27ff3ff8e",
+        "REQ-SYS-5cd8c097a9",
+        "REQ-SYS-53832764df",
+        "REQ-SYS-7480eab51f",
+        "REQ-SYS-79dd5d4146",
+        "REQ-SYS-7b7342cd34",
+        "REQ-SYS-ad375c4bbe",
+        "REQ-SYS-6d58f371d0",
+        "REQ-SYS-07b643d4ae",
+        "REQ-SYS-dd00ccdf6f",
+        "REQ-SYS-73be1ccf91",
+        "REQ-SYS-e7e6aee235",
+        "REQ-SYS-5b8abaaa6c",
+        "REQ-SYS-47e4f6cb7d",
+        "REQ-SYS-0bae4c6220",
+        "REQ-SYS-a0bf4bcdba",
+        "REQ-SYS-beaed55dcc",
+        "REQ-SYS-62094cf48f",
+        "REQ-SYS-e2845e6efd",
+        "REQ-SYS-b2dcb1c143",
+        "REQ-SYS-09a04aa578",
+        "REQ-SYS-5c0804b56b",
+        "REQ-SYS-849dc80539",
+        "REQ-SYS-c3833386ea",
+        "REQ-SYS-e03f417172",
+        "REQ-SYS-8d010470b5",
+        "REQ-SYS-79b960afbc",
+        "REQ-SYS-231ca4516f",
+        "REQ-SYS-027dca936d",
+        "REQ-SYS-e77356074a",
+        "REQ-SYS-fe9b882d08",
+        "REQ-SYS-5bb70806e8",
+        "REQ-SYS-57ecd00a68",
+        "REQ-SYS-b96f9841bb",
+        "REQ-SYS-27e1210f91",
+        "REQ-SYS-e77356074a",
+        "REQ-SYS-992d02eda5",
+        "REQ-SYS-4385592bb0",
+        "REQ-SYS-2513efb84f",
+        "REQ-SYS-e0ea814410",
+        "REQ-SYS-611a8f90cc",
+        "REQ-SYS-731bdf2b9a",
+        "REQ-SYS-3fe578cf59",
+        "REQ-SYS-9ef5fd86d6",
+        "REQ-SYS-53d9400e09",
+        "REQ-SYS-7a259a38f1",
+        "REQ-SYS-d01cd8f413",
+        "REQ-SYS-f6cdc3080f",
+        "REQ-SYS-56f3f175ce",
+        "REQ-SYS-bcc3eadfad",
+        "REQ-SYS-04793ea053",
+        "REQ-SYS-60122724cb",
+        "REQ-SYS-3ded211b9a",
+        "REQ-SYS-341c49eb53",
+        "REQ-SYS-0f1da9a97a",
+        "REQ-SYS-0a9deee752",
+        "REQ-SYS-54c430f1b2",
+        "REQ-SYS-e69d0c59a2",
+        "REQ-SYS-6791adc777",
+        "REQ-SYS-ba1a250e22",
+        "REQ-SYS-c1236a3377",
+        "REQ-SYS-b0c7b79caa",
+        "REQ-SYS-364c3805dd",
+        "REQ-SYS-afc21c5ff3",
+        "REQ-SYS-7a92c22709",
+        "REQ-SYS-ec71a016d5",
+        "REQ-SYS-d9950c5829",
+        "REQ-SYS-89a5c6a721",
+        "REQ-SYS-e8c32e7983",
+        "REQ-SYS-b0a8e0841b",
+        "REQ-SYS-5d8f7eb98b",
+        "REQ-SYS-8570d0cc38",
+        "REQ-SYS-2a8927ff1f",
+        "REQ-SYS-017d1c5e10",
+        "REQ-SYS-2cd8dd6a4e",
+        "REQ-SYS-eaa4a0f184",
+        "REQ-SYS-974df71a1e",
+        "REQ-SYS-097bd92b50",
+        "REQ-SYS-45fa1403a2",
+        "REQ-SYS-ee3645779e",
+        "REQ-SYS-eaf6304f26",
+        "REQ-SYS-6f60d0aebc",
+        "REQ-SYS-9b632ca69d",
+        "REQ-SYS-0e8052b9fb",
+        "REQ-SYS-fa5c4ba241",
+        "REQ-SYS-88529b834c",
+        "REQ-SYS-935eace9e8",
+        "REQ-SYS-8d2115cd37",
+        "REQ-SYS-87a1fa6119",
+        "REQ-SYS-c21a73698c",
+        "REQ-SYS-701b6f8f9a",
+        "REQ-SYS-9d1bd7b465",
+        "REQ-SYS-6dfb45ef11",
+        "REQ-SYS-ea98674cc2",
+        "REQ-SYS-f90d26d638",
+        "REQ-SYS-e5cc911bd0",
+        "REQ-SYS-f6c414f5c8",
+        "REQ-SYS-eb7f683d6b",
+        "REQ-SYS-2d3596eac5",
+        "REQ-SYS-781b0c6c23",
+        "REQ-SYS-662c1006d7",
+        "REQ-SYS-50aa1226ae",
+        "REQ-SYS-7905b4c0b7",
+        "REQ-SYS-f3edf65118",
+        "REQ-SYS-2dd4901fab",
+        "REQ-SYS-18046a16f3",
+        "REQ-SYS-428438ce85",
+        "REQ-SYS-ce2a33bbb7",
+        "REQ-SYS-811b7eba70",
+        "REQ-SYS-a4afe10ab7",
+        "REQ-SYS-d64d54fad9",
+        "REQ-SYS-ab624aaa66",
+        "REQ-SYS-a43a234c33",
+        "REQ-SYS-3445422fb6",
+        "REQ-SYS-5bebb25844",
+        "REQ-SYS-c92d50cd3b",
+        "REQ-SYS-00866478cb",
+        "REQ-SYS-b03dd22864",
+        "REQ-SYS-40e69ac4b6",
+        "REQ-SYS-ade0d78cbf",
+        "REQ-SYS-dbe6649b01",
+        "REQ-SYS-dfe3697466",
+        "REQ-SYS-d8905a9693",
+        "REQ-SYS-e3094879ed",
+        "REQ-SYS-9144d3e9f8",
+        "REQ-SYS-366b934a4a",
+        "REQ-SYS-b9354b1e1e",
+        "REQ-SYS-51f00fcbc3",
+        "REQ-SYS-9df3907a79",
+        "REQ-SYS-ca5b1e9f11",
+        "REQ-SYS-3ed0430a70",
+        "REQ-SYS-5b47931699",
+        "REQ-SYS-6ef1df945c",
+        "REQ-SYS-f8ecfb6560",
+        "REQ-SYS-a40ce5867d",
+        "REQ-SYS-cef2d37230",
+        "REQ-SYS-a6be5a9faf",
+        "REQ-SYS-da6b49f501",
+        "REQ-SYS-f06505b1cd",
+        "REQ-SYS-373203e76b",
+        "REQ-SYS-997370d91b",
+        "REQ-SYS-3ce029e34a",
+        "REQ-SYS-ad0538a3b6",
+        "REQ-SYS-60dad91217",
+        "REQ-SYS-020aec3006",
+        "REQ-SYS-6a856d1824",
+        "REQ-SYS-623f20da0a",
+        "REQ-SYS-9620680f23",
+        "REQ-SYS-2766e03f70",
+        "REQ-SYS-e25855e6ba",
+        "REQ-SYS-9fd830d3f1",
+        "REQ-SYS-e57ef8294a",
+        "REQ-SYS-150d632207",
+        "REQ-SYS-b21c1478e5",
+        "REQ-SYS-76257b5d3f",
+        "REQ-SYS-da78713c66",
+        "REQ-SYS-7249011964",
+        "REQ-SYS-05461efc46",
+        "REQ-SYS-6520d9d2fc",
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-f101c4ce86ac65",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "单礼物消耗10金币；奖励0/5/10/50/100/1000概率为8.4%/34%/55%/2%/0.5%/0.1%"
+      ],
+      "动作": "查看配置计算的RTP",
+      "可观察结果": "RTP计算结果=(0×0.084+5×0.34+10×0.55+50×0.02+100×0.005+1000×0.001)÷10×100=97",
+      "来源需求": [
+        "REQ-SYS-118ef76d58",
+        "REQ-SYS-a6a8ab1cc2",
+        "REQ-SYS-1a8f045273",
+        "REQ-SYS-40bfde7ae7",
+        "REQ-SYS-5848f2af01",
+        "REQ-SYS-df6223763e",
+        "REQ-SYS-954da369c9",
+        "REQ-SYS-499b86280c",
+        "REQ-SYS-8649bfc9ab",
+        "REQ-SYS-9f8d4dfed8",
+        "REQ-SYS-fc7ecd9286",
+        "REQ-SYS-0cde7145e8",
+        "REQ-SYS-8dee2d71ad",
+        "REQ-SYS-eeb035382d",
+        "REQ-SYS-29c0a26cf6",
+        "REQ-SYS-f17da1760c",
+        "REQ-SYS-8bbb0d9ff3",
+        "REQ-SYS-0f23dfe333",
+        "REQ-SYS-f6212bf1b9",
+        "REQ-SYS-97f6fd6716",
+        "REQ-SYS-02067a059c",
+        "REQ-SYS-93ee37dc7a",
+        "REQ-SYS-be841e89a4",
+        "REQ-SYS-2fd69eeac6",
+        "REQ-SYS-04fc9b2d8e",
+        "REQ-SYS-094dbef227",
+        "REQ-SYS-0f47b03082",
+        "REQ-SYS-6d0c02bdf3",
+        "REQ-SYS-7e05c45d60",
+        "REQ-SYS-5c48a00988",
+        "REQ-SYS-ebffadbb6b",
+        "REQ-SYS-058b3ea7e7",
+        "REQ-SYS-9d65ff99e4",
+        "REQ-SYS-1a2976b8bd",
+        "REQ-SYS-975cd32886",
+        "REQ-SYS-9b8a95cf10",
+        "REQ-SYS-b375268244",
+        "REQ-SYS-8bf66637fe",
+        "REQ-SYS-b066fb4a81",
+        "REQ-SYS-6febb76bba",
+        "REQ-SYS-21c588b3f1",
+        "REQ-SYS-5d73ded0bb",
+        "REQ-SYS-e38e2b3f1c",
+        "REQ-SYS-e27ff3ff8e",
+        "REQ-SYS-5cd8c097a9",
+        "REQ-SYS-53832764df",
+        "REQ-SYS-7480eab51f",
+        "REQ-SYS-79dd5d4146",
+        "REQ-SYS-7b7342cd34",
+        "REQ-SYS-ad375c4bbe",
+        "REQ-SYS-6d58f371d0",
+        "REQ-SYS-07b643d4ae",
+        "REQ-SYS-dd00ccdf6f",
+        "REQ-SYS-73be1ccf91",
+        "REQ-SYS-e7e6aee235",
+        "REQ-SYS-5b8abaaa6c",
+        "REQ-SYS-47e4f6cb7d",
+        "REQ-SYS-0bae4c6220",
+        "REQ-SYS-a0bf4bcdba",
+        "REQ-SYS-beaed55dcc",
+        "REQ-SYS-62094cf48f",
+        "REQ-SYS-e2845e6efd",
+        "REQ-SYS-b2dcb1c143",
+        "REQ-SYS-09a04aa578",
+        "REQ-SYS-5c0804b56b",
+        "REQ-SYS-849dc80539",
+        "REQ-SYS-c3833386ea",
+        "REQ-SYS-e03f417172",
+        "REQ-SYS-8d010470b5",
+        "REQ-SYS-79b960afbc",
+        "REQ-SYS-231ca4516f",
+        "REQ-SYS-027dca936d",
+        "REQ-SYS-e77356074a",
+        "REQ-SYS-fe9b882d08",
+        "REQ-SYS-5bb70806e8",
+        "REQ-SYS-57ecd00a68",
+        "REQ-SYS-b96f9841bb",
+        "REQ-SYS-27e1210f91",
+        "REQ-SYS-e77356074a",
+        "REQ-SYS-992d02eda5",
+        "REQ-SYS-4385592bb0",
+        "REQ-SYS-2513efb84f",
+        "REQ-SYS-e0ea814410",
+        "REQ-SYS-611a8f90cc",
+        "REQ-SYS-731bdf2b9a",
+        "REQ-SYS-3fe578cf59",
+        "REQ-SYS-9ef5fd86d6",
+        "REQ-SYS-53d9400e09",
+        "REQ-SYS-7a259a38f1",
+        "REQ-SYS-d01cd8f413",
+        "REQ-SYS-f6cdc3080f",
+        "REQ-SYS-56f3f175ce",
+        "REQ-SYS-bcc3eadfad",
+        "REQ-SYS-04793ea053",
+        "REQ-SYS-60122724cb",
+        "REQ-SYS-3ded211b9a",
+        "REQ-SYS-341c49eb53",
+        "REQ-SYS-0f1da9a97a",
+        "REQ-SYS-0a9deee752",
+        "REQ-SYS-54c430f1b2",
+        "REQ-SYS-e69d0c59a2",
+        "REQ-SYS-6791adc777",
+        "REQ-SYS-ba1a250e22",
+        "REQ-SYS-c1236a3377",
+        "REQ-SYS-b0c7b79caa",
+        "REQ-SYS-364c3805dd",
+        "REQ-SYS-afc21c5ff3",
+        "REQ-SYS-7a92c22709",
+        "REQ-SYS-ec71a016d5",
+        "REQ-SYS-d9950c5829",
+        "REQ-SYS-89a5c6a721",
+        "REQ-SYS-e8c32e7983",
+        "REQ-SYS-b0a8e0841b",
+        "REQ-SYS-5d8f7eb98b",
+        "REQ-SYS-8570d0cc38",
+        "REQ-SYS-2a8927ff1f",
+        "REQ-SYS-017d1c5e10",
+        "REQ-SYS-2cd8dd6a4e",
+        "REQ-SYS-eaa4a0f184",
+        "REQ-SYS-974df71a1e",
+        "REQ-SYS-097bd92b50",
+        "REQ-SYS-45fa1403a2",
+        "REQ-SYS-ee3645779e",
+        "REQ-SYS-eaf6304f26",
+        "REQ-SYS-6f60d0aebc",
+        "REQ-SYS-9b632ca69d",
+        "REQ-SYS-0e8052b9fb",
+        "REQ-SYS-fa5c4ba241",
+        "REQ-SYS-88529b834c",
+        "REQ-SYS-935eace9e8",
+        "REQ-SYS-8d2115cd37",
+        "REQ-SYS-87a1fa6119",
+        "REQ-SYS-c21a73698c",
+        "REQ-SYS-701b6f8f9a",
+        "REQ-SYS-9d1bd7b465",
+        "REQ-SYS-6dfb45ef11",
+        "REQ-SYS-ea98674cc2",
+        "REQ-SYS-f90d26d638",
+        "REQ-SYS-e5cc911bd0",
+        "REQ-SYS-f6c414f5c8",
+        "REQ-SYS-eb7f683d6b",
+        "REQ-SYS-2d3596eac5",
+        "REQ-SYS-781b0c6c23",
+        "REQ-SYS-662c1006d7",
+        "REQ-SYS-50aa1226ae",
+        "REQ-SYS-7905b4c0b7",
+        "REQ-SYS-f3edf65118",
+        "REQ-SYS-2dd4901fab",
+        "REQ-SYS-18046a16f3",
+        "REQ-SYS-428438ce85",
+        "REQ-SYS-ce2a33bbb7",
+        "REQ-SYS-811b7eba70",
+        "REQ-SYS-a4afe10ab7",
+        "REQ-SYS-d64d54fad9",
+        "REQ-SYS-ab624aaa66",
+        "REQ-SYS-a43a234c33",
+        "REQ-SYS-3445422fb6",
+        "REQ-SYS-5bebb25844",
+        "REQ-SYS-c92d50cd3b",
+        "REQ-SYS-00866478cb",
+        "REQ-SYS-b03dd22864",
+        "REQ-SYS-40e69ac4b6",
+        "REQ-SYS-ade0d78cbf",
+        "REQ-SYS-dbe6649b01",
+        "REQ-SYS-dfe3697466",
+        "REQ-SYS-d8905a9693",
+        "REQ-SYS-e3094879ed",
+        "REQ-SYS-9144d3e9f8",
+        "REQ-SYS-366b934a4a",
+        "REQ-SYS-b9354b1e1e",
+        "REQ-SYS-51f00fcbc3",
+        "REQ-SYS-9df3907a79",
+        "REQ-SYS-ca5b1e9f11",
+        "REQ-SYS-3ed0430a70",
+        "REQ-SYS-5b47931699",
+        "REQ-SYS-6ef1df945c",
+        "REQ-SYS-f8ecfb6560",
+        "REQ-SYS-a40ce5867d",
+        "REQ-SYS-cef2d37230",
+        "REQ-SYS-a6be5a9faf",
+        "REQ-SYS-da6b49f501",
+        "REQ-SYS-f06505b1cd",
+        "REQ-SYS-373203e76b",
+        "REQ-SYS-997370d91b",
+        "REQ-SYS-3ce029e34a",
+        "REQ-SYS-ad0538a3b6",
+        "REQ-SYS-60dad91217",
+        "REQ-SYS-020aec3006",
+        "REQ-SYS-6a856d1824",
+        "REQ-SYS-623f20da0a",
+        "REQ-SYS-9620680f23",
+        "REQ-SYS-2766e03f70",
+        "REQ-SYS-e25855e6ba",
+        "REQ-SYS-9fd830d3f1",
+        "REQ-SYS-e57ef8294a",
+        "REQ-SYS-150d632207",
+        "REQ-SYS-b21c1478e5",
+        "REQ-SYS-76257b5d3f",
+        "REQ-SYS-da78713c66",
+        "REQ-SYS-7249011964",
+        "REQ-SYS-05461efc46",
+        "REQ-SYS-6520d9d2fc",
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-bdcda13be1950d",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "单礼物消耗10金币；奖励0/5/10/50/100/1000概率为6.4%/36%/55%/2%/0.5%/0.1%"
+      ],
+      "动作": "查看配置计算的RTP",
+      "可观察结果": "RTP计算结果=(0×0.064+5×0.36+10×0.55+50×0.02+100×0.005+1000×0.001)÷10×100=98",
+      "来源需求": [
+        "REQ-SYS-118ef76d58",
+        "REQ-SYS-a6a8ab1cc2",
+        "REQ-SYS-1a8f045273",
+        "REQ-SYS-40bfde7ae7",
+        "REQ-SYS-5848f2af01",
+        "REQ-SYS-df6223763e",
+        "REQ-SYS-954da369c9",
+        "REQ-SYS-499b86280c",
+        "REQ-SYS-8649bfc9ab",
+        "REQ-SYS-9f8d4dfed8",
+        "REQ-SYS-fc7ecd9286",
+        "REQ-SYS-0cde7145e8",
+        "REQ-SYS-8dee2d71ad",
+        "REQ-SYS-eeb035382d",
+        "REQ-SYS-29c0a26cf6",
+        "REQ-SYS-f17da1760c",
+        "REQ-SYS-8bbb0d9ff3",
+        "REQ-SYS-0f23dfe333",
+        "REQ-SYS-f6212bf1b9",
+        "REQ-SYS-97f6fd6716",
+        "REQ-SYS-02067a059c",
+        "REQ-SYS-93ee37dc7a",
+        "REQ-SYS-be841e89a4",
+        "REQ-SYS-2fd69eeac6",
+        "REQ-SYS-04fc9b2d8e",
+        "REQ-SYS-094dbef227",
+        "REQ-SYS-0f47b03082",
+        "REQ-SYS-6d0c02bdf3",
+        "REQ-SYS-7e05c45d60",
+        "REQ-SYS-5c48a00988",
+        "REQ-SYS-ebffadbb6b",
+        "REQ-SYS-058b3ea7e7",
+        "REQ-SYS-9d65ff99e4",
+        "REQ-SYS-1a2976b8bd",
+        "REQ-SYS-975cd32886",
+        "REQ-SYS-9b8a95cf10",
+        "REQ-SYS-b375268244",
+        "REQ-SYS-8bf66637fe",
+        "REQ-SYS-b066fb4a81",
+        "REQ-SYS-6febb76bba",
+        "REQ-SYS-21c588b3f1",
+        "REQ-SYS-5d73ded0bb",
+        "REQ-SYS-e38e2b3f1c",
+        "REQ-SYS-e27ff3ff8e",
+        "REQ-SYS-5cd8c097a9",
+        "REQ-SYS-53832764df",
+        "REQ-SYS-7480eab51f",
+        "REQ-SYS-79dd5d4146",
+        "REQ-SYS-7b7342cd34",
+        "REQ-SYS-ad375c4bbe",
+        "REQ-SYS-6d58f371d0",
+        "REQ-SYS-07b643d4ae",
+        "REQ-SYS-dd00ccdf6f",
+        "REQ-SYS-73be1ccf91",
+        "REQ-SYS-e7e6aee235",
+        "REQ-SYS-5b8abaaa6c",
+        "REQ-SYS-47e4f6cb7d",
+        "REQ-SYS-0bae4c6220",
+        "REQ-SYS-a0bf4bcdba",
+        "REQ-SYS-beaed55dcc",
+        "REQ-SYS-62094cf48f",
+        "REQ-SYS-e2845e6efd",
+        "REQ-SYS-b2dcb1c143",
+        "REQ-SYS-09a04aa578",
+        "REQ-SYS-5c0804b56b",
+        "REQ-SYS-849dc80539",
+        "REQ-SYS-c3833386ea",
+        "REQ-SYS-e03f417172",
+        "REQ-SYS-8d010470b5",
+        "REQ-SYS-79b960afbc",
+        "REQ-SYS-231ca4516f",
+        "REQ-SYS-027dca936d",
+        "REQ-SYS-e77356074a",
+        "REQ-SYS-fe9b882d08",
+        "REQ-SYS-5bb70806e8",
+        "REQ-SYS-57ecd00a68",
+        "REQ-SYS-b96f9841bb",
+        "REQ-SYS-27e1210f91",
+        "REQ-SYS-e77356074a",
+        "REQ-SYS-992d02eda5",
+        "REQ-SYS-4385592bb0",
+        "REQ-SYS-2513efb84f",
+        "REQ-SYS-e0ea814410",
+        "REQ-SYS-611a8f90cc",
+        "REQ-SYS-731bdf2b9a",
+        "REQ-SYS-3fe578cf59",
+        "REQ-SYS-9ef5fd86d6",
+        "REQ-SYS-53d9400e09",
+        "REQ-SYS-7a259a38f1",
+        "REQ-SYS-d01cd8f413",
+        "REQ-SYS-f6cdc3080f",
+        "REQ-SYS-56f3f175ce",
+        "REQ-SYS-bcc3eadfad",
+        "REQ-SYS-04793ea053",
+        "REQ-SYS-60122724cb",
+        "REQ-SYS-3ded211b9a",
+        "REQ-SYS-341c49eb53",
+        "REQ-SYS-0f1da9a97a",
+        "REQ-SYS-0a9deee752",
+        "REQ-SYS-54c430f1b2",
+        "REQ-SYS-e69d0c59a2",
+        "REQ-SYS-6791adc777",
+        "REQ-SYS-ba1a250e22",
+        "REQ-SYS-c1236a3377",
+        "REQ-SYS-b0c7b79caa",
+        "REQ-SYS-364c3805dd",
+        "REQ-SYS-afc21c5ff3",
+        "REQ-SYS-7a92c22709",
+        "REQ-SYS-ec71a016d5",
+        "REQ-SYS-d9950c5829",
+        "REQ-SYS-89a5c6a721",
+        "REQ-SYS-e8c32e7983",
+        "REQ-SYS-b0a8e0841b",
+        "REQ-SYS-5d8f7eb98b",
+        "REQ-SYS-8570d0cc38",
+        "REQ-SYS-2a8927ff1f",
+        "REQ-SYS-017d1c5e10",
+        "REQ-SYS-2cd8dd6a4e",
+        "REQ-SYS-eaa4a0f184",
+        "REQ-SYS-974df71a1e",
+        "REQ-SYS-097bd92b50",
+        "REQ-SYS-45fa1403a2",
+        "REQ-SYS-ee3645779e",
+        "REQ-SYS-eaf6304f26",
+        "REQ-SYS-6f60d0aebc",
+        "REQ-SYS-9b632ca69d",
+        "REQ-SYS-0e8052b9fb",
+        "REQ-SYS-fa5c4ba241",
+        "REQ-SYS-88529b834c",
+        "REQ-SYS-935eace9e8",
+        "REQ-SYS-8d2115cd37",
+        "REQ-SYS-87a1fa6119",
+        "REQ-SYS-c21a73698c",
+        "REQ-SYS-701b6f8f9a",
+        "REQ-SYS-9d1bd7b465",
+        "REQ-SYS-6dfb45ef11",
+        "REQ-SYS-ea98674cc2",
+        "REQ-SYS-f90d26d638",
+        "REQ-SYS-e5cc911bd0",
+        "REQ-SYS-f6c414f5c8",
+        "REQ-SYS-eb7f683d6b",
+        "REQ-SYS-2d3596eac5",
+        "REQ-SYS-781b0c6c23",
+        "REQ-SYS-662c1006d7",
+        "REQ-SYS-50aa1226ae",
+        "REQ-SYS-7905b4c0b7",
+        "REQ-SYS-f3edf65118",
+        "REQ-SYS-2dd4901fab",
+        "REQ-SYS-18046a16f3",
+        "REQ-SYS-428438ce85",
+        "REQ-SYS-ce2a33bbb7",
+        "REQ-SYS-811b7eba70",
+        "REQ-SYS-a4afe10ab7",
+        "REQ-SYS-d64d54fad9",
+        "REQ-SYS-ab624aaa66",
+        "REQ-SYS-a43a234c33",
+        "REQ-SYS-3445422fb6",
+        "REQ-SYS-5bebb25844",
+        "REQ-SYS-c92d50cd3b",
+        "REQ-SYS-00866478cb",
+        "REQ-SYS-b03dd22864",
+        "REQ-SYS-40e69ac4b6",
+        "REQ-SYS-ade0d78cbf",
+        "REQ-SYS-dbe6649b01",
+        "REQ-SYS-dfe3697466",
+        "REQ-SYS-d8905a9693",
+        "REQ-SYS-e3094879ed",
+        "REQ-SYS-9144d3e9f8",
+        "REQ-SYS-366b934a4a",
+        "REQ-SYS-b9354b1e1e",
+        "REQ-SYS-51f00fcbc3",
+        "REQ-SYS-9df3907a79",
+        "REQ-SYS-ca5b1e9f11",
+        "REQ-SYS-3ed0430a70",
+        "REQ-SYS-5b47931699",
+        "REQ-SYS-6ef1df945c",
+        "REQ-SYS-f8ecfb6560",
+        "REQ-SYS-a40ce5867d",
+        "REQ-SYS-cef2d37230",
+        "REQ-SYS-a6be5a9faf",
+        "REQ-SYS-da6b49f501",
+        "REQ-SYS-f06505b1cd",
+        "REQ-SYS-373203e76b",
+        "REQ-SYS-997370d91b",
+        "REQ-SYS-3ce029e34a",
+        "REQ-SYS-ad0538a3b6",
+        "REQ-SYS-60dad91217",
+        "REQ-SYS-020aec3006",
+        "REQ-SYS-6a856d1824",
+        "REQ-SYS-623f20da0a",
+        "REQ-SYS-9620680f23",
+        "REQ-SYS-2766e03f70",
+        "REQ-SYS-e25855e6ba",
+        "REQ-SYS-9fd830d3f1",
+        "REQ-SYS-e57ef8294a",
+        "REQ-SYS-150d632207",
+        "REQ-SYS-b21c1478e5",
+        "REQ-SYS-76257b5d3f",
+        "REQ-SYS-da78713c66",
+        "REQ-SYS-7249011964",
+        "REQ-SYS-05461efc46",
+        "REQ-SYS-6520d9d2fc",
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-30eea9b79c9e12",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除礼物 ID外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少礼物 ID的记录",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-7a5c6ccbba3218",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除中文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少中文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-ccd58f03a22124",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除英文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少英文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-d432007241f813",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除印尼语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少印尼语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-96b67b0f5eaaff",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除马来语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少马来语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-33357c7b51338e",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除图标外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少图标的记录",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-e874474b77aa04",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存单价为0的记录",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-9fd6a880403a7e",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存单价为-1的记录",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-12bcbbd7a64f46",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存单价为1.5的记录",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-0dca03ec2cd906",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "记录保存的单价为1",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-3af4db428643b3",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除礼物 ID外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少礼物 ID的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-cc08d048391fba",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除中文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少中文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-601ae6e0dbc289",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除英文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少英文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-4729253e8ff873",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除印尼语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少印尼语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-7c059cd275e300",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除马来语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少马来语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-b96489a1f5b269",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除图标外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少图标的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-4cd00c480f7fd8",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存单次消耗为0的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-47070eca129607",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存单次消耗为-1的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-f85bca315f0326",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存单次消耗为1.5的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-54041198781a92",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "记录保存的单次消耗为1",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-41a467302acc83",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存开奖次数为0的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-23c31f30a2bfbb",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存开奖次数为-1的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-038d22c10ef58c",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存开奖次数为1.5的记录",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-b163dcf1b5bd93",
+      "共同业务对象": "幸运礼物编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "记录保存的开奖次数为1",
+      "来源需求": [
+        "REQ-ADMIN-ff629f570a",
+        "REQ-ADMIN-04d6e08412",
+        "REQ-ADMIN-bb7db57270",
+        "REQ-ADMIN-def453c6f9",
+        "REQ-ADMIN-913a016c2b",
+        "REQ-ADMIN-35c78d549f",
+        "REQ-ADMIN-305f1020f0",
+        "REQ-ADMIN-1f85f48511",
+        "REQ-ADMIN-94e63922c0",
+        "REQ-ADMIN-e57cd32b00",
+        "REQ-ADMIN-234a0b0b5a",
+        "REQ-PUB-ea1c0115d1",
+        "REQ-PUB-1ea13f57a7",
+        "REQ-PUB-dbdd332b03",
+        "REQ-PUB-2b711f163c"
+      ]
+    },
+    {
+      "原子标识": "SC-0878ee535e8e17",
+      "共同业务对象": "道具详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除道具 ID外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少道具 ID的记录",
+      "来源需求": [
+        "REQ-ADMIN-3c7b603e07",
+        "REQ-ADMIN-e7c2fbbd7d",
+        "REQ-ADMIN-69947234e7",
+        "REQ-ADMIN-738a741c75",
+        "REQ-ADMIN-320b946cb7",
+        "REQ-ADMIN-e0cacd0605",
+        "REQ-ADMIN-240568faf6",
+        "REQ-ADMIN-b6f188a772",
+        "REQ-ADMIN-82231ae35b",
+        "REQ-PUB-cb0ee65039"
+      ]
+    },
+    {
+      "原子标识": "SC-f3b55489efb000",
+      "共同业务对象": "道具详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除中文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少中文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-3c7b603e07",
+        "REQ-ADMIN-e7c2fbbd7d",
+        "REQ-ADMIN-69947234e7",
+        "REQ-ADMIN-738a741c75",
+        "REQ-ADMIN-320b946cb7",
+        "REQ-ADMIN-e0cacd0605",
+        "REQ-ADMIN-240568faf6",
+        "REQ-ADMIN-b6f188a772",
+        "REQ-ADMIN-82231ae35b",
+        "REQ-PUB-cb0ee65039"
+      ]
+    },
+    {
+      "原子标识": "SC-f1d495d637691f",
+      "共同业务对象": "道具详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除英文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少英文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-3c7b603e07",
+        "REQ-ADMIN-e7c2fbbd7d",
+        "REQ-ADMIN-69947234e7",
+        "REQ-ADMIN-738a741c75",
+        "REQ-ADMIN-320b946cb7",
+        "REQ-ADMIN-e0cacd0605",
+        "REQ-ADMIN-240568faf6",
+        "REQ-ADMIN-b6f188a772",
+        "REQ-ADMIN-82231ae35b",
+        "REQ-PUB-cb0ee65039"
+      ]
+    },
+    {
+      "原子标识": "SC-99384849180eff",
+      "共同业务对象": "道具详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除印尼语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少印尼语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-3c7b603e07",
+        "REQ-ADMIN-e7c2fbbd7d",
+        "REQ-ADMIN-69947234e7",
+        "REQ-ADMIN-738a741c75",
+        "REQ-ADMIN-320b946cb7",
+        "REQ-ADMIN-e0cacd0605",
+        "REQ-ADMIN-240568faf6",
+        "REQ-ADMIN-b6f188a772",
+        "REQ-ADMIN-82231ae35b",
+        "REQ-PUB-cb0ee65039"
+      ]
+    },
+    {
+      "原子标识": "SC-ad23666c25850b",
+      "共同业务对象": "道具详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除马来语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少马来语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-3c7b603e07",
+        "REQ-ADMIN-e7c2fbbd7d",
+        "REQ-ADMIN-69947234e7",
+        "REQ-ADMIN-738a741c75",
+        "REQ-ADMIN-320b946cb7",
+        "REQ-ADMIN-e0cacd0605",
+        "REQ-ADMIN-240568faf6",
+        "REQ-ADMIN-b6f188a772",
+        "REQ-ADMIN-82231ae35b",
+        "REQ-PUB-cb0ee65039"
+      ]
+    },
+    {
+      "原子标识": "SC-ee1c3b30c65e8e",
+      "共同业务对象": "道具详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除图标外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少图标的记录",
+      "来源需求": [
+        "REQ-ADMIN-3c7b603e07",
+        "REQ-ADMIN-e7c2fbbd7d",
+        "REQ-ADMIN-69947234e7",
+        "REQ-ADMIN-738a741c75",
+        "REQ-ADMIN-320b946cb7",
+        "REQ-ADMIN-e0cacd0605",
+        "REQ-ADMIN-240568faf6",
+        "REQ-ADMIN-b6f188a772",
+        "REQ-ADMIN-82231ae35b",
+        "REQ-PUB-cb0ee65039"
+      ]
+    },
+    {
+      "原子标识": "SC-72b2fb991c9228",
+      "共同业务对象": "道具详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除素材外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少素材的记录",
+      "来源需求": [
+        "REQ-ADMIN-3c7b603e07",
+        "REQ-ADMIN-e7c2fbbd7d",
+        "REQ-ADMIN-69947234e7",
+        "REQ-ADMIN-738a741c75",
+        "REQ-ADMIN-320b946cb7",
+        "REQ-ADMIN-e0cacd0605",
+        "REQ-ADMIN-240568faf6",
+        "REQ-ADMIN-b6f188a772",
+        "REQ-ADMIN-82231ae35b",
+        "REQ-PUB-cb0ee65039"
+      ]
+    },
+    {
+      "原子标识": "SC-a4cd790f8fa019",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有记录的礼物 ID已生成"
+      ],
+      "动作": "查看礼物 ID",
+      "可观察结果": "礼物 ID不可编辑",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-4ae06da65e043a",
+      "共同业务对象": "道具详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有记录的道具 ID已生成"
+      ],
+      "动作": "查看道具 ID",
+      "可观察结果": "道具 ID不可编辑",
+      "来源需求": [
+        "REQ-ADMIN-3c7b603e07",
+        "REQ-ADMIN-e7c2fbbd7d",
+        "REQ-ADMIN-69947234e7",
+        "REQ-ADMIN-738a741c75",
+        "REQ-ADMIN-320b946cb7",
+        "REQ-ADMIN-e0cacd0605",
+        "REQ-ADMIN-240568faf6",
+        "REQ-ADMIN-b6f188a772",
+        "REQ-ADMIN-82231ae35b",
+        "REQ-PUB-cb0ee65039"
+      ]
+    },
+    {
+      "原子标识": "SC-ab3070baaa8a81",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其他必填项合法"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存零长度的投放时间区间",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-e1e33f56538619",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其他必填项合法"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存结束早于开始的时间区间",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-c38c07498b1045",
+      "共同业务对象": "礼物详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "礼物已上架，本次已到配置失效时间"
+      ],
+      "动作": "刷新礼物详情",
+      "可观察结果": "礼物显示已下架",
+      "来源需求": [
+        "REQ-ADMIN-1d2b85f630",
+        "REQ-ADMIN-206d15251e",
+        "REQ-ADMIN-9ef6c11fee",
+        "REQ-ADMIN-5082a78976",
+        "REQ-ADMIN-38f9e5f793",
+        "REQ-ADMIN-72c51c5fad",
+        "REQ-ADMIN-7ee497310f",
+        "REQ-ADMIN-9a63cdc3a1",
+        "REQ-ADMIN-e136132ea1",
+        "REQ-ADMIN-e56fa487e5",
+        "REQ-PUB-446bdb25b3"
+      ]
+    },
+    {
+      "原子标识": "SC-e10ad050c76598",
+      "共同业务对象": "普通礼物",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "该礼物已有真实成功赠送及收益记录"
+      ],
+      "动作": "查询该礼物历史订单",
+      "可观察结果": "已有收益记录不被删除",
+      "来源需求": [
+        "REQ-ADMIN-89b41a7fba",
+        "REQ-ADMIN-0daf46fee3",
+        "REQ-ADMIN-512a54dffd",
+        "REQ-ADMIN-7f9a747012",
+        "REQ-ADMIN-2739f9ca0c",
+        "REQ-ADMIN-6d07fcecc2",
+        "REQ-ADMIN-f962fe5d6a",
+        "REQ-ADMIN-18035dbdde",
+        "REQ-ADMIN-94c7c6d110",
+        "REQ-ADMIN-6d65441519",
+        "REQ-ADMIN-de6e8b6477",
+        "REQ-ADMIN-dcacc74719",
+        "REQ-ADMIN-458a3419fd",
+        "REQ-ADMIN-18e02c0648",
+        "REQ-ADMIN-23619f6940",
+        "REQ-PUB-37517a9886"
+      ]
+    },
+    {
+      "原子标识": "SC-0399c13ee146de",
+      "共同业务对象": "普通礼物",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已经存在礼物ID1001，其余新增字段合法"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不创建重复礼物ID",
+      "来源需求": [
+        "REQ-ADMIN-89b41a7fba",
+        "REQ-ADMIN-0daf46fee3",
+        "REQ-ADMIN-512a54dffd",
+        "REQ-ADMIN-7f9a747012",
+        "REQ-ADMIN-2739f9ca0c",
+        "REQ-ADMIN-6d07fcecc2",
+        "REQ-ADMIN-f962fe5d6a",
+        "REQ-ADMIN-18035dbdde",
+        "REQ-ADMIN-94c7c6d110"
+      ]
+    },
+    {
+      "原子标识": "SC-08b4c47ed7de6b",
+      "共同业务对象": "购买份数配置详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其他必填项合法"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不能保存没有赠送数量的规则",
+      "来源需求": [
+        "REQ-ADMIN-d3840ac491",
+        "REQ-ADMIN-1159c4c1c1",
+        "REQ-ADMIN-3256e2a43a",
+        "REQ-ADMIN-413eda2d56",
+        "REQ-ADMIN-51c1ca47a3",
+        "REQ-ADMIN-3f219b96b0",
+        "REQ-PUB-6ebeacc102",
+        "REQ-PUB-3686d6e21b"
+      ]
+    },
+    {
+      "原子标识": "SC-dd39416f2b5e8d",
+      "共同业务对象": "购买份数配置详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "数量列表已有1"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不能保存重复数量",
+      "来源需求": [
+        "REQ-ADMIN-d3840ac491",
+        "REQ-ADMIN-1159c4c1c1",
+        "REQ-ADMIN-3256e2a43a",
+        "REQ-ADMIN-413eda2d56",
+        "REQ-ADMIN-51c1ca47a3",
+        "REQ-ADMIN-3f219b96b0",
+        "REQ-PUB-6ebeacc102",
+        "REQ-PUB-3686d6e21b"
+      ]
+    },
+    {
+      "原子标识": "SC-f1d31892897d99",
+      "共同业务对象": "购买份数配置详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "数量列表仅有1和10"
+      ],
+      "动作": "查看默认数量选项",
+      "可观察结果": "默认数量选项仅包含1和10",
+      "来源需求": [
+        "REQ-ADMIN-d3840ac491",
+        "REQ-ADMIN-1159c4c1c1",
+        "REQ-ADMIN-3256e2a43a",
+        "REQ-ADMIN-413eda2d56",
+        "REQ-ADMIN-51c1ca47a3",
+        "REQ-ADMIN-3f219b96b0",
+        "REQ-PUB-6ebeacc102",
+        "REQ-PUB-3686d6e21b"
+      ]
+    },
+    {
+      "原子标识": "SC-f22fe6960b69c2",
+      "共同业务对象": "购买份数配置详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "数量列表为1、10、100，默认值为1"
+      ],
+      "动作": "删除数量100",
+      "可观察结果": "默认数量选项不再包含100",
+      "来源需求": [
+        "REQ-ADMIN-d3840ac491",
+        "REQ-ADMIN-1159c4c1c1",
+        "REQ-ADMIN-3256e2a43a",
+        "REQ-ADMIN-413eda2d56",
+        "REQ-ADMIN-51c1ca47a3",
+        "REQ-ADMIN-3f219b96b0",
+        "REQ-PUB-6ebeacc102",
+        "REQ-PUB-3686d6e21b"
+      ]
+    },
+    {
+      "原子标识": "SC-b0b371b06147fc",
+      "共同业务对象": "购买份数配置详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "数量与默认值合法，未选择礼物"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不能保存无适用礼物的规则",
+      "来源需求": [
+        "REQ-ADMIN-d3840ac491",
+        "REQ-ADMIN-1159c4c1c1",
+        "REQ-ADMIN-3256e2a43a",
+        "REQ-ADMIN-413eda2d56",
+        "REQ-ADMIN-51c1ca47a3",
+        "REQ-ADMIN-3f219b96b0",
+        "REQ-PUB-6ebeacc102",
+        "REQ-PUB-3686d6e21b"
+      ]
+    },
+    {
+      "原子标识": "SC-a8f8091503f258",
+      "共同业务对象": "购买份数配置详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "礼物海星已关联启用规则"
+      ],
+      "动作": "选择海星并启用保存新规则",
+      "可观察结果": "新规则因关联冲突不能启用",
+      "来源需求": [
+        "REQ-ADMIN-d3840ac491",
+        "REQ-ADMIN-1159c4c1c1",
+        "REQ-ADMIN-3256e2a43a",
+        "REQ-ADMIN-413eda2d56",
+        "REQ-ADMIN-51c1ca47a3",
+        "REQ-ADMIN-3f219b96b0",
+        "REQ-PUB-6ebeacc102",
+        "REQ-PUB-3686d6e21b"
+      ]
+    },
+    {
+      "原子标识": "SC-4abfad837b7dcc",
+      "共同业务对象": "违规类型编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除中文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少中文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-351fff565b",
+        "REQ-ADMIN-d3e6ec4386",
+        "REQ-ADMIN-358c04fd2e",
+        "REQ-ADMIN-0f946bf44a",
+        "REQ-ADMIN-d879a799ee",
+        "REQ-ADMIN-4ca4de1fa8",
+        "REQ-ADMIN-6748893fb6",
+        "REQ-PUB-3ed5538087",
+        "REQ-PUB-69035fe877"
+      ]
+    },
+    {
+      "原子标识": "SC-d0868c69b59a22",
+      "共同业务对象": "违规类型编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除英文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少英文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-351fff565b",
+        "REQ-ADMIN-d3e6ec4386",
+        "REQ-ADMIN-358c04fd2e",
+        "REQ-ADMIN-0f946bf44a",
+        "REQ-ADMIN-d879a799ee",
+        "REQ-ADMIN-4ca4de1fa8",
+        "REQ-ADMIN-6748893fb6",
+        "REQ-PUB-3ed5538087",
+        "REQ-PUB-69035fe877"
+      ]
+    },
+    {
+      "原子标识": "SC-7533e0ecac1266",
+      "共同业务对象": "违规类型编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除印尼语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少印尼语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-351fff565b",
+        "REQ-ADMIN-d3e6ec4386",
+        "REQ-ADMIN-358c04fd2e",
+        "REQ-ADMIN-0f946bf44a",
+        "REQ-ADMIN-d879a799ee",
+        "REQ-ADMIN-4ca4de1fa8",
+        "REQ-ADMIN-6748893fb6",
+        "REQ-PUB-3ed5538087",
+        "REQ-PUB-69035fe877"
+      ]
+    },
+    {
+      "原子标识": "SC-704954460c9ab2",
+      "共同业务对象": "违规类型编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除马来语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少马来语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-351fff565b",
+        "REQ-ADMIN-d3e6ec4386",
+        "REQ-ADMIN-358c04fd2e",
+        "REQ-ADMIN-0f946bf44a",
+        "REQ-ADMIN-d879a799ee",
+        "REQ-ADMIN-4ca4de1fa8",
+        "REQ-ADMIN-6748893fb6",
+        "REQ-PUB-3ed5538087",
+        "REQ-PUB-69035fe877"
+      ]
+    },
+    {
+      "原子标识": "SC-660309e924162f",
+      "共同业务对象": "违规类型编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存排序为0的记录",
+      "来源需求": [
+        "REQ-ADMIN-351fff565b",
+        "REQ-ADMIN-d3e6ec4386",
+        "REQ-ADMIN-358c04fd2e",
+        "REQ-ADMIN-0f946bf44a",
+        "REQ-ADMIN-d879a799ee",
+        "REQ-ADMIN-4ca4de1fa8",
+        "REQ-ADMIN-6748893fb6",
+        "REQ-PUB-3ed5538087",
+        "REQ-PUB-69035fe877"
+      ]
+    },
+    {
+      "原子标识": "SC-0665a4955ee644",
+      "共同业务对象": "违规类型编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存排序为-1的记录",
+      "来源需求": [
+        "REQ-ADMIN-351fff565b",
+        "REQ-ADMIN-d3e6ec4386",
+        "REQ-ADMIN-358c04fd2e",
+        "REQ-ADMIN-0f946bf44a",
+        "REQ-ADMIN-d879a799ee",
+        "REQ-ADMIN-4ca4de1fa8",
+        "REQ-ADMIN-6748893fb6",
+        "REQ-PUB-3ed5538087",
+        "REQ-PUB-69035fe877"
+      ]
+    },
+    {
+      "原子标识": "SC-6823f2fff65627",
+      "共同业务对象": "违规类型编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存排序为1.5的记录",
+      "来源需求": [
+        "REQ-ADMIN-351fff565b",
+        "REQ-ADMIN-d3e6ec4386",
+        "REQ-ADMIN-358c04fd2e",
+        "REQ-ADMIN-0f946bf44a",
+        "REQ-ADMIN-d879a799ee",
+        "REQ-ADMIN-4ca4de1fa8",
+        "REQ-ADMIN-6748893fb6",
+        "REQ-PUB-3ed5538087",
+        "REQ-PUB-69035fe877"
+      ]
+    },
+    {
+      "原子标识": "SC-55c8ba39717a3e",
+      "共同业务对象": "违规类型编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "记录保存的排序为1",
+      "来源需求": [
+        "REQ-ADMIN-351fff565b",
+        "REQ-ADMIN-d3e6ec4386",
+        "REQ-ADMIN-358c04fd2e",
+        "REQ-ADMIN-0f946bf44a",
+        "REQ-ADMIN-d879a799ee",
+        "REQ-ADMIN-4ca4de1fa8",
+        "REQ-ADMIN-6748893fb6",
+        "REQ-PUB-3ed5538087",
+        "REQ-PUB-69035fe877"
+      ]
+    },
+    {
+      "原子标识": "SC-ba18bfc2305146",
+      "共同业务对象": "举报详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "被举报场次仍在直播"
+      ],
+      "动作": "填写原因并确认",
+      "可观察结果": "当前直播场次继续直播",
+      "来源需求": [
+        "REQ-ADMIN-89b22d14be",
+        "REQ-ADMIN-e7c23b0a6f",
+        "REQ-ADMIN-d5208511ba",
+        "REQ-ADMIN-5b75c765e8",
+        "REQ-ADMIN-564f4b9a35",
+        "REQ-ADMIN-99a64ef358",
+        "REQ-ADMIN-4bff9e969c",
+        "REQ-ADMIN-42f36ab588",
+        "REQ-ADMIN-4139f87ec8",
+        "REQ-PUB-16a2c96bad",
+        "REQ-PUB-e90f76e069",
+        "REQ-PUB-9c6b2eb32d"
+      ]
+    },
+    {
+      "原子标识": "SC-f95309d49d87fb",
+      "共同业务对象": "举报详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "被举报场次仍在直播"
+      ],
+      "动作": "填写原因并确认",
+      "可观察结果": "被举报场次显示已结束",
+      "来源需求": [
+        "REQ-ADMIN-89b22d14be",
+        "REQ-ADMIN-e7c23b0a6f",
+        "REQ-ADMIN-d5208511ba",
+        "REQ-ADMIN-5b75c765e8",
+        "REQ-ADMIN-564f4b9a35",
+        "REQ-ADMIN-99a64ef358",
+        "REQ-ADMIN-4bff9e969c",
+        "REQ-ADMIN-42f36ab588",
+        "REQ-ADMIN-4139f87ec8",
+        "REQ-PUB-16a2c96bad",
+        "REQ-PUB-e90f76e069",
+        "REQ-PUB-9c6b2eb32d"
+      ]
+    },
+    {
+      "原子标识": "SC-9c7030806d5834",
+      "共同业务对象": "举报详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "被举报主播仍在直播"
+      ],
+      "动作": "填写原因并确认",
+      "可观察结果": "该主播直播权限显示关闭",
+      "来源需求": [
+        "REQ-ADMIN-89b22d14be",
+        "REQ-ADMIN-e7c23b0a6f",
+        "REQ-ADMIN-d5208511ba",
+        "REQ-ADMIN-5b75c765e8",
+        "REQ-ADMIN-564f4b9a35",
+        "REQ-ADMIN-99a64ef358",
+        "REQ-ADMIN-4bff9e969c",
+        "REQ-ADMIN-42f36ab588",
+        "REQ-ADMIN-4139f87ec8",
+        "REQ-PUB-16a2c96bad",
+        "REQ-PUB-e90f76e069",
+        "REQ-PUB-9c6b2eb32d"
+      ]
+    },
+    {
+      "原子标识": "SC-11c8f211e9b1d5",
+      "共同业务对象": "举报详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "被举报场次已结束且工单原待处理"
+      ],
+      "动作": "查看处理操作",
+      "可观察结果": "不提供继续处罚该场次的操作",
+      "来源需求": [
+        "REQ-ADMIN-89b22d14be",
+        "REQ-ADMIN-e7c23b0a6f",
+        "REQ-ADMIN-d5208511ba",
+        "REQ-ADMIN-5b75c765e8",
+        "REQ-ADMIN-564f4b9a35",
+        "REQ-ADMIN-99a64ef358",
+        "REQ-ADMIN-4bff9e969c",
+        "REQ-ADMIN-42f36ab588",
+        "REQ-ADMIN-4139f87ec8",
+        "REQ-PUB-16a2c96bad",
+        "REQ-PUB-e90f76e069",
+        "REQ-PUB-9c6b2eb32d"
+      ]
+    },
+    {
+      "原子标识": "SC-cc90cf6aa73f24",
+      "共同业务对象": "举报详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "该工单已处理"
+      ],
+      "动作": "查看详情操作",
+      "可观察结果": "不提供再次提交处理结果",
+      "来源需求": [
+        "REQ-ADMIN-89b22d14be",
+        "REQ-ADMIN-e7c23b0a6f",
+        "REQ-ADMIN-d5208511ba",
+        "REQ-ADMIN-5b75c765e8",
+        "REQ-ADMIN-564f4b9a35",
+        "REQ-ADMIN-99a64ef358",
+        "REQ-ADMIN-4bff9e969c",
+        "REQ-ADMIN-42f36ab588",
+        "REQ-ADMIN-4139f87ec8",
+        "REQ-PUB-16a2c96bad",
+        "REQ-PUB-e90f76e069",
+        "REQ-PUB-9c6b2eb32d"
+      ]
+    },
+    {
+      "原子标识": "SC-84602d13a56ab9",
+      "共同业务对象": "违规类型",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "目标类型为系统预置"
+      ],
+      "动作": "查看该类型操作",
+      "可观察结果": "不提供删除入口",
+      "来源需求": [
+        "REQ-ADMIN-424dae46e0",
+        "REQ-ADMIN-06eb8e3ac0",
+        "REQ-ADMIN-3a19b9e35a",
+        "REQ-ADMIN-bbc45809e6",
+        "REQ-ADMIN-451703ddd2",
+        "REQ-ADMIN-1b4185f07d",
+        "REQ-ADMIN-71cd3e4b92",
+        "REQ-ADMIN-a47b04d2e5",
+        "REQ-PUB-42e913d498",
+        "REQ-PUB-7fac1011ba",
+        "REQ-PUB-5efe486613"
+      ]
+    },
+    {
+      "原子标识": "SC-1a9dfc51c39f33",
+      "共同业务对象": "违规类型",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "目标类型为系统预置"
+      ],
+      "动作": "查看状态开关",
+      "可观察结果": "预置类型不能停用",
+      "来源需求": [
+        "REQ-ADMIN-424dae46e0",
+        "REQ-ADMIN-06eb8e3ac0",
+        "REQ-ADMIN-3a19b9e35a",
+        "REQ-ADMIN-bbc45809e6",
+        "REQ-ADMIN-451703ddd2",
+        "REQ-ADMIN-1b4185f07d",
+        "REQ-ADMIN-71cd3e4b92",
+        "REQ-ADMIN-a47b04d2e5",
+        "REQ-PUB-42e913d498",
+        "REQ-PUB-7fac1011ba",
+        "REQ-PUB-5efe486613"
+      ]
+    },
+    {
+      "原子标识": "SC-4464c07edbe40a",
+      "共同业务对象": "违规类型",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "自定义类型已有历史举报"
+      ],
+      "动作": "删除该类型并确认",
+      "可观察结果": "历史举报仍保留提交时类型名称",
+      "来源需求": [
+        "REQ-ADMIN-424dae46e0",
+        "REQ-ADMIN-06eb8e3ac0",
+        "REQ-ADMIN-3a19b9e35a",
+        "REQ-ADMIN-bbc45809e6",
+        "REQ-ADMIN-451703ddd2",
+        "REQ-ADMIN-1b4185f07d",
+        "REQ-ADMIN-71cd3e4b92",
+        "REQ-ADMIN-a47b04d2e5",
+        "REQ-PUB-42e913d498",
+        "REQ-PUB-7fac1011ba",
+        "REQ-PUB-5efe486613"
+      ]
+    },
+    {
+      "原子标识": "SC-c5a42a32d63041",
+      "共同业务对象": "内容审核详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权"
+      ],
+      "动作": "提交",
+      "可观察结果": "不能提交缺少原因的处置",
+      "来源需求": [
+        "REQ-ADMIN-581b5d7983",
+        "REQ-ADMIN-3006b9c547",
+        "REQ-ADMIN-6c03efa1ae",
+        "REQ-ADMIN-17adb450ba",
+        "REQ-ADMIN-2612789dd5",
+        "REQ-ADMIN-4345fbe960",
+        "REQ-ADMIN-1129203065"
+      ]
+    },
+    {
+      "原子标识": "SC-a037814db9a520",
+      "共同业务对象": "内容审核详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "被审查直播仍在进行"
+      ],
+      "动作": "提交",
+      "可观察结果": "该直播场次仍直播中",
+      "来源需求": [
+        "REQ-ADMIN-581b5d7983",
+        "REQ-ADMIN-3006b9c547",
+        "REQ-ADMIN-6c03efa1ae",
+        "REQ-ADMIN-17adb450ba",
+        "REQ-ADMIN-2612789dd5",
+        "REQ-ADMIN-4345fbe960",
+        "REQ-ADMIN-1129203065"
+      ]
+    },
+    {
+      "原子标识": "SC-b54d21fc543183",
+      "共同业务对象": "内容审核详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "目标审核单已忽略"
+      ],
+      "动作": "查看处置入口",
+      "可观察结果": "不允许再次提交该审核单处置",
+      "来源需求": [
+        "REQ-ADMIN-581b5d7983",
+        "REQ-ADMIN-3006b9c547",
+        "REQ-ADMIN-6c03efa1ae",
+        "REQ-ADMIN-17adb450ba",
+        "REQ-ADMIN-2612789dd5",
+        "REQ-ADMIN-4345fbe960",
+        "REQ-ADMIN-1129203065"
+      ]
+    },
+    {
+      "原子标识": "SC-30a4eeab4734e3",
+      "共同业务对象": "每日统计",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "甲当天启动App3次并切回前台2次，乙启动1次，另有游客启动2次"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "活跃用户数为2",
+      "来源需求": [
+        "REQ-ADMIN-c88b18af59",
+        "REQ-ADMIN-6b15f0748c",
+        "REQ-ADMIN-7d52815e32",
+        "REQ-ADMIN-0729749d43",
+        "REQ-ADMIN-8748cad193",
+        "REQ-ADMIN-c020c4b0d9",
+        "REQ-ADMIN-d85cd33985",
+        "REQ-ADMIN-9b4d1ef084",
+        "REQ-ADMIN-0888939ecd",
+        "REQ-ADMIN-fd2f152f94",
+        "REQ-ADMIN-2d1320c185",
+        "REQ-PUB-cbe1fac8c9"
+      ]
+    },
+    {
+      "原子标识": "SC-50c747a88fa171",
+      "共同业务对象": "每日统计",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当日新增10人，其中2人成功充值总额30 USD"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "新用户ARPU计算结果=30÷2=15",
+      "来源需求": [
+        "REQ-ADMIN-c88b18af59",
+        "REQ-ADMIN-6b15f0748c",
+        "REQ-ADMIN-7d52815e32",
+        "REQ-ADMIN-0729749d43",
+        "REQ-ADMIN-8748cad193",
+        "REQ-ADMIN-c020c4b0d9",
+        "REQ-ADMIN-d85cd33985",
+        "REQ-ADMIN-9b4d1ef084",
+        "REQ-ADMIN-0888939ecd",
+        "REQ-ADMIN-fd2f152f94",
+        "REQ-ADMIN-2d1320c185",
+        "REQ-PUB-cbe1fac8c9"
+      ]
+    },
+    {
+      "原子标识": "SC-4d3fa010ebc9c1",
+      "共同业务对象": "每日统计",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "新用户充值人数为0"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "新用户ARPU为0",
+      "来源需求": [
+        "REQ-ADMIN-c88b18af59",
+        "REQ-ADMIN-6b15f0748c",
+        "REQ-ADMIN-7d52815e32",
+        "REQ-ADMIN-0729749d43",
+        "REQ-ADMIN-8748cad193",
+        "REQ-ADMIN-c020c4b0d9",
+        "REQ-ADMIN-d85cd33985",
+        "REQ-ADMIN-9b4d1ef084",
+        "REQ-ADMIN-0888939ecd",
+        "REQ-ADMIN-fd2f152f94",
+        "REQ-ADMIN-2d1320c185",
+        "REQ-PUB-cbe1fac8c9"
+      ]
+    },
+    {
+      "原子标识": "SC-55169e1e904503",
+      "共同业务对象": "每日统计",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "有效场次时长分别10、20、100分钟"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "开播时长中位数为20分钟",
+      "来源需求": [
+        "REQ-ADMIN-c88b18af59",
+        "REQ-ADMIN-6b15f0748c",
+        "REQ-ADMIN-7d52815e32",
+        "REQ-ADMIN-0729749d43",
+        "REQ-ADMIN-8748cad193",
+        "REQ-ADMIN-c020c4b0d9",
+        "REQ-ADMIN-d85cd33985",
+        "REQ-ADMIN-9b4d1ef084",
+        "REQ-ADMIN-0888939ecd",
+        "REQ-ADMIN-fd2f152f94",
+        "REQ-ADMIN-2d1320c185",
+        "REQ-PUB-cbe1fac8c9"
+      ]
+    },
+    {
+      "原子标识": "SC-f591b188eb5e26",
+      "共同业务对象": "每日统计",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "有效场次时长10、20、40、100分钟"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "中位数计算结果=(20+40)÷2=30",
+      "来源需求": [
+        "REQ-ADMIN-c88b18af59",
+        "REQ-ADMIN-6b15f0748c",
+        "REQ-ADMIN-7d52815e32",
+        "REQ-ADMIN-0729749d43",
+        "REQ-ADMIN-8748cad193",
+        "REQ-ADMIN-c020c4b0d9",
+        "REQ-ADMIN-d85cd33985",
+        "REQ-ADMIN-9b4d1ef084",
+        "REQ-ADMIN-0888939ecd",
+        "REQ-ADMIN-fd2f152f94",
+        "REQ-ADMIN-2d1320c185",
+        "REQ-PUB-cbe1fac8c9"
+      ]
+    },
+    {
+      "原子标识": "SC-e7341595224ecf",
+      "共同业务对象": "每日统计",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当日无有效场次"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "开播时长中位数为0",
+      "来源需求": [
+        "REQ-ADMIN-c88b18af59",
+        "REQ-ADMIN-6b15f0748c",
+        "REQ-ADMIN-7d52815e32",
+        "REQ-ADMIN-0729749d43",
+        "REQ-ADMIN-8748cad193",
+        "REQ-ADMIN-c020c4b0d9",
+        "REQ-ADMIN-d85cd33985",
+        "REQ-ADMIN-9b4d1ef084",
+        "REQ-ADMIN-0888939ecd",
+        "REQ-ADMIN-fd2f152f94",
+        "REQ-ADMIN-2d1320c185",
+        "REQ-PUB-cbe1fac8c9"
+      ]
+    },
+    {
+      "原子标识": "SC-9f51f6f2854746",
+      "共同业务对象": "每日统计",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "订单9月10日支付10 USD，9月12日退款完成；12日无其他退款"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "退款金额为10 USD",
+      "来源需求": [
+        "REQ-ADMIN-c88b18af59",
+        "REQ-ADMIN-6b15f0748c",
+        "REQ-ADMIN-7d52815e32",
+        "REQ-ADMIN-0729749d43",
+        "REQ-ADMIN-8748cad193",
+        "REQ-ADMIN-c020c4b0d9",
+        "REQ-ADMIN-d85cd33985",
+        "REQ-ADMIN-9b4d1ef084",
+        "REQ-ADMIN-0888939ecd",
+        "REQ-ADMIN-fd2f152f94",
+        "REQ-ADMIN-2d1320c185",
+        "REQ-PUB-cbe1fac8c9"
+      ]
+    },
+    {
+      "原子标识": "SC-f2cf4b5b1681c2",
+      "共同业务对象": "主播活跃汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "甲仅公会初审通过，乙平台终审通过；无其他认证"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "新增主播数为1",
+      "来源需求": [
+        "REQ-ADMIN-2a1bdb654a",
+        "REQ-ADMIN-15ae8cbc7c",
+        "REQ-ADMIN-067d726ffd",
+        "REQ-ADMIN-a8902997d7",
+        "REQ-ADMIN-8535e82da1",
+        "REQ-ADMIN-2629af8516",
+        "REQ-ADMIN-a793017709",
+        "REQ-ADMIN-8394054012",
+        "REQ-ADMIN-f2ea82668f"
+      ]
+    },
+    {
+      "原子标识": "SC-fd3153db5257f3",
+      "共同业务对象": "主播活跃汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "有效主播总数8，当日开播2人"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "开播率计算结果=2÷8×100=25",
+      "来源需求": [
+        "REQ-ADMIN-2a1bdb654a",
+        "REQ-ADMIN-15ae8cbc7c",
+        "REQ-ADMIN-067d726ffd",
+        "REQ-ADMIN-a8902997d7",
+        "REQ-ADMIN-8535e82da1",
+        "REQ-ADMIN-2629af8516",
+        "REQ-ADMIN-a793017709",
+        "REQ-ADMIN-8394054012",
+        "REQ-ADMIN-f2ea82668f"
+      ]
+    },
+    {
+      "原子标识": "SC-a6bbaa103c6200",
+      "共同业务对象": "主播活跃汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当日有效主播总数0"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "开播率为0",
+      "来源需求": [
+        "REQ-ADMIN-2a1bdb654a",
+        "REQ-ADMIN-15ae8cbc7c",
+        "REQ-ADMIN-067d726ffd",
+        "REQ-ADMIN-a8902997d7",
+        "REQ-ADMIN-8535e82da1",
+        "REQ-ADMIN-2629af8516",
+        "REQ-ADMIN-a793017709",
+        "REQ-ADMIN-8394054012",
+        "REQ-ADMIN-f2ea82668f"
+      ]
+    },
+    {
+      "原子标识": "SC-9074e583fe2646",
+      "共同业务对象": "主播活跃汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "场次甲连麦3次、场次乙连麦1次"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "连麦场次为2",
+      "来源需求": [
+        "REQ-ADMIN-2a1bdb654a",
+        "REQ-ADMIN-15ae8cbc7c",
+        "REQ-ADMIN-067d726ffd",
+        "REQ-ADMIN-a8902997d7",
+        "REQ-ADMIN-8535e82da1",
+        "REQ-ADMIN-2629af8516",
+        "REQ-ADMIN-a793017709",
+        "REQ-ADMIN-8394054012",
+        "REQ-ADMIN-f2ea82668f"
+      ]
+    },
+    {
+      "原子标识": "SC-77a95e4b705be1",
+      "共同业务对象": "直播间互动汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "真实用户甲成功进入3次、乙1次；运营账号丙进入1次，丁密码错误未进入"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "观众人数为2",
+      "来源需求": [
+        "REQ-ADMIN-8c813f97ba",
+        "REQ-ADMIN-4b7e00b0b3",
+        "REQ-ADMIN-1995a7e1e3",
+        "REQ-ADMIN-d6d67a59c2",
+        "REQ-ADMIN-f5bf1ede6e",
+        "REQ-ADMIN-3f1529d356"
+      ]
+    },
+    {
+      "原子标识": "SC-ce3b90961f7b6d",
+      "共同业务对象": "直播间互动汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "有效观看时长合计90秒，按每分钟60秒换算"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "观看时长计算结果=2",
+      "来源需求": [
+        "REQ-ADMIN-8c813f97ba",
+        "REQ-ADMIN-4b7e00b0b3",
+        "REQ-ADMIN-1995a7e1e3",
+        "REQ-ADMIN-d6d67a59c2",
+        "REQ-ADMIN-f5bf1ede6e",
+        "REQ-ADMIN-3f1529d356"
+      ]
+    },
+    {
+      "原子标识": "SC-31a68c95be3787",
+      "共同业务对象": "直播间互动汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "有效观看秒数合计300，观众2人"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "人均观看时长计算结果=3",
+      "来源需求": [
+        "REQ-ADMIN-8c813f97ba",
+        "REQ-ADMIN-4b7e00b0b3",
+        "REQ-ADMIN-1995a7e1e3",
+        "REQ-ADMIN-d6d67a59c2",
+        "REQ-ADMIN-f5bf1ede6e",
+        "REQ-ADMIN-3f1529d356"
+      ]
+    },
+    {
+      "原子标识": "SC-7366531369b412",
+      "共同业务对象": "直播间互动汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "观众人数为0"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "人均观看时长为0",
+      "来源需求": [
+        "REQ-ADMIN-8c813f97ba",
+        "REQ-ADMIN-4b7e00b0b3",
+        "REQ-ADMIN-1995a7e1e3",
+        "REQ-ADMIN-d6d67a59c2",
+        "REQ-ADMIN-f5bf1ede6e",
+        "REQ-ADMIN-3f1529d356"
+      ]
+    },
+    {
+      "原子标识": "SC-fc259e5c807230",
+      "共同业务对象": "直播间互动汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "成功进入真实观众2人，直播间访问次数3次"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "访问率计算结果=66.7",
+      "来源需求": [
+        "REQ-ADMIN-8c813f97ba",
+        "REQ-ADMIN-4b7e00b0b3",
+        "REQ-ADMIN-1995a7e1e3",
+        "REQ-ADMIN-d6d67a59c2",
+        "REQ-ADMIN-f5bf1ede6e",
+        "REQ-ADMIN-3f1529d356"
+      ]
+    },
+    {
+      "原子标识": "SC-a54b1ce9f51b2c",
+      "共同业务对象": "直播间互动汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "访问次数为0"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "访问率为0",
+      "来源需求": [
+        "REQ-ADMIN-8c813f97ba",
+        "REQ-ADMIN-4b7e00b0b3",
+        "REQ-ADMIN-1995a7e1e3",
+        "REQ-ADMIN-d6d67a59c2",
+        "REQ-ADMIN-f5bf1ede6e",
+        "REQ-ADMIN-3f1529d356"
+      ]
+    },
+    {
+      "原子标识": "SC-ff6fcabede2523",
+      "共同业务对象": "充值消费汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "甲成功支付10和20 USD，乙成功支付30 USD"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "客单价计算结果=60÷2=30",
+      "来源需求": [
+        "REQ-ADMIN-a3179b56a4",
+        "REQ-ADMIN-0e1395bab2",
+        "REQ-ADMIN-960385e465",
+        "REQ-ADMIN-dea3535561",
+        "REQ-ADMIN-e3552873b7",
+        "REQ-ADMIN-d54b6d3472",
+        "REQ-ADMIN-a8ce7a5f6f",
+        "REQ-ADMIN-fcb943ec14",
+        "REQ-ADMIN-9c7060cc8e"
+      ]
+    },
+    {
+      "原子标识": "SC-a530addf89807e",
+      "共同业务对象": "充值消费汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "充值人数为0"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "客单价为0",
+      "来源需求": [
+        "REQ-ADMIN-a3179b56a4",
+        "REQ-ADMIN-0e1395bab2",
+        "REQ-ADMIN-960385e465",
+        "REQ-ADMIN-dea3535561",
+        "REQ-ADMIN-e3552873b7",
+        "REQ-ADMIN-d54b6d3472",
+        "REQ-ADMIN-a8ce7a5f6f",
+        "REQ-ADMIN-fcb943ec14",
+        "REQ-ADMIN-9c7060cc8e"
+      ]
+    },
+    {
+      "原子标识": "SC-51dac5c7ca4ee8",
+      "共同业务对象": "充值消费汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "基础充值1000，套餐赠金100，任务赠金20，净消费200"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "金币净增量计算结果=1000+100+20-200=920",
+      "来源需求": [
+        "REQ-ADMIN-a3179b56a4",
+        "REQ-ADMIN-0e1395bab2",
+        "REQ-ADMIN-960385e465",
+        "REQ-ADMIN-dea3535561",
+        "REQ-ADMIN-e3552873b7",
+        "REQ-ADMIN-d54b6d3472",
+        "REQ-ADMIN-a8ce7a5f6f",
+        "REQ-ADMIN-fcb943ec14",
+        "REQ-ADMIN-9c7060cc8e"
+      ]
+    },
+    {
+      "原子标识": "SC-14141f5f8243a1",
+      "共同业务对象": "充值消费汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当日净消费200，另有退款扣回1000"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "消费金币为200",
+      "来源需求": [
+        "REQ-ADMIN-a3179b56a4",
+        "REQ-ADMIN-0e1395bab2",
+        "REQ-ADMIN-960385e465",
+        "REQ-ADMIN-dea3535561",
+        "REQ-ADMIN-e3552873b7",
+        "REQ-ADMIN-d54b6d3472",
+        "REQ-ADMIN-a8ce7a5f6f",
+        "REQ-ADMIN-fcb943ec14",
+        "REQ-ADMIN-9c7060cc8e"
+      ]
+    },
+    {
+      "原子标识": "SC-9d53659dfde193",
+      "共同业务对象": "充值用户分层汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "甲昨日注册今天充值10，乙今天注册充值20"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "老用户充值金额为10 USD",
+      "来源需求": [
+        "REQ-ADMIN-cf1d4372a5",
+        "REQ-ADMIN-52b505a5e9",
+        "REQ-ADMIN-b1c52cab3c",
+        "REQ-ADMIN-38cc89f0ea",
+        "REQ-ADMIN-b279d15ea0",
+        "REQ-ADMIN-b0533e7075",
+        "REQ-ADMIN-9687f829e8",
+        "REQ-PUB-2236a52b33"
+      ]
+    },
+    {
+      "原子标识": "SC-1f31272fe10238",
+      "共同业务对象": "充值用户分层汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "老用户2人成功充值合计50 USD"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "老用户ARPU计算结果=50÷2=25",
+      "来源需求": [
+        "REQ-ADMIN-cf1d4372a5",
+        "REQ-ADMIN-52b505a5e9",
+        "REQ-ADMIN-b1c52cab3c",
+        "REQ-ADMIN-38cc89f0ea",
+        "REQ-ADMIN-b279d15ea0",
+        "REQ-ADMIN-b0533e7075",
+        "REQ-ADMIN-9687f829e8",
+        "REQ-PUB-2236a52b33"
+      ]
+    },
+    {
+      "原子标识": "SC-30935d0f4f4c05",
+      "共同业务对象": "充值用户分层汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "老用户充值人数为0"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "老用户ARPU为0",
+      "来源需求": [
+        "REQ-ADMIN-cf1d4372a5",
+        "REQ-ADMIN-52b505a5e9",
+        "REQ-ADMIN-b1c52cab3c",
+        "REQ-ADMIN-38cc89f0ea",
+        "REQ-ADMIN-b279d15ea0",
+        "REQ-ADMIN-b0533e7075",
+        "REQ-ADMIN-9687f829e8",
+        "REQ-PUB-2236a52b33"
+      ]
+    },
+    {
+      "原子标识": "SC-ad751282310ccf",
+      "共同业务对象": "主播业绩分成报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "筛选9月10日至9月12日"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "统计天数为3",
+      "来源需求": [
+        "REQ-ADMIN-31010aa4cc",
+        "REQ-ADMIN-a4fc802e99",
+        "REQ-ADMIN-9d59434ab0",
+        "REQ-ADMIN-8bd43fbe27",
+        "REQ-ADMIN-e1f12c27ac",
+        "REQ-ADMIN-6a41cbad67",
+        "REQ-ADMIN-bf76e90f70",
+        "REQ-ADMIN-cb293e6b92",
+        "REQ-ADMIN-f90f19baf9",
+        "REQ-PUB-4f6c419dc6"
+      ]
+    },
+    {
+      "原子标识": "SC-56f172ab634ece",
+      "共同业务对象": "主播业绩分成报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "普通真实收益100、定制20、幸运10、门票30，另有虚拟礼物1000"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "主播收益计算结果=100+20+10+30=160",
+      "来源需求": [
+        "REQ-ADMIN-31010aa4cc",
+        "REQ-ADMIN-a4fc802e99",
+        "REQ-ADMIN-9d59434ab0",
+        "REQ-ADMIN-8bd43fbe27",
+        "REQ-ADMIN-e1f12c27ac",
+        "REQ-ADMIN-6a41cbad67",
+        "REQ-ADMIN-bf76e90f70",
+        "REQ-ADMIN-cb293e6b92",
+        "REQ-ADMIN-f90f19baf9",
+        "REQ-PUB-4f6c419dc6"
+      ]
+    },
+    {
+      "原子标识": "SC-08002a5a6ac834",
+      "共同业务对象": "主播业绩分成报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前有主播收益记录"
+      ],
+      "动作": "查看报表内容",
+      "可观察结果": "不自动产生具体分成金额",
+      "来源需求": [
+        "REQ-ADMIN-31010aa4cc",
+        "REQ-ADMIN-a4fc802e99",
+        "REQ-ADMIN-9d59434ab0",
+        "REQ-ADMIN-8bd43fbe27",
+        "REQ-ADMIN-e1f12c27ac",
+        "REQ-ADMIN-6a41cbad67",
+        "REQ-ADMIN-bf76e90f70",
+        "REQ-ADMIN-cb293e6b92",
+        "REQ-ADMIN-f90f19baf9",
+        "REQ-PUB-4f6c419dc6"
+      ]
+    },
+    {
+      "原子标识": "SC-1901330bbe5df2",
+      "共同业务对象": "用户活跃汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "甲当天成功登录3次，乙仅从后台切前台且当天未登录"
+      ],
+      "动作": "查看登录用户",
+      "可观察结果": "登录用户为1",
+      "来源需求": [
+        "REQ-ADMIN-503ce679c3",
+        "REQ-ADMIN-bf67d085a7",
+        "REQ-ADMIN-66830cc2fd",
+        "REQ-ADMIN-5eabd4d6ff",
+        "REQ-ADMIN-747559f804",
+        "REQ-ADMIN-57c59cec45",
+        "REQ-ADMIN-17f653e0b6"
+      ]
+    },
+    {
+      "原子标识": "SC-a2fc4bf6dd65f0",
+      "共同业务对象": "用户活跃汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "甲连续2天每天登录，本范围没有其他登录用户"
+      ],
+      "动作": "查看汇总卡",
+      "可观察结果": "汇总登录用户为2",
+      "来源需求": [
+        "REQ-ADMIN-503ce679c3",
+        "REQ-ADMIN-bf67d085a7",
+        "REQ-ADMIN-66830cc2fd",
+        "REQ-ADMIN-5eabd4d6ff",
+        "REQ-ADMIN-747559f804",
+        "REQ-ADMIN-57c59cec45",
+        "REQ-ADMIN-17f653e0b6"
+      ]
+    },
+    {
+      "原子标识": "SC-da4bb26c7e48b7",
+      "共同业务对象": "月度收益支出汇总",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "本月成功充值20 USD，其中10 USD后来整单退款"
+      ],
+      "动作": "查看累计充值",
+      "可观察结果": "累计充值仍为20 USD",
+      "来源需求": [
+        "REQ-ADMIN-8bf01d7844",
+        "REQ-ADMIN-796ed74e4a",
+        "REQ-ADMIN-392c0570f2",
+        "REQ-ADMIN-79af0ac45f",
+        "REQ-ADMIN-b14a9d74bc",
+        "REQ-ADMIN-f415c699c4",
+        "REQ-PUB-b7a19c2e12"
+      ]
+    },
+    {
+      "原子标识": "SC-fe34b3f20bb8a7",
+      "共同业务对象": "月度收益支出汇总",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "本月两笔退款分别10和20 USD完成"
+      ],
+      "动作": "查看累计退款",
+      "可观察结果": "累计退款为30 USD",
+      "来源需求": [
+        "REQ-ADMIN-8bf01d7844",
+        "REQ-ADMIN-796ed74e4a",
+        "REQ-ADMIN-392c0570f2",
+        "REQ-ADMIN-79af0ac45f",
+        "REQ-ADMIN-b14a9d74bc",
+        "REQ-ADMIN-f415c699c4",
+        "REQ-PUB-b7a19c2e12"
+      ]
+    },
+    {
+      "原子标识": "SC-f6ac75a3a8dba5",
+      "共同业务对象": "主播礼物打赏明细报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "成功幸运礼物价值1000、当时比例1%，用户实际返奖1500"
+      ],
+      "动作": "查看幸运礼物收益",
+      "可观察结果": "幸运礼物收益为10金币",
+      "来源需求": [
+        "REQ-ADMIN-6d65441519",
+        "REQ-ADMIN-de6e8b6477",
+        "REQ-ADMIN-dcacc74719",
+        "REQ-ADMIN-458a3419fd",
+        "REQ-ADMIN-18e02c0648",
+        "REQ-ADMIN-23619f6940",
+        "REQ-PUB-37517a9886"
+      ]
+    },
+    {
+      "原子标识": "SC-0a1b6210876571",
+      "共同业务对象": "用户消费汇总报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "用户仅有成功幸运礼物扣减100，返奖150"
+      ],
+      "动作": "查看净消耗",
+      "可观察结果": "净消耗为-50金币",
+      "来源需求": [
+        "REQ-ADMIN-8e47a4f1ac",
+        "REQ-ADMIN-46c8d2bc34",
+        "REQ-ADMIN-22f547bfa8",
+        "REQ-ADMIN-e908ccb69a",
+        "REQ-ADMIN-13ac5cd085",
+        "REQ-ADMIN-82d36a4a7b",
+        "REQ-PUB-ac228bec7b"
+      ]
+    },
+    {
+      "原子标识": "SC-9ed8a2e641bfd2",
+      "共同业务对象": "礼物消费汇总报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "成功幸运赠礼价值100，返奖150"
+      ],
+      "动作": "查看礼物消费",
+      "可观察结果": "礼物消费价值为100金币",
+      "来源需求": [
+        "REQ-ADMIN-c80541742f",
+        "REQ-ADMIN-a77febf29d",
+        "REQ-ADMIN-9fcb2df291",
+        "REQ-ADMIN-80aacf635d",
+        "REQ-ADMIN-776ed33bfb",
+        "REQ-ADMIN-d284428520",
+        "REQ-PUB-101943230a"
+      ]
+    },
+    {
+      "原子标识": "SC-cbf8291e9dd82b",
+      "共同业务对象": "消费订单明细",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "本期真实成功礼物订单A，虚拟金币订单B、失败订单C"
+      ],
+      "动作": "查看订单列表",
+      "可观察结果": "列表仅包含A",
+      "来源需求": [
+        "REQ-ADMIN-d5c04754b5",
+        "REQ-ADMIN-9167e65b78",
+        "REQ-ADMIN-1441285519",
+        "REQ-ADMIN-12ce942b83",
+        "REQ-ADMIN-2c2449128e",
+        "REQ-ADMIN-03a1284a17",
+        "REQ-ADMIN-09d47c2e11",
+        "REQ-PUB-ecb705747a"
+      ]
+    },
+    {
+      "原子标识": "SC-8b24a81b83784a",
+      "共同业务对象": "退款订单明细",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "A单9月10日支付、9月12日退款完成；筛选9月12日"
+      ],
+      "动作": "查看退款列表",
+      "可观察结果": "退款列表包含A",
+      "来源需求": [
+        "REQ-ADMIN-4d54fb09ab",
+        "REQ-ADMIN-8464049975",
+        "REQ-ADMIN-d715a9199c",
+        "REQ-ADMIN-adcc5ca932",
+        "REQ-ADMIN-fc50100bb1",
+        "REQ-ADMIN-d4c3ce8523",
+        "REQ-PUB-77cd4ba193"
+      ]
+    },
+    {
+      "原子标识": "SC-d8f470dd31631b",
+      "共同业务对象": "充值订单明细",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "A订单实付10 USD，套餐现价后来调整为20 USD"
+      ],
+      "动作": "查看实付金额",
+      "可观察结果": "A订单实付金额仍为10 USD",
+      "来源需求": [
+        "REQ-ADMIN-045469740f",
+        "REQ-ADMIN-13eb93f2ef",
+        "REQ-ADMIN-9e1139faa0",
+        "REQ-ADMIN-578d8abfa2",
+        "REQ-ADMIN-59c792e1bb",
+        "REQ-ADMIN-c80d3f06d8",
+        "REQ-ADMIN-6b0925b7ba",
+        "REQ-PUB-62cd658634"
+      ]
+    },
+    {
+      "原子标识": "SC-1a2f30208b1041",
+      "共同业务对象": "每日统计",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-2d1320c185"
+      ]
+    },
+    {
+      "原子标识": "SC-29e02056ecfd97",
+      "共同业务对象": "用户活跃汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-17f653e0b6"
+      ]
+    },
+    {
+      "原子标识": "SC-c54129ab5014c2",
+      "共同业务对象": "主播活跃汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-f2ea82668f"
+      ]
+    },
+    {
+      "原子标识": "SC-365a1738ae2957",
+      "共同业务对象": "直播间互动汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-3f1529d356"
+      ]
+    },
+    {
+      "原子标识": "SC-8af8882ef10c22",
+      "共同业务对象": "直播记录明细报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-3718470075",
+        "REQ-ADMIN-9e66cf88d7",
+        "REQ-PUB-7302cac854"
+      ]
+    },
+    {
+      "原子标识": "SC-258813e9e06449",
+      "共同业务对象": "充值消费汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-9c7060cc8e"
+      ]
+    },
+    {
+      "原子标识": "SC-91194324b186da",
+      "共同业务对象": "充值用户分层汇总（每日）",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-9687f829e8"
+      ]
+    },
+    {
+      "原子标识": "SC-4fd084df6d7f53",
+      "共同业务对象": "月度收益支出汇总",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前列表有记录甲和乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录包含甲和乙",
+      "来源需求": [
+        "REQ-ADMIN-f415c699c4",
+        "REQ-PUB-b7a19c2e12"
+      ]
+    },
+    {
+      "原子标识": "SC-601ad35b82425f",
+      "共同业务对象": "主播业绩分成报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-f90f19baf9"
+      ]
+    },
+    {
+      "原子标识": "SC-d598e6fd3a5330",
+      "共同业务对象": "主播礼物打赏明细报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-23619f6940"
+      ]
+    },
+    {
+      "原子标识": "SC-1985927d13a584",
+      "共同业务对象": "用户消费汇总报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-82d36a4a7b"
+      ]
+    },
+    {
+      "原子标识": "SC-28c5d7cf4ac70b",
+      "共同业务对象": "礼物消费汇总报表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-d284428520"
+      ]
+    },
+    {
+      "原子标识": "SC-e43482089e2218",
+      "共同业务对象": "消费订单明细",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-d5c04754b5",
+        "REQ-ADMIN-09d47c2e11"
+      ]
+    },
+    {
+      "原子标识": "SC-d7c6e513b13dc0",
+      "共同业务对象": "退款订单明细",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-4d54fb09ab",
+        "REQ-ADMIN-d4c3ce8523"
+      ]
+    },
+    {
+      "原子标识": "SC-9a867813e90b21",
+      "共同业务对象": "充值订单明细",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前日期筛选结果仅有目标记录甲；范围外存在记录乙"
+      ],
+      "动作": "打开导出文件",
+      "可观察结果": "导出记录仅包含甲",
+      "来源需求": [
+        "REQ-ADMIN-045469740f",
+        "REQ-ADMIN-6b0925b7ba"
+      ]
+    },
+    {
+      "原子标识": "SC-59bedb73db5c02",
+      "共同业务对象": "报表中心",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "平台管理员已登录且拥有报表中心访问权限"
+      ],
+      "动作": "点击入口",
+      "可观察结果": "进入对应报表",
+      "来源需求": [
+        "REQ-ADMIN-8716d94285"
+      ]
+    },
+    {
+      "原子标识": "SC-ae5ccbbedfb763",
+      "共同业务对象": "账号编辑",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除后台账号外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少后台账号的记录",
+      "来源需求": [
+        "REQ-ADMIN-f9a22b0633",
+        "REQ-ADMIN-9df1741af2",
+        "REQ-ADMIN-c59fc9b3ec",
+        "REQ-ADMIN-652e56f63b",
+        "REQ-ADMIN-10b4ed4c28",
+        "REQ-ADMIN-2ba8ca3b55",
+        "REQ-ADMIN-27a1cbdebb",
+        "REQ-ADMIN-8b3041faab",
+        "REQ-ADMIN-60587dd816",
+        "REQ-PUB-b78658bb99",
+        "REQ-PUB-59117dd1b1",
+        "REQ-PUB-2bc554e667"
+      ]
+    },
+    {
+      "原子标识": "SC-8c24e16988eda7",
+      "共同业务对象": "账号编辑",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除姓名外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少姓名的记录",
+      "来源需求": [
+        "REQ-ADMIN-f9a22b0633",
+        "REQ-ADMIN-9df1741af2",
+        "REQ-ADMIN-c59fc9b3ec",
+        "REQ-ADMIN-652e56f63b",
+        "REQ-ADMIN-10b4ed4c28",
+        "REQ-ADMIN-2ba8ca3b55",
+        "REQ-ADMIN-27a1cbdebb",
+        "REQ-ADMIN-8b3041faab",
+        "REQ-ADMIN-60587dd816",
+        "REQ-PUB-b78658bb99",
+        "REQ-PUB-59117dd1b1",
+        "REQ-PUB-2bc554e667"
+      ]
+    },
+    {
+      "原子标识": "SC-0045fc5d2caffe",
+      "共同业务对象": "账号编辑",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除所属角色外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少所属角色的记录",
+      "来源需求": [
+        "REQ-ADMIN-f9a22b0633",
+        "REQ-ADMIN-9df1741af2",
+        "REQ-ADMIN-c59fc9b3ec",
+        "REQ-ADMIN-652e56f63b",
+        "REQ-ADMIN-10b4ed4c28",
+        "REQ-ADMIN-2ba8ca3b55",
+        "REQ-ADMIN-27a1cbdebb",
+        "REQ-ADMIN-8b3041faab",
+        "REQ-ADMIN-60587dd816",
+        "REQ-PUB-b78658bb99",
+        "REQ-PUB-59117dd1b1",
+        "REQ-PUB-2bc554e667"
+      ]
+    },
+    {
+      "原子标识": "SC-80ff3604f64d2c",
+      "共同业务对象": "账号编辑",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除初始密码外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少初始密码的记录",
+      "来源需求": [
+        "REQ-ADMIN-f9a22b0633",
+        "REQ-ADMIN-9df1741af2",
+        "REQ-ADMIN-c59fc9b3ec",
+        "REQ-ADMIN-652e56f63b",
+        "REQ-ADMIN-10b4ed4c28",
+        "REQ-ADMIN-2ba8ca3b55",
+        "REQ-ADMIN-27a1cbdebb",
+        "REQ-ADMIN-8b3041faab",
+        "REQ-ADMIN-60587dd816",
+        "REQ-PUB-b78658bb99",
+        "REQ-PUB-59117dd1b1",
+        "REQ-PUB-2bc554e667"
+      ]
+    },
+    {
+      "原子标识": "SC-9422d2d74aa4f1",
+      "共同业务对象": "角色编辑",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除角色名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少角色名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-a0f143749f",
+        "REQ-ADMIN-f59656672e",
+        "REQ-ADMIN-75e6575149",
+        "REQ-ADMIN-c538e3f0b9",
+        "REQ-ADMIN-8391a40d85",
+        "REQ-ADMIN-54c459dbb7",
+        "REQ-ADMIN-8b41748ac4",
+        "REQ-ADMIN-59b756040b",
+        "REQ-PUB-76dc9a384a",
+        "REQ-PUB-845dd2c618"
+      ]
+    },
+    {
+      "原子标识": "SC-9244d72119b030",
+      "共同业务对象": "账号编辑",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有记录的账号 ID已生成"
+      ],
+      "动作": "查看账号 ID",
+      "可观察结果": "账号 ID不可编辑",
+      "来源需求": [
+        "REQ-ADMIN-f9a22b0633",
+        "REQ-ADMIN-9df1741af2",
+        "REQ-ADMIN-c59fc9b3ec",
+        "REQ-ADMIN-652e56f63b",
+        "REQ-ADMIN-10b4ed4c28",
+        "REQ-ADMIN-2ba8ca3b55",
+        "REQ-ADMIN-27a1cbdebb",
+        "REQ-ADMIN-8b3041faab",
+        "REQ-ADMIN-60587dd816",
+        "REQ-PUB-b78658bb99",
+        "REQ-PUB-59117dd1b1",
+        "REQ-PUB-2bc554e667"
+      ]
+    },
+    {
+      "原子标识": "SC-f0ee3723582c8f",
+      "共同业务对象": "角色编辑",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有记录的角色 ID已生成"
+      ],
+      "动作": "查看角色 ID",
+      "可观察结果": "角色 ID不可编辑",
+      "来源需求": [
+        "REQ-ADMIN-a0f143749f",
+        "REQ-ADMIN-f59656672e",
+        "REQ-ADMIN-75e6575149",
+        "REQ-ADMIN-c538e3f0b9",
+        "REQ-ADMIN-8391a40d85",
+        "REQ-ADMIN-54c459dbb7",
+        "REQ-ADMIN-8b41748ac4",
+        "REQ-ADMIN-59b756040b",
+        "REQ-PUB-76dc9a384a",
+        "REQ-PUB-845dd2c618"
+      ]
+    },
+    {
+      "原子标识": "SC-d96b3805441fed",
+      "共同业务对象": "后台账号",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "执行账号为超级管理员"
+      ],
+      "动作": "查看超级管理员账号状态操作",
+      "可观察结果": "不提供停用超级管理员账号的操作",
+      "来源需求": [
+        "REQ-ADMIN-4962ab0ca5",
+        "REQ-ADMIN-c86f258773",
+        "REQ-ADMIN-cea57da21a",
+        "REQ-ADMIN-f9e721bd66",
+        "REQ-ADMIN-c147e85e0f",
+        "REQ-ADMIN-23818b9dc3",
+        "REQ-ADMIN-22e541c70e",
+        "REQ-ADMIN-6551e340a8",
+        "REQ-PUB-2daab99cab",
+        "REQ-PUB-07d020077f"
+      ]
+    },
+    {
+      "原子标识": "SC-1d102bf87197ef",
+      "共同业务对象": "后台账号",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "目标为可用普通后台账号"
+      ],
+      "动作": "停用目标账号并填写原因确认",
+      "可观察结果": "目标账号不能再登录管理后台",
+      "来源需求": [
+        "REQ-ADMIN-4962ab0ca5",
+        "REQ-ADMIN-c86f258773",
+        "REQ-ADMIN-cea57da21a",
+        "REQ-ADMIN-f9e721bd66",
+        "REQ-ADMIN-c147e85e0f",
+        "REQ-ADMIN-23818b9dc3",
+        "REQ-ADMIN-22e541c70e",
+        "REQ-ADMIN-6551e340a8",
+        "REQ-PUB-2daab99cab",
+        "REQ-PUB-07d020077f"
+      ]
+    },
+    {
+      "原子标识": "SC-5881f782e47c59",
+      "共同业务对象": "角色管理",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "执行账号为超级管理员"
+      ],
+      "动作": "查看超级管理员角色操作",
+      "可观察结果": "不提供编辑或停用入口",
+      "来源需求": [
+        "REQ-ADMIN-9a1c974e99",
+        "REQ-ADMIN-e644934514",
+        "REQ-ADMIN-f678ca805c",
+        "REQ-ADMIN-9a481661e9",
+        "REQ-ADMIN-d0f15fe9f7",
+        "REQ-ADMIN-7466b84920",
+        "REQ-ADMIN-6fbf3fefc8",
+        "REQ-PUB-621d8e1021",
+        "REQ-PUB-8f116bc934"
+      ]
+    },
+    {
+      "原子标识": "SC-041c1cb97bd8ce",
+      "共同业务对象": "角色管理",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "普通角色已绑定后台账号海风"
+      ],
+      "动作": "停用该角色并确认",
+      "可观察结果": "海风失去该角色授予的菜单权限",
+      "来源需求": [
+        "REQ-ADMIN-9a1c974e99",
+        "REQ-ADMIN-e644934514",
+        "REQ-ADMIN-f678ca805c",
+        "REQ-ADMIN-9a481661e9",
+        "REQ-ADMIN-d0f15fe9f7",
+        "REQ-ADMIN-7466b84920",
+        "REQ-ADMIN-6fbf3fefc8",
+        "REQ-PUB-621d8e1021",
+        "REQ-PUB-8f116bc934"
+      ]
+    },
+    {
+      "原子标识": "SC-d252d3c5cf987f",
+      "共同业务对象": "角色编辑",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "执行账号为超级管理员，已清空所选权限"
+      ],
+      "动作": "勾选一个包含2个叶子权限的父节点",
+      "可观察结果": "已选权限数显示2",
+      "来源需求": [
+        "REQ-ADMIN-a0f143749f",
+        "REQ-ADMIN-f59656672e",
+        "REQ-ADMIN-75e6575149",
+        "REQ-ADMIN-c538e3f0b9",
+        "REQ-ADMIN-8391a40d85",
+        "REQ-ADMIN-54c459dbb7",
+        "REQ-ADMIN-8b41748ac4",
+        "REQ-ADMIN-59b756040b",
+        "REQ-PUB-76dc9a384a",
+        "REQ-PUB-845dd2c618"
+      ]
+    },
+    {
+      "原子标识": "SC-392877e493c462",
+      "共同业务对象": "角色编辑",
+      "执行角色": "超级管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有角色“审核员”"
+      ],
+      "动作": "新建同名角色并保存",
+      "可观察结果": "不能保存重复角色名称",
+      "来源需求": [
+        "REQ-ADMIN-a0f143749f",
+        "REQ-ADMIN-f59656672e",
+        "REQ-ADMIN-75e6575149",
+        "REQ-ADMIN-c538e3f0b9",
+        "REQ-ADMIN-8391a40d85",
+        "REQ-ADMIN-54c459dbb7",
+        "REQ-ADMIN-8b41748ac4",
+        "REQ-ADMIN-59b756040b",
+        "REQ-PUB-76dc9a384a",
+        "REQ-PUB-845dd2c618"
+      ]
+    },
+    {
+      "原子标识": "SC-aa5984d73f3b29",
+      "共同业务对象": "账号",
+      "执行角色": "平台管理员",
+      "来源状态": "可登录",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "海风当前已登录用户App"
+      ],
+      "动作": "封禁海风并填写原因确认",
+      "可观察结果": "海风已建立的登录会话被强制下线",
+      "来源需求": [
+        "REQ-ADMIN-c18946e195",
+        "REQ-ADMIN-683356ae89",
+        "REQ-ADMIN-0993ca8ece",
+        "REQ-ADMIN-3c67edaf29",
+        "REQ-ADMIN-24d2608b4f",
+        "REQ-ADMIN-50459407e8",
+        "REQ-ADMIN-6981e54194",
+        "REQ-ADMIN-13552567ba",
+        "REQ-ADMIN-9051784747",
+        "REQ-ADMIN-6d3d51b163",
+        "REQ-ADMIN-2648bcb6dc",
+        "REQ-ADMIN-2ab612c482",
+        "REQ-PUB-5ffffbea47"
+      ]
+    },
+    {
+      "原子标识": "SC-c58e73976c0558",
+      "共同业务对象": "账号",
+      "执行角色": "平台管理员",
+      "来源状态": "可登录",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "海风有主播身份且正在直播"
+      ],
+      "动作": "封禁海风并填写原因确认",
+      "可观察结果": "海风当前直播场次结束",
+      "来源需求": [
+        "REQ-ADMIN-c18946e195",
+        "REQ-ADMIN-683356ae89",
+        "REQ-ADMIN-0993ca8ece",
+        "REQ-ADMIN-3c67edaf29",
+        "REQ-ADMIN-24d2608b4f",
+        "REQ-ADMIN-50459407e8",
+        "REQ-ADMIN-6981e54194",
+        "REQ-ADMIN-13552567ba",
+        "REQ-ADMIN-9051784747",
+        "REQ-ADMIN-6d3d51b163",
+        "REQ-ADMIN-2648bcb6dc",
+        "REQ-ADMIN-2ab612c482",
+        "REQ-PUB-5ffffbea47"
+      ]
+    },
+    {
+      "原子标识": "SC-72e5560152340a",
+      "共同业务对象": "用户列表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权"
+      ],
+      "动作": "查看账号状态筛选",
+      "可观察结果": "选项不包含直播间禁言状态",
+      "来源需求": [
+        "REQ-ADMIN-c18946e195",
+        "REQ-ADMIN-683356ae89",
+        "REQ-ADMIN-0993ca8ece",
+        "REQ-ADMIN-3c67edaf29",
+        "REQ-ADMIN-24d2608b4f",
+        "REQ-ADMIN-50459407e8",
+        "REQ-ADMIN-6981e54194",
+        "REQ-ADMIN-13552567ba",
+        "REQ-ADMIN-9051784747",
+        "REQ-ADMIN-6d3d51b163",
+        "REQ-ADMIN-2648bcb6dc",
+        "REQ-ADMIN-2ab612c482",
+        "REQ-PUB-5ffffbea47"
+      ]
+    },
+    {
+      "原子标识": "SC-db1757d6d09287",
+      "共同业务对象": "用户列表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权"
+      ],
+      "动作": "点击查询",
+      "可观察结果": "不能执行倒置等级范围查询",
+      "来源需求": [
+        "REQ-ADMIN-c18946e195",
+        "REQ-ADMIN-683356ae89",
+        "REQ-ADMIN-0993ca8ece",
+        "REQ-ADMIN-3c67edaf29",
+        "REQ-ADMIN-24d2608b4f",
+        "REQ-ADMIN-50459407e8",
+        "REQ-ADMIN-6981e54194",
+        "REQ-ADMIN-13552567ba",
+        "REQ-ADMIN-9051784747",
+        "REQ-ADMIN-6d3d51b163",
+        "REQ-ADMIN-2648bcb6dc",
+        "REQ-ADMIN-2ab612c482",
+        "REQ-PUB-5ffffbea47"
+      ]
+    },
+    {
+      "原子标识": "SC-57ffbc4fa60fe6",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除中文标题外必填项均为合法值"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "不提交缺少中文标题的记录",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-a181fa96f0af2c",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除英文标题外必填项均为合法值"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "不提交缺少英文标题的记录",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-cdc49aaa20ebe6",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除印尼语标题外必填项均为合法值"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "不提交缺少印尼语标题的记录",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-74c9904801d806",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除马来语标题外必填项均为合法值"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "不提交缺少马来语标题的记录",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-5c508b181880ec",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除中文内容外必填项均为合法值"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "不提交缺少中文内容的记录",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-44383201ebe739",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除英文内容外必填项均为合法值"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "不提交缺少英文内容的记录",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-6114f10cc4c486",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除印尼语内容外必填项均为合法值"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "不提交缺少印尼语内容的记录",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-fd35a6a7400b8f",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除马来语内容外必填项均为合法值"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "不提交缺少马来语内容的记录",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-d21fe9ed8d83d1",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除套餐 ID外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少套餐 ID的记录",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-82808c1dbc99dd",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除类型外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少类型的记录",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-8463b36edea225",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除封面外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少封面的记录",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-1010ca608ba277",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存充值金币为0的记录",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-01db5d7039ed0a",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存充值金币为-1的记录",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-ab889d4e5c63d9",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存充值金币为1.5的记录",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-2584f1dc568800",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "记录保存的充值金币为1",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-0e6c4a05a5082c",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除中文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少中文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-a3fd3f221eb9c3",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除英文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少英文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-4568cb9ba093fb",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除印尼语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少印尼语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-0ab1e39483b42c",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除马来语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少马来语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-9a52c76de786f1",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除生效开始时间外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少生效开始时间的记录",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-3e7cf3488b7d69",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除生效结束时间外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少生效结束时间的记录",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-b4368027974ffc",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存达成奖励为0的记录",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-e6e8bcfae60644",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存达成奖励为-1的记录",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-769d0f6e81376e",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存达成奖励为1.5的记录",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-589b7be2c7bfd9",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "记录保存的达成奖励为1",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-926aa9f97730aa",
+      "共同业务对象": "公会推荐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除推荐公会外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少推荐公会的记录",
+      "来源需求": [
+        "REQ-ADMIN-91567974f0",
+        "REQ-ADMIN-c8dc2e5952",
+        "REQ-ADMIN-d9f26cd09e",
+        "REQ-ADMIN-0c0a51dd50"
+      ]
+    },
+    {
+      "原子标识": "SC-38811f6959eb66",
+      "共同业务对象": "公会推荐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存排序权重为0的记录",
+      "来源需求": [
+        "REQ-ADMIN-91567974f0",
+        "REQ-ADMIN-c8dc2e5952",
+        "REQ-ADMIN-d9f26cd09e",
+        "REQ-ADMIN-0c0a51dd50"
+      ]
+    },
+    {
+      "原子标识": "SC-3337a4959ac2dc",
+      "共同业务对象": "公会推荐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存排序权重为-1的记录",
+      "来源需求": [
+        "REQ-ADMIN-91567974f0",
+        "REQ-ADMIN-c8dc2e5952",
+        "REQ-ADMIN-d9f26cd09e",
+        "REQ-ADMIN-0c0a51dd50"
+      ]
+    },
+    {
+      "原子标识": "SC-ac0bcb4ac1ba1a",
+      "共同业务对象": "公会推荐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存排序权重为1.5的记录",
+      "来源需求": [
+        "REQ-ADMIN-91567974f0",
+        "REQ-ADMIN-c8dc2e5952",
+        "REQ-ADMIN-d9f26cd09e",
+        "REQ-ADMIN-0c0a51dd50"
+      ]
+    },
+    {
+      "原子标识": "SC-6e93fdeab13e15",
+      "共同业务对象": "公会推荐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "记录保存的排序权重为1",
+      "来源需求": [
+        "REQ-ADMIN-91567974f0",
+        "REQ-ADMIN-c8dc2e5952",
+        "REQ-ADMIN-d9f26cd09e",
+        "REQ-ADMIN-0c0a51dd50"
+      ]
+    },
+    {
+      "原子标识": "SC-034071caf6bc77",
+      "共同业务对象": "直播类型",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除中文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少中文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-874c7689d0",
+        "REQ-ADMIN-f8058197ad",
+        "REQ-ADMIN-ec34b42500",
+        "REQ-ADMIN-3ec2e57a0e",
+        "REQ-ADMIN-444460953e",
+        "REQ-ADMIN-aaf129cc6e",
+        "REQ-PUB-f3e06096b1"
+      ]
+    },
+    {
+      "原子标识": "SC-e2620f0e1d877f",
+      "共同业务对象": "直播类型",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除英文名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少英文名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-874c7689d0",
+        "REQ-ADMIN-f8058197ad",
+        "REQ-ADMIN-ec34b42500",
+        "REQ-ADMIN-3ec2e57a0e",
+        "REQ-ADMIN-444460953e",
+        "REQ-ADMIN-aaf129cc6e",
+        "REQ-PUB-f3e06096b1"
+      ]
+    },
+    {
+      "原子标识": "SC-429c045b89e3a4",
+      "共同业务对象": "直播类型",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除印尼语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少印尼语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-874c7689d0",
+        "REQ-ADMIN-f8058197ad",
+        "REQ-ADMIN-ec34b42500",
+        "REQ-ADMIN-3ec2e57a0e",
+        "REQ-ADMIN-444460953e",
+        "REQ-ADMIN-aaf129cc6e",
+        "REQ-PUB-f3e06096b1"
+      ]
+    },
+    {
+      "原子标识": "SC-5f517e4c2c9b1e",
+      "共同业务对象": "直播类型",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除马来语名称外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少马来语名称的记录",
+      "来源需求": [
+        "REQ-ADMIN-874c7689d0",
+        "REQ-ADMIN-f8058197ad",
+        "REQ-ADMIN-ec34b42500",
+        "REQ-ADMIN-3ec2e57a0e",
+        "REQ-ADMIN-444460953e",
+        "REQ-ADMIN-aaf129cc6e",
+        "REQ-PUB-f3e06096b1"
+      ]
+    },
+    {
+      "原子标识": "SC-4ef3f5cde16de9",
+      "共同业务对象": "门票价格档位编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存门票价格为0的记录",
+      "来源需求": [
+        "REQ-ADMIN-209c9f098d",
+        "REQ-ADMIN-b82deaf426",
+        "REQ-ADMIN-d9f7bfa1f1",
+        "REQ-ADMIN-6854c6d003",
+        "REQ-ADMIN-742f1c79a8",
+        "REQ-ADMIN-ecdc4fd876",
+        "REQ-PUB-2acff394de"
+      ]
+    },
+    {
+      "原子标识": "SC-2ea9762610ecf1",
+      "共同业务对象": "门票价格档位编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存门票价格为-1的记录",
+      "来源需求": [
+        "REQ-ADMIN-209c9f098d",
+        "REQ-ADMIN-b82deaf426",
+        "REQ-ADMIN-d9f7bfa1f1",
+        "REQ-ADMIN-6854c6d003",
+        "REQ-ADMIN-742f1c79a8",
+        "REQ-ADMIN-ecdc4fd876",
+        "REQ-PUB-2acff394de"
+      ]
+    },
+    {
+      "原子标识": "SC-c2fe4b1466a3e1",
+      "共同业务对象": "门票价格档位编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存门票价格为1.5的记录",
+      "来源需求": [
+        "REQ-ADMIN-209c9f098d",
+        "REQ-ADMIN-b82deaf426",
+        "REQ-ADMIN-d9f7bfa1f1",
+        "REQ-ADMIN-6854c6d003",
+        "REQ-ADMIN-742f1c79a8",
+        "REQ-ADMIN-ecdc4fd876",
+        "REQ-PUB-2acff394de"
+      ]
+    },
+    {
+      "原子标识": "SC-0914ac7eb4569e",
+      "共同业务对象": "门票价格档位编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "记录保存的门票价格为1",
+      "来源需求": [
+        "REQ-ADMIN-209c9f098d",
+        "REQ-ADMIN-b82deaf426",
+        "REQ-ADMIN-d9f7bfa1f1",
+        "REQ-ADMIN-6854c6d003",
+        "REQ-ADMIN-742f1c79a8",
+        "REQ-ADMIN-ecdc4fd876",
+        "REQ-PUB-2acff394de"
+      ]
+    },
+    {
+      "原子标识": "SC-71c208dc32e514",
+      "共同业务对象": "门票价格档位编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存排序为0的记录",
+      "来源需求": [
+        "REQ-ADMIN-209c9f098d",
+        "REQ-ADMIN-b82deaf426",
+        "REQ-ADMIN-d9f7bfa1f1",
+        "REQ-ADMIN-6854c6d003",
+        "REQ-ADMIN-742f1c79a8",
+        "REQ-ADMIN-ecdc4fd876",
+        "REQ-PUB-2acff394de"
+      ]
+    },
+    {
+      "原子标识": "SC-6698c77353463e",
+      "共同业务对象": "门票价格档位编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存排序为-1的记录",
+      "来源需求": [
+        "REQ-ADMIN-209c9f098d",
+        "REQ-ADMIN-b82deaf426",
+        "REQ-ADMIN-d9f7bfa1f1",
+        "REQ-ADMIN-6854c6d003",
+        "REQ-ADMIN-742f1c79a8",
+        "REQ-ADMIN-ecdc4fd876",
+        "REQ-PUB-2acff394de"
+      ]
+    },
+    {
+      "原子标识": "SC-e8bce4cef6b464",
+      "共同业务对象": "门票价格档位编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不保存排序为1.5的记录",
+      "来源需求": [
+        "REQ-ADMIN-209c9f098d",
+        "REQ-ADMIN-b82deaf426",
+        "REQ-ADMIN-d9f7bfa1f1",
+        "REQ-ADMIN-6854c6d003",
+        "REQ-ADMIN-742f1c79a8",
+        "REQ-ADMIN-ecdc4fd876",
+        "REQ-PUB-2acff394de"
+      ]
+    },
+    {
+      "原子标识": "SC-60311e0f079cf7",
+      "共同业务对象": "门票价格档位编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法，数值1未与现有唯一值冲突"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "记录保存的排序为1",
+      "来源需求": [
+        "REQ-ADMIN-209c9f098d",
+        "REQ-ADMIN-b82deaf426",
+        "REQ-ADMIN-d9f7bfa1f1",
+        "REQ-ADMIN-6854c6d003",
+        "REQ-ADMIN-742f1c79a8",
+        "REQ-ADMIN-ecdc4fd876",
+        "REQ-PUB-2acff394de"
+      ]
+    },
+    {
+      "原子标识": "SC-6bf68e214489b7",
+      "共同业务对象": "敏感词编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除敏感词外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少敏感词的记录",
+      "来源需求": [
+        "REQ-ADMIN-2773181d58",
+        "REQ-ADMIN-d6f319f352",
+        "REQ-ADMIN-69272fc1db",
+        "REQ-ADMIN-96597e760d",
+        "REQ-ADMIN-e948fe9728",
+        "REQ-ADMIN-57c8d33ba3",
+        "REQ-ADMIN-92183483f8",
+        "REQ-ADMIN-70e8febea3"
+      ]
+    },
+    {
+      "原子标识": "SC-d4bc67590f22ff",
+      "共同业务对象": "敏感词编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除分类外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少分类的记录",
+      "来源需求": [
+        "REQ-ADMIN-2773181d58",
+        "REQ-ADMIN-d6f319f352",
+        "REQ-ADMIN-69272fc1db",
+        "REQ-ADMIN-96597e760d",
+        "REQ-ADMIN-e948fe9728",
+        "REQ-ADMIN-57c8d33ba3",
+        "REQ-ADMIN-92183483f8",
+        "REQ-ADMIN-70e8febea3"
+      ]
+    },
+    {
+      "原子标识": "SC-f33b431bd260a9",
+      "共同业务对象": "敏感词编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "除替换内容外必填项均为合法值"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不提交缺少替换内容的记录",
+      "来源需求": [
+        "REQ-ADMIN-2773181d58",
+        "REQ-ADMIN-d6f319f352",
+        "REQ-ADMIN-69272fc1db",
+        "REQ-ADMIN-96597e760d",
+        "REQ-ADMIN-e948fe9728",
+        "REQ-ADMIN-57c8d33ba3",
+        "REQ-ADMIN-92183483f8",
+        "REQ-ADMIN-70e8febea3"
+      ]
+    },
+    {
+      "原子标识": "SC-a052bdb48423d7",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有记录的套餐 ID已生成"
+      ],
+      "动作": "查看套餐 ID",
+      "可观察结果": "套餐 ID不可编辑",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-7700c98efbbf21",
+      "共同业务对象": "门票价格档位编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有记录的档位 ID已生成"
+      ],
+      "动作": "查看档位 ID",
+      "可观察结果": "档位 ID不可编辑",
+      "来源需求": [
+        "REQ-ADMIN-209c9f098d",
+        "REQ-ADMIN-b82deaf426",
+        "REQ-ADMIN-d9f7bfa1f1",
+        "REQ-ADMIN-6854c6d003",
+        "REQ-ADMIN-742f1c79a8",
+        "REQ-ADMIN-ecdc4fd876",
+        "REQ-PUB-2acff394de"
+      ]
+    },
+    {
+      "原子标识": "SC-134f76ea75a280",
+      "共同业务对象": "展示素材编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前只有1项轮播内容"
+      ],
+      "动作": "点击删除该项",
+      "可观察结果": "该唯一轮播项不能删除",
+      "来源需求": [
+        "REQ-ADMIN-3cc5316b4b",
+        "REQ-ADMIN-bc5dcc3cad",
+        "REQ-ADMIN-6c3bc8ae0b",
+        "REQ-ADMIN-fc14633413",
+        "REQ-ADMIN-1576f270ce",
+        "REQ-ADMIN-6bc6766177",
+        "REQ-ADMIN-54f61f4d76",
+        "REQ-ADMIN-4d431d0bd9",
+        "REQ-ADMIN-4b8b98a165",
+        "REQ-ADMIN-5d4adf01cb",
+        "REQ-ADMIN-13b73aa3a7",
+        "REQ-ADMIN-86d44faaf9",
+        "REQ-PUB-86486d9331",
+        "REQ-PUB-c2699f8b74",
+        "REQ-PUB-66552e2139",
+        "REQ-PUB-72f07ea6a9"
+      ]
+    },
+    {
+      "原子标识": "SC-4e2f358a7e3062",
+      "共同业务对象": "展示素材编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前已有5项轮播内容"
+      ],
+      "动作": "点击添加",
+      "可观察结果": "不新增第6项轮播内容",
+      "来源需求": [
+        "REQ-ADMIN-3cc5316b4b",
+        "REQ-ADMIN-bc5dcc3cad",
+        "REQ-ADMIN-6c3bc8ae0b",
+        "REQ-ADMIN-fc14633413",
+        "REQ-ADMIN-1576f270ce",
+        "REQ-ADMIN-6bc6766177",
+        "REQ-ADMIN-54f61f4d76",
+        "REQ-ADMIN-4d431d0bd9",
+        "REQ-ADMIN-4b8b98a165",
+        "REQ-ADMIN-5d4adf01cb",
+        "REQ-ADMIN-13b73aa3a7",
+        "REQ-ADMIN-86d44faaf9",
+        "REQ-PUB-86486d9331",
+        "REQ-PUB-c2699f8b74",
+        "REQ-PUB-66552e2139",
+        "REQ-PUB-72f07ea6a9"
+      ]
+    },
+    {
+      "原子标识": "SC-d3bc2a3003f9ba",
+      "共同业务对象": "展示素材编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "刚新建一项尚未保存的内容，另有一项已保存内容"
+      ],
+      "动作": "删除新建项",
+      "可观察结果": "新建项直接移除",
+      "来源需求": [
+        "REQ-ADMIN-3cc5316b4b",
+        "REQ-ADMIN-bc5dcc3cad",
+        "REQ-ADMIN-6c3bc8ae0b",
+        "REQ-ADMIN-fc14633413",
+        "REQ-ADMIN-1576f270ce",
+        "REQ-ADMIN-6bc6766177",
+        "REQ-ADMIN-54f61f4d76",
+        "REQ-ADMIN-4d431d0bd9",
+        "REQ-ADMIN-4b8b98a165",
+        "REQ-ADMIN-5d4adf01cb",
+        "REQ-ADMIN-13b73aa3a7",
+        "REQ-ADMIN-86d44faaf9",
+        "REQ-PUB-86486d9331",
+        "REQ-PUB-c2699f8b74",
+        "REQ-PUB-66552e2139",
+        "REQ-PUB-72f07ea6a9"
+      ]
+    },
+    {
+      "原子标识": "SC-7d13408518e715",
+      "共同业务对象": "展示素材编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有2项已保存轮播内容"
+      ],
+      "动作": "删除其中1项",
+      "可观察结果": "显示删除确认",
+      "来源需求": [
+        "REQ-ADMIN-3cc5316b4b",
+        "REQ-ADMIN-bc5dcc3cad",
+        "REQ-ADMIN-6c3bc8ae0b",
+        "REQ-ADMIN-fc14633413",
+        "REQ-ADMIN-1576f270ce",
+        "REQ-ADMIN-6bc6766177",
+        "REQ-ADMIN-54f61f4d76",
+        "REQ-ADMIN-4d431d0bd9",
+        "REQ-ADMIN-4b8b98a165",
+        "REQ-ADMIN-5d4adf01cb",
+        "REQ-ADMIN-13b73aa3a7",
+        "REQ-ADMIN-86d44faaf9",
+        "REQ-PUB-86486d9331",
+        "REQ-PUB-c2699f8b74",
+        "REQ-PUB-66552e2139",
+        "REQ-PUB-72f07ea6a9"
+      ]
+    },
+    {
+      "原子标识": "SC-73f684e6bb93ca",
+      "共同业务对象": "展示素材编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "本项素材已上传，跳转类型为APP已有页面但未选目标"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "本项因缺少目标页面不能保存",
+      "来源需求": [
+        "REQ-ADMIN-3cc5316b4b",
+        "REQ-ADMIN-bc5dcc3cad",
+        "REQ-ADMIN-6c3bc8ae0b",
+        "REQ-ADMIN-fc14633413",
+        "REQ-ADMIN-1576f270ce",
+        "REQ-ADMIN-6bc6766177",
+        "REQ-ADMIN-54f61f4d76",
+        "REQ-ADMIN-4d431d0bd9",
+        "REQ-ADMIN-4b8b98a165",
+        "REQ-ADMIN-5d4adf01cb",
+        "REQ-ADMIN-13b73aa3a7",
+        "REQ-ADMIN-86d44faaf9",
+        "REQ-PUB-86486d9331",
+        "REQ-PUB-c2699f8b74",
+        "REQ-PUB-66552e2139",
+        "REQ-PUB-72f07ea6a9"
+      ]
+    },
+    {
+      "原子标识": "SC-394099d8d7dac3",
+      "共同业务对象": "展示素材编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "本项素材已上传，跳转类型为活动长图但未上传详情图"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "本项因缺少活动长图不能保存",
+      "来源需求": [
+        "REQ-ADMIN-3cc5316b4b",
+        "REQ-ADMIN-bc5dcc3cad",
+        "REQ-ADMIN-6c3bc8ae0b",
+        "REQ-ADMIN-fc14633413",
+        "REQ-ADMIN-1576f270ce",
+        "REQ-ADMIN-6bc6766177",
+        "REQ-ADMIN-54f61f4d76",
+        "REQ-ADMIN-4d431d0bd9",
+        "REQ-ADMIN-4b8b98a165",
+        "REQ-ADMIN-5d4adf01cb",
+        "REQ-ADMIN-13b73aa3a7",
+        "REQ-ADMIN-86d44faaf9",
+        "REQ-PUB-86486d9331",
+        "REQ-PUB-c2699f8b74",
+        "REQ-PUB-66552e2139",
+        "REQ-PUB-72f07ea6a9"
+      ]
+    },
+    {
+      "原子标识": "SC-2317b2338674e4",
+      "共同业务对象": "展示素材编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已启用配置覆盖10月1日至3日，新配置同一位置且覆盖10月3日至5日"
+      ],
+      "动作": "点击保存新配置",
+      "可观察结果": "新配置因10月3日重叠不能生效",
+      "来源需求": [
+        "REQ-ADMIN-3cc5316b4b",
+        "REQ-ADMIN-bc5dcc3cad",
+        "REQ-ADMIN-6c3bc8ae0b",
+        "REQ-ADMIN-fc14633413",
+        "REQ-ADMIN-1576f270ce",
+        "REQ-ADMIN-6bc6766177",
+        "REQ-ADMIN-54f61f4d76",
+        "REQ-ADMIN-4d431d0bd9",
+        "REQ-ADMIN-4b8b98a165",
+        "REQ-ADMIN-5d4adf01cb",
+        "REQ-ADMIN-13b73aa3a7",
+        "REQ-ADMIN-86d44faaf9",
+        "REQ-PUB-86486d9331",
+        "REQ-PUB-c2699f8b74",
+        "REQ-PUB-66552e2139",
+        "REQ-PUB-72f07ea6a9"
+      ]
+    },
+    {
+      "原子标识": "SC-9400cf0fbf270a",
+      "共同业务对象": "展示素材编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "同一配置有2项素材，位置无其他重叠配置"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "该配置的两项素材均按同一排期生效",
+      "来源需求": [
+        "REQ-ADMIN-3cc5316b4b",
+        "REQ-ADMIN-bc5dcc3cad",
+        "REQ-ADMIN-6c3bc8ae0b",
+        "REQ-ADMIN-fc14633413",
+        "REQ-ADMIN-1576f270ce",
+        "REQ-ADMIN-6bc6766177",
+        "REQ-ADMIN-54f61f4d76",
+        "REQ-ADMIN-4d431d0bd9",
+        "REQ-ADMIN-4b8b98a165",
+        "REQ-ADMIN-5d4adf01cb",
+        "REQ-ADMIN-13b73aa3a7",
+        "REQ-ADMIN-86d44faaf9",
+        "REQ-PUB-86486d9331",
+        "REQ-PUB-c2699f8b74",
+        "REQ-PUB-66552e2139",
+        "REQ-PUB-72f07ea6a9"
+      ]
+    },
+    {
+      "原子标识": "SC-c3cd3a79b1ba84",
+      "共同业务对象": "展示素材编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有素材海星、晨光两项"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "轮播顺序保存为晨光、海星",
+      "来源需求": [
+        "REQ-ADMIN-3cc5316b4b",
+        "REQ-ADMIN-bc5dcc3cad",
+        "REQ-ADMIN-6c3bc8ae0b",
+        "REQ-ADMIN-fc14633413",
+        "REQ-ADMIN-1576f270ce",
+        "REQ-ADMIN-6bc6766177",
+        "REQ-ADMIN-54f61f4d76",
+        "REQ-ADMIN-4d431d0bd9",
+        "REQ-ADMIN-4b8b98a165",
+        "REQ-ADMIN-5d4adf01cb",
+        "REQ-ADMIN-13b73aa3a7",
+        "REQ-ADMIN-86d44faaf9",
+        "REQ-PUB-86486d9331",
+        "REQ-PUB-c2699f8b74",
+        "REQ-PUB-66552e2139",
+        "REQ-PUB-72f07ea6a9"
+      ]
+    },
+    {
+      "原子标识": "SC-40b25499042b90",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "四语文案完整，选择晨星公会；用户海风在晨星，晨光在另一公会"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "目标接收范围不包含晨光",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-6a402624f43477",
+      "共同业务对象": "推送配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "目标范围及四语文案完整"
+      ],
+      "动作": "点击立即发送",
+      "可观察结果": "页面切换为已发送只读状态",
+      "来源需求": [
+        "REQ-ADMIN-1459bb74ef",
+        "REQ-ADMIN-2618b4914c",
+        "REQ-ADMIN-c5743bedf5",
+        "REQ-ADMIN-b440ae96d0",
+        "REQ-ADMIN-63d7d7cbd9",
+        "REQ-ADMIN-6d9b07aef7",
+        "REQ-PUB-e2f525ec4d",
+        "REQ-PUB-54a3ce6dd5"
+      ]
+    },
+    {
+      "原子标识": "SC-deeb2b5a0f7d12",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其他必填项合法"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不能保存三位小数销售价格",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-596796e6ebd4c7",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "基础金币为100，其余必填项合法"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "套餐赠送金币保存为0",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-c2259d66c0d1ae",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "活动时间有效且账号已有成功购买记录"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "该账号不因已有购买次数被限购",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-0c28147dc0b0db",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "限购1次，用户成功购买后已全额退款"
+      ],
+      "动作": "查看用户该套餐购买资格",
+      "可观察结果": "该用户仍已用完此套餐限购次数",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-cf52798afaece7",
+      "共同业务对象": "充值套餐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "历史订单基础1000赠金100，新配置赠金改为200"
+      ],
+      "动作": "保存新配置",
+      "可观察结果": "历史订单赠送金币仍为100",
+      "来源需求": [
+        "REQ-ADMIN-03b9df7690",
+        "REQ-ADMIN-85f546b445",
+        "REQ-ADMIN-f5c0665f17",
+        "REQ-ADMIN-9efa98e5e6",
+        "REQ-ADMIN-d847d02c6e",
+        "REQ-ADMIN-dd484cf1a1",
+        "REQ-ADMIN-9ee54399d9",
+        "REQ-ADMIN-10d1dfd825",
+        "REQ-ADMIN-c765deabe8",
+        "REQ-ADMIN-69b0e8e8e1",
+        "REQ-PUB-92d6404e00"
+      ]
+    },
+    {
+      "原子标识": "SC-be114690b7a86c",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "没有达成条件，其他字段合法"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不能保存无达成条件任务",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-f0a21430d84dc2",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已有阈值10及其奖励"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不能保存重复阈值",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-cfb99f76bf8e7d",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "已选择观看直播动作"
+      ],
+      "动作": "查看可选指标",
+      "可观察结果": "仅提供该动作预置支持的指标",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-a710d74e0ba30f",
+      "共同业务对象": "通用任务编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "原动作及指标已选定"
+      ],
+      "动作": "选择另一用户动作",
+      "可观察结果": "指标和周期重新按新动作的预置组合选择",
+      "来源需求": [
+        "REQ-ADMIN-c3e23a0fe9",
+        "REQ-ADMIN-e9ffe4d454",
+        "REQ-ADMIN-39e3514de9",
+        "REQ-ADMIN-da27cade58",
+        "REQ-ADMIN-86741e5cf0",
+        "REQ-ADMIN-9bea90089e",
+        "REQ-ADMIN-fe27b5660a",
+        "REQ-ADMIN-40fca8e276",
+        "REQ-ADMIN-f1bf6ea7f4",
+        "REQ-PUB-f33bf6913f",
+        "REQ-PUB-de3f6f59f7",
+        "REQ-PUB-ad67ae8cf6"
+      ]
+    },
+    {
+      "原子标识": "SC-d064ae8c7db75f",
+      "共同业务对象": "任务配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "任务已启用，有用户已有进度"
+      ],
+      "动作": "停用任务并确认",
+      "可观察结果": "停用之后的新动作不再增加该任务进度",
+      "来源需求": [
+        "REQ-ADMIN-45a60cd422",
+        "REQ-ADMIN-37eb7d9d45",
+        "REQ-ADMIN-06cc85f9a9",
+        "REQ-ADMIN-547c614cbb",
+        "REQ-ADMIN-6020d1207f",
+        "REQ-ADMIN-d4cceec962",
+        "REQ-ADMIN-c3b6d3d3ca",
+        "REQ-PUB-0b4fe8efe8",
+        "REQ-PUB-b3946d1525"
+      ]
+    },
+    {
+      "原子标识": "SC-c092edcc3a33e9",
+      "共同业务对象": "任务配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "用户已领取该任务金币奖励"
+      ],
+      "动作": "停用任务并确认",
+      "可观察结果": "已领金币不因停用而被回收",
+      "来源需求": [
+        "REQ-ADMIN-45a60cd422",
+        "REQ-ADMIN-37eb7d9d45",
+        "REQ-ADMIN-06cc85f9a9",
+        "REQ-ADMIN-547c614cbb",
+        "REQ-ADMIN-6020d1207f",
+        "REQ-ADMIN-d4cceec962",
+        "REQ-ADMIN-c3b6d3d3ca",
+        "REQ-PUB-0b4fe8efe8",
+        "REQ-PUB-b3946d1525"
+      ]
+    },
+    {
+      "原子标识": "SC-8ee61a212e169d",
+      "共同业务对象": "公会推荐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "晨星公会已停用"
+      ],
+      "动作": "打开推荐公会选择器",
+      "可观察结果": "不可选择晨星公会",
+      "来源需求": [
+        "REQ-ADMIN-91567974f0",
+        "REQ-ADMIN-c8dc2e5952",
+        "REQ-ADMIN-d9f26cd09e",
+        "REQ-ADMIN-0c0a51dd50"
+      ]
+    },
+    {
+      "原子标识": "SC-c5d5449d2fa9af",
+      "共同业务对象": "公会推荐编辑",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "晨星公会已有推荐记录"
+      ],
+      "动作": "新建晨星公会推荐并保存",
+      "可观察结果": "不能新增重复推荐记录",
+      "来源需求": [
+        "REQ-ADMIN-91567974f0",
+        "REQ-ADMIN-c8dc2e5952",
+        "REQ-ADMIN-d9f26cd09e",
+        "REQ-ADMIN-0c0a51dd50"
+      ]
+    },
+    {
+      "原子标识": "SC-762e89b66af4dc",
+      "共同业务对象": "直播房型",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "存在一场已开始的门票直播"
+      ],
+      "动作": "关闭门票房开关",
+      "可观察结果": "该已开始场次继续直播",
+      "来源需求": [
+        "REQ-ADMIN-f1d1218c8c",
+        "REQ-ADMIN-5e1f3cc0b5",
+        "REQ-ADMIN-0f22b6bf47",
+        "REQ-ADMIN-fd88a0aa57",
+        "REQ-ADMIN-9a4834559c",
+        "REQ-ADMIN-045e314f07",
+        "REQ-PUB-195524a518"
+      ]
+    },
+    {
+      "原子标识": "SC-139d3d5824e849",
+      "共同业务对象": "直播房型",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "存在已结束密码房场次"
+      ],
+      "动作": "关闭密码房开关",
+      "可观察结果": "历史场次仍记录原密码房类型",
+      "来源需求": [
+        "REQ-ADMIN-f1d1218c8c",
+        "REQ-ADMIN-5e1f3cc0b5",
+        "REQ-ADMIN-0f22b6bf47",
+        "REQ-ADMIN-fd88a0aa57",
+        "REQ-ADMIN-9a4834559c",
+        "REQ-ADMIN-045e314f07",
+        "REQ-PUB-195524a518"
+      ]
+    },
+    {
+      "原子标识": "SC-df1283f1f4673d",
+      "共同业务对象": "门票价格档位",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "只剩一个启用门票价格档位"
+      ],
+      "动作": "点击该档位停用按钮",
+      "可观察结果": "该档位仍保持启用",
+      "来源需求": [
+        "REQ-ADMIN-a99674e0be",
+        "REQ-ADMIN-0f90b6880d",
+        "REQ-ADMIN-6b6fefd78c",
+        "REQ-ADMIN-3f79f61625",
+        "REQ-ADMIN-20293e34e7",
+        "REQ-ADMIN-af3fc40401",
+        "REQ-ADMIN-be08427d7f",
+        "REQ-PUB-7070b51d09",
+        "REQ-PUB-852db98c84"
+      ]
+    },
+    {
+      "原子标识": "SC-be4a27560a5afe",
+      "共同业务对象": "门票价格档位",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "某场次已按50金币开播，另有有效档位"
+      ],
+      "动作": "点击50金币档位停用按钮",
+      "可观察结果": "已开播场次门票价格仍为50金币",
+      "来源需求": [
+        "REQ-ADMIN-a99674e0be",
+        "REQ-ADMIN-0f90b6880d",
+        "REQ-ADMIN-6b6fefd78c",
+        "REQ-ADMIN-3f79f61625",
+        "REQ-ADMIN-20293e34e7",
+        "REQ-ADMIN-af3fc40401",
+        "REQ-ADMIN-be08427d7f",
+        "REQ-PUB-7070b51d09",
+        "REQ-PUB-852db98c84"
+      ]
+    },
+    {
+      "原子标识": "SC-087f3cb04bbf02",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前Tab已有等级1"
+      ],
+      "动作": "保存",
+      "可观察结果": "不能保存重复等级编号",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-88bd2f5e5b6946",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "新增等级编号唯一且为正整数"
+      ],
+      "动作": "保存",
+      "可观察结果": "当前等级数值保存为0",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-c4aeebd129a78b",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "新增等级编号唯一且为正整数"
+      ],
+      "动作": "保存",
+      "可观察结果": "不能保存负数值",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-131eccd3305048",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前新增行未保存且数值为100"
+      ],
+      "动作": "返回主播等级Tab",
+      "可观察结果": "未保存行数值仍为100",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-259f343c620214",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前Tab已有等级1"
+      ],
+      "动作": "保存",
+      "可观察结果": "不能保存重复等级编号",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-4733bf4cac2b69",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "新增等级编号唯一且为正整数"
+      ],
+      "动作": "保存",
+      "可观察结果": "当前等级数值保存为0",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-1fa4f9a9a11d0f",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "新增等级编号唯一且为正整数"
+      ],
+      "动作": "保存",
+      "可观察结果": "不能保存负数值",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-8bc645e806c607",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前新增行未保存且数值为100"
+      ],
+      "动作": "返回财富等级Tab",
+      "可观察结果": "未保存行数值仍为100",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-4876a8534c0bb6",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前Tab已有等级1"
+      ],
+      "动作": "保存",
+      "可观察结果": "不能保存重复等级编号",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-752247db642a9b",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "新增等级编号唯一且为正整数"
+      ],
+      "动作": "保存",
+      "可观察结果": "当前等级数值保存为0",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-cc9cae92b32212",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "新增等级编号唯一且为正整数"
+      ],
+      "动作": "保存",
+      "可观察结果": "不能保存负数值",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-e1a5c9396d0430",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前新增行未保存且数值为100"
+      ],
+      "动作": "返回粉丝等级Tab",
+      "可观察结果": "未保存行数值仍为100",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-69274989ac2260",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前Tab已有等级1"
+      ],
+      "动作": "保存",
+      "可观察结果": "不能保存重复等级编号",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-9694a712559426",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "新增等级编号唯一且为正整数"
+      ],
+      "动作": "保存",
+      "可观察结果": "当前等级数值保存为0",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-815475b3d875b0",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "新增等级编号唯一且为正整数"
+      ],
+      "动作": "保存",
+      "可观察结果": "不能保存负数值",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-2954adffcc2674",
+      "共同业务对象": "等级配置",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "当前新增行未保存且数值为100"
+      ],
+      "动作": "返回粉丝团等级Tab",
+      "可观察结果": "未保存行数值仍为100",
+      "来源需求": [
+        "REQ-ADMIN-bfb51a566b",
+        "REQ-ADMIN-dae28464fc",
+        "REQ-ADMIN-85316c28c6",
+        "REQ-ADMIN-72559deebb",
+        "REQ-ADMIN-e6cb7a8740",
+        "REQ-ADMIN-8a33014677",
+        "REQ-ADMIN-668d55ec8d",
+        "REQ-ADMIN-7ebac29aa9"
+      ]
+    },
+    {
+      "原子标识": "SC-57a3ba2d6ea1a7",
+      "共同业务对象": "额度限制",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "额度调整为100，本月已成功发放150"
+      ],
+      "动作": "查看本月剩余额度",
+      "可观察结果": "本月剩余额度计算结果=max(100-150,0)=0",
+      "来源需求": [
+        "REQ-ADMIN-7c2fa9bdc0",
+        "REQ-ADMIN-1f3d863409",
+        "REQ-ADMIN-d74f5495a3",
+        "REQ-ADMIN-dfc5a03e9f",
+        "REQ-ADMIN-7781df07b0",
+        "REQ-ADMIN-12780bf6a9",
+        "REQ-ADMIN-eee93e14f1",
+        "REQ-ADMIN-4c0ad04178",
+        "REQ-ADMIN-7e1ab0a86b",
+        "REQ-ADMIN-00ba04135f",
+        "REQ-PUB-5768afc239",
+        "REQ-PUB-ca7c5744db",
+        "REQ-PUB-903bddd2c7"
+      ]
+    },
+    {
+      "原子标识": "SC-1466d7fbb3214b",
+      "共同业务对象": "额度限制",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权"
+      ],
+      "动作": "查看页面操作",
+      "可观察结果": "不提供直接发放虚拟金币入口",
+      "来源需求": [
+        "REQ-ADMIN-7c2fa9bdc0",
+        "REQ-ADMIN-1f3d863409",
+        "REQ-ADMIN-d74f5495a3",
+        "REQ-ADMIN-dfc5a03e9f",
+        "REQ-ADMIN-7781df07b0",
+        "REQ-ADMIN-12780bf6a9",
+        "REQ-ADMIN-eee93e14f1",
+        "REQ-ADMIN-4c0ad04178",
+        "REQ-ADMIN-7e1ab0a86b",
+        "REQ-ADMIN-00ba04135f",
+        "REQ-PUB-5768afc239",
+        "REQ-PUB-ca7c5744db",
+        "REQ-PUB-903bddd2c7"
+      ]
+    },
+    {
+      "原子标识": "SC-677b7c90433e8f",
+      "共同业务对象": "运营账号主页",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "累计公会发放300，成功虚拟赠礼消费120"
+      ],
+      "动作": "查看虚拟金币余额",
+      "可观察结果": "虚拟金币余额计算结果=300-120=180",
+      "来源需求": [
+        "REQ-ADMIN-b5c0580ddd",
+        "REQ-ADMIN-9fbe24b4a7",
+        "REQ-ADMIN-ebbc9f8234",
+        "REQ-ADMIN-6b373b04d4",
+        "REQ-ADMIN-0f52047389",
+        "REQ-ADMIN-03087793cf",
+        "REQ-ADMIN-bc38a3956e",
+        "REQ-ADMIN-e8766f5ce9",
+        "REQ-PUB-48e89dc13f",
+        "REQ-PUB-0b81985753"
+      ]
+    },
+    {
+      "原子标识": "SC-a80ff6cb87c536",
+      "共同业务对象": "发放记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "目标账号发放前余额50，公会本次成功发放100"
+      ],
+      "动作": "查看发放后余额",
+      "可观察结果": "发放后余额为150虚拟金币",
+      "来源需求": [
+        "REQ-ADMIN-6bd372044c",
+        "REQ-ADMIN-2e609afe12",
+        "REQ-ADMIN-c46ee0283f",
+        "REQ-ADMIN-c752147d4c",
+        "REQ-ADMIN-e4f57be340",
+        "REQ-ADMIN-e38cbd621c",
+        "REQ-ADMIN-c2cc04f2d8",
+        "REQ-ADMIN-384b85a33f",
+        "REQ-PUB-927ee934f1",
+        "REQ-PUB-702989125d"
+      ]
+    },
+    {
+      "原子标识": "SC-d27ceb3016cc67",
+      "共同业务对象": "送礼记录",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "成功虚拟礼物单价10数量3"
+      ],
+      "动作": "查看消费金币",
+      "可观察结果": "消费金币为30",
+      "来源需求": [
+        "REQ-ADMIN-7ae7263cf0",
+        "REQ-ADMIN-5b615b9795",
+        "REQ-ADMIN-ac0a296b30",
+        "REQ-ADMIN-9ade660c97",
+        "REQ-ADMIN-aff61420a9",
+        "REQ-ADMIN-be3ec7feae",
+        "REQ-ADMIN-5afa5041ca",
+        "REQ-PUB-c5fc046dfe",
+        "REQ-PUB-2e6b9b1cf8"
+      ]
+    },
+    {
+      "原子标识": "SC-4cd83b644181d8",
+      "共同业务对象": "入会认证申请",
+      "执行角色": "平台管理员",
+      "来源状态": "待平台终审",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "用户已获目标公会初审通过"
+      ],
+      "动作": "选择通过并确认",
+      "可观察结果": "用户加入申请公会并获得主播身份",
+      "来源需求": [
+        "REQ-ADMIN-64724c65c0",
+        "REQ-ADMIN-680859b13d",
+        "REQ-ADMIN-187f8ad1a1",
+        "REQ-ADMIN-2db358b32f",
+        "REQ-ADMIN-1ab4b011f6",
+        "REQ-ADMIN-8d206c6d5c",
+        "REQ-ADMIN-ccf2d699d7",
+        "REQ-ADMIN-1358d766db",
+        "REQ-ADMIN-afa547b300"
+      ]
+    },
+    {
+      "原子标识": "SC-2fe2671cd8f8da",
+      "共同业务对象": "审核详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "不提交缺少原因的驳回结果",
+      "来源需求": [
+        "REQ-ADMIN-64724c65c0",
+        "REQ-ADMIN-680859b13d",
+        "REQ-ADMIN-187f8ad1a1",
+        "REQ-ADMIN-2db358b32f",
+        "REQ-ADMIN-1ab4b011f6",
+        "REQ-ADMIN-8d206c6d5c",
+        "REQ-ADMIN-ccf2d699d7",
+        "REQ-ADMIN-1358d766db",
+        "REQ-ADMIN-afa547b300"
+      ]
+    },
+    {
+      "原子标识": "SC-8f672692ed0b3a",
+      "共同业务对象": "入会认证申请",
+      "执行角色": "平台管理员",
+      "来源状态": "待平台终审",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权"
+      ],
+      "动作": "点击确认",
+      "可观察结果": "该申请终态为已驳回",
+      "来源需求": [
+        "REQ-ADMIN-64724c65c0",
+        "REQ-ADMIN-680859b13d",
+        "REQ-ADMIN-187f8ad1a1",
+        "REQ-ADMIN-2db358b32f",
+        "REQ-ADMIN-1ab4b011f6",
+        "REQ-ADMIN-8d206c6d5c",
+        "REQ-ADMIN-ccf2d699d7",
+        "REQ-ADMIN-1358d766db",
+        "REQ-ADMIN-afa547b300"
+      ]
+    },
+    {
+      "原子标识": "SC-bb32f04532b2c6",
+      "共同业务对象": "审核详情",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "该申请已通过"
+      ],
+      "动作": "查看审核操作",
+      "可观察结果": "不提供再次通过或驳回入口",
+      "来源需求": [
+        "REQ-ADMIN-64724c65c0",
+        "REQ-ADMIN-680859b13d",
+        "REQ-ADMIN-187f8ad1a1",
+        "REQ-ADMIN-2db358b32f",
+        "REQ-ADMIN-1ab4b011f6",
+        "REQ-ADMIN-8d206c6d5c",
+        "REQ-ADMIN-ccf2d699d7",
+        "REQ-ADMIN-1358d766db",
+        "REQ-ADMIN-afa547b300"
+      ]
+    },
+    {
+      "原子标识": "SC-c01b6c908ad3df",
+      "共同业务对象": "主播直播权限",
+      "执行角色": "平台管理员",
+      "来源状态": "账号公会认证有效且直播中",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "海风正直播，公会权限开启"
+      ],
+      "动作": "关闭海风平台直播权限并确认",
+      "可观察结果": "海风当前场次结束",
+      "来源需求": [
+        "REQ-ADMIN-c21736b6b7",
+        "REQ-ADMIN-cbc88fd888",
+        "REQ-ADMIN-9b7dfb6bb1",
+        "REQ-ADMIN-b909d2723a",
+        "REQ-ADMIN-69bfe359fc",
+        "REQ-ADMIN-14a331483d",
+        "REQ-ADMIN-d389df27ff",
+        "REQ-ADMIN-eac0d030b1",
+        "REQ-ADMIN-1d36dd2f89"
+      ]
+    },
+    {
+      "原子标识": "SC-ffba949ff350e4",
+      "共同业务对象": "主播列表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "平台开启、公会原设置关闭"
+      ],
+      "动作": "锁定海风公会管理权限并确认",
+      "可观察结果": "最终开播权限跟随平台开启",
+      "来源需求": [
+        "REQ-ADMIN-c21736b6b7",
+        "REQ-ADMIN-cbc88fd888",
+        "REQ-ADMIN-9b7dfb6bb1",
+        "REQ-ADMIN-b909d2723a",
+        "REQ-ADMIN-69bfe359fc",
+        "REQ-ADMIN-14a331483d",
+        "REQ-ADMIN-d389df27ff",
+        "REQ-ADMIN-eac0d030b1",
+        "REQ-ADMIN-1d36dd2f89"
+      ]
+    },
+    {
+      "原子标识": "SC-89c418d4f045a0",
+      "共同业务对象": "主播列表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "锁定前公会关闭，平台目前开启且锁定"
+      ],
+      "动作": "解锁公会管理权限并确认",
+      "可观察结果": "最终开播权限恢复为关闭",
+      "来源需求": [
+        "REQ-ADMIN-c21736b6b7",
+        "REQ-ADMIN-cbc88fd888",
+        "REQ-ADMIN-9b7dfb6bb1",
+        "REQ-ADMIN-b909d2723a",
+        "REQ-ADMIN-69bfe359fc",
+        "REQ-ADMIN-14a331483d",
+        "REQ-ADMIN-d389df27ff",
+        "REQ-ADMIN-eac0d030b1",
+        "REQ-ADMIN-1d36dd2f89"
+      ]
+    },
+    {
+      "原子标识": "SC-3bedec19254e58",
+      "共同业务对象": "主播列表",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "海风账号封禁且直播权限关闭"
+      ],
+      "动作": "解封海风并确认",
+      "可观察结果": "海风直播权限仍为关闭",
+      "来源需求": [
+        "REQ-ADMIN-c21736b6b7",
+        "REQ-ADMIN-cbc88fd888",
+        "REQ-ADMIN-9b7dfb6bb1",
+        "REQ-ADMIN-b909d2723a",
+        "REQ-ADMIN-69bfe359fc",
+        "REQ-ADMIN-14a331483d",
+        "REQ-ADMIN-d389df27ff",
+        "REQ-ADMIN-eac0d030b1",
+        "REQ-ADMIN-1d36dd2f89"
+      ]
+    },
+    {
+      "原子标识": "SC-04536851228c09",
+      "共同业务对象": "新建排班",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "其余必填项合法"
+      ],
+      "动作": "选择昨天并保存",
+      "可观察结果": "不能创建过去日期的新排班",
+      "来源需求": [
+        "REQ-ADMIN-636938fee1",
+        "REQ-ADMIN-5da9e5c9fd",
+        "REQ-ADMIN-4af40a4896",
+        "REQ-ADMIN-d962300871",
+        "REQ-ADMIN-acea948e6d",
+        "REQ-ADMIN-ff7a37f338"
+      ]
+    },
+    {
+      "原子标识": "SC-237f1081a97392",
+      "共同业务对象": "新建排班",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "日期及时间段合法，未选择人员"
+      ],
+      "动作": "点击保存",
+      "可观察结果": "不能创建无人员排班",
+      "来源需求": [
+        "REQ-ADMIN-636938fee1",
+        "REQ-ADMIN-5da9e5c9fd",
+        "REQ-ADMIN-4af40a4896",
+        "REQ-ADMIN-d962300871",
+        "REQ-ADMIN-acea948e6d",
+        "REQ-ADMIN-ff7a37f338"
+      ]
+    },
+    {
+      "原子标识": "SC-3d61181311eb2b",
+      "共同业务对象": "新建排班",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "海风已被平台封禁"
+      ],
+      "动作": "搜索并选择海风",
+      "可观察结果": "海风不可加入排班",
+      "来源需求": [
+        "REQ-ADMIN-636938fee1",
+        "REQ-ADMIN-5da9e5c9fd",
+        "REQ-ADMIN-4af40a4896",
+        "REQ-ADMIN-d962300871",
+        "REQ-ADMIN-acea948e6d",
+        "REQ-ADMIN-ff7a37f338"
+      ]
+    },
+    {
+      "原子标识": "SC-30283f4d949d37",
+      "共同业务对象": "新建排班",
+      "执行角色": "平台管理员",
+      "来源状态": "",
+      "条件": [
+        "后台账号已登录且拥有本页及本次操作的授权",
+        "人员库有海风、晨光，搜索结果仅海风"
+      ],
+      "动作": "点击全选",
+      "可观察结果": "只选中当前搜索结果中的海风",
+      "来源需求": [
+        "REQ-ADMIN-636938fee1",
+        "REQ-ADMIN-5da9e5c9fd",
+        "REQ-ADMIN-4af40a4896",
+        "REQ-ADMIN-d962300871",
+        "REQ-ADMIN-acea948e6d",
+        "REQ-ADMIN-ff7a37f338"
+      ]
+    },
+    {
+      "原子标识": "PENDING-Q-002",
+      "问题编号": "Q-002",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-003",
+      "问题编号": "Q-003",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-004",
+      "问题编号": "Q-004",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-005",
+      "问题编号": "Q-005",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-008",
+      "问题编号": "Q-008",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-009",
+      "问题编号": "Q-009",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-010",
+      "问题编号": "Q-010",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-011",
+      "问题编号": "Q-011",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-012",
+      "问题编号": "Q-012",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-013",
+      "问题编号": "Q-013",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-014",
+      "问题编号": "Q-014",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-035",
+      "问题编号": "Q-035",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-036",
+      "问题编号": "Q-036",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    },
+    {
+      "原子标识": "PENDING-Q-037",
+      "问题编号": "Q-037",
+      "可观察结果": null,
+      "风险来源": "liveshow-proto/MainBasis/需求待确认清单.md"
+    }
+  ]
+}

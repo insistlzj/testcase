@@ -34,7 +34,7 @@ export async function validateTestcaseDelivery(taskDir, repoRoot, { phase = "fin
     const { validateDiscovery } = await import('./validate-discovery.mjs');
     return validateDiscovery(taskDir,repoRoot,{phase:phase==='candidate'?'pre-generate':'final',workbook});
   }
-  await validateGenerationInput(manifestFile, repoRoot, phase === "candidate" ? "pre-generate" : "final");
+  const inputCheck = await validateGenerationInput(manifestFile, repoRoot, phase === "candidate" ? "pre-generate" : "final");
   const manifest = await read(manifestFile);
   const entries = new Map(manifest.输入文件.map((entry) => [entry.路径, entry]));
   const readRegistered = async (name) => {
@@ -77,7 +77,9 @@ export async function validateTestcaseDelivery(taskDir, repoRoot, { phase = "fin
   requirePass(Array.isArray(sync.文件核对) && sync.文件核对.length > 0, "同步结果缺少实际文件差异核对");
   for (const record of sync.文件核对) {
     requirePass(await hashFile(path.join(repoRoot, record.路径)) === record.修改后SHA256, `同步基线变化：${record.路径}`);
-    requirePass(/^[a-f0-9]{64}$/.test(record.修改前SHA256), `缺少同步前基线：${record.路径}`);
+    const newMainBasis = manifest.历史策略 === '不读取不比较' && record.修改前SHA256 === null
+      && record.文件原先不存在 === true && record.路径.startsWith(`${manifest.项目目录}/MainBasis/`);
+    requirePass(newMainBasis || /^[a-f0-9]{64}$/.test(record.修改前SHA256), `缺少同步前基线：${record.路径}`);
   }
   const changed = sync.文件核对.filter((item) => item.修改前SHA256 !== item.修改后SHA256);
   requirePass(sync.需求清单有修改 === (changed.length > 0), "同步修改标记与实际哈希差异矛盾");
@@ -151,5 +153,6 @@ export async function validateTestcaseDelivery(taskDir, repoRoot, { phase = "fin
     requirePass(report.工作簿SHA256 === await hashFile(workbook), "Excel 检查报告对应的文件已变化");
     requirePass(report.候选SHA256 === await hashFile(candidatePath), "Excel 检查报告对应的候选已变化");
   }
-  return { 状态: "通过", 阶段: phase, 输入清单SHA256: await hashFile(manifestFile), 候选SHA256: candidateHash };
+  return { 状态: "通过", 阶段: phase, 输入清单SHA256: await hashFile(manifestFile), 候选SHA256: candidateHash,
+    ...(inputCheck.需求覆盖 ? { 需求覆盖: inputCheck.需求覆盖 } : {}) };
 }
