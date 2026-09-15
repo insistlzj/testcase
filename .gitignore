@@ -17,3 +17,7 @@ Thumbs.db
 # Temp & backups
 *.tmp
 .git-backup/
+
+# Oversized trace snapshots are versioned as lossless .json.gz files.
+/work/liveshow-guild-admin-260915-001/context-transfer.json
+/work/liveshow-guild-admin-260915-001/context-transfer.before-context-update.json

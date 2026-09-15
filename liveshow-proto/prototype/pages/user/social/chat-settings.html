@@ -221,36 +221,16 @@
         </div>
       </div>
     </section>
-    <section
-      class="confirm state-hide"
-      id="confirmTwo"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div class="confirm-card">
-        <b></b>
-        <p></p>
-        <div>
-          <button type="button" data-cancel>取消</button
-          ><button type="button" data-confirm>再次确认</button>
-        </div>
-      </div>
-    </section>
     <div class="homebar"><i></i></div>
     <script>
       const action = {
         title: "确认拉黑 Sari？",
-        detail:
-          "加入黑名单后，双方均无法发送消息给对方。",
-        secondTitle: "再次确认拉黑？",
-        secondDetail: "清除后的关系和聊天记录无法恢复。",
+        detail: "确认后解除所有关系并进入黑名单。包括粉丝团、好友、关注。",
         done: "已拉黑 Sari",
       };
-      const confirmOne = document.querySelector("#confirmOne"),
-        confirmTwo = document.querySelector("#confirmTwo");
+      const confirmOne = document.querySelector("#confirmOne");
       function closeConfirm() {
         confirmOne.classList.add("state-hide");
-        confirmTwo.classList.add("state-hide");
       }
       function setDialog(dialog, title, detail) {
         dialog.querySelector("b").textContent = title;
@@ -267,11 +247,6 @@
         .querySelectorAll("[data-cancel]")
         .forEach((button) => (button.onclick = closeConfirm));
       confirmOne.querySelector("[data-confirm]").onclick = () => {
-        setDialog(confirmTwo, action.secondTitle, action.secondDetail);
-        confirmOne.classList.add("state-hide");
-        confirmTwo.classList.remove("state-hide");
-      };
-      confirmTwo.querySelector("[data-confirm]").onclick = () => {
         closeConfirm();
         blacklist.firstElementChild.textContent = "已拉黑";
         Luma.toast(action.done);

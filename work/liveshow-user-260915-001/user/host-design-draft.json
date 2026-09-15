@@ -1,0 +1,3034 @@
+[
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播中心本人资料",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "当前主播ID、昵称、头像已准备为已知测试值"
+    ],
+    "steps": [
+      "查看主播中心资料"
+    ],
+    "result": "显示当前主播账号的ID、昵称及头像",
+    "refs": [
+      "REQ-f6687952acd1",
+      "REQ-c509c941bb55"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "51e465a532eba301ee5c865113dd03de940436fb162daf6ccfd42a6fb1d51cf6",
+      "2b01bc461b154975fca9bd972f2d30c2b532d7671674cc23063d7398b143bedc"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播等级非财富等级",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "当前主播等级10、财富等级5"
+    ],
+    "steps": [
+      "查看昵称旁等级"
+    ],
+    "result": "展示主播等级Lv.10",
+    "refs": [
+      "REQ-e6b16676c243"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b789fbfa78ba048349b97ba9fc58688054a6a49695e8a8bece52075a5fc1616d"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "默认今日统计",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "查看统计周期"
+    ],
+    "result": "默认今日",
+    "refs": [
+      "REQ-f71f44ece401"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "27969ad757458f475e8ece7d9fe0cc97c65071665427e6f47a7ecc26402ce332"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "切换本月指标",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "今日与本月有不同统计数据"
+    ],
+    "steps": [
+      "点击本月"
+    ],
+    "result": "四项周期指标切换为本月数据",
+    "refs": [
+      "REQ-cdaa58824dac"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "41e4cdac25404fd448d319fb333c48b4e31d9c0bd7a52bb10a576199c11898c6"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "本月隐藏当日进度",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "点击本月"
+    ],
+    "result": "隐藏当日有效天进度",
+    "refs": [
+      "REQ-cdaa58824dac"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "41e4cdac25404fd448d319fb333c48b4e31d9c0bd7a52bb10a576199c11898c6"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "累计收益不随周期变化",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "历史累计收益1000金币"
+    ],
+    "steps": [
+      "记录顶部累计收益",
+      "切换本月"
+    ],
+    "result": "顶部累计收益仍为1000金币",
+    "refs": [
+      "REQ-4a207c86fc90"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4beb601edf6f9863b2a193d8d16507a4530c1e96e213efd82d99dec48a61516f"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "当前粉丝非团成员",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "当前被3人关注，粉丝团有2名成员"
+    ],
+    "steps": [
+      "查看粉丝数量"
+    ],
+    "result": "粉丝为3人",
+    "refs": [
+      "REQ-53cfa67ab976"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "cf144b620122aedbd1311a9d408e48e41b9b7ef3079722ad9602115653937ddc"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "观众周期内去重",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "同一观众A今天进入两场，每场进入两次；无其他观众"
+    ],
+    "steps": [
+      "查看今日观众人数"
+    ],
+    "result": "观众人数为1",
+    "refs": [
+      "REQ-ef98e4f35877"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b68d1fb047fbc9b16bef9fa75155eb109b50c97f887853bfae9e8ed37215d78a"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "新增粉丝不扣取关",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "本日新关注5人、取关2人"
+    ],
+    "steps": [
+      "查看今日涨粉"
+    ],
+    "result": "涨粉为5人",
+    "refs": [
+      "REQ-f78a990c2c7d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7305e2563343ff1fb77674fbcd58575810622d01d637196682ec07a103bb1ca4"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "未满三小时无达标标记",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "当日累计有效直播2小时59分钟"
+    ],
+    "steps": [
+      "查看当日有效天"
+    ],
+    "result": "不显示达标标记",
+    "refs": [
+      "REQ-19d831cad83e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "457da9cc4443c49ef42b57badaefbaac2a2644476bbf0d6978ef9b5dc7f26b86"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "三小时有效天达标",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "当日累计有效直播恰好3小时"
+    ],
+    "steps": [
+      "查看当日有效天"
+    ],
+    "result": "显示达标标记",
+    "refs": [
+      "REQ-93644daf8897",
+      "REQ-19d831cad83e"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "f438373a8518f1317fee8a671c2a36ee2b95fab969c35a9e6c7d7c1049ec600a",
+      "457da9cc4443c49ef42b57badaefbaac2a2644476bbf0d6978ef9b5dc7f26b86"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "四小时进度上限",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "当日有效直播4小时"
+    ],
+    "steps": [
+      "查看进度条"
+    ],
+    "result": "进度条最多100%",
+    "refs": [
+      "REQ-93644daf8897"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f438373a8518f1317fee8a671c2a36ee2b95fab969c35a9e6c7d7c1049ec600a"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "权限关闭提示",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "最终直播权限已关闭"
+    ],
+    "steps": [
+      "查看主播中心"
+    ],
+    "result": "显示“直播权限已关闭，请联系公会”",
+    "refs": [
+      "REQ-5029bd873a25"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c2d562424bdcd1add5724cf74ea8da084adda4dadf78ed008c49f162c50e30bf"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "权限关闭阻止开播",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "最终直播权限已关闭"
+    ],
+    "steps": [
+      "点击开始直播"
+    ],
+    "result": "弹窗提示“直播权限已关闭，请联系公会”",
+    "refs": [
+      "REQ-eea47ec9a161"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "2d21ebaa698cc9c9d0ee2a198aff03e15c2d8cf27fa02fcd655c4378980f0553"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "知道了关闭权限弹窗",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "权限关闭提示弹窗已打开"
+    ],
+    "steps": [
+      "点击知道了"
+    ],
+    "result": "关闭弹窗并留在主播中心",
+    "refs": [
+      "REQ-eea47ec9a161"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2d21ebaa698cc9c9d0ee2a198aff03e15c2d8cf27fa02fcd655c4378980f0553"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "有效权限进入开播设置",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "账号可用、公会有效、认证通过且最终直播权限开启"
+    ],
+    "steps": [
+      "点击开始直播"
+    ],
+    "result": "进入开播设置",
+    "refs": [
+      "REQ-dc9d1817d6ab",
+      "REQ-eea47ec9a161"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "7be22d5daf4cb79f505d6bd58b67cf6f13d5eb36349903329c0973c0d90a869f",
+      "2d21ebaa698cc9c9d0ee2a198aff03e15c2d8cf27fa02fcd655c4378980f0553"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "公会通知零角标",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "当前没有未读公会通知"
+    ],
+    "steps": [
+      "查看公会通知入口"
+    ],
+    "result": "隐藏未读角标",
+    "refs": [
+      "REQ-5f53cf6bcc3e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "81918c887dd17ec3962bdfe4dc8a8523770edbc6cacea9dd692225cc983f18e6"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "公会通知未读角标",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "当前有3条未读公会通知"
+    ],
+    "steps": [
+      "查看公会通知入口"
+    ],
+    "result": "显示角标3",
+    "refs": [
+      "REQ-5f53cf6bcc3e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "81918c887dd17ec3962bdfe4dc8a8523770edbc6cacea9dd692225cc983f18e6"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播中心数据中心入口",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "点击数据中心"
+    ],
+    "result": "进入直播数据页面",
+    "refs": [
+      "REQ-c9d28cd68b6b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a35502f631844165fa86b14c5c479edd0466cd4ffb161662b3ddcb66bacb2240"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播中心粉丝列表入口",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "点击粉丝列表"
+    ],
+    "result": "进入粉丝列表页面",
+    "refs": [
+      "REQ-db83d956ac86"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5908d4b0db924fd37522fca688258d0201b854ee14eb6119d486a3a5a9631702"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播中心粉丝团管理入口",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "点击粉丝团管理"
+    ],
+    "result": "进入粉丝团页面",
+    "refs": [
+      "REQ-db83d956ac86"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5908d4b0db924fd37522fca688258d0201b854ee14eb6119d486a3a5a9631702"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播中心房管管理入口",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "点击房管管理"
+    ],
+    "result": "进入房管管理页面",
+    "refs": [
+      "REQ-db83d956ac86"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5908d4b0db924fd37522fca688258d0201b854ee14eb6119d486a3a5a9631702"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播中心分成记录入口",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "点击分成记录"
+    ],
+    "result": "进入分成记录页面",
+    "refs": [
+      "REQ-db83d956ac86"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5908d4b0db924fd37522fca688258d0201b854ee14eb6119d486a3a5a9631702"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播中心公会名称入口",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "点击公会名称"
+    ],
+    "result": "进入我的公会页面",
+    "refs": [
+      "REQ-ac4e8ce159f8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "be60f654694c4abd23a58346c62d655bb309a2a24066507948ae0ab8e9191291"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播中心公会通知入口",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "点击公会通知"
+    ],
+    "result": "进入公会通知页面",
+    "refs": [
+      "REQ-5f53cf6bcc3e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "81918c887dd17ec3962bdfe4dc8a8523770edbc6cacea9dd692225cc983f18e6"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "主播中心直播记录入口",
+    "pre": [
+      "已认证主播；当前处于主播中心页面"
+    ],
+    "steps": [
+      "点击直播记录"
+    ],
+    "result": "进入直播记录页面",
+    "refs": [
+      "REQ-5f53cf6bcc3e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "81918c887dd17ec3962bdfe4dc8a8523770edbc6cacea9dd692225cc983f18e6"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "房管本人有效授权",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "本主播及其他主播均有不同房管"
+    ],
+    "steps": [
+      "查看房管列表"
+    ],
+    "result": "只展示本主播仍有效的授权",
+    "refs": [
+      "REQ-94bc292839c6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2897a0ebdd019121723e3928643e384909605a1e898c5725cfa06d88b1e9b108"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "第三名房管可添加",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "当前有2名房管；目标无拉黑且不是现有房管"
+    ],
+    "steps": [
+      "搜索目标用户ID",
+      "添加该用户为房管"
+    ],
+    "result": "房管数量变为3",
+    "refs": [
+      "REQ-6dde361727ce",
+      "REQ-93134b08beb0"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "7ffe577d897e3a67a45df73a14bb66ac25cd094774b89b6a875ca604dfa34eac",
+      "99989b1083b74346a1c90331f0397dc47341dcf089503b1200bf2fd036637967"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "三人上限保留添加入口",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "当前已有3名房管"
+    ],
+    "steps": [
+      "查看添加入口"
+    ],
+    "result": "添加入口仍显示",
+    "refs": [
+      "REQ-93134b08beb0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "99989b1083b74346a1c90331f0397dc47341dcf089503b1200bf2fd036637967"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "第四名房管禁止添加",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "当前已有3名房管"
+    ],
+    "steps": [
+      "点击添加房管"
+    ],
+    "result": "提示“已达3人上限”且不执行添加",
+    "refs": [
+      "REQ-93134b08beb0"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "99989b1083b74346a1c90331f0397dc47341dcf089503b1200bf2fd036637967"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "房管搜索排除现有房管",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "目标A已是本主播房管"
+    ],
+    "steps": [
+      "搜索A的用户ID"
+    ],
+    "result": "搜索结果不返回A",
+    "refs": [
+      "REQ-93134b08beb0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "99989b1083b74346a1c90331f0397dc47341dcf089503b1200bf2fd036637967"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "房管搜索排除拉黑账号",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "目标A与主播有任一方向账号拉黑关系"
+    ],
+    "steps": [
+      "搜索A的用户ID"
+    ],
+    "result": "搜索结果不返回A",
+    "refs": [
+      "REQ-82898d5df547",
+      "REQ-93134b08beb0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d9e4b19f816fb19cef229612780b1f19d2b5d41d5b9032569c86a3cd6bdf8b5a",
+      "99989b1083b74346a1c90331f0397dc47341dcf089503b1200bf2fd036637967"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "取消房管二次确认",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "当前有房管A"
+    ],
+    "steps": [
+      "点击取消A的房管授权"
+    ],
+    "result": "显示二次确认",
+    "refs": [
+      "REQ-93134b08beb0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "99989b1083b74346a1c90331f0397dc47341dcf089503b1200bf2fd036637967"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "取消房管生效",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "当前有房管A"
+    ],
+    "steps": [
+      "点击取消A的房管授权",
+      "点击确认"
+    ],
+    "result": "A的权限立即撤销并移出列表",
+    "refs": [
+      "REQ-93134b08beb0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "99989b1083b74346a1c90331f0397dc47341dcf089503b1200bf2fd036637967"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "跨场次保留房管",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "上一场结束且新的场次已开播；未解除房管授权"
+    ],
+    "steps": [
+      "查看房管列表"
+    ],
+    "result": "原房管授权仍保留",
+    "refs": [
+      "REQ-717f359e5a4f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "60dd26ffdf5b6c799d6c3155f8e969564f359cc809b98b9967f696fe2dbad9b4"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "拉黑自动解除房管",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "房管A与主播刚产生账号拉黑关系"
+    ],
+    "steps": [
+      "刷新房管列表"
+    ],
+    "result": "A移出列表并更新人数",
+    "refs": [
+      "REQ-fb48ea3b9666",
+      "REQ-93134b08beb0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f2e00bc3f8edf1db5e53f24e3b932953a2896a2fd777628650195d09c1ea2961",
+      "99989b1083b74346a1c90331f0397dc47341dcf089503b1200bf2fd036637967"
+    ]
+  },
+  {
+    "page": "moderator-management.html",
+    "role": "已认证主播",
+    "point": "解除拉黑不恢复房管",
+    "pre": [
+      "已认证主播；当前处于房管管理页面",
+      "A原房管因拉黑已解除；之后已取消拉黑"
+    ],
+    "steps": [
+      "查看房管列表"
+    ],
+    "result": "A不会自动恢复房管",
+    "refs": [
+      "REQ-fb48ea3b9666",
+      "REQ-39e6e8a40af8",
+      "REQ-f5e511bd4cd3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f2e00bc3f8edf1db5e53f24e3b932953a2896a2fd777628650195d09c1ea2961",
+      "fdce7658aa833fd4036c8cd6617149ced91ed8cc02d8fc856e3c683123e5a223",
+      "72e1909dfa7b801b84295b585718caf0d93dd135fd618a01b02eb4a81f5e56f8"
+    ]
+  },
+  {
+    "page": "host-guild-notifications.html",
+    "role": "已加入公会主播",
+    "point": "有效公会通知范围",
+    "pre": [
+      "已加入公会主播；当前处于公会通知页面",
+      "当前公会向本主播发送A；其他公会或其他主播有通知B"
+    ],
+    "steps": [
+      "查看通知列表"
+    ],
+    "result": "只展示本主播收到的当前公会有效通知A",
+    "refs": [
+      "REQ-7bc85d9f5b42"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "24bd9f035b4d68cfb5774f7393bf2c81598658e37d4bcc3d7fdd4fe0d04e2c83"
+    ]
+  },
+  {
+    "page": "host-guild-notifications.html",
+    "role": "已加入公会主播",
+    "point": "公会图文通知",
+    "pre": [
+      "已加入公会主播；当前处于公会通知页面",
+      "收到图片加文字通知"
+    ],
+    "steps": [
+      "查看该通知"
+    ],
+    "result": "展示通知标题、文字和图片",
+    "refs": [
+      "REQ-6e53209ec69b",
+      "REQ-60f97773a8af"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "17790e1a9bd18e530f14e97bf2f9032f4a4af58b07c8929b98acb943300824d2",
+      "dddde341093c6e7fb35c41d0ca267423f4b5412227edad4aa5282366eb9d07a1"
+    ]
+  },
+  {
+    "page": "host-guild-notifications.html",
+    "role": "已加入公会主播",
+    "point": "长通知卡片展开",
+    "pre": [
+      "已加入公会主播；当前处于公会通知页面",
+      "存在折叠的长通知"
+    ],
+    "steps": [
+      "点击展开"
+    ],
+    "result": "在当前卡片展开内容，不进入详情页",
+    "refs": [
+      "REQ-2cff677094c0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9f6db39c7fa9408941757e19f437cbbf86c52b37802b1c950730de617b52b063"
+    ]
+  },
+  {
+    "page": "host-guild-notifications.html",
+    "role": "已加入公会主播",
+    "point": "通知已读更新",
+    "pre": [
+      "已加入公会主播；当前处于公会通知页面",
+      "当前有未读公会通知"
+    ],
+    "steps": [
+      "进入列表查看通知"
+    ],
+    "result": "已查看通知的未读状态和数量更新",
+    "refs": [
+      "REQ-2cff677094c0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9f6db39c7fa9408941757e19f437cbbf86c52b37802b1c950730de617b52b063"
+    ]
+  },
+  {
+    "page": "host-guild-notifications.html",
+    "role": "已加入公会主播",
+    "point": "不展示通知发布时间",
+    "pre": [
+      "已加入公会主播；当前处于公会通知页面"
+    ],
+    "steps": [
+      "查看通知卡片"
+    ],
+    "result": "卡片不显示发布时间",
+    "refs": [
+      "REQ-b77db77e85b4"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b8bd23f3310025c5ace4eac9cf2536c04f700fcda5a98958f388e0f05b75338f"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "申请流程时间线",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面"
+    ],
+    "steps": [
+      "查看申请步骤"
+    ],
+    "result": "顺序为申请加入、公会审核、平台审核、成为主播",
+    "refs": [
+      "REQ-82bbb7de6d03"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b40eaa1aacc3c9108774a534a4955d3ad612f5dd10d26651cd1110581c026d20"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "未申请去加入",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面",
+      "尚未提交入会申请"
+    ],
+    "steps": [
+      "点击去加入"
+    ],
+    "result": "进入公会选择页",
+    "refs": [
+      "REQ-225e8c6289cd",
+      "REQ-cf2723fa2f75"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "09486b8e6940e5cf09fc02e66d915b7f5199a0ecb323b9aa5e7291b386ee4e5e",
+      "9524f710f2256c8c584a9eca9add88673044ab127190d58208fc9d8be138dedd"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "提交后资料可展开",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面",
+      "已提交申请"
+    ],
+    "steps": [
+      "点击申请资料"
+    ],
+    "result": "在当前步骤展开申请资料",
+    "refs": [
+      "REQ-cf2723fa2f75"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9524f710f2256c8c584a9eca9add88673044ab127190d58208fc9d8be138dedd"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "公会审核中不能开播",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面",
+      "当前在公会初审中"
+    ],
+    "steps": [
+      "查看申请状态"
+    ],
+    "result": "仍未获得直播资格",
+    "refs": [
+      "REQ-bca8e787b966"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0dba5f1b2010e7aafdbc8b59c92f8315c321cce1eec472658cf7997efa513c3a"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "公会通过自动进入终审",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面",
+      "公会已通过、平台未处理"
+    ],
+    "steps": [
+      "刷新申请页"
+    ],
+    "result": "公会显示已通过、平台显示审核中",
+    "refs": [
+      "REQ-1483b310b8a6",
+      "REQ-5eeedca6238d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fa86f4b98e6e2d18053c16f136189d0f8e3da951d9fbebcef2adf0bcd7dec4ae",
+      "31f2b3488b8058779d240b47f6405ad5b32b94ccffb5c22087f6c379584a638d"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "平台审核中不能开播",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面",
+      "当前在平台终审中"
+    ],
+    "steps": [
+      "查看可用操作"
+    ],
+    "result": "不能重复提交或开播",
+    "refs": [
+      "REQ-5eeedca6238d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "31f2b3488b8058779d240b47f6405ad5b32b94ccffb5c22087f6c379584a638d"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "公会驳回不启动平台审核",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面",
+      "公会已驳回申请"
+    ],
+    "steps": [
+      "查看平台审核节点"
+    ],
+    "result": "平台审核尚未开始",
+    "refs": [
+      "REQ-d30322236a1a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1bf960340341f3117eb42bc390700d0fa92ae692a44f5a9fbeecc0c285078736"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "公会驳回重新申请",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面",
+      "公会已驳回申请"
+    ],
+    "steps": [
+      "点击重新申请"
+    ],
+    "result": "进入公会选择页",
+    "refs": [
+      "REQ-d30322236a1a",
+      "REQ-cf2723fa2f75"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1bf960340341f3117eb42bc390700d0fa92ae692a44f5a9fbeecc0c285078736",
+      "9524f710f2256c8c584a9eca9add88673044ab127190d58208fc9d8be138dedd"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "平台驳回重新初审",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面",
+      "平台已驳回；重新申请所需完整材料已备好"
+    ],
+    "steps": [
+      "点击重新申请",
+      "选择公会并提交新申请"
+    ],
+    "result": "新申请从公会初审开始，不沿用旧公会通过结果",
+    "refs": [
+      "REQ-d4f2f719ead2"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "fa9eddf75ff0a30e0d2eee75f2b91f624a92f5ba7bc3428a738fc01f20af77ec"
+    ]
+  },
+  {
+    "page": "host-center-pending.html",
+    "role": "无主播身份的普通用户",
+    "point": "平台通过最终节点",
+    "pre": [
+      "无主播身份的普通用户；当前处于申请成为主播页面",
+      "平台已通过当前入会申请"
+    ],
+    "steps": [
+      "刷新申请时间线"
+    ],
+    "result": "成为主播节点完成且不展示操作按钮",
+    "refs": [
+      "REQ-04b54cbcba08"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6476deb9ffb2ef417c3ea27c1aa5b43bf5f5aece1ff15578dea9574f0106e44b"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "封面使用系统选择器",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面"
+    ],
+    "steps": [
+      "点击修改封面"
+    ],
+    "result": "直接打开系统照片选择器",
+    "refs": [
+      "REQ-b6bddb65ebc8",
+      "REQ-63eef3ba7a60"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f2c8b81251eb4124ae9c37307537bc233773cd37f7fe66370ae2c41070308bf2",
+      "2c30a22e2535c3ba8d2b4c52b6b216577c4e26a6a874c3844dfbc2255c27e387"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "取消选图保留封面",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "已有封面A"
+    ],
+    "steps": [
+      "点击修改封面",
+      "取消选择"
+    ],
+    "result": "封面仍为A",
+    "refs": [
+      "REQ-63eef3ba7a60"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2c30a22e2535c3ba8d2b4c52b6b216577c4e26a6a874c3844dfbc2255c27e387"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "主题四十字符",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面"
+    ],
+    "steps": [
+      "输入40个“测”作为直播主题"
+    ],
+    "result": "允许保留40字符主题",
+    "refs": [
+      "REQ-6c33f6bc08d8"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "7e5ebbdc30448bc3e3a23c96876bf9d196d13fadceb333b6511049542ded807a"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "主题超过四十字符",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面"
+    ],
+    "steps": [
+      "输入41个“测”作为直播主题"
+    ],
+    "result": "不能提交超过40字符主题",
+    "refs": [
+      "REQ-6c33f6bc08d8"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "7e5ebbdc30448bc3e3a23c96876bf9d196d13fadceb333b6511049542ded807a"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "分类选择范围",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "平台启用A、停用B"
+    ],
+    "steps": [
+      "点击选类型"
+    ],
+    "result": "只提供当前启用分类A",
+    "refs": [
+      "REQ-70169de03bcb",
+      "REQ-138a520f76a0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8c187e58ff4813f7793a1dc1e396eda6ded811878a422a9e7f9b249079e1bb27",
+      "f29c10653f0477d6dc80e7751fae2f72eb331edc67f554c8a0f9c7025b472ff9"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "选择分类回填",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "平台启用分类A"
+    ],
+    "steps": [
+      "点击选类型",
+      "选择A"
+    ],
+    "result": "回填A并关闭分类视图",
+    "refs": [
+      "REQ-2c08ab173cfb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1e799c603eaded0db23fd811b4233411369a228fef34ce4f7762d90b99184ef9"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "关闭分类保留旧值",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前分类A"
+    ],
+    "steps": [
+      "打开分类选择",
+      "关闭视图且不选择"
+    ],
+    "result": "分类仍为A",
+    "refs": [
+      "REQ-2c08ab173cfb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1e799c603eaded0db23fd811b4233411369a228fef34ce4f7762d90b99184ef9"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "普通房取消密码及票价必填",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前正在配置密码房且密码为空"
+    ],
+    "steps": [
+      "选择普通房",
+      "点击确认"
+    ],
+    "result": "保存普通房且不要求密码或门票价格",
+    "refs": [
+      "REQ-63b73dc008c4"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "14a13afc44f08fe12c09e43a897aa6b0368e2838228a0bf62ae265adf8fc495d"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "门票房平台关闭不可选择",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "平台门票房功能开关关闭"
+    ],
+    "steps": [
+      "打开房型选择"
+    ],
+    "result": "门票房不可选择",
+    "refs": [
+      "REQ-65340745223f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b39923f23386e6c4dc27fd4a04fda9ea1b763d3169067a5bec15b1e8fddade05"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "密码房平台关闭不可选择",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "平台密码房功能开关关闭"
+    ],
+    "steps": [
+      "打开房型选择"
+    ],
+    "result": "密码房不可选择",
+    "refs": [
+      "REQ-fdaf1d80f713"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a1aa5387a2964d08cb781746d3f0d70c37ea73fc60ffcb732420312b5ca691a3"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "门票价格全部平铺",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "平台有多个启用票价档位"
+    ],
+    "steps": [
+      "选择门票房"
+    ],
+    "result": "平铺展示全部启用档位并按后台排序",
+    "refs": [
+      "REQ-4ec3abe6a8f5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9b7c1e64b6fac534918b014f31a9a3fcd0ab7d8755dcf240dbb5a9ab20ee235e"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "门票价格单选",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "有50及100金币档位"
+    ],
+    "steps": [
+      "选择50金币档位",
+      "选择100金币档位"
+    ],
+    "result": "仅100金币档位被选中",
+    "refs": [
+      "REQ-1e96fef03f07"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d4686581601f51b9a1c324a75115a4b11f3837f9efa5d2a3633935d78761ed71"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "未选门票不保存",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前门票房未选择价格"
+    ],
+    "steps": [
+      "点击确认"
+    ],
+    "result": "提示“请选择有效的门票价格”",
+    "refs": [
+      "REQ-93757292f98c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "27328d6de495c005ccd3a1b2046fd3ba479d88c88ec4dedbf412562b10d25373"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "门票档位停用再次校验",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "已选档位A但提交前后台已停用A"
+    ],
+    "steps": [
+      "点击确认"
+    ],
+    "result": "不保存并提示“请选择有效的门票价格”",
+    "refs": [
+      "REQ-11d5dc6af0d0"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "b1e70fae8e2f696feaac0aeb21a9e41e61613a63a0a6d34b254bebbfcc49c66a"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "首次密码房访问默认",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "该主播没有历史确认配置"
+    ],
+    "steps": [
+      "选择密码房"
+    ],
+    "result": "广场展示开启、成员限制关闭",
+    "refs": [
+      "REQ-0fdf4b4486fb",
+      "REQ-7937ad3ed8f9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "db7e90d85184670e82ed3319dcbcddf48cd880d2836b0ccc7d88cac53a991720",
+      "da6d88122567d2b8cbc4fe3ae731a621cd51d1d55ec1a6640b269f6d1805c721"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "未建粉丝团不能限制成员",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "主播尚未创建粉丝团"
+    ],
+    "steps": [
+      "选择密码房",
+      "尝试开启仅粉丝团成员可进入"
+    ],
+    "result": "不能开启成员限制",
+    "refs": [
+      "REQ-ac3ba01de389"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8862e55cf367e19fa824c814ad9a16cda1873f50308abafb29279d1a3a1c3b20"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "访问开关保存下次默认",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前密码有效且已创建粉丝团"
+    ],
+    "steps": [
+      "关闭广场展示",
+      "开启成员限制",
+      "点击确认",
+      "重新打开房型设置"
+    ],
+    "result": "两个开关保持刚确认的值",
+    "refs": [
+      "REQ-e1dfbcf8306b",
+      "REQ-ecb92620b183"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "47ce5d20072913ff6c79fb00c4d177308005b320f0a30ec60d40bcf8ad6cead9",
+      "13084baaf2be80b9a2b8a734842fda023aa344ca996383cc16c9fdcc9dd984b1"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "关闭抽屉不保存访问开关",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "已保存广场展示开启"
+    ],
+    "steps": [
+      "打开房型设置",
+      "关闭广场展示",
+      "关闭抽屉",
+      "重新打开房型设置"
+    ],
+    "result": "广场展示仍开启",
+    "refs": [
+      "REQ-ecb92620b183"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "13084baaf2be80b9a2b8a734842fda023aa344ca996383cc16c9fdcc9dd984b1"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "美颜美型参数独立",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前美颜参数50、美型参数50"
+    ],
+    "steps": [
+      "将美颜参数调整为60",
+      "切换美型"
+    ],
+    "result": "美型参数仍为50",
+    "refs": [
+      "REQ-c6e804b0e922"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ce2e14d863237a8331898f363f7cdbe9201a7941d4dc5de4de2fbde5c9b26bb5"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "恢复默认美颜",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "多项参数已改动并选中一项"
+    ],
+    "steps": [
+      "点击恢复默认"
+    ],
+    "result": "清除选中项且全部参数回到50",
+    "refs": [
+      "REQ-f2df64639fd2",
+      "REQ-947f26075775"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "72a06383099f3f146a577f957b23ee6ac2893d71177dfbff9dbf2451bdf14fb8",
+      "826306c1bbd9e76b153815537e9dc1a5de2e7b8f152910301062ffabc109e3d9"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "已授权开始直播",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "必要场次字段有效；相机和麦克风已授权"
+    ],
+    "steps": [
+      "点击开始直播"
+    ],
+    "result": "创建新场次并显示3秒倒计时",
+    "refs": [
+      "REQ-2afca99fcc33"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "2954c6a0c80679b8b26346ca61933af3aeec7339bf362c697f3f9ab918dcda46"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "开播倒计时结束",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "已创建新场次且开播倒计时开始"
+    ],
+    "steps": [
+      "等待3秒倒计时结束"
+    ],
+    "result": "进入直播间主播视角",
+    "refs": [
+      "REQ-2afca99fcc33"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2954c6a0c80679b8b26346ca61933af3aeec7339bf362c697f3f9ab918dcda46"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "首次开播直接权限弹窗",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "必要字段有效；相机麦克风尚未申请权限"
+    ],
+    "steps": [
+      "点击开始直播"
+    ],
+    "result": "直接调用系统权限弹窗，不加产品说明弹窗",
+    "refs": [
+      "REQ-9c8b33e8ea5e",
+      "REQ-2afca99fcc33"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ba9305ce749e906e7970fbf158a0d915dcc468530665e4841f7939215c057545",
+      "2954c6a0c80679b8b26346ca61933af3aeec7339bf362c697f3f9ab918dcda46"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "密码房3位边界",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前配置密码房"
+    ],
+    "steps": [
+      "输入3个数字8作为密码",
+      "点击确认"
+    ],
+    "result": "不保存并提示“密码必须是4-12个数字”",
+    "refs": [
+      "REQ-84bdac2197da",
+      "REQ-1edf72f6bdd0"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "dc026362e5236c95ef15344b0037b6fda452149e529ef93aa571ffddcf977120",
+      "437c883fa6bd5a41aa0e55335cea5102ee12ac35280ec210f110a5352b066506"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "密码房4位边界",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前配置密码房"
+    ],
+    "steps": [
+      "输入4个数字8作为密码",
+      "点击确认"
+    ],
+    "result": "保存有效密码房配置",
+    "refs": [
+      "REQ-84bdac2197da",
+      "REQ-1edf72f6bdd0"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "dc026362e5236c95ef15344b0037b6fda452149e529ef93aa571ffddcf977120",
+      "437c883fa6bd5a41aa0e55335cea5102ee12ac35280ec210f110a5352b066506"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "密码房12位边界",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前配置密码房"
+    ],
+    "steps": [
+      "输入12个数字8作为密码",
+      "点击确认"
+    ],
+    "result": "保存有效密码房配置",
+    "refs": [
+      "REQ-84bdac2197da",
+      "REQ-1edf72f6bdd0"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "dc026362e5236c95ef15344b0037b6fda452149e529ef93aa571ffddcf977120",
+      "437c883fa6bd5a41aa0e55335cea5102ee12ac35280ec210f110a5352b066506"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "密码房13位边界",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前配置密码房"
+    ],
+    "steps": [
+      "输入13个数字8作为密码",
+      "点击确认"
+    ],
+    "result": "不保存并提示“密码必须是4-12个数字”",
+    "refs": [
+      "REQ-84bdac2197da",
+      "REQ-1edf72f6bdd0"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "dc026362e5236c95ef15344b0037b6fda452149e529ef93aa571ffddcf977120",
+      "437c883fa6bd5a41aa0e55335cea5102ee12ac35280ec210f110a5352b066506"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "密码房非法值12a4",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前配置密码房"
+    ],
+    "steps": [
+      "输入密码“12a4”",
+      "点击确认"
+    ],
+    "result": "保留输入且提示“密码必须是4-12个数字”",
+    "refs": [
+      "REQ-1edf72f6bdd0"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "437c883fa6bd5a41aa0e55335cea5102ee12ac35280ec210f110a5352b066506"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "密码房非法值空",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前配置密码房"
+    ],
+    "steps": [
+      "输入密码“”",
+      "点击确认"
+    ],
+    "result": "保留输入且提示“密码必须是4-12个数字”",
+    "refs": [
+      "REQ-1edf72f6bdd0"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "437c883fa6bd5a41aa0e55335cea5102ee12ac35280ec210f110a5352b066506"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "密码房非法值12 4",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "当前配置密码房"
+    ],
+    "steps": [
+      "输入密码“12 4”",
+      "点击确认"
+    ],
+    "result": "保留输入且提示“密码必须是4-12个数字”",
+    "refs": [
+      "REQ-1edf72f6bdd0"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "437c883fa6bd5a41aa0e55335cea5102ee12ac35280ec210f110a5352b066506"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "相机拒绝拦截开播",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "必要场次字段有效；相机权限被拒绝"
+    ],
+    "steps": [
+      "点击开始直播"
+    ],
+    "result": "停留当前页并提示“权限未开启，请前往系统设置”",
+    "refs": [
+      "REQ-e9225b315300"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "d19e3aa917c5b72b703d8536841a0ec81e99bb4a1201eb4f415848ced65b441e"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "麦克风拒绝拦截开播",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面",
+      "必要场次字段有效；麦克风权限被拒绝"
+    ],
+    "steps": [
+      "点击开始直播"
+    ],
+    "result": "停留当前页并提示“权限未开启，请前往系统设置”",
+    "refs": [
+      "REQ-e9225b315300"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "d19e3aa917c5b72b703d8536841a0ec81e99bb4a1201eb4f415848ced65b441e"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "美颜强度0边界",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面"
+    ],
+    "steps": [
+      "打开美颜设置",
+      "选择一个项目",
+      "将强度调整为0"
+    ],
+    "result": "当前项目强度为0",
+    "refs": [
+      "REQ-797aed10c781",
+      "REQ-947f26075775"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "df90c48b76b67fb7e41551c3410829fca0248c05b0ed285a1c1c7c09317e0d48",
+      "826306c1bbd9e76b153815537e9dc1a5de2e7b8f152910301062ffabc109e3d9"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "具备开播资格的主播",
+    "point": "美颜强度100边界",
+    "pre": [
+      "具备开播资格的主播；当前处于开播设置页面"
+    ],
+    "steps": [
+      "打开美颜设置",
+      "选择一个项目",
+      "将强度调整为100"
+    ],
+    "result": "当前项目强度为100",
+    "refs": [
+      "REQ-797aed10c781",
+      "REQ-947f26075775"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "df90c48b76b67fb7e41551c3410829fca0248c05b0ed285a1c1c7c09317e0d48",
+      "826306c1bbd9e76b153815537e9dc1a5de2e7b8f152910301062ffabc109e3d9"
+    ]
+  },
+  {
+    "page": "fan-list.html",
+    "role": "已认证主播",
+    "point": "主播粉丝列表范围",
+    "pre": [
+      "已认证主播；当前处于粉丝列表页面",
+      "A仍关注主播；B已取消关注"
+    ],
+    "steps": [
+      "查看粉丝列表"
+    ],
+    "result": "只展示A",
+    "refs": [
+      "REQ-068090c151bc",
+      "REQ-accd19da544e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "49905f34d51664bf4b10ca5677a80f9212a3ccbf37fcdcc73285e5ab699201a0",
+      "087b0d134522ffa53d5d65ddc18303a1d055eadced12e5469b614b9981c9f808"
+    ]
+  },
+  {
+    "page": "fan-list.html",
+    "role": "已认证主播",
+    "point": "过期装扮移除",
+    "pre": [
+      "已认证主播；当前处于粉丝列表页面",
+      "粉丝A此前展示的装扮已到期"
+    ],
+    "steps": [
+      "刷新粉丝列表"
+    ],
+    "result": "A不再显示该过期装扮",
+    "refs": [
+      "REQ-6022100a74a8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9e402266fde957e3cac16d8121f919175dcb1dff762d62c550277a681f1f6e11"
+    ]
+  },
+  {
+    "page": "fan-list.html",
+    "role": "已认证主播",
+    "point": "粉丝主页入口",
+    "pre": [
+      "已认证主播；当前处于粉丝列表页面",
+      "列表存在粉丝A"
+    ],
+    "steps": [
+      "点击A"
+    ],
+    "result": "进入A用户主页",
+    "refs": [
+      "REQ-a558a29aafc0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "76b36b14b504c52ebf127d8f37f01496c2bd1ea2f6f2dadcd733fa65ad6f318d"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "粉丝团有效成员范围",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "A有效在团、B已退出"
+    ],
+    "steps": [
+      "查看成员列表"
+    ],
+    "result": "只展示A",
+    "refs": [
+      "REQ-08663e4475e8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9b6bc525a393dfc41f45b5df019e3c5eb9a5245eea8ec455e4de7cecc1fd556d"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "默认累计贡献排序",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "A历史贡献100、B200；A本月高于B"
+    ],
+    "steps": [
+      "查看默认成员顺序"
+    ],
+    "result": "B排在A之前",
+    "refs": [
+      "REQ-694a96cbaed3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "624fcba6c669a0f0137162cc87944a5c9d81650a342e05634c92dc255c3324ae"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "本月贡献排序",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "A本月贡献200、B100"
+    ],
+    "steps": [
+      "点击本月最多"
+    ],
+    "result": "A排在B之前",
+    "refs": [
+      "REQ-2450d1ce84b9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "156454f038f4d24a78cbc39e8fb06e8b01d9b196036c618f142d16e22a60568d"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "最新加入排序",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "A入团9月14日，B9月15日"
+    ],
+    "steps": [
+      "点击最新加入"
+    ],
+    "result": "B排在A之前",
+    "refs": [
+      "REQ-2450d1ce84b9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "156454f038f4d24a78cbc39e8fb06e8b01d9b196036c618f142d16e22a60568d"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "成员信息",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "成员A有已知等级、亲密度和加入时间"
+    ],
+    "steps": [
+      "查看A成员行"
+    ],
+    "result": "显示头像、昵称、粉丝等级、亲密度及加入时间",
+    "refs": [
+      "REQ-18b4a9d80c38"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "20ef15d36c4f2564650b93b9ddce9e8697e773336b64989be8666859a80bbdb4"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "禁言二次确认",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "当前成员A未被禁言"
+    ],
+    "steps": [
+      "点击A单人禁言"
+    ],
+    "result": "弹窗显示A昵称及取消、确认禁言",
+    "refs": [
+      "REQ-10e94366689d",
+      "REQ-b621cae1ce07",
+      "REQ-61ccc5511526"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "140077628ec4a033eb13d36b811d5adaa1d89a049e1ae1f1d048269e669eb108",
+      "267261ff1fbda6018fabfaa80aff36e19d6cccf3c7c67b60f12d5463b154437f",
+      "25718596a91e53d0011963a29e5839e892f616e0b567ba4b0729396f37111ecd"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "取消禁言不改变状态",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "对A的禁言确认已打开"
+    ],
+    "steps": [
+      "点击取消"
+    ],
+    "result": "A保持原发言状态",
+    "refs": [
+      "REQ-085b31edbfa8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bda8ed7056a9306750418130fce6b623fb6bc3a3a506fa823053e174adfde750"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "确认单人禁言",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "A为可发言的有效成员"
+    ],
+    "steps": [
+      "点击A单人禁言",
+      "点击确认禁言"
+    ],
+    "result": "A被禁止在当前粉丝群发言",
+    "refs": [
+      "REQ-085b31edbfa8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bda8ed7056a9306750418130fce6b623fb6bc3a3a506fa823053e174adfde750"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "禁言失败不改变状态",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "A可发言；禁言请求返回失败"
+    ],
+    "steps": [
+      "点击A单人禁言",
+      "点击确认禁言"
+    ],
+    "result": "A保持可发言状态",
+    "refs": [
+      "REQ-085b31edbfa8"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "bda8ed7056a9306750418130fce6b623fb6bc3a3a506fa823053e174adfde750"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "左滑显示移除",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "成员A当前有效在团"
+    ],
+    "steps": [
+      "左滑A成员行"
+    ],
+    "result": "显示移除操作",
+    "refs": [
+      "REQ-10e94366689d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "140077628ec4a033eb13d36b811d5adaa1d89a049e1ae1f1d048269e669eb108"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "确认移除成员",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面",
+      "成员数3；成员A有效在团"
+    ],
+    "steps": [
+      "左滑A成员行",
+      "点击移除",
+      "点击确认移除"
+    ],
+    "result": "A被移出且成员数变为2",
+    "refs": [
+      "REQ-5d55548c15b9",
+      "REQ-10e94366689d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6baa70a8394c1fed3e3879670bd9cebd619d5561cb057fe8e60fc240373589ba",
+      "140077628ec4a033eb13d36b811d5adaa1d89a049e1ae1f1d048269e669eb108"
+    ]
+  },
+  {
+    "page": "fan-club.html",
+    "role": "所属粉丝团主播",
+    "point": "粉丝团设置入口",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团页面"
+    ],
+    "steps": [
+      "点击粉丝团设置"
+    ],
+    "result": "进入当前团设置页",
+    "refs": [
+      "REQ-b9f1f37620c5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2a2e2bfb0b4cdf39b50b7a1c894cb8c2aed502754331244e7d43e234e87eb1ad"
+    ]
+  },
+  {
+    "page": "fan-club-settings.html",
+    "role": "所属粉丝团主播",
+    "point": "空团名不可保存",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团设置页面"
+    ],
+    "steps": [
+      "清空粉丝团名称",
+      "查看保存按钮"
+    ],
+    "result": "保存按钮不可用",
+    "refs": [
+      "REQ-aa76d1f2aa67",
+      "REQ-73346c4d9ed3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ceb981d1d0136c4b7a9722900a026d4a983a42874de28f584f674dab06ed7802",
+      "8b3060791ee547bf0b3f0bdf989be3118eb8361eb805d890ace0d0656a78dcc2"
+    ]
+  },
+  {
+    "page": "fan-club-settings.html",
+    "role": "所属粉丝团主播",
+    "point": "二十字团名边界",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团设置页面",
+      "贡献门槛为有效值0"
+    ],
+    "steps": [
+      "输入20个“测”作为团名",
+      "点击保存"
+    ],
+    "result": "允许保存20字符团名",
+    "refs": [
+      "REQ-aa76d1f2aa67",
+      "REQ-cca460a0105a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ceb981d1d0136c4b7a9722900a026d4a983a42874de28f584f674dab06ed7802",
+      "02f580e7204d4e9a48ca96968b0072ba42375e0b387aad47066a3ef183e489ad"
+    ]
+  },
+  {
+    "page": "fan-club-settings.html",
+    "role": "所属粉丝团主播",
+    "point": "团名超长限制",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团设置页面"
+    ],
+    "steps": [
+      "输入21个“测”作为团名"
+    ],
+    "result": "不能保存超过20字符团名",
+    "refs": [
+      "REQ-aa76d1f2aa67"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ceb981d1d0136c4b7a9722900a026d4a983a42874de28f584f674dab06ed7802"
+    ]
+  },
+  {
+    "page": "fan-club-settings.html",
+    "role": "所属粉丝团主播",
+    "point": "贡献零门槛",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团设置页面",
+      "团名有效"
+    ],
+    "steps": [
+      "输入累计贡献0",
+      "点击保存"
+    ],
+    "result": "保存零贡献门槛",
+    "refs": [
+      "REQ-e145ac7a518b",
+      "REQ-cca460a0105a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8e1b21a4047670c0f34d890307aa637f8ae9eadf7ba7aa8b283d300b076da4e8",
+      "02f580e7204d4e9a48ca96968b0072ba42375e0b387aad47066a3ef183e489ad"
+    ]
+  },
+  {
+    "page": "fan-club-settings.html",
+    "role": "所属粉丝团主播",
+    "point": "贡献负数无效",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团设置页面",
+      "团名有效"
+    ],
+    "steps": [
+      "输入累计贡献-1",
+      "查看保存按钮"
+    ],
+    "result": "保存按钮不可用",
+    "refs": [
+      "REQ-e145ac7a518b",
+      "REQ-73346c4d9ed3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8e1b21a4047670c0f34d890307aa637f8ae9eadf7ba7aa8b283d300b076da4e8",
+      "8b3060791ee547bf0b3f0bdf989be3118eb8361eb805d890ace0d0656a78dcc2"
+    ]
+  },
+  {
+    "page": "fan-club-settings.html",
+    "role": "所属粉丝团主播",
+    "point": "贡献小数无效",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团设置页面",
+      "团名有效"
+    ],
+    "steps": [
+      "输入累计贡献1.5",
+      "查看保存按钮"
+    ],
+    "result": "保存按钮不可用",
+    "refs": [
+      "REQ-e145ac7a518b",
+      "REQ-73346c4d9ed3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8e1b21a4047670c0f34d890307aa637f8ae9eadf7ba7aa8b283d300b076da4e8",
+      "8b3060791ee547bf0b3f0bdf989be3118eb8361eb805d890ace0d0656a78dcc2"
+    ]
+  },
+  {
+    "page": "fan-club-settings.html",
+    "role": "所属粉丝团主播",
+    "point": "提高条件不移除现有成员",
+    "pre": [
+      "所属粉丝团主播；当前处于粉丝团设置页面",
+      "A已入团且历史贡献10；当前门槛0"
+    ],
+    "steps": [
+      "将贡献门槛改为100",
+      "点击保存",
+      "返回成员列表"
+    ],
+    "result": "A仍保留团籍",
+    "refs": [
+      "REQ-c0bc6a748d7f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "66f25ad68d9a15fac5b0d29edd1d6e2611fbb6317546a0a987a2be8663ad61b2"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "数据范围仅当前主播",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "A和B在所选日期均有直播；当前为A"
+    ],
+    "steps": [
+      "查看直播数据"
+    ],
+    "result": "仅统计主播A该范围数据",
+    "refs": [
+      "REQ-01897e8920d5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "994b5aaf46a7f409a98c1614e90923bb757434e83dce43dd75b03d494ec661bd"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "普通礼物收益一比一",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "所选范围仅成功普通礼物100金币"
+    ],
+    "steps": [
+      "查看收益"
+    ],
+    "result": "收益为100金币",
+    "refs": [
+      "REQ-baff079294bb",
+      "COMMON-income"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "51073630ae8ec92e01c1eb04f18cd0e9865b824c34abf9f2e4ee1473c104aa29",
+      "7cc750711e50347e7a3b092f3b69db512ca05c5e20d3448acf93f7eb352e49b1"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "定制礼物收益一比一",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "所选范围仅成功定制礼物100金币"
+    ],
+    "steps": [
+      "查看收益"
+    ],
+    "result": "收益为100金币",
+    "refs": [
+      "REQ-baff079294bb",
+      "COMMON-income"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "51073630ae8ec92e01c1eb04f18cd0e9865b824c34abf9f2e4ee1473c104aa29",
+      "7cc750711e50347e7a3b092f3b69db512ca05c5e20d3448acf93f7eb352e49b1"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "门票收益一比一",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "所选范围仅成功门票50金币"
+    ],
+    "steps": [
+      "查看收益"
+    ],
+    "result": "收益为50金币",
+    "refs": [
+      "REQ-baff079294bb",
+      "COMMON-income"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "51073630ae8ec92e01c1eb04f18cd0e9865b824c34abf9f2e4ee1473c104aa29",
+      "7cc750711e50347e7a3b092f3b69db512ca05c5e20d3448acf93f7eb352e49b1"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "幸运礼物收益默认比例",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "所选范围仅幸运礼物送出价值1000金币；比例1%；送礼者已获返奖"
+    ],
+    "steps": [
+      "查看收益"
+    ],
+    "result": "收益为10金币",
+    "refs": [
+      "REQ-baff079294bb",
+      "COMMON-income"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "51073630ae8ec92e01c1eb04f18cd0e9865b824c34abf9f2e4ee1473c104aa29",
+      "7cc750711e50347e7a3b092f3b69db512ca05c5e20d3448acf93f7eb352e49b1"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "虚拟金币不形成主播收益",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "所选范围仅运营账号赠送1000虚拟金币礼物"
+    ],
+    "steps": [
+      "查看收益"
+    ],
+    "result": "收益为0金币",
+    "refs": [
+      "REQ-baff079294bb",
+      "COMMON-operation"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "51073630ae8ec92e01c1eb04f18cd0e9865b824c34abf9f2e4ee1473c104aa29",
+      "501c9220f97e0340899fdb6703d455809c266adbf50f56ca4d6e3968618e0743"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "失败或撤销不形成收益",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "所选范围仅失败及已撤销礼物订单"
+    ],
+    "steps": [
+      "查看收益"
+    ],
+    "result": "收益为0金币",
+    "refs": [
+      "REQ-baff079294bb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "51073630ae8ec92e01c1eb04f18cd0e9865b824c34abf9f2e4ee1473c104aa29"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "充值退款不回滚主播收益",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "原真实送礼已成功产生100金币收益；随后原充值退款"
+    ],
+    "steps": [
+      "刷新直播数据"
+    ],
+    "result": "该笔已完成送礼的100金币收益保留",
+    "refs": [
+      "REQ-11eaa943d562",
+      "REQ-6fa3d081c1f0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "30a8c10a815f3e402d5270c033a001dec2354191ca77ea3458d3396494821df6",
+      "45b3ecbaf752a8e38c6e5686ce322c17e71770841d714922e2397e2734be14b2"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "单日累计三小时计一天",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "同一自然日两场有效直播1小时及2小时"
+    ],
+    "steps": [
+      "查看有效天"
+    ],
+    "result": "该自然日计1个有效天",
+    "refs": [
+      "REQ-20191ad956f6",
+      "REQ-017c27f81759"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "bf93019c5cf31f8eab775353b2fc6cd19fe2866db908c78e7e885d5a2e843d93",
+      "61f397008e1d6f5cb0ea1a6919459b66a93dfa1dc692b9d80ba2e0e54bb02e56"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "单日六小时仍计一天",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "同一自然日有效直播6小时"
+    ],
+    "steps": [
+      "查看有效天"
+    ],
+    "result": "该自然日仍只计1个有效天",
+    "refs": [
+      "REQ-20191ad956f6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bf93019c5cf31f8eab775353b2fc6cd19fe2866db908c78e7e885d5a2e843d93"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "未满三小时不计有效天",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "所选日有效直播2小时59分钟"
+    ],
+    "steps": [
+      "查看有效天"
+    ],
+    "result": "有效天为0",
+    "refs": [
+      "REQ-20191ad956f6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bf93019c5cf31f8eab775353b2fc6cd19fe2866db908c78e7e885d5a2e843d93"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "月数据默认月份",
+    "pre": [
+      "已认证主播；当前处于直播数据页面"
+    ],
+    "steps": [
+      "切换月数据"
+    ],
+    "result": "默认当前自然月",
+    "refs": [
+      "REQ-1694230f1d67"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0aa51b5218749af4b088b9521e43986671bdc7f0b82f9c8c1b3cb50e8281912b"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "无数据月归零",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "上一月有数据；目标历史月无数据"
+    ],
+    "steps": [
+      "选择无数据月份"
+    ],
+    "result": "全部指标显示0，不沿用上一月",
+    "refs": [
+      "REQ-bcaeb38298cb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8ca4b3b04c1012933f0ee42e3e20f490aacd27a9d8facbbe1aecd9d101481079"
+    ]
+  },
+  {
+    "page": "live-data.html",
+    "role": "已认证主播",
+    "point": "直播记录继承日期范围",
+    "pre": [
+      "已认证主播；当前处于直播数据页面",
+      "当前数据页选定9月1日至9月15日"
+    ],
+    "steps": [
+      "进入直播记录"
+    ],
+    "result": "记录页保留当前日期范围",
+    "refs": [
+      "REQ-7d4f43bfbbaa"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e7678dd799fed6480c4989a01dda38d557842db85699e1452d1f82e62f724672"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "默认近七天",
+    "pre": [
+      "已认证主播；当前处于直播记录页面"
+    ],
+    "steps": [
+      "查看日期筛选"
+    ],
+    "result": "默认近7天",
+    "refs": [
+      "REQ-217ee56feb5c",
+      "REQ-9fe81bc4e92e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "02095ae89d3e407d367a9e3dec8a2ab8167881652c43aff97fd7dcbe5d5ebc8a",
+      "eaef40aa395c9eaa8ae57f09100f0acbbf6e526532f740371076450eccaa13b6"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "直播中记录无结束时间",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "当前有已实际开始且未结束场次"
+    ],
+    "steps": [
+      "查看该场次"
+    ],
+    "result": "结束时间为空",
+    "refs": [
+      "REQ-c094f7abd18b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2c36661276d064d83049f31d6b3e2c0d34a853640954038bd850d5816880673b"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "历史场次配置快照",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "场次结束后当前标题封面分类房型已修改"
+    ],
+    "steps": [
+      "查看已结束场次"
+    ],
+    "result": "仍展示该场次开播时的配置快照",
+    "refs": [
+      "REQ-4fc2dd894f97",
+      "REQ-d023a2bf3fd4"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "479f6ed9751959b8572a2e3dda27a69b408656e928930a766f035191c00799f5",
+      "895494c3d88c789cd7ce7d9202340ca263f98712aa7aa15313ccc93dba42f4b2"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "未实际开始不计场次",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "一条已创建但未实际开始记录及两场已实际开始记录"
+    ],
+    "steps": [
+      "查看场次汇总"
+    ],
+    "result": "只统计2场已实际开始直播",
+    "refs": [
+      "REQ-f1e1f573f151"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ba809720684faa2ce18b17b67ad921e31fde938fb6eb8ee42f4c7b0c56395de7"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "场次按开播倒序",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "有10:00及12:00开播记录"
+    ],
+    "steps": [
+      "查看场次顺序"
+    ],
+    "result": "12:00开播记录在前",
+    "refs": [
+      "REQ-659cc558be54"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3e8d42901240972e2721678c251492e71d8241e72ffbf5041e643388f7896dd8"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "单场数据入口",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "有当前主播场次A"
+    ],
+    "steps": [
+      "点击场次A"
+    ],
+    "result": "查看A的场次数据和礼物明细",
+    "refs": [
+      "REQ-a6f849e9e52e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "45064c4456c1be41d2a721994debfd78d02e4f4a1ddd7c7f10a8778414c1b4f1"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "开播日期格式",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "服务端开播时间为2026年9月15日14:30"
+    ],
+    "steps": [
+      "查看开播时间"
+    ],
+    "result": "显示15/09/2026 14.30",
+    "refs": [
+      "REQ-55522cb020c6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "83db9b62a259e931871279ec8403f40265279c5c38e838d76b03134d91e876b9"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "记录筛选本周",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "本周有已知测试直播数据"
+    ],
+    "steps": [
+      "选择本周"
+    ],
+    "result": "场次列表和汇总指标同步按所选日期更新",
+    "refs": [
+      "REQ-9fe81bc4e92e",
+      "REQ-6a021ec4ec30"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "eaef40aa395c9eaa8ae57f09100f0acbbf6e526532f740371076450eccaa13b6",
+      "1fbab4a5a738e54ddd4e3d686ab683361130ef1ba5c495d5142690c9af73022b"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "记录筛选本月",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "本月有已知测试直播数据"
+    ],
+    "steps": [
+      "选择本月"
+    ],
+    "result": "场次列表和汇总指标同步按所选日期更新",
+    "refs": [
+      "REQ-9fe81bc4e92e",
+      "REQ-6a021ec4ec30"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "eaef40aa395c9eaa8ae57f09100f0acbbf6e526532f740371076450eccaa13b6",
+      "1fbab4a5a738e54ddd4e3d686ab683361130ef1ba5c495d5142690c9af73022b"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "记录筛选上月",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "上月有已知测试直播数据"
+    ],
+    "steps": [
+      "选择上月"
+    ],
+    "result": "场次列表和汇总指标同步按所选日期更新",
+    "refs": [
+      "REQ-9fe81bc4e92e",
+      "REQ-6a021ec4ec30"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "eaef40aa395c9eaa8ae57f09100f0acbbf6e526532f740371076450eccaa13b6",
+      "1fbab4a5a738e54ddd4e3d686ab683361130ef1ba5c495d5142690c9af73022b"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "记录筛选单日",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "单日有已知测试直播数据"
+    ],
+    "steps": [
+      "选择单日"
+    ],
+    "result": "场次列表和汇总指标同步按所选日期更新",
+    "refs": [
+      "REQ-9fe81bc4e92e",
+      "REQ-6a021ec4ec30"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "eaef40aa395c9eaa8ae57f09100f0acbbf6e526532f740371076450eccaa13b6",
+      "1fbab4a5a738e54ddd4e3d686ab683361130ef1ba5c495d5142690c9af73022b"
+    ]
+  },
+  {
+    "page": "live-records.html",
+    "role": "已认证主播",
+    "point": "记录筛选连续日期范围",
+    "pre": [
+      "已认证主播；当前处于直播记录页面",
+      "连续日期范围有已知测试直播数据"
+    ],
+    "steps": [
+      "选择连续日期范围"
+    ],
+    "result": "场次列表和汇总指标同步按所选日期更新",
+    "refs": [
+      "REQ-9fe81bc4e92e",
+      "REQ-6a021ec4ec30"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "eaef40aa395c9eaa8ae57f09100f0acbbf6e526532f740371076450eccaa13b6",
+      "1fbab4a5a738e54ddd4e3d686ab683361130ef1ba5c495d5142690c9af73022b"
+    ]
+  },
+  {
+    "page": "income-sharing.html",
+    "role": "已认证主播",
+    "point": "分成仅本人上传结果",
+    "pre": [
+      "已认证主播；当前处于分成记录页面",
+      "本主播和其他主播均有已上传结果"
+    ],
+    "steps": [
+      "查看分成记录"
+    ],
+    "result": "只展示本主播已上传分成结果",
+    "refs": [
+      "REQ-fba5f1526c9c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d4021e09ee2c828744db52fc717411848ffae38b08afbfefe3af87dd9bdacd2e"
+    ]
+  },
+  {
+    "page": "income-sharing.html",
+    "role": "已认证主播",
+    "point": "分成金额印尼格式",
+    "pre": [
+      "已认证主播；当前处于分成记录页面",
+      "财务上传本笔最终金额1234.56美元"
+    ],
+    "steps": [
+      "查看分成金额"
+    ],
+    "result": "金额以美元显示1.234,56",
+    "refs": [
+      "REQ-f523be65f8f8",
+      "REQ-95fd6cd9e563"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3b86b23092ceaa9539ad6f3c0fae5337cfb55e2ccfb3925b12068f148cdb7a5f",
+      "8d49b1eee071e9e5fb13b0b82ace1b5ff3058e2e64a89d181b45d5c2918fe714"
+    ]
+  },
+  {
+    "page": "income-sharing.html",
+    "role": "已认证主播",
+    "point": "分成日期倒序",
+    "pre": [
+      "已认证主播；当前处于分成记录页面",
+      "分成日期9月14日及9月15日两条"
+    ],
+    "steps": [
+      "查看分成记录顺序"
+    ],
+    "result": "9月15日在前",
+    "refs": [
+      "REQ-fba5f1526c9c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d4021e09ee2c828744db52fc717411848ffae38b08afbfefe3af87dd9bdacd2e"
+    ]
+  },
+  {
+    "page": "income-sharing.html",
+    "role": "已认证主播",
+    "point": "无线上结算申请审批",
+    "pre": [
+      "已认证主播；当前处于分成记录页面"
+    ],
+    "steps": [
+      "查看分成页面操作"
+    ],
+    "result": "只读展示上传结果，无申请或审批入口",
+    "refs": [
+      "REQ-c14d836f25cf",
+      "COMMON-finance"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "36f97d07c20990ece9326bf1c0376c90eec14791748099791ed4e716302d02ce",
+      "b3fae66ce3e48bd1aca9cccb0e7e144adfcfc9a5d51661aaf236f1f03dacc7ab"
+    ]
+  },
+  {
+    "page": "income-sharing.html",
+    "role": "已认证主播",
+    "point": "分成返回主播中心",
+    "pre": [
+      "已认证主播；当前处于分成记录页面"
+    ],
+    "steps": [
+      "点击返回"
+    ],
+    "result": "回到主播中心",
+    "refs": [
+      "REQ-e5697a7f1e6c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f93555507885180610eb9f63f65a69c5d05b1d85f66825f8eb49dc42c6e4c46a"
+    ]
+  }
+]

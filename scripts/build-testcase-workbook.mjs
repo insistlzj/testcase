@@ -3,10 +3,11 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { SpreadsheetFile, Workbook } from "@oai/artifact-tool";
 import { finishStage, startStage } from "./pipeline-metrics.mjs";
-import { validateTestcaseDelivery } from "./validate-testcase-delivery.mjs";
+import { validateTestcaseDelivery, validateWorkbookExportPaths, authorizeWorkbookExport, saveNewWorkbook } from "./validate-testcase-delivery.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
-if (process.argv.length < 5) throw new Error("用法：build-testcase-workbook.mjs <当前任务目录> <当前JSON文件名> <新输出路径>");
+if (process.argv.length < 5 || process.argv.length > 6 || (process.argv[5] && process.argv[5] !== '--stage')) throw new Error("用法：build-testcase-workbook.mjs <当前任务目录> <当前JSON文件名> <新输出路径> [--stage]");
+const exportOptions = {stage:process.argv[5] === '--stage'};
 const taskDir = path.resolve(root, process.argv[2]);
 const sourcePath = path.join(taskDir, process.argv[3]);
 const outputPath = path.resolve(root, process.argv[4]);
@@ -86,11 +87,15 @@ function styleDataSheet(sheet, headers, rows, widths, tableName) {
   return lastRow;
 }
 
+await validateWorkbookExportPaths(taskDir,root,sourcePath,outputPath,exportOptions);
 await fs.mkdir(path.dirname(outputPath), { recursive: true });
 await fs.mkdir(previewDir, { recursive: true });
-const source = JSON.parse(await fs.readFile(sourcePath, "utf8"));
+const sourceText = await fs.readFile(sourcePath, "utf8");
+const source = JSON.parse(sourceText);
 if (!source.测试用例.length) throw new Error("生成源没有可交付的正式用例");
-await validateTestcaseDelivery(taskDir, root, {phase:"final"});
+const checkedInput = await authorizeWorkbookExport(taskDir,root,sourcePath,outputPath,exportOptions);
+const checkedSourceHash = checkedInput.候选SHA256 || crypto.createHash('sha256').update(await fs.readFile(sourcePath)).digest('hex');
+if (crypto.createHash('sha256').update(sourceText).digest('hex') !== checkedSourceHash) throw new Error('导出内容与刚通过校验的候选不一致');
 
 const inputCount = source.测试用例.length + source.需求待确认.length;
 await startStage(taskDir, "xlsx-build", { 输入数量: inputCount });
@@ -117,7 +122,7 @@ pendingSheet.getRange(`L2:M${pendingLastRow}`).format.fill = "#FFF4CC";
 pendingSheet.getRange(`L2:M${pendingLastRow}`).format.borders = border;
 
 overview.getRange("A1").values = [[`${path.basename(outputPath, ".xlsx")} 产品决策概览`]];
-overview.getRange("A2").values = [["数量由“需求待确认”工作表实时汇总"]];
+overview.getRange("A2").values = [[exportOptions.stage ? "阶段性产物；本轮交付尚未完成" : `覆盖性质：${checkedInput.需求覆盖?.交付性质 || '见交付检查'}；问题数量由下表汇总`]];
 overview.getRange("A4:B10").values = [
   ["状态", "数量"], ["问题总数", null], ["当前可回答", null], ["待前置结论", null],
   ["确认中", null], ["已确认", null], ["无需处理", null],
@@ -151,7 +156,11 @@ overview.showGridLines = false;
 overview.freezePanes.freezeRows(3);
 
 const xlsx = await SpreadsheetFile.exportXlsx(workbook);
-await xlsx.save(outputPath);
+await saveNewWorkbook(xlsx,outputPath,async () => {
+  const current = await authorizeWorkbookExport(taskDir,root,sourcePath,outputPath,exportOptions);
+  const currentHash = current.候选SHA256 || crypto.createHash('sha256').update(await fs.readFile(sourcePath)).digest('hex');
+  if (currentHash !== checkedSourceHash) throw new Error('导出期间候选发生变化，须重建受影响工作簿');
+});
 await finishStage(taskDir, "xlsx-build", { 输入数量: inputCount, 输出数量: 1, 复用数量: 0 });
 
 await startStage(taskDir, "xlsx-verify", { 输入数量: 1 });
@@ -190,6 +199,7 @@ const hashFile = async (file) => crypto.createHash("sha256").update(await fs.rea
 const candidatePath = path.join(taskDir, "current-testcase-candidate.json");
 await fs.writeFile(path.join(taskDir, "delivery-verification.json"), `${JSON.stringify({
   schemaVersion: "1.0", 状态: differenceCount === 0 ? "通过" : "不通过", JSON一致性差异数: differenceCount,
+  导出用途: exportOptions.stage ? "阶段性" : "正式交付",
   工作簿SHA256: await hashFile(outputPath), 候选SHA256: await hashFile(candidatePath),
   工作表: { 产品决策概览: "A1:H10", 功能测试用例: `A1:O${caseLastRow}`, 需求待确认: `A1:T${pendingLastRow}` },
   公式错误数: 0, 网格抽查: "已确认明细表表头与正文四边均为细边框", 检查时间: new Date().toISOString(),

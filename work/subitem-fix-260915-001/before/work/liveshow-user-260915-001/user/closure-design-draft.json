@@ -1,0 +1,2674 @@
+[
+  {
+    "page": "live-room.html",
+    "role": "房管",
+    "point": "房管屏蔽单条评论",
+    "pre": [
+      "房管；当前处于直播间（普通房）页面",
+      "公屏存在普通观众的两条评论M和N"
+    ],
+    "steps": [
+      "选择评论M",
+      "点击屏蔽"
+    ],
+    "result": "仅M从公屏移除",
+    "refs": [
+      "REQ-a39354cda7ef",
+      "REQ-f2ba90b0b147",
+      "COMMON-mute",
+      "MAIN-251"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "faaec3490b099740e156dc76d3309861cf0a0ec160161f0796d6b1016c013e8e",
+      "c7d0fba42118d9c4bdb8c7cbf9f710c372d6c553a47095be1ccb28c981943810",
+      "c380aa9f7eae75535816019e209394d8110089c5f7955eb98f5b28710ed2edf6",
+      "88c40d0a7bf694b480bdb06720608ac9ef0df89ccf4b520968c47157aa0f0aea"
+    ]
+  },
+  {
+    "page": "live-room-host.html",
+    "role": "本场主播",
+    "point": "巡房会话不能踢出",
+    "pre": [
+      "本场主播；当前处于直播间（主播）页面",
+      "巡房人员A已从后台有效巡房任务进入本场"
+    ],
+    "steps": [
+      "打开A资料卡",
+      "点击踢出A"
+    ],
+    "result": "不能将A踢出本场",
+    "refs": [
+      "REQ-b93f80b008ba"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5a2b55b23f986ca7ef192a6e47b191752cad5d7f0510904a4f3289cd79062917"
+    ]
+  },
+  {
+    "page": "live-room-host.html",
+    "role": "本场主播",
+    "point": "巡房会话不能拉黑",
+    "pre": [
+      "本场主播；当前处于直播间（主播）页面",
+      "巡房人员A已从后台有效巡房任务进入本场"
+    ],
+    "steps": [
+      "打开A资料卡",
+      "点击拉黑A"
+    ],
+    "result": "不能建立对A的拉黑关系",
+    "refs": [
+      "REQ-b93f80b008ba"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5a2b55b23f986ca7ef192a6e47b191752cad5d7f0510904a4f3289cd79062917"
+    ]
+  },
+  {
+    "page": "blacklist-management.html",
+    "role": "主播",
+    "point": "巡房结束保留原黑名单",
+    "pre": [
+      "主播；当前处于黑名单管理页面",
+      "A原在本人黑名单中；A刚完成有效巡房任务"
+    ],
+    "steps": [
+      "刷新黑名单"
+    ],
+    "result": "A原有拉黑记录仍保留",
+    "refs": [
+      "REQ-dc74156d7b15",
+      "REQ-af9fad486413"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "db5ec66ff75107f119fd5254fcdbe59ca0248b3cd4becf50ae2357b3bea449a2",
+      "4cf2f7c307b9fcc1383294ee57718cb3f0487983b524c86d8d5ee32fcaa929de"
+    ]
+  },
+  {
+    "page": "live-room-report.html",
+    "role": "普通用户",
+    "point": "举报类型完整集合",
+    "pre": [
+      "普通用户；当前处于举报直播间页面",
+      "当前举报对象有效"
+    ],
+    "steps": [
+      "查看举报类型"
+    ],
+    "result": "可选类型为色情低俗、涉及宗教政治、暴恐血腥、未成年人有害、其他",
+    "refs": [
+      "REQ-34dd77b1a73d",
+      "MAIN-286"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "15f5a28a242a78c9837689bf051af56d8dbf7b4950db4d70c8b76b2470a2ae74",
+      "5dc13ff74a2c949661549108a144b40f087ec75c57bafbd5924d273fc3797b06"
+    ]
+  },
+  {
+    "page": "live-room-user-report.html",
+    "role": "普通用户",
+    "point": "举报类型完整集合",
+    "pre": [
+      "普通用户；当前处于举报用户页面",
+      "当前举报对象有效"
+    ],
+    "steps": [
+      "查看举报类型"
+    ],
+    "result": "可选类型为色情低俗、涉及宗教政治、暴恐血腥、未成年人有害、其他",
+    "refs": [
+      "REQ-8c322038d82f",
+      "MAIN-286"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "cd6b28f0bd6653ba7b94b5fda3d8c4191cb68ba7800b64486b24aa5636fcf605",
+      "5dc13ff74a2c949661549108a144b40f087ec75c57bafbd5924d273fc3797b06"
+    ]
+  },
+  {
+    "page": "live-room.html",
+    "role": "普通观众",
+    "point": "结束场次不提供举报入口",
+    "pre": [
+      "普通观众；当前处于直播间（普通房）页面",
+      "所查看场次已经结束"
+    ],
+    "steps": [
+      "查看场次结束页面操作"
+    ],
+    "result": "不提供对已结束场次的直播举报入口",
+    "refs": [
+      "REQ-70c22d54cfec",
+      "COMMON-report-end"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1f58a152bdaafb4bc4e32e8a60fb1b91c905080b6870868cfd675015a8fa125f",
+      "af971c7de9df969f22a2cf9d4255c88f11f67fdf329b0e46222984f08d13a96e"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "单人禁言限制群发送",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "当前群内单人禁言生效"
+    ],
+    "steps": [
+      "输入文本QA消息",
+      "尝试发送"
+    ],
+    "result": "QA消息不能发送到当前群",
+    "refs": [
+      "REQ-f64015dd42d4",
+      "REQ-8bf7930dbac7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2b1c34cb86508b5f44f18f5b608420cd5d22d736060fd0cad466c0d1b7d4cd3b",
+      "127db98eb7f97554afcab920fa067a38774255fd7a4db795b39975393c934e11"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "全员禁言限制群发送",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "当前群内全员禁言生效"
+    ],
+    "steps": [
+      "输入文本QA消息",
+      "尝试发送"
+    ],
+    "result": "QA消息不能发送到当前群",
+    "refs": [
+      "REQ-f64015dd42d4",
+      "REQ-8bf7930dbac7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2b1c34cb86508b5f44f18f5b608420cd5d22d736060fd0cad466c0d1b7d4cd3b",
+      "127db98eb7f97554afcab920fa067a38774255fd7a4db795b39975393c934e11"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "平台发言限制限制群发送",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "当前群内平台发言限制生效"
+    ],
+    "steps": [
+      "输入文本QA消息",
+      "尝试发送"
+    ],
+    "result": "QA消息不能发送到当前群",
+    "refs": [
+      "REQ-f64015dd42d4",
+      "REQ-8bf7930dbac7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2b1c34cb86508b5f44f18f5b608420cd5d22d736060fd0cad466c0d1b7d4cd3b",
+      "127db98eb7f97554afcab920fa067a38774255fd7a4db795b39975393c934e11"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "群限制解除后恢复发送",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "单人、全员和平台发言限制均已解除"
+    ],
+    "steps": [
+      "输入文本QA恢复",
+      "点击发送"
+    ],
+    "result": "QA恢复写入当前群",
+    "refs": [
+      "REQ-f64015dd42d4"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2b1c34cb86508b5f44f18f5b608420cd5d22d736060fd0cad466c0d1b7d4cd3b"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "群禁言保留团籍",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "本人仅被所属主播单人群禁言"
+    ],
+    "steps": [
+      "刷新我的粉丝团"
+    ],
+    "result": "原团籍仍有效",
+    "refs": [
+      "REQ-4ebe7fad319b",
+      "MAIN-261"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a0952af61e4df7e762b653e8cbbe99de4756b2273e0777c8718dc62eb2b831dd",
+      "5e2ee33b989df0c860b03a3990440036912451b4816a006f9df48ad575cd8ef7"
+    ]
+  },
+  {
+    "page": "my-following.html",
+    "role": "已关注主播的粉丝团成员",
+    "point": "群禁言保留关注",
+    "pre": [
+      "已关注主播的粉丝团成员；当前处于我的关注页面",
+      "本人仅被该主播单人群禁言"
+    ],
+    "steps": [
+      "刷新关注列表"
+    ],
+    "result": "该主播仍在关注列表",
+    "refs": [
+      "REQ-4ebe7fad319b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a0952af61e4df7e762b653e8cbbe99de4756b2273e0777c8718dc62eb2b831dd"
+    ]
+  },
+  {
+    "page": "live-room.html",
+    "role": "有效粉丝团成员",
+    "point": "群禁言不限制公屏",
+    "pre": [
+      "有效粉丝团成员；当前处于直播间（普通房）页面",
+      "本人在本主播粉丝群被禁言，本场公屏没有禁言限制"
+    ],
+    "steps": [
+      "输入文本QA公屏",
+      "点击发送"
+    ],
+    "result": "QA公屏成功发送",
+    "refs": [
+      "REQ-4ebe7fad319b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a0952af61e4df7e762b653e8cbbe99de4756b2273e0777c8718dc62eb2b831dd"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "所属主播",
+    "point": "主播管理公告所属群",
+    "pre": [
+      "所属主播；当前处于群管理（群主）页面",
+      "当前群公告为QA公告；另一群公告为QB公告"
+    ],
+    "steps": [
+      "查看群公告"
+    ],
+    "result": "显示QA公告",
+    "refs": [
+      "REQ-ad1c58c7a863"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bb6c07d7b6e8b4994c1cb114f5e10bdcddc1a24e83db5751afa047ee9bdbb64e"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "用户A",
+    "point": "用户主页关注独立状态",
+    "pre": [
+      "用户A；当前处于用户主页页面",
+      "A已关注B但与B不是好友、未互相拉黑"
+    ],
+    "steps": [
+      "查看B的关注状态"
+    ],
+    "result": "显示已关注",
+    "refs": [
+      "REQ-92eca975cc39"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2eca8577530b9fd0cc20b1ea03d83fd683be80bf6d06ab3b9389139e8e0c677c"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "用户A",
+    "point": "用户主页好友独立状态",
+    "pre": [
+      "用户A；当前处于用户主页页面",
+      "A已关注B但与B不是好友、未互相拉黑"
+    ],
+    "steps": [
+      "查看B的好友状态"
+    ],
+    "result": "显示非好友",
+    "refs": [
+      "REQ-92eca975cc39"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2eca8577530b9fd0cc20b1ea03d83fd683be80bf6d06ab3b9389139e8e0c677c"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "用户A",
+    "point": "用户主页拉黑独立状态",
+    "pre": [
+      "用户A；当前处于用户主页页面",
+      "A已关注B但与B不是好友、未互相拉黑"
+    ],
+    "steps": [
+      "查看B的拉黑状态"
+    ],
+    "result": "显示未拉黑",
+    "refs": [
+      "REQ-92eca975cc39"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2eca8577530b9fd0cc20b1ea03d83fd683be80bf6d06ab3b9389139e8e0c677c"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "普通用户",
+    "point": "主播粉丝统计",
+    "pre": [
+      "普通用户；当前处于主播主页页面",
+      "当前主播有3名有效粉丝、关注4人、历史累计观众人次20；展馆收到礼物A两件及B三件"
+    ],
+    "steps": [
+      "查看粉丝数"
+    ],
+    "result": "显示3人",
+    "refs": [
+      "REQ-879aeceedc7c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "12f00d7a9a8272a495fa6c432d8139608906f2b53762686514c54d7de19c16f6"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "普通用户",
+    "point": "主播关注统计",
+    "pre": [
+      "普通用户；当前处于主播主页页面",
+      "当前主播有3名有效粉丝、关注4人、历史累计观众人次20；展馆收到礼物A两件及B三件"
+    ],
+    "steps": [
+      "查看关注数"
+    ],
+    "result": "显示4人",
+    "refs": [
+      "REQ-879aeceedc7c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "12f00d7a9a8272a495fa6c432d8139608906f2b53762686514c54d7de19c16f6"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "普通用户",
+    "point": "主播历史观众统计",
+    "pre": [
+      "普通用户；当前处于主播主页页面",
+      "当前主播有3名有效粉丝、关注4人、历史累计观众人次20；展馆收到礼物A两件及B三件"
+    ],
+    "steps": [
+      "查看观众数"
+    ],
+    "result": "显示20人次",
+    "refs": [
+      "REQ-879aeceedc7c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "12f00d7a9a8272a495fa6c432d8139608906f2b53762686514c54d7de19c16f6"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "普通用户",
+    "point": "主播礼物种类统计",
+    "pre": [
+      "普通用户；当前处于主播主页页面",
+      "当前主播有3名有效粉丝、关注4人、历史累计观众人次20；展馆收到礼物A两件及B三件"
+    ],
+    "steps": [
+      "查看礼物种类"
+    ],
+    "result": "显示2种",
+    "refs": [
+      "REQ-71c9dec335e9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "91f1f35ab5968063d853812e620f140c1493214c1bcd5408569011c87eca90ae"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "普通用户",
+    "point": "主播礼物收到数量",
+    "pre": [
+      "普通用户；当前处于主播主页页面",
+      "当前主播有3名有效粉丝、关注4人、历史累计观众人次20；展馆收到礼物A两件及B三件"
+    ],
+    "steps": [
+      "查看历史收到数量"
+    ],
+    "result": "显示5件",
+    "refs": [
+      "REQ-71c9dec335e9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "91f1f35ab5968063d853812e620f140c1493214c1bcd5408569011c87eca90ae"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "普通用户A",
+    "point": "主播主页关注独立状态",
+    "pre": [
+      "普通用户A；当前处于主播主页页面",
+      "A关注主播B，与B不是好友且未互相拉黑"
+    ],
+    "steps": [
+      "查看关注状态"
+    ],
+    "result": "显示已关注",
+    "refs": [
+      "REQ-572f18705840"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d54ad57b2ddda571a9b99acca7d16f6b2edb39f4ed13e6ab1e0d07df95315f52"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "普通用户A",
+    "point": "主播主页好友独立状态",
+    "pre": [
+      "普通用户A；当前处于主播主页页面",
+      "A关注主播B，与B不是好友且未互相拉黑"
+    ],
+    "steps": [
+      "查看好友状态"
+    ],
+    "result": "显示非好友",
+    "refs": [
+      "REQ-572f18705840"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d54ad57b2ddda571a9b99acca7d16f6b2edb39f4ed13e6ab1e0d07df95315f52"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "普通用户A",
+    "point": "主播主页拉黑独立状态",
+    "pre": [
+      "普通用户A；当前处于主播主页页面",
+      "A关注主播B，与B不是好友且未互相拉黑"
+    ],
+    "steps": [
+      "查看拉黑状态"
+    ],
+    "result": "显示未拉黑",
+    "refs": [
+      "REQ-572f18705840"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d54ad57b2ddda571a9b99acca7d16f6b2edb39f4ed13e6ab1e0d07df95315f52"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "普通用户A",
+    "point": "主播主页私信权限受限",
+    "pre": [
+      "普通用户A；当前处于主播主页页面",
+      "A与主播B非好友，已主动发出3条私信，B未回应"
+    ],
+    "steps": [
+      "点击私信",
+      "尝试再发送QA消息"
+    ],
+    "result": "第四条主动私信不能发出",
+    "refs": [
+      "REQ-572f18705840",
+      "REQ-ef2dad69af57"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d54ad57b2ddda571a9b99acca7d16f6b2edb39f4ed13e6ab1e0d07df95315f52",
+      "f8f5c556449c2ca5855edc0612b389424de2741bee5133d1946c9a08efc07e7c"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "卡片本周我的排名",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "本人当前主播粉丝团本周贡献排名为第2名"
+    ],
+    "steps": [
+      "查看卡片我的排名"
+    ],
+    "result": "显示第2名",
+    "refs": [
+      "REQ-b21b55b83439"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7cd5fb2321837689cc1fc8af854c66b57119e0f4da677cb6b2ec7ae2f47b0439"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "卡片贡献本周范围",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "本周A入团前贡献100、入团后50，B贡献100；A和B当前均为有效团籍，C已退团且贡献200，D为运营号"
+    ],
+    "steps": [
+      "查看卡片贡献榜头像顺序"
+    ],
+    "result": "A排在B前；不展示C和D",
+    "refs": [
+      "REQ-e53313feaa8d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4f9125f55b1e9f145e797a3ba11d4a41204917c06ad3dfad4d75b61064a66c18"
+    ]
+  },
+  {
+    "page": "start-live-settings.html",
+    "role": "有开播资格的主播",
+    "point": "开播封面可不填",
+    "pre": [
+      "有开播资格的主播；当前处于开播设置页面",
+      "相机麦克风已授权，普通房主题和分类均有效，未上传封面"
+    ],
+    "steps": [
+      "点击开始直播"
+    ],
+    "result": "允许创建本次场次",
+    "refs": [
+      "REQ-977cbf74d9f6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5cf46715134c13a11e099438600df535266436b49576dd32a9919f3f8ef02921"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录普通用户",
+    "point": "区号返回保留密码登录",
+    "pre": [
+      "未登录普通用户；当前处于手机号登录页面",
+      "当前已选择密码登录并输入手机号"
+    ],
+    "steps": [
+      "点击区号",
+      "选择印度尼西亚+62"
+    ],
+    "result": "仍为密码登录",
+    "refs": [
+      "REQ-235781692515",
+      "REQ-b16a9f3760bc"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "43226b8142297b462148c19b8f7ee18f543fb7147155156079d018cd5366bf52",
+      "4bff796b3fcf0acbe8c2008bda4fcfa84b383504308258de111f57000fffb8b4"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录普通用户",
+    "point": "区号返回保留验证码登录",
+    "pre": [
+      "未登录普通用户；当前处于手机号登录页面",
+      "当前已选择验证码登录并输入手机号"
+    ],
+    "steps": [
+      "点击区号",
+      "选择印度尼西亚+62"
+    ],
+    "result": "仍为验证码登录",
+    "refs": [
+      "REQ-235781692515",
+      "REQ-b16a9f3760bc"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "43226b8142297b462148c19b8f7ee18f543fb7147155156079d018cd5366bf52",
+      "4bff796b3fcf0acbe8c2008bda4fcfa84b383504308258de111f57000fffb8b4"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未设置密码的用户",
+    "point": "未设置密码通过手机号验证码登录",
+    "pre": [
+      "未设置密码的用户；当前处于手机号登录页面",
+      "当前账号已绑定有效手机号但未设置密码；协议已同意；已取得该账号有效验证码"
+    ],
+    "steps": [
+      "输入已绑定手机号",
+      "切换验证码登录",
+      "输入有效验证码",
+      "点击继续"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-6247f34fa79d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b5078368c17e8eb119b9c45f5af0834a1a9f93eaed48a8d19aeda60bf12c2922"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未设置密码的用户",
+    "point": "未设置密码通过邮箱验证码登录",
+    "pre": [
+      "未设置密码的用户；当前处于邮箱登录页面",
+      "当前账号已绑定有效邮箱但未设置密码；协议已同意；已取得该账号有效验证码"
+    ],
+    "steps": [
+      "输入已绑定邮箱",
+      "切换验证码登录",
+      "输入有效验证码",
+      "点击继续"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-6247f34fa79d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b5078368c17e8eb119b9c45f5af0834a1a9f93eaed48a8d19aeda60bf12c2922"
+    ]
+  },
+  {
+    "page": "account-password-change.html",
+    "role": "已设置密码用户",
+    "point": "修改密码旧密码为空",
+    "pre": [
+      "已设置密码用户；当前处于修改密码页面",
+      "当前有效密码QaOld123"
+    ],
+    "steps": [
+      "清空当前密码",
+      "输入新密码QaNew123",
+      "尝试保存"
+    ],
+    "result": "不能将账号密码改为QaNew123",
+    "refs": [
+      "REQ-0817f48c7b49"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4fef933fe72a2e53d187a30d372064579ffc4287b9513ac05f6db5403bb9fcd7"
+    ]
+  },
+  {
+    "page": "views/settings/notification-default.html",
+    "role": "已登录普通用户",
+    "point": "首次系统通知状态",
+    "pre": [
+      "已登录普通用户；当前处于系统通知-从未申请页面",
+      "本设备尚未向系统申请通知授权"
+    ],
+    "steps": [
+      "查看系统通知状态"
+    ],
+    "result": "显示未开启",
+    "refs": [
+      "REQ-37faac19e032"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9a7fef359465bc3dc475ace3eae0683c34ba8ab7ea2f6b2aa1eeb99f8b51fccd"
+    ]
+  },
+  {
+    "page": "views/settings/notification-granted.html",
+    "role": "已登录普通用户",
+    "point": "已授权关闭开播分类",
+    "pre": [
+      "已登录普通用户；当前处于系统通知-已授权页面",
+      "本设备系统通知已授权；开播提醒关闭、互动通知开启；当前收到一条关注主播开播事件和一条好友申请"
+    ],
+    "steps": [
+      "查看设备是否收到本次主播开播通知"
+    ],
+    "result": "不展示本次主播开播推送",
+    "refs": [
+      "REQ-d5b5caf244b0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8f05fb82f5026d7a03ed8a12571c32c55d824795bfe6cf0f933ff9728526e1a8"
+    ]
+  },
+  {
+    "page": "views/settings/notification-granted.html",
+    "role": "已登录普通用户",
+    "point": "已授权保留互动分类",
+    "pre": [
+      "已登录普通用户；当前处于系统通知-已授权页面",
+      "本设备系统通知已授权；开播提醒关闭、互动通知开启；当前收到一条关注主播开播事件和一条好友申请"
+    ],
+    "steps": [
+      "查看设备收到的好友申请通知"
+    ],
+    "result": "展示本次好友申请互动推送",
+    "refs": [
+      "REQ-d5b5caf244b0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8f05fb82f5026d7a03ed8a12571c32c55d824795bfe6cf0f933ff9728526e1a8"
+    ]
+  },
+  {
+    "page": "views/live-room/gift-recharge.html",
+    "role": "真实金币用户",
+    "point": "快捷充值配置范围",
+    "pre": [
+      "真实金币用户；当前处于充值页面",
+      "后台当前端启用套餐P（100金币赠10金币）及支付渠道C"
+    ],
+    "steps": [
+      "查看充值套餐和支付渠道"
+    ],
+    "result": "显示套餐P与渠道C",
+    "refs": [
+      "REQ-59889fd16fd0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "44d3bf709c7094c7ad605f836135699a8aeb12458051c30d51e96c53ddbf8d6b"
+    ]
+  },
+  {
+    "page": "views/live-room/gift-recharge.html",
+    "role": "真实金币用户",
+    "point": "快捷充值失败不增余额",
+    "pre": [
+      "真实金币用户；当前处于充值页面",
+      "原金币余额20；本次选择有效套餐，支付最终状态为失败"
+    ],
+    "steps": [
+      "提交支付",
+      "重新查看金币余额"
+    ],
+    "result": "余额仍为20金币",
+    "refs": [
+      "REQ-9c3dd005dcb3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d360c2ce529e3e2cdbafe6408b82c3c6d26b8c1d6eb71a5bb09d49f27aecae8b"
+    ]
+  },
+  {
+    "page": "views/live-room/gift-recharge.html",
+    "role": "真实金币用户",
+    "point": "快捷充值取消不增余额",
+    "pre": [
+      "真实金币用户；当前处于充值页面",
+      "原金币余额20；本次选择有效套餐，支付最终状态为取消"
+    ],
+    "steps": [
+      "提交支付",
+      "重新查看金币余额"
+    ],
+    "result": "余额仍为20金币",
+    "refs": [
+      "REQ-9c3dd005dcb3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d360c2ce529e3e2cdbafe6408b82c3c6d26b8c1d6eb71a5bb09d49f27aecae8b"
+    ]
+  },
+  {
+    "page": "views/live-room/gift-recharge.html",
+    "role": "真实金币用户",
+    "point": "快捷充值超时不增余额",
+    "pre": [
+      "真实金币用户；当前处于充值页面",
+      "原金币余额20；本次选择有效套餐，支付最终状态为超时"
+    ],
+    "steps": [
+      "提交支付",
+      "重新查看金币余额"
+    ],
+    "result": "余额仍为20金币",
+    "refs": [
+      "REQ-9c3dd005dcb3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d360c2ce529e3e2cdbafe6408b82c3c6d26b8c1d6eb71a5bb09d49f27aecae8b"
+    ]
+  },
+  {
+    "page": "views/live-room/gift-recharge.html",
+    "role": "真实金币用户",
+    "point": "快捷充值成功到账",
+    "pre": [
+      "真实金币用户；当前处于充值页面",
+      "原余额20；本次套餐到账100金币且支付成功"
+    ],
+    "steps": [
+      "刷新金币余额"
+    ],
+    "result": "余额为120金币",
+    "refs": [
+      "REQ-9c3dd005dcb3",
+      "MAIN-320"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d360c2ce529e3e2cdbafe6408b82c3c6d26b8c1d6eb71a5bb09d49f27aecae8b",
+      "bf2410fae1963ac16c48fd3e59ca8d679d2dc51203f1bc5a2bf041cf5f22d2ed"
+    ]
+  },
+  {
+    "page": "views/live-room/gift-recharge.html",
+    "role": "真实金币用户",
+    "point": "快捷充值成功记账",
+    "pre": [
+      "真实金币用户；当前处于充值页面",
+      "原余额20；本次套餐到账100金币且支付成功"
+    ],
+    "steps": [
+      "进入余额明细"
+    ],
+    "result": "存在本次100金币充值记录",
+    "refs": [
+      "REQ-9c3dd005dcb3",
+      "MAIN-320"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d360c2ce529e3e2cdbafe6408b82c3c6d26b8c1d6eb71a5bb09d49f27aecae8b",
+      "bf2410fae1963ac16c48fd3e59ca8d679d2dc51203f1bc5a2bf041cf5f22d2ed"
+    ]
+  },
+  {
+    "page": "views/live-room/fan-club-joined.html",
+    "role": "刚入团普通用户",
+    "point": "入团获得粉丝群资格",
+    "pre": [
+      "刚入团普通用户；当前处于粉丝团-已加入页面",
+      "刚成功加入当前主播粉丝团"
+    ],
+    "steps": [
+      "点击群聊入口"
+    ],
+    "result": "可以进入该主播粉丝群",
+    "refs": [
+      "REQ-8d9134a2137d",
+      "REQ-37f0730a9355",
+      "REQ-befef46a7065"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "69c6e7c6df86ef1815f9d6c38b63e2a5c1342095e49b7dbf8a11738bee56c565",
+      "6abd223a95697b16fba184a81056ff2f78c7b91f058cb550238f5af0993c1828",
+      "e68370b989a1150638f5562596cc18d6d77790ea7b6820cfef24a1757024d339"
+    ]
+  },
+  {
+    "page": "views/live-room/fan-club-joined.html",
+    "role": "有效粉丝团成员",
+    "point": "有效团籍灯牌展示",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团-已加入页面",
+      "当前团籍配置有效灯牌QA团及粉丝等级5"
+    ],
+    "steps": [
+      "查看当前团籍灯牌"
+    ],
+    "result": "显示QA团灯牌",
+    "refs": [
+      "REQ-befef46a7065"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e68370b989a1150638f5562596cc18d6d77790ea7b6820cfef24a1757024d339"
+    ]
+  },
+  {
+    "page": "views/live-room/profile-viewer.html",
+    "role": "普通观众A",
+    "point": "观众资料卡关系独立",
+    "pre": [
+      "普通观众A；当前处于用户资料卡-普通观众页面",
+      "A已关注观众B，与B不是好友且未拉黑"
+    ],
+    "steps": [
+      "查看B关系操作"
+    ],
+    "result": "已关注状态不会显示为已建立好友",
+    "refs": [
+      "REQ-24d552ed2e8a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8825f473fefa5067b077af1ef38ea2d54fced49ea248a89e230f07ff5887e799"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-gifts.html",
+    "role": "普通观众",
+    "point": "本场礼物贡献不扣返奖",
+    "pre": [
+      "普通观众；当前处于本场贡献-收到礼物页面",
+      "本场仅成功送出单价10金币幸运礼物3件，另获50金币返奖"
+    ],
+    "steps": [
+      "查看该礼物贡献"
+    ],
+    "result": "贡献为30金币",
+    "refs": [
+      "REQ-e4023aa2b5d8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "260ad4f71ae48ff6d2aa2010d8ae05d43fd563d02ab93d4bfe8ace2215d99434"
+    ]
+  },
+  {
+    "page": "views/live-room/host-profile.html",
+    "role": "普通观众",
+    "point": "主播资料卡结束状态",
+    "pre": [
+      "普通观众；当前处于主播资料卡页面",
+      "资料卡对应主播A刚结束当前场次"
+    ],
+    "steps": [
+      "刷新主播资料卡"
+    ],
+    "result": "显示未开播",
+    "refs": [
+      "REQ-2f00157ac134"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "070435216a70208b13a66f6a09eae1f06519236a79bf65f73286beaa67a015b6"
+    ]
+  },
+  {
+    "page": "views/live-room/host-profile.html",
+    "role": "观众B",
+    "point": "主播资料卡关注状态",
+    "pre": [
+      "观众B；当前处于主播资料卡页面",
+      "B已关注A并加入A粉丝团，但非好友且未拉黑"
+    ],
+    "steps": [
+      "查看关注状态"
+    ],
+    "result": "显示已关注",
+    "refs": [
+      "REQ-4b36047617a5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "429318606c5ce8ea68c1784851ea680fabcd1ac237da0d4d11d5c6394f7dc0d9"
+    ]
+  },
+  {
+    "page": "views/live-room/host-profile.html",
+    "role": "观众B",
+    "point": "主播资料卡好友状态",
+    "pre": [
+      "观众B；当前处于主播资料卡页面",
+      "B已关注A并加入A粉丝团，但非好友且未拉黑"
+    ],
+    "steps": [
+      "查看好友状态"
+    ],
+    "result": "显示非好友",
+    "refs": [
+      "REQ-4b36047617a5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "429318606c5ce8ea68c1784851ea680fabcd1ac237da0d4d11d5c6394f7dc0d9"
+    ]
+  },
+  {
+    "page": "views/live-room/host-profile.html",
+    "role": "观众B",
+    "point": "主播资料卡粉丝团状态",
+    "pre": [
+      "观众B；当前处于主播资料卡页面",
+      "B已关注A并加入A粉丝团，但非好友且未拉黑"
+    ],
+    "steps": [
+      "查看粉丝团状态"
+    ],
+    "result": "显示已加入",
+    "refs": [
+      "REQ-4b36047617a5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "429318606c5ce8ea68c1784851ea680fabcd1ac237da0d4d11d5c6394f7dc0d9"
+    ]
+  },
+  {
+    "page": "views/live-room/host-profile.html",
+    "role": "观众B",
+    "point": "主播资料卡拉黑状态",
+    "pre": [
+      "观众B；当前处于主播资料卡页面",
+      "B已关注A并加入A粉丝团，但非好友且未拉黑"
+    ],
+    "steps": [
+      "查看拉黑状态"
+    ],
+    "result": "显示未拉黑",
+    "refs": [
+      "REQ-4b36047617a5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "429318606c5ce8ea68c1784851ea680fabcd1ac237da0d4d11d5c6394f7dc0d9"
+    ]
+  },
+  {
+    "page": "views/live-room/host-profile.html",
+    "role": "观众B",
+    "point": "主播资料卡进入主页对象",
+    "pre": [
+      "观众B；当前处于主播资料卡页面",
+      "当前主播为A，B与A为好友、未互相拉黑"
+    ],
+    "steps": [
+      "点击进入主页"
+    ],
+    "result": "进入主播A主页",
+    "refs": [
+      "REQ-f6baa5b5497f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "70258c88e560c8a6d602d0b725c77ffb15e795379306d5946309783fa2ae61da"
+    ]
+  },
+  {
+    "page": "views/live-room/host-profile.html",
+    "role": "观众B",
+    "point": "主播资料卡私信对象",
+    "pre": [
+      "观众B；当前处于主播资料卡页面",
+      "当前主播为A，B与A为好友、未互相拉黑"
+    ],
+    "steps": [
+      "点击私信"
+    ],
+    "result": "进入与主播A的单聊",
+    "refs": [
+      "REQ-f6baa5b5497f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "70258c88e560c8a6d602d0b725c77ffb15e795379306d5946309783fa2ae61da"
+    ]
+  },
+  {
+    "page": "views/live-room/host-profile.html",
+    "role": "观众B",
+    "point": "主播资料卡举报对象",
+    "pre": [
+      "观众B；当前处于主播资料卡页面",
+      "当前主播为A，B与A为好友、未互相拉黑"
+    ],
+    "steps": [
+      "点击举报"
+    ],
+    "result": "进入以主播A为对象的账号举报",
+    "refs": [
+      "REQ-f6baa5b5497f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "70258c88e560c8a6d602d0b725c77ffb15e795379306d5946309783fa2ae61da"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "主播头像字段回显",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "观众A当前在线、账号有效，本场有贡献；A的头像为头像P"
+    ],
+    "steps": [
+      "查看A的头像"
+    ],
+    "result": "显示头像P",
+    "refs": [
+      "REQ-b614f798a960"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bf7ff45b5f088aa0de0c29108bf28941aebeacfe1890c5c62615d9c2489d9e76"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "主播昵称字段回显",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "观众A当前在线、账号有效，本场有贡献；A的昵称为QA观众"
+    ],
+    "steps": [
+      "查看A的昵称"
+    ],
+    "result": "显示QA观众",
+    "refs": [
+      "REQ-b614f798a960"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bf7ff45b5f088aa0de0c29108bf28941aebeacfe1890c5c62615d9c2489d9e76"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "主播财富等级字段回显",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "观众A当前在线、账号有效，本场有贡献；A的财富等级为5级"
+    ],
+    "steps": [
+      "查看A的财富等级"
+    ],
+    "result": "显示5级",
+    "refs": [
+      "REQ-b614f798a960"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bf7ff45b5f088aa0de0c29108bf28941aebeacfe1890c5c62615d9c2489d9e76"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "主播粉丝等级字段回显",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "观众A当前在线、账号有效，本场有贡献；A的粉丝等级为3级"
+    ],
+    "steps": [
+      "查看A的粉丝等级"
+    ],
+    "result": "显示3级",
+    "refs": [
+      "REQ-b614f798a960"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bf7ff45b5f088aa0de0c29108bf28941aebeacfe1890c5c62615d9c2489d9e76"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "主播灯牌字段回显",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "观众A当前在线、账号有效，本场有贡献；A的灯牌为QA团"
+    ],
+    "steps": [
+      "查看A的灯牌"
+    ],
+    "result": "显示QA团",
+    "refs": [
+      "REQ-b614f798a960"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bf7ff45b5f088aa0de0c29108bf28941aebeacfe1890c5c62615d9c2489d9e76"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "主播亲密度字段回显",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "观众A当前在线、账号有效，本场有贡献；A的亲密度为20"
+    ],
+    "steps": [
+      "查看A的亲密度"
+    ],
+    "result": "显示20",
+    "refs": [
+      "REQ-b614f798a960"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bf7ff45b5f088aa0de0c29108bf28941aebeacfe1890c5c62615d9c2489d9e76"
+    ]
+  },
+  {
+    "page": "views/live-room-host/focus-viewers.html",
+    "role": "本场主播",
+    "point": "主播头像字段回显",
+    "pre": [
+      "本场主播；当前处于重点观众页面",
+      "观众A当前在线、账号有效，本场有贡献；A的头像为头像P"
+    ],
+    "steps": [
+      "查看A的头像"
+    ],
+    "result": "显示头像P",
+    "refs": [
+      "REQ-2e624b28feca"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a536cd403948c7b93213c8702bc654a0c1a65b5ad69a44f99a5c4d590ee29ba6"
+    ]
+  },
+  {
+    "page": "views/live-room-host/focus-viewers.html",
+    "role": "本场主播",
+    "point": "主播昵称字段回显",
+    "pre": [
+      "本场主播；当前处于重点观众页面",
+      "观众A当前在线、账号有效，本场有贡献；A的昵称为QA观众"
+    ],
+    "steps": [
+      "查看A的昵称"
+    ],
+    "result": "显示QA观众",
+    "refs": [
+      "REQ-2e624b28feca"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a536cd403948c7b93213c8702bc654a0c1a65b5ad69a44f99a5c4d590ee29ba6"
+    ]
+  },
+  {
+    "page": "views/live-room-host/focus-viewers.html",
+    "role": "本场主播",
+    "point": "主播财富等级字段回显",
+    "pre": [
+      "本场主播；当前处于重点观众页面",
+      "观众A当前在线、账号有效，本场有贡献；A的财富等级为5级"
+    ],
+    "steps": [
+      "查看A的财富等级"
+    ],
+    "result": "显示5级",
+    "refs": [
+      "REQ-2e624b28feca"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a536cd403948c7b93213c8702bc654a0c1a65b5ad69a44f99a5c4d590ee29ba6"
+    ]
+  },
+  {
+    "page": "views/live-room-host/focus-viewers.html",
+    "role": "本场主播",
+    "point": "主播粉丝身份字段回显",
+    "pre": [
+      "本场主播；当前处于重点观众页面",
+      "观众A当前在线、账号有效，本场有贡献；A的粉丝身份为QA团成员"
+    ],
+    "steps": [
+      "查看A的粉丝身份"
+    ],
+    "result": "显示QA团成员",
+    "refs": [
+      "REQ-2e624b28feca"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a536cd403948c7b93213c8702bc654a0c1a65b5ad69a44f99a5c4d590ee29ba6"
+    ]
+  },
+  {
+    "page": "views/live-room-host/focus-viewers.html",
+    "role": "本场主播",
+    "point": "主播本场贡献字段回显",
+    "pre": [
+      "本场主播；当前处于重点观众页面",
+      "观众A当前在线、账号有效，本场有贡献；A的本场贡献为100金币"
+    ],
+    "steps": [
+      "查看A的本场贡献"
+    ],
+    "result": "显示100金币",
+    "refs": [
+      "REQ-2e624b28feca"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a536cd403948c7b93213c8702bc654a0c1a65b5ad69a44f99a5c4d590ee29ba6"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "主播头像字段回显",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "观众A当前在线、账号有效，本场有贡献；A的头像为头像P"
+    ],
+    "steps": [
+      "查看A的头像"
+    ],
+    "result": "显示头像P",
+    "refs": [
+      "REQ-75ca663f5469"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8712670f07b805245ec81e7c1ebce94f6c3b22677a893a37fdc5d0487d0e804d"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "主播昵称字段回显",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "观众A当前在线、账号有效，本场有贡献；A的昵称为QA观众"
+    ],
+    "steps": [
+      "查看A的昵称"
+    ],
+    "result": "显示QA观众",
+    "refs": [
+      "REQ-75ca663f5469"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8712670f07b805245ec81e7c1ebce94f6c3b22677a893a37fdc5d0487d0e804d"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "无团籍不显示粉丝身份",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "观众A有本场真实贡献，但无本主播粉丝团身份"
+    ],
+    "steps": [
+      "查看A贡献行"
+    ],
+    "result": "不展示A的粉丝等级、灯牌和团内亲密度",
+    "refs": [
+      "REQ-b614f798a960"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bf7ff45b5f088aa0de0c29108bf28941aebeacfe1890c5c62615d9c2489d9e76"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线观众贡献展示",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "A当前在线，本场有效贡献100；B已离线且贡献200"
+    ],
+    "steps": [
+      "查看A本场贡献"
+    ],
+    "result": "显示100金币",
+    "refs": [
+      "REQ-308e1c0a8899"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a5e1fbcb6439d35af88f1be9259336e977fd342385beeede5e1826aecd4cc21c"
+    ]
+  },
+  {
+    "page": "views/live-room-host/profile-host.html",
+    "role": "本场主播",
+    "point": "主播资料卡本场在线",
+    "pre": [
+      "本场主播；当前处于观众资料卡-主播页面",
+      "A本场实际状态为在线"
+    ],
+    "steps": [
+      "查看A本场状态"
+    ],
+    "result": "显示在线",
+    "refs": [
+      "REQ-e6f248de1637"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d618c701d749080f0dda4bc568272c768192ae2c1cd8e0d3b1120a0efed265da"
+    ]
+  },
+  {
+    "page": "views/live-room-host/profile-host.html",
+    "role": "本场主播",
+    "point": "主播资料卡本场禁言",
+    "pre": [
+      "本场主播；当前处于观众资料卡-主播页面",
+      "A本场实际状态为禁言"
+    ],
+    "steps": [
+      "查看A本场状态"
+    ],
+    "result": "显示禁言",
+    "refs": [
+      "REQ-e6f248de1637"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d618c701d749080f0dda4bc568272c768192ae2c1cd8e0d3b1120a0efed265da"
+    ]
+  },
+  {
+    "page": "views/live-room-host/profile-host.html",
+    "role": "本场主播",
+    "point": "主播资料卡本场踢出",
+    "pre": [
+      "本场主播；当前处于观众资料卡-主播页面",
+      "A本场实际状态为踢出"
+    ],
+    "steps": [
+      "查看A本场状态"
+    ],
+    "result": "显示踢出",
+    "refs": [
+      "REQ-e6f248de1637"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d618c701d749080f0dda4bc568272c768192ae2c1cd8e0d3b1120a0efed265da"
+    ]
+  },
+  {
+    "page": "views/live-room-host/profile-host.html",
+    "role": "本场主播",
+    "point": "主播资料卡提及",
+    "pre": [
+      "本场主播；当前处于观众资料卡-主播页面",
+      "A账号可访问，当前查看A资料卡"
+    ],
+    "steps": [
+      "点击@"
+    ],
+    "result": "输入框预填@A",
+    "refs": [
+      "REQ-3712a1e7b851"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "14b217d4b2c6999582b33d05bf9cf798f8f8455640d756b5409794ce21738ee7"
+    ]
+  },
+  {
+    "page": "views/live-room-host/profile-host.html",
+    "role": "本场主播",
+    "point": "主播资料卡举报对象",
+    "pre": [
+      "本场主播；当前处于观众资料卡-主播页面",
+      "A账号可访问，当前查看A资料卡"
+    ],
+    "steps": [
+      "点击举报"
+    ],
+    "result": "进入以A为对象的账号举报",
+    "refs": [
+      "REQ-3712a1e7b851"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "14b217d4b2c6999582b33d05bf9cf798f8f8455640d756b5409794ce21738ee7"
+    ]
+  },
+  {
+    "page": "views/live-room-host/cohost-hosts.html",
+    "role": "本场主播",
+    "point": "连麦列表可邀请状态",
+    "pre": [
+      "本场主播；当前处于连麦主播页面",
+      "当前与主播B的邀请实际状态为可邀请"
+    ],
+    "steps": [
+      "查看B邀请状态"
+    ],
+    "result": "显示可邀请",
+    "refs": [
+      "REQ-f9623e60781e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "14ab1d20c7d5101ee3b012525cd8db74ee1e6ccea14c06b68f695ccf921e105b"
+    ]
+  },
+  {
+    "page": "views/live-room-host/cohost-hosts.html",
+    "role": "本场主播",
+    "point": "连麦列表邀请中状态",
+    "pre": [
+      "本场主播；当前处于连麦主播页面",
+      "当前与主播B的邀请实际状态为邀请中"
+    ],
+    "steps": [
+      "查看B邀请状态"
+    ],
+    "result": "显示邀请中",
+    "refs": [
+      "REQ-f9623e60781e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "14ab1d20c7d5101ee3b012525cd8db74ee1e6ccea14c06b68f695ccf921e105b"
+    ]
+  },
+  {
+    "page": "views/live-room-host/cohost-hosts.html",
+    "role": "本场主播",
+    "point": "连麦列表已接受状态",
+    "pre": [
+      "本场主播；当前处于连麦主播页面",
+      "当前与主播B的邀请实际状态为已接受"
+    ],
+    "steps": [
+      "查看B邀请状态"
+    ],
+    "result": "显示已接受",
+    "refs": [
+      "REQ-f9623e60781e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "14ab1d20c7d5101ee3b012525cd8db74ee1e6ccea14c06b68f695ccf921e105b"
+    ]
+  },
+  {
+    "page": "views/live-room-host/cohost-hosts.html",
+    "role": "本场主播",
+    "point": "连麦列表已拒绝状态",
+    "pre": [
+      "本场主播；当前处于连麦主播页面",
+      "当前与主播B的邀请实际状态为已拒绝"
+    ],
+    "steps": [
+      "查看B邀请状态"
+    ],
+    "result": "显示已拒绝",
+    "refs": [
+      "REQ-f9623e60781e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "14ab1d20c7d5101ee3b012525cd8db74ee1e6ccea14c06b68f695ccf921e105b"
+    ]
+  },
+  {
+    "page": "views/live-room-host/cohost-hosts.html",
+    "role": "本场主播",
+    "point": "连麦列表已失效状态",
+    "pre": [
+      "本场主播；当前处于连麦主播页面",
+      "当前与主播B的邀请实际状态为已失效"
+    ],
+    "steps": [
+      "查看B邀请状态"
+    ],
+    "result": "显示已失效",
+    "refs": [
+      "REQ-f9623e60781e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "14ab1d20c7d5101ee3b012525cd8db74ee1e6ccea14c06b68f695ccf921e105b"
+    ]
+  },
+  {
+    "page": "views/live-room-host/more-actions.html",
+    "role": "本场主播",
+    "point": "更多美颜入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在普通房独立直播"
+    ],
+    "steps": [
+      "点击美颜"
+    ],
+    "result": "打开美颜视图",
+    "refs": [
+      "REQ-4756a9dfab09"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "97a0b5fefc4eeaceb22b4c69b635bdd1646c2b0eb41a1ef305fd0244945c532d"
+    ]
+  },
+  {
+    "page": "views/live-room-host/more-actions.html",
+    "role": "本场主播",
+    "point": "更多禁用用户入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在普通房独立直播"
+    ],
+    "steps": [
+      "点击禁用用户"
+    ],
+    "result": "打开当前场次禁言列表",
+    "refs": [
+      "REQ-4756a9dfab09"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "97a0b5fefc4eeaceb22b4c69b635bdd1646c2b0eb41a1ef305fd0244945c532d"
+    ]
+  },
+  {
+    "page": "views/live-room-host/more-actions.html",
+    "role": "本场主播",
+    "point": "更多转发入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在普通房独立直播"
+    ],
+    "steps": [
+      "点击转发"
+    ],
+    "result": "打开接收对象视图",
+    "refs": [
+      "REQ-4756a9dfab09"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "97a0b5fefc4eeaceb22b4c69b635bdd1646c2b0eb41a1ef305fd0244945c532d"
+    ]
+  },
+  {
+    "page": "views/live-room-host/more-actions.html",
+    "role": "本场主播",
+    "point": "更多关闭返回直播",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在普通房独立直播",
+      "更多操作视图已展开"
+    ],
+    "steps": [
+      "点击关闭"
+    ],
+    "result": "返回当前直播间",
+    "refs": [
+      "REQ-4756a9dfab09"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "97a0b5fefc4eeaceb22b4c69b635bdd1646c2b0eb41a1ef305fd0244945c532d"
+    ]
+  },
+  {
+    "page": "views/live-room-host-password/more-actions.html",
+    "role": "本场主播",
+    "point": "更多美颜入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在密码房直播"
+    ],
+    "steps": [
+      "点击美颜"
+    ],
+    "result": "打开美颜视图",
+    "refs": [
+      "REQ-40d93242f27b",
+      "REQ-c5fadd4364b6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d96cc6913bef0e0c3d38ace7a250b71a9a2f9a566965dc20ad4030c875e0a8c4",
+      "6dff482873eaa4415bb3371227c521d16314fdbd03a36e4bdc29386e29d200e4"
+    ]
+  },
+  {
+    "page": "views/live-room-host-password/more-actions.html",
+    "role": "本场主播",
+    "point": "更多禁用用户入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在密码房直播"
+    ],
+    "steps": [
+      "点击禁用用户"
+    ],
+    "result": "打开当前场次禁言列表",
+    "refs": [
+      "REQ-40d93242f27b",
+      "REQ-c5fadd4364b6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d96cc6913bef0e0c3d38ace7a250b71a9a2f9a566965dc20ad4030c875e0a8c4",
+      "6dff482873eaa4415bb3371227c521d16314fdbd03a36e4bdc29386e29d200e4"
+    ]
+  },
+  {
+    "page": "views/live-room-host-password/more-actions.html",
+    "role": "本场主播",
+    "point": "更多房间密码入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在密码房直播"
+    ],
+    "steps": [
+      "点击房间密码"
+    ],
+    "result": "打开本场密码修改视图",
+    "refs": [
+      "REQ-40d93242f27b",
+      "REQ-c5fadd4364b6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d96cc6913bef0e0c3d38ace7a250b71a9a2f9a566965dc20ad4030c875e0a8c4",
+      "6dff482873eaa4415bb3371227c521d16314fdbd03a36e4bdc29386e29d200e4"
+    ]
+  },
+  {
+    "page": "views/live-room-host-password/more-actions.html",
+    "role": "本场主播",
+    "point": "更多访问范围入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在密码房直播"
+    ],
+    "steps": [
+      "点击访问范围"
+    ],
+    "result": "打开访问范围视图",
+    "refs": [
+      "REQ-40d93242f27b",
+      "REQ-c5fadd4364b6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d96cc6913bef0e0c3d38ace7a250b71a9a2f9a566965dc20ad4030c875e0a8c4",
+      "6dff482873eaa4415bb3371227c521d16314fdbd03a36e4bdc29386e29d200e4"
+    ]
+  },
+  {
+    "page": "views/live-room-host-password/more-actions.html",
+    "role": "本场主播",
+    "point": "更多转发入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在密码房直播"
+    ],
+    "steps": [
+      "点击转发"
+    ],
+    "result": "打开接收对象视图",
+    "refs": [
+      "REQ-40d93242f27b",
+      "REQ-c5fadd4364b6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d96cc6913bef0e0c3d38ace7a250b71a9a2f9a566965dc20ad4030c875e0a8c4",
+      "6dff482873eaa4415bb3371227c521d16314fdbd03a36e4bdc29386e29d200e4"
+    ]
+  },
+  {
+    "page": "views/live-room-host-password/more-actions.html",
+    "role": "本场主播",
+    "point": "更多关闭返回直播",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在密码房直播",
+      "更多操作视图已展开"
+    ],
+    "steps": [
+      "点击关闭"
+    ],
+    "result": "返回当前直播间",
+    "refs": [
+      "REQ-40d93242f27b",
+      "REQ-c5fadd4364b6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d96cc6913bef0e0c3d38ace7a250b71a9a2f9a566965dc20ad4030c875e0a8c4",
+      "6dff482873eaa4415bb3371227c521d16314fdbd03a36e4bdc29386e29d200e4"
+    ]
+  },
+  {
+    "page": "views/live-room-cohost-active/more-actions.html",
+    "role": "本场主播",
+    "point": "更多美颜入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在与另一主播连麦"
+    ],
+    "steps": [
+      "点击美颜"
+    ],
+    "result": "打开美颜视图",
+    "refs": [
+      "REQ-c0af0b921588"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d5e0ade6a322ce8b51c2280f9e5a89214340e398db734c868137dee39b797175"
+    ]
+  },
+  {
+    "page": "views/live-room-cohost-active/more-actions.html",
+    "role": "本场主播",
+    "point": "更多观众管理入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在与另一主播连麦"
+    ],
+    "steps": [
+      "点击观众管理"
+    ],
+    "result": "打开本场观众管理",
+    "refs": [
+      "REQ-c0af0b921588"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d5e0ade6a322ce8b51c2280f9e5a89214340e398db734c868137dee39b797175"
+    ]
+  },
+  {
+    "page": "views/live-room-cohost-active/more-actions.html",
+    "role": "本场主播",
+    "point": "更多转发入口",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在与另一主播连麦"
+    ],
+    "steps": [
+      "点击转发"
+    ],
+    "result": "打开接收对象视图",
+    "refs": [
+      "REQ-c0af0b921588"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d5e0ade6a322ce8b51c2280f9e5a89214340e398db734c868137dee39b797175"
+    ]
+  },
+  {
+    "page": "views/live-room-cohost-active/more-actions.html",
+    "role": "本场主播",
+    "point": "更多关闭返回直播",
+    "pre": [
+      "本场主播；当前处于更多功能页面",
+      "当前正在与另一主播连麦",
+      "更多操作视图已展开"
+    ],
+    "steps": [
+      "点击关闭"
+    ],
+    "result": "返回当前直播间",
+    "refs": [
+      "REQ-c0af0b921588"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d5e0ade6a322ce8b51c2280f9e5a89214340e398db734c868137dee39b797175"
+    ]
+  },
+  {
+    "page": "views/live-room-host-password/access-scope.html",
+    "role": "密码房主播",
+    "point": "直播中访问范围读取广场值",
+    "pre": [
+      "密码房主播；当前处于访问范围页面",
+      "当前场次确认的广场展示为关闭、仅团成员为开启；当前仍有有效粉丝团"
+    ],
+    "steps": [
+      "查看广场展示"
+    ],
+    "result": "为关闭",
+    "refs": [
+      "REQ-068797d40d88"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "26da95b21546df94907bb397cad07c30c0c2e423945962f3f091b51014a6aea6"
+    ]
+  },
+  {
+    "page": "views/live-room-host-password/access-scope.html",
+    "role": "密码房主播",
+    "point": "直播中访问范围读取成员值",
+    "pre": [
+      "密码房主播；当前处于访问范围页面",
+      "当前场次确认的广场展示为关闭、仅团成员为开启；当前仍有有效粉丝团"
+    ],
+    "steps": [
+      "查看仅粉丝团成员开关"
+    ],
+    "result": "为开启",
+    "refs": [
+      "REQ-cbb4675278fd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "18b1271d591fa604f349e5d70f7ce96836b0fd7849f0ab894236c7e85557e9dd"
+    ]
+  },
+  {
+    "page": "views/user-home/friend.html",
+    "role": "用户A",
+    "point": "好友资料沿用目标账号",
+    "pre": [
+      "用户A；当前处于好友页面",
+      "当前好友B头像P、昵称QB"
+    ],
+    "steps": [
+      "查看B账号资料"
+    ],
+    "result": "显示B头像P和昵称QB",
+    "refs": [
+      "REQ-fd6c62574131"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "498f6c96963ad4fd2671d1c98c53107dd404f0753b3479cdac1e5bdce57a90aa"
+    ]
+  },
+  {
+    "page": "views/user-home/blocked.html",
+    "role": "用户A",
+    "point": "拉黑状态资料仍属目标",
+    "pre": [
+      "用户A；当前处于拉黑页面",
+      "A已拉黑B，B头像P、昵称QB"
+    ],
+    "steps": [
+      "查看B账号资料"
+    ],
+    "result": "显示B头像P和昵称QB",
+    "refs": [
+      "REQ-43d2f18f40e8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0c76a6512f84ef21251ce3c5414c587ef7f4781c18964e3d531ab49aaf7232be"
+    ]
+  },
+  {
+    "page": "views/user-home/block-confirm.html",
+    "role": "用户A",
+    "point": "拉黑确认对象昵称",
+    "pre": [
+      "用户A；当前处于拉黑确认页面",
+      "当前拉黑目标为昵称QB的账号B",
+      "确认弹窗来自普通用户主页"
+    ],
+    "steps": [
+      "查看确认对象"
+    ],
+    "result": "显示QB",
+    "refs": [
+      "REQ-0e212575798c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9f58c162e9298f3ea3f09859fece322208814be7401ec2fc0985899c0fdcddce"
+    ]
+  },
+  {
+    "page": "views/user-home/block-confirm.html",
+    "role": "用户A",
+    "point": "拉黑确认后果说明",
+    "pre": [
+      "用户A；当前处于拉黑确认页面",
+      "当前拉黑目标为昵称QB的账号B",
+      "确认弹窗来自普通用户主页"
+    ],
+    "steps": [
+      "查看后果说明"
+    ],
+    "result": "说明拉黑后的关系解除及聊天限制",
+    "refs": [
+      "REQ-3f6a2f729865"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "490f42e678c2a3eea09b0bc68e1aa4222e026594de2197181f7112895197a9cf"
+    ]
+  },
+  {
+    "page": "views/host-home/block-confirm.html",
+    "role": "用户A",
+    "point": "拉黑确认对象昵称",
+    "pre": [
+      "用户A；当前处于拉黑确认页面",
+      "当前拉黑目标为昵称QB的账号B",
+      "确认弹窗来自主播主页"
+    ],
+    "steps": [
+      "查看确认对象"
+    ],
+    "result": "显示QB",
+    "refs": [
+      "REQ-021b938a9ceb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f36ca62ddc163092bae19816abde559cf7a760cb736b867ed7f38b6b3bfb5ce2"
+    ]
+  },
+  {
+    "page": "views/host-home/block-confirm.html",
+    "role": "用户A",
+    "point": "拉黑确认后果说明",
+    "pre": [
+      "用户A；当前处于拉黑确认页面",
+      "当前拉黑目标为昵称QB的账号B",
+      "确认弹窗来自主播主页"
+    ],
+    "steps": [
+      "查看后果说明"
+    ],
+    "result": "说明拉黑后的关系解除及聊天限制",
+    "refs": [
+      "REQ-24696928cf80"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9d529fd73ab6556a869255d837d8057ede319b72c085b2c423c8dc6c29506dd2"
+    ]
+  },
+  {
+    "page": "views/chat-settings/block-confirm.html",
+    "role": "用户A",
+    "point": "拉黑确认对象昵称",
+    "pre": [
+      "用户A；当前处于拉黑确认页面",
+      "当前拉黑目标为昵称QB的账号B",
+      "确认弹窗来自聊天设置"
+    ],
+    "steps": [
+      "查看确认对象"
+    ],
+    "result": "显示QB",
+    "refs": [
+      "REQ-d2a042417034"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e8c653c4d2f1ffba851707fb463580d5f283f9732b9dd7bdb1ca8e1fbbb941f5"
+    ]
+  },
+  {
+    "page": "views/chat-settings/block-confirm.html",
+    "role": "用户A",
+    "point": "拉黑确认后果说明",
+    "pre": [
+      "用户A；当前处于拉黑确认页面",
+      "当前拉黑目标为昵称QB的账号B",
+      "确认弹窗来自聊天设置"
+    ],
+    "steps": [
+      "查看后果说明"
+    ],
+    "result": "说明拉黑后的关系解除及聊天限制",
+    "refs": [
+      "REQ-d2a042417034"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e8c653c4d2f1ffba851707fb463580d5f283f9732b9dd7bdb1ca8e1fbbb941f5"
+    ]
+  },
+  {
+    "page": "views/start-live-settings/room-ticket.html",
+    "role": "门票房主播",
+    "point": "门票档位修改不改本场",
+    "pre": [
+      "门票房主播；当前处于房型（门票房）页面",
+      "本场已按10金币创建；后台随后将新开播可选档位调整为20金币"
+    ],
+    "steps": [
+      "查看当前场次门票价格"
+    ],
+    "result": "本场价格仍为10金币",
+    "refs": [
+      "REQ-ca2877e2e19c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8847362804595e92f19f4c8537badc8dbec31ad7bde7197ba83f6e0539e73b18"
+    ]
+  },
+  {
+    "page": "views/start-live-settings/beauty.html",
+    "role": "主播",
+    "point": "美颜项目单选",
+    "pre": [
+      "主播；当前处于美颜设置页面",
+      "当前已选美颜模式的磨皮项目"
+    ],
+    "steps": [
+      "选择美白项目"
+    ],
+    "result": "当前调整项仅为美白",
+    "refs": [
+      "REQ-f37aeaefa70d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1689fa4a051765d5fcfd55800e32d564d278360755ab218656f69fd41ee4393d"
+    ]
+  },
+  {
+    "page": "views/start-live-settings/beauty.html",
+    "role": "主播",
+    "point": "美颜不改变上传封面",
+    "pre": [
+      "主播；当前处于美颜设置页面",
+      "本次已上传封面P；历史场次封面Q"
+    ],
+    "steps": [
+      "修改美颜参数为60",
+      "返回开播设置"
+    ],
+    "result": "上传封面仍为P",
+    "refs": [
+      "REQ-58a921917bfa",
+      "REQ-99aefa286dad"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "12195ccea6ce5ee4d02a1757834f98e1584d35498478d353c2f8d0412d3678f8",
+      "57c7d007080f9ab1999d6089730ba44e8964b65cb03f28fa5241b0d7beb9508c"
+    ]
+  },
+  {
+    "page": "views/start-live-settings/beauty.html",
+    "role": "主播",
+    "point": "美颜不改历史封面",
+    "pre": [
+      "主播；当前处于美颜设置页面",
+      "本次已上传封面P；历史场次封面Q"
+    ],
+    "steps": [
+      "修改美颜参数为60",
+      "进入直播记录",
+      "查看该历史场次"
+    ],
+    "result": "历史封面仍为Q",
+    "refs": [
+      "REQ-58a921917bfa"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "12195ccea6ce5ee4d02a1757834f98e1584d35498478d353c2f8d0412d3678f8"
+    ]
+  },
+  {
+    "page": "order-expense-detail.html",
+    "role": "真实金币用户",
+    "point": "礼物下架保留消费记录",
+    "pre": [
+      "真实金币用户；当前处于支出订单详情页面",
+      "已成功赠送礼物A并完成开奖、扣款；随后礼物A下架"
+    ],
+    "steps": [
+      "查看本次礼物支出详情"
+    ],
+    "result": "已完成的支出订单及原支付金额保留",
+    "refs": [
+      "MAIN-337"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2885ae1157b08bad9958da22cc4406f5c4ebf53c7ee8da7ddb092bf48d12b07f"
+    ]
+  },
+  {
+    "page": "my-following.html",
+    "role": "用户A",
+    "point": "关注后本人关注数增加",
+    "pre": [
+      "用户A；当前处于我的关注页面",
+      "A原关注3人；刚在B主页成功关注B"
+    ],
+    "steps": [
+      "查看关注列表总数"
+    ],
+    "result": "关注数为4",
+    "refs": [
+      "MAIN-237"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5fabff4d8f6c3960be8bb30efaf7153fc74d0f4461e46040ceaee7fe0ee71159"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "主播B",
+    "point": "被关注后粉丝数增加",
+    "pre": [
+      "主播B；当前处于我的页面",
+      "原粉丝数3；账号A刚成功关注B"
+    ],
+    "steps": [
+      "刷新我的页面"
+    ],
+    "result": "粉丝数为4",
+    "refs": [
+      "MAIN-237"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5fabff4d8f6c3960be8bb30efaf7153fc74d0f4461e46040ceaee7fe0ee71159"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "用户A",
+    "point": "关注主播开播提醒",
+    "pre": [
+      "用户A；当前处于系统通知页面",
+      "A已关注主播B，系统通知权限和开播提醒偏好均开启，B刚开始直播"
+    ],
+    "steps": [
+      "查看设备收到的开播通知"
+    ],
+    "result": "收到B本次开播提醒",
+    "refs": [
+      "MAIN-237"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5fabff4d8f6c3960be8bb30efaf7153fc74d0f4461e46040ceaee7fe0ee71159"
+    ]
+  },
+  {
+    "page": "interaction-notifications.html",
+    "role": "好友申请接收用户B",
+    "point": "好友申请通知接收",
+    "pre": [
+      "好友申请接收用户B；当前处于互动通知页面",
+      "A刚向B成功发送好友申请，二者原非好友"
+    ],
+    "steps": [
+      "刷新互动通知"
+    ],
+    "result": "出现来自A的待处理好友申请",
+    "refs": [
+      "MAIN-238"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "067c724674e50a98adc0e34c6ea29f35e508b8ed830e548283265721706b4b83"
+    ]
+  },
+  {
+    "page": "views/live-room/gift.html",
+    "role": "真实金币观众",
+    "point": "定制礼物开始时间之前",
+    "pre": [
+      "真实金币观众；当前处于礼物页面",
+      "定制礼物配置有效时间窗口，当前为开始时间之前；余额足够且房间正在直播"
+    ],
+    "steps": [
+      "查看所选定制礼物",
+      "尝试点击赠送"
+    ],
+    "result": "不能赠送该定制礼物",
+    "refs": [
+      "MAIN-333"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6773d1c805839633ea46573ea293833390686eb03dacca51140f1009c01cdbf9"
+    ]
+  },
+  {
+    "page": "views/live-room/gift.html",
+    "role": "真实金币观众",
+    "point": "定制礼物已过开始时间且未到结束时间",
+    "pre": [
+      "真实金币观众；当前处于礼物页面",
+      "定制礼物配置有效时间窗口，当前为已过开始时间且未到结束时间；余额足够且房间正在直播"
+    ],
+    "steps": [
+      "查看所选定制礼物",
+      "尝试点击赠送"
+    ],
+    "result": "可以成功赠送该定制礼物",
+    "refs": [
+      "MAIN-333"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6773d1c805839633ea46573ea293833390686eb03dacca51140f1009c01cdbf9"
+    ]
+  },
+  {
+    "page": "views/live-room/gift.html",
+    "role": "真实金币观众",
+    "point": "定制礼物已过结束时间",
+    "pre": [
+      "真实金币观众；当前处于礼物页面",
+      "定制礼物配置有效时间窗口，当前为已过结束时间；余额足够且房间正在直播"
+    ],
+    "steps": [
+      "查看所选定制礼物",
+      "尝试点击赠送"
+    ],
+    "result": "不能赠送该定制礼物",
+    "refs": [
+      "MAIN-333"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6773d1c805839633ea46573ea293833390686eb03dacca51140f1009c01cdbf9"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "当前主播",
+    "point": "今日主播收益类型汇总",
+    "pre": [
+      "当前主播；当前处于主播中心页面",
+      "所选今日范围内普通礼物100金币、定制礼物200金币、门票50金币、幸运礼物送出价值1000金币；幸运比例1%；另有虚拟礼物1000及失败消费100，无其他收益"
+    ],
+    "steps": [
+      "选择今日",
+      "查看收益"
+    ],
+    "result": "收益为360金币",
+    "refs": [
+      "REQ-2bd6e59a40ad"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9bd89aa71ea9e5a4584397ad02384c48d82381510ff4d2b070493979783f7cab"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "当前主播",
+    "point": "本月主播收益类型汇总",
+    "pre": [
+      "当前主播；当前处于主播中心页面",
+      "所选本月范围内普通礼物100金币、定制礼物200金币、门票50金币、幸运礼物送出价值1000金币；幸运比例1%；另有虚拟礼物1000及失败消费100，无其他收益"
+    ],
+    "steps": [
+      "选择本月",
+      "查看收益"
+    ],
+    "result": "收益为360金币",
+    "refs": [
+      "REQ-2bd6e59a40ad"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9bd89aa71ea9e5a4584397ad02384c48d82381510ff4d2b070493979783f7cab"
+    ]
+  },
+  {
+    "page": "views/message-center/fan-group.html",
+    "role": "粉丝团成员",
+    "point": "粉丝群会话同时间排序",
+    "pre": [
+      "粉丝团成员；当前处于粉丝团群聊页面",
+      "有效团籍对应G1和G2会话，最后消息同一时间，G1会话ID100、G2为101"
+    ],
+    "steps": [
+      "查看粉丝群会话顺序"
+    ],
+    "result": "G2排在G1前",
+    "refs": [
+      "REQ-12b73498ee66"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "562cffd204b904d0989ec5a5432144bc0d38ff3ce2ed2cee1b460919072fa80d"
+    ]
+  },
+  {
+    "page": "views/message-center/fan-group.html",
+    "role": "粉丝团成员",
+    "point": "粉丝群会话时间排序",
+    "pre": [
+      "粉丝团成员；当前处于粉丝团群聊页面",
+      "G1最后消息10:00、G2为11:00，两群团籍均有效；原群G3团籍失效"
+    ],
+    "steps": [
+      "查看粉丝群会话顺序"
+    ],
+    "result": "G2排在G1前",
+    "refs": [
+      "REQ-12b73498ee66"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "562cffd204b904d0989ec5a5432144bc0d38ff3ce2ed2cee1b460919072fa80d"
+    ]
+  },
+  {
+    "page": "views/message-center/fan-group.html",
+    "role": "粉丝团成员",
+    "point": "粉丝群会话有效团籍范围",
+    "pre": [
+      "粉丝团成员；当前处于粉丝团群聊页面",
+      "G1最后消息10:00、G2为11:00，两群团籍均有效；原群G3团籍失效"
+    ],
+    "steps": [
+      "查看粉丝群会话"
+    ],
+    "result": "不展示团籍失效的G3",
+    "refs": [
+      "REQ-12b73498ee66"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "562cffd204b904d0989ec5a5432144bc0d38ff3ce2ed2cee1b460919072fa80d"
+    ]
+  },
+  {
+    "page": "views/welfare-center/claimed.html",
+    "role": "用户A",
+    "point": "已领取奖励账号隔离",
+    "pre": [
+      "用户A；当前处于充值福利-已领取页面",
+      "A已领取签到及任务奖励；B有另外一笔已领取奖励，A并未领取该笔"
+    ],
+    "steps": [
+      "查看已领取奖励"
+    ],
+    "result": "仅展示属于A的签到及任务奖励",
+    "refs": [
+      "REQ-9ecc2ec4021b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "dc6c845e1091009d0d23ca5c60f8442ada792154286b33385ea408428738ef2b"
+    ]
+  }
+]

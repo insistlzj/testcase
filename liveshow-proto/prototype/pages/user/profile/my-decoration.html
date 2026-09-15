@@ -13,41 +13,34 @@
       .screen {
         padding-bottom: 34px;
       }
-      .section {
-        margin-top: 12px;
-        padding: 0 16px;
+      .state-hide {
+        display: none !important;
       }
-      .category {
-        display: block;
-        margin-bottom: 10px;
-        padding: 14px 12px;
-        border-radius: 12px;
+      .mode-tabs,
+      .store-tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px;
+        margin: 12px 16px 0;
+        padding: 4px;
+        border-radius: 8px;
+        background: var(--g5);
+      }
+      .mode-tabs button,
+      .store-tabs button {
+        height: 36px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--g3);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .mode-tabs button.active,
+      .store-tabs button.active {
         background: var(--g7);
         color: var(--g1);
-        text-decoration: none;
-      }
-      .category-top {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .preview {
-        width: 46px;
-        height: 38px;
-        flex: none;
-        border-radius: 8px;
-        background: var(--g6);
-      }
-      .category-info {
-        min-width: 0;
-        flex: 1;
-      }
-      .category-info b {
-        font-size: 16px;
-      }
-      .arrow {
-        color: var(--g4);
-        font-size: 22px;
+        font-weight: 600;
       }
       .profile-summary {
         display: flex;
@@ -79,6 +72,222 @@
         font-size: 11px;
         font-style: normal;
       }
+      .store-tabs {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        background: transparent;
+        padding: 0;
+      }
+      .store-tabs button {
+        border: 1px solid var(--g5);
+        background: var(--g7);
+      }
+      .store-tabs button.active {
+        border-color: var(--g1);
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 12px 16px 0;
+      }
+      .owned-items {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 12px 16px 0;
+      }
+      .owned-item {
+        min-width: 0;
+        padding: 11px 5px 9px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--g7);
+        color: var(--g1);
+        font: inherit;
+        text-align: center;
+        cursor: pointer;
+      }
+      .owned-item b,
+      .owned-item small {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .owned-item b {
+        margin-top: 9px;
+        font-size: 12px;
+      }
+      .owned-item small {
+        margin-top: 4px;
+        color: var(--g4);
+        font-size: 10px;
+      }
+      .owned-visual {
+        margin: auto;
+        display: grid;
+        place-items: center;
+        font-style: normal;
+      }
+      .owned-visual.avatar-frame {
+        width: 72px;
+        height: 72px;
+        border: 4px double var(--g2);
+        border-radius: 50%;
+      }
+      .owned-visual.avatar-frame .avatar {
+        width: 48px;
+        height: 48px;
+        background: var(--g5);
+        color: var(--g2);
+        font-size: 18px;
+      }
+      .owned-visual.chat-bubble {
+        width: 76px;
+        height: 46px;
+        border: 1px solid var(--g3);
+        border-radius: 7px;
+        color: var(--g2);
+        font-size: 14px;
+      }
+      .owned-visual.medal {
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 29px;
+      }
+      .owned-item.expired {
+        background: var(--g6);
+        color: var(--g4);
+      }
+      .owned-item.equipped .owned-visual {
+        background: var(--g6);
+      }
+      .owned-item.equipped .owned-visual.medal {
+        background: var(--g1);
+        color: var(--g7);
+      }
+      .owned-item.equipped .wear-state {
+        color: var(--success);
+      }
+      .product {
+        min-width: 0;
+        padding: 14px 10px 12px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g7);
+        color: var(--g1);
+        font: inherit;
+        text-align: center;
+        cursor: pointer;
+      }
+      .product-visual,
+      .dialog-visual {
+        width: 64px;
+        height: 64px;
+        margin: auto;
+        border-radius: 50%;
+        background: var(--g6);
+        color: var(--g2);
+        display: grid;
+        place-items: center;
+        font-size: 26px;
+        font-style: normal;
+      }
+      .product b,
+      .product small {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .product b {
+        margin-top: 9px;
+        font-size: 13px;
+      }
+      .product small {
+        margin-top: 4px;
+        color: var(--g3);
+        font-size: 11px;
+        white-space: nowrap;
+        line-height: 1.35;
+      }
+      .product strong {
+        display: block;
+        margin-top: 8px;
+        font-size: 13px;
+      }
+      .purchase-mask {
+        position: absolute;
+        inset: 0;
+        z-index: 20;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.42);
+      }
+      .purchase-dialog {
+        position: relative;
+        width: 100%;
+        padding: 20px 16px 16px;
+        border-radius: 8px;
+        background: var(--g7);
+        text-align: center;
+      }
+      .dialog-close {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 32px;
+        height: 32px;
+        border: 0;
+        background: transparent;
+        color: var(--g3);
+        font: 20px inherit;
+        cursor: pointer;
+      }
+      .purchase-dialog h2 {
+        margin: 10px 0 4px;
+        font-size: 18px;
+      }
+      .purchase-info {
+        margin-top: 16px;
+        padding: 6px 0;
+      }
+      .purchase-info p {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 4px 0;
+        color: var(--g3);
+        font-size: 13px;
+      }
+      .purchase-info b {
+        color: var(--g1);
+      }
+      .purchase-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .purchase-actions button {
+        flex: 1;
+        height: 42px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--g6);
+        color: var(--g2);
+        font: 14px inherit;
+        cursor: pointer;
+      }
+      .purchase-actions button.primary {
+        background: var(--g1);
+        color: var(--g7);
+      }
     </style>
   </head>
   <body>
@@ -93,33 +302,229 @@
           ‹</button
         >我的装扮
       </header>
-      <section class="profile-summary" aria-label="当前已佩戴勋章">
-        <i class="avatar" id="avatar"></i>
-        <div class="medal-list" id="medals"></div>
+      <nav class="mode-tabs" aria-label="装扮页面">
+        <button class="active" type="button" data-decoration-tab="owned">已拥有</button>
+        <button type="button" data-decoration-tab="store">装扮商城</button>
+      </nav>
+      <section id="ownedPanel">
+        <section class="profile-summary" aria-label="当前已佩戴勋章">
+          <i class="avatar" id="avatar"></i>
+          <div class="medal-list" id="medals"></div>
+        </section>
+        <nav class="store-tabs" aria-label="已拥有分类">
+          <button class="active" type="button" data-owned-type="avatarFrame">头像框</button>
+          <button type="button" data-owned-type="chatBubble">聊天气泡</button>
+          <button type="button" data-owned-type="medal" id="medalTab">勋章3/5</button>
+        </nav>
+        <section class="owned-items" id="ownedProducts" aria-label="已拥有装扮"></section>
       </section>
-      <section class="section" id="categories" aria-label="当前装扮"></section>
+      <section class="state-hide" id="storePanel">
+        <nav class="store-tabs" aria-label="商城分类">
+          <button class="active" type="button" data-store-type="avatarFrame">头像框</button>
+          <button type="button" data-store-type="chatBubble">聊天气泡</button>
+          <button type="button" data-store-type="medal">勋章</button>
+        </nav>
+        <section class="products" id="products" aria-label="装扮商品"></section>
+      </section>
+      <section class="purchase-mask state-hide" id="purchaseMask" role="dialog" aria-modal="true" aria-label="购买装扮">
+        <div class="purchase-dialog">
+          <button class="dialog-close" type="button" data-close-purchase aria-label="关闭">×</button>
+          <i class="dialog-visual" id="dialogVisual"></i>
+          <div class="purchase-info">
+            <p id="purchaseCopy"></p>
+            <p id="purchasePriceRow"><b id="purchasePrice"></b></p>
+          </div>
+          <footer class="purchase-actions">
+            <button type="button" id="purchaseSecondary">取消</button>
+            <button class="primary" type="button" id="purchasePrimary">购买</button>
+          </footer>
+        </div>
+      </section>
     </main>
     <div class="homebar"><i></i></div>
     <script>
       const decoration = LUMA_MOCK.myDecorations;
-      const categories = [
-        { title: "头像框", file: "my-decoration-avatar-frame.html" },
-        { title: "聊天气泡", file: "my-decoration-chat-bubble.html" },
-        { title: "勋章", file: "my-decoration-medal.html" },
-      ];
-      const categoriesBox = document.querySelector("#categories");
+      const ownedPanel = document.querySelector("#ownedPanel"),
+        ownedProducts = document.querySelector("#ownedProducts"),
+        medalTab = document.querySelector("#medalTab"),
+        storePanel = document.querySelector("#storePanel"),
+        products = document.querySelector("#products"),
+        purchaseMask = document.querySelector("#purchaseMask"),
+        purchasePrimary = document.querySelector("#purchasePrimary"),
+        purchaseSecondary = document.querySelector("#purchaseSecondary");
+      let ownedType = "avatarFrame",
+        storeType = "avatarFrame",
+        showInsufficientNext = false;
+      const purchaseStorageKey = "luma-decoration-purchases-v1",
+        equippedStorageKey = "luma-decoration-equipped-v1";
+      let purchasedIds = [],
+        equippedProducts = {};
+      try {
+        purchasedIds = JSON.parse(sessionStorage.getItem(purchaseStorageKey) || "[]");
+        equippedProducts = JSON.parse(sessionStorage.getItem(equippedStorageKey) || "{}");
+      } catch (_) {}
+      if (!Object.hasOwn(equippedProducts, "avatarFrame")) equippedProducts.avatarFrame = decoration.avatarFrames.find((item) => item.equipped && !item.expired)?.id || "";
+      if (!Object.hasOwn(equippedProducts, "chatBubble")) equippedProducts.chatBubble = decoration.chatBubbles.find((item) => item.equipped && !item.expired)?.id || "";
+      if (!Array.isArray(equippedProducts.medal)) {
+        const legacyMedal = equippedProducts.medal;
+        equippedProducts.medal = decoration.medals.filter((item) => item.equipped && !item.expired).map((item) => item.id);
+        if (legacyMedal && !equippedProducts.medal.includes(legacyMedal)) equippedProducts.medal.push(legacyMedal);
+      }
+      const purchased = new Set(Array.isArray(purchasedIds) ? purchasedIds : []);
       document.querySelector("#avatar").textContent =
         LUMA_MOCK.myProfile.avatar;
-      document.querySelector("#medals").innerHTML = decoration.medals
-        .filter((item) => item.equipped)
-        .map((item, index) => `<i title="${item.name}">勋章 ${index + 1}</i>`)
-        .join("");
-      categoriesBox.innerHTML = categories
-        .map(
-          (category) =>
-            `<a class="category" href="${category.file}"><span class="category-top"><i class="preview"></i><span class="category-info"><b>${category.title}</b></span><i class="arrow">›</i></span></a>`,
-        )
-        .join("");
+      function renderEquippedMedals() {
+        const allMedals = [...decoration.medals, ...decoration.shop.filter((item) => item.type === "medal" && purchased.has(item.id))];
+        document.querySelector("#medals").innerHTML = allMedals
+          .filter((item) => equippedProducts.medal.includes(item.id))
+          .map((item, index) => `<i title="${item.name}">勋章 ${index + 1}</i>`)
+          .join("");
+      }
+      function coins(value) {
+        return Number(value).toLocaleString("id-ID");
+      }
+
+      function renderOwned() {
+        const source = ownedType === "avatarFrame" ? decoration.avatarFrames : ownedType === "chatBubble" ? decoration.chatBubbles : decoration.medals;
+        const purchasedItems = decoration.shop
+          .filter((item) => item.type === ownedType && purchased.has(item.id))
+          .map((item) => ({ ...item, acquiredAt: `9999-${String(purchasedIds.indexOf(item.id)).padStart(4, "0")}` }));
+        const isEquipped = (item) => ownedType === "medal"
+          ? equippedProducts.medal.includes(item.id)
+          : equippedProducts[ownedType] === item.id;
+        const items = [...source, ...purchasedItems].sort((a, b) => {
+          const rank = (item) => item.expired ? 2 : isEquipped(item) ? 0 : 1;
+          return rank(a) - rank(b) || String(b.acquiredAt || "").localeCompare(String(a.acquiredAt || ""));
+        });
+        ownedProducts.innerHTML = items.map((item) => {
+          const status = item.expired ? "失效" : isEquipped(item) ? "已佩戴" : "佩戴";
+          const visual = ownedType === "avatarFrame"
+            ? `<i class="owned-visual avatar-frame"><i class="avatar">${LUMA_MOCK.myProfile.avatar}</i></i>`
+            : ownedType === "chatBubble"
+              ? `<i class="owned-visual chat-bubble">hello～</i>`
+              : `<i class="owned-visual medal">${item.mark}</i>`;
+          return `<button class="owned-item ${item.expired ? "expired" : isEquipped(item) ? "equipped" : ""}" ${item.expired ? "disabled" : ""} type="button" data-owned-id="${item.id}">${visual}<b>${item.name}</b><small>${item.validity}</small><small class="wear-state">${status}</small></button>`;
+        }).join("");
+        medalTab.textContent = `勋章${equippedProducts.medal.length}/5`;
+        renderEquippedMedals();
+      }
+
+      function switchMode(mode) {
+        document.querySelectorAll("[data-decoration-tab]").forEach(function (button) {
+          button.classList.toggle("active", button.dataset.decorationTab === mode);
+        });
+        ownedPanel.classList.toggle("state-hide", mode !== "owned");
+        storePanel.classList.toggle("state-hide", mode !== "store");
+        if (mode === "owned") renderOwned();
+        else renderStore();
+      }
+
+      function renderStore() {
+        products.innerHTML = decoration.shop
+          .filter(function (item) { return item.type === storeType; })
+          .map(function (item) {
+            const status = purchased.has(item.id) ? "已获得" : "◆ " + coins(item.price);
+            return `<button class="product" type="button" data-product-id="${item.id}"><i class="product-visual">${item.mark}</i><b>${item.name}</b><small>${item.validity}</small><strong>${status}</strong></button>`;
+          })
+          .join("");
+      }
+
+      function showPurchase(product, state) {
+        const insufficient = state === "insufficient";
+        document.querySelector("#dialogVisual").textContent = product.mark;
+        document.querySelector("#dialogVisual").classList.toggle("state-hide", insufficient);
+        const purchaseCopy = document.querySelector("#purchaseCopy");
+        if (insufficient) purchaseCopy.innerHTML = '<span>金币余额（<span class="coin">1000</span>）不足，请先充值</span>';
+        else purchaseCopy.textContent = `${product.name} · ${product.validity}`;
+        document.querySelector("#purchasePrice").textContent = `◆ ${coins(product.price)}`;
+        document.querySelector("#purchasePriceRow").classList.toggle("state-hide", insufficient);
+        purchaseSecondary.textContent = "取消";
+        purchasePrimary.textContent = insufficient ? "去充值" : "购买";
+        purchaseMask.setAttribute("aria-label", insufficient ? "金币不足" : "购买装扮");
+        purchaseMask.classList.remove("state-hide");
+        function completePurchase() {
+          purchased.add(product.id);
+          purchasedIds = [...purchased];
+          sessionStorage.setItem(purchaseStorageKey, JSON.stringify(purchasedIds));
+          renderStore();
+          document.querySelector("#dialogVisual").classList.add("state-hide");
+          document.querySelector("#purchaseCopy").textContent = "购买成功";
+          document.querySelector("#purchasePriceRow").classList.add("state-hide");
+          purchaseSecondary.textContent = "继续购买";
+          purchasePrimary.textContent = "去佩戴";
+          purchaseMask.setAttribute("aria-label", "购买成功");
+          purchaseSecondary.onclick = function () {
+            purchaseMask.classList.add("state-hide");
+          };
+          purchasePrimary.onclick = function () {
+            ownedType = product.type;
+            document.querySelectorAll("[data-owned-type]").forEach(function (item) {
+              item.classList.toggle("active", item.dataset.ownedType === ownedType);
+            });
+            purchaseMask.classList.add("state-hide");
+            switchMode("owned");
+            window.scrollTo(0, 0);
+          };
+        }
+        purchaseSecondary.onclick = function () {
+          purchaseMask.classList.add("state-hide");
+        };
+        purchasePrimary.onclick = function () {
+          if (insufficient) {
+            location.href = "../wallet/recharge.html";
+            return;
+          }
+          completePurchase();
+        };
+      }
+
+      document.querySelectorAll("[data-decoration-tab]").forEach(function (button) {
+        button.onclick = function () { switchMode(button.dataset.decorationTab); };
+      });
+      document.querySelectorAll("[data-owned-type]").forEach(function (button) {
+        button.onclick = function () {
+          ownedType = button.dataset.ownedType;
+          document.querySelectorAll("[data-owned-type]").forEach(function (item) { item.classList.toggle("active", item === button); });
+          renderOwned();
+        };
+      });
+      document.querySelectorAll("[data-store-type]").forEach(function (button) {
+        button.onclick = function () {
+          storeType = button.dataset.storeType;
+          document.querySelectorAll("[data-store-type]").forEach(function (item) { item.classList.toggle("active", item === button); });
+          renderStore();
+        };
+      });
+      products.onclick = function (event) {
+        const productButton = event.target.closest("[data-product-id]");
+        if (!productButton) return;
+        const product = decoration.shop.find(function (item) { return item.id === productButton.dataset.productId; });
+        if (purchased.has(product.id)) {
+          Luma.toast("已拥有该装扮");
+          return;
+        }
+        showPurchase(product, showInsufficientNext ? "insufficient" : "confirm");
+        showInsufficientNext = !showInsufficientNext;
+      };
+      ownedProducts.onclick = function (event) {
+        const button = event.target.closest("[data-owned-id]");
+        if (!button) return;
+        const id = button.dataset.ownedId;
+        if (ownedType === "medal") {
+          const index = equippedProducts.medal.indexOf(id);
+          if (index >= 0) equippedProducts.medal.splice(index, 1);
+          else if (equippedProducts.medal.length >= 5) return Luma.toast("最多佩戴 5 个勋章");
+          else equippedProducts.medal.push(id);
+        } else {
+          equippedProducts[ownedType] = equippedProducts[ownedType] === id ? "" : id;
+        }
+        sessionStorage.setItem(equippedStorageKey, JSON.stringify(equippedProducts));
+        renderOwned();
+        Luma.toast(button.classList.contains("equipped") ? "已卸下" : "已佩戴");
+      };
+      document.querySelector("[data-close-purchase]").onclick = function () { purchaseMask.classList.add("state-hide"); };
+      purchaseMask.onclick = function (event) { if (event.target === purchaseMask) purchaseMask.classList.add("state-hide"); };
+      renderOwned();
     </script>
   </body>
 </html>

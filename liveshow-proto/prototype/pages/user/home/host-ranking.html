@@ -200,7 +200,7 @@
       const podium = document.querySelector("#podium");
       const rankingList = document.querySelector("#rankingList");
       const render = (period) => {
-        const data = rankings[period];
+        const data = rankings[period].slice(0, 30);
         const topOrder = [data[1], data[0], data[2]];
         const podiumClass = ["second", "first", "third"];
         podium.innerHTML = topOrder

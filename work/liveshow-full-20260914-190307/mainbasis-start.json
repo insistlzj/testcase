@@ -1,0 +1,1113 @@
+{
+  "schemaVersion": "1.0",
+  "项目目录": "liveshow-proto",
+  "上游": [
+    {
+      "路径": "AGENTS.md",
+      "SHA-256": "e74618824a8331f68b07b327bab278f663b34c8d61fca51e5a32cdd134521f15"
+    },
+    {
+      "路径": "Cem Kaner.txt",
+      "SHA-256": "922cd312cec5464e1eda159137335b9ad0368d375f046b1e5f3628ff123599c4"
+    },
+    {
+      "路径": "liveshow-proto/.gitignore",
+      "SHA-256": "6f8864e708e65fb8542c7761e3112d50abeb79af40ed1143d2b84391a22b07ca"
+    },
+    {
+      "路径": "liveshow-proto/AGENTS.md",
+      "SHA-256": "514d8de94e7aef8be27529d93c30f0dfdc31712baca45e6fe32ffe8e606c388f"
+    },
+    {
+      "路径": "liveshow-proto/APP一级页面 .html",
+      "SHA-256": "9aa193f61eda0a8ce203b10a847d85a0673fa001e3f44f7787efd7a0c466cf32"
+    },
+    {
+      "路径": "liveshow-proto/CLAUDE.md",
+      "SHA-256": "918b1c90559355ef78f33fdf3562f2b021ef8bdfd8a5c8415e5decd44934de55"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-01.webp",
+      "SHA-256": "dd20da3f4b8229b0b2e0e170c515d6d95e5eb566676088c67178fd46b84e6be0"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-02.webp",
+      "SHA-256": "d8eb176fc7c642cd300f5877fe312adde1042ab3654b03ed18a3f4f02ae085de"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-03.webp",
+      "SHA-256": "f5df1d859563c7e1b7a1c00b76fbcc2a9bc7c188c01748e8f11c80124bba0de3"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-04.webp",
+      "SHA-256": "35d4acc338f9dcd87d39b6419c0e68b36f9cbe6b4a7c47bc812d1c1672498703"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-01.webp",
+      "SHA-256": "8b566506f2e2cfee8cad9531d1f42f4ef0854a2638c15d678dabac33c8676ca9"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-02.webp",
+      "SHA-256": "1bc505b1af0df0233cabf15693d07198a9d3645de3be538016df344546b17665"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-03.webp",
+      "SHA-256": "edfc7e5878b4dc443f1203d828e6a43f8613e32d908d64d4c51943428f4b6e56"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-04.webp",
+      "SHA-256": "6dda426d2227ce30c406e48a7dd8ee9b217dc1bb5eeca9536f8eea91ae26b2d7"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-01.webp",
+      "SHA-256": "cf753a6a3d806b23ef9a7ef9baa882c146ca7908ae9075f8c75e0d6659baff0a"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-02.webp",
+      "SHA-256": "d653a4c7726a17fa8dbddac7f9fbd2ece155e641fbb0e5a4858ffb8239c668f6"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-03.webp",
+      "SHA-256": "b37e354e9a70fef075f6ceb45171a6fd017b48f070fb2cd03e348cc7eab8d8e7"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-04.webp",
+      "SHA-256": "e852129fb2f81ac82f9212ed8c9c11428da7db7a988daad35f9b78661bdf6dab"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-01.webp",
+      "SHA-256": "7af361fb67a4d17bab2ffbe339d853b7625e9352ae90fd5b9bdb898f910ba437"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-02.webp",
+      "SHA-256": "9e8036527302951079021c41bb07d548f7e95d59407f0e50408bca755844c15a"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-03.webp",
+      "SHA-256": "5701a9d03de516560761e10e592d65e5eacc833a1ee4c81c920f87b320171d71"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-04.webp",
+      "SHA-256": "d7e46966776930a5a11cb25a725f466e3eef1cb4ad53c48880db8a9f9754bdeb"
+    },
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "SHA-256": "74f5edf63be2049d9838b47f5e9052a4c342780d7eae22f05fa2aade9e637192"
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "SHA-256": "aee792f8011a9f12e440c3cad05020bd68f4f2425907d87fb97b2a8736d75a46"
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "SHA-256": "ea3eb1ea9e1e7ab8dcc7f680ff692a17455b02e2427b96ccc863c72f60f54058"
+    },
+    {
+      "路径": "liveshow-proto/context/系统概要 .md",
+      "SHA-256": "4ccf8afccec09e5c1727c768439e09b61419d13aa335b4ec9d3c7f2eae8f72d4"
+    },
+    {
+      "路径": "liveshow-proto/export-admin-prototype.mjs",
+      "SHA-256": "c33d4dc2538f8edde4001b6c6d95ecea57b6228caec8c31c087dc4098a008fb2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/Luma Live-原型说明.md",
+      "SHA-256": "986af5418a56e2026453283fdb5530e4125165296bd576858f0767d2314e5e41"
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/admin.js",
+      "SHA-256": "a9d0ac25990ce385a06b413096abf6b93c7ba91078efded82b9507cb80f66a83"
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/guild.js",
+      "SHA-256": "36ff3622e33734d75c3172dff01bedd422adc372deb34ef1c075a5c49ca7d7b1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/user.js",
+      "SHA-256": "4538f6aaf7003cb125451555db8c98d702a7e4dd51d69d81dcad806fd1a9ab55"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/account-security.css",
+      "SHA-256": "244b7a5e225acdf96f43c559a741e2fc18c9c89210e6c657553299bd8ad1b5e8"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-account-balance-page.js",
+      "SHA-256": "7b21b52811074377e83eeefdb1ce6f0d89e6888533ec5c8c53211dcd5e701feb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-date-range-picker.js",
+      "SHA-256": "0f01f6770c28ee56149944c7a8d0466d9b52ecc7bd461bc499aee623d864af52"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-finance-reconciliation-page.js",
+      "SHA-256": "294a973f7c464d56f8006650f317efad2b804b0e2b12229a8c9b988344f3d1bb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-mock.js",
+      "SHA-256": "82f7cfb07074cfcc73623d0dad8a3e52b801fb3f6fef657649f2469785e289e1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-reporting.js",
+      "SHA-256": "4ffb3652a7a3d283e5665dfbd77935b95f674ee71bf1d6f37c180029bcd0a999"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-settlement-upload-page.js",
+      "SHA-256": "0dd312a725c5b5c97c07b4698dfc3cb8a7100a6b3ac9bab35bca08c21e246d21"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-statistics-page.js",
+      "SHA-256": "b400fa074282ea0a9ff3f50c04430b7c98740e68735c4d1e1ce71f24c89b1fbc"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-tokens.js",
+      "SHA-256": "350d1e2c7c0686ef1719613ef173e31ab5b9c2f2666324a0c9daa87cf2cf65ce"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin.css",
+      "SHA-256": "d6efd521feac2a39e0483855b34446d69724de498f19fdd51d9be5d84267d08d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/annotation-review-changes.js",
+      "SHA-256": "d4a8598e01c8893d7700b07523c6aee5f7fae1908d956860350a7e077aa425e6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/annotations.js",
+      "SHA-256": "b874cd3b2bd62f17af2f2e82e1248fce7f16641a2c9dc1164b2776df2b20e094"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/chat-media.js",
+      "SHA-256": "a4d92dea6a4cafeda056b80f53439c4b6a0becb3657af31abdde3d28f2c26296"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.css",
+      "SHA-256": "8b4acdb60bdab1b63b6a34ad26416ea9c4d02d8f4d5d7c2989f56c576aaaf695"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.js",
+      "SHA-256": "c09a20b0fee1cca2d28e75f23b3fdba55862a785e9eb00d0456336c134eec304"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/diamond.svg",
+      "SHA-256": "b45ceb511c616e77d7a57d3f2d427702fcf43ffff35e524df9a3c1c194d9b77e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-core-data.css",
+      "SHA-256": "91a6e7d1a566a85054ab32d438cc1188976ef3c6bd8af98e41b46b8cf3aeadbd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-data-model.js",
+      "SHA-256": "0b2ad8cb4bb8a6e0a115a5bdb4348c3628781b56e1c72975fbcca7564337de25"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-date-range.js",
+      "SHA-256": "7ee3acd664b137055faa75313a34d041028d1945b8c117f37820eb0f7302eb36"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-night.svg",
+      "SHA-256": "057f19558ac591229cb0dab1fbdb97b8158d1966ecc0d81eb5a8361c9dbdf750"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-stage.svg",
+      "SHA-256": "c41487e9c551ae8fd9f966271e571ee7e3280fc0434569ca2d7fe8d9fec6f0bf"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-studio.svg",
+      "SHA-256": "92d9395aa241e98fefad3f2b8b14a995191a9a7b886925bc5b72adfa9f9a16d1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-record-overviews.js",
+      "SHA-256": "51d848e473cab754bd0d683d026e8f7a4d60e715a7aa76f01b665a7f6196f1e3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-share-records.js",
+      "SHA-256": "2e045d2ca5bb07e4fc37fa95e6b458946666b13e7cfd03c94b22b7a32682b33b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild.css",
+      "SHA-256": "32a448b4144dee929dad56bd28465046af5c3ee71d0b60e8c76df81190b257d0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/live-muted-users.js",
+      "SHA-256": "de5e72d0bbad4c38a1f796165515c0b9667d0e2a09abe3088784af08e315190f"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/live-room-cover.svg",
+      "SHA-256": "8ade172e1c50636bcbb247b309ec3b851a710881a1c38ab32c71ca1f5bb52984"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/mock.js",
+      "SHA-256": "c7ecf115b004a67321dfbf56416e6387f401bd0638a840c35d9048203a6957e6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/operation-accounts.js",
+      "SHA-256": "9f644f20bb72a5555f120640eebce4e92b9fee60bc25e95f37025c298fbc6214"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/start-live-config.js",
+      "SHA-256": "c9648538539c3e50a44caf48dd500985163e6e76e80c3c06001b57c76bf55a23"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/tailwind.js",
+      "SHA-256": "5c5de4bbb668f6d6fe2179373687434e043ba8d0e6877ee004d7c14b712618f6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/tokens.js",
+      "SHA-256": "ea674526cee1c918f9be061b4968e2b71f09bbd2470bf8852c12e0ac160635de"
+    },
+    {
+      "路径": "liveshow-proto/prototype/index.html",
+      "SHA-256": "0c53f8a92ba25e34abafe2ccc37556779ba73a0cadbec185ad4117839750f595"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-account-detail.html",
+      "SHA-256": "db5d6b43eca8b8a2e3b98f461ee7b7a27651d36213fd4a52b00207fa865b582d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-accounts.html",
+      "SHA-256": "4652600c770ecfb66c3d56406842139795d27af04891bf7af153058acf87c7d7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-gift-records.html",
+      "SHA-256": "871b85a37c4789f11bd2f1222177657572634784c0840207ce3b759406416c72"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+      "SHA-256": "e10a682dfbdd4017b29b54a7ac0720125817ce705bfb127295f5229438156fba"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-issue-records.html",
+      "SHA-256": "043bc69a943c338faec9f2f120f550fc56acb974f2e9c2232b72eb062ce318fa"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+      "SHA-256": "0c1c4690829c9bacdccbd2cc01f689460728508b852440e479b2c2bdec1da051"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-daily-statistics.html",
+      "SHA-256": "8536c6806a374c6f55693674ce96f820b88e9bbd66bb8094891972d154f3ee98"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-data-overview.html",
+      "SHA-256": "93a0ab4141316c5da6e2cbe0e23ed62d4fbb378db4c198b2eae6db6c9a5d988c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-host-live-record-report.html",
+      "SHA-256": "16b6dd33e19fc73e2ca6a7af43954d1adde8f6071352a2008f664a4d5ceb2299"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-host-statistics.html",
+      "SHA-256": "51caaf7d64118e7150d252a51d0bf3efd58005a071a7491e487badeb16ccc929"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-live-statistics.html",
+      "SHA-256": "c00a8d786ab97a772d7b6183e928010be1842a283af7b2fef29bc28d83f133a4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+      "SHA-256": "aca5e6416fce409995771b87694a9603f2346c6514c2e65648b79ef39402d081"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+      "SHA-256": "6c97a6c304f45768f9771812961f3f8f5d8cd308dd06f91d1156cd8bfa2b3d30"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-share.html",
+      "SHA-256": "e4af1c251c2369e0ab8cf3097d61df7543e5b6bd4592448840d15f45a3f631bc"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+      "SHA-256": "61cf6a67d3b4ff70a05c67cf60fd5b9abbd7cd6ce903fecdbed6d11682c504aa"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+      "SHA-256": "4093ce1ef6cc540c36bacd63296f70c2d38b75d1d11e6e49dfff113a0db1a8fe"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+      "SHA-256": "f6a2c8244c25f9412e8179add285b996050baea502814edd9880aaa69f08f7fe"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-statistics.html",
+      "SHA-256": "116e1a6cd9ea5b8a35cc0784616b1406756d9e5df3aea06985262c4a228005a5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+      "SHA-256": "8bdef6efd8536d2acd842afcd2b7899437414a56c9f443c3bdd86aa4f6fd1164"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-report-center.html",
+      "SHA-256": "4af3f08f9e56ce18497f3a2b307ae7be24b011fd35c601882e6f45f33be7a318"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-user-active-statistics.html",
+      "SHA-256": "71c9c07ee6b10e7cf0ddf8ae8fae34be90572a2687df5afa2ba0b8448157b4e9"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+      "SHA-256": "56c1974815b7fb6a475573fff69da98f0d55221acb6c64573e6164dedb977b72"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-account-violation.html",
+      "SHA-256": "b2d56dde931af62191f2d290f674bca3bf6183abbc8cd1ff9fb215d67523009c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-content-audit-detail.html",
+      "SHA-256": "43cb871134e77b0b0cc08d8d084db9269b253737d998dde81f23d41346571934"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-content-audit.html",
+      "SHA-256": "4efc80809f041062d05850563b7aa12f51ec33f75eec918ffd0d5d9c7ac18fcd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-report-detail.html",
+      "SHA-256": "526b75a09fc583eaa196fafc100e8bd7b0cfdd238609a3df8644da359d3ecc58"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-report-handling.html",
+      "SHA-256": "698b7445ffc5c41fb343b8ce486a191cfc6a1470862ee0a7a9126fbcb4195064"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-violation-type-detail.html",
+      "SHA-256": "6f553c218b0052de8ce001cd4725d775bafbfdce9ee6c656ab1c8e28894fc8df"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-violation-types.html",
+      "SHA-256": "0cf733253fa06b985740b37c48eef422a878555810af742459c49da5b746db6b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/dashboard/admin-dashboard.html",
+      "SHA-256": "0624bd39b41e7a04a0150a771425a9e8ea45d13671097f7ee84e50bd889d2693"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-account-balance.html",
+      "SHA-256": "8618db074253c91e9af7e79a71b4efae107413e2a3a590cc27531a8b9a761ca7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+      "SHA-256": "7024974c14207d6b4e48d5724b973b1a400772d132132303976fda2d6f272b0e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+      "SHA-256": "fabb706d45673797b8033f16515b5f6bcaf6a89ec6b6710805dd7d0c3ce1399e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record.html",
+      "SHA-256": "1076f4a2f5c36debef005bad429e8af1828377ec04c0aa96a3fc43dc4cc0fe68"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-host-account-balance.html",
+      "SHA-256": "b5ac70e82dacfc5dda965a29a149eda88d2225f3c33b5db5af8c679f2143fcf3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-host-balance-change-record.html",
+      "SHA-256": "17da03bf6e34be417818dff402d0c6fbdb49e07b6a433a11e478f7efb60f6cd0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record-detail.html",
+      "SHA-256": "e33302a195eb07f6f8ab468ef960d3501ca721b510f16ec83751414e891bd849"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record.html",
+      "SHA-256": "0d1a0380f73d96727cd4e566c8b3c37a85fa56748ef4f706b6aa8da107576551"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-custom-gift.html",
+      "SHA-256": "0ab525c665cd909af8a7918dd2cf1534b6dd5cd8e7384dec1369b77e76d67150"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-detail.html",
+      "SHA-256": "d1d7bd9b5b7bac0cbbf161df6b25122f551ca53c892b7847a305e0fbc0fff0ab"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-list.html",
+      "SHA-256": "0acd4bb6ea827e4f67a26f3a2336d8d21ada3025524d85c3198b31812084af51"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+      "SHA-256": "0864919b54b57743c644a94611536615a75fab7ffbc25c398fe6fda25ccd5f84"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+      "SHA-256": "60e83a3f8a3f933900f2c04399522c457df97870d13fc2557bc7c2032d5a3664"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+      "SHA-256": "6a70e719de015a826ede1dad42dedcc531161fa8f5c2e0a8085dfaca1c3fabf7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+      "SHA-256": "d11a7aaf86dbafce481a7df1f721d52128a0983c57f4b15270d9acf9ce81011d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-prop-detail.html",
+      "SHA-256": "94bcefcc33675b66a81f625035bd400af7f3b16be30ebe39ea9e8b17f2fe2c29"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-prop-list.html",
+      "SHA-256": "8e9efe02cc2362c9a6d9d07df93cf4223995df460e70d20beb9b397d87aee50e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/guild/admin-guild-detail.html",
+      "SHA-256": "887f7e11b54c42750399401ac57ef40e9fcf1a20a3aef36278d8b34d8159b64d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/guild/admin-guild-list.html",
+      "SHA-256": "225f197d809f0359fc2de515b548bf7c21a9844bb97713caa87b4ca0712d7622"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-detail.html",
+      "SHA-256": "c6ba1122de23feda1f32d9eb0e6774f3b93e409088777cbe2c521cd8ffc9809a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-list.html",
+      "SHA-256": "bfabcb6ffd0be7bb7137717522590c5a94c28843f0b7cba2c9034af93c2e8256"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-review-detail.html",
+      "SHA-256": "f379f686c1b915bea42bc3ff1a019ed05e6202516c03586ab98afb0a92a7952c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-review.html",
+      "SHA-256": "2311d751157f5565eb5808a125eed871fca42504a67ffc9b69501de258b61b34"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-create.html",
+      "SHA-256": "6a2316bba4747fbf8ba83d76adeca2631ccc441a0941a7abcc274c8754d69b6c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+      "SHA-256": "bb76e731fb37aa36c6d7f77672202985d258d81700e6d4879d2c09a2f776d622"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule.html",
+      "SHA-256": "6cd25154b61ff8808eede1157afa09be4e052df88a4fe2b57e26081b0113c72e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-live-detail.html",
+      "SHA-256": "e90ce6b6a48abee01f62eb9d291241de35b3c30a9c6865b659ba66b422696c66"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-live-management.html",
+      "SHA-256": "e2b61b510b2eddc9fc0a357a841d31298cf832405fd20a2817f3ba48abf97096"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-feature-switch.html",
+      "SHA-256": "1ac81236e015df5f662e27d1ebd38f8c45b104d125645babe5cf86ef6de5a622"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+      "SHA-256": "928d6b09c42a7268fc062c67eeaa9c91905ac1427bb79213f18f4623c77adc14"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation.html",
+      "SHA-256": "1542c25913556b60b206629c15c28d222d31fd996227ace8ab5f033d23e93948"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-level-config.html",
+      "SHA-256": "ded8230949678a2f410122f304a0317cf6a03d77828d02cf686e2dc556d1e957"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-live-type.html",
+      "SHA-256": "392029b81e9dce80b68cce66fc948cacc8ca69eef147ae5825a6abbe1967a7b1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-placement-config.html",
+      "SHA-256": "b980103001553b500e8f27ac6121af797392f3b9c2bd190cc397bbe4ebff8c78"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-placement-detail.html",
+      "SHA-256": "0c8a6120fca658572f405e2858f719b85a38084a48331478084c26eb916f5ebe"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-push-detail.html",
+      "SHA-256": "77c8ace78582fa0c41926e6d33696bbf7630e0079d28b17536cf913e4eddf23a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-push-management.html",
+      "SHA-256": "24b949f59e5b826fc1af904458da774ffc564e1b1ebaec486b89d6a3baa7563b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+      "SHA-256": "3ee600a71bd51aea25a11dd4757ff58333e8e5b5978e971709906fdeef22436d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package.html",
+      "SHA-256": "cd7feb990db416ecc0103a5d840a818fcead18db626d2d4cc0036fd40f033ad5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+      "SHA-256": "bb1a298b50cd80d54ce544886af2b91666411a5bc9e72c546d7aa3031b0e76ed"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words.html",
+      "SHA-256": "e86b0df7b25735c32148155e09e72f2fe4d32b452300c0365de4cb254b08b427"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-task-config.html",
+      "SHA-256": "9eebfd03519ffcacf2c236f619d3f77472ebefc0ba7343d17ed8ebd6e8063fc8"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+      "SHA-256": "891f5ff640841d5f8203f04594a04b2ea2f9dc4d3dd7022a9d9de6a8f33ae8bb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+      "SHA-256": "d084cab3970cf3512564f6ab79bfcb65745b396e40212f9c2230d53398791ef4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level.html",
+      "SHA-256": "90530695c657c973a9a5cd414940f0cc92c4fddee3156c5f40e86108abe99efb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order-detail.html",
+      "SHA-256": "56d947fd0899c4614e453ba1a1e9cb3c18503e6a9e65c195b26e823d083e9a36"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order.html",
+      "SHA-256": "4a367c26e14fd72199a2e197e5afd60979589b1dccfb0b312a09464660fa28b3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order-detail.html",
+      "SHA-256": "6fe3812eb81f30177fed4e3d19fe9996b23ada51ea41599efe54ba0cc742cbb2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order.html",
+      "SHA-256": "771f86c73055394c5c4b49ebaecc33ecd732e6df20fabd65ddf79ef0a0322d8b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-refund-order.html",
+      "SHA-256": "465f28018e9770d0d65fff9071859b3059ea463c17ae25bb0e43157531d0c1c5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-account-detail.html",
+      "SHA-256": "71370e5470dbb4cb2d59612e72d3764e2abff138e1de18596b50971cff9b3ae3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-account.html",
+      "SHA-256": "81d9a7bda7f761c4d516b301728d2bc43e7738bbea2aea3c8feab3989ddf76f7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-audit-detail.html",
+      "SHA-256": "bf45b187ec4fecbaace41dec3b6f4cb3b9b5ba60d6690f675729544029805141"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-audit.html",
+      "SHA-256": "e550600b0dee8afb9851aa31740d86b8ad78fc474b9ce584fa81f34fa55e56cd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-parameter-detail.html",
+      "SHA-256": "ccf8e5c376c995bc4c8cf79361fe1f4cb62e52d93f6a38781f7391e70d01815f"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-parameter.html",
+      "SHA-256": "48a78f6bbc81d3826d03457dd5bc68c4c920d4a0173da803aa2d5e69fa7e3568"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-permission.html",
+      "SHA-256": "47b4bd4804463ae7ac68ecd0571754ce095ecda27247b94c4b32709bcceee9b6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-role-detail.html",
+      "SHA-256": "1a98aea19d0b543951b68496356c48d64e4a87c20772ed1f309b54bd11e25964"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-role.html",
+      "SHA-256": "8c8f09fccbe0cdd1b96532804964afce43e126b24ddd9b3259fbbdb299cd910a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/user/admin-user-detail.html",
+      "SHA-256": "aa09c6822b1cb8ed0f50d6b3740bc72a64bdc8eb966ac604701c74572b15185c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/user/admin-user-list.html",
+      "SHA-256": "03341caba148da97a603df9b4b2bf971b56192685d634542fee935c7af71b33c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-join-review-detail.html",
+      "SHA-256": "8c25981dda264cdc47f0fb0b0c341d872c496f768c7ef85649ef7dbb243eb547"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-join-review.html",
+      "SHA-256": "36e24fa89bb6349e4be1dd0ff3445c9dd5268bb251fdb2526bd3192f5d90e802"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review-detail.html",
+      "SHA-256": "42c2d83be042fe01536d26e701a350322dd8e2f14b496f8ae38381b36b666d88"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review.html",
+      "SHA-256": "cce93f505182d196b05357c9f10759e1dcdbd39c0c567cc33f77e593b9f1844a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/auth/guild-login.html",
+      "SHA-256": "87cfafc8525b71a9bf720a06b6bfdda1eeca4836c0514eb7a2947059bf2880cb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/auth/guild-switch.html",
+      "SHA-256": "f551e39216ccfbb84923f3024b5b8078cacf0ad4db6ee9f6fda63ed20aea8cbd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-all-violations.html",
+      "SHA-256": "6a65bf869575a6ac237268c8a1c1b931315916af1918579122655df07a71eac4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-host-data.html",
+      "SHA-256": "30cb3398b79d301b91d20159a22c7e52a4c2f63afe7dafac21ac32a27ed3683d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-host-summary.html",
+      "SHA-256": "4cd8205aa9e5049f29434038a2fc0c249cb8ee16482e9b92fa069847721fd856"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-income-day-detail.html",
+      "SHA-256": "70773f7454a66242836a8eeeecc5a6baac6c96f92bba3793ad71cc69c82c00c6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-income.html",
+      "SHA-256": "89c058de24602f1cccc16a8a441ebf5dccc7946f54c116c2aec2a2b9233db62a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-live-gift-detail.html",
+      "SHA-256": "c6dabdd4483079e4c36b391580480d0cd0c2a8a7b32d9cb824c1ab55b2466aee"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-share-income.html",
+      "SHA-256": "4e31fcdbfe9264446d6b6ba10a52b44f565ecb77d9a6ab1a87f6d879db8396f5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-share-ledger.html",
+      "SHA-256": "4c7f85d80ae406b5c81c07f117847cb4b7002020d6c000e7d1b76d4c37298af6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-violation-host-select.html",
+      "SHA-256": "d47b5117ea829a5f857ada77a63984c240d647ed9c14034afeeda44777411850"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-home.html",
+      "SHA-256": "77aa03bdd7ab110c6298b4a728b01b840dbf24940e909cac28fb820b788b259a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-notification-detail.html",
+      "SHA-256": "a64a2bda584e26cb24cee712d04b794bf7dd26b67aedb59ab003c4565a33f495"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-notifications.html",
+      "SHA-256": "12e9da2f95fa47b0d43ce11caa934cee472458290b8c2b192130a72a5ea65d30"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-password.html",
+      "SHA-256": "2da9cfd319a1a5a7c0852b25a8f75deea15a8b35fa2da53a43efff0315ab89b3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-profile.html",
+      "SHA-256": "a3bb84075246927dfc5ed0bfd2b6f7679ecd84b938d21d313553a703966162dd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-settings.html",
+      "SHA-256": "a2c53b0d2b348024489f5d0b0e44325e06bcd2effa753804c73ff88c5c0e465a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-host-select.html",
+      "SHA-256": "244d3b1050058e59480d071abf469200b96e97a5d0003a7a927e2d8d58b366b5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-message-compose.html",
+      "SHA-256": "f5e4e473bae1e1e298f25aa2d678835e61d9d581667bb44b4d01f0eef06b7d15"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-message-detail.html",
+      "SHA-256": "1e86844a3927e1678b69be0ab41d6e5346ee9605a38d45c27d5d7b194d77d227"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-messages.html",
+      "SHA-256": "edb125cd087d23a483b350020b507430c0c291799c1bc7c533e1f0293198a0e2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-compose.html",
+      "SHA-256": "b8a52016fd4cb0a7d780d8cf80b450d9a109f7402c3219c22b7ddc551b7ae9a6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-detail.html",
+      "SHA-256": "8345971a8464ef537a47d945ff4ed0da53841c6d58d7482046062d019993887f"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-select.html",
+      "SHA-256": "805669bbf906a0853520be1312c9bb47b1bf0e36a3b7d4c97ede53255d1114ef"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-accounts.html",
+      "SHA-256": "c311bae5e9a1aa48546baf47b7321ac4241a351e6202137162856fd1c6c3b7b3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-gift-records.html",
+      "SHA-256": "bd60d716b24a1ccb13a698e8deaadaeb9cdade44c2a6e1937436febb215734c2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-host-detail.html",
+      "SHA-256": "7431288708b56558c908a77a70da00d7a0422534e82ecfe79ca4a30de93a5069"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-host-list.html",
+      "SHA-256": "9d21261a357af843e84870e9b3c68ca958425bf9a1d19acd2a3dd4f4456bc15d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-member-list.html",
+      "SHA-256": "756f0ab52c7c0a6663afbd7de4e9e0ec1ef6d153ddfa65cfba65110c2ec1e2b3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-country-select.html",
+      "SHA-256": "133cfb9ef405b6629857cf20a4bf8c7c3121181602e80212d963d5c94a43c5f1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-email-login.html",
+      "SHA-256": "79815ba6324384bd578e479164460fd565114e9d6cd72ce0bb1c9a5cfc997acd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+      "SHA-256": "88fdf21bac687e498edb3bc6601bbed6ad647ce585248ba2b1b73e68af350aa6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-phone-login.html",
+      "SHA-256": "8732173a70563e30cd5a3f4778d5349ee60c0f4f3479eedc6573fbb89a052080"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-profile-completion.html",
+      "SHA-256": "bb27182d2c001ff5d447a92e1b71dc3a5188e1b2307fdba4063c819c8d5043a5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/fan-club/fan-contribution-ranking.html",
+      "SHA-256": "5918a3a355c782c37c8931183f4f1f8e6f0b926a6d9ad17cf67ba1d2ae1fc2a9"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/fan-club/my-fan-clubs.html",
+      "SHA-256": "17a61b5f283fd9e7951cd69bdaf1714d2c6834b12259272972655e843241596a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-application-form.html",
+      "SHA-256": "1cc28282e4df6583452d7e60222b69747ca0ace21caadab0a5eb14dd2245cc93"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-application-records.html",
+      "SHA-256": "943acdc22a90f88826f503224806ab05be13cd84bd4a286832e00f8b717daff0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-detail.html",
+      "SHA-256": "048a225f43ff3b639fb87e30102826b57339f5029b8bc967d9206a3e0e09a904"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-leave-application.html",
+      "SHA-256": "a5ab0e96c55afb16489ac515808f2ce0ef009b50035092eede812e7d63e23e5a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-management.html",
+      "SHA-256": "8292d07c88340396123fc78eac0dc8db6603bb6fa9e4a31613ba7ae66d99b738"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/all-tasks.html",
+      "SHA-256": "de73888d3e8dc4041472b039ce5bc2b12fcf058b191435509228464e9306ee63"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/contribution-ranking.html",
+      "SHA-256": "c4c6ef06eb19edf1ead65e53cd589813361b32368844bcecec97d9993edf5e54"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/host-ranking.html",
+      "SHA-256": "17955e98a113bd7b9d930f9a364e5ad7518cf37f3341328222257d151b0c17e4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/invite-friends.html",
+      "SHA-256": "ac81186fcd1662e4b68246594161361ba02a23928d50e8b7a16ae00660eac073"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+      "SHA-256": "f2606a5fac8da6aaf7228764ba026a1b3bd61ae7c5947c9c797b3a801382629f"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/search-results.html",
+      "SHA-256": "c88cc7343c9483741763f7b4eb9ad2202d0ee130b6824bcfd75ff6730a1fe5d2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/search.html",
+      "SHA-256": "99e70b767cfcedf2992aacbef4c6de5a16121bd2e2641bdda15e9f59c54d46f1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/welfare-center.html",
+      "SHA-256": "d9d24257dfccf0ff2769e90568934780a9364148f0e11df460d2b39ee8f4604b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/fan-club-settings.html",
+      "SHA-256": "0563f7f97941dcdcfb6ad6c10fb181202152e1a5bdc856fc807ab5aa2c2f93ae"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/fan-club.html",
+      "SHA-256": "d947b7870890fffe8497cf636b2f27374bbf6503ae94f780e36f2e968b1c75b6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/fan-list.html",
+      "SHA-256": "6a9629fd4d93cd552fea90e62b1eaa6df4480831a2c4eda15fcaed89f3392839"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/host-center-pending.html",
+      "SHA-256": "320d3b73e37c1438022c607a5dc588f9998171038afa788b53bd86988e375ecc"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/host-center.html",
+      "SHA-256": "9d6fc9179c70a4ff76bd304d212e89bac1ab93e56005f479d07c6187e78d4363"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/host-guild-notifications.html",
+      "SHA-256": "67203032c390eea531bd5499f9e1fc6be9ab3d4620605ccfb585fb21aad519af"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/income-sharing.html",
+      "SHA-256": "9748d142223d019dbb89c73c55207e74c3e83db2839dbf75bcbe3f65f41e5d2d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/live-data.html",
+      "SHA-256": "b3bbd1941b5f42a449f562d0e05891ec3a4a23d0848d726e4f8e84ae7af900dc"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/live-records.html",
+      "SHA-256": "2c191aa0ebeb10ff5a6fc958640527a169092f16345fd341b141642e1d404d1b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/moderator-management.html",
+      "SHA-256": "f5da75aa391a3cd8c7c3bdc3ed16b0dfa0f2f57fef5b3c3b68c5ca2568696a82"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+      "SHA-256": "813495b38530e436a57c8bc19f20b2849acb72e1acde035affd322bdf67feeac"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-end-host.html",
+      "SHA-256": "f293b002b331a918e6ec2b106360ec5860f7da5022bb9ca05efffbdc504676b2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-end-viewer.html",
+      "SHA-256": "b96e1ff6a67f03429a07d6119c220cd5519ee252beac503fdc30190890333e21"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-cohost-active.html",
+      "SHA-256": "8044e23b3d53f4a2bcdbbac65a247db8f52be5e93a1e1a66171e97ad7bcf24d6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-host-password.html",
+      "SHA-256": "95dba95b116d67742baf78753ba5c2d595f9d312fca16ccb1f2c39b2796a0eac"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "SHA-256": "06dc81a1ed7cb5b5a2315876d81dbd82d7c750a4c58997f3942eba5156483cfb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-report.html",
+      "SHA-256": "78c465e079329c50bd1b503101f321bd6e837c6bc1064364d8e356ebf875f218"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-user-report.html",
+      "SHA-256": "f7cfba0d268391d312ea947a0f14d726c17f784502be816c89fbad453326a73c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA-256": "52981fe21ac2248309fab9a2f1b3fff2531dad3853e17ff863b786f451b60da8"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/account-password-change.html",
+      "SHA-256": "8a4b60396a09f6a52877c10ed7807e314b5181be50d5f34361d3ed8a9573f2d0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/account-password-reset.html",
+      "SHA-256": "3f81a2fdec7f9c285bf5b720c167d0773b019cd9c984715fc5b1dd60b12bff30"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/account-password-set.html",
+      "SHA-256": "964eaf25b275f7b0cf861f408824ebdb55244661a705873490b98dbbbe20c7f7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/blacklist-management.html",
+      "SHA-256": "a3dcd704689a0ca69e30ac7d33e69835f6cdba1cbdbac6c9ea39a6c2ccbf7d85"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/customer-service.html",
+      "SHA-256": "f152367f900424dc6fa743ad6916e000915357f57f1df5a1d07dfd668562e3e0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-decoration.html",
+      "SHA-256": "9817220126fd60cb3f4621703a42f3b15c99e5cc7dfe50de341020b7084b39da"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-following.html",
+      "SHA-256": "2a59217d890a830f2a3375d6de62ce99e20c0aa09b4c4143fe6f952894832602"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-outfits.html",
+      "SHA-256": "09b0241053afdad64a5fa508297b3f1e0a045522b71940b3aaf10556d491207c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/profile-edit.html",
+      "SHA-256": "691c5fe76c1a6c4dd071b5c34486c3cfdfaf5be8277ccc5af11e6f0978cf5291"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/profile.html",
+      "SHA-256": "1fa6ebd96c39d3cac9e4f55b82e2d724564505ad1f2bcb6ea0a7b44777023bc0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/settings.html",
+      "SHA-256": "a0302951238c1a15774a43f03c6d2118a1a64965426aeb69ec9a490c4bc052f5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/chat-settings.html",
+      "SHA-256": "272c38f467158e6fa93a8c68ddcebbfc0f92d139341a8be57884c9b9768bef5c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/direct-message.html",
+      "SHA-256": "11779b5ffbbcb613069887831f54c1afe5ba1972f16a8b6cbb1ecc8fe631c0da"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/fan-group-chat.html",
+      "SHA-256": "d09c4841f7a1dea5b34541a92d97a191bbf679ed85b6be26c9f5cba679732d0c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/follower-list.html",
+      "SHA-256": "03f83d75e369c5d4c837178ec82e80678628f4389075f6c3e8a4d6cc1f213c52"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/friend-list.html",
+      "SHA-256": "c4f9a2790aa4649e43a3fc0b24a2ca9010375a80bc98ea403b321add6c5b160b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/group-manage-member.html",
+      "SHA-256": "5e37fdd95d7fb4f901ece4d873447b35d4a39f04e1aedb8286255721a347f329"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/group-manage-owner.html",
+      "SHA-256": "8e16f2af7fd5819f839e5239810560243e1a7aa586ff12452d986506cc150f72"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/host-gift-gallery.html",
+      "SHA-256": "1a327a6761e78c616631e98b4b1da5e4f1f72efae3fbfaaa945d6f24bb4a3f75"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/host-home.html",
+      "SHA-256": "e0398be999c43515cda84c615bb6816d1ff1218c87297e33c20351e70009995d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/interaction-notifications.html",
+      "SHA-256": "ac16eed373db45abacb06bbda0d7973b998a9da27eb47be0c9fe0c1bcb0030d5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/message-center.html",
+      "SHA-256": "67547b09973958fb6cc0accb03eb6e5ddd0aa6d27e5e73c40e6363fefa13ea28"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/system-notifications.html",
+      "SHA-256": "43c07aa29edefb6099dd34bcaeafec0f8dbee75b8c627a068ff6db2fba2f6b36"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/user-home.html",
+      "SHA-256": "c4be6d3c5af2a09fc4c143b1983daecf2a5d2418d480ba1dea54f258175c3dbb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "SHA-256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/order-expense-detail.html",
+      "SHA-256": "607a491f9ca9ea62ce391a88bd40ca6b45f403902d8249661a5eab901a63b135"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/order-income-detail.html",
+      "SHA-256": "e60470d31a1444584352c58a92029120b691807ebe4a71363c8a161afef74a19"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/recharge.html",
+      "SHA-256": "b532101e37f5376679dd28401e4f1d901bee19dabe80ce7d866e62c2dc51a6fd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/公会APP-批注校对清单.md",
+      "SHA-256": "a7ccbd8909c87934d8bf25868bba18b556706b46257117c844cc2cd3fab64d95"
+    },
+    {
+      "路径": "liveshow-proto/prototype/原型规范.md",
+      "SHA-256": "cb40096d644d10f08cda06933b4679cd665aff78cd897779443e18412e0b9ceb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/批注核对清单.md",
+      "SHA-256": "05842f92b61d4d3b9ccff69f73b6bc9d30c2011e1d0371af7fc93e305e223cc5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/页面视图规范.md",
+      "SHA-256": "2df50ad43b8262c850d829afb7080d257a1efdf9f5eba1c5cb9a7674a007ea39"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-001-资料修改风控审核/todo.md",
+      "SHA-256": "dacba5f4f4078f4d3c19349b61288a761c9cde008fe2efe58960ae5c22248e2d"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-001-资料修改风控审核/需求梳理-资料修改风控审核.md",
+      "SHA-256": "5731e84bbf371fa6d1f569976945774b39f5f951682fbd05e1889a14d3523d1a"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-002-商品SKU分成规则/todo.md",
+      "SHA-256": "2d4a56f5187e9a0441a56e65b9af81fc9aaf0972d4844f117fa9615a45e96855"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-002-商品SKU分成规则/需求梳理-商品SKU分成规则.md",
+      "SHA-256": "cf476bf080a7e1fc33c866f76c0be12376e374cc387258e1f0ae5ed21b59e3f6"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-09/用户APP原型排查.md",
+      "SHA-256": "053c201ade4c8e2a296affab098bae079fa40624c458271d13f837f592617a8d"
+    },
+    {
+      "路径": "liveshow-proto/用户APP原型分析报告-2026-08-08.md",
+      "SHA-256": "6010476edb53cb6db2066a1275d9a746ad3e5cce3d66f7ba1ee1ad08cb699c09"
+    },
+    {
+      "路径": "liveshow-proto/移动端原型-配色规范.md",
+      "SHA-256": "b782c5ccaecde58a693b292095e789537d218cc6e58d5832b90f90fb0822b0bb"
+    },
+    {
+      "路径": "liveshow-proto/需求来源策略.json",
+      "SHA-256": "ce7320cea3a7a38ad9c086101ab75cd8569fb6ce90b7baf1038394cf7e964830"
+    },
+    {
+      "路径": "liveshow-proto/项目说明.md",
+      "SHA-256": "753eb0d741c49fc96241c4e2d5eec6f5b18745ece164c0f0a11011beb56c2a6d"
+    },
+    {
+      "路径": "scripts/mainbasis.mjs",
+      "SHA-256": "aa77cf6db0d2db6f07cf6427ebba895cadaab449c6a1befa91e81bf04470054b"
+    },
+    {
+      "路径": "scripts/requirement-traceability.mjs",
+      "SHA-256": "5013835157cad65b96f125e09608ba36967ec3f0bfcac794d5dbb6fdcf2e35c2"
+    },
+    {
+      "路径": "全局证据扫描指令.md",
+      "SHA-256": "a66ef061f4244a02f5bfa3995832075629726405b2004b72e8b71be62f4bdcd8"
+    },
+    {
+      "路径": "原型与需求清单同步指令.md",
+      "SHA-256": "22562bdce5c2936740181d6efd5726a1ea4db354989cb239e68ead43e3affae1"
+    },
+    {
+      "路径": "流程追溯文件说明.md",
+      "SHA-256": "33e24eefcd8e9a7fc26c3aa560a20b29bf61475d7f6fd7ede9e64c5bc9b1af43"
+    }
+  ],
+  "文档": [],
+  "同步前派生文本": [
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "原文": "# 用户/主播 App 项目需求清单\n\n> 来源：01-海外直播App-项目需求清单.xlsx\n> 建设方：Astro galaxy holdings Ltd\n> 服务方：深圳极客上线信息科技有限公司\n> 角色：用户、主播、工会长、B端管理员\n> 端口：用户/主播端APP+工会端APP+管理后台web\n> 语言：英语、马来西亚语、印尼语\n\n## 用户/主播端 App —— 用户/观众侧\n\n### 账号与登录（用户与主播共用）\n\n- **第三方登录**：\n\t- 支持 4 种第三方一键登录：Google、Facebook、Apple ID、TikTok。点击对应图标唤起授权，授权成功后进入 App；首次登录自动创建账号并初始化基础资料（默认昵称、默认头像、系统分配用户 ID）。\n- **手机号登录**：\n\t- 手机号 + 短信验证码登录。输入手机号（带国家区号，默认 +62 印尼）后点击获取验证码，60 秒倒计时期间按钮置灰；验证码 6 位、有效期 5 分钟；连续错误 5 次锁定当前验证码需重新获取。短信通过第三方国际短信网关下发。\n  - 手机号 + 密码登录：已注册用户可用手机号 + 密码直接登录；支持忘记密码经验证码重置。\n- **邮箱注册登录**：\n\t- 邮箱验证码：邮箱 + 验证码注册/登录。\n  - 邮箱密码：已注册邮箱 + 密码登录；支持忘记密码经邮箱验证重置。\n- **账号安全与协议**：App 内账号注销：提交注销申请、二次确认、按平台规则冷静期后清除账号。注销前若有未提现收益/未消费金币，提示处理后注销。\n  - 首次启动展示《用户协议》《隐私政策》，需勾选同意方可进入。\n\n### 用户资料\n\n- **个人资料**：\n\t- 资料字段：头像、昵称、性别、地区、生日、个性签名、用户 ID、财富等级标识。头像/昵称修改提交后由后台风控检测；检测通过自动修改成功，检测不通过不生效。\n\n### 首页与发现\n\n- **直播广场**：\n\t- 直播列表：卡片展示直播间封面、主播昵称/头像、直播标题、在线人数、分类标签。支持下拉刷新、上拉加载。排序支持 3 种 Tab 切换：热门（后台可配权重）、新人、关注。\n  - 分类：按后台配置的分类筛选直播间。\n  - 空状态：无直播时展示占位插画 + \"暂无直播，去关注喜欢的主播\" + \"去发现\"按钮。\n- **搜索**：支持搜索主播昵称、用户 ID、直播间。展示搜索历史、热门搜索词（后台可配）。无结果时展示空状态。\n\n### 直播观看与互动\n\n- **进入直播间**：\n    - 普通房：免费进入，进入后自动播放，支持清晰度切换、横竖屏、加载中/断流重连提示。\n  - 门票房（首版上架后经后台开关灰度开启）：进房前展示门票价格与说明，确认支付金币购票后进入；购票后本场直播内可自由进出，直播结束或被主播踢出后失效；重复进入同一场已购票不再收费。购票记录写入消费明细；不支持连麦或 PK。\n  - 密码房（首版上架后经后台开关灰度开启）：进房需输入主播设置的密码，密码正确进入、错误提示重试。密码由主播私下/授权发放（如在粉丝群发房间号）。密码房在首页有展示入口，放置在直播广场列表最下方；不支持连麦或 PK。\n- **直播间互动**：\n\t- 公屏聊天/弹幕：发送文字消息、系统进场提示、表情。敏感词过滤（后台词库）。\n  - 点赞、关注主播。分享直播间到外部社交平台：WhatsApp / Facebook / Instagram。\n  - 查看主播主页、查看在线观众列表、查看本场贡献榜。\n  - 进场特效：一期不做，二期落地。\n\n### 礼物与打赏\n\n- **礼物赠送**：\n\t- 礼物面板：展示礼物分类、列表（图标+名称+金币价格）、当前金币余额、充值入口。选择礼物与数量后赠送，金币不足时引导充值。\n  - 连击/连送：同一礼物连续赠送触发连击计数与叠加特效。\n  - 礼物特效：普通礼物轻动效在公屏区播放；大额礼物触发全屏特效（特效素材由客户提供）。\n  - 赠送结果：扣减用户金币、增加主播收益（前端按金币 1:1 展示，不在前端扣分成）、公屏播报\"X 送出 Y\"。\n- **礼物类型（后台配置、分类展示）**：\n\t- 普通礼物：常规礼物，长期上架。\n  - 幸运礼物（盲盒概率玩法，首版上架后经后台开关灰度开启）：用金币购买/赠送，按后台配置概率开奖，中奖返还金币（返金币而非返实物）；赠送成功公屏播报中奖信息；礼物面板/详情展示中奖概率与奖励档位。\n  - 定制礼物：限时/节日/活动礼物，具有时效性，由平台运营定期维护上下架。\n- **幸运礼物玩法说明**：\n\t- 玩法：一期采用固定概率。基础金币 10/次，6 档奖励：0 / 5 / 10 / 50 / 100 / 1000 金币，首期最高 100 倍。\n  - 返奖率(RTP)按连送口径分三档（连送也按单个礼物逐个计算）：单次（消耗 10）=96%；连送 10 次（消耗 100）=97%；连送 100 次及以上（消耗 1000）=98%。\n  - 各档中奖概率（奖励 0/5/10/50/100/1000 金币）：96% 档 = 10.4% / 32% / 55% / 2% / 0.5% / 0.1%；97% 档 = 8.4% / 34% / 55% / 2% / 0.5% / 0.1%；98% 档 = 6.4% / 36% / 55% / 2% / 0.5% / 0.1%。\n  - RTP、各档概率、奖励倍数均后台手动可调；上线后先在测试环境跑大样本（数十万次）验证实际返奖，再按运营情况动态调整（后续可加保底/更高倍数档）。\n- **榜单**：\n\t- 榜单类型 3 种：主播榜（收礼）、财富榜（送礼）、粉丝榜（对单主播贡献）。周期支持日/周/月切换，展示排名+头像+昵称+数值。\n  - 【7.20改】数值展示：榜单、直播间等大数值按 K/M/B 缩写展示（1,000=1K，10,000=10K，100,000=100K，1,000,000=1M，1,000,000,000=1B），隐藏小数保证爽感；主播个人中心收益页展示全额、精确到个位（便于主播核对工资）。\n\n### 签到与任务\n\n- **每日签到**：\n\t- 每日签到领奖（金币/道具/经验），连续签到额外奖励；展示已签到天数、连续签到进度、断签重置规则；奖励发放到账（道具入背包、金币入钱包）。\n  - 签到/任务可发放道具：头像框、勋章、发言气泡等。\n- **任务中心**：\n\t- 日常/成长任务（如观看时长、关注、送礼、分享），任务进度展示、完成后手动/自动领取奖励，奖励到账。\n  - 签到与任务的奖励规则、任务项均由后台配置。\n\n### 邀请拉新（推广获客）\n\n- **我的邀请码**：\n\t- 每个用户生成专属邀请码，支持分享到外部社交。\n- **绑定关系**：\n\t- 新用户注册时填写邀请码与邀请人建立绑定关系；一名用户仅可被绑定一次，绑定后不可更改。\n  - 管理后台可手动为用户建立/调整邀请绑定关系。\n- **注册奖励**：\n\t- 被邀请人完成注册并绑定成功后，向邀请人发放赠送金币（是否同时给被邀请人、奖励额度由后台配置）。\n- **充值返利**：\n\t- 被邀请人充值后，按规则向邀请人发放返利金币；返利规则（按累计充值金额/按充值比例/有效期）由后台配置。\n- **我的拉新（数据统计）**：\n\t- 邀请人查看名下已绑定人数、每名成员带来的返利金币明细、累计获赠金币；支持查看绑定成员列表与状态。\n- **防刷限制**：\n\t- 同设备/同支付账号/异常绑定的风控限制（后台可配），命中风控的奖励不发放或冻结。\n\n### 用户成长与身份\n\n- **财富等级**：\n\t- 按累计充值/消费成长的财富等级，展示在资料页与直播间昵称旁。一期仅展示等级数字；UI 上按等级做视觉区分（不同等级对应不同等级图标/徽标/颜色标识），等级数值与图标由后台配置。\n\n### 粉丝团（用户侧）\n\n- **加入粉丝团**：\n\t- 加入条件由主播设置（如关注/送礼门槛）；加入后获得粉丝灯牌、粉丝头衔/勋章，在该主播直播间聊天展示身份标识。\n  - 粉丝团等级：粉丝团自身的等级；长时间不活跃自动降级，等级影响粉丝团等级勋章的样式。\n  - 粉丝等级 / 亲密度：均为用户对该主播的关系成长值。粉丝等级是用户在该粉丝团内的社群身份（如 Lv.10）；亲密度是用户与该主播的一对一关系数值（如 1,023）。\n\n### 钱包与充值\n\n- **金币钱包**：\n\t- 展示当前金币余额（用户资产中心）。\n- **充值**：\n\t- iOS 走 Apple IAP；Android 及网页 H5 走第三方/印尼本地钱包通道。展示多档金币套餐（后台可配档位与定价）、新人首充礼包（后台可配）。\n  - 网页 H5 充值：App 外提供 H5 充值页（按印尼盾计价、订单支付倒计时、客服入口），规避应用商店抽成。\n  - 第三方支付渠道拟接入：空中云汇（Airwallex）、PayerMax。\n- **账单与明细**：\n\t- 充值记录：订单、金额、渠道、状态。\n  - 消费记录：送礼/购票等金币消费流水。\n  - 金币收支明细：进出汇总。\n\n### IM 社交\n\n- **私信：用户与用户/主播一对一私信（对接 IM SDK），支持发送文字、图片、语音。**：\n\t- 私信关系规则：主播私聊用户不做限制；用户私聊主播需先申请成为主播好友、主播通过后方可私聊。\n- 群聊：粉丝团群。\n- 关系：\n\t- 关注列表、好友列表、粉丝列表、主播在线/开播状态。\n- 通知：\n\t- 系统消息、互动通知（被关注/被送礼）、关注主播开播提醒、平台公告。\n\n### 工会（用户侧）\n\n- **加入工会**：\n\t- 浏览/搜索工会，查看工会信息后提交入会申请，等待工会审批。\n  - 工会列表：默认展示运营推荐的 5 个工会，其余工会隐藏，用户可通过关键词搜索查找后申请。\n  - 加入限制：同一时间只能加入一个工会。\n- **我的工会**：\n\t- 查看所属工会信息、成员/主播、公告。\n  - 提交退出申请，需工会长同意后退出。\n- **成为主播**：\n\t- 加入工会后申请开通直播权限，由管理后台开通后成为该工会主播；后台开启后，工会端亦可对名下主播的直播权限进行开启/关闭操作。\n\n### 个人中心\n\n- **资料与设置**：\n\t- 个人资料编辑、我的关注/粉丝、我的钱包入口、我的等级/勋章、我的主播认证入口。\n  - 设置：账号、通知开关、隐私、语言切换（英语/马来西亚语/印尼语）、关于、账号注销、退出登录。\n- **装扮**：\n\t- 查看我获得的头像框、气泡、勋章，可选择穿戴展示\n  - 用户可同时佩戴多类身份标识（财富等级、消费等级、粉丝团等级勋章、守护等），粉丝团勋章与财富等级勋章分不同位置展示。\n- 客服与帮助：在线客服/帮助中心/意见反馈入口。\n\n### 合规与安全\n\n- 内容举报：直播间/用户/消息举报入口，联动后台审核处置。\n- 拉黑/屏蔽：拉黑用户、屏蔽消息。\n- 封禁申诉：账号/主播被封禁后提交申诉，后台受理处理。\n- 青少年/年龄保护：年龄分级提示、未成年防护提示。\n\n## 用户/主播端 App —— 主播侧（加入工会并通过认证后解锁）\n\n### 主播入驻与认证\n\n- **主播认证**：\n\t- 申请成为主播：入口在个人中心，前置条件为已加入工会；提交真人/实名认证资料（证件照 + 基础信息），进入后台审核队列。\n  - 认证状态流转：未认证 → 审核中 → 认证通过（解锁开播）/ 认证驳回（展示驳回原因，可重新提交）。\n  - 认证审核由管理后台进行。\n- **开通直播权限**：\n\t- 认证通过后，由管理后台开通直播权限（后台开启后工会端可开关）；权限状态在\"成为主播\"入口回显：申请中 / 已开通 / 已关闭（含原因）。\n\n### 主播个人主页\n\n- 主页展示：面向观众/粉丝展示主播头像、昵称、简介、粉丝数、主播等级（按累计收到的贡献值计算）、收礼/榜单标识、粉丝团入口。\n\n### 开播设置与控制\n\n- **开播设置**：\n\t- 开播准备：设置直播标题、封面、分类/标签；开播前预览摄像头画面。\n  - 房间类型选择：3 种——普通房 / 门票房（设门票金币价）/ 密码房（设密码，可选择是否在广场展示、从粉丝中授权可见名单）。门票房、密码房首版上架后经后台开关灰度开启，且不支持连麦或 PK。\n  - 基础美颜：美颜/滤镜（对接美颜 SDK，基础档位）。\n  - 清晰度设置：支持多档清晰度切换。\n- **开播控制**：\n\t- 开始/结束直播；开播触发向关注粉丝推送开播提醒。\n\n### 直播间管理（主播侧）\n\n- 互动管理：\n\t- 清屏、踢人、禁言（时长可选）、加入黑名单、设置/取消房管。\n\t- 屏蔽指定评论：长按公屏消息后二次确认；仅隐藏该条消息，不影响其他消息。屏蔽后前台不可恢复，后台保留原文、操作人和时间。\n- 现场数据：\n\t- 查看在线观众列表、本场贡献榜、本场收礼与实时收益。\n- **在线用户识别与经营**：\n\t- 用户身份标识：在线用户列表与公屏为每个用户展示识别标识，① 新用户（首次进入本直播间）② 已关注/老粉 ③ 粉丝团成员（含该团等级、用户粉丝等级、亲密度/灯牌）④ 本场高贡献用户 ⑤ 历史高贡献用户 ⑥ 用户财富等级 ⑦ 关系状态（已禁言/已拉黑）。\n  - 快速经营操作：主播点击用户唤起用户卡，可执行 关注/私信/@欢迎/送礼答谢、禁言/拉黑/设房管，便于针对性欢迎新人、维护老粉、感谢付费用户。\n  - 进场分级提示：新用户、老粉、高贡献/高财富用户进场时，公屏区分展示（如\"新朋友进入\"\"老粉回归\"\"贵宾进入\"）。\n- **房管协助：房管可协助执行踢人/禁言/屏蔽指定评论（操作作用域仅限当前直播场次，操作留痕）。**：\n\t- 主播可输入任意用户 ID 设置房管，无需在线或为好友；目标不得在该主播直播间黑名单内，且双方无账号拉黑关系。最多 3 人；授权对该主播后续所有直播持续有效，直至主播取消。\n\n### 连麦与 PK\n\n- **主播间连麦**：仅普通房支持。一期仅支持两位主播视频连线；由主播发起邀请、对方接受后建立连线；无观众上麦麦位，不支持超过两人的连线或 PK。连麦中双方画面分屏展示，可结束连麦。门票房、密码房不展示连麦或 PK 入口。\n\n### 粉丝团管理（主播侧）\n\n- 主播仅可创建一个粉丝团/粉丝群，粉丝群人数上限 500。\n- **创建/设置粉丝团：名称、加入条件；查看粉丝团成员列表；粉丝团群聊。**：粉丝团等级：长时间不活跃将自动降级。\n  - 粉丝团权益：仅做粉丝团等级勋章——按等级分档（如每 10/20 级换一档颜色/样式，高等级比低等级更豪华），在该主播直播间聊天展示。其余等级权益后续再扩。\n\n### 主播收益与提现（主播侧）\n\n- **收益**：\n\t- 实时收益展示：直播中按金币 1:1 展示收礼收益（前端不扣分成，分成后台/线下结算）。\n  - 普通/定制礼物用户消耗与主播收益 1:1（App 内不体现分成比例，结算按商品 SKU 绑定的分成规则执行）；幸运礼物按用户消耗金币的 1%（暂定，后台可调）计入主播收益，与普通礼物收益合并展示、不单独设幸运礼物收益入口。\n  - 小数处理：主播收益不足 1 的小数直接舍去（不四舍五入、不计算），满 1 才计入；收益与榜单均隐藏小数，保证展示干净、便于主播心算。\n  - 收益账户与明细：累计收益、可提现余额、冻结中金额、收益流水。\n- **提现**：\n\t- 一期主播提现以线下结算（工会/平台按月线下发放），主播端仅展示收益与提现记录；后台做提现记录与财务报表。\n\n### 主播数据中心（主播侧）\n\n- **我的数据**：\n\t- 本场/历史观看人数、收礼、直播时长、涨粉、收益概览。\n\t- 有效天：按主播所属自然日累计有效直播时长计算，单日累计大于等于 3 小时计 1 个有效天；单个自然日最多计 1 个有效天。\n- **历史直播记录**：\n\t- 场次、时长、人气、收礼。\n"
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "原文": "# 公会 App 项目需求清单\n\n> 来源：01-海外直播App-项目需求清单.xlsx\n> 建设方：Astro galaxy holdings Ltd\n> 服务方：深圳极客上线信息科技有限公司\n> 角色：用户、主播、工会长、B端管理员\n> 端口：用户/主播端APP+工会端APP+管理后台web\n> 语言：英语、马来西亚语、印尼语\n\n## 工会端（APP）\n\n### 工会账号与信息\n\n- **工会账号登录**：工会长/工会管理员账号登录（账号由管理后台开通、可停用）。\n- **工会信息维护**：工会名称、Logo、简介、公告；公告发布后推送名下成员。\n- 一期仅\"工会长\"单角色登录\n\n### 成员与入会管理\n\n- **入会申请审批**：入会申请列表（字段：申请人 ID/昵称/头像、申请时间、来源），操作通过/拒绝（可填理由）；处理结果通知申请人。\n- **成员列表**：普通成员 + 已开播主播，字段（用户 ID/昵称、身份[成员/主播]、加入时间、状态）；支持按昵称/ID/身份搜索筛选。\n- **退会处理**：成员提交退出申请需工会长审批同意；工会长移除成员二次确认后移除。若对象为主播，联动关闭其直播权限、进行中直播由平台强制结束、未结算分成按规则锁定归属旧工会。\n\n### 主播管理\n\n- **主播列表**：字段（主播 ID/昵称、开播状态、直播权限[已开通/已关闭/被平台锁定]、主播等级[按累计收到的贡献值计算]、累计收益、可提现余额、违规次数）；支持筛选与导出。\n- **直播权限操作**：对名下主播开启/关闭直播权限（前提为管理后台已首次开通）；若被管理后台锁定，则工会端不可修改并提示原因（权限优先级：管理后台 > 工会端）。所有开关操作留痕。\n- **主播详情**：查看主播资料、实名认证信息、直播记录、收益概览、粉丝团、违规记录。\n\n### 主播结算\n\n- **收益**：主播收益明细：累计收益、可提现余额、收益流水。可按直播场次查看单场的直播数据统计\n- **结算**：手动标记并录入结算信息\n\n### 工会运营\n\n- **消息触达**：向名下全体成员/指定主播发送应援消息、运营公告（用户侧通知接收）。\n\n### 数据与收益\n\n- **主播数据**：名下主播直播数据（开播场次/时长、有效天、观看人数、收礼、涨粉），支持按主播/时间段筛选、导出。有效天按主播所属自然日累计有效直播时长大于等于 3 小时计算，每自然日最多计 1 天。\n- **主播运营数据（平台采集、下放工会查看）**：进房 10 秒/5 分钟跳出率、平均停留时长、同时在线用户数峰值、互动率/送礼转化等维度，用于指导主播开播优化与 AB 培训。\n- **收益概览**：工会维度收益汇总（名下主播收礼折算收益、周期对比）。\n- **结算台账**：工会应得分成台账，逐笔展示每笔提现对应的平台/主播/工会三方分账明细，用于与线下结算勾稽；标注结算状态（待结算 / 已线下结算）。\n\n### 运营账号与虚拟财富配置（内部运营）\n\n- **运营账号标记**：工会可将名下部分成员标记为\"运营账号（马甲号）\"，可指定投放到指定直播间烘托氛围。\n- **虚拟财富配置**：为运营账号配置虚拟财富值/虚拟金币（后台可配额度、上限与投放节奏），用于活跃打赏氛围、烘托财富榜与主播人气。\n- **收益隔离**：运营账号使用虚拟金币送礼，仅计入直播间氛围与榜单展示，不产生真实资金流、不计入主播可提现收益与分成结算。\n"
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "原文": "# 管理后台项目需求清单\n\n> 来源：01-海外直播App-项目需求清单.xlsx\n> 建设方：Astro galaxy holdings Ltd\n> 服务方：深圳极客上线信息科技有限公司\n> 角色：用户、主播、工会长、B端管理员\n> 端口：用户/主播端APP+工会端APP+管理后台web\n> 语言：中文、英语、印尼语；一期仅交付中文界面，所有文案和可配置名称预留翻译能力\n\n## 管理后台（Web）\n\n### 用户管理\n\n- **用户列表**：字段（用户 ID、昵称、头像、手机号/第三方登录标识、注册时间、财富等级、累计充值、累计消费、当前金币余额、所属工会、账号状态[正常/禁言中/封禁]）；筛选项（用户 ID、昵称、手机号、状态、等级区间、注册时间段）。\n- **用户详情**：基础资料、资产（金币余额/充值消费流水）、登录设备、关注/粉丝关系、违规与处置记录。\n- **用户操作**：封禁/解封（选择封禁原因、时长[临时 N 天/永久]、封禁范围[登录/发言/送礼]）、禁言（时长可选）、重置资料。\n- **封禁申诉受理**：申诉工单列表（字段：申诉人、被封原因、申诉理由、提交时间、状态），处理动作（恢复账号 / 维持封禁，填写结论）。\n\n### 主播管理\n\n- **主播认证审核**：认证队列（字段：主播 ID/昵称、所属工会、提交材料[证件照/资料]、提交时间、状态），操作通过/驳回（填写原因）。\n- **直播权限管理**：开通/关闭主播直播权限；可\"锁定\"某主播权限（锁定后工会端不可改，用于纠纷仲裁）。\n- **主播列表**：字段（主播 ID/昵称、所属工会、主播等级[按累计收到的贡献值计算]、开播状态、权限状态、累计收益、可提现余额、冻结中金额、违规次数、是否开放提现）；筛选与导出。\n- **主播详情**：资料、认证材料、直播记录、收益与提现流水、粉丝团、违规与处置记录。\n- **主播封禁与违规处置**：强制关播、警告、封禁；封禁时按级联规则处置。\n\n### 封禁处置（资金与关系联动规则）\n\n- **强制关播**：立即结束进行中直播，房内观众收到\"直播已结束\"提示并返回广场。\n- **门票房处置**：封禁/强制关播不做补偿，已购门票不退。\n- **关系处置**：粉丝团、工会关系按封禁类型（临时/永久）冻结或解散。\n- **申诉恢复**：申诉成功后按\"封禁→冻结→申诉→恢复/没收\"状态机反向恢复（解冻收益、必要时补偿、恢复权限与关系）。\n- **永久封禁（严重违规/欺诈）**：违规所得收益依《用户/主播协议》不予结算（没收）、在途提现拦截。（按行业与竞品惯例处理，没收资金归属以平台协议为准）\n\n### 工会管理\n\n- **工会列表**：字段（工会 ID/名称、工会长、名下主播数/成员数、累计收益、状态[启用/停用/已解散]、创建时间）；筛选。\n- **工会创建/审核**：新建工会、审核工会申请、指定/变更工会长、开通工会端账号。\n- **工会详情**：基础信息、名下主播/成员列表、收益与分账台账、结算记录。\n- **工会状态管理**：停用/启用；解散工会（解散前需处理：名下主播批量转出/解绑、未结算分成结清、成员通知）。\n- **分成规则与商品绑定**：创建分成规则（主播/公会/平台比例合计 100%，生效时间、状态、版本）；每个礼物 SKU、门票 SKU 绑定一条分成规则。成交时按商品绑定的规则版本生成分账台账。\n\n### 直播管理与监控\n\n- **实时监控**：在线直播间列表（字段：直播间 ID、主播、房型[普通/门票/密码]、在线人数、开播时长、本场收礼、封面/实时截图）；筛选房型/工会。\n- **监控处置**：查看直播画面（含密码房，平台超级权限可无密码进入抽检）、警告主播、一键强制关播、断流。\n- **巡房管理**：巡房人员排班与巡房记录；巡房角色可进入任意直播间（含私密房）查看、警告、强制关播。\n- **直播记录**：历史直播列表（字段：场次 ID、主播、房型、开播/结束时间、时长、峰值/累计观看、收礼、营收）。\n\n### 内容审核\n\n- **机审告警队列**：直播流截图/视频机审告警（字段：直播间/主播、命中类型、风险等级、截图、时间），操作忽略/转人工/直接处置。\n- **人工复审队列**：待人工复核内容列表，处置动作（警告 / 强制关播 / 封禁 / 内容下架），处置留痕。\n- **密码房巡查**：平台可无密码进入或抽检任意密码房，机审对密码房同样截图巡查，举报可穿透密码房（合规红线，内部）。\n- **举报处理**：举报工单队列（字段：举报人、被举报对象、举报类型、证据、状态、处置结果），与封禁/下架联动。\n- **违规类型**：举报处理二级菜单；支持排序、新增、编辑、删除和启用/禁用，前三个系统预置类型固定启用且不可删除。\n\n### 礼物与道具配置\n\n- **礼物管理**：礼物列表（字段：礼物 ID、名称、图标、分类[普通/幸运/定制]、金币单价、特效资源、排序权重、上下架状态），增删改、上下架、特效绑定。\n- **定制礼物管理**：限时/活动礼物的生效-失效时间配置，运营定期维护。\n- **幸运礼物概率配置**：6 档奖励（0/5/10/50/100/1000 金币）、各档中奖概率、奖励倍数、基础金币、三档 RTP（单次96%/连送10次97%/连送100次98%）、主播分成比例（默认 1%）均后台手动可调；含\"幸运礼物上架灰度开关\"。支持导出配置用于测试环境大样本跑测。\n- **道具配置**：道具（灯牌/头衔/勋章/座驾/气泡/头像框等）列表，类型、发放规则（等级/签到/任务/活动）、有效期、上下架。\n\n### 运营配置\n\n- **Banner/活动位/开屏配置**：位置、素材、跳转、排期（生效/失效时间）。\n- **推送管理**：系统/运营推送、定向推送（受众筛选、定时/立即发送、推送记录）。\n- **榜单配置**：榜单类型、统计周期、是否发奖及奖励规则。\n- **充值套餐配置**：金币档位、定价、赠送金币、新人首充礼包。\n- **签到/任务配置**：签到奖励规则、任务项与奖励配置。\n- **邀请拉新配置**：注册奖励额度、充值返利规则（累计充值/比例/有效期）、防刷限制；拉新数据统计（邀请人排行、绑定关系与返利金币明细）；支持手动建立/调整邀请绑定关系。\n- **工会推荐位配置**：配置首页/工会列表默认展示的推荐工会（默认 5 个）。\n- **高风险玩法上架开关**：门票房、密码房、幸运礼物的灰度开关（首版上架关闭，上架通过后开启）。\n- **敏感词库配置**：公屏/私信/昵称/动态敏感词维护。\n\n### 运营账号与虚拟资产（内部运营）\n\n- **运营账号（马甲）管理**：标记/维护运营账号，与真实用户区分，可分配至指定直播间/工会。\n- **虚拟金币管理**：为运营账号发放/配置虚拟金币（仅后台可见，不计入真实充值流水）；虚拟金币送礼计入直播间氛围与财富榜展示，不计入主播真实收益与分成结算。\n- **隔离与对账**：虚拟资产与真实资金完全隔离，纳入资金守恒对账时单列，确保虚拟送礼不污染真实营收与提现口径。\n\n### 财务结算\n\n- **充值流水**：充值订单列表（字段：订单号、用户、渠道[IAP/GooglePlay/H5/第三方钱包]、金额、到账金币、状态、时间）；分渠道对账。\n- **提现审核（平台终审）**：提现工单列表（字段：主播、所属工会、工会初审状态、申请金额、可提现余额、冻结金额、收款账户与户名、状态）；操作通过（打款）/ 驳回；打款记录与到账回执。一期线下结算记录+财务报表为主\n- **分账台账**：逐笔记录每笔结算的平台、主播、公会应付额，以及命中的分成规则和版本；线上台账与工会线下实付。\n- **退款与拒付处理**：接入 Apple/Google 退款与第三方 chargeback 回调，按规则红冲。\n- **资金对账**：日切资金守恒报表，差异自动告警\n- **门票资金**：门票收入理解为普通礼物，计入主播收益、按普通礼物口径参与结算分成。\n- **幸运礼物资金**：中奖返奖发放给送礼用户（返金币）；主播收益按用户实际消耗金币的 1%（暂定，后台可调）计入，与普通礼物收益合并结算；不足 1 的小数直接舍去、不计入。RTP 与主播分成比例后台可配。\n\n### 数据分析与报表（后台核心）\n\n- **可视化 Dashboard：**：多维度看板，支持按时间/地区/工会/主播维度查看，颗粒度可细化配置；核心指标概览 + 趋势曲线 + 明细导出。\n- **用户消费数据（平台核心）**：充值/消费/营收/ARPU/付费率/付费转化，可按渠道与地区拆分。\n- **用户增长数据（平台核心）**：新增、活跃（DAU/MAU）、留存（次日/7 日/30 日）、来源渠道、流失。\n- **主播运营数据（下放公会查看）**：进房 10 秒/5 分钟跳出率、平均停留时长、同时在线峰值、互动率/送礼转化、涨粉，用于指导开播优化与 AB 培训。\n- **直播数据**：开播数、开播时长、有效天、房间人气、连麦数据。有效天按主播所属自然日累计有效直播时长大于等于 3 小时计算，每自然日最多计 1 天。\n- **收益数据**：主播收益榜、工会收益榜、名下主播产出、分账汇总。\n- **数据采集**：前端行为埋点采集支撑上述维度。\n\n### 系统配置\n\n- **角色权限管理（RBAC）**：后台账号、角色与权限项配置；关键操作记录操作审计日志。\n- **系统参数配置**：提现门槛与到账通道、金币汇率、金币收益换算规则。\n"
+    }
+  ]
+}

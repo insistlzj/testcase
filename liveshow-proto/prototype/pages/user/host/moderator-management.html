@@ -237,38 +237,25 @@
           );
       }
       let pendingManager = null;
-      let confirmRound = 0;
       function openManagerConfirm(manager) {
         pendingManager = manager;
-        confirmRound = 1;
         renderManagerConfirm();
       }
       function renderManagerConfirm() {
-        managerConfirmTitle.textContent =
-          confirmRound === 1 ? "取消房管？" : "再次确认取消房管？";
-        managerConfirmCopy.textContent =
-          confirmRound === 1
-            ? `取消 ${pendingManager.name} 后将失去房管权限。`
-            : `确认取消 ${pendingManager.name} 的房管权限？`;
+        managerConfirmTitle.textContent = "取消房管？";
+        managerConfirmCopy.textContent = `取消 ${pendingManager.name} 后将失去房管权限。`;
         managerConfirm.classList.remove("state-hide");
       }
       document.querySelector("[data-cancel-confirm]").onclick = () => {
         managerConfirm.classList.add("state-hide");
         pendingManager = null;
-        confirmRound = 0;
       };
       document.querySelector("[data-confirm-cancel]").onclick = () => {
         if (!pendingManager) return;
-        if (confirmRound === 1) {
-          confirmRound = 2;
-          renderManagerConfirm();
-          return;
-        }
         const manager = pendingManager;
         managers = managers.filter((item) => item.id !== manager.id);
         managerConfirm.classList.add("state-hide");
         pendingManager = null;
-        confirmRound = 0;
         renderManagers();
         Luma.toast(`已取消 ${manager.name} 的房管`);
       };

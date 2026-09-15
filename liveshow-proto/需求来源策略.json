@@ -6,11 +6,14 @@
   "派生需求清单": [
     "context/01-用户主播App-项目需求清单.md",
     "context/02-公会App-项目需求清单.md",
-    "context/03-管理后台-项目需求清单.md"
+    "context/03-管理后台-项目需求清单.md",
+    "context/原型页面目录结构.md"
   ],
-  "公共证据清单": [
-    "context/系统概要 .md"
-  ],
+  "原型目录结构": {
+    "入口": "prototype/index.html",
+    "输出": "context/原型页面目录结构.md"
+  },
+  "公共证据清单": ["context/系统概要 .md"],
   "生成前同步": true,
   "历史来源只读": true,
   "用例生成模式": "全新生成",

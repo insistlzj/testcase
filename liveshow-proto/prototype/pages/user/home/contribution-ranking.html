@@ -202,7 +202,7 @@
       const userHome = (name) =>
         `../social/user-home.html?user=${encodeURIComponent(name.toLowerCase())}`;
       const render = (period) => {
-        const data = rankings[period];
+        const data = rankings[period].slice(0, 30);
         const topOrder = [data[1], data[0], data[2]];
         const podiumClass = ["second", "first", "third"];
         podium.innerHTML = topOrder

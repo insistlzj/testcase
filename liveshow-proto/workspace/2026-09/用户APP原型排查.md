@@ -10,6 +10,26 @@
 - 可静态解析的页面内 HTML 跳转目标未发现文件不存在；主要问题是入口未接、跳错页面、未携带对象及状态缺失。此项不代表所有动态跳转均正确。
 - 以下“缺状态”指缺少可查看的业务形态，不把未调用 `registerStates` 直接等同于未实现。后端动作已有 Toast 且批注说明结果的，不单独判为缺交互。
 
+## 4. 本轮字段释义核对（2026-09-10）
+
+本轮只核对 `pages/user/**` 独立页面及其用户 APP 批注中的“字段”分节，不重复处理上一轮的交互、跳转和状态问题。
+
+| 页面 | 界面信息 | 批注缺漏 | 处理 |
+| --- | --- | --- | --- |
+| [充值福利 P012](/Users/szx/Documents/Geekup/Liveshow/prototype/pages/user/home/welfare-center.html:121) | 邀请好友、充值福利、连续签到进度、签到奖励、任务名称、任务进度和领取状态 | 页面没有“字段”分节；现有批注分散描述了业务规则，但未逐项解释界面字段 | 补充字段分节 |
+| [直播结束页（观众） P003-1](/Users/szx/Documents/Geekup/Liveshow/prototype/pages/user/live/live-end-viewer.html:59) | 主播头像、主播名称、直播结束状态、结束提示和返回首页 | 只有业务和交互，没有界面字段释义 | 补充字段分节 |
+| [主播中心 P027](/Users/szx/Documents/Geekup/Liveshow/prototype/pages/user/host/host-center.html:296) | 主播资料、累计收益、粉丝、今日/本月指标、有效天进度、工具入口 | 当前已有“主播信息字段”和“数据中心字段”，覆盖界面信息 | 不修改 |
+
+### 本轮修改页面清单
+
+- `prototype/pages/user/home/welfare-center.html`：仅补对应批注字段释义，页面不改。
+- `prototype/pages/user/live/live-end-viewer.html`：仅补对应批注字段释义，页面不改。
+
+### 排除项
+
+- 直播间及弹窗视图中的字段已有独立批注，动作确认类视图不因没有字段分节重复增加。
+- 未从界面可见信息推导新的业务规则；金额、任务配置和结束后的消费处理沿用现有批注及项目需求清单。
+
 ## 1. 状态样式缺失
 
 | 页面 | 缺少的状态或展示 | 批注情况 |

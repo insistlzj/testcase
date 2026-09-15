@@ -123,28 +123,12 @@
         </div>
       </div>
     </section>
-    <section
-      class="confirm state-hide"
-      id="confirmTwo"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div class="confirm-card">
-        <b></b>
-        <p></p>
-        <div>
-          <button type="button" data-cancel>取消</button
-          ><button type="button" data-confirm>再次确认</button>
-        </div>
-      </div>
-    </section>
     <div class="homebar"><i></i></div>
     <script>
       let blacklist = [...window.LUMA_MOCK.blacklist];
       let pendingName = "";
       const list = document.querySelector("#list"),
-        confirmOne = document.querySelector("#confirmOne"),
-        confirmTwo = document.querySelector("#confirmTwo");
+        confirmOne = document.querySelector("#confirmOne");
       function render() {
         list.replaceChildren();
         if (!blacklist.length) {
@@ -171,7 +155,6 @@
       }
       function closeConfirm() {
         confirmOne.classList.add("state-hide");
-        confirmTwo.classList.add("state-hide");
         pendingName = "";
       }
       function openConfirm(name) {
@@ -187,15 +170,6 @@
         .querySelectorAll("[data-cancel]")
         .forEach((button) => (button.onclick = closeConfirm));
       confirmOne.querySelector("[data-confirm]").onclick = () => {
-        setDialog(
-          confirmTwo,
-          `再次确认移除 ${pendingName}？`,
-          "确认后将移除黑名单。",
-        );
-        confirmOne.classList.add("state-hide");
-        confirmTwo.classList.remove("state-hide");
-      };
-      confirmTwo.querySelector("[data-confirm]").onclick = () => {
         const name = pendingName;
         blacklist = blacklist.filter((user) => user.name !== name);
         closeConfirm();

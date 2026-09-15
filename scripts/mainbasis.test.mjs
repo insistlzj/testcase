@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import test from 'node:test';
-import { startMainBasis, sealMainBasis, verifyMainBasis, validateMainBasisInput, prepareContext, reviewContext, prepareBasis } from './mainbasis.mjs';
+import { startMainBasis, sealMainBasis, verifyMainBasis, validateMainBasisInput, prepareContext, reviewContext, prepareBasis, prepareCoverage } from './mainbasis.mjs';
 import { reviewHash } from './requirement-traceability.mjs';
 import { validateGenerationInput } from './validate-generation-input.mjs';
 import { validateTestcaseDelivery } from './validate-testcase-delivery.mjs';
@@ -47,8 +47,20 @@ test('MainBasis 同步发布、版本漂移及共用入口隔离', async () => {
     await reviewContext(root, 'project', 'work/task');
     await prepareBasis(root, 'project', 'work/task');
     await completeTransfer('mainbasis-transfer.json', 'mainbasis-units.json');
-    await sealMainBasis(root, 'project', 'work/task');
+    sync.MainBasis复核.来源映射 = Array.from({length: 300}, () => ({...sync.MainBasis复核.来源映射[0]}));
+    await json('work/task/prototype-context-sync-result.json', sync);
+    const originalRead = fs.readFile; let reads = 0;
+    fs.readFile = async (...args) => { if (String(args[0]).endsWith('/MainBasis/统一需求文档.md')) reads++; return originalRead(...args); };
+    try { await sealMainBasis(root, 'project', 'work/task'); }
+    finally { fs.readFile = originalRead; }
+    assert.ok(reads < 10, `300 条映射不应重复读取目标全文：${reads}`);
     const valid = await verifyMainBasis(root, 'project');
+    await prepareCoverage(root, 'project', ['work/batch/user', 'work/batch/guild', 'work/batch/admin']);
+    const coverages = await Promise.all(['user','guild','admin'].map(end => read(`work/batch/${end}/requirement-coverage.json`)));
+    assert.deepEqual(coverages[0], coverages[1]); assert.deepEqual(coverages[0], coverages[2]);
+    assert.ok(coverages[0].逐项.every(row => row.状态 === '未覆盖'));
+    await assert.rejects(prepareCoverage(root, 'project', ['work/untouched/user', 'work/batch/user']), /禁止覆盖/);
+    await assert.rejects(fs.stat(path.join(root, 'work/untouched/user/requirement-coverage.json')), /ENOENT/);
     const manifest = { 项目目录: 'project', 历史策略: '不读取不比较', MainBasis基线: { 路径: valid.config.baseline, 'SHA-256': valid.基线SHA256 }, 输入文件: valid.baseline.文档.map((file, index) => ({ ...file, 角色: index ? '风险与缺口' : '当前业务证据', 允许定义业务规则: !index })) };
     await validateMainBasisInput(root, manifest);
     await assert.rejects(validateMainBasisInput(root, { ...manifest, 历史用例比较结果: 'work/old.json' }), /不得指定历史比较/);

@@ -1,0 +1,2268 @@
+[
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Google授权入口",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "用户协议和隐私政策均已勾选"
+    ],
+    "steps": [
+      "点击Google登录"
+    ],
+    "result": "唤起Google授权页面",
+    "refs": [
+      "REQ-40eeb040fd0b",
+      "REQ-76e70fcba89b"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "e1861590e3012875eba2c638e0a406d9c3a945c13fe7b353a44c5f7d4539aac0",
+      "506ab03be47b25c9818f72b6e31ee3310dbb3a1270575439b3f3a645d7003559"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Google未同意协议",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议未勾选"
+    ],
+    "steps": [
+      "点击Google登录"
+    ],
+    "result": "提示先同意用户协议和隐私政策",
+    "refs": [
+      "REQ-527b389bdcda"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "9a0786ed0b914d60ddff688bd6bb5bd7504bb10d0f614d002695e7b5d36649a5"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Google取消授权",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选"
+    ],
+    "steps": [
+      "点击Google登录",
+      "在授权页面点击取消"
+    ],
+    "result": "提示“已取消授权”",
+    "refs": [
+      "REQ-a018ce659c74"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "a88eb1c9b88c90122871d12d3a3fc7b4788aa2da184c0f3256041b1ffa033618"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Google授权失败",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "第三方授权服务返回失败"
+    ],
+    "steps": [
+      "点击Google登录"
+    ],
+    "result": "提示“登录失败，请重试”",
+    "refs": [
+      "REQ-a018ce659c74"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "a88eb1c9b88c90122871d12d3a3fc7b4788aa2da184c0f3256041b1ffa033618"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Google已有账号登录",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "Google账号已绑定一个正常状态的Luma Live账号"
+    ],
+    "steps": [
+      "点击Google登录",
+      "完成第三方授权"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-b176b815ee3f",
+      "REQ-af1de9dc6f1d"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "04891e9e76d6a11fc678bc8795d5d9485a643270d9eb16bbf4c74d8be7d86417",
+      "41ecc36a439f0956523c9502d8eb4caae053820ee0cc82bc1aebb0ccd8ad90c2"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Google新账号分流",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "Google账号从未关联Luma Live账号"
+    ],
+    "steps": [
+      "点击Google登录",
+      "完成第三方授权"
+    ],
+    "result": "进入资料补全页",
+    "refs": [
+      "REQ-b176b815ee3f",
+      "REQ-af1de9dc6f1d"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "04891e9e76d6a11fc678bc8795d5d9485a643270d9eb16bbf4c74d8be7d86417",
+      "41ecc36a439f0956523c9502d8eb4caae053820ee0cc82bc1aebb0ccd8ad90c2"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Google封禁账号拦截",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "Google关联的账号已被平台封禁"
+    ],
+    "steps": [
+      "点击Google登录",
+      "完成第三方授权"
+    ],
+    "result": "不能进入已登录首页",
+    "refs": [
+      "REQ-c006ed524230",
+      "REQ-f07ba4f39c72"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "17aed2d8568fe95864d06e553825015d22777296b464269a3cc674348e7125b7",
+      "a16adc48df4e9b68c08eaf80b1e245fb47958bbab2d2e529de3e2a8703133ab8"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Google冷静期分流",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "Google关联账号正在七日注销冷静期内"
+    ],
+    "steps": [
+      "点击Google登录",
+      "完成第三方授权"
+    ],
+    "result": "显示注销冷静期弹窗",
+    "refs": [
+      "REQ-b4c289296364",
+      "REQ-56ba02295864"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "91a760186aea52c8c3c058896078b7bccd5c7ae0aab52c9c7ca07e27cf3d82f3",
+      "b88c2da3199545b19caae65a4d05cc6f9d1b33fdc25e99827b21b10713098588"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Facebook授权入口",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "用户协议和隐私政策均已勾选"
+    ],
+    "steps": [
+      "点击Facebook登录"
+    ],
+    "result": "唤起Facebook授权页面",
+    "refs": [
+      "REQ-fd8fa4b8e076",
+      "REQ-76e70fcba89b"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "fe05e833b50a4b5cdfcad91e953dd000fb951e2e2e09072cd3b82a09b4cb566a",
+      "506ab03be47b25c9818f72b6e31ee3310dbb3a1270575439b3f3a645d7003559"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Facebook未同意协议",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议未勾选"
+    ],
+    "steps": [
+      "点击Facebook登录"
+    ],
+    "result": "提示先同意用户协议和隐私政策",
+    "refs": [
+      "REQ-527b389bdcda"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "9a0786ed0b914d60ddff688bd6bb5bd7504bb10d0f614d002695e7b5d36649a5"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Facebook取消授权",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选"
+    ],
+    "steps": [
+      "点击Facebook登录",
+      "在授权页面点击取消"
+    ],
+    "result": "提示“已取消授权”",
+    "refs": [
+      "REQ-a018ce659c74"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "a88eb1c9b88c90122871d12d3a3fc7b4788aa2da184c0f3256041b1ffa033618"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Facebook授权失败",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "第三方授权服务返回失败"
+    ],
+    "steps": [
+      "点击Facebook登录"
+    ],
+    "result": "提示“登录失败，请重试”",
+    "refs": [
+      "REQ-a018ce659c74"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "a88eb1c9b88c90122871d12d3a3fc7b4788aa2da184c0f3256041b1ffa033618"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Facebook已有账号登录",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "Facebook账号已绑定一个正常状态的Luma Live账号"
+    ],
+    "steps": [
+      "点击Facebook登录",
+      "完成第三方授权"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-b176b815ee3f",
+      "REQ-af1de9dc6f1d"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "04891e9e76d6a11fc678bc8795d5d9485a643270d9eb16bbf4c74d8be7d86417",
+      "41ecc36a439f0956523c9502d8eb4caae053820ee0cc82bc1aebb0ccd8ad90c2"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Facebook新账号分流",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "Facebook账号从未关联Luma Live账号"
+    ],
+    "steps": [
+      "点击Facebook登录",
+      "完成第三方授权"
+    ],
+    "result": "进入资料补全页",
+    "refs": [
+      "REQ-b176b815ee3f",
+      "REQ-af1de9dc6f1d"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "04891e9e76d6a11fc678bc8795d5d9485a643270d9eb16bbf4c74d8be7d86417",
+      "41ecc36a439f0956523c9502d8eb4caae053820ee0cc82bc1aebb0ccd8ad90c2"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Facebook封禁账号拦截",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "Facebook关联的账号已被平台封禁"
+    ],
+    "steps": [
+      "点击Facebook登录",
+      "完成第三方授权"
+    ],
+    "result": "不能进入已登录首页",
+    "refs": [
+      "REQ-c006ed524230",
+      "REQ-f07ba4f39c72"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "17aed2d8568fe95864d06e553825015d22777296b464269a3cc674348e7125b7",
+      "a16adc48df4e9b68c08eaf80b1e245fb47958bbab2d2e529de3e2a8703133ab8"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Facebook冷静期分流",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "Facebook关联账号正在七日注销冷静期内"
+    ],
+    "steps": [
+      "点击Facebook登录",
+      "完成第三方授权"
+    ],
+    "result": "显示注销冷静期弹窗",
+    "refs": [
+      "REQ-b4c289296364",
+      "REQ-56ba02295864"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "91a760186aea52c8c3c058896078b7bccd5c7ae0aab52c9c7ca07e27cf3d82f3",
+      "b88c2da3199545b19caae65a4d05cc6f9d1b33fdc25e99827b21b10713098588"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Apple ID授权入口",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "测试设备为iOS",
+      "用户协议和隐私政策均已勾选"
+    ],
+    "steps": [
+      "点击Apple ID登录"
+    ],
+    "result": "唤起Apple ID授权页面",
+    "refs": [
+      "REQ-b89d6085cb6c",
+      "REQ-76e70fcba89b"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "9feb34a10fc6e47df902315241073a22f28203bb4f738f497638fd4402d0e53a",
+      "506ab03be47b25c9818f72b6e31ee3310dbb3a1270575439b3f3a645d7003559"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Apple ID未同意协议",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "测试设备为iOS",
+      "协议未勾选"
+    ],
+    "steps": [
+      "点击Apple ID登录"
+    ],
+    "result": "提示先同意用户协议和隐私政策",
+    "refs": [
+      "REQ-527b389bdcda"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "9a0786ed0b914d60ddff688bd6bb5bd7504bb10d0f614d002695e7b5d36649a5"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Apple ID取消授权",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "测试设备为iOS",
+      "协议已勾选"
+    ],
+    "steps": [
+      "点击Apple ID登录",
+      "在授权页面点击取消"
+    ],
+    "result": "提示“已取消授权”",
+    "refs": [
+      "REQ-a018ce659c74"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "a88eb1c9b88c90122871d12d3a3fc7b4788aa2da184c0f3256041b1ffa033618"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Apple ID授权失败",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "测试设备为iOS",
+      "协议已勾选",
+      "第三方授权服务返回失败"
+    ],
+    "steps": [
+      "点击Apple ID登录"
+    ],
+    "result": "提示“登录失败，请重试”",
+    "refs": [
+      "REQ-a018ce659c74"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "a88eb1c9b88c90122871d12d3a3fc7b4788aa2da184c0f3256041b1ffa033618"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Apple ID已有账号登录",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "测试设备为iOS",
+      "协议已勾选",
+      "Apple ID账号已绑定一个正常状态的Luma Live账号"
+    ],
+    "steps": [
+      "点击Apple ID登录",
+      "完成第三方授权"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-b176b815ee3f",
+      "REQ-af1de9dc6f1d"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "04891e9e76d6a11fc678bc8795d5d9485a643270d9eb16bbf4c74d8be7d86417",
+      "41ecc36a439f0956523c9502d8eb4caae053820ee0cc82bc1aebb0ccd8ad90c2"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Apple ID新账号分流",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "测试设备为iOS",
+      "协议已勾选",
+      "Apple ID账号从未关联Luma Live账号"
+    ],
+    "steps": [
+      "点击Apple ID登录",
+      "完成第三方授权"
+    ],
+    "result": "进入资料补全页",
+    "refs": [
+      "REQ-b176b815ee3f",
+      "REQ-af1de9dc6f1d"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "04891e9e76d6a11fc678bc8795d5d9485a643270d9eb16bbf4c74d8be7d86417",
+      "41ecc36a439f0956523c9502d8eb4caae053820ee0cc82bc1aebb0ccd8ad90c2"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Apple ID封禁账号拦截",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "测试设备为iOS",
+      "协议已勾选",
+      "Apple ID关联的账号已被平台封禁"
+    ],
+    "steps": [
+      "点击Apple ID登录",
+      "完成第三方授权"
+    ],
+    "result": "不能进入已登录首页",
+    "refs": [
+      "REQ-c006ed524230",
+      "REQ-f07ba4f39c72"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "17aed2d8568fe95864d06e553825015d22777296b464269a3cc674348e7125b7",
+      "a16adc48df4e9b68c08eaf80b1e245fb47958bbab2d2e529de3e2a8703133ab8"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Apple ID冷静期分流",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "测试设备为iOS",
+      "协议已勾选",
+      "Apple ID关联账号正在七日注销冷静期内"
+    ],
+    "steps": [
+      "点击Apple ID登录",
+      "完成第三方授权"
+    ],
+    "result": "显示注销冷静期弹窗",
+    "refs": [
+      "REQ-b4c289296364",
+      "REQ-56ba02295864"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "91a760186aea52c8c3c058896078b7bccd5c7ae0aab52c9c7ca07e27cf3d82f3",
+      "b88c2da3199545b19caae65a4d05cc6f9d1b33fdc25e99827b21b10713098588"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "TikTok授权入口",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "用户协议和隐私政策均已勾选"
+    ],
+    "steps": [
+      "点击TikTok登录"
+    ],
+    "result": "唤起TikTok授权页面",
+    "refs": [
+      "REQ-7cace569fd6a",
+      "REQ-76e70fcba89b"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "b5642dccdc186bf667b8faa8dbe823baa074da17e5ace03e4a3ecd65cb1ba640",
+      "506ab03be47b25c9818f72b6e31ee3310dbb3a1270575439b3f3a645d7003559"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "TikTok未同意协议",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议未勾选"
+    ],
+    "steps": [
+      "点击TikTok登录"
+    ],
+    "result": "提示先同意用户协议和隐私政策",
+    "refs": [
+      "REQ-527b389bdcda"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "9a0786ed0b914d60ddff688bd6bb5bd7504bb10d0f614d002695e7b5d36649a5"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "TikTok取消授权",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选"
+    ],
+    "steps": [
+      "点击TikTok登录",
+      "在授权页面点击取消"
+    ],
+    "result": "提示“已取消授权”",
+    "refs": [
+      "REQ-a018ce659c74"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "a88eb1c9b88c90122871d12d3a3fc7b4788aa2da184c0f3256041b1ffa033618"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "TikTok授权失败",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "第三方授权服务返回失败"
+    ],
+    "steps": [
+      "点击TikTok登录"
+    ],
+    "result": "提示“登录失败，请重试”",
+    "refs": [
+      "REQ-a018ce659c74"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "a88eb1c9b88c90122871d12d3a3fc7b4788aa2da184c0f3256041b1ffa033618"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "TikTok已有账号登录",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "TikTok账号已绑定一个正常状态的Luma Live账号"
+    ],
+    "steps": [
+      "点击TikTok登录",
+      "完成第三方授权"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-b176b815ee3f",
+      "REQ-af1de9dc6f1d"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "04891e9e76d6a11fc678bc8795d5d9485a643270d9eb16bbf4c74d8be7d86417",
+      "41ecc36a439f0956523c9502d8eb4caae053820ee0cc82bc1aebb0ccd8ad90c2"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "TikTok新账号分流",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "TikTok账号从未关联Luma Live账号"
+    ],
+    "steps": [
+      "点击TikTok登录",
+      "完成第三方授权"
+    ],
+    "result": "进入资料补全页",
+    "refs": [
+      "REQ-b176b815ee3f",
+      "REQ-af1de9dc6f1d"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "04891e9e76d6a11fc678bc8795d5d9485a643270d9eb16bbf4c74d8be7d86417",
+      "41ecc36a439f0956523c9502d8eb4caae053820ee0cc82bc1aebb0ccd8ad90c2"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "TikTok封禁账号拦截",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "TikTok关联的账号已被平台封禁"
+    ],
+    "steps": [
+      "点击TikTok登录",
+      "完成第三方授权"
+    ],
+    "result": "不能进入已登录首页",
+    "refs": [
+      "REQ-c006ed524230",
+      "REQ-f07ba4f39c72"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "17aed2d8568fe95864d06e553825015d22777296b464269a3cc674348e7125b7",
+      "a16adc48df4e9b68c08eaf80b1e245fb47958bbab2d2e529de3e2a8703133ab8"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "TikTok冷静期分流",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议已勾选",
+      "TikTok关联账号正在七日注销冷静期内"
+    ],
+    "steps": [
+      "点击TikTok登录",
+      "完成第三方授权"
+    ],
+    "result": "显示注销冷静期弹窗",
+    "refs": [
+      "REQ-b4c289296364",
+      "REQ-56ba02295864"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "91a760186aea52c8c3c058896078b7bccd5c7ae0aab52c9c7ca07e27cf3d82f3",
+      "b88c2da3199545b19caae65a4d05cc6f9d1b33fdc25e99827b21b10713098588"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "Android不提供Apple登录",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "测试设备为Android"
+    ],
+    "steps": [
+      "查看第三方登录入口"
+    ],
+    "result": "不显示Apple ID登录入口",
+    "refs": [
+      "REQ-a550afe9b682"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3c1120071e54391d89aa6e83685379350c35ae3a7d21416d724e986f62533510"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "手机号登录入口",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面"
+    ],
+    "steps": [
+      "点击手机号登录"
+    ],
+    "result": "进入手机号登录页",
+    "refs": [
+      "REQ-5747707e2366"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "12ad5772150c6147a2ae57c5147e836a094ee40531f720b7a62f2cd0800f79df"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "邮箱登录入口",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面"
+    ],
+    "steps": [
+      "点击邮箱登录"
+    ],
+    "result": "进入邮箱登录页",
+    "refs": [
+      "REQ-33b03452c3c7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ac913a49a27c7746eeacc547216c6bf144f461599040136ed34c2f8387865e07"
+    ]
+  },
+  {
+    "page": "auth-login-register.html",
+    "role": "未登录用户",
+    "point": "游客免协议进入",
+    "pre": [
+      "未登录用户；当前处于登录与注册页面",
+      "协议未勾选"
+    ],
+    "steps": [
+      "点击游客进入"
+    ],
+    "result": "进入游客首页",
+    "refs": [
+      "REQ-34712a13e43f",
+      "REQ-99f5b6a332c2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "cea61f113e91e22ddbc69ea8ab4ac9b7d2180097a14fc4d0d3513b844ca08c89",
+      "7d59ca7ccfcf1ac8adb7f927d8fb4af4060ec9a7c48c07fc5e5dcc7b55626957"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "默认验证码方式",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面"
+    ],
+    "steps": [
+      "查看登录方式"
+    ],
+    "result": "默认使用短信验证码登录",
+    "refs": [
+      "REQ-efd41a453368"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9253385a5ca7aa81cfe10971e6323b6ce591703715ff4553eaeca4eff9ff076d"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "密码方式切换",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面"
+    ],
+    "steps": [
+      "点击使用密码登录"
+    ],
+    "result": "显示密码登录表单",
+    "refs": [
+      "REQ-d2a5c2bc5ab7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b7a15b59b916d9ccd6186193a51a8c1035c6c48e5a726f5a5378b726aef90f09"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "验证码方式切换",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "当前选择密码登录"
+    ],
+    "steps": [
+      "点击使用短信验证码登录"
+    ],
+    "result": "显示短信验证码登录表单",
+    "refs": [
+      "REQ-d2a5c2bc5ab7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b7a15b59b916d9ccd6186193a51a8c1035c6c48e5a726f5a5378b726aef90f09"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "获取验证码",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号81234567890有效且属于测试人员可接收的测试账号"
+    ],
+    "steps": [
+      "输入手机号81234567890",
+      "点击获取验证码"
+    ],
+    "result": "开始60秒重发倒计时",
+    "refs": [
+      "REQ-d11325bdaeb3"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "2361bcf411dea910b93bcf63ebd391362e54852a8474c10bc25edb8132777d55"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "倒计时内重复获取",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号有效；验证码发送成功后已过59秒"
+    ],
+    "steps": [
+      "查看获取验证码按钮"
+    ],
+    "result": "获取验证码按钮不可用",
+    "refs": [
+      "REQ-d11325bdaeb3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "2361bcf411dea910b93bcf63ebd391362e54852a8474c10bc25edb8132777d55"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "倒计时结束重新获取",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号有效；验证码发送成功后已过60秒"
+    ],
+    "steps": [
+      "点击获取验证码"
+    ],
+    "result": "允许重新发送验证码",
+    "refs": [
+      "REQ-d11325bdaeb3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "2361bcf411dea910b93bcf63ebd391362e54852a8474c10bc25edb8132777d55"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "验证码正常登录",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号已注册且账号正常；协议已勾选；验证码已发送4分钟"
+    ],
+    "steps": [
+      "输入手机号及本次收到的正确六位验证码",
+      "点击继续"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-43f78ae14856",
+      "REQ-710f264aa1d8"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "2084d2abda8fef0b47b7fe05bd0169175fc83d22ad55cf77c9be0f19ada3c8c7",
+      "9fe0e6ba6eec57ac4a8f1f208c4a4328afb2b3a9b184d3ec11b5a897c3d8195f"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "验证码五分钟到期",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号已注册；协议已勾选；本次验证码发送后已满5分钟"
+    ],
+    "steps": [
+      "输入本次已到期的验证码",
+      "点击继续"
+    ],
+    "result": "不能使用该验证码完成登录",
+    "refs": [
+      "REQ-43f78ae14856"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "2084d2abda8fef0b47b7fe05bd0169175fc83d22ad55cf77c9be0f19ada3c8c7"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "第五次验证码错误失效",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号已注册；协议已勾选；本次验证码仍在有效期内且已连续输错4次"
+    ],
+    "steps": [
+      "输入错误验证码并点击继续",
+      "改为本次正确验证码并点击继续"
+    ],
+    "result": "当前验证码不能再完成登录",
+    "refs": [
+      "REQ-43f78ae14856"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "2084d2abda8fef0b47b7fe05bd0169175fc83d22ad55cf77c9be0f19ada3c8c7"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "四次验证码错误后纠正",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号已注册；协议已勾选；本次验证码仍在有效期内且已连续输错4次"
+    ],
+    "steps": [
+      "输入本次正确验证码",
+      "点击继续"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-43f78ae14856",
+      "REQ-710f264aa1d8"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "2084d2abda8fef0b47b7fe05bd0169175fc83d22ad55cf77c9be0f19ada3c8c7",
+      "9fe0e6ba6eec57ac4a8f1f208c4a4328afb2b3a9b184d3ec11b5a897c3d8195f"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "空密码拦截",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号已输入；当前密码登录；协议已勾选"
+    ],
+    "steps": [
+      "清空密码",
+      "查看继续按钮"
+    ],
+    "result": "不能提交密码登录",
+    "refs": [
+      "REQ-c45bffcc76df",
+      "REQ-710f264aa1d8"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "3b3e827611b83d7c21295c0a42850155297d908803f2ad5341ba39b3db4013ae",
+      "9fe0e6ba6eec57ac4a8f1f208c4a4328afb2b3a9b184d3ec11b5a897c3d8195f"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "密码登录成功",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号已注册；当前密码登录；协议已勾选；账号状态正常"
+    ],
+    "steps": [
+      "输入正确密码",
+      "点击继续"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-710f264aa1d8"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "9fe0e6ba6eec57ac4a8f1f208c4a4328afb2b3a9b184d3ec11b5a897c3d8195f"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "协议未勾选拦截",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号及登录凭证有效；协议未勾选"
+    ],
+    "steps": [
+      "查看继续按钮"
+    ],
+    "result": "继续按钮不可用",
+    "refs": [
+      "REQ-710f264aa1d8"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "9fe0e6ba6eec57ac4a8f1f208c4a4328afb2b3a9b184d3ec11b5a897c3d8195f"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "注销冷静期拦截",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号及登录凭证有效；协议已勾选；账号正在七日注销冷静期"
+    ],
+    "steps": [
+      "点击继续"
+    ],
+    "result": "显示注销冷静期弹窗",
+    "refs": [
+      "REQ-89e915f8f5a2"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "69104f7cfdeb5d1cf1d21c32150aa01eff838815fa9eb45447370c52743b3722"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "验证码格式12345",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号有效；协议已勾选"
+    ],
+    "steps": [
+      "输入验证码“12345”",
+      "查看继续按钮"
+    ],
+    "result": "不能提交不符合六位数字格式的验证码登录",
+    "refs": [
+      "REQ-43f78ae14856"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "2084d2abda8fef0b47b7fe05bd0169175fc83d22ad55cf77c9be0f19ada3c8c7"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "验证码格式1234567",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号有效；协议已勾选"
+    ],
+    "steps": [
+      "输入验证码“1234567”",
+      "查看继续按钮"
+    ],
+    "result": "不能提交不符合六位数字格式的验证码登录",
+    "refs": [
+      "REQ-43f78ae14856"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "2084d2abda8fef0b47b7fe05bd0169175fc83d22ad55cf77c9be0f19ada3c8c7"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "验证码格式12a456",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号有效；协议已勾选"
+    ],
+    "steps": [
+      "输入验证码“12a456”",
+      "查看继续按钮"
+    ],
+    "result": "不能提交不符合六位数字格式的验证码登录",
+    "refs": [
+      "REQ-43f78ae14856"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "2084d2abda8fef0b47b7fe05bd0169175fc83d22ad55cf77c9be0f19ada3c8c7"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "验证码格式空",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面",
+      "手机号有效；协议已勾选"
+    ],
+    "steps": [
+      "输入验证码“”",
+      "查看继续按钮"
+    ],
+    "result": "不能提交不符合六位数字格式的验证码登录",
+    "refs": [
+      "REQ-43f78ae14856"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "2084d2abda8fef0b47b7fe05bd0169175fc83d22ad55cf77c9be0f19ada3c8c7"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "手机号7位",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面"
+    ],
+    "steps": [
+      "输入由7个“8”组成的手机号",
+      "查看获取验证码按钮"
+    ],
+    "result": "不能为该手机号发送验证码",
+    "refs": [
+      "REQ-769e98db4e74",
+      "REQ-d11325bdaeb3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "bb061988ec01f601dac6e91a29c6f1e0fe500d2fba4b0040bebf07285787cfd1",
+      "2361bcf411dea910b93bcf63ebd391362e54852a8474c10bc25edb8132777d55"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "手机号8位",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面"
+    ],
+    "steps": [
+      "输入由8个“8”组成的手机号",
+      "查看获取验证码按钮"
+    ],
+    "result": "允许为该手机号获取验证码",
+    "refs": [
+      "REQ-769e98db4e74",
+      "REQ-d11325bdaeb3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "bb061988ec01f601dac6e91a29c6f1e0fe500d2fba4b0040bebf07285787cfd1",
+      "2361bcf411dea910b93bcf63ebd391362e54852a8474c10bc25edb8132777d55"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "手机号15位",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面"
+    ],
+    "steps": [
+      "输入由15个“8”组成的手机号",
+      "查看获取验证码按钮"
+    ],
+    "result": "允许为该手机号获取验证码",
+    "refs": [
+      "REQ-769e98db4e74",
+      "REQ-d11325bdaeb3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "bb061988ec01f601dac6e91a29c6f1e0fe500d2fba4b0040bebf07285787cfd1",
+      "2361bcf411dea910b93bcf63ebd391362e54852a8474c10bc25edb8132777d55"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "未登录用户",
+    "point": "手机号16位",
+    "pre": [
+      "未登录用户；当前处于手机号登录页面"
+    ],
+    "steps": [
+      "输入由16个“8”组成的手机号",
+      "查看获取验证码按钮"
+    ],
+    "result": "不能为该手机号发送验证码",
+    "refs": [
+      "REQ-769e98db4e74",
+      "REQ-d11325bdaeb3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "bb061988ec01f601dac6e91a29c6f1e0fe500d2fba4b0040bebf07285787cfd1",
+      "2361bcf411dea910b93bcf63ebd391362e54852a8474c10bc25edb8132777d55"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "默认验证码方式",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面"
+    ],
+    "steps": [
+      "查看登录方式"
+    ],
+    "result": "默认使用邮箱验证码登录",
+    "refs": [
+      "REQ-76e9f678da24"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4f56a937f51e863d4c22841e2a40a212f90ff026d88671e33369da3168c86ebc"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "密码方式切换",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面"
+    ],
+    "steps": [
+      "点击使用密码登录"
+    ],
+    "result": "显示密码登录表单",
+    "refs": [
+      "REQ-6369e820dcd5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d44b44e33d5610459b76d7663560ca5239fe1a60de5dd7072eac71de25c48922"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "验证码方式切换",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "当前选择密码登录"
+    ],
+    "steps": [
+      "点击使用邮箱验证码登录"
+    ],
+    "result": "显示邮箱验证码登录表单",
+    "refs": [
+      "REQ-6369e820dcd5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d44b44e33d5610459b76d7663560ca5239fe1a60de5dd7072eac71de25c48922"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "获取验证码",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱qa.user@example.test有效且属于测试人员可接收的测试账号"
+    ],
+    "steps": [
+      "输入邮箱qa.user@example.test",
+      "点击获取验证码"
+    ],
+    "result": "开始60秒重发倒计时",
+    "refs": [
+      "REQ-73f4f8991460"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "d72e690554da05b5e29ac47d473a6f6dd0c8f42fc16b52c55adee316de8da998"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "倒计时内重复获取",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱有效；验证码发送成功后已过59秒"
+    ],
+    "steps": [
+      "查看获取验证码按钮"
+    ],
+    "result": "获取验证码按钮不可用",
+    "refs": [
+      "REQ-73f4f8991460"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "d72e690554da05b5e29ac47d473a6f6dd0c8f42fc16b52c55adee316de8da998"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "倒计时结束重新获取",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱有效；验证码发送成功后已过60秒"
+    ],
+    "steps": [
+      "点击获取验证码"
+    ],
+    "result": "允许重新发送验证码",
+    "refs": [
+      "REQ-73f4f8991460"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "d72e690554da05b5e29ac47d473a6f6dd0c8f42fc16b52c55adee316de8da998"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "验证码正常登录",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱已注册且账号正常；协议已勾选；验证码已发送4分钟"
+    ],
+    "steps": [
+      "输入邮箱及本次收到的正确六位验证码",
+      "点击继续"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-6093735e3bc3",
+      "REQ-b92d5c7ef6a0"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "6eef53c0b641c4edd8ac02b61201ac8df43fbe7cc79b04d77f6f5293a032fb37",
+      "4398eb87fc050194767ff1f2613feaea1297ae3add9e64290b3a7398b55b45b8"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "验证码五分钟到期",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱已注册；协议已勾选；本次验证码发送后已满5分钟"
+    ],
+    "steps": [
+      "输入本次已到期的验证码",
+      "点击继续"
+    ],
+    "result": "不能使用该验证码完成登录",
+    "refs": [
+      "REQ-6093735e3bc3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "6eef53c0b641c4edd8ac02b61201ac8df43fbe7cc79b04d77f6f5293a032fb37"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "第五次验证码错误失效",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱已注册；协议已勾选；本次验证码仍在有效期内且已连续输错4次"
+    ],
+    "steps": [
+      "输入错误验证码并点击继续",
+      "改为本次正确验证码并点击继续"
+    ],
+    "result": "当前验证码不能再完成登录",
+    "refs": [
+      "REQ-6093735e3bc3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "6eef53c0b641c4edd8ac02b61201ac8df43fbe7cc79b04d77f6f5293a032fb37"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "四次验证码错误后纠正",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱已注册；协议已勾选；本次验证码仍在有效期内且已连续输错4次"
+    ],
+    "steps": [
+      "输入本次正确验证码",
+      "点击继续"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-6093735e3bc3",
+      "REQ-b92d5c7ef6a0"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "6eef53c0b641c4edd8ac02b61201ac8df43fbe7cc79b04d77f6f5293a032fb37",
+      "4398eb87fc050194767ff1f2613feaea1297ae3add9e64290b3a7398b55b45b8"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "空密码拦截",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱已输入；当前密码登录；协议已勾选"
+    ],
+    "steps": [
+      "清空密码",
+      "查看继续按钮"
+    ],
+    "result": "不能提交密码登录",
+    "refs": [
+      "REQ-ded540825cfd",
+      "REQ-b92d5c7ef6a0"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "b3e8302cabb37e17203d50fc8b975d1a015a10e07642d2753b3b1a8095bd7066",
+      "4398eb87fc050194767ff1f2613feaea1297ae3add9e64290b3a7398b55b45b8"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "密码登录成功",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱已注册；当前密码登录；协议已勾选；账号状态正常"
+    ],
+    "steps": [
+      "输入正确密码",
+      "点击继续"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-b92d5c7ef6a0"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "4398eb87fc050194767ff1f2613feaea1297ae3add9e64290b3a7398b55b45b8"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "协议未勾选拦截",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱及登录凭证有效；协议未勾选"
+    ],
+    "steps": [
+      "查看继续按钮"
+    ],
+    "result": "继续按钮不可用",
+    "refs": [
+      "REQ-b92d5c7ef6a0"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "4398eb87fc050194767ff1f2613feaea1297ae3add9e64290b3a7398b55b45b8"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "注销冷静期拦截",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱及登录凭证有效；协议已勾选；账号正在七日注销冷静期"
+    ],
+    "steps": [
+      "点击继续"
+    ],
+    "result": "显示注销冷静期弹窗",
+    "refs": [
+      "REQ-23a6b59cab38"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "6e78c772d9d300f70bbf0e837d7a7e21fc9ad96287299ef9d36dfa5831bd4439"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "验证码格式12345",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱有效；协议已勾选"
+    ],
+    "steps": [
+      "输入验证码“12345”",
+      "查看继续按钮"
+    ],
+    "result": "不能提交不符合六位数字格式的验证码登录",
+    "refs": [
+      "REQ-6093735e3bc3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "6eef53c0b641c4edd8ac02b61201ac8df43fbe7cc79b04d77f6f5293a032fb37"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "验证码格式1234567",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱有效；协议已勾选"
+    ],
+    "steps": [
+      "输入验证码“1234567”",
+      "查看继续按钮"
+    ],
+    "result": "不能提交不符合六位数字格式的验证码登录",
+    "refs": [
+      "REQ-6093735e3bc3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "6eef53c0b641c4edd8ac02b61201ac8df43fbe7cc79b04d77f6f5293a032fb37"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "验证码格式12a456",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱有效；协议已勾选"
+    ],
+    "steps": [
+      "输入验证码“12a456”",
+      "查看继续按钮"
+    ],
+    "result": "不能提交不符合六位数字格式的验证码登录",
+    "refs": [
+      "REQ-6093735e3bc3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "6eef53c0b641c4edd8ac02b61201ac8df43fbe7cc79b04d77f6f5293a032fb37"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "验证码格式空",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面",
+      "邮箱有效；协议已勾选"
+    ],
+    "steps": [
+      "输入验证码“”",
+      "查看继续按钮"
+    ],
+    "result": "不能提交不符合六位数字格式的验证码登录",
+    "refs": [
+      "REQ-6093735e3bc3"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "6eef53c0b641c4edd8ac02b61201ac8df43fbe7cc79b04d77f6f5293a032fb37"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "邮箱格式qa.user@example.test",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面"
+    ],
+    "steps": [
+      "输入邮箱“qa.user@example.test”",
+      "查看获取验证码按钮"
+    ],
+    "result": "允许为该邮箱获取验证码",
+    "refs": [
+      "REQ-830b83c03a0b",
+      "REQ-73f4f8991460"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "9d6d60cf5d5a6e8caab6a7d54a43c6c158dc14f7790fcca9150d84a282cea5af",
+      "d72e690554da05b5e29ac47d473a6f6dd0c8f42fc16b52c55adee316de8da998"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "邮箱格式invalid-email",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面"
+    ],
+    "steps": [
+      "输入邮箱“invalid-email”",
+      "查看获取验证码按钮"
+    ],
+    "result": "不能为该邮箱发送验证码",
+    "refs": [
+      "REQ-830b83c03a0b",
+      "REQ-73f4f8991460"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "9d6d60cf5d5a6e8caab6a7d54a43c6c158dc14f7790fcca9150d84a282cea5af",
+      "d72e690554da05b5e29ac47d473a6f6dd0c8f42fc16b52c55adee316de8da998"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "邮箱格式@example.test",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面"
+    ],
+    "steps": [
+      "输入邮箱“@example.test”",
+      "查看获取验证码按钮"
+    ],
+    "result": "不能为该邮箱发送验证码",
+    "refs": [
+      "REQ-830b83c03a0b",
+      "REQ-73f4f8991460"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "9d6d60cf5d5a6e8caab6a7d54a43c6c158dc14f7790fcca9150d84a282cea5af",
+      "d72e690554da05b5e29ac47d473a6f6dd0c8f42fc16b52c55adee316de8da998"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "邮箱格式qa@",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面"
+    ],
+    "steps": [
+      "输入邮箱“qa@”",
+      "查看获取验证码按钮"
+    ],
+    "result": "不能为该邮箱发送验证码",
+    "refs": [
+      "REQ-830b83c03a0b",
+      "REQ-73f4f8991460"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "9d6d60cf5d5a6e8caab6a7d54a43c6c158dc14f7790fcca9150d84a282cea5af",
+      "d72e690554da05b5e29ac47d473a6f6dd0c8f42fc16b52c55adee316de8da998"
+    ]
+  },
+  {
+    "page": "auth-email-login.html",
+    "role": "未登录用户",
+    "point": "邮箱格式空",
+    "pre": [
+      "未登录用户；当前处于邮箱登录页面"
+    ],
+    "steps": [
+      "输入邮箱“”",
+      "查看获取验证码按钮"
+    ],
+    "result": "不能为该邮箱发送验证码",
+    "refs": [
+      "REQ-830b83c03a0b",
+      "REQ-73f4f8991460"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "9d6d60cf5d5a6e8caab6a7d54a43c6c158dc14f7790fcca9150d84a282cea5af",
+      "d72e690554da05b5e29ac47d473a6f6dd0c8f42fc16b52c55adee316de8da998"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "按地区名称搜索",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议"
+    ],
+    "steps": [
+      "输入国家或地区名称“印度尼西亚”"
+    ],
+    "result": "搜索结果包含印度尼西亚",
+    "refs": [
+      "REQ-016b98abdeb4",
+      "REQ-5efb5b6424f2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "afdcdaf7477545a7bf788c62ebd8cfe4f581ab4953b0e94fcf53f661c986714b",
+      "005930765bee2b7cf9bd74d3f63cbefa55711eb8684b404538e1eec097e20ceb"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "按区号搜索",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议"
+    ],
+    "steps": [
+      "输入区号“+62”"
+    ],
+    "result": "搜索结果包含印度尼西亚+62",
+    "refs": [
+      "REQ-5efb5b6424f2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "005930765bee2b7cf9bd74d3f63cbefa55711eb8684b404538e1eec097e20ceb"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "搜索无结果",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议"
+    ],
+    "steps": [
+      "输入不属于支持地区的关键字“zzzz-no-country”"
+    ],
+    "result": "显示无结果空态",
+    "refs": [
+      "REQ-016b98abdeb4"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "afdcdaf7477545a7bf788c62ebd8cfe4f581ab4953b0e94fcf53f661c986714b"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "清空地区搜索",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议",
+      "搜索结果正在筛选"
+    ],
+    "steps": [
+      "清空搜索内容"
+    ],
+    "result": "恢复全部可选地区列表",
+    "refs": [
+      "REQ-5efb5b6424f2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "005930765bee2b7cf9bd74d3f63cbefa55711eb8684b404538e1eec097e20ceb"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "不提供86区号",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议"
+    ],
+    "steps": [
+      "输入区号“+86”"
+    ],
+    "result": "结果不包含中国大陆+86",
+    "refs": [
+      "REQ-69c9aabd57c2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "92dd628edef45143bf882b74d96c4d4e0f2704950349f09ae23f2cf42f4c108d"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "统一地区列表",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议"
+    ],
+    "steps": [
+      "查看地区列表分组"
+    ],
+    "result": "不设置常用地区分组",
+    "refs": [
+      "REQ-9964c7ed44cf"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2d977d2f487f95b90b1fdad086de047584b121bdc4f6ecaa1b2cbc425294eb09"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "选中地区返回",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议"
+    ],
+    "steps": [
+      "选择印度尼西亚+62"
+    ],
+    "result": "返回手机号登录页",
+    "refs": [
+      "REQ-dde5b29e8c31"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "86b7e95c88c9a122b853f2dfc72729124e91122ba1096893157979c3aee167f3"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "选择后保留手机号",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议"
+    ],
+    "steps": [
+      "选择印度尼西亚+62"
+    ],
+    "result": "手机号输入仍为81234567890",
+    "refs": [
+      "REQ-dde5b29e8c31"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "86b7e95c88c9a122b853f2dfc72729124e91122ba1096893157979c3aee167f3"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "选择后保留协议",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议"
+    ],
+    "steps": [
+      "选择印度尼西亚+62"
+    ],
+    "result": "协议仍为勾选状态",
+    "refs": [
+      "REQ-dde5b29e8c31"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "86b7e95c88c9a122b853f2dfc72729124e91122ba1096893157979c3aee167f3"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "返回不修改区号",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议",
+      "原选中区号为+60"
+    ],
+    "steps": [
+      "点击返回"
+    ],
+    "result": "手机号登录页区号仍为+60",
+    "refs": [
+      "REQ-b77a464b1c11"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b44a7352aaddb39a1f3793537a90b1f0247dc04d748c476667fb762d27524024"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "不支持设备地区回退",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议",
+      "设备地区为中国大陆且未设置过区号"
+    ],
+    "steps": [
+      "查看当前勾选的地区"
+    ],
+    "result": "当前选中印度尼西亚+62",
+    "refs": [
+      "REQ-928c2429a102"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c887861a20cece6f132365836acaba168f7bbcc332128db76eb9c9e25bab9d15"
+    ]
+  },
+  {
+    "page": "auth-country-select.html",
+    "role": "未登录用户",
+    "point": "未知设备地区回退",
+    "pre": [
+      "未登录用户；当前处于选择国家/地区页面",
+      "手机号登录页已填入81234567890且已勾选协议",
+      "无法识别设备地区且未设置过区号"
+    ],
+    "steps": [
+      "查看当前勾选的地区"
+    ],
+    "result": "当前选中印度尼西亚+62",
+    "refs": [
+      "REQ-928c2429a102"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c887861a20cece6f132365836acaba168f7bbcc332128db76eb9c9e25bab9d15"
+    ]
+  },
+  {
+    "page": "auth-profile-completion.html",
+    "role": "首次登录的新用户",
+    "point": "默认头像",
+    "pre": [
+      "首次登录的新用户；当前处于资料补全页面"
+    ],
+    "steps": [
+      "查看头像"
+    ],
+    "result": "显示系统默认头像",
+    "refs": [
+      "REQ-4fbd7f2670b0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bc697a7173ac7a8be2ec9f39917461341f5f89900563d0a9d67fb3d48936191e"
+    ]
+  },
+  {
+    "page": "auth-profile-completion.html",
+    "role": "首次登录的新用户",
+    "point": "默认昵称",
+    "pre": [
+      "首次登录的新用户；当前处于资料补全页面"
+    ],
+    "steps": [
+      "查看昵称"
+    ],
+    "result": "显示系统默认昵称",
+    "refs": [
+      "REQ-01f0e1f8b741"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "048a537621ddff41d83e25d9f80865fe05bd01ee79654aa29e5b935ca3d748be"
+    ]
+  },
+  {
+    "page": "auth-profile-completion.html",
+    "role": "首次登录的新用户",
+    "point": "选择预置头像",
+    "pre": [
+      "首次登录的新用户；当前处于资料补全页面"
+    ],
+    "steps": [
+      "点击更换头像",
+      "选择一个不同的预置头像"
+    ],
+    "result": "头像预览更新为所选头像",
+    "refs": [
+      "REQ-4fbd7f2670b0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bc697a7173ac7a8be2ec9f39917461341f5f89900563d0a9d67fb3d48936191e"
+    ]
+  },
+  {
+    "page": "auth-profile-completion.html",
+    "role": "首次登录的新用户",
+    "point": "昵称为空",
+    "pre": [
+      "首次登录的新用户；当前处于资料补全页面"
+    ],
+    "steps": [
+      "清空昵称",
+      "点击保存并进入首页"
+    ],
+    "result": "不能保存空昵称",
+    "refs": [
+      "REQ-01f0e1f8b741"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "048a537621ddff41d83e25d9f80865fe05bd01ee79654aa29e5b935ca3d748be"
+    ]
+  },
+  {
+    "page": "auth-profile-completion.html",
+    "role": "首次登录的新用户",
+    "point": "二十字昵称",
+    "pre": [
+      "首次登录的新用户；当前处于资料补全页面"
+    ],
+    "steps": [
+      "输入由20个“测”组成的昵称",
+      "点击保存并进入首页"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-01f0e1f8b741",
+      "REQ-aa7f3f33dfc4"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "048a537621ddff41d83e25d9f80865fe05bd01ee79654aa29e5b935ca3d748be",
+      "bdc1b235d7cbcd0d533c404813561ed69c3648ca826a3a772ece202c239a2d4f"
+    ]
+  },
+  {
+    "page": "auth-profile-completion.html",
+    "role": "首次登录的新用户",
+    "point": "昵称超长",
+    "pre": [
+      "首次登录的新用户；当前处于资料补全页面"
+    ],
+    "steps": [
+      "输入由21个“测”组成的昵称",
+      "点击保存并进入首页"
+    ],
+    "result": "不能保存超过20个字符的昵称",
+    "refs": [
+      "REQ-01f0e1f8b741"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "048a537621ddff41d83e25d9f80865fe05bd01ee79654aa29e5b935ca3d748be"
+    ]
+  },
+  {
+    "page": "auth-profile-completion.html",
+    "role": "首次登录的新用户",
+    "point": "保存自定义资料",
+    "pre": [
+      "首次登录的新用户；当前处于资料补全页面",
+      "预置头像已选为与默认不同的头像"
+    ],
+    "steps": [
+      "输入昵称“测试昵称”",
+      "点击保存并进入首页",
+      "查看我的资料昵称"
+    ],
+    "result": "昵称为“测试昵称”",
+    "refs": [
+      "REQ-52eaf2e65674",
+      "REQ-aa7f3f33dfc4"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9fb0632010a99deb33db13c381b3d3085365649f1f07fb1ebca2ac4c2633e745",
+      "bdc1b235d7cbcd0d533c404813561ed69c3648ca826a3a772ece202c239a2d4f"
+    ]
+  },
+  {
+    "page": "auth-profile-completion.html",
+    "role": "首次登录的新用户",
+    "point": "跳过补全",
+    "pre": [
+      "首次登录的新用户；当前处于资料补全页面"
+    ],
+    "steps": [
+      "点击先跳过"
+    ],
+    "result": "进入首页",
+    "refs": [
+      "REQ-92108788a9ad"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0d198e133012d0cacf99a01201aa57ce9b89a882d93bd8e77e43070bb76ddfad"
+    ]
+  }
+]

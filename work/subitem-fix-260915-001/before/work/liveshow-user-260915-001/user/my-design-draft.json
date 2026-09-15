@@ -1,0 +1,2260 @@
+[
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "用户ID不可修改",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "查看ID字段"
+    ],
+    "result": "ID字段只读",
+    "refs": [
+      "REQ-59280d283c2f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "596be11ea869dff0ec15221250fb4f6e3370294bf46c6f274b5e773774adcbfc"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "背景图保存",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面",
+      "已准备JPG测试背景图"
+    ],
+    "steps": [
+      "选择背景图",
+      "点击保存"
+    ],
+    "result": "个人背景显示所选图片",
+    "refs": [
+      "REQ-8c58e8fa81be"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ea62bf218b4a1f44d61c10bef4f1b3e10601260316d254870dd70ea77cc64656"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "头像审核通过",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面",
+      "已准备合规头像；头像审核服务返回通过"
+    ],
+    "steps": [
+      "选择头像",
+      "点击保存"
+    ],
+    "result": "头像更新为本次选择的图片",
+    "refs": [
+      "REQ-552d2028f671",
+      "REQ-7e0f389ab1db"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ccfd1590938054692652543eec8d4455349fdf751024ef3529dde1625ee04ea0",
+      "a5ceea7c86d674f944bb185e243191543dd5c0f184a293ddbf647ba63da32700"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "昵称审核通过",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面",
+      "昵称审核服务返回通过"
+    ],
+    "steps": [
+      "输入昵称“QA昵称A”",
+      "点击保存"
+    ],
+    "result": "昵称更新为“QA昵称A”",
+    "refs": [
+      "REQ-41075150ffa5",
+      "REQ-5aba1b5144e9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "950179274520fd585cb0ace5b8ba1206eb4eac7109390e43243a34b500b03732",
+      "8afc392e01cc05a2c85d95f006f44a7a87ed897f302334e9805c3cef1be1b4a0"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "昵称空值",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "清空昵称",
+      "查看保存按钮"
+    ],
+    "result": "保存按钮不可用",
+    "refs": [
+      "REQ-8ab770457b43"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b2f4cdb19f54e7e434b589335575155b0aa0c196e7e997b5537ac94190409983"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "性别选项",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "查看性别选项"
+    ],
+    "result": "可选值为男、女、不公开",
+    "refs": [
+      "REQ-532d60fbd167"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "55cbecc9d4f006d5e95660e85af88712751cc3ede05425c0e72ef4f68d38b5d3"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "生日当天边界",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "选择今天为生日",
+      "点击保存"
+    ],
+    "result": "生日保存为今天",
+    "refs": [
+      "REQ-98f890ca51ec"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "77b9be704bf20f8d6da10b44f921e7b89236f3204105e479bb2f5c60e683c9c0"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "生日未来日期",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "尝试选择明天为生日"
+    ],
+    "result": "不能将生日设为未来日期",
+    "refs": [
+      "REQ-98f890ca51ec"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "77b9be704bf20f8d6da10b44f921e7b89236f3204105e479bb2f5c60e683c9c0"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "非审核字段直接保存",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "输入个性签名“QA签名”",
+      "点击保存"
+    ],
+    "result": "个性签名更新为“QA签名”",
+    "refs": [
+      "REQ-4cae8cac1309",
+      "REQ-7e0f389ab1db"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "86da7c60f54e6c129d91ca5edb172aa74e1fbb8613d960b4c2e68c3604b619f1",
+      "a5ceea7c86d674f944bb185e243191543dd5c0f184a293ddbf647ba63da32700"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "审核中保存状态",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面",
+      "头像或昵称有改动；审核响应尚未返回"
+    ],
+    "steps": [
+      "点击保存"
+    ],
+    "result": "保存进入加载状态",
+    "refs": [
+      "REQ-8a531c0c3ed1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6a317749aa301b1c2182a3dc4070cb98a9748b43b16d4a710a1d23563d3e023d"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "审核拒绝提示",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面",
+      "昵称审核返回不合规"
+    ],
+    "steps": [
+      "输入昵称“审核拒绝样本”",
+      "点击保存"
+    ],
+    "result": "提示“头像或昵称不合规”",
+    "refs": [
+      "REQ-5aba1b5144e9"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "8afc392e01cc05a2c85d95f006f44a7a87ed897f302334e9805c3cef1be1b4a0"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "审核网络失败提示",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面",
+      "审核请求返回网络错误"
+    ],
+    "steps": [
+      "输入昵称“QA新昵称”",
+      "点击保存"
+    ],
+    "result": "提示“网络异常，请重试”",
+    "refs": [
+      "REQ-5aba1b5144e9"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "8afc392e01cc05a2c85d95f006f44a7a87ed897f302334e9805c3cef1be1b4a0"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "审核失败保留编辑内容",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面",
+      "原昵称为QA旧昵称；审核返回拒绝"
+    ],
+    "steps": [
+      "输入昵称“QA新昵称”",
+      "点击保存"
+    ],
+    "result": "编辑框仍保留“QA新昵称”",
+    "refs": [
+      "REQ-cdf78baeafcf"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "d31ba201eaec54a98299714c52bb0de31e4c663318ef9c79cfd04105fbe94b04"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "审核失败不覆盖已生效资料",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面",
+      "原昵称为QA旧昵称；审核返回拒绝"
+    ],
+    "steps": [
+      "输入昵称“QA新昵称”",
+      "点击保存",
+      "返回我的页面"
+    ],
+    "result": "个人昵称仍为“QA旧昵称”",
+    "refs": [
+      "REQ-cdf78baeafcf",
+      "REQ-0af0c40e3094"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "d31ba201eaec54a98299714c52bb0de31e4c663318ef9c79cfd04105fbe94b04",
+      "6704431a9e6769f874b8a54b925270905c158d439bdfacdd69f483fcd91073e1"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "昵称最大长度",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "输入20个“测”作为昵称"
+    ],
+    "result": "昵称保留20个字符",
+    "refs": [
+      "REQ-41075150ffa5",
+      "REQ-8ab770457b43"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "950179274520fd585cb0ace5b8ba1206eb4eac7109390e43243a34b500b03732",
+      "b2f4cdb19f54e7e434b589335575155b0aa0c196e7e997b5537ac94190409983"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "昵称超过最大长度",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "输入20个“测”作为昵称",
+      "继续输入字符“多”"
+    ],
+    "result": "昵称仍只有20个字符",
+    "refs": [
+      "REQ-41075150ffa5",
+      "REQ-8ab770457b43"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "950179274520fd585cb0ace5b8ba1206eb4eac7109390e43243a34b500b03732",
+      "b2f4cdb19f54e7e434b589335575155b0aa0c196e7e997b5537ac94190409983"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "个性签名最大长度",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "输入80个“测”作为个性签名"
+    ],
+    "result": "个性签名保留80个字符",
+    "refs": [
+      "REQ-4cae8cac1309",
+      "REQ-8ab770457b43"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "86da7c60f54e6c129d91ca5edb172aa74e1fbb8613d960b4c2e68c3604b619f1",
+      "b2f4cdb19f54e7e434b589335575155b0aa0c196e7e997b5537ac94190409983"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "个性签名超过最大长度",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "输入80个“测”作为个性签名",
+      "继续输入字符“多”"
+    ],
+    "result": "个性签名仍只有80个字符",
+    "refs": [
+      "REQ-4cae8cac1309",
+      "REQ-8ab770457b43"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "86da7c60f54e6c129d91ca5edb172aa74e1fbb8613d960b4c2e68c3604b619f1",
+      "b2f4cdb19f54e7e434b589335575155b0aa0c196e7e997b5537ac94190409983"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "地区最大长度",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "输入30个“测”作为地区"
+    ],
+    "result": "地区保留30个字符",
+    "refs": [
+      "REQ-9e1bd4a47438",
+      "REQ-8ab770457b43"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "b19063935a8c0017b7ba10fa4c3b505d8512514a9351eba697a4c6fd893e83f6",
+      "b2f4cdb19f54e7e434b589335575155b0aa0c196e7e997b5537ac94190409983"
+    ]
+  },
+  {
+    "page": "profile-edit.html",
+    "role": "已登录普通用户",
+    "point": "地区超过最大长度",
+    "pre": [
+      "已登录普通用户；当前处于资料编辑页面"
+    ],
+    "steps": [
+      "输入30个“测”作为地区",
+      "继续输入字符“多”"
+    ],
+    "result": "地区仍只有30个字符",
+    "refs": [
+      "REQ-9e1bd4a47438",
+      "REQ-8ab770457b43"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "b19063935a8c0017b7ba10fa4c3b505d8512514a9351eba697a4c6fd893e83f6",
+      "b2f4cdb19f54e7e434b589335575155b0aa0c196e7e997b5537ac94190409983"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "手机号脱敏",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "账号已绑定+62 81234567890"
+    ],
+    "steps": [
+      "查看绑定手机号"
+    ],
+    "result": "展示保留区号并隐藏中间号码",
+    "refs": [
+      "REQ-a7b87f8491c2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c37a4620fcc72f72b70d6c3fa102ffb14c14bf7e2a7bd4c66b7827a1eb17d4ec"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "邮箱脱敏",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "账号已绑定qa.user@example.test"
+    ],
+    "steps": [
+      "查看绑定邮箱"
+    ],
+    "result": "邮箱账号部分已隐藏",
+    "refs": [
+      "REQ-2ff6e6688c79"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f0a7e6a033d70835bc0c142d056818a6445471cb9add826b60015e8657f38785"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "未设置密码展示",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "账号没有密码"
+    ],
+    "steps": [
+      "查看密码状态"
+    ],
+    "result": "显示未设置",
+    "refs": [
+      "REQ-da54d083fb0a",
+      "REQ-8e68ce40cbbb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "719c9266c630f771c8a0c86e40fc5497f0d74be298a19de80748ee909e821006",
+      "bff68f97f07e6df6eb7af264920c14f929330059005dd2329e5e3794556a96d1"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "已设置密码展示",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "账号已设置密码"
+    ],
+    "steps": [
+      "查看密码状态"
+    ],
+    "result": "只显示已设置，不显示密码内容",
+    "refs": [
+      "REQ-da54d083fb0a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "719c9266c630f771c8a0c86e40fc5497f0d74be298a19de80748ee909e821006"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "设置密码入口",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "账号没有密码"
+    ],
+    "steps": [
+      "点击设置密码"
+    ],
+    "result": "进入设置密码页",
+    "refs": [
+      "REQ-f186d449c143",
+      "REQ-c12238909b43"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c85a72aee51fb0f3c0e7f63f10d660136ab5ac405f7251b7f526959b1c3bdf90",
+      "040124b5afef79a506bc925f2b6e4a87423f080c78a0f97710647c148fcf57f1"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "修改密码入口",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "账号已设置密码"
+    ],
+    "steps": [
+      "点击修改密码"
+    ],
+    "result": "进入修改密码页",
+    "refs": [
+      "REQ-f186d449c143"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c85a72aee51fb0f3c0e7f63f10d660136ab5ac405f7251b7f526959b1c3bdf90"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "首次系统通知申请",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "从未申请过系统通知权限"
+    ],
+    "steps": [
+      "点击系统通知"
+    ],
+    "result": "唤起系统通知授权弹窗",
+    "refs": [
+      "REQ-39ee3da3f10b",
+      "REQ-ab88d1d0a940"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "29974d957b2bfb5e0d6c64d3d2c015ad79d354764926246a393bf6c2ad9e789c",
+      "697274f9501b1e7262d36d60a1b6c0052135be74587b24c81d80204cef74effe"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "拒绝通知授权",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "系统通知授权弹窗已打开"
+    ],
+    "steps": [
+      "选择拒绝通知权限"
+    ],
+    "result": "设置页系统通知状态为已拒绝",
+    "refs": [
+      "REQ-39ee3da3f10b",
+      "REQ-97aec6dbac13"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "29974d957b2bfb5e0d6c64d3d2c015ad79d354764926246a393bf6c2ad9e789c",
+      "93d33628b1402841f615a84a916ee61b4880f855e086e107b010a58b3baee78d"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "已拒绝通知再次开启",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "系统通知权限已拒绝"
+    ],
+    "steps": [
+      "点击系统通知"
+    ],
+    "result": "显示前往系统设置的引导弹窗",
+    "refs": [
+      "REQ-344eeae4d06a",
+      "REQ-ab2e5019404e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c16e0d53f676b48304b26e57368b7b431c1beff981ff1b03de267448fc356659",
+      "521ec370280105d24905d7d34107d1b2fa1acf93448c51dfd9b21ccfb5dda854"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "暂不开启系统通知",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "前往系统设置的引导弹窗已打开"
+    ],
+    "steps": [
+      "点击暂不开启"
+    ],
+    "result": "引导弹窗关闭",
+    "refs": [
+      "REQ-6b526b040fc3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ba57c43ee71a8dd11c7fc4f1acd51c2728a0a79d6ac527f9221ff194e512439e"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "前往设备通知设置",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "前往系统设置的引导弹窗已打开"
+    ],
+    "steps": [
+      "点击前往设置"
+    ],
+    "result": "打开设备的系统设置入口",
+    "refs": [
+      "REQ-6b526b040fc3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ba57c43ee71a8dd11c7fc4f1acd51c2728a0a79d6ac527f9221ff194e512439e"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "设备已授权展示",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "设备系统通知权限已开启"
+    ],
+    "steps": [
+      "查看系统通知状态"
+    ],
+    "result": "显示已开启",
+    "refs": [
+      "REQ-476f36a09670"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "01f4b6233eff68e0336bad73ab4bd27fb2828193f91cd192438d812c036081e9"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "已授权再次点击",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "设备系统通知权限已开启"
+    ],
+    "steps": [
+      "点击系统通知"
+    ],
+    "result": "提示“系统通知已开启”",
+    "refs": [
+      "REQ-38dd8250cdfd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1e3af2a7421edd7beddd857873490caa8341420ab7d956cfc5f6f85674327001"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "应用通知不代替系统权限",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "系统通知已拒绝；应用通知分类开关关闭"
+    ],
+    "steps": [
+      "打开应用通知分类开关",
+      "查看系统通知状态"
+    ],
+    "result": "系统通知状态仍为已拒绝",
+    "refs": [
+      "REQ-3e1ae5ebbc5e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "809ab561009820e31c6cb1ba368e4b8e2228e03d30ae5560be71485f8234c8f6"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "通知分类独立",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "存在两个应用通知分类A和B且均开启"
+    ],
+    "steps": [
+      "关闭通知分类A",
+      "查看通知分类B"
+    ],
+    "result": "分类B仍为开启状态",
+    "refs": [
+      "REQ-e9cc51e4642f",
+      "REQ-44a79bfd880e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "89ef3d8fd97e11a1f928ee9886a18bf050a8d436e51b70c6bcdd97d4345df65a",
+      "c8c029bb91ded15c6b4154561d66562e79f05dfb47b6eebe94c2ccf8e0e3f090"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "协议与版本信息",
+    "pre": [
+      "已登录普通用户；当前处于设置页面"
+    ],
+    "steps": [
+      "查看设置页关于信息"
+    ],
+    "result": "展示当前版本及用户协议、隐私政策入口",
+    "refs": [
+      "REQ-dcd63415d40b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "df91e7be555b9fba7bb55f7309d7e6facf00d0642abdc1309a2763cd5e2fe807"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "100金币不可注销",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "真实金币余额为100"
+    ],
+    "steps": [
+      "点击注销账号"
+    ],
+    "result": "显示查看余额与取消按钮，不能确认注销",
+    "refs": [
+      "REQ-be3c83058cc1",
+      "REQ-33f07a94908c"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "3943888d48f956c95335c6ba4fba1d50b264bce4f451e9f91d5ef3b8f58087d6",
+      "9891fb62e42e7b35d84d85f7f9ea9d92bae8357863b74a382474f2d1d7a8d8d3"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "101金币不可注销",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "真实金币余额为101"
+    ],
+    "steps": [
+      "点击注销账号"
+    ],
+    "result": "不能提交注销申请",
+    "refs": [
+      "REQ-e3bd04a8a537"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "d439fa8250208b4e52554adee11d437852b14cae089d4c5f8ee35508c279dacc"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "99金币注销确认",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "真实金币余额为99"
+    ],
+    "steps": [
+      "点击注销账号"
+    ],
+    "result": "显示确认注销和取消按钮",
+    "refs": [
+      "REQ-be3c83058cc1",
+      "REQ-24324b2a4408"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "3943888d48f956c95335c6ba4fba1d50b264bce4f451e9f91d5ef3b8f58087d6",
+      "1f8338d8819e42fb2a995643a5140b0ca704370d0f6467eea9c5dac3f68b1de3"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "注销确认风险提示",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "真实金币余额为0"
+    ],
+    "steps": [
+      "点击注销账号"
+    ],
+    "result": "提示七日冷静期及最终删除关系和粉丝团的风险",
+    "refs": [
+      "REQ-cfb4ff48756b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "15992949f1cedb97a0cddac250102c664fdd31436f8f2d924f66e94a68a7697e"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "注销十秒倒计时",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "真实金币余额为0；注销确认弹窗已打开"
+    ],
+    "steps": [
+      "点击确认注销"
+    ],
+    "result": "开始10秒倒计时且只保留取消按钮",
+    "refs": [
+      "REQ-24324b2a4408"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "1f8338d8819e42fb2a995643a5140b0ca704370d0f6467eea9c5dac3f68b1de3"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "倒计时取消注销",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "注销倒计时已开始且未满10秒"
+    ],
+    "steps": [
+      "点击取消"
+    ],
+    "result": "注销申请未提交",
+    "refs": [
+      "REQ-68795c484bd7"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "85487a0221f7415d495ac64512160077e8bac8d5f0deb9682379684d00197c06"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "倒计时完成提交",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "注销倒计时已开始"
+    ],
+    "steps": [
+      "等待10秒倒计时结束"
+    ],
+    "result": "提交注销申请并返回登录页",
+    "refs": [
+      "REQ-68795c484bd7"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "85487a0221f7415d495ac64512160077e8bac8d5f0deb9682379684d00197c06"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "退出登录确认",
+    "pre": [
+      "已登录普通用户；当前处于设置页面"
+    ],
+    "steps": [
+      "点击退出登录"
+    ],
+    "result": "显示退出登录确认弹窗",
+    "refs": [
+      "REQ-7d818f9c9cf0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "37974f7dcfde36b75439dbf806ca2be2f79ac91fa1a144a401febbe2cfec498f"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "退出当前设备",
+    "pre": [
+      "已登录普通用户；当前处于设置页面"
+    ],
+    "steps": [
+      "点击退出登录",
+      "点击确认退出"
+    ],
+    "result": "当前设备返回登录页",
+    "refs": [
+      "REQ-7d818f9c9cf0"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "37974f7dcfde36b75439dbf806ca2be2f79ac91fa1a144a401febbe2cfec498f"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "退出不影响其他设备",
+    "pre": [
+      "已登录普通用户；当前处于设置页面",
+      "同一账号在测试设备A和B处于已登录状态；当前操作设备A"
+    ],
+    "steps": [
+      "点击退出登录",
+      "点击确认退出",
+      "查看设备B会话"
+    ],
+    "result": "设备B仍保持登录状态",
+    "refs": [
+      "REQ-fa68f3aa79be"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "f52b3675de6f7a116c647b17ed72d6a61fced676c4839ce5790bf630884d82ad"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "切换语言中文",
+    "pre": [
+      "已登录普通用户；当前处于设置页面"
+    ],
+    "steps": [
+      "点击语言设置",
+      "选择中文"
+    ],
+    "result": "页面文案切换为中文",
+    "refs": [
+      "REQ-3d4e3a11a99d",
+      "COMMON-language"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "621b7fed84755450928feb128a61f93a393ca23178cb4f3c66c6a1e3e1b51afa",
+      "3c18b97c15916f6d4fe397ac973fba8a8f0d1cb4de3f3cc9e775267a1923ef16"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "切换语言English",
+    "pre": [
+      "已登录普通用户；当前处于设置页面"
+    ],
+    "steps": [
+      "点击语言设置",
+      "选择English"
+    ],
+    "result": "页面文案切换为English",
+    "refs": [
+      "REQ-3d4e3a11a99d",
+      "COMMON-language"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "621b7fed84755450928feb128a61f93a393ca23178cb4f3c66c6a1e3e1b51afa",
+      "3c18b97c15916f6d4fe397ac973fba8a8f0d1cb4de3f3cc9e775267a1923ef16"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "切换语言Bahasa Indonesia",
+    "pre": [
+      "已登录普通用户；当前处于设置页面"
+    ],
+    "steps": [
+      "点击语言设置",
+      "选择Bahasa Indonesia"
+    ],
+    "result": "页面文案切换为Bahasa Indonesia",
+    "refs": [
+      "REQ-3d4e3a11a99d",
+      "COMMON-language"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "621b7fed84755450928feb128a61f93a393ca23178cb4f3c66c6a1e3e1b51afa",
+      "3c18b97c15916f6d4fe397ac973fba8a8f0d1cb4de3f3cc9e775267a1923ef16"
+    ]
+  },
+  {
+    "page": "settings.html",
+    "role": "已登录普通用户",
+    "point": "切换语言Bahasa Melayu",
+    "pre": [
+      "已登录普通用户；当前处于设置页面"
+    ],
+    "steps": [
+      "点击语言设置",
+      "选择Bahasa Melayu"
+    ],
+    "result": "页面文案切换为Bahasa Melayu",
+    "refs": [
+      "REQ-3d4e3a11a99d",
+      "COMMON-language"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "621b7fed84755450928feb128a61f93a393ca23178cb4f3c66c6a1e3e1b51afa",
+      "3c18b97c15916f6d4fe397ac973fba8a8f0d1cb4de3f3cc9e775267a1923ef16"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码账号脱敏",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱"
+    ],
+    "steps": [
+      "查看验证方式"
+    ],
+    "result": "只展示当前账号已绑定的脱敏手机号和邮箱",
+    "refs": [
+      "REQ-3c60189f3c4a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe8905438a8dcb3fa04dc38df3880dc1c55b519750d64fb908bd6e0f9238a27c"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码手机号验证",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱"
+    ],
+    "steps": [
+      "选择已绑定手机号",
+      "点击获取验证码"
+    ],
+    "result": "验证码发送到选中的绑定手机号",
+    "refs": [
+      "REQ-60b0a17f6e8a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "cd94d25e318d7db7c4ddfd5b1c1ac5728eb01e75d7a340c5e23b9119049f71b3"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码邮箱验证",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱"
+    ],
+    "steps": [
+      "选择已绑定邮箱",
+      "点击获取验证码"
+    ],
+    "result": "验证码发送到选中的绑定邮箱",
+    "refs": [
+      "REQ-60b0a17f6e8a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "cd94d25e318d7db7c4ddfd5b1c1ac5728eb01e75d7a340c5e23b9119049f71b3"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码倒计时限制",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "验证码发送成功后已过59秒"
+    ],
+    "steps": [
+      "查看获取验证码按钮"
+    ],
+    "result": "重发按钮不可用",
+    "refs": [
+      "REQ-60b0a17f6e8a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "cd94d25e318d7db7c4ddfd5b1c1ac5728eb01e75d7a340c5e23b9119049f71b3"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码重新发送",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "验证码发送成功后已过60秒"
+    ],
+    "steps": [
+      "点击获取验证码"
+    ],
+    "result": "允许重新发送验证码",
+    "refs": [
+      "REQ-60b0a17f6e8a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "cd94d25e318d7db7c4ddfd5b1c1ac5728eb01e75d7a340c5e23b9119049f71b3"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码六位格式",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "已填入符合要求的新密码及确认密码"
+    ],
+    "steps": [
+      "输入五位验证码“12345”",
+      "查看完成按钮"
+    ],
+    "result": "完成按钮不可用",
+    "refs": [
+      "REQ-c07e0565f660",
+      "REQ-d895775a7fc5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "e5a590ea4180f0e4f55465317725d292fec049511175a6278194169ae84b13b8",
+      "0f2845e23af7423d43bf82ee48452b7a970be4f4ea3239f8f27b5cccd9d8ebc1"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码七位边界",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "验证码有效"
+    ],
+    "steps": [
+      "输入新密码“Qa12345”",
+      "输入相同确认密码",
+      "查看完成按钮"
+    ],
+    "result": "完成按钮不可用",
+    "refs": [
+      "REQ-411887a2a4e8",
+      "REQ-d895775a7fc5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "77c66c40cf4c373a9a3d3a70231b465c5159048fbabf3d37ea9c88bffdaad4b1",
+      "0f2845e23af7423d43bf82ee48452b7a970be4f4ea3239f8f27b5cccd9d8ebc1"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码八位边界",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "本次验证码有效"
+    ],
+    "steps": [
+      "输入本次验证码",
+      "输入新密码“Qa123456”",
+      "输入相同确认密码",
+      "点击完成"
+    ],
+    "result": "密码保存成功并返回设置页",
+    "refs": [
+      "REQ-411887a2a4e8",
+      "REQ-d0cbebd513bc"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "77c66c40cf4c373a9a3d3a70231b465c5159048fbabf3d37ea9c88bffdaad4b1",
+      "cdd1b872fc72f97dce82c2daaf320f267939399b7b88c6910ca425de0a11e619"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码确认不一致",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "本次验证码有效"
+    ],
+    "steps": [
+      "输入验证码",
+      "输入新密码“Qa123456”",
+      "输入确认密码“Qa654321”",
+      "点击完成"
+    ],
+    "result": "不提交密码变更并提示两次密码不一致",
+    "refs": [
+      "REQ-2585099ecfdd",
+      "REQ-d0cbebd513bc"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "5ea10bae818ca65ebb131b9fccf1c6062380865067b457dd02e880b9023452b9",
+      "cdd1b872fc72f97dce82c2daaf320f267939399b7b88c6910ca425de0a11e619"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码验证码绑定所选方式",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "已取得手机号验证码；当前改选邮箱"
+    ],
+    "steps": [
+      "输入手机号收到的验证码",
+      "输入新密码及相同确认密码“Qa123456”",
+      "点击完成"
+    ],
+    "result": "不能使用其他验证方式的验证码修改密码",
+    "refs": [
+      "REQ-c07e0565f660"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "e5a590ea4180f0e4f55465317725d292fec049511175a6278194169ae84b13b8"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码错误验证码",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "新密码及确认密码均为Qa123456"
+    ],
+    "steps": [
+      "输入错误的验证码",
+      "点击完成"
+    ],
+    "result": "密码未修改且保留当前输入",
+    "refs": [
+      "REQ-33ded318ec34"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "85ee7ce9a0bf9d8108308ba9f56eb71f69d97683f7cf4e3a95fe7ad590c1f01a"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码已过期验证码",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "新密码及确认密码均为Qa123456"
+    ],
+    "steps": [
+      "输入已过期的验证码",
+      "点击完成"
+    ],
+    "result": "密码未修改且保留当前输入",
+    "refs": [
+      "REQ-33ded318ec34"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "85ee7ce9a0bf9d8108308ba9f56eb71f69d97683f7cf4e3a95fe7ad590c1f01a"
+    ]
+  },
+  {
+    "page": "account-password-set.html",
+    "role": "已登录普通用户",
+    "point": "设置密码已使用验证码",
+    "pre": [
+      "已登录普通用户；当前处于设置密码页面",
+      "新密码及确认密码均为Qa123456"
+    ],
+    "steps": [
+      "输入已使用的验证码",
+      "点击完成"
+    ],
+    "result": "密码未修改且保留当前输入",
+    "refs": [
+      "REQ-33ded318ec34"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "85ee7ce9a0bf9d8108308ba9f56eb71f69d97683f7cf4e3a95fe7ad590c1f01a"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码账号脱敏",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱"
+    ],
+    "steps": [
+      "查看验证方式"
+    ],
+    "result": "只展示当前账号已绑定的脱敏手机号和邮箱",
+    "refs": [
+      "REQ-956eee627217"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5d20e0b43dad009993849d14a9152481a56bbed274b970f5db7aa8c45a99c548"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码手机号验证",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱"
+    ],
+    "steps": [
+      "选择已绑定手机号",
+      "点击获取验证码"
+    ],
+    "result": "验证码发送到选中的绑定手机号",
+    "refs": [
+      "REQ-6ab1d015eba7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "864ee08eef2aa1bac6c5701c63f4c6d2592a525dec41dc5861a832e64a8f95db"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码邮箱验证",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱"
+    ],
+    "steps": [
+      "选择已绑定邮箱",
+      "点击获取验证码"
+    ],
+    "result": "验证码发送到选中的绑定邮箱",
+    "refs": [
+      "REQ-6ab1d015eba7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "864ee08eef2aa1bac6c5701c63f4c6d2592a525dec41dc5861a832e64a8f95db"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码倒计时限制",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "验证码发送成功后已过59秒"
+    ],
+    "steps": [
+      "查看获取验证码按钮"
+    ],
+    "result": "重发按钮不可用",
+    "refs": [
+      "REQ-6ab1d015eba7"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "864ee08eef2aa1bac6c5701c63f4c6d2592a525dec41dc5861a832e64a8f95db"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码重新发送",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "验证码发送成功后已过60秒"
+    ],
+    "steps": [
+      "点击获取验证码"
+    ],
+    "result": "允许重新发送验证码",
+    "refs": [
+      "REQ-6ab1d015eba7"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "864ee08eef2aa1bac6c5701c63f4c6d2592a525dec41dc5861a832e64a8f95db"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码六位格式",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "已填入符合要求的新密码及确认密码"
+    ],
+    "steps": [
+      "输入五位验证码“12345”",
+      "查看完成按钮"
+    ],
+    "result": "完成按钮不可用",
+    "refs": [
+      "REQ-da9ec0c10c8c",
+      "REQ-76059c30b9b8"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "55dd3b2609ea9383390baee1f75d0cddd759afe36f6fb3b7587fdf0c7676e154",
+      "9fe602554820341f17f024b5a713ad27da6d20d5a9a0ef6f115fd90e23d4ec36"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码七位边界",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "验证码有效"
+    ],
+    "steps": [
+      "输入新密码“Qa12345”",
+      "输入相同确认密码",
+      "查看完成按钮"
+    ],
+    "result": "完成按钮不可用",
+    "refs": [
+      "REQ-4223d6635f79",
+      "REQ-76059c30b9b8"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "384a6ca0ae38bfaf364ba5c3d120dece3d6051750b641f45a11dfdf1ef99a8a1",
+      "9fe602554820341f17f024b5a713ad27da6d20d5a9a0ef6f115fd90e23d4ec36"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码八位边界",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "本次验证码有效"
+    ],
+    "steps": [
+      "输入本次验证码",
+      "输入新密码“Qa123456”",
+      "输入相同确认密码",
+      "点击完成"
+    ],
+    "result": "密码保存成功并返回设置页",
+    "refs": [
+      "REQ-4223d6635f79",
+      "REQ-ab6de0e5ca05"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "384a6ca0ae38bfaf364ba5c3d120dece3d6051750b641f45a11dfdf1ef99a8a1",
+      "a8ab368bdad889e2d101766b8e85c187f1e06fa02934802415ab3539061db7f6"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码确认不一致",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "本次验证码有效"
+    ],
+    "steps": [
+      "输入验证码",
+      "输入新密码“Qa123456”",
+      "输入确认密码“Qa654321”",
+      "点击完成"
+    ],
+    "result": "不提交密码变更并提示两次密码不一致",
+    "refs": [
+      "REQ-eb63a688e121",
+      "REQ-ab6de0e5ca05"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "9b7dc88bbbf81e5fb0a28ac69634d7d3d907b66b27f6d471a986f14e2b24b598",
+      "a8ab368bdad889e2d101766b8e85c187f1e06fa02934802415ab3539061db7f6"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码验证码绑定所选方式",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "账号已绑定本人可接收验证码的手机号和邮箱",
+      "已取得手机号验证码；当前改选邮箱"
+    ],
+    "steps": [
+      "输入手机号收到的验证码",
+      "输入新密码及相同确认密码“Qa123456”",
+      "点击完成"
+    ],
+    "result": "不能使用其他验证方式的验证码修改密码",
+    "refs": [
+      "REQ-da9ec0c10c8c"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "55dd3b2609ea9383390baee1f75d0cddd759afe36f6fb3b7587fdf0c7676e154"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码错误验证码",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "新密码及确认密码均为Qa123456"
+    ],
+    "steps": [
+      "输入错误的验证码",
+      "点击完成"
+    ],
+    "result": "密码未修改且保留当前输入",
+    "refs": [
+      "REQ-31ee1e2d297f"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "d68bc55f98147aaec21669273d3a455bfd0cabf13bdc0b00826f171335ed47c2"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码已过期验证码",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "新密码及确认密码均为Qa123456"
+    ],
+    "steps": [
+      "输入已过期的验证码",
+      "点击完成"
+    ],
+    "result": "密码未修改且保留当前输入",
+    "refs": [
+      "REQ-31ee1e2d297f"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "d68bc55f98147aaec21669273d3a455bfd0cabf13bdc0b00826f171335ed47c2"
+    ]
+  },
+  {
+    "page": "account-password-reset.html",
+    "role": "已登录普通用户",
+    "point": "重置密码已使用验证码",
+    "pre": [
+      "已登录普通用户；当前处于忘记密码页面",
+      "新密码及确认密码均为Qa123456"
+    ],
+    "steps": [
+      "输入已使用的验证码",
+      "点击完成"
+    ],
+    "result": "密码未修改且保留当前输入",
+    "refs": [
+      "REQ-31ee1e2d297f"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "d68bc55f98147aaec21669273d3a455bfd0cabf13bdc0b00826f171335ed47c2"
+    ]
+  },
+  {
+    "page": "account-password-change.html",
+    "role": "已登录普通用户",
+    "point": "原密码错误",
+    "pre": [
+      "已登录普通用户；当前处于修改密码页面",
+      "当前密码为QaOld123"
+    ],
+    "steps": [
+      "输入原密码“QaWrong1”",
+      "输入新密码及确认密码“QaNew123”",
+      "点击完成"
+    ],
+    "result": "密码未修改",
+    "refs": [
+      "REQ-ea6b3f0953a4"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "1b47e2098f4fbec0303064e06b56279f3c376f17e52db2b6832b789a82894270"
+    ]
+  },
+  {
+    "page": "account-password-change.html",
+    "role": "已登录普通用户",
+    "point": "新密码与旧密码相同",
+    "pre": [
+      "已登录普通用户；当前处于修改密码页面",
+      "当前密码为QaOld123"
+    ],
+    "steps": [
+      "输入原密码、新密码及确认密码“QaOld123”",
+      "点击完成"
+    ],
+    "result": "提示新密码不能与旧密码相同并保留输入",
+    "refs": [
+      "REQ-18e752488ec8",
+      "REQ-fe17f707f9b9"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "11e46e1894e0889cc4189464d88fc09688a5e8f7b358be081bf7afefbc48c6ca",
+      "ac6f5ed62274d8ba9a93e976ac3fba725514679bc75ed0ac74e7db25de2d2d45"
+    ]
+  },
+  {
+    "page": "account-password-change.html",
+    "role": "已登录普通用户",
+    "point": "确认密码不匹配",
+    "pre": [
+      "已登录普通用户；当前处于修改密码页面",
+      "当前密码为QaOld123"
+    ],
+    "steps": [
+      "输入原密码“QaOld123”",
+      "输入新密码“QaNew123”",
+      "输入确认密码“QaNew456”",
+      "点击完成"
+    ],
+    "result": "提示两次密码不一致并保留输入",
+    "refs": [
+      "REQ-e92850c13ccf",
+      "REQ-fe17f707f9b9"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "3d757e5d64f5591ed85c7c5ac5ffc04e6a8ffcdda3e6dff9370fa6d84c29af03",
+      "ac6f5ed62274d8ba9a93e976ac3fba725514679bc75ed0ac74e7db25de2d2d45"
+    ]
+  },
+  {
+    "page": "account-password-change.html",
+    "role": "已登录普通用户",
+    "point": "修改密码成功",
+    "pre": [
+      "已登录普通用户；当前处于修改密码页面",
+      "当前密码为QaOld123"
+    ],
+    "steps": [
+      "输入原密码“QaOld123”",
+      "输入新密码和确认密码“QaNew123”",
+      "点击完成"
+    ],
+    "result": "修改成功返回设置页",
+    "refs": [
+      "REQ-f4bd9b045d80"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "c7519f3951a104eaa28c964d95d20bfd65eb4bad7d7b5a1d65535abfb7333965"
+    ]
+  },
+  {
+    "page": "account-password-change.html",
+    "role": "已登录普通用户",
+    "point": "忘记密码入口",
+    "pre": [
+      "已登录普通用户；当前处于修改密码页面",
+      "当前密码为QaOld123"
+    ],
+    "steps": [
+      "点击忘记密码"
+    ],
+    "result": "进入使用已绑定联系方式验证的密码重置页",
+    "refs": [
+      "REQ-d64401c506c6",
+      "REQ-6920f539ff83"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e648375fc2b10b55806a021c895429b3c0b2cbda021de7166fbd0b0ebfb46d32",
+      "cd7611691ee5648cfbbe6f867bc0cc51b0bebec4ee4438a8b43aefe3f222027a"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "个人资料与当前账号一致",
+    "pre": [
+      "已登录普通用户；当前处于我的页面",
+      "账号ID、头像、昵称和财富等级已准备为已知测试数据"
+    ],
+    "steps": [
+      "查看个人资料区"
+    ],
+    "result": "展示当前账号的ID、头像、昵称和财富等级",
+    "refs": [
+      "REQ-0af0c40e3094"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6704431a9e6769f874b8a54b925270905c158d439bdfacdd69f483fcd91073e1"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "没有有效勋章",
+    "pre": [
+      "已登录普通用户；当前处于我的页面",
+      "账号没有有效且佩戴中的勋章"
+    ],
+    "steps": [
+      "查看勋章区域"
+    ],
+    "result": "勋章区域隐藏",
+    "refs": [
+      "REQ-375ca5bfa73a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4b938059fb93986cde0d7c2a6e4b7edd1fe45cc3c1c49505f612b8f53a184af6"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "勋章不足十枚不补位",
+    "pre": [
+      "已登录普通用户；当前处于我的页面",
+      "账号仅佩戴2枚有效勋章"
+    ],
+    "steps": [
+      "查看勋章区域"
+    ],
+    "result": "仅显示2枚有效佩戴勋章且无占位",
+    "refs": [
+      "REQ-375ca5bfa73a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4b938059fb93986cde0d7c2a6e4b7edd1fe45cc3c1c49505f612b8f53a184af6"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "粉丝计数",
+    "pre": [
+      "已登录普通用户；当前处于我的页面",
+      "当前账号有3名正在关注自己的用户"
+    ],
+    "steps": [
+      "查看粉丝数量"
+    ],
+    "result": "粉丝数量为3",
+    "refs": [
+      "REQ-59d825f4d64b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "761e1199e33b1520372933a9ae195c47a7e325cf980597dbc8d09da623e7825d"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "关注计数",
+    "pre": [
+      "已登录普通用户；当前处于我的页面",
+      "当前账号正在关注4名用户"
+    ],
+    "steps": [
+      "查看关注数量"
+    ],
+    "result": "关注数量为4",
+    "refs": [
+      "REQ-59d825f4d64b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "761e1199e33b1520372933a9ae195c47a7e325cf980597dbc8d09da623e7825d"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "好友计数",
+    "pre": [
+      "已登录普通用户；当前处于我的页面",
+      "当前账号有2名有效好友"
+    ],
+    "steps": [
+      "查看好友数量"
+    ],
+    "result": "好友数量为2",
+    "refs": [
+      "REQ-59d825f4d64b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "761e1199e33b1520372933a9ae195c47a7e325cf980597dbc8d09da623e7825d"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "负余额展示",
+    "pre": [
+      "已登录普通用户；当前处于我的页面",
+      "充值退款后当前真实金币为-20"
+    ],
+    "steps": [
+      "查看金币余额"
+    ],
+    "result": "显示金币余额-20",
+    "refs": [
+      "REQ-95d55a52be24"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9e9953b154b3a5d01233c9d70bfd3f98b3217477a6db03ce031131b818dce018"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "编辑资料入口",
+    "pre": [
+      "已登录普通用户；当前处于我的页面"
+    ],
+    "steps": [
+      "点击编辑资料"
+    ],
+    "result": "进入资料编辑页面",
+    "refs": [
+      "REQ-d36d1a894d3a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ab7c2acff9d3d1a026daa9b376a523a274bb3a997c54cdffdfb2e280741f013d"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "设置入口",
+    "pre": [
+      "已登录普通用户；当前处于我的页面"
+    ],
+    "steps": [
+      "点击设置"
+    ],
+    "result": "进入设置页面",
+    "refs": [
+      "REQ-1f89377126bd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "dee999f3e82b0b17583c49ffa4e08377b1910b522a9e77e1441464e0ef8515cb"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "充值入口",
+    "pre": [
+      "已登录普通用户；当前处于我的页面"
+    ],
+    "steps": [
+      "点击充值"
+    ],
+    "result": "进入余额充值页面",
+    "refs": [
+      "REQ-12a79d7f6b5e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2d6f410c1d8ec7f4711584d9caa17dfa7406bfab7436de705608e79735492644"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "我的装扮入口",
+    "pre": [
+      "已登录普通用户；当前处于我的页面"
+    ],
+    "steps": [
+      "点击我的装扮"
+    ],
+    "result": "进入我的装扮页面",
+    "refs": [
+      "REQ-4c86f5e6f24c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b8bf98ebac69ad90abbb6d369d5518112c2376209870ec16fdfd1acb2b132fd9"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "我的粉丝团入口",
+    "pre": [
+      "已登录普通用户；当前处于我的页面"
+    ],
+    "steps": [
+      "点击我的粉丝团"
+    ],
+    "result": "进入我的粉丝团页面",
+    "refs": [
+      "REQ-011cb5115ed5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bc8cbfbdc3c53e8dda96226fa0fad23560377e6218e9d5256a361175ea558414"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "邀请奖励入口",
+    "pre": [
+      "已登录普通用户；当前处于我的页面"
+    ],
+    "steps": [
+      "点击邀请奖励"
+    ],
+    "result": "进入邀请好友页面",
+    "refs": [
+      "REQ-21f616b62d75"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c5564134e8a07f14e74e6b9578197b152a7366c419ee3b88d8f32e1eda192a2e"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "黑名单入口",
+    "pre": [
+      "已登录普通用户；当前处于我的页面"
+    ],
+    "steps": [
+      "点击黑名单"
+    ],
+    "result": "进入黑名单管理页面",
+    "refs": [
+      "REQ-7b14e4db972c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "75b1d836cbd652fc900cc9e6921a76c591493691aaaf415da88555606d4cdd7a"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "联系客服入口",
+    "pre": [
+      "已登录普通用户；当前处于我的页面"
+    ],
+    "steps": [
+      "点击联系客服"
+    ],
+    "result": "进入联系客服页面",
+    "refs": [
+      "REQ-436b5410bae5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ffe425fb516c410d2f2c9d31fbd46a27fe5ac6f81d4454a871f3f33995936474"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "已登录普通用户",
+    "point": "公会中心入口",
+    "pre": [
+      "已登录普通用户；当前处于我的页面"
+    ],
+    "steps": [
+      "点击公会中心"
+    ],
+    "result": "进入公会中心页面",
+    "refs": [
+      "REQ-0e6ef4d24cf8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4d68fc4a0d2a24ea305ba595b24d380b7ba4d15b6c1930ce288f06bd41cc671e"
+    ]
+  },
+  {
+    "page": "customer-service.html",
+    "role": "已登录普通用户",
+    "point": "WhatsApp客服配置展示",
+    "pre": [
+      "已登录普通用户；当前处于联系客服页面",
+      "当前官方WhatsApp和客服邮箱已配置为已知测试联系方式"
+    ],
+    "steps": [
+      "查看WhatsApp联系方式"
+    ],
+    "result": "显示当前配置的官方WhatsApp",
+    "refs": [
+      "REQ-46c79377c746"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c8f7cae0177b5d3e580f3b04579fbad7bfc4a1a1cdbbe92b4d3243865b303e4"
+    ]
+  },
+  {
+    "page": "customer-service.html",
+    "role": "已登录普通用户",
+    "point": "邮箱客服配置展示",
+    "pre": [
+      "已登录普通用户；当前处于联系客服页面",
+      "当前官方WhatsApp和客服邮箱已配置为已知测试联系方式"
+    ],
+    "steps": [
+      "查看客服邮箱"
+    ],
+    "result": "显示当前配置的官方邮箱",
+    "refs": [
+      "REQ-fa4258fa09ce"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5d5b50a8c6983f91f90fb00731aadaf49ade977a99f9b5b066e1713476c62000"
+    ]
+  },
+  {
+    "page": "customer-service.html",
+    "role": "已登录普通用户",
+    "point": "复制WhatsApp",
+    "pre": [
+      "已登录普通用户；当前处于联系客服页面",
+      "当前官方WhatsApp和客服邮箱已配置为已知测试联系方式"
+    ],
+    "steps": [
+      "点击WhatsApp联系方式"
+    ],
+    "result": "WhatsApp联系方式已复制到剪贴板",
+    "refs": [
+      "REQ-35c830c03f70"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5b19f6529cd5f7ede574b276242620e9cdef45bbb45efbf15c023e54e50ac9a2"
+    ]
+  },
+  {
+    "page": "customer-service.html",
+    "role": "已登录普通用户",
+    "point": "复制客服邮箱",
+    "pre": [
+      "已登录普通用户；当前处于联系客服页面",
+      "当前官方WhatsApp和客服邮箱已配置为已知测试联系方式"
+    ],
+    "steps": [
+      "点击客服邮箱"
+    ],
+    "result": "客服邮箱已复制到剪贴板",
+    "refs": [
+      "REQ-35c830c03f70"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5b19f6529cd5f7ede574b276242620e9cdef45bbb45efbf15c023e54e50ac9a2"
+    ]
+  },
+  {
+    "page": "customer-service.html",
+    "role": "已登录普通用户",
+    "point": "客服配置更新",
+    "pre": [
+      "已登录普通用户；当前处于联系客服页面",
+      "当前官方WhatsApp和客服邮箱已配置为已知测试联系方式",
+      "平台已将客服邮箱由qa.old@example.test改为qa.new@example.test"
+    ],
+    "steps": [
+      "重新进入联系客服页面"
+    ],
+    "result": "客服邮箱显示qa.new@example.test",
+    "refs": [
+      "REQ-af4c270dc656"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "12665703dbd747da949e613a1fe9837a013f0974f201261103184dd598472cbd"
+    ]
+  }
+]

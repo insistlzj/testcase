@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "项目目录": "liveshow-proto",
+  "目标端": ["用户App", "公会App", "管理后台"],
+  "交付要求": "完整覆盖",
+  "端任务": [
+    {"端名":"用户App","任务目录":"work/liveshow-full-20260914-190307/user","工作簿":"outputs/Luma Live-case/用户App-全部模块-260914-002.xlsx"},
+    {"端名":"公会App","任务目录":"work/liveshow-full-20260914-190307/guild","工作簿":"outputs/Luma Live-case/公会App-全部模块-260914-002.xlsx"},
+    {"端名":"管理后台","任务目录":"work/liveshow-full-20260914-190307/admin","工作簿":"outputs/Luma Live-case/管理后台-全部模块-260914-002.xlsx"}
+  ]
+}

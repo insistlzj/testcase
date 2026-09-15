@@ -53,8 +53,9 @@
         overflow: hidden;
       }
       .step {
+        position: relative;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 12px;
         min-height: 56px;
         padding: 12px 14px;
@@ -63,7 +64,19 @@
       .step:last-child {
         border: 0;
       }
+      .step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        top: 35px;
+        bottom: -13px;
+        left: 25px;
+        width: 1px;
+        background: var(--g5);
+      }
       .dot {
+        position: relative;
+        z-index: 1;
         width: 23px;
         height: 23px;
         flex: none;
@@ -74,9 +87,19 @@
         place-items: center;
         font-size: 11px;
         font-style: normal;
+        margin-top: 1px;
       }
       .step.done .dot {
         background: var(--g1);
+        color: var(--g7);
+      }
+      .step.active .dot {
+        border: 2px solid var(--g1);
+        background: var(--g7);
+        color: var(--g1);
+      }
+      .step.rejected .dot {
+        background: var(--danger);
         color: var(--g7);
       }
       .step-copy {
@@ -86,6 +109,63 @@
       .step-copy b,
       .step-copy span {
         display: block;
+      }
+      .application-time {
+        display: block;
+        margin-top: 10px;
+        color: var(--g4);
+        font-size: 11px;
+      }
+      .review-time {
+        display: block;
+        margin-top: 5px;
+        color: var(--g4);
+        font-size: 11px;
+      }
+      .application-materials {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--g6);
+      }
+      .application-materials summary {
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .material-list {
+        margin-top: 10px;
+      }
+      .material-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--g6);
+        color: var(--g3);
+        font-size: 12px;
+      }
+      .material-row span:last-child {
+        color: var(--g2);
+        text-align: right;
+      }
+      .material-previews {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .material-preview {
+        height: 82px;
+        border: 1px solid var(--g5);
+        border-radius: 6px;
+        background: var(--g6);
+        color: var(--g3);
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+      }
+      .portrait-preview {
+        margin-top: 12px;
       }
       .step-copy b {
         font-size: 14px;
@@ -265,51 +345,57 @@
     <script>
       const stateMap = {
         guild: {
-          notice: "加入公会后即可提交直播权限申请。",
+          notice: "选择公会并提交申请资料，审核通过后成为主播。",
           steps: [
-            ["加入公会", "", "action", "去加入"],
-            ["申请直播权限", "", "status", "未申请"],
-            ["开始直播", "", "status", "未开通"],
+            ["申请加入", "", "action active", "去加入"],
+            ["公会审核", "", "status", ""],
+            ["平台审核", "", "status", ""],
+            ["成为主播", "", "status", ""],
           ],
         },
         guildPending: {
-          notice: "公会审核通过后，才能提交直播权限申请。",
+          notice: "公会正在审核，审核通过后将自动进入平台审核。",
           steps: [
-            ["加入公会", window.LUMA_MOCK.guildMemberships.pending.guild, "action muted", "审核中"],
-            ["申请直播权限", "", "status", "未申请"],
-            ["开始直播", "", "status", "未开通"],
+            ["申请加入", window.LUMA_MOCK.guildMemberships.pending.guild, "done", ""],
+            ["公会审核", "审核中", "active", ""],
+            ["平台审核", "", "status", ""],
+            ["成为主播", "", "status", ""],
           ],
         },
         guildRejected: {
-          notice: "公会入会申请已驳回，可重新选择公会并申请。",
+          notice: "公会已驳回申请，请查看驳回原因后重新申请。",
           steps: [
-            ["加入公会", "", "action", "重新申请"],
-            ["申请直播权限", "", "status", "未申请"],
-            ["开始直播", "", "status", "未开通"],
-          ],
-        },
-        apply: {
-          notice: "提交资料后，平台将审核主播认证与直播权限。",
-          steps: [
-            ["加入公会", "", "done", "已同意"],
-            ["申请直播权限", "", "action", "提交申请"],
-            ["开始直播", "", "status", "未开通"],
+            ["申请加入", window.LUMA_MOCK.guildMemberships.rejected.guild, "done", ""],
+            ["公会审核", "", "action rejected", "重新申请", window.LUMA_MOCK.guildMemberships.rejected.reviewedAt],
+            ["平台审核", "", "status", ""],
+            ["成为主播", "", "status", ""],
           ],
         },
         permissionPending: {
-          notice: "直播权限申请正在审核，请留意审核结果。",
+          notice: "公会审核已通过，平台正在审核主播认证资料。",
           steps: [
-            ["加入公会", window.LUMA_MOCK.guildMemberships.joined.guild, "done", "已同意"],
-            ["申请直播权限", "", "status", "申请中"],
-            ["开始直播", "", "status", "未开通"],
+            ["申请加入", window.LUMA_MOCK.guildMemberships.joined.guild, "done", ""],
+            ["公会审核", "", "done", "", window.LUMA_MOCK.guildMemberships.joined.joinedAt],
+            ["平台审核", "审核中", "active", ""],
+            ["成为主播", "", "status", ""],
           ],
         },
         platformRejected: {
-          notice: "平台已驳回直播权限申请，请修改认证资料后重新提交。",
+          notice: "平台已驳回认证，请查看原因并修改资料后重新提交。",
           steps: [
-            ["加入公会", "", "done", "已同意"],
-            ["申请直播权限", "", "action", "重新申请"],
-            ["开始直播", "", "status", "未开通"],
+            ["申请加入", window.LUMA_MOCK.guildMemberships.joined.guild, "done", ""],
+            ["公会审核", "", "done", "", window.LUMA_MOCK.guildMemberships.joined.joinedAt],
+            ["平台审核", "", "action rejected", "重新申请", "2026-07-15 11:20"],
+            ["成为主播", "", "status", ""],
+          ],
+        },
+        host: {
+          notice: "主播认证已通过，可以开始直播。",
+          steps: [
+            ["申请加入", window.LUMA_MOCK.guildMemberships.joined.guild, "done", ""],
+            ["公会审核", "", "done", "", window.LUMA_MOCK.guildMemberships.joined.joinedAt],
+            ["平台审核", "", "done", "", "2026-07-15 11:20"],
+            ["成为主播", "已完成", "done", ""],
           ],
         },
       };
@@ -319,7 +405,21 @@
         applyForm = document.querySelector("#applyForm"),
         birthDate = document.querySelector("#birthDate"),
         applySubmit = document.querySelector("#applySubmit");
+      const application = {
+        name: "Andi",
+        phone: "+62 812 7310 6207",
+        documentType: "KTP",
+      };
+      function applicationDetails() {
+        const membership = current === "guildPending"
+          ? window.LUMA_MOCK.guildMemberships.pending
+          : current === "guildRejected"
+            ? window.LUMA_MOCK.guildMemberships.rejected
+            : window.LUMA_MOCK.guildMemberships.joined;
+        return `<time class="application-time">申请时间 ${LUMA_FORMAT.dateTime(membership.appliedAt)}</time><details class="application-materials"><summary>申请资料</summary><div class="material-list"><div class="material-row"><span>姓名</span><span>${application.name}</span></div><div class="material-row"><span>电话</span><span>${application.phone}</span></div><div class="material-preview portrait-preview">本人照片</div><div class="material-row"><span>证件类型</span><span>${application.documentType}</span></div><div class="material-previews"><div class="material-preview">${application.documentType} 正面</div><div class="material-preview">${application.documentType} 反面</div></div></div></details>`;
+      }
       function render(name) {
+        if (name === "apply") name = "permissionPending";
         current = name;
         applyMask.classList.add("state-hide");
         const state = stateMap[name];
@@ -327,7 +427,7 @@
         steps.innerHTML = state.steps
           .map(
             (item, index) =>
-              `<article class="step ${item[2] === "done" ? "done" : ""}"><i class="dot">${item[2] === "done" ? "✓" : index + 1}</i><div class="step-copy"><b>${item[0]}</b>${item[1] ? `<span>${item[1]}</span>` : ""}</div>${item[2].includes("action") ? `<button class="step-action ${item[2].includes("muted") ? "muted" : ""}" type="button" data-action="${index}">${item[3]}</button>` : `<em class="step-status">${item[3]}</em>`}</article>`,
+              `<article class="step ${item[2]}"><i class="dot">${item[2].includes("done") ? "✓" : item[2].includes("rejected") ? "!" : index + 1}</i><div class="step-copy"><b>${item[0]}</b>${item[1] ? `<span>${item[1]}</span>` : ""}${item[4] ? `<time class="review-time">${item[2].includes("rejected") ? "驳回时间" : "通过时间"} ${LUMA_FORMAT.dateTime(item[4])}</time>` : ""}${index === 0 && current !== "guild" ? applicationDetails() : ""}</div>${item[2].includes("action") ? `<button class="step-action" type="button" data-action="${index}">${item[3]}</button>` : item[3] ? `<em class="step-status">${item[3]}</em>` : ""}</article>`,
           )
           .join("");
         steps.querySelectorAll("[data-action]").forEach(
@@ -335,10 +435,8 @@
             (button.onclick = () => {
               if (current === "guild" || current === "guildRejected")
                 location.href = "../guild/guild-management.html";
-              else if (current === "guildPending")
-                location.href = "../guild/guild-application-records.html";
-              else if (current === "apply" || current === "platformRejected")
-                applyMask.classList.remove("state-hide");
+              else if (current === "platformRejected")
+                Luma.toast("进入认证资料修改");
             }),
         );
       }
@@ -385,13 +483,14 @@
       );
       Luma.registerStates({
         开通状态: {
-          未加入公会: () => render("guild"),
+          未申请: () => render("guild"),
           公会审核中: () => render("guildPending"),
+          公会通过: () => render("permissionPending"),
           公会驳回: () => render("guildRejected"),
-          公会通过未提交直播申请: () => render("apply"),
-          直播权限审核中: () => render("permissionPending"),
+          平台审核中: () => render("permissionPending"),
+          平台通过: () => render("host"),
           平台驳回: () => render("platformRejected"),
-          "公会通过+直播申请通过": () => (location.href = "host-center.html"),
+          成为主播: () => render("host"),
         },
       });
     </script>

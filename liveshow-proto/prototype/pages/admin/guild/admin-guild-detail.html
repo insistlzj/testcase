@@ -295,7 +295,6 @@
         baseInfoEl = document.querySelector("#baseInfo"),
         detailPanelEl = document.querySelector("#detailPanel");
       let currentAction = "";
-      let leaderDisableConfirmRound = 0;
       function table(columns, items) {
         if (!items.length)
           return '<div class="admin-record-empty"><strong>暂无记录</strong><span>该公会当前没有相关数据</span></div>';
@@ -414,7 +413,6 @@
       }
       function openAction(type) {
         currentAction = type;
-        if (type !== "leader-disable") leaderDisableConfirmRound = 0;
         guildActionSubmit.className = "admin-btn";
         guildActionSubmit.disabled = false;
         guildActionSubmit.textContent = "确认";
@@ -439,11 +437,7 @@
           guildActionBody.innerHTML = `<div class="admin-form-row"><label for="leaderPasswordInput">新密码</label><input class="admin-input" id="leaderPasswordInput" type="password" minlength="8" autocomplete="new-password" placeholder="至少 8 位" required></div>`;
         }
         if (type === "leader-disable") {
-          leaderDisableConfirmRound ||= 1;
-          guildActionTitle.textContent =
-            leaderDisableConfirmRound === 1
-              ? "是否停用公会长账号？"
-              : "再次确认停用公会长账号？";
+          guildActionTitle.textContent = "是否停用公会长账号？";
           guildActionSubmit.textContent = "停用账号";
           guildActionBody.innerHTML =
             "<p>停用后，该账号无法登录公会端 APP</p>";
@@ -473,13 +467,9 @@
           document
             .querySelector(`#${close.dataset.close}`)
             .classList.remove("show");
-          if (close.dataset.close === "guildActionOverlay")
-            leaderDisableConfirmRound = 0;
         }
         if (event.target.classList.contains("admin-overlay")) {
           event.target.classList.remove("show");
-          if (event.target.id === "guildActionOverlay")
-            leaderDisableConfirmRound = 0;
         }
         const menu = event.target.closest("[data-menu]");
         if (menu) Luma.toast(menu.dataset.menu);
@@ -543,13 +533,7 @@
           guild.status = guild.status === "enabled" ? "disabled" : "enabled";
         }
         if (currentAction === "leader-disable") {
-          if (leaderDisableConfirmRound === 1) {
-            leaderDisableConfirmRound = 2;
-            openAction("leader-disable");
-            return;
-          }
           guild.leaderStatus = "disabled";
-          leaderDisableConfirmRound = 0;
         }
         guildActionOverlay.classList.remove("show");
         renderBase();

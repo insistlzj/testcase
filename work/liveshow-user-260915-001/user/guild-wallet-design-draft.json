@@ -1,0 +1,2318 @@
+[
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "公会展示范围",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "平台仅配置公会A和B在本页展示，另有未配置公会C"
+    ],
+    "steps": [
+      "查看公会列表"
+    ],
+    "result": "列表只展示A和B",
+    "refs": [
+      "REQ-0128eccb6fcd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "de46579b4b6f3ec16b417628fb94ec0790bc02f7d821713fa11098b007fa3513"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "停用公会不可检索",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "公会A已被平台停用"
+    ],
+    "steps": [
+      "输入公会A的名称搜索"
+    ],
+    "result": "不展示公会A",
+    "refs": [
+      "REQ-0128eccb6fcd",
+      "COMMON-guild-stop"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "de46579b4b6f3ec16b417628fb94ec0790bc02f7d821713fa11098b007fa3513",
+      "917ed4900359d8d801607c05155fb431645ebe1731b231bfcd63f21da5b885ea"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "公会列表不固定五条",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "平台配置6家有效公会展示"
+    ],
+    "steps": [
+      "查看完整公会列表"
+    ],
+    "result": "展示6家有效公会",
+    "refs": [
+      "REQ-0128eccb6fcd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "de46579b4b6f3ec16b417628fb94ec0790bc02f7d821713fa11098b007fa3513"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "搜索保持配置排序",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "配置顺序B、A；二者名称均包含QA"
+    ],
+    "steps": [
+      "输入QA"
+    ],
+    "result": "结果顺序仍为B、A",
+    "refs": [
+      "REQ-331d58f28877"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "73d4c58963378a3b0e642389cd926f2246e84e1ac74d1bba7ecaf52c83b67718"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "空关键词恢复列表",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "当前关键词已筛选公会"
+    ],
+    "steps": [
+      "清空关键词"
+    ],
+    "result": "恢复本页配置范围内全部有效公会",
+    "refs": [
+      "REQ-7b0a49843766",
+      "REQ-0715b12323ee"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "59c04c3ba7c899543550fd4495816e2ad32d477b38a0461806ba7d1b90098993",
+      "8a2f47be5407880fa998d2e88e487c49523122b20e19029cf0ca47aad7dcc926"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "实时模糊搜索",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "有效公会名称为QA印尼公会"
+    ],
+    "steps": [
+      "输入名称片段QA"
+    ],
+    "result": "列表包含QA印尼公会",
+    "refs": [
+      "REQ-77184f7c489f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "45c03a81872898f5086415fd378575dacba1267ddf3bb1d6d50416034505e71c"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "公会ID模糊搜索",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "有效公会ID包含123"
+    ],
+    "steps": [
+      "输入ID片段123"
+    ],
+    "result": "结果包含该公会",
+    "refs": [
+      "REQ-7b0a49843766"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "59c04c3ba7c899543550fd4495816e2ad32d477b38a0461806ba7d1b90098993"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "搜索按钮与回车一致",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "已输入关键词QA"
+    ],
+    "steps": [
+      "点击搜索",
+      "记录显示的公会",
+      "按Enter"
+    ],
+    "result": "两次搜索结果一致",
+    "refs": [
+      "REQ-77184f7c489f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "45c03a81872898f5086415fd378575dacba1267ddf3bb1d6d50416034505e71c"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "公会无匹配空态",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面"
+    ],
+    "steps": [
+      "输入不匹配任何公会的QA-NONE"
+    ],
+    "result": "展示空状态",
+    "refs": [
+      "REQ-77184f7c489f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "45c03a81872898f5086415fd378575dacba1267ddf3bb1d6d50416034505e71c"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "携带公会申请",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "当前未入会且没有在途申请"
+    ],
+    "steps": [
+      "点击公会A的申请"
+    ],
+    "result": "进入申请表并展示公会A",
+    "refs": [
+      "REQ-0c2c04b1a8b2",
+      "REQ-5ee3b6f134aa"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "32eef195a8aebc02f79624753434c0a56151911a96c52798749c2c4ab03c5719",
+      "4e950253fcf2910367a31e93cb50368b9e436a826cc269d0b0b489d7fa05afbc"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "已入会禁止其他申请",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "当前已加入公会A"
+    ],
+    "steps": [
+      "查看公会B申请按钮"
+    ],
+    "result": "申请按钮置灰不可点击",
+    "refs": [
+      "REQ-df508ec6eaf4",
+      "REQ-8e4e01d78b49"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7cb77137835992ad041025b4618556bc6da25554c87e7a102654934e1cdd6c67",
+      "6d5a609e9379b2d9a5c4870e72faa8d76bec6f443de5ef169d84ee2683e275fe"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "审核中禁止其他申请",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面",
+      "当前有一笔处理中申请"
+    ],
+    "steps": [
+      "查看其他公会申请按钮"
+    ],
+    "result": "申请按钮置灰不可点击",
+    "refs": [
+      "REQ-8e4e01d78b49",
+      "COMMON-identity"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6d5a609e9379b2d9a5c4870e72faa8d76bec6f443de5ef169d84ee2683e275fe",
+      "35fee64701c34c843906b93db9cd2c9d06a1d41f1ba0139cec963c3450aa64f6"
+    ]
+  },
+  {
+    "page": "guild-management.html",
+    "role": "已登录普通用户",
+    "point": "我的公会入口",
+    "pre": [
+      "已登录普通用户；当前处于公会中心页面"
+    ],
+    "steps": [
+      "点击我的"
+    ],
+    "result": "进入我的公会页面",
+    "refs": [
+      "REQ-0c2c04b1a8b2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "32eef195a8aebc02f79624753434c0a56151911a96c52798749c2c4ab03c5719"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "证件类型默认值",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已选公会A且没有处理中入会申请"
+    ],
+    "steps": [
+      "查看证件类型"
+    ],
+    "result": "默认选择KTP",
+    "refs": [
+      "REQ-79d0bf462da2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "96f192f1bac6bfb5ddaf47483024e16583756c8bb763ae0d71f12bd5d32c8911"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "证件类型单选",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已选公会A且没有处理中入会申请"
+    ],
+    "steps": [
+      "选择SIM"
+    ],
+    "result": "仅SIM处于选中状态",
+    "refs": [
+      "REQ-79d0bf462da2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "96f192f1bac6bfb5ddaf47483024e16583756c8bb763ae0d71f12bd5d32c8911"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "切换证件清空正反面",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已选公会A且没有处理中入会申请",
+      "当前KTP正面反面照片均已上传"
+    ],
+    "steps": [
+      "选择SIM"
+    ],
+    "result": "正面和反面证件照片均清空",
+    "refs": [
+      "REQ-fff97e38fbb4"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f2698c305594308364c65539025b332dbd6a8d958bbc85a44b1d4a4a723f38bf"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "姓名全空格",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已选公会A且没有处理中入会申请",
+      "其他必填材料均完整"
+    ],
+    "steps": [
+      "输入三个空格作为姓名",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-ceba4c98a7af",
+      "REQ-fff97e38fbb4"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "2d97ba7d1d39832fad824b03b7525b6b6d69b09c01cf05af48861a6baaadb38f",
+      "f2698c305594308364c65539025b332dbd6a8d958bbc85a44b1d4a4a723f38bf"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "电话号码印尼区号",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已选公会A且没有处理中入会申请"
+    ],
+    "steps": [
+      "查看电话输入区域"
+    ],
+    "result": "使用+62印尼手机号",
+    "refs": [
+      "REQ-346431dc118a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1b0723d3e804ac2f5f5b361a3035064572d3dbe27852a4cf1b6c9380ed9f0199"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "KTP入会申请提交",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已选公会A且没有处理中入会申请",
+      "姓名QA申请人、+62有效电话、本人照片和KTP正反面完整"
+    ],
+    "steps": [
+      "点击提交"
+    ],
+    "result": "生成公会审核中的申请并进入公会详情",
+    "refs": [
+      "REQ-ba11a1e6ab77",
+      "REQ-d2fbf9922c0b"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "34bf53a17eee2ac40e15e70a6ea2f2c3d4f01f085fb95fcc76cedf4bf4c72f7a",
+      "a87e40e9a8a26a80767e0b82a0090e206a3b5f5919ac36fa1151f928b9bddfae"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "SIM入会申请提交",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已选公会A且没有处理中入会申请",
+      "姓名、+62有效电话、本人照片和SIM正反面完整"
+    ],
+    "steps": [
+      "点击提交"
+    ],
+    "result": "生成公会审核中的申请",
+    "refs": [
+      "REQ-79d0bf462da2",
+      "REQ-d2fbf9922c0b"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "96f192f1bac6bfb5ddaf47483024e16583756c8bb763ae0d71f12bd5d32c8911",
+      "a87e40e9a8a26a80767e0b82a0090e206a3b5f5919ac36fa1151f928b9bddfae"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "再次提交不生成第二笔",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已选公会A且没有处理中入会申请",
+      "同一用户的第一笔入会申请已成功提交；当前表单为提交前缓存"
+    ],
+    "steps": [
+      "再次点击提交"
+    ],
+    "result": "不能生成第二笔处理中入会申请",
+    "refs": [
+      "REQ-6d8fea947ce0",
+      "COMMON-identity"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "dfe5fa73d7da12f61fc8ad7129ec0c9afdc10a0d261a06aa1c92401435caf0ae",
+      "35fee64701c34c843906b93db9cd2c9d06a1d41f1ba0139cec963c3450aa64f6"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "更换公会",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已选公会A且没有处理中入会申请"
+    ],
+    "steps": [
+      "点击更换公会"
+    ],
+    "result": "返回公会选择页",
+    "refs": [
+      "REQ-f78668563215"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c3734ba102d8cdd8191227bc85cba62545fa8e03d668d1426907ce3c920793e7"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "入会缺少姓名",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "除姓名外其他必填项均完整；没有在途申请"
+    ],
+    "steps": [
+      "清空姓名",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-ceba4c98a7af",
+      "REQ-fff97e38fbb4"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "2d97ba7d1d39832fad824b03b7525b6b6d69b09c01cf05af48861a6baaadb38f",
+      "f2698c305594308364c65539025b332dbd6a8d958bbc85a44b1d4a4a723f38bf"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "入会缺少电话",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "除电话外其他必填项均完整；没有在途申请"
+    ],
+    "steps": [
+      "清空电话",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-346431dc118a",
+      "REQ-fff97e38fbb4"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "1b0723d3e804ac2f5f5b361a3035064572d3dbe27852a4cf1b6c9380ed9f0199",
+      "f2698c305594308364c65539025b332dbd6a8d958bbc85a44b1d4a4a723f38bf"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "入会缺少本人照片",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "除本人照片外其他必填项均完整；没有在途申请"
+    ],
+    "steps": [
+      "清空本人照片",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-90b7bc82b314",
+      "REQ-fff97e38fbb4"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "7d219b07c016d2ff913a79a793d8d225749363b0e07d6513abfd9651f2c7b4dc",
+      "f2698c305594308364c65539025b332dbd6a8d958bbc85a44b1d4a4a723f38bf"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "入会缺少证件正面",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "除证件正面外其他必填项均完整；没有在途申请"
+    ],
+    "steps": [
+      "清空证件正面",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-eea2fc98ca34",
+      "REQ-fff97e38fbb4"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "b8a7b51b2e9920c044717e3eed532d8ddb27050b1a19bf0272107e2a6aafdb1b",
+      "f2698c305594308364c65539025b332dbd6a8d958bbc85a44b1d4a4a723f38bf"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "入会缺少证件反面",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "除证件反面外其他必填项均完整；没有在途申请"
+    ],
+    "steps": [
+      "清空证件反面",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-eea2fc98ca34",
+      "REQ-fff97e38fbb4"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "b8a7b51b2e9920c044717e3eed532d8ddb27050b1a19bf0272107e2a6aafdb1b",
+      "f2698c305594308364c65539025b332dbd6a8d958bbc85a44b1d4a4a723f38bf"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "本人照片文件类型限制",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已准备非图片的PDF测试文件"
+    ],
+    "steps": [
+      "尝试选择PDF文件作为本人照片"
+    ],
+    "result": "不接受非图片文件",
+    "refs": [
+      "REQ-90b7bc82b314"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "7d219b07c016d2ff913a79a793d8d225749363b0e07d6513abfd9651f2c7b4dc"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "证件正面文件类型限制",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已准备非图片的PDF测试文件"
+    ],
+    "steps": [
+      "尝试选择PDF文件作为证件正面"
+    ],
+    "result": "不接受非图片文件",
+    "refs": [
+      "REQ-eea2fc98ca34"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "b8a7b51b2e9920c044717e3eed532d8ddb27050b1a19bf0272107e2a6aafdb1b"
+    ]
+  },
+  {
+    "page": "guild-application-form.html",
+    "role": "未入会普通用户",
+    "point": "证件反面文件类型限制",
+    "pre": [
+      "未入会普通用户；当前处于申请加入公会页面",
+      "已准备非图片的PDF测试文件"
+    ],
+    "steps": [
+      "尝试选择PDF文件作为证件反面"
+    ],
+    "result": "不接受非图片文件",
+    "refs": [
+      "REQ-eea2fc98ca34"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "b8a7b51b2e9920c044717e3eed532d8ddb27050b1a19bf0272107e2a6aafdb1b"
+    ]
+  },
+  {
+    "page": "guild-application-records.html",
+    "role": "已登录普通用户",
+    "point": "我的公会仅本人申请",
+    "pre": [
+      "已登录普通用户；当前处于我的公会页面",
+      "本账号申请过A；其他账号申请过B"
+    ],
+    "steps": [
+      "查看我的公会"
+    ],
+    "result": "仅展示本账号申请过的A",
+    "refs": [
+      "REQ-79ac284bd1ea"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0d6e7862e797feae629bbf050ad7a09c88f8b6dfea7d2507b771c47b4aff0850"
+    ]
+  },
+  {
+    "page": "guild-application-records.html",
+    "role": "已登录普通用户",
+    "point": "历史驳回与退出保留",
+    "pre": [
+      "已登录普通用户；当前处于我的公会页面",
+      "A已驳回本账号入会申请；本账号已退出B"
+    ],
+    "steps": [
+      "查看我的公会"
+    ],
+    "result": "A和B卡片仍保留",
+    "refs": [
+      "REQ-79ac284bd1ea"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0d6e7862e797feae629bbf050ad7a09c88f8b6dfea7d2507b771c47b4aff0850"
+    ]
+  },
+  {
+    "page": "guild-application-records.html",
+    "role": "已登录普通用户",
+    "point": "同公会多次申请合并",
+    "pre": [
+      "已登录普通用户；当前处于我的公会页面",
+      "本账号对A先入会后退出再申请"
+    ],
+    "steps": [
+      "查看我的公会"
+    ],
+    "result": "公会A只有一张卡片",
+    "refs": [
+      "REQ-3a4e7948c61c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4e79581d13599d844d45bda93fef2b6915c2bd947af9434e33dd1ce7d5895494"
+    ]
+  },
+  {
+    "page": "guild-application-records.html",
+    "role": "已登录普通用户",
+    "point": "最近申请倒序",
+    "pre": [
+      "已登录普通用户；当前处于我的公会页面",
+      "A最新申请为9月14日，B为9月15日"
+    ],
+    "steps": [
+      "查看公会卡片顺序"
+    ],
+    "result": "B在A之前",
+    "refs": [
+      "REQ-33be2218af0e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1f54a48068dab7fff3fb31b7cdf171a7f9f4cc0859f62c38d9ed1c8b7cd122ca"
+    ]
+  },
+  {
+    "page": "guild-application-records.html",
+    "role": "已登录普通用户",
+    "point": "退出被驳回仍已加入",
+    "pre": [
+      "已登录普通用户；当前处于我的公会页面",
+      "本账号退出A申请已被驳回"
+    ],
+    "steps": [
+      "查看A关系状态"
+    ],
+    "result": "显示已加入",
+    "refs": [
+      "REQ-a8135e417055"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "cd029ecc5805b74d7f0eae2a08c53c4f0c7c61a11ca2452747d75b9f538b7ddc"
+    ]
+  },
+  {
+    "page": "guild-application-records.html",
+    "role": "已登录普通用户",
+    "point": "公会详情入口",
+    "pre": [
+      "已登录普通用户；当前处于我的公会页面",
+      "本账号有公会A卡片"
+    ],
+    "steps": [
+      "点击公会A卡片"
+    ],
+    "result": "进入A的公会详情",
+    "refs": [
+      "REQ-8d7f1a453117"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7d681812ba9cfeb3e466e1aab70f88126254f3aa8d5971358d178226ca8058de"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "申请中普通用户",
+    "point": "公会通过自动到平台",
+    "pre": [
+      "申请中普通用户；当前处于公会详情页面",
+      "公会已通过本账号申请，平台尚未处理"
+    ],
+    "steps": [
+      "重新进入公会详情"
+    ],
+    "result": "显示平台审核中，无需再次提交",
+    "refs": [
+      "REQ-6d5c72562ae0",
+      "COMMON-identity"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "d1f8337633cd233c344261c2ed28aeb544340b86ca534f4fa7dfa64b07d71ce1",
+      "35fee64701c34c843906b93db9cd2c9d06a1d41f1ba0139cec963c3450aa64f6"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "申请中普通用户",
+    "point": "平台通过建立身份",
+    "pre": [
+      "申请中普通用户；当前处于公会详情页面",
+      "平台已通过入会申请"
+    ],
+    "steps": [
+      "重新进入公会详情"
+    ],
+    "result": "本账号与公会关系变为已加入",
+    "refs": [
+      "COMMON-identity",
+      "REQ-047b25f77d5e"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "35fee64701c34c843906b93db9cd2c9d06a1d41f1ba0139cec963c3450aa64f6",
+      "fb72d55ed5b8c4b9b378ce5a1e2ba689045aa8838e63f0858325ae2bd7b50177"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "申请中普通用户",
+    "point": "公会驳回申请作废",
+    "pre": [
+      "申请中普通用户；当前处于公会详情页面",
+      "公会已驳回当前申请"
+    ],
+    "steps": [
+      "重新进入公会详情"
+    ],
+    "result": "当前入会申请显示已驳回",
+    "refs": [
+      "REQ-462242468d38",
+      "REQ-be4abada9332"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e84ac3f78e125e0214dac531a812b19da7e67f8e997606e671b4202603a1cb2d",
+      "ae7fedff6e5e6191924f0ca00cc40b9489efb592eea6352e016e322cdbe79a49"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "申请中普通用户",
+    "point": "平台驳回申请作废",
+    "pre": [
+      "申请中普通用户；当前处于公会详情页面",
+      "平台已驳回当前申请"
+    ],
+    "steps": [
+      "重新进入公会详情"
+    ],
+    "result": "当前入会申请显示已驳回",
+    "refs": [
+      "REQ-462242468d38",
+      "REQ-be4abada9332"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e84ac3f78e125e0214dac531a812b19da7e67f8e997606e671b4202603a1cb2d",
+      "ae7fedff6e5e6191924f0ca00cc40b9489efb592eea6352e016e322cdbe79a49"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "申请时间轴倒序",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "同一公会有9月14日与9月15日两次申请"
+    ],
+    "steps": [
+      "查看申请时间轴"
+    ],
+    "result": "9月15日申请在前",
+    "refs": [
+      "REQ-e30d8cd28d76"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3ef68d2840c3e8bc7985d58ab215b85ec73def5e53e4890313d363c58df6ee9b"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "资料默认收起",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "当前有入会申请记录"
+    ],
+    "steps": [
+      "查看申请资料区"
+    ],
+    "result": "申请资料默认收起",
+    "refs": [
+      "REQ-e8b8a4fe440a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "16a4c83211f2c467cd34e752e6229fa98a1b6443ab54832dbc5b082d41e7b7bd"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "展开本人申请资料",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "当前申请资料收起"
+    ],
+    "steps": [
+      "点击申请资料"
+    ],
+    "result": "展示该申请的姓名、电话、本人及证件材料",
+    "refs": [
+      "REQ-5185e0770bd0",
+      "REQ-e98a2fb0de41",
+      "REQ-818ba2c4fd10",
+      "REQ-e8b8a4fe440a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "23345a17055455131013cd1593c7d33940381bd991d1f8b13a2f625d79b74b6e",
+      "3e92df9cdd855aea9e16d39936ed1972c62a3006cca125ded67e40bf44c387da",
+      "4b381b6de71db9fe3945b9fbede6122c3465313a06d73a39afec04176e04c114",
+      "16a4c83211f2c467cd34e752e6229fa98a1b6443ab54832dbc5b082d41e7b7bd"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "再次收起申请资料",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "当前申请资料已展开"
+    ],
+    "steps": [
+      "点击申请资料"
+    ],
+    "result": "该申请资料收起",
+    "refs": [
+      "REQ-e8b8a4fe440a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "16a4c83211f2c467cd34e752e6229fa98a1b6443ab54832dbc5b082d41e7b7bd"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "多个申请展开独立",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "同公会两张申请均收起"
+    ],
+    "steps": [
+      "展开第一张申请资料",
+      "查看第二张申请"
+    ],
+    "result": "第二张资料仍收起",
+    "refs": [
+      "REQ-e8b8a4fe440a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "16a4c83211f2c467cd34e752e6229fa98a1b6443ab54832dbc5b082d41e7b7bd"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "申请材料保持历史快照",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "申请时姓名为QA旧名，之后个人资料已改为QA新名"
+    ],
+    "steps": [
+      "展开原申请资料"
+    ],
+    "result": "原申请姓名仍为QA旧名且只读",
+    "refs": [
+      "REQ-bf5340d9ebc8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b94f84a9edd5618b13dd76a7c7089bad49569008e1db407663b0c6854a85f4dd"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "空申请原因隐藏",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "该笔申请无原因内容"
+    ],
+    "steps": [
+      "查看该申请卡片"
+    ],
+    "result": "不展示空原因项",
+    "refs": [
+      "REQ-7eee852b271d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b031f29e6f24578cc03048b940b7b56408ff745e64648f867a24d886d61d1759"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "驳回原因展示",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "申请已驳回且原因是资料不清晰"
+    ],
+    "steps": [
+      "查看该申请卡片"
+    ],
+    "result": "显示驳回原因资料不清晰",
+    "refs": [
+      "REQ-d571945c611c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7a37be36b504131b60b272d2506d5a6beb88490abf48c85c9e6029bc9ecdd9cb"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "申请退出入口",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "已加入该公会且无处理中退出申请"
+    ],
+    "steps": [
+      "点击申请退出"
+    ],
+    "result": "进入退出申请页",
+    "refs": [
+      "REQ-3f511ec12906"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "230ec56739773bc74335e91ecbd88b13d2873dd800f1501717550658829498db"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "退出申请处理中隐藏重复入口",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "当前已有处理中退出申请"
+    ],
+    "steps": [
+      "查看公会详情"
+    ],
+    "result": "不展示申请退出入口",
+    "refs": [
+      "REQ-3f511ec12906"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "230ec56739773bc74335e91ecbd88b13d2873dd800f1501717550658829498db"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "退会处理中关系保留",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "当前已有处理中退出申请"
+    ],
+    "steps": [
+      "查看关系状态"
+    ],
+    "result": "仍为已加入",
+    "refs": [
+      "REQ-be4abada9332"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ae7fedff6e5e6191924f0ca00cc40b9489efb592eea6352e016e322cdbe79a49"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "退会通过关系解除",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面",
+      "公会已通过退会申请"
+    ],
+    "steps": [
+      "重新进入公会详情"
+    ],
+    "result": "关系变为已退出",
+    "refs": [
+      "REQ-3a03d55b07cd",
+      "REQ-be4abada9332"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "24908691509d4a04561878e293c0dad258dedaa1f412f1ad53f71dd151140b0a",
+      "ae7fedff6e5e6191924f0ca00cc40b9489efb592eea6352e016e322cdbe79a49"
+    ]
+  },
+  {
+    "page": "guild-detail.html",
+    "role": "已登录普通用户",
+    "point": "返回我的公会",
+    "pre": [
+      "已登录普通用户；当前处于公会详情页面"
+    ],
+    "steps": [
+      "点击返回"
+    ],
+    "result": "进入我的公会页",
+    "refs": [
+      "REQ-14e3be4a1844"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3eefdf59ac42ee1225af54436134cbee3fe648f392095d2f4302528576317935"
+    ]
+  },
+  {
+    "page": "guild-leave-application.html",
+    "role": "已加入公会的主播",
+    "point": "退会对象只读",
+    "pre": [
+      "已加入公会的主播；当前处于申请退出公会页面",
+      "当前有效公会关系为A"
+    ],
+    "steps": [
+      "查看当前公会"
+    ],
+    "result": "显示A且不可修改",
+    "refs": [
+      "REQ-4adce05cbed3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2f65695fdbbfe631414a98193cffb4068b74faa0205cc8d515804f75fdde414e"
+    ]
+  },
+  {
+    "page": "guild-leave-application.html",
+    "role": "已加入公会的主播",
+    "point": "空退会原因",
+    "pre": [
+      "已加入公会的主播；当前处于申请退出公会页面"
+    ],
+    "steps": [
+      "清空退会原因",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-fd33dcc75cb2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "34a739649d8cd20fd9e1d5ece3f5646e9d3e99007c9245ee2c26426fc1a91d81"
+    ]
+  },
+  {
+    "page": "guild-leave-application.html",
+    "role": "已加入公会的主播",
+    "point": "空格退会原因",
+    "pre": [
+      "已加入公会的主播；当前处于申请退出公会页面"
+    ],
+    "steps": [
+      "输入三个空格",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-02d8a01510f8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0a6c03ca86a5ef1de5b20d9ce3bce03a1f680846c2b2c2407f25ea7644801a0c"
+    ]
+  },
+  {
+    "page": "guild-leave-application.html",
+    "role": "已加入公会的主播",
+    "point": "有效原因退会提交",
+    "pre": [
+      "已加入公会的主播；当前处于申请退出公会页面",
+      "不存在处理中退出申请"
+    ],
+    "steps": [
+      "输入退会原因“个人发展调整”",
+      "点击提交"
+    ],
+    "result": "生成处理中退出申请",
+    "refs": [
+      "REQ-fd33dcc75cb2"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "34a739649d8cd20fd9e1d5ece3f5646e9d3e99007c9245ee2c26426fc1a91d81"
+    ]
+  },
+  {
+    "page": "guild-leave-application.html",
+    "role": "已加入公会的主播",
+    "point": "重复退出申请限制",
+    "pre": [
+      "已加入公会的主播；当前处于申请退出公会页面",
+      "已有处理中退出申请；当前为旧表单"
+    ],
+    "steps": [
+      "输入有效原因",
+      "点击提交"
+    ],
+    "result": "不生成第二笔处理中退出申请",
+    "refs": [
+      "REQ-63e0747ae182"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "9c4d70df16ec584abe63361a2d4442e10659422c848939d3bd1e21ac90af2ead"
+    ]
+  },
+  {
+    "page": "guild-leave-application.html",
+    "role": "已加入公会的主播",
+    "point": "退会驳回可以重提",
+    "pre": [
+      "已加入公会的主播；当前处于申请退出公会页面",
+      "上次退会申请已被公会驳回"
+    ],
+    "steps": [
+      "输入新的有效原因",
+      "点击提交"
+    ],
+    "result": "可以生成新的退会申请",
+    "refs": [
+      "REQ-07eddabd29bb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "eaf7523e9cebb7ce8e0c797aa80b35e0f08f8fec61ad3600c5245458ad75cfcb"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "金币余额非现金",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "当前真实金币余额100"
+    ],
+    "steps": [
+      "查看余额"
+    ],
+    "result": "显示100金币",
+    "refs": [
+      "REQ-b1863c50e3dc"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "78c815689bb94c6e68a0b62c8510b97a3c744105607650b82a140632cfb1fc77"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "套餐基础与赠送分开",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "当前可购套餐基础1000、赠送100金币"
+    ],
+    "steps": [
+      "查看套餐"
+    ],
+    "result": "分别显示1000基础金币和赠送100金币",
+    "refs": [
+      "REQ-22e4a9e542d4",
+      "REQ-afb2e3c341b6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "350f69c5eef9eaa5efb2d3165e8ed7efd1ce556edb97e1629652216a7d3622e1",
+      "2845d01324a2c1d2d845092d0db62ae9687233b7a63b5504c1a689d3290d5c1e"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "赠送比例标签",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "当前可购套餐基础1000、赠送100金币"
+    ],
+    "steps": [
+      "查看赠送比例"
+    ],
+    "result": "显示10%",
+    "refs": [
+      "REQ-052afe1173a5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "0a4b2ec072eb868e4d848424e9e1ca94587abed04e56c63c424197e2b8e1fcdc"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "价格USD两位小数",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "套餐实际支付金额为1.5美元"
+    ],
+    "steps": [
+      "查看套餐价格"
+    ],
+    "result": "显示USD 1.50",
+    "refs": [
+      "REQ-b605fa170d72"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bcd186081c81bd2e467b33212e9e442b0e029f28fd26c8039a3738fefeaf11dc"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "活动套餐优先",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "有普通套餐A和活动套餐B"
+    ],
+    "steps": [
+      "查看套餐排序"
+    ],
+    "result": "活动套餐B排在普通套餐A之前",
+    "refs": [
+      "REQ-de06a87195aa"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2638b52a3b772d5e155cb8568eb24e63f0aac83260d99064b8fe1961d1960c6e"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "同类套餐按权重排序",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "同类套餐A权重10、B权重20"
+    ],
+    "steps": [
+      "查看套餐排序"
+    ],
+    "result": "B排在A之前",
+    "refs": [
+      "REQ-de06a87195aa"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2638b52a3b772d5e155cb8568eb24e63f0aac83260d99064b8fe1961d1960c6e"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "已下架套餐过滤",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "套餐A已下架"
+    ],
+    "steps": [
+      "刷新充值页"
+    ],
+    "result": "不展示套餐A",
+    "refs": [
+      "REQ-de06a87195aa"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2638b52a3b772d5e155cb8568eb24e63f0aac83260d99064b8fe1961d1960c6e"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "过期活动套餐过滤",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "活动套餐A已超过活动结束时间"
+    ],
+    "steps": [
+      "刷新充值页"
+    ],
+    "result": "不展示活动套餐A",
+    "refs": [
+      "REQ-de06a87195aa"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2638b52a3b772d5e155cb8568eb24e63f0aac83260d99064b8fe1961d1960c6e"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "达到限购次数过滤",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "活动套餐限购2次；本账号已有2笔成功订单"
+    ],
+    "steps": [
+      "刷新充值页"
+    ],
+    "result": "该套餐不再可购买",
+    "refs": [
+      "REQ-de06a87195aa",
+      "REQ-eccfb73ebed1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2638b52a3b772d5e155cb8568eb24e63f0aac83260d99064b8fe1961d1960c6e",
+      "c6d6bda95ed14e9e0093c520cd12e884591df764d75fce1465c63ac5859991a4"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "未达到限购仍可购买",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "活动套餐限购2次；本账号只有1笔成功订单"
+    ],
+    "steps": [
+      "刷新充值页"
+    ],
+    "result": "该套餐仍可购买",
+    "refs": [
+      "REQ-eccfb73ebed1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c6d6bda95ed14e9e0093c520cd12e884591df764d75fce1465c63ac5859991a4"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "零限购为不限购",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "活动套餐限购配置0；本账号已成功购买3次"
+    ],
+    "steps": [
+      "刷新充值页"
+    ],
+    "result": "该套餐仍可购买",
+    "refs": [
+      "REQ-eccfb73ebed1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c6d6bda95ed14e9e0093c520cd12e884591df764d75fce1465c63ac5859991a4"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "退款不恢复购买次数",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "套餐限购1次；成功订单已全额退款"
+    ],
+    "steps": [
+      "刷新充值页"
+    ],
+    "result": "不能再次购买该限购套餐",
+    "refs": [
+      "REQ-eccfb73ebed1"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "c6d6bda95ed14e9e0093c520cd12e884591df764d75fce1465c63ac5859991a4"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "页面不提供渠道选择",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面"
+    ],
+    "steps": [
+      "查看支付控件"
+    ],
+    "result": "本页没有支付渠道选择控件",
+    "refs": [
+      "REQ-75ea9808f9ef"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b8f0b8f97fe63c976db4feddd0d26a33eadefb9924bb2ad2fc90eaec537a4366"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "套餐价格发起支付",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "已准备可购买测试套餐和沙箱支付环境"
+    ],
+    "steps": [
+      "点击该套餐价格"
+    ],
+    "result": "发起该套餐支付",
+    "refs": [
+      "REQ-75ea9808f9ef"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "b8f0b8f97fe63c976db4feddd0d26a33eadefb9924bb2ad2fc90eaec537a4366"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "成功支付金币到账",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "余额100；套餐1000基础加100赠送；使用沙箱支付"
+    ],
+    "steps": [
+      "点击套餐价格",
+      "完成成功支付",
+      "查看金币余额"
+    ],
+    "result": "余额为1200金币",
+    "refs": [
+      "REQ-7f4554ffc2b6",
+      "REQ-afb2e3c341b6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "735c698ccf3a7d4e4ac709b80b15ecb058b1ea12410627d28c84efe205f052c6",
+      "2845d01324a2c1d2d845092d0db62ae9687233b7a63b5504c1a689d3290d5c1e"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "支付时套餐快照",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "订单已按1000基础加100赠送下单；后台随后改为赠送200"
+    ],
+    "steps": [
+      "完成该订单支付",
+      "查看余额变化"
+    ],
+    "result": "本订单只增加1100金币",
+    "refs": [
+      "REQ-7f4554ffc2b6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "735c698ccf3a7d4e4ac709b80b15ecb058b1ea12410627d28c84efe205f052c6"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "重复支付回调只入账一次",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "余额原为100；1100金币订单已成功入账；测试渠道重复回调已完成"
+    ],
+    "steps": [
+      "刷新充值页余额"
+    ],
+    "result": "余额仍为1200金币",
+    "refs": [
+      "REQ-7f4554ffc2b6"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "735c698ccf3a7d4e4ac709b80b15ecb058b1ea12410627d28c84efe205f052c6"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "负余额充值先抵扣",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "当前余额-200；本订单到账1100金币"
+    ],
+    "steps": [
+      "完成沙箱支付",
+      "查看余额"
+    ],
+    "result": "余额为900金币",
+    "refs": [
+      "REQ-33923242e1a4",
+      "COMMON-refund"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "9b566390e42918cc14b392c88369873ca887ea843283f2c113b59ac4e0dab963",
+      "4642de4c83f1c4150c2f6b607df0b822c6fd4688338ce64d9a9f875ffa42d3a5"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "用户侧无退款入口",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面"
+    ],
+    "steps": [
+      "查看充值页面操作入口"
+    ],
+    "result": "不提供退款操作",
+    "refs": [
+      "REQ-33923242e1a4"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9b566390e42918cc14b392c88369873ca887ea843283f2c113b59ac4e0dab963"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "金币明细入口",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面"
+    ],
+    "steps": [
+      "点击明细"
+    ],
+    "result": "进入余额明细页",
+    "refs": [
+      "REQ-60ec2f938995"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9502e2d99d731ad3052c6ef1524dd99e48c566e41aefb1e7942dd9070d17e5df"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "充值页返回",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面"
+    ],
+    "steps": [
+      "点击返回"
+    ],
+    "result": "进入我的页面",
+    "refs": [
+      "REQ-60ec2f938995"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9502e2d99d731ad3052c6ef1524dd99e48c566e41aefb1e7942dd9070d17e5df"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "支付失败不增加余额",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "支付前余额100；已准备沙箱支付订单"
+    ],
+    "steps": [
+      "使本笔沙箱支付返回失败结果",
+      "查看余额"
+    ],
+    "result": "余额仍为100金币",
+    "refs": [
+      "REQ-7f4554ffc2b6",
+      "REQ-dd6df4e4ca51"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "735c698ccf3a7d4e4ac709b80b15ecb058b1ea12410627d28c84efe205f052c6",
+      "31dee8d0c5d5da2c8957df11042122cbf8f5b8052ad9adf03f0d57dd2352af36"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "支付超时不增加余额",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "支付前余额100；已准备沙箱支付订单"
+    ],
+    "steps": [
+      "使本笔沙箱支付返回超时结果",
+      "查看余额"
+    ],
+    "result": "余额仍为100金币",
+    "refs": [
+      "REQ-7f4554ffc2b6",
+      "REQ-dd6df4e4ca51"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "735c698ccf3a7d4e4ac709b80b15ecb058b1ea12410627d28c84efe205f052c6",
+      "31dee8d0c5d5da2c8957df11042122cbf8f5b8052ad9adf03f0d57dd2352af36"
+    ]
+  },
+  {
+    "page": "recharge.html",
+    "role": "真实金币用户",
+    "point": "支付取消不增加余额",
+    "pre": [
+      "真实金币用户；当前处于余额充值页面",
+      "支付前余额100；已准备沙箱支付订单"
+    ],
+    "steps": [
+      "使本笔沙箱支付返回取消结果",
+      "查看余额"
+    ],
+    "result": "余额仍为100金币",
+    "refs": [
+      "REQ-7f4554ffc2b6",
+      "REQ-dd6df4e4ca51"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "735c698ccf3a7d4e4ac709b80b15ecb058b1ea12410627d28c84efe205f052c6",
+      "31dee8d0c5d5da2c8957df11042122cbf8f5b8052ad9adf03f0d57dd2352af36"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "本人流水隔离",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "当前账号及另一账号均有金币流水"
+    ],
+    "steps": [
+      "查看余额明细"
+    ],
+    "result": "只展示当前登录账号流水",
+    "refs": [
+      "REQ-7ab0289dec79"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a3392eeaa0e54646e3bb4ad7dcb568080d3833a39725b87f054ec3c9a5fe73b8"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "流水时间倒序",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "有9月14日和9月15日流水"
+    ],
+    "steps": [
+      "查看流水列表"
+    ],
+    "result": "9月15日记录在前",
+    "refs": [
+      "REQ-7ab0289dec79"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a3392eeaa0e54646e3bb4ad7dcb568080d3833a39725b87f054ec3c9a5fe73b8"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "相同时间流水ID倒序",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "同一时间流水ID为100和101"
+    ],
+    "steps": [
+      "查看两条流水顺序"
+    ],
+    "result": "ID101在ID100之前",
+    "refs": [
+      "REQ-7ab0289dec79"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a3392eeaa0e54646e3bb4ad7dcb568080d3833a39725b87f054ec3c9a5fe73b8"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "收入为正数",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "有成功充值1100金币流水"
+    ],
+    "steps": [
+      "查看该流水变动值"
+    ],
+    "result": "变动值为+1100金币",
+    "refs": [
+      "REQ-8f8e2789fd80"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6674a9dbfbb036ddaba226047d2fbb41ee569df542877be84ea0d28cd1942500"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "支出为负数",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "有成功送礼100金币流水"
+    ],
+    "steps": [
+      "查看该流水变动值"
+    ],
+    "result": "变动值为-100金币",
+    "refs": [
+      "REQ-8f8e2789fd80"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6674a9dbfbb036ddaba226047d2fbb41ee569df542877be84ea0d28cd1942500"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "退款单独冲正不改原流水",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "已到账1100金币充值订单已退款"
+    ],
+    "steps": [
+      "查看关联金币流水"
+    ],
+    "result": "保留原入账流水并新增-1100金币冲正流水",
+    "refs": [
+      "REQ-b5d63468de7c",
+      "COMMON-refund"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "c512534ed7322270f6b84aea19b43f7240da36d148b705ae184b04c432f030c0",
+      "4642de4c83f1c4150c2f6b607df0b822c6fd4688338ce64d9a9f875ffa42d3a5"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "奖励无订单只显示流水",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "当前任务奖励没有关联订单"
+    ],
+    "steps": [
+      "点击该奖励流水"
+    ],
+    "result": "只展示流水信息，不进入不存在的订单详情",
+    "refs": [
+      "REQ-eafc3fc8d84c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f4ad6433b3eff4ee351482372ab73f6abf11846d95078ee38cf10749b8496de3"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "充值流水进入充值详情",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "当前有成功充值流水"
+    ],
+    "steps": [
+      "点击该充值流水"
+    ],
+    "result": "进入对应充值订单详情",
+    "refs": [
+      "REQ-eafc3fc8d84c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f4ad6433b3eff4ee351482372ab73f6abf11846d95078ee38cf10749b8496de3"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "消费流水进入支出详情",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "当前有成功送礼流水"
+    ],
+    "steps": [
+      "点击该消费流水"
+    ],
+    "result": "进入对应支出订单详情",
+    "refs": [
+      "REQ-eafc3fc8d84c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f4ad6433b3eff4ee351482372ab73f6abf11846d95078ee38cf10749b8496de3"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "金币流水类型",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "当前账号分别有充值、退款、送礼、门票及任务奖励记录"
+    ],
+    "steps": [
+      "查看各条流水类型"
+    ],
+    "result": "展示各笔实际业务类型且没有礼物退款类型",
+    "refs": [
+      "REQ-1cdb25ebdb71"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b11ea2663d3cb6bc10ae3378e7fd53e2ed2eb91fe34a88e76d4ae1f6dd5f73cd"
+    ]
+  },
+  {
+    "page": "order-income-detail.html",
+    "role": "真实金币用户",
+    "point": "充值订单快照",
+    "pre": [
+      "真实金币用户；当前处于充值订单详情页面",
+      "当前所选订单已知套餐、数量、支付时间、渠道和金额"
+    ],
+    "steps": [
+      "查看充值订单详情"
+    ],
+    "result": "显示所选订单的套餐、数量、支付时间、渠道及金额",
+    "refs": [
+      "REQ-4ab23800ac22",
+      "REQ-091d8b5cb74e",
+      "REQ-0a26352e5fc0",
+      "REQ-11b92bd4952d",
+      "REQ-ba5024fab83c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "cb8af062145db320be0d22bf44e4e7e91bcdefe28ce0c849c20477d10ac67ab4",
+      "a905e9f53577b8b1621321bdd10f4c446336260603436367528b75df9c15edfa",
+      "56e948c8dc6f275856cc2e7bfce9fe45eb87a0ed30fc8d04fd2ddaeab7399902",
+      "d64032806b69ee9c8d3bc3a2b54b0c79499c2a2a281dc6d8ad1cd55796aab24b",
+      "847db965141d42cbcbe557132929e7cdbb66f160865191caa0e194477cac12fd"
+    ]
+  },
+  {
+    "page": "order-income-detail.html",
+    "role": "真实金币用户",
+    "point": "充值基础赠送拆分",
+    "pre": [
+      "真实金币用户；当前处于充值订单详情页面",
+      "所选订单基础1000、赠送100"
+    ],
+    "steps": [
+      "查看金币明细"
+    ],
+    "result": "分别显示基础1000金币和赠送100金币",
+    "refs": [
+      "REQ-c7081347bfbe"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "aa6ca39292c57f48303471c8e196ec4bfa0b74d1fa67f343c1c055de06da16c6"
+    ]
+  },
+  {
+    "page": "order-income-detail.html",
+    "role": "真实金币用户",
+    "point": "套餐修改不改历史订单",
+    "pre": [
+      "真实金币用户；当前处于充值订单详情页面",
+      "订单按套餐A下单；后台已修改套餐A金币及价格"
+    ],
+    "steps": [
+      "重新进入该订单详情"
+    ],
+    "result": "金额与金币仍为原下单快照",
+    "refs": [
+      "REQ-cc0d5de370b6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d9c7621e48755e8c0b99a9dc293c00b916f81efb19eea16f182bb75e4faa8bf4"
+    ]
+  },
+  {
+    "page": "order-income-detail.html",
+    "role": "真实金币用户",
+    "point": "充值详情无退款入口",
+    "pre": [
+      "真实金币用户；当前处于充值订单详情页面"
+    ],
+    "steps": [
+      "查看订单操作入口"
+    ],
+    "result": "没有用户退款操作",
+    "refs": [
+      "REQ-4a50409c7746"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e3c5e40a3ff47c33418d3cab9e520b58dbc8f758dad414e421986949ce35d5d1"
+    ]
+  },
+  {
+    "page": "order-income-detail.html",
+    "role": "真实金币用户",
+    "point": "退款状态刷新",
+    "pre": [
+      "真实金币用户；当前处于充值订单详情页面",
+      "后台已完成当前订单退款"
+    ],
+    "steps": [
+      "刷新订单详情"
+    ],
+    "result": "展示更新后的订单状态、时间及关联流水",
+    "refs": [
+      "REQ-f8adde5ec148"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d5581ca9711b1eb58f6650a02355f10863ec4a633c0ca7b128a82815539e7cfe"
+    ]
+  },
+  {
+    "page": "order-income-detail.html",
+    "role": "真实金币用户",
+    "point": "返回保留账单位置",
+    "pre": [
+      "真实金币用户；当前处于充值订单详情页面",
+      "从账单列表的已知位置进入当前详情"
+    ],
+    "steps": [
+      "点击返回"
+    ],
+    "result": "回到账单列表并保留原筛选位置",
+    "refs": [
+      "REQ-f8adde5ec148"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d5581ca9711b1eb58f6650a02355f10863ec4a633c0ca7b128a82815539e7cfe"
+    ]
+  },
+  {
+    "page": "order-expense-detail.html",
+    "role": "真实金币用户",
+    "point": "支出订单快照",
+    "pre": [
+      "真实金币用户；当前处于支出订单详情页面",
+      "所选订单为向主播A成功赠送2件每件50金币的礼物"
+    ],
+    "steps": [
+      "查看支出订单详情"
+    ],
+    "result": "展示该礼物名称、数量2及实际扣款100金币",
+    "refs": [
+      "REQ-853c4cf85da1",
+      "REQ-91d4b92fa29f",
+      "REQ-6940c29d89cb",
+      "REQ-694754332629"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c6a900bf4dfdfbfb082fb0771f1e00029f138350957ba1e5ffc3f432e3c71d89",
+      "79da2ffdc27104fd323fc9ef494ad1a0fb0dd4bcc6dc491c16079708768d6f12",
+      "378d0a8612cb3fb16669e9e50e7f70dd6f12db44b76303aedf246aa6f501211e",
+      "b2a25d1f760cc9ac2d69f4d4031d22a47e21c710df7aacafddd050bfc47db50b"
+    ]
+  },
+  {
+    "page": "order-expense-detail.html",
+    "role": "真实金币用户",
+    "point": "消费主播信息",
+    "pre": [
+      "真实金币用户；当前处于支出订单详情页面",
+      "订单消费对象为主播A"
+    ],
+    "steps": [
+      "查看消费直播间信息"
+    ],
+    "result": "展示主播A的昵称与主播ID",
+    "refs": [
+      "REQ-2091adedd0e7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1c57bd2b962c2805f0ff74934c2932f38626058d7d895cf41d09ceed7e3c84c2"
+    ]
+  },
+  {
+    "page": "order-expense-detail.html",
+    "role": "真实金币用户",
+    "point": "历史支出不随商品改变",
+    "pre": [
+      "真实金币用户；当前处于支出订单详情页面",
+      "订单成功后商品名称和价格已修改"
+    ],
+    "steps": [
+      "重新进入该订单详情"
+    ],
+    "result": "仍展示支付时商品、数量及金币记录",
+    "refs": [
+      "REQ-694754332629"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b2a25d1f760cc9ac2d69f4d4031d22a47e21c710df7aacafddd050bfc47db50b"
+    ]
+  },
+  {
+    "page": "order-expense-detail.html",
+    "role": "真实金币用户",
+    "point": "礼物消费不可退款",
+    "pre": [
+      "真实金币用户；当前处于支出订单详情页面",
+      "当前为成功礼物订单"
+    ],
+    "steps": [
+      "查看订单操作入口"
+    ],
+    "result": "没有礼物退款操作",
+    "refs": [
+      "REQ-9c7ac2554e43"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "302560be67c29899db464740ac76f16040403a99af384075de8b73896fd7881b"
+    ]
+  },
+  {
+    "page": "order-expense-detail.html",
+    "role": "真实金币用户",
+    "point": "门票消费不可退款",
+    "pre": [
+      "真实金币用户；当前处于支出订单详情页面",
+      "当前为成功门票订单"
+    ],
+    "steps": [
+      "查看订单操作入口"
+    ],
+    "result": "没有门票退款操作",
+    "refs": [
+      "REQ-9c7ac2554e43"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "302560be67c29899db464740ac76f16040403a99af384075de8b73896fd7881b"
+    ]
+  },
+  {
+    "page": "order-expense-detail.html",
+    "role": "真实金币用户",
+    "point": "失效场次只保留快照",
+    "pre": [
+      "真实金币用户；当前处于支出订单详情页面",
+      "消费对应场次已结束"
+    ],
+    "steps": [
+      "点击消费业务对象"
+    ],
+    "result": "保留订单快照且不重新发起消费",
+    "refs": [
+      "REQ-c8634d02c96a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "93bb09a093aa6c14581f9c0138e54457a5fb5b17098eab30c49cca79a6ed4b73"
+    ]
+  },
+  {
+    "page": "order-expense-detail.html",
+    "role": "真实金币用户",
+    "point": "有效对象可进入",
+    "pre": [
+      "真实金币用户；当前处于支出订单详情页面",
+      "消费对应主播或场次仍可访问"
+    ],
+    "steps": [
+      "点击消费业务对象"
+    ],
+    "result": "进入对应的可访问主播或场次信息",
+    "refs": [
+      "REQ-c8634d02c96a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "93bb09a093aa6c14581f9c0138e54457a5fb5b17098eab30c49cca79a6ed4b73"
+    ]
+  }
+]

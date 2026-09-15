@@ -1,0 +1,2664 @@
+{
+  "schemaVersion": "1.0",
+  "项目目录": "liveshow-proto",
+  "扫描模式": "incremental",
+  "扫描状态": "有非阻塞待确认",
+  "模式依据": "当前全项目哈希与已发布需求基线一致，仅治理规则变化；重新核对当前批注与 context，未读取旧扫描语义。",
+  "规则影响层": "结构化设计子项及固定交付位置；不改变业务事实",
+  "文件清单": [
+    {
+      "路径": "liveshow-proto/.gitignore",
+      "SHA-256": "6f8864e708e65fb8542c7761e3112d50abeb79af40ed1143d2b84391a22b07ca"
+    },
+    {
+      "路径": "liveshow-proto/AGENTS.md",
+      "SHA-256": "514d8de94e7aef8be27529d93c30f0dfdc31712baca45e6fe32ffe8e606c388f"
+    },
+    {
+      "路径": "liveshow-proto/APP一级页面 .html",
+      "SHA-256": "9aa193f61eda0a8ce203b10a847d85a0673fa001e3f44f7787efd7a0c466cf32"
+    },
+    {
+      "路径": "liveshow-proto/CLAUDE.md",
+      "SHA-256": "918b1c90559355ef78f33fdf3562f2b021ef8bdfd8a5c8415e5decd44934de55"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-01.webp",
+      "SHA-256": "dd20da3f4b8229b0b2e0e170c515d6d95e5eb566676088c67178fd46b84e6be0"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-02.webp",
+      "SHA-256": "d8eb176fc7c642cd300f5877fe312adde1042ab3654b03ed18a3f4f02ae085de"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-03.webp",
+      "SHA-256": "f5df1d859563c7e1b7a1c00b76fbcc2a9bc7c188c01748e8f11c80124bba0de3"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-04.webp",
+      "SHA-256": "35d4acc338f9dcd87d39b6419c0e68b36f9cbe6b4a7c47bc812d1c1672498703"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-01.webp",
+      "SHA-256": "8b566506f2e2cfee8cad9531d1f42f4ef0854a2638c15d678dabac33c8676ca9"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-02.webp",
+      "SHA-256": "1bc505b1af0df0233cabf15693d07198a9d3645de3be538016df344546b17665"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-03.webp",
+      "SHA-256": "edfc7e5878b4dc443f1203d828e6a43f8613e32d908d64d4c51943428f4b6e56"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-04.webp",
+      "SHA-256": "6dda426d2227ce30c406e48a7dd8ee9b217dc1bb5eeca9536f8eea91ae26b2d7"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-01.webp",
+      "SHA-256": "cf753a6a3d806b23ef9a7ef9baa882c146ca7908ae9075f8c75e0d6659baff0a"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-02.webp",
+      "SHA-256": "d653a4c7726a17fa8dbddac7f9fbd2ece155e641fbb0e5a4858ffb8239c668f6"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-03.webp",
+      "SHA-256": "b37e354e9a70fef075f6ceb45171a6fd017b48f070fb2cd03e348cc7eab8d8e7"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-04.webp",
+      "SHA-256": "e852129fb2f81ac82f9212ed8c9c11428da7db7a988daad35f9b78661bdf6dab"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-01.webp",
+      "SHA-256": "7af361fb67a4d17bab2ffbe339d853b7625e9352ae90fd5b9bdb898f910ba437"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-02.webp",
+      "SHA-256": "9e8036527302951079021c41bb07d548f7e95d59407f0e50408bca755844c15a"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-03.webp",
+      "SHA-256": "5701a9d03de516560761e10e592d65e5eacc833a1ee4c81c920f87b320171d71"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-04.webp",
+      "SHA-256": "d7e46966776930a5a11cb25a725f466e3eef1cb4ad53c48880db8a9f9754bdeb"
+    },
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "SHA-256": "4e831613f0b5e47a530ff38d8aa71f7de4bf37d2754df9dac00a681c1e0a95ad"
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "SHA-256": "803c22e2e058f835212fda65bfb65e19ebc4b71d94b9325a849448eb8c23d6aa"
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "SHA-256": "08fd5572bd065bd5234f2169b9a07e5c50a25c3b467488c6e23924e76560beec"
+    },
+    {
+      "路径": "liveshow-proto/context/原型页面目录结构.md",
+      "SHA-256": "88ab7af6fe1caaec394d9be70a1822a3c2b6d169bbdff24ce45ea250930ac6eb"
+    },
+    {
+      "路径": "liveshow-proto/context/系统概要 .md",
+      "SHA-256": "4ccf8afccec09e5c1727c768439e09b61419d13aa335b4ec9d3c7f2eae8f72d4"
+    },
+    {
+      "路径": "liveshow-proto/export-admin-prototype.mjs",
+      "SHA-256": "c33d4dc2538f8edde4001b6c6d95ecea57b6228caec8c31c087dc4098a008fb2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/Luma Live-原型说明.md",
+      "SHA-256": "986af5418a56e2026453283fdb5530e4125165296bd576858f0767d2314e5e41"
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/admin.js",
+      "SHA-256": "a9d0ac25990ce385a06b413096abf6b93c7ba91078efded82b9507cb80f66a83"
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/guild.js",
+      "SHA-256": "36ff3622e33734d75c3172dff01bedd422adc372deb34ef1c075a5c49ca7d7b1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/annotations/user.js",
+      "SHA-256": "4538f6aaf7003cb125451555db8c98d702a7e4dd51d69d81dcad806fd1a9ab55"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/account-security.css",
+      "SHA-256": "244b7a5e225acdf96f43c559a741e2fc18c9c89210e6c657553299bd8ad1b5e8"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-account-balance-page.js",
+      "SHA-256": "7b21b52811074377e83eeefdb1ce6f0d89e6888533ec5c8c53211dcd5e701feb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-date-range-picker.js",
+      "SHA-256": "0f01f6770c28ee56149944c7a8d0466d9b52ecc7bd461bc499aee623d864af52"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-finance-reconciliation-page.js",
+      "SHA-256": "294a973f7c464d56f8006650f317efad2b804b0e2b12229a8c9b988344f3d1bb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-mock.js",
+      "SHA-256": "82f7cfb07074cfcc73623d0dad8a3e52b801fb3f6fef657649f2469785e289e1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-reporting.js",
+      "SHA-256": "4ffb3652a7a3d283e5665dfbd77935b95f674ee71bf1d6f37c180029bcd0a999"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-settlement-upload-page.js",
+      "SHA-256": "0dd312a725c5b5c97c07b4698dfc3cb8a7100a6b3ac9bab35bca08c21e246d21"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-statistics-page.js",
+      "SHA-256": "b400fa074282ea0a9ff3f50c04430b7c98740e68735c4d1e1ce71f24c89b1fbc"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin-tokens.js",
+      "SHA-256": "350d1e2c7c0686ef1719613ef173e31ab5b9c2f2666324a0c9daa87cf2cf65ce"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin.css",
+      "SHA-256": "d6efd521feac2a39e0483855b34446d69724de498f19fdd51d9be5d84267d08d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/annotation-review-changes.js",
+      "SHA-256": "d4a8598e01c8893d7700b07523c6aee5f7fae1908d956860350a7e077aa425e6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/annotations.js",
+      "SHA-256": "b874cd3b2bd62f17af2f2e82e1248fce7f16641a2c9dc1164b2776df2b20e094"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/chat-media.js",
+      "SHA-256": "a4d92dea6a4cafeda056b80f53439c4b6a0becb3657af31abdde3d28f2c26296"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.css",
+      "SHA-256": "8b4acdb60bdab1b63b6a34ad26416ea9c4d02d8f4d5d7c2989f56c576aaaf695"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.js",
+      "SHA-256": "c09a20b0fee1cca2d28e75f23b3fdba55862a785e9eb00d0456336c134eec304"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/diamond.svg",
+      "SHA-256": "b45ceb511c616e77d7a57d3f2d427702fcf43ffff35e524df9a3c1c194d9b77e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-core-data.css",
+      "SHA-256": "91a6e7d1a566a85054ab32d438cc1188976ef3c6bd8af98e41b46b8cf3aeadbd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-data-model.js",
+      "SHA-256": "0b2ad8cb4bb8a6e0a115a5bdb4348c3628781b56e1c72975fbcca7564337de25"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-date-range.js",
+      "SHA-256": "7ee3acd664b137055faa75313a34d041028d1945b8c117f37820eb0f7302eb36"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-night.svg",
+      "SHA-256": "057f19558ac591229cb0dab1fbdb97b8158d1966ecc0d81eb5a8361c9dbdf750"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-stage.svg",
+      "SHA-256": "c41487e9c551ae8fd9f966271e571ee7e3280fc0434569ca2d7fe8d9fec6f0bf"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-studio.svg",
+      "SHA-256": "92d9395aa241e98fefad3f2b8b14a995191a9a7b886925bc5b72adfa9f9a16d1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-record-overviews.js",
+      "SHA-256": "51d848e473cab754bd0d683d026e8f7a4d60e715a7aa76f01b665a7f6196f1e3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-share-records.js",
+      "SHA-256": "2e045d2ca5bb07e4fc37fa95e6b458946666b13e7cfd03c94b22b7a32682b33b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild.css",
+      "SHA-256": "32a448b4144dee929dad56bd28465046af5c3ee71d0b60e8c76df81190b257d0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/live-muted-users.js",
+      "SHA-256": "de5e72d0bbad4c38a1f796165515c0b9667d0e2a09abe3088784af08e315190f"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/live-room-cover.svg",
+      "SHA-256": "8ade172e1c50636bcbb247b309ec3b851a710881a1c38ab32c71ca1f5bb52984"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/mock.js",
+      "SHA-256": "c7ecf115b004a67321dfbf56416e6387f401bd0638a840c35d9048203a6957e6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/operation-accounts.js",
+      "SHA-256": "9f644f20bb72a5555f120640eebce4e92b9fee60bc25e95f37025c298fbc6214"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/start-live-config.js",
+      "SHA-256": "c9648538539c3e50a44caf48dd500985163e6e76e80c3c06001b57c76bf55a23"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/tailwind.js",
+      "SHA-256": "5c5de4bbb668f6d6fe2179373687434e043ba8d0e6877ee004d7c14b712618f6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/tokens.js",
+      "SHA-256": "ea674526cee1c918f9be061b4968e2b71f09bbd2470bf8852c12e0ac160635de"
+    },
+    {
+      "路径": "liveshow-proto/prototype/index.html",
+      "SHA-256": "0c53f8a92ba25e34abafe2ccc37556779ba73a0cadbec185ad4117839750f595"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-account-detail.html",
+      "SHA-256": "db5d6b43eca8b8a2e3b98f461ee7b7a27651d36213fd4a52b00207fa865b582d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-accounts.html",
+      "SHA-256": "4652600c770ecfb66c3d56406842139795d27af04891bf7af153058acf87c7d7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-gift-records.html",
+      "SHA-256": "871b85a37c4789f11bd2f1222177657572634784c0840207ce3b759406416c72"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-guild-controls.html",
+      "SHA-256": "e10a682dfbdd4017b29b54a7ac0720125817ce705bfb127295f5229438156fba"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/accounts/admin-operation-issue-records.html",
+      "SHA-256": "043bc69a943c338faec9f2f120f550fc56acb974f2e9c2232b72eb062ce318fa"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-consumption-order-detail-report.html",
+      "SHA-256": "0c1c4690829c9bacdccbd2cc01f689460728508b852440e479b2c2bdec1da051"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-daily-statistics.html",
+      "SHA-256": "8536c6806a374c6f55693674ce96f820b88e9bbd66bb8094891972d154f3ee98"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-data-overview.html",
+      "SHA-256": "93a0ab4141316c5da6e2cbe0e23ed62d4fbb378db4c198b2eae6db6c9a5d988c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-host-live-record-report.html",
+      "SHA-256": "16b6dd33e19fc73e2ca6a7af43954d1adde8f6071352a2008f664a4d5ceb2299"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-host-statistics.html",
+      "SHA-256": "51caaf7d64118e7150d252a51d0bf3efd58005a071a7491e487badeb16ccc929"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-live-statistics.html",
+      "SHA-256": "c00a8d786ab97a772d7b6183e928010be1842a283af7b2fef29bc28d83f133a4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-gift-sales.html",
+      "SHA-256": "aca5e6416fce409995771b87694a9603f2346c6514c2e65648b79ef39402d081"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-earnings.html",
+      "SHA-256": "6c97a6c304f45768f9771812961f3f8f5d8cd308dd06f91d1156cd8bfa2b3d30"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-host-share.html",
+      "SHA-256": "e4af1c251c2369e0ab8cf3097d61df7543e5b6bd4592448840d15f45a3f631bc"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-income-expense.html",
+      "SHA-256": "61cf6a67d3b4ff70a05c67cf60fd5b9abbd7cd6ce903fecdbed6d11682c504aa"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-monthly-viewer-consumption.html",
+      "SHA-256": "4093ce1ef6cc540c36bacd63296f70c2d38b75d1d11e6e49dfff113a0db1a8fe"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-order-detail-report.html",
+      "SHA-256": "f6a2c8244c25f9412e8179add285b996050baea502814edd9880aaa69f08f7fe"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-recharge-statistics.html",
+      "SHA-256": "116e1a6cd9ea5b8a35cc0784616b1406756d9e5df3aea06985262c4a228005a5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-refund-order-detail-report.html",
+      "SHA-256": "8bdef6efd8536d2acd842afcd2b7899437414a56c9f443c3bdd86aa4f6fd1164"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-report-center.html",
+      "SHA-256": "4af3f08f9e56ce18497f3a2b307ae7be24b011fd35c601882e6f45f33be7a318"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-user-active-statistics.html",
+      "SHA-256": "71c9c07ee6b10e7cf0ddf8ae8fae34be90572a2687df5afa2ba0b8448157b4e9"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/analytics/admin-user-activity-statistics.html",
+      "SHA-256": "56c1974815b7fb6a475573fff69da98f0d55221acb6c64573e6164dedb977b72"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-account-violation.html",
+      "SHA-256": "b2d56dde931af62191f2d290f674bca3bf6183abbc8cd1ff9fb215d67523009c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-content-audit-detail.html",
+      "SHA-256": "43cb871134e77b0b0cc08d8d084db9269b253737d998dde81f23d41346571934"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-content-audit.html",
+      "SHA-256": "4efc80809f041062d05850563b7aa12f51ec33f75eec918ffd0d5d9c7ac18fcd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-report-detail.html",
+      "SHA-256": "526b75a09fc583eaa196fafc100e8bd7b0cfdd238609a3df8644da359d3ecc58"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-report-handling.html",
+      "SHA-256": "698b7445ffc5c41fb343b8ce486a191cfc6a1470862ee0a7a9126fbcb4195064"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-violation-type-detail.html",
+      "SHA-256": "6f553c218b0052de8ce001cd4725d775bafbfdce9ee6c656ab1c8e28894fc8df"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/content/admin-violation-types.html",
+      "SHA-256": "0cf733253fa06b985740b37c48eef422a878555810af742459c49da5b746db6b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/dashboard/admin-dashboard.html",
+      "SHA-256": "0624bd39b41e7a04a0150a771425a9e8ea45d13671097f7ee84e50bd889d2693"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-account-balance.html",
+      "SHA-256": "8618db074253c91e9af7e79a71b4efae107413e2a3a590cc27531a8b9a761ca7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-balance-change-record.html",
+      "SHA-256": "7024974c14207d6b4e48d5724b973b1a400772d132132303976fda2d6f272b0e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record-detail.html",
+      "SHA-256": "fabb706d45673797b8033f16515b5f6bcaf6a89ec6b6710805dd7d0c3ce1399e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-guild-settlement-record.html",
+      "SHA-256": "1076f4a2f5c36debef005bad429e8af1828377ec04c0aa96a3fc43dc4cc0fe68"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-host-account-balance.html",
+      "SHA-256": "b5ac70e82dacfc5dda965a29a149eda88d2225f3c33b5db5af8c679f2143fcf3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-host-balance-change-record.html",
+      "SHA-256": "17da03bf6e34be417818dff402d0c6fbdb49e07b6a433a11e478f7efb60f6cd0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record-detail.html",
+      "SHA-256": "e33302a195eb07f6f8ab468ef960d3501ca721b510f16ec83751414e891bd849"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/finance/admin-settlement-record.html",
+      "SHA-256": "0d1a0380f73d96727cd4e566c8b3c37a85fa56748ef4f706b6aa8da107576551"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-custom-gift.html",
+      "SHA-256": "0ab525c665cd909af8a7918dd2cf1534b6dd5cd8e7384dec1369b77e76d67150"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-detail.html",
+      "SHA-256": "d1d7bd9b5b7bac0cbbf161df6b25122f551ca53c892b7847a305e0fbc0fff0ab"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-list.html",
+      "SHA-256": "0acd4bb6ea827e4f67a26f3a2336d8d21ada3025524d85c3198b31812084af51"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rule-detail.html",
+      "SHA-256": "0864919b54b57743c644a94611536615a75fab7ffbc25c398fe6fda25ccd5f84"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-gift-send-count-rules.html",
+      "SHA-256": "60e83a3f8a3f933900f2c04399522c457df97870d13fc2557bc7c2032d5a3664"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-config.html",
+      "SHA-256": "6a70e719de015a826ede1dad42dedcc531161fa8f5c2e0a8085dfaca1c3fabf7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-lucky-gift-detail.html",
+      "SHA-256": "d11a7aaf86dbafce481a7df1f721d52128a0983c57f4b15270d9acf9ce81011d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-prop-detail.html",
+      "SHA-256": "94bcefcc33675b66a81f625035bd400af7f3b16be30ebe39ea9e8b17f2fe2c29"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/gifts/admin-prop-list.html",
+      "SHA-256": "8e9efe02cc2362c9a6d9d07df93cf4223995df460e70d20beb9b397d87aee50e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/guild/admin-guild-detail.html",
+      "SHA-256": "887f7e11b54c42750399401ac57ef40e9fcf1a20a3aef36278d8b34d8159b64d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/guild/admin-guild-list.html",
+      "SHA-256": "225f197d809f0359fc2de515b548bf7c21a9844bb97713caa87b4ca0712d7622"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-detail.html",
+      "SHA-256": "c6ba1122de23feda1f32d9eb0e6774f3b93e409088777cbe2c521cd8ffc9809a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-list.html",
+      "SHA-256": "bfabcb6ffd0be7bb7137717522590c5a94c28843f0b7cba2c9034af93c2e8256"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-review-detail.html",
+      "SHA-256": "f379f686c1b915bea42bc3ff1a019ed05e6202516c03586ab98afb0a92a7952c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-host-review.html",
+      "SHA-256": "2311d751157f5565eb5808a125eed871fca42504a67ffc9b69501de258b61b34"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-create.html",
+      "SHA-256": "6a2316bba4747fbf8ba83d76adeca2631ccc441a0941a7abcc274c8754d69b6c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule-detail.html",
+      "SHA-256": "bb76e731fb37aa36c6d7f77672202985d258d81700e6d4879d2c09a2f776d622"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-inspection-schedule.html",
+      "SHA-256": "6cd25154b61ff8808eede1157afa09be4e052df88a4fe2b57e26081b0113c72e"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-live-detail.html",
+      "SHA-256": "e90ce6b6a48abee01f62eb9d291241de35b3c30a9c6865b659ba66b422696c66"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/host/admin-live-management.html",
+      "SHA-256": "e2b61b510b2eddc9fc0a357a841d31298cf832405fd20a2817f3ba48abf97096"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-feature-switch.html",
+      "SHA-256": "1ac81236e015df5f662e27d1ebd38f8c45b104d125645babe5cf86ef6de5a622"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation-detail.html",
+      "SHA-256": "928d6b09c42a7268fc062c67eeaa9c91905ac1427bb79213f18f4623c77adc14"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-guild-recommendation.html",
+      "SHA-256": "1542c25913556b60b206629c15c28d222d31fd996227ace8ab5f033d23e93948"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-level-config.html",
+      "SHA-256": "ded8230949678a2f410122f304a0317cf6a03d77828d02cf686e2dc556d1e957"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-live-type.html",
+      "SHA-256": "392029b81e9dce80b68cce66fc948cacc8ca69eef147ae5825a6abbe1967a7b1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-placement-config.html",
+      "SHA-256": "b980103001553b500e8f27ac6121af797392f3b9c2bd190cc397bbe4ebff8c78"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-placement-detail.html",
+      "SHA-256": "0c8a6120fca658572f405e2858f719b85a38084a48331478084c26eb916f5ebe"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-push-detail.html",
+      "SHA-256": "77c8ace78582fa0c41926e6d33696bbf7630e0079d28b17536cf913e4eddf23a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-push-management.html",
+      "SHA-256": "24b949f59e5b826fc1af904458da774ffc564e1b1ebaec486b89d6a3baa7563b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package-detail.html",
+      "SHA-256": "3ee600a71bd51aea25a11dd4757ff58333e8e5b5978e971709906fdeef22436d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-recharge-package.html",
+      "SHA-256": "cd7feb990db416ecc0103a5d840a818fcead18db626d2d4cc0036fd40f033ad5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words-detail.html",
+      "SHA-256": "bb1a298b50cd80d54ce544886af2b91666411a5bc9e72c546d7aa3031b0e76ed"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-sensitive-words.html",
+      "SHA-256": "e86b0df7b25735c32148155e09e72f2fe4d32b452300c0365de4cb254b08b427"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-task-config.html",
+      "SHA-256": "9eebfd03519ffcacf2c236f619d3f77472ebefc0ba7343d17ed8ebd6e8063fc8"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-task-detail.html",
+      "SHA-256": "891f5ff640841d5f8203f04594a04b2ea2f9dc4d3dd7022a9d9de6a8f33ae8bb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level-detail.html",
+      "SHA-256": "d084cab3970cf3512564f6ab79bfcb65745b396e40212f9c2230d53398791ef4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/operations/admin-ticket-price-level.html",
+      "SHA-256": "90530695c657c973a9a5cd414940f0cc92c4fddee3156c5f40e86108abe99efb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order-detail.html",
+      "SHA-256": "56d947fd0899c4614e453ba1a1e9cb3c18503e6a9e65c195b26e823d083e9a36"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-consumption-order.html",
+      "SHA-256": "4a367c26e14fd72199a2e197e5afd60979589b1dccfb0b312a09464660fa28b3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order-detail.html",
+      "SHA-256": "6fe3812eb81f30177fed4e3d19fe9996b23ada51ea41599efe54ba0cc742cbb2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-recharge-order.html",
+      "SHA-256": "771f86c73055394c5c4b49ebaecc33ecd732e6df20fabd65ddf79ef0a0322d8b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/orders/admin-refund-order.html",
+      "SHA-256": "465f28018e9770d0d65fff9071859b3059ea463c17ae25bb0e43157531d0c1c5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-account-detail.html",
+      "SHA-256": "71370e5470dbb4cb2d59612e72d3764e2abff138e1de18596b50971cff9b3ae3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-account.html",
+      "SHA-256": "81d9a7bda7f761c4d516b301728d2bc43e7738bbea2aea3c8feab3989ddf76f7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-audit-detail.html",
+      "SHA-256": "bf45b187ec4fecbaace41dec3b6f4cb3b9b5ba60d6690f675729544029805141"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-audit.html",
+      "SHA-256": "e550600b0dee8afb9851aa31740d86b8ad78fc474b9ce584fa81f34fa55e56cd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-parameter-detail.html",
+      "SHA-256": "ccf8e5c376c995bc4c8cf79361fe1f4cb62e52d93f6a38781f7391e70d01815f"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-parameter.html",
+      "SHA-256": "48a78f6bbc81d3826d03457dd5bc68c4c920d4a0173da803aa2d5e69fa7e3568"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-permission.html",
+      "SHA-256": "47b4bd4804463ae7ac68ecd0571754ce095ecda27247b94c4b32709bcceee9b6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-role-detail.html",
+      "SHA-256": "1a98aea19d0b543951b68496356c48d64e4a87c20772ed1f309b54bd11e25964"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/system/admin-system-role.html",
+      "SHA-256": "8c8f09fccbe0cdd1b96532804964afce43e126b24ddd9b3259fbbdb299cd910a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/user/admin-user-detail.html",
+      "SHA-256": "aa09c6822b1cb8ed0f50d6b3740bc72a64bdc8eb966ac604701c74572b15185c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/admin/user/admin-user-list.html",
+      "SHA-256": "03341caba148da97a603df9b4b2bf971b56192685d634542fee935c7af71b33c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-join-review-detail.html",
+      "SHA-256": "8c25981dda264cdc47f0fb0b0c341d872c496f768c7ef85649ef7dbb243eb547"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-join-review.html",
+      "SHA-256": "36e24fa89bb6349e4be1dd0ff3445c9dd5268bb251fdb2526bd3192f5d90e802"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review-detail.html",
+      "SHA-256": "42c2d83be042fe01536d26e701a350322dd8e2f14b496f8ae38381b36b666d88"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/approval/guild-leave-review.html",
+      "SHA-256": "cce93f505182d196b05357c9f10759e1dcdbd39c0c567cc33f77e593b9f1844a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/auth/guild-login.html",
+      "SHA-256": "87cfafc8525b71a9bf720a06b6bfdda1eeca4836c0514eb7a2947059bf2880cb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/auth/guild-switch.html",
+      "SHA-256": "f551e39216ccfbb84923f3024b5b8078cacf0ad4db6ee9f6fda63ed20aea8cbd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-all-violations.html",
+      "SHA-256": "6a65bf869575a6ac237268c8a1c1b931315916af1918579122655df07a71eac4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-host-data.html",
+      "SHA-256": "30cb3398b79d301b91d20159a22c7e52a4c2f63afe7dafac21ac32a27ed3683d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-host-summary.html",
+      "SHA-256": "4cd8205aa9e5049f29434038a2fc0c249cb8ee16482e9b92fa069847721fd856"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-income-day-detail.html",
+      "SHA-256": "70773f7454a66242836a8eeeecc5a6baac6c96f92bba3793ad71cc69c82c00c6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-income.html",
+      "SHA-256": "89c058de24602f1cccc16a8a441ebf5dccc7946f54c116c2aec2a2b9233db62a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-live-gift-detail.html",
+      "SHA-256": "c6dabdd4483079e4c36b391580480d0cd0c2a8a7b32d9cb824c1ab55b2466aee"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-share-income.html",
+      "SHA-256": "4e31fcdbfe9264446d6b6ba10a52b44f565ecb77d9a6ab1a87f6d879db8396f5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-share-ledger.html",
+      "SHA-256": "4c7f85d80ae406b5c81c07f117847cb4b7002020d6c000e7d1b76d4c37298af6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/data/guild-violation-host-select.html",
+      "SHA-256": "d47b5117ea829a5f857ada77a63984c240d647ed9c14034afeeda44777411850"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-home.html",
+      "SHA-256": "77aa03bdd7ab110c6298b4a728b01b840dbf24940e909cac28fb820b788b259a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-notification-detail.html",
+      "SHA-256": "a64a2bda584e26cb24cee712d04b794bf7dd26b67aedb59ab003c4565a33f495"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/home/guild-notifications.html",
+      "SHA-256": "12e9da2f95fa47b0d43ce11caa934cee472458290b8c2b192130a72a5ea65d30"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-password.html",
+      "SHA-256": "2da9cfd319a1a5a7c0852b25a8f75deea15a8b35fa2da53a43efff0315ab89b3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-profile.html",
+      "SHA-256": "a3bb84075246927dfc5ed0bfd2b6f7679ecd84b938d21d313553a703966162dd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/management/guild-settings.html",
+      "SHA-256": "a2c53b0d2b348024489f5d0b0e44325e06bcd2effa753804c73ff88c5c0e465a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-host-select.html",
+      "SHA-256": "244d3b1050058e59480d071abf469200b96e97a5d0003a7a927e2d8d58b366b5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-message-compose.html",
+      "SHA-256": "f5e4e473bae1e1e298f25aa2d678835e61d9d581667bb44b4d01f0eef06b7d15"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-message-detail.html",
+      "SHA-256": "1e86844a3927e1678b69be0ab41d6e5346ee9605a38d45c27d5d7b194d77d227"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-messages.html",
+      "SHA-256": "edb125cd087d23a483b350020b507430c0c291799c1bc7c533e1f0293198a0e2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-compose.html",
+      "SHA-256": "b8a52016fd4cb0a7d780d8cf80b450d9a109f7402c3219c22b7ddc551b7ae9a6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-detail.html",
+      "SHA-256": "8345971a8464ef537a47d945ff4ed0da53841c6d58d7482046062d019993887f"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-account-select.html",
+      "SHA-256": "805669bbf906a0853520be1312c9bb47b1bf0e36a3b7d4c97ede53255d1114ef"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-accounts.html",
+      "SHA-256": "c311bae5e9a1aa48546baf47b7321ac4241a351e6202137162856fd1c6c3b7b3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/operations/guild-operation-gift-records.html",
+      "SHA-256": "bd60d716b24a1ccb13a698e8deaadaeb9cdade44c2a6e1937436febb215734c2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-host-detail.html",
+      "SHA-256": "7431288708b56558c908a77a70da00d7a0422534e82ecfe79ca4a30de93a5069"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-host-list.html",
+      "SHA-256": "9d21261a357af843e84870e9b3c68ca958425bf9a1d19acd2a3dd4f4456bc15d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/guild/people/guild-member-list.html",
+      "SHA-256": "756f0ab52c7c0a6663afbd7de4e9e0ec1ef6d153ddfa65cfba65110c2ec1e2b3"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-country-select.html",
+      "SHA-256": "133cfb9ef405b6629857cf20a4bf8c7c3121181602e80212d963d5c94a43c5f1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-email-login.html",
+      "SHA-256": "79815ba6324384bd578e479164460fd565114e9d6cd72ce0bb1c9a5cfc997acd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-login-register.html",
+      "SHA-256": "88fdf21bac687e498edb3bc6601bbed6ad647ce585248ba2b1b73e68af350aa6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-phone-login.html",
+      "SHA-256": "8732173a70563e30cd5a3f4778d5349ee60c0f4f3479eedc6573fbb89a052080"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/auth/auth-profile-completion.html",
+      "SHA-256": "bb27182d2c001ff5d447a92e1b71dc3a5188e1b2307fdba4063c819c8d5043a5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/fan-club/fan-contribution-ranking.html",
+      "SHA-256": "5918a3a355c782c37c8931183f4f1f8e6f0b926a6d9ad17cf67ba1d2ae1fc2a9"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/fan-club/my-fan-clubs.html",
+      "SHA-256": "17a61b5f283fd9e7951cd69bdaf1714d2c6834b12259272972655e843241596a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-application-form.html",
+      "SHA-256": "1cc28282e4df6583452d7e60222b69747ca0ace21caadab0a5eb14dd2245cc93"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-application-records.html",
+      "SHA-256": "943acdc22a90f88826f503224806ab05be13cd84bd4a286832e00f8b717daff0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-detail.html",
+      "SHA-256": "048a225f43ff3b639fb87e30102826b57339f5029b8bc967d9206a3e0e09a904"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-leave-application.html",
+      "SHA-256": "a5ab0e96c55afb16489ac515808f2ce0ef009b50035092eede812e7d63e23e5a"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/guild/guild-management.html",
+      "SHA-256": "8292d07c88340396123fc78eac0dc8db6603bb6fa9e4a31613ba7ae66d99b738"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/all-tasks.html",
+      "SHA-256": "de73888d3e8dc4041472b039ce5bc2b12fcf058b191435509228464e9306ee63"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/contribution-ranking.html",
+      "SHA-256": "c4c6ef06eb19edf1ead65e53cd589813361b32368844bcecec97d9993edf5e54"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/host-ranking.html",
+      "SHA-256": "17955e98a113bd7b9d930f9a364e5ad7518cf37f3341328222257d151b0c17e4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/invite-friends.html",
+      "SHA-256": "ac81186fcd1662e4b68246594161361ba02a23928d50e8b7a16ae00660eac073"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/live-plaza.html",
+      "SHA-256": "f2606a5fac8da6aaf7228764ba026a1b3bd61ae7c5947c9c797b3a801382629f"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/search-results.html",
+      "SHA-256": "c88cc7343c9483741763f7b4eb9ad2202d0ee130b6824bcfd75ff6730a1fe5d2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/search.html",
+      "SHA-256": "99e70b767cfcedf2992aacbef4c6de5a16121bd2e2641bdda15e9f59c54d46f1"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/home/welfare-center.html",
+      "SHA-256": "d9d24257dfccf0ff2769e90568934780a9364148f0e11df460d2b39ee8f4604b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/fan-club-settings.html",
+      "SHA-256": "0563f7f97941dcdcfb6ad6c10fb181202152e1a5bdc856fc807ab5aa2c2f93ae"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/fan-club.html",
+      "SHA-256": "d947b7870890fffe8497cf636b2f27374bbf6503ae94f780e36f2e968b1c75b6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/fan-list.html",
+      "SHA-256": "6a9629fd4d93cd552fea90e62b1eaa6df4480831a2c4eda15fcaed89f3392839"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/host-center-pending.html",
+      "SHA-256": "320d3b73e37c1438022c607a5dc588f9998171038afa788b53bd86988e375ecc"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/host-center.html",
+      "SHA-256": "9d6fc9179c70a4ff76bd304d212e89bac1ab93e56005f479d07c6187e78d4363"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/host-guild-notifications.html",
+      "SHA-256": "67203032c390eea531bd5499f9e1fc6be9ab3d4620605ccfb585fb21aad519af"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/income-sharing.html",
+      "SHA-256": "9748d142223d019dbb89c73c55207e74c3e83db2839dbf75bcbe3f65f41e5d2d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/live-data.html",
+      "SHA-256": "b3bbd1941b5f42a449f562d0e05891ec3a4a23d0848d726e4f8e84ae7af900dc"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/live-records.html",
+      "SHA-256": "2c191aa0ebeb10ff5a6fc958640527a169092f16345fd341b141642e1d404d1b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/moderator-management.html",
+      "SHA-256": "f5da75aa391a3cd8c7c3bdc3ed16b0dfa0f2f57fef5b3c3b68c5ca2568696a82"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/host/start-live-settings.html",
+      "SHA-256": "813495b38530e436a57c8bc19f20b2849acb72e1acde035affd322bdf67feeac"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-end-host.html",
+      "SHA-256": "f293b002b331a918e6ec2b106360ec5860f7da5022bb9ca05efffbdc504676b2"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-end-viewer.html",
+      "SHA-256": "b96e1ff6a67f03429a07d6119c220cd5519ee252beac503fdc30190890333e21"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-cohost-active.html",
+      "SHA-256": "8044e23b3d53f4a2bcdbbac65a247db8f52be5e93a1e1a66171e97ad7bcf24d6"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-host-password.html",
+      "SHA-256": "95dba95b116d67742baf78753ba5c2d595f9d312fca16ccb1f2c39b2796a0eac"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-host.html",
+      "SHA-256": "06dc81a1ed7cb5b5a2315876d81dbd82d7c750a4c58997f3942eba5156483cfb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-report.html",
+      "SHA-256": "78c465e079329c50bd1b503101f321bd6e837c6bc1064364d8e356ebf875f218"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room-user-report.html",
+      "SHA-256": "f7cfba0d268391d312ea947a0f14d726c17f784502be816c89fbad453326a73c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/live/live-room.html",
+      "SHA-256": "52981fe21ac2248309fab9a2f1b3fff2531dad3853e17ff863b786f451b60da8"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/account-password-change.html",
+      "SHA-256": "8a4b60396a09f6a52877c10ed7807e314b5181be50d5f34361d3ed8a9573f2d0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/account-password-reset.html",
+      "SHA-256": "3f81a2fdec7f9c285bf5b720c167d0773b019cd9c984715fc5b1dd60b12bff30"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/account-password-set.html",
+      "SHA-256": "964eaf25b275f7b0cf861f408824ebdb55244661a705873490b98dbbbe20c7f7"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/blacklist-management.html",
+      "SHA-256": "a3dcd704689a0ca69e30ac7d33e69835f6cdba1cbdbac6c9ea39a6c2ccbf7d85"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/customer-service.html",
+      "SHA-256": "f152367f900424dc6fa743ad6916e000915357f57f1df5a1d07dfd668562e3e0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-decoration.html",
+      "SHA-256": "9817220126fd60cb3f4621703a42f3b15c99e5cc7dfe50de341020b7084b39da"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-following.html",
+      "SHA-256": "2a59217d890a830f2a3375d6de62ce99e20c0aa09b4c4143fe6f952894832602"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/my-outfits.html",
+      "SHA-256": "09b0241053afdad64a5fa508297b3f1e0a045522b71940b3aaf10556d491207c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/profile-edit.html",
+      "SHA-256": "691c5fe76c1a6c4dd071b5c34486c3cfdfaf5be8277ccc5af11e6f0978cf5291"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/profile.html",
+      "SHA-256": "1fa6ebd96c39d3cac9e4f55b82e2d724564505ad1f2bcb6ea0a7b44777023bc0"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/profile/settings.html",
+      "SHA-256": "a0302951238c1a15774a43f03c6d2118a1a64965426aeb69ec9a490c4bc052f5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/chat-settings.html",
+      "SHA-256": "272c38f467158e6fa93a8c68ddcebbfc0f92d139341a8be57884c9b9768bef5c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/direct-message.html",
+      "SHA-256": "11779b5ffbbcb613069887831f54c1afe5ba1972f16a8b6cbb1ecc8fe631c0da"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/fan-group-chat.html",
+      "SHA-256": "d09c4841f7a1dea5b34541a92d97a191bbf679ed85b6be26c9f5cba679732d0c"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/follower-list.html",
+      "SHA-256": "03f83d75e369c5d4c837178ec82e80678628f4389075f6c3e8a4d6cc1f213c52"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/friend-list.html",
+      "SHA-256": "c4f9a2790aa4649e43a3fc0b24a2ca9010375a80bc98ea403b321add6c5b160b"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/group-manage-member.html",
+      "SHA-256": "5e37fdd95d7fb4f901ece4d873447b35d4a39f04e1aedb8286255721a347f329"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/group-manage-owner.html",
+      "SHA-256": "8e16f2af7fd5819f839e5239810560243e1a7aa586ff12452d986506cc150f72"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/host-gift-gallery.html",
+      "SHA-256": "1a327a6761e78c616631e98b4b1da5e4f1f72efae3fbfaaa945d6f24bb4a3f75"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/host-home.html",
+      "SHA-256": "e0398be999c43515cda84c615bb6816d1ff1218c87297e33c20351e70009995d"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/interaction-notifications.html",
+      "SHA-256": "ac16eed373db45abacb06bbda0d7973b998a9da27eb47be0c9fe0c1bcb0030d5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/message-center.html",
+      "SHA-256": "67547b09973958fb6cc0accb03eb6e5ddd0aa6d27e5e73c40e6363fefa13ea28"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/system-notifications.html",
+      "SHA-256": "43c07aa29edefb6099dd34bcaeafec0f8dbee75b8c627a068ff6db2fba2f6b36"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/social/user-home.html",
+      "SHA-256": "c4be6d3c5af2a09fc4c143b1983daecf2a5d2418d480ba1dea54f258175c3dbb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/balance-detail.html",
+      "SHA-256": "dbb7cc2f31e220aaa8da994fda26251a8e5517c34cae8b711af636f8503ae6f4"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/order-expense-detail.html",
+      "SHA-256": "607a491f9ca9ea62ce391a88bd40ca6b45f403902d8249661a5eab901a63b135"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/order-income-detail.html",
+      "SHA-256": "e60470d31a1444584352c58a92029120b691807ebe4a71363c8a161afef74a19"
+    },
+    {
+      "路径": "liveshow-proto/prototype/pages/user/wallet/recharge.html",
+      "SHA-256": "b532101e37f5376679dd28401e4f1d901bee19dabe80ce7d866e62c2dc51a6fd"
+    },
+    {
+      "路径": "liveshow-proto/prototype/公会APP-批注校对清单.md",
+      "SHA-256": "a7ccbd8909c87934d8bf25868bba18b556706b46257117c844cc2cd3fab64d95"
+    },
+    {
+      "路径": "liveshow-proto/prototype/原型规范.md",
+      "SHA-256": "cb40096d644d10f08cda06933b4679cd665aff78cd897779443e18412e0b9ceb"
+    },
+    {
+      "路径": "liveshow-proto/prototype/批注核对清单.md",
+      "SHA-256": "05842f92b61d4d3b9ccff69f73b6bc9d30c2011e1d0371af7fc93e305e223cc5"
+    },
+    {
+      "路径": "liveshow-proto/prototype/页面视图规范.md",
+      "SHA-256": "2df50ad43b8262c850d829afb7080d257a1efdf9f5eba1c5cb9a7674a007ea39"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-001-资料修改风控审核/todo.md",
+      "SHA-256": "dacba5f4f4078f4d3c19349b61288a761c9cde008fe2efe58960ae5c22248e2d"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-001-资料修改风控审核/需求梳理-资料修改风控审核.md",
+      "SHA-256": "5731e84bbf371fa6d1f569976945774b39f5f951682fbd05e1889a14d3523d1a"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-002-商品SKU分成规则/todo.md",
+      "SHA-256": "2d4a56f5187e9a0441a56e65b9af81fc9aaf0972d4844f117fa9615a45e96855"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-08/REQ-002-商品SKU分成规则/需求梳理-商品SKU分成规则.md",
+      "SHA-256": "cf476bf080a7e1fc33c866f76c0be12376e374cc387258e1f0ae5ed21b59e3f6"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-09/用户APP原型排查.md",
+      "SHA-256": "053c201ade4c8e2a296affab098bae079fa40624c458271d13f837f592617a8d"
+    },
+    {
+      "路径": "liveshow-proto/用户APP原型分析报告-2026-08-08.md",
+      "SHA-256": "6010476edb53cb6db2066a1275d9a746ad3e5cce3d66f7ba1ee1ad08cb699c09"
+    },
+    {
+      "路径": "liveshow-proto/移动端原型-配色规范.md",
+      "SHA-256": "b782c5ccaecde58a693b292095e789537d218cc6e58d5832b90f90fb0822b0bb"
+    },
+    {
+      "路径": "liveshow-proto/需求来源策略.json",
+      "SHA-256": "0440de8537a128481e8b0e8d54c5383509c0f52d92f8247f0eb4c505c680518f"
+    },
+    {
+      "路径": "liveshow-proto/项目说明.md",
+      "SHA-256": "753eb0d741c49fc96241c4e2d5eec6f5b18745ece164c0f0a11011beb56c2a6d"
+    }
+  ],
+  "不读取内容": [
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-01.webp",
+      "SHA-256": "dd20da3f4b8229b0b2e0e170c515d6d95e5eb566676088c67178fd46b84e6be0",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-02.webp",
+      "SHA-256": "d8eb176fc7c642cd300f5877fe312adde1042ab3654b03ed18a3f4f02ae085de",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-03.webp",
+      "SHA-256": "f5df1d859563c7e1b7a1c00b76fbcc2a9bc7c188c01748e8f11c80124bba0de3",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dazz Chat/screenshot-04.webp",
+      "SHA-256": "35d4acc338f9dcd87d39b6419c0e68b36f9cbe6b4a7c47bc812d1c1672498703",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-01.webp",
+      "SHA-256": "8b566506f2e2cfee8cad9531d1f42f4ef0854a2638c15d678dabac33c8676ca9",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-02.webp",
+      "SHA-256": "1bc505b1af0df0233cabf15693d07198a9d3645de3be538016df344546b17665",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-03.webp",
+      "SHA-256": "edfc7e5878b4dc443f1203d828e6a43f8613e32d908d64d4c51943428f4b6e56",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Dreamlike Video Chat/screenshot-04.webp",
+      "SHA-256": "6dda426d2227ce30c406e48a7dd8ee9b217dc1bb5eeca9536f8eea91ae26b2d7",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-01.webp",
+      "SHA-256": "cf753a6a3d806b23ef9a7ef9baa882c146ca7908ae9075f8c75e0d6659baff0a",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-02.webp",
+      "SHA-256": "d653a4c7726a17fa8dbddac7f9fbd2ece155e641fbb0e5a4858ffb8239c668f6",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-03.webp",
+      "SHA-256": "b37e354e9a70fef075f6ceb45171a6fd017b48f070fb2cd03e348cc7eab8d8e7",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Mango Live/screenshot-04.webp",
+      "SHA-256": "e852129fb2f81ac82f9212ed8c9c11428da7db7a988daad35f9b78661bdf6dab",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-01.webp",
+      "SHA-256": "7af361fb67a4d17bab2ffbe339d853b7625e9352ae90fd5b9bdb898f910ba437",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-02.webp",
+      "SHA-256": "9e8036527302951079021c41bb07d548f7e95d59407f0e50408bca755844c15a",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-03.webp",
+      "SHA-256": "5701a9d03de516560761e10e592d65e5eacc833a1ee4c81c920f87b320171d71",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/app-store-screenshots/Momo Live/screenshot-04.webp",
+      "SHA-256": "d7e46966776930a5a11cb25a725f466e3eef1cb4ad53c48880db8a9f9754bdeb",
+      "说明": "竞品应用商店截图，仅视觉参考，不是 Luma Live 业务资料"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/account-security.css",
+      "SHA-256": "244b7a5e225acdf96f43c559a741e2fc18c9c89210e6c657553299bd8ad1b5e8",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/admin.css",
+      "SHA-256": "d6efd521feac2a39e0483855b34446d69724de498f19fdd51d9be5d84267d08d",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/common.css",
+      "SHA-256": "8b4acdb60bdab1b63b6a34ad26416ea9c4d02d8f4d5d7c2989f56c576aaaf695",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/diamond.svg",
+      "SHA-256": "b45ceb511c616e77d7a57d3f2d427702fcf43ffff35e524df9a3c1c194d9b77e",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-core-data.css",
+      "SHA-256": "91a6e7d1a566a85054ab32d438cc1188976ef3c6bd8af98e41b46b8cf3aeadbd",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-night.svg",
+      "SHA-256": "057f19558ac591229cb0dab1fbdb97b8158d1966ecc0d81eb5a8361c9dbdf750",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-stage.svg",
+      "SHA-256": "c41487e9c551ae8fd9f966271e571ee7e3280fc0434569ca2d7fe8d9fec6f0bf",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild-live-studio.svg",
+      "SHA-256": "92d9395aa241e98fefad3f2b8b14a995191a9a7b886925bc5b72adfa9f9a16d1",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/guild.css",
+      "SHA-256": "32a448b4144dee929dad56bd28465046af5c3ee71d0b60e8c76df81190b257d0",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/live-room-cover.svg",
+      "SHA-256": "8ade172e1c50636bcbb247b309ec3b851a710881a1c38ab32c71ca1f5bb52984",
+      "说明": "配色、布局或插画资源；本次未要求视觉测试"
+    },
+    {
+      "路径": "liveshow-proto/prototype/assets/tailwind.js",
+      "SHA-256": "5c5de4bbb668f6d6fe2179373687434e043ba8d0e6877ee004d7c14b712618f6",
+      "说明": "第三方样式运行库，不定义项目业务"
+    },
+    {
+      "路径": "liveshow-proto/workspace/2026-09/用户APP原型排查.md",
+      "SHA-256": "053c201ade4c8e2a296affab098bae079fa40624c458271d13f837f592617a8d",
+      "说明": "历史分析报告，不作为当前业务证据；仅保留路径和哈希"
+    },
+    {
+      "路径": "liveshow-proto/用户APP原型分析报告-2026-08-08.md",
+      "SHA-256": "6010476edb53cb6db2066a1275d9a746ad3e5cce3d66f7ba1ee1ad08cb699c09",
+      "说明": "历史分析报告，不作为当前业务证据；仅保留路径和哈希"
+    }
+  ],
+  "阻塞项": [],
+  "规则缺失复核": [
+    {
+      "检索对象": "通用日期、小数、字段、灰度和财务导入模板",
+      "已查文件": [
+        "prototype/Luma Live-原型说明.md",
+        "prototype/assets/admin-settlement-upload-page.js",
+        "prototype/annotations/user.js"
+      ],
+      "采用结论": "8处规则补齐；冷静期格式同级冲突写入PENDING-cooling-date-format"
+    }
+  ],
+  "不评估历史用例": "用户禁用",
+  "未原文匹配批注": [
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "live-plaza.html",
+      "section": "交互",
+      "line": 4,
+      "item": 3,
+      "text": "3. 进房演示固定为：Ayu 显示拉黑或踢出拦截，Intan 显示门票拦截；每次点击 Lala 时，密码房拦截和非粉丝团成员拦截交替显示；其他直播卡片直接进入。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "live-plaza.html",
+      "section": "交互",
+      "line": 4,
+      "item": 4,
+      "text": "4. 通知说明点击开启通知 -> 模拟系统通知授权弹窗；点击暂不开启 -> 仅关闭说明，不请求系统权限。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "host-ranking.html",
+      "section": "字段",
+      "line": 2,
+      "item": 7,
+      "text": "| 收礼值 | 收礼值 = 周期内主播成功收到的非虚拟金币礼物单价 × 数量之和。幸运礼物按送出礼物价值计算，返奖不冲减收礼值；虚拟金币赠礼不计入主播榜。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "host-ranking.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 2,
+      "text": "2. 主播榜按收礼主播汇总；统计前过滤虚拟金币赠礼，不计入收礼值和排名。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "host-ranking.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 3,
+      "text": "3. 退款或冲正后重新计算收礼值和排名。账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "contribution-ranking.html",
+      "section": "字段",
+      "line": 2,
+      "item": 6,
+      "text": "| 统计对象 | 仅统计非运营账号；运营账号产生的贡献数据不计入榜单。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "contribution-ranking.html",
+      "section": "字段",
+      "line": 2,
+      "item": 8,
+      "text": "| 贡献值 | 贡献值 = 周期内非运营账号成功送出的各礼物单价 × 数量之和。幸运礼物按送出礼物价值计算，返奖不冲减贡献值；运营账号及其虚拟金币赠礼不计入贡献榜。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "contribution-ranking.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 2,
+      "text": "2. 贡献榜按送礼用户汇总；统计前过滤运营账号及其贡献数据。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "contribution-ranking.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 3,
+      "text": "3. 退款或冲正后重新计算贡献值和排名。账号注销后保留历史数值，名称显示“账号已注销”，且不能进入主页。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "search-results.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 3,
+      "text": "3. 排序：匹配结果的优先级待确认。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "welfare-center.html",
+      "section": "每日签到",
+      "line": 6,
+      "item": 2,
+      "text": "2. 页面展示连续天数、已签到日、今天及后续奖励。当前原型演示已连续签到 3 天，今天领取 30 金币，第 7 天展示 +60；示例金额不代表固定业务配置。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "welfare-center.html",
+      "section": "任务中心领取",
+      "line": 8,
+      "item": 3,
+      "text": "3. 原型以 Toast 代替前往观看或分享的业务动作，仅模拟当前页领取状态；不实际发币、不持久化。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "welfare-center.html",
+      "section": "任务中心领取",
+      "line": 8,
+      "item": 4,
+      "text": "4. 游客可浏览并进入邀请好友页；签到、领奖和充值操作跳转登录。运营账号不参与签到、任务及领奖，不展示相关入口。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "welfare-center.html",
+      "section": "待确认边界",
+      "line": 9,
+      "item": 1,
+      "text": "1. 是否支持补签。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "welfare-center.html",
+      "section": "待确认边界",
+      "line": 9,
+      "item": 2,
+      "text": "2. 签到跨日及任务周期的时区、周起始日；任务到期或停用时，当天已达成且尚未过期的奖励能否继续领取。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "profile.html",
+      "section": "交互",
+      "line": 4,
+      "item": 10,
+      "text": "| 开始直播 | 进入开播设置或主播申请流程。 | 已具备主播身份进入主播中心，否则进入申请流程，页面：申请成为主播 P014-1。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "follower-list.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 2,
+      "text": "2. 排序：粉丝列表排序依据待确认；搜索不改变结果的相对顺序。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "my-decoration.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 6,
+      "text": "6. 运营账号不可使用虚拟金币购买装扮，不展示装扮商城购买入口；已拥有装扮仍可查看和佩戴。虚拟金币仅可用于赠送普通礼物和定制礼物。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "my-decoration.html",
+      "section": "交互",
+      "line": 4,
+      "item": 1,
+      "text": "已拥有卡片 -> 直接佩戴或卸下并刷新状态，不跳转新页面；失效道具不可点击。勋章达到 5 枚后，需先卸下一枚。购买 -> 打开购买弹窗。金币充足时依次展示装扮预览、道具名称及期限、金币价格和操作按钮，不显示标题及分隔线，价格不显示字段名；按钮为“取消”和“购买”。购买成功 -> 弹窗显示“购买成功”及“继续购买”“去佩戴”按钮；继续购买关闭弹窗并停留商城，去佩戴返回“我的装扮-已拥有”并自动切换至对应装扮分类。金币不足时仅显示“金币余额（金币图标 + 当前余额）不足，请先充值”及“取消”“去充值”按钮，不显示装扮、价格和“金币不足”标题。原型演示时，点击未获得商品交替展示金币满足和不足状态；实际状态根据用户实时金币余额判断。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "live-room.html",
+      "section": "字段",
+      "line": 1,
+      "item": 6,
+      "text": "| 本场贡献 | 本场贡献 = 当前场次内非运营账号成功送出的各礼物单价 × 数量之和。幸运礼物按送出礼物价值计算，返奖不冲减本场贡献；运营账号及其虚拟金币赠礼不计入。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "live-room-host.html",
+      "section": "字段",
+      "line": 1,
+      "item": 5,
+      "text": "| 本场贡献 | 本场贡献 = 当前场次内非运营账号成功送出的各礼物单价 × 数量之和。幸运礼物按送出礼物价值计算，返奖不冲减本场贡献；运营账号及其虚拟金币赠礼不计入。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "live-room-host-password.html",
+      "section": "业务",
+      "line": 2,
+      "item": 4,
+      "text": "4. 排序所需等级缺失时按 0 级处理；运营账号及其虚拟金币赠礼不计入本场贡献榜；退款或冲正后重新计算贡献值和排名。账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "live-room-cohost-active.html",
+      "section": "业务",
+      "line": 2,
+      "item": 3,
+      "text": "3. 排序所需等级缺失时按 0 级处理；运营账号及其虚拟金币赠礼不计入本场贡献榜；退款或冲正后重新计算贡献值和排名。账号注销后保留历史贡献，名称显示“账号已注销”，且不能进入主页。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "live-end-viewer.html",
+      "section": "业务",
+      "line": 2,
+      "item": 1,
+      "text": "1. 当前直播场次已关闭，不能继续观看、评论、送礼或进入连麦。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "friend-list.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 5,
+      "text": "5. 排序：好友列表排序依据待确认；搜索不改变结果的相对顺序。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "group-manage-owner.html",
+      "section": "交互",
+      "line": 4,
+      "item": 4,
+      "text": "4. 举报 -> 原型显示举报提示；返回 -> 进入粉丝群聊天页。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "guild-management.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 1,
+      "text": "1. 数据范围：展示平台后台配置为本页展示的公会；停用公会不展示、不可被搜索。示例数据的 5 条不代表数量上限。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "guild-application-form.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 4,
+      "text": "4. 公会驳回后可重新选择公会申请；平台驳回后保留公会已通过状态，可修改认证资料重新提交平台审核。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "user-home.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 4,
+      "text": "4. 数据范围：当前查看对象的资料、社交统计和已加入粉丝团；粉丝团展示顺序待确认。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "my-fan-clubs.html",
+      "section": "字段",
+      "line": 2,
+      "item": 10,
+      "text": "| 亲密度 | 当前用户与该主播的一对一关系数值；不是团等级、金币余额或总贡献，计算规则待确认。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "my-fan-clubs.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 6,
+      "text": "6. 无有效团籍时，显示占位图和「暂未加入粉丝团」，不显示粉丝团卡片；查看器「视图-空白」可演示。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "my-fan-clubs.html",
+      "section": "待确认边界",
+      "line": 5,
+      "item": 1,
+      "text": "1. 亲密度累计、衰减与单位规则。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "my-fan-clubs.html",
+      "section": "待确认边界",
+      "line": 5,
+      "item": 2,
+      "text": "2. 未上榜和数据缺失的显示方式。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "fan-contribution-ranking.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 2,
+      "text": "2. 失败或撤销的赠送不计入贡献；退款或冲正后重新计算贡献值和排名。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "host-center.html",
+      "section": "交互",
+      "line": 5,
+      "item": 4,
+      "text": "4. 公会通知进入通知列表；角标为当前未读通知数量，0 条时隐藏。直播记录入口当前原型以提示代替跳转。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "host-center.html",
+      "section": "待确认",
+      "line": 6,
+      "item": 1,
+      "text": "1. 有效直播时长的排除条件、跨自然日分摊方式及指标更新延迟。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "moderator-management.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 5,
+      "text": "5. 数据范围：当前主播仍有效的房管授权；排序依据待确认。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "host-guild-notifications.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 2,
+      "text": "2. 排序：通知列表的排序依据待确认；本页不展示发布时间。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "host-center-pending.html",
+      "section": "字段",
+      "line": 2,
+      "item": 8,
+      "text": "| 页面提示 | 说明当前审核阶段及后续可执行动作；公会驳回提示重新申请，平台驳回提示修改资料。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "host-center-pending.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 5,
+      "text": "5. 平台驳回：保留公会已通过状态，点击“重新申请”修改认证资料并重新提交平台审核。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "host-center-pending.html",
+      "section": "交互",
+      "line": 4,
+      "item": 1,
+      "text": "1. 点击“申请资料”在当前步骤展开或收起；“去加入”和公会驳回后的“重新申请”进入公会选择页；平台驳回后的“重新申请”进入认证资料修改。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "fan-list.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 2,
+      "text": "2. 数据范围：当前仍关注该主播的用户；排序依据待确认。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "fan-club.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 4,
+      "text": "4. 排序：默认按给当前主播刷出的全部历史贡献从高到低；“本月最多”按本月内的全部贡献从高到低，均不按入团时间截断；“最新加入”按加入时间从新到旧；相同值的次序待确认。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "fan-club.html",
+      "section": "交互",
+      "line": 4,
+      "item": 3,
+      "text": "3. 点击粉丝团设置 -> 进入设置页；点击成员 -> 原型以资料提示反馈。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "live-data.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 1,
+      "text": "1. 数据来自已开始的直播场次；场次结束后保留历史快照，退款和冲正按财务口径更新收益。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "live-data.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 2,
+      "text": "2. 数据范围：仅当前主播、当前日或月范围内的直播数据；日期趋势按时间顺序展示，明细列表的排序依据待确认。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "income-sharing.html",
+      "section": "交互",
+      "line": 4,
+      "item": 1,
+      "text": "1. 点击分成记录 -> 原型提示查看对应日期的记录。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "recharge.html",
+      "section": "交互",
+      "line": 4,
+      "item": 1,
+      "text": "1. 点击套餐价格按钮发起支付；本页无支付渠道选择控件，原型以支付提示代替实际支付。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "recharge.html",
+      "section": "待确认",
+      "line": 5,
+      "item": 1,
+      "text": "1. 首充资格判定、购买后是否隐藏；倒计时结束或支付过程中套餐失效时的处理；无可购套餐时的展示。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "balance-detail.html",
+      "section": "字段",
+      "line": 2,
+      "item": 3,
+      "text": "| 变动类型 | 当前页面展示充值、充值退款、礼物打赏、礼物退款和购买门票。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "auth-country-select.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 4,
+      "text": "4. 排序：待确认，当前页面未提供排序条件。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "profile-edit.html",
+      "section": "交互",
+      "line": 4,
+      "item": 4,
+      "text": "4. 原型中头像或昵称修改后，每次点击保存均按成功、不合规、网络异常依次循环，失败或异常时保留编辑内容。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "settings.html",
+      "section": "交互",
+      "line": 4,
+      "item": 5,
+      "text": "5. 同一会话内每次点击注销账号，按金币余额不少于 100、低于 100 两种情况持续交替；离开设置页后不重置。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-plaza/notification-intro.html",
+      "section": "交互",
+      "line": 4,
+      "item": 1,
+      "text": "点击开启通知 -> 模拟系统通知授权弹窗；点击暂不开启 -> 关闭说明且后续登录不再展示。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-room/gift.html",
+      "section": "业务",
+      "line": 2,
+      "item": 4,
+      "text": "4. 虚拟金币仅计入公屏氛围，不计入主播榜、贡献榜、主播收益或分成。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-room/contribution-rank.html",
+      "section": "字段",
+      "line": 1,
+      "item": 5,
+      "text": "| 贡献值 | 贡献值 = 当前场次内非运营账号成功送出的各礼物单价 × 数量之和。幸运礼物按送出礼物价值计算，返奖不冲减贡献值；运营账号及其虚拟金币赠礼不计入。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-room/contribution-rank.html",
+      "section": "业务",
+      "line": 2,
+      "item": 1,
+      "text": "1. 运营账号不进入贡献榜；粉丝等级或财富等级缺失时按 0 级参与排序；排名按完整排序结果连续编号。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-room/contribution-rank.html",
+      "section": "业务",
+      "line": 2,
+      "item": 2,
+      "text": "2. 失败或撤销赠送不计入；退款或冲正后重新计算贡献值和排名。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-room-host/contribution-rank.html",
+      "section": "字段",
+      "line": 1,
+      "item": 3,
+      "text": "| 统计范围 | 统计当前直播场次内所有产生有效贡献的非运营账号，包含当前在线和已经离线的用户。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-room-host/contribution-rank.html",
+      "section": "业务",
+      "line": 2,
+      "item": 1,
+      "text": "1. 本场贡献榜为当前场次累计榜，统计在线和非在线的非运营账号；用户离开直播间后仍保留本场贡献值和排名。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-room-host/contribution-rank.html",
+      "section": "业务",
+      "line": 2,
+      "item": 4,
+      "text": "4. 运营账号及其虚拟金币赠礼不计入；失败或撤销赠送不计入；退款或冲正后重新计算贡献值和排名。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-room-host/cohost-hosts.html",
+      "section": "业务",
+      "line": 2,
+      "item": 4,
+      "text": "4. 任一方结束直播、变更为受限房型或进入连麦 -> 不再满足的邀请失效。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-room-host/cohost-invite-notice.html",
+      "section": "业务",
+      "line": 2,
+      "item": 3,
+      "text": "3. 接受一条邀请并建立连麦后，其他邀请失效。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/welfare-center/claimed.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 2,
+      "text": "2. 金币奖励已进入钱包，道具奖励已进入背包，并分别生成资产记录。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-data/month.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 1,
+      "text": "仅统计已形成有效记录的直播场次；场次结束后数据保留，后续退款或冲正按平台财务口径更新。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/user.js",
+      "page": "views/live-data/month.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 2,
+      "text": "数据范围：当前主播所选自然月的有效直播记录；按时间顺序展示趋势，明细列表排序依据待确认。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-join-review.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 3,
+      "text": "3. 公会审核通过后自动进入平台审核，无需用户再次提交；平台驳回后保留公会已通过状态，用户修改认证资料后重新提交平台审核。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-join-review-detail.html",
+      "section": "业务规则",
+      "line": 4,
+      "item": 2,
+      "text": "2. 平台驳回后保留公会已通过状态；用户修改认证资料后重新提交平台审核。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-leave-review-detail.html",
+      "section": "原型待补齐",
+      "line": 5,
+      "item": 1,
+      "text": "通过退会前的二次确认尚未实现。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-host-summary.html",
+      "section": "原型待补齐",
+      "line": 5,
+      "item": 1,
+      "text": "新增粉丝应为非负新增人数；当前共享 Mock 仍包含负数示例，需同步调整数据。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-host-detail.html",
+      "section": "管理规则",
+      "line": 6,
+      "item": 1,
+      "text": "1. 开播需同时满足账号可用、公会有效、主播认证通过、平台与公会直播权限均开启。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-host-detail.html",
+      "section": "待确认",
+      "line": 8,
+      "item": 1,
+      "text": "粉丝数应取当前关注人数；当前 Mock 使用周期涨粉汇总，数据来源需校正。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-host-detail.html",
+      "section": "原型待补齐",
+      "line": 9,
+      "item": 1,
+      "text": "存在未结清收益时应禁止移出，当前原型尚未接入该判断。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-operation-accounts.html",
+      "section": "业务规则",
+      "line": 3,
+      "item": 3,
+      "text": "3. 虚拟金币仅可用于赠送普通礼物和定制礼物，不能赠送幸运礼物，不能购买装扮、门票或用于其他消费；虚拟金币仅计入公屏氛围，不计入主播榜、贡献榜、主播收益或分成。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-operation-account-compose.html",
+      "section": "账号信息字段",
+      "line": 1,
+      "item": 5,
+      "text": "| 账号 | 必填，最多 30 字符，全平台唯一；页面说明为用于用户端邮箱登录，格式规则待确认。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-operation-account-compose.html",
+      "section": "待确认",
+      "line": 5,
+      "item": 1,
+      "text": "页面说明使用邮箱登录，但当前示例 nadia_ops 不是邮箱；需明确账号格式及校验。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/guild.js",
+      "page": "guild-income.html",
+      "section": "原型待补齐",
+      "line": 7,
+      "item": 1,
+      "text": "跨日或跨月的开播人数应按主播去重；当前 Mock 以每日人数最大值代替。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-host-list.html",
+      "section": "字段",
+      "line": 2,
+      "item": 5,
+      "text": "| 开播权限 | 最终权限 = 账号可用且公会有效且认证通过且平台开启且公会开启。 |"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-level-config.html",
+      "section": "勋章图",
+      "line": 4,
+      "item": 3,
+      "text": "3. 勋章图在客户端的展示位置、是否随等级自动替换及是否允许手动佩戴，需与装扮规则确认后实施。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-level-config.html",
+      "section": "保存边界（待确认）",
+      "line": 5,
+      "item": 1,
+      "text": "1. 建议保存整组配置时全部成功或全部失败；失败保留输入供重试，重复提交不新增重复档位；多人同时编辑时提示配置已变更，避免覆盖他人修改。原型尚未模拟服务端保存失败或并发编辑。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-level-config.html",
+      "section": "其他待确认边界",
+      "line": 6,
+      "item": 1,
+      "text": "1. 普通、定制、幸运礼物的计入范围；粉丝团收礼的归属条件；金币小数精度与数值上限。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-level-config.html",
+      "section": "其他待确认边界",
+      "line": 6,
+      "item": 2,
+      "text": "2. 退款对财富等级的进度扣减与降级方式；冲正或撤销对各类等级的影响；统计数据延迟时何时更新等级。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-level-config.html",
+      "section": "其他待确认边界",
+      "line": 6,
+      "item": 3,
+      "text": "3. 勋章图修改后的客户端刷新时机；重算后历史记录使用旧等级还是新等级。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-level-config.html",
+      "section": "其他待确认边界",
+      "line": 6,
+      "item": 4,
+      "text": "4. 勋章图允许的格式、大小和尺寸；无可用图片时的客户端展示方式。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-level-config.html",
+      "section": "原型范围",
+      "line": 7,
+      "item": 1,
+      "text": "编辑、图片预览和保存反馈仅在当前页面模拟；刷新后恢复 Mock 数据，不实际上传、持久化或触发用户等级变化。以上待确认方案未作为正式计算逻辑实现。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-operation-accounts.html",
+      "section": "业务",
+      "line": 3,
+      "item": 2,
+      "text": "2. 虚拟金币仅可用于赠送普通礼物和定制礼物，不能赠送幸运礼物，不能购买装扮、门票或用于其他消费；运营账号可以发送消息，但不能加入粉丝团。虚拟金币仅计入公屏氛围，不计入主播榜、贡献榜、主播收益或公会分成。"
+    },
+    {
+      "file": "liveshow-proto/prototype/annotations/admin.js",
+      "page": "admin-operation-gift-records.html",
+      "section": "业务",
+      "line": 3,
+      "item": 2,
+      "text": "2. 虚拟送礼仅计入公屏氛围，不计入主播榜、贡献榜、真实消费、主播收益或分成；页面中的幸运礼物示例不符合当前规则。"
+    }
+  ],
+  "缓存清理": {
+    "状态": "成功",
+    "清理后残留失效文件": [],
+    "说明": "本次独立设计未加载旧用例、旧规则、旧场景或旧扫描语义；当前任务不含旧业务缓存。"
+  },
+  "项目接入基线": {
+    "状态": "已确认",
+    "路径": "work/liveshow-proto-project-onboarding/latest.json"
+  },
+  "项目指纹": "62e7f0782f45e6178f88760e7da966acb41e6c463d5e3a99958d56a5fff7aa5c",
+  "规则基线": [
+    {
+      "路径": "AGENTS.md",
+      "SHA-256": "f5db8bdcde5cd703ed42709e4a22eef82fe214ad3304ce0ca9273b3f2d6f03f1"
+    }
+  ],
+  "语义读取记录": [
+    {
+      "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+      "SHA256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213",
+      "结论": "全文独立读取并按页面、共同对象、角色及状态分支设计；未读取旧业务生成数据。",
+      "关联规则": [
+        "BR-cd49ac8be46a6a95",
+        "BR-5740fd60eeb38ff5",
+        "BR-4aca28c1d87a14cd",
+        "BR-4c6b25460f52b6fa",
+        "BR-5889302f823f9c28",
+        "BR-4ee9ddd80ecc4d9f",
+        "BR-ade3776454de40b1",
+        "BR-f1d02acd18fc6631",
+        "BR-933092cc29a95ae9",
+        "BR-c12359dfedc2d594",
+        "BR-56e0d38ba584c1ab",
+        "BR-b451c9f7b5acd405",
+        "BR-1b5fd0039c9f74d7",
+        "BR-0121ba062268dd05",
+        "BR-4331ce1629c69d13",
+        "BR-a4dc3e8d8b96152f",
+        "BR-36a663e28235203f",
+        "BR-057f7b0d05b753bf",
+        "BR-e5fcd0476426128b",
+        "BR-8974a324fedb0b8b",
+        "BR-1a9cdb068a2283a7",
+        "BR-75e1bda5f685d578",
+        "BR-3ca482a02d9d72f8",
+        "BR-9fb3c05dea566ba1",
+        "BR-0adaa8a56f09ef8f",
+        "BR-36d02a65f68e767a",
+        "BR-13655c533587bc9b",
+        "BR-aefad5d73ee87f56",
+        "BR-3c18a2f21de70183",
+        "BR-95afc15a63cd1d26",
+        "BR-2cc2d3702ebf0136",
+        "BR-dfc69c5be66e8e19",
+        "BR-b3eab45a08a33317",
+        "BR-501846f7ef130df7",
+        "BR-3d62056909e7da2d",
+        "BR-909cbbc12e8506ea",
+        "BR-a2c88467be8b3b22",
+        "BR-882744cc4739234d",
+        "BR-52fce95f92d21fc7",
+        "BR-542c23c4a239d69f",
+        "BR-5c98bf99baf7cab3",
+        "BR-47077d3cf6a1bcd7",
+        "BR-3af4b682de12c163",
+        "BR-24172d0fb70fafe3",
+        "BR-a98702dcb79dd722",
+        "BR-a889c90a84d30826",
+        "BR-168ec7e31dc91bce",
+        "BR-97d1f247e7897792",
+        "BR-d28b01299e657a37",
+        "BR-19b4265012d72f08",
+        "BR-4a84955ed6223e4d",
+        "BR-616cd96fd080cfbc",
+        "BR-8e8af489963d7f3f",
+        "BR-084a3b23fa242cd6",
+        "BR-9bd655496312b6af",
+        "BR-039a0d4a844aa670",
+        "BR-69eb9f48d370b111",
+        "BR-d23f8020a7b6ac34",
+        "BR-95fbb6fd78430d1a",
+        "BR-8279a0e7203a8c1d",
+        "BR-08d138c300ad10bc",
+        "BR-975406a6aebeb67a",
+        "BR-131bb30e9891669f",
+        "BR-d4e388629c3916b9",
+        "BR-8daba7d7ab06557f",
+        "BR-00c6354cff27f10d",
+        "BR-7011869d277cad35",
+        "BR-b900172967e60c5a",
+        "BR-3ad4bca9e1b80301",
+        "BR-09380c5bc497de7c",
+        "BR-f6ed18889ba55342",
+        "BR-3d880025e42e4643",
+        "BR-9adf6d8869db0c43",
+        "BR-67de2f49b1f578d2",
+        "BR-275cffea9fd0d8c9",
+        "BR-1f741819f406ad99",
+        "BR-99522a8ee36d52bd",
+        "BR-12671db15cc8805c",
+        "BR-e542884644adb34a",
+        "BR-726b7bb9d904da6e",
+        "BR-3ddfa11250f48f6d",
+        "BR-00a40defbd4149c9",
+        "BR-490b543d386e1093",
+        "BR-1d04627ebd8b791a",
+        "BR-3e5eac5931375502",
+        "BR-0f6003ec4b10606d",
+        "BR-7aea49f26d9daef3",
+        "BR-43fd86fdd22fc9cd",
+        "BR-cf4cb43e48a582c4",
+        "BR-3d76ceebf0e9820e",
+        "BR-b4b173006cae203f",
+        "BR-16741acbad7011fc",
+        "BR-e2ba6e2fdf9dfd8e",
+        "BR-fc108be2f35f2db3",
+        "BR-300d847ecb202e08",
+        "BR-f27ed6fe0ce348a1",
+        "BR-ab1c76bcbe05ca07",
+        "BR-28c41c772a547741",
+        "BR-d53c71c735d599d6",
+        "BR-61a249b346bf5a57",
+        "BR-f8b535210c506f47",
+        "BR-184a93d6c5811494",
+        "BR-fd16db142be4609b",
+        "BR-7c0abaf946eac040",
+        "BR-adff0124e51906f6",
+        "BR-9057f957d1fd2077",
+        "BR-bacfc250520a1245",
+        "BR-8c34ea99630abd39",
+        "BR-5822a354a428be03",
+        "BR-5ea66bf66a816a76",
+        "BR-e57ba7e3019fc658",
+        "BR-8e98a4cc1f6259de",
+        "BR-c8bbbe512ca56055",
+        "BR-e630ad107ff2069e",
+        "BR-2ebaf0b117cdd8e1",
+        "BR-b9c04b94f942151b",
+        "BR-aac249712a2bac91",
+        "BR-cad50a2965da2480",
+        "BR-ed174bb3f46048aa",
+        "BR-ed25f32f6bab1d34",
+        "BR-06938d0737dd9a57",
+        "BR-3390c7b718491069",
+        "BR-c5959aa96f1f14ee",
+        "BR-9004151e98f40746",
+        "BR-19f4236c87ca4f3a",
+        "BR-655d336affc535d0",
+        "BR-0ff24897a4fc9ad7",
+        "BR-b98abd6781bf2e6f",
+        "BR-7e25f1f4aa23992d",
+        "BR-76f10a308a9398d7",
+        "BR-d6a75f58c295c00a",
+        "BR-55bc72e2089d50fa",
+        "BR-0958b29e83d75605",
+        "BR-531317484a8de473",
+        "BR-e29359e1fae657df",
+        "BR-09fb64dad7a7b117",
+        "BR-3592fc26a34111d3",
+        "BR-a9cebcc826d6b7aa",
+        "BR-30cfa279b2e556bc",
+        "BR-6aff1cc10bb790ad",
+        "BR-b3f5d226289f5585",
+        "BR-b90dfeb37fc4f889",
+        "BR-40c33cc25e751e63",
+        "BR-431ebf8422f29c9b",
+        "BR-efae38d0e8173f47",
+        "BR-f42c49d4fa01eb69",
+        "BR-3f0d84a3e7538549",
+        "BR-abe43ad157e56423",
+        "BR-a241aa70342ce0db",
+        "BR-d08c590e67c45f42",
+        "BR-c2d0f54e0bdc0ab6",
+        "BR-b33b82c30ec27842",
+        "BR-b73bb8282f937e05",
+        "BR-c1c31b3b6e657189",
+        "BR-5e01f1a758db3660",
+        "BR-1600ed7cdce8023b",
+        "BR-03c80d23c2803aac",
+        "BR-ef53258c351ca076",
+        "BR-deaa9a4d0c355aef",
+        "BR-198b0f006722e8d3",
+        "BR-f3c2eb78c10245a9",
+        "BR-3980cf19ed97428e",
+        "BR-095400d088ff6478",
+        "BR-bde7e52455bc30d1",
+        "BR-e02c47738d83b1d0",
+        "BR-32c537b4b571403e",
+        "BR-41b7a7e3549d1c18",
+        "BR-2e6bfeaafca5138b",
+        "BR-859f75c7114a21d4",
+        "BR-04dcf7b3b0159b09",
+        "BR-1b00c1ebce656d74",
+        "BR-5c2a51e8e2e90362",
+        "BR-0242d7c612d4f3e7",
+        "BR-f2759e9bc5fd88ed",
+        "BR-56933b2a80d24238",
+        "BR-70e770017808915e",
+        "BR-5c51dea76ffcaacf",
+        "BR-5685e6b841c87a40",
+        "BR-b01a15d4380eac9a",
+        "BR-a6982591f3ba791e",
+        "BR-f51f78aa252e98f7",
+        "BR-150833a8705065dd",
+        "BR-e4e5812eff17a43a",
+        "BR-b7b17d973f7623ea",
+        "BR-50aaa64e8581e363",
+        "BR-18b5e0e7f55e91db",
+        "BR-410e686185249f37",
+        "BR-30eaef193d1ecc05",
+        "BR-ca9913f28f75ceb5",
+        "BR-4d9b38bd50acd82f",
+        "BR-574f44d1a69bde27",
+        "BR-a2f973981bbc8528",
+        "BR-8fe737febfcacc24",
+        "BR-3815d99b53373ebf",
+        "BR-91ba4f6e0d81d170",
+        "BR-7cf3182ca809948c",
+        "BR-7686cfc59544a8ba",
+        "BR-85066b58649d785c",
+        "BR-34fb05fa2a3114ed",
+        "BR-9640040fb6f5bf2a",
+        "BR-93c3714be613f749",
+        "BR-9d522cdfe6019afa",
+        "BR-44041f92a31c17c1",
+        "BR-2c5a93381f8023c3",
+        "BR-e5347e8b299854c5",
+        "BR-d55925b15821fa58",
+        "BR-7b6b39750c123151",
+        "BR-83905ffd7b5dc360",
+        "BR-31bba97268e152bd",
+        "BR-5b6675da40f2d237",
+        "BR-2cb8cc714f9e7610",
+        "BR-a5fd58668f083fac",
+        "BR-f8dc0e2220c9b03c",
+        "BR-fa8b497c1b926414",
+        "BR-1a1ad19e7c3ba6b7",
+        "BR-cfe9185eada90a2b",
+        "BR-8aa46116ec7f9ed4",
+        "BR-5af6887175994106",
+        "BR-320f50bc62aada0c",
+        "BR-c21b15f5f1562664",
+        "BR-077492e826dedcd6",
+        "BR-ae5cec735ee46619",
+        "BR-2ef9693f14f9edc3",
+        "BR-36707c0ec67a2990",
+        "BR-5056f56c71075b5b",
+        "BR-506b37b56a42ae9b",
+        "BR-4664c812aaf56f98",
+        "BR-df184e8a2f477b03",
+        "BR-a874dff89c2f1c73",
+        "BR-a412cb8455d893ee",
+        "BR-174f0b3c95a74e2c",
+        "BR-bbfcd98f2416a687",
+        "BR-bc2ffc0d57bf12cc",
+        "BR-a55f306f6e9f5398",
+        "BR-bcc6e05462e53a05",
+        "BR-348ae3689239a028",
+        "BR-9052e44e2051a6c1",
+        "BR-e8e3b72db00bcc3e",
+        "BR-e041d36c4114fd67",
+        "BR-3ae809f52a9881e1",
+        "BR-f86ca386e99207f8",
+        "BR-1bc58029c88ab7e7",
+        "BR-8f9b0aedfe3348c5",
+        "BR-704cb5cfda8ab05f",
+        "BR-8e22b97a145fa8c4",
+        "BR-15565486783d935f",
+        "BR-1f40d753d5aeb823",
+        "BR-b0908d1713f97948",
+        "BR-65ee30686217444a",
+        "BR-08174f3f2ac7da87",
+        "BR-01ee9dadbd016a69",
+        "BR-fdeb16c435bfb6fc",
+        "BR-fdb4f8c9d94f35e5",
+        "BR-8174d324db0d1535",
+        "BR-25a61858f4c52e43",
+        "BR-9fb106028ce3f409",
+        "BR-3949d5b9aa77da78",
+        "BR-718837ec6c7c7cf3",
+        "BR-e6c78af66b77ef54",
+        "BR-e183c9fa72ad78d9",
+        "BR-d33675b13fa9f83e",
+        "BR-e1d3379ec897c4a0",
+        "BR-50d77769186ff5f2",
+        "BR-6b11b5139405a8a8",
+        "BR-f6be1b6b1eba60ef",
+        "BR-ba77b12d3bb1255a",
+        "BR-adf036354aac0c3f",
+        "BR-d051664befcd754b",
+        "BR-684672a187472783",
+        "BR-1283b4f61b29ecc9",
+        "BR-df4561637f9a10ec",
+        "BR-ee09392895e3f5aa",
+        "BR-b570eb6f5260f59d",
+        "BR-eef305b191bb4e93",
+        "BR-1ae81021bb26cea6",
+        "BR-4432bd99cecf4c5f",
+        "BR-a61de4f21c055baf",
+        "BR-a66c5868bb2d8c3e",
+        "BR-7f4c314de5839073",
+        "BR-7c3bc6c5519dab88",
+        "BR-a6a5654718023e70",
+        "BR-dbb2d58942439303",
+        "BR-7730d935350e34f7",
+        "BR-e75791cb0d5d4492",
+        "BR-3af93727bca9bec6",
+        "BR-e9ea16672a2efa75",
+        "BR-a766e268f67f2da6",
+        "BR-2b6ffbbf8f8b9f4d",
+        "BR-b210589c1bcf10bc",
+        "BR-88a3c62483d20fe4",
+        "BR-ee29ccb987b22944",
+        "BR-926c8c1f0b714ffb",
+        "BR-06b137d240c1c2e1",
+        "BR-87907fc5f2672827",
+        "BR-333c83a4f7383c64",
+        "BR-6228504a6186466b",
+        "BR-313e993b014edd33",
+        "BR-70e7b8d21a98d9e6",
+        "BR-d5cee74b60cab35a",
+        "BR-4458be87366db9e7",
+        "BR-91ddd641b8d9cd2d",
+        "BR-4478aa054066a96f",
+        "BR-3bb3ebf764f9bc91",
+        "BR-dc209ba49f81e31f",
+        "BR-8d4da85d18633eb3",
+        "BR-1aab64e71ccb186f",
+        "BR-07581c37c3af644a",
+        "BR-c8da7f8f5aa9452a",
+        "BR-c17971f40d4be07d",
+        "BR-c1fe1fc44c935e64",
+        "BR-f19e5bb6fbed12a3",
+        "BR-aa83c5f496634e23",
+        "BR-cf7025fc746d84b6",
+        "BR-f52973390a000f65",
+        "BR-8c6b45aaa52e6cdc",
+        "BR-3444b00018aef4e3",
+        "BR-bc7e0cc25d505967",
+        "BR-5b0dbdcb7ca2e00c",
+        "BR-c49be6bdd06a39ca",
+        "BR-d05b1e781320e347",
+        "BR-5061fe37e599b573",
+        "BR-202b5f1db78b6f8b",
+        "BR-997a6c4f1b4255a7",
+        "BR-5ae84e305b52130c",
+        "BR-1562993f49d3b863",
+        "BR-141d9da1f0c8c843",
+        "BR-bd17f090bb186e20",
+        "BR-6ce855459e01ecda",
+        "BR-9af06e1b17c20da3",
+        "BR-ddd77f612d88b2a0",
+        "BR-07e405063dd6bb63",
+        "BR-574a99b643578aa5",
+        "BR-76c6310ca2a3048d",
+        "BR-69cf7d41d37a44c4",
+        "BR-874aea95b8733f79",
+        "BR-56d274c719ba6f3e",
+        "BR-13c8886d4b32ce0d",
+        "BR-24966cb71e52095a",
+        "BR-39d66c346f8f8faa",
+        "BR-a6dbb5e69d9f3620",
+        "BR-78317206c2338803",
+        "BR-78ef5c31004255db",
+        "BR-5627a2c885c92d42",
+        "BR-950ca1a9ae716d6b",
+        "BR-736f0e3e8a4be614",
+        "BR-fcdbbf357d92d1ce",
+        "BR-39f942f68000eba6",
+        "BR-e1022fb2f4ff0fad",
+        "BR-431dd2c96c09a235",
+        "BR-30751c3b6b4f1cea",
+        "BR-11c2461de92725d0",
+        "BR-63dd222c3b8fa854",
+        "BR-eb1a1ddee8387b85",
+        "BR-2cc52d716813051c",
+        "BR-f5064a602ef4baa8",
+        "BR-c07b23a05bba5192",
+        "BR-691e1ecd82d0fe0e",
+        "BR-ebd4d958a19c4f15",
+        "BR-b1dba77520c2f513",
+        "BR-e43030f8d38fe5f9",
+        "BR-71fe6767749b218f",
+        "BR-20d3e9f542d8602f",
+        "BR-1b9ccf22c9083dce",
+        "BR-c394e650d8c3008c",
+        "BR-6bac74c31d1b5e9b",
+        "BR-3a8b7df0ed9d1e6f",
+        "BR-477e4562525d58a4",
+        "BR-adbea0497ff830c1",
+        "BR-03f5155929765176",
+        "BR-54d4f6fa2d4ad05a",
+        "BR-3dcbec5c020c5779",
+        "BR-61e6cd380a4bf2d5",
+        "BR-f5ad4a7b90ae9afa",
+        "BR-e5ed46093e19f60c",
+        "BR-b02253b52648085a",
+        "BR-1e50ea25bc4761d8",
+        "BR-5c9109d6709b50b7",
+        "BR-7325aba53e27219b",
+        "BR-514e961ce7f4ba9b",
+        "BR-d155cf009c06b69c",
+        "BR-b132e9bd36764266",
+        "BR-c51f0118379adc85",
+        "BR-78cf00718cee8a11",
+        "BR-10279452313add3d",
+        "BR-053a91964f596d42",
+        "BR-628b5915e776da83",
+        "BR-3472c2b3f709fc4b",
+        "BR-61f1911f74584a4f",
+        "BR-93718819517c5398",
+        "BR-851050893016c1bb",
+        "BR-34acd995b22175c3",
+        "BR-28f29150cf1a5681",
+        "BR-8d2f9af013cf32bf",
+        "BR-66d88ed7bd97fac5",
+        "BR-d5ee6cf3e7d97882",
+        "BR-425a26c8bfa9442b",
+        "BR-d280a97e1a2d52ee",
+        "BR-44c56f9474ef8ab8",
+        "BR-e967969846fd979a",
+        "BR-d92733f76a209b86",
+        "BR-144d55163473b02b",
+        "BR-5a620822f3be60e3",
+        "BR-07cacc832a1a71c8",
+        "BR-4f9451625ac4d02c",
+        "BR-9780c006a1552356",
+        "BR-700294fcb6d04b40",
+        "BR-835e670e05fc2b80",
+        "BR-58ade81289dd0543",
+        "BR-3f78fc704b61fa51",
+        "BR-8c92da20db1a9300",
+        "BR-9687db63563c599e",
+        "BR-e9d2358e5d765f46",
+        "BR-79c3cac616c7b49d",
+        "BR-8b395911f8c4831b",
+        "BR-cf90ef40a896dc2e",
+        "BR-23786953a1bdc342",
+        "BR-535f41eed693b807",
+        "BR-6f04445162a2f0ac",
+        "BR-eaad249907992577",
+        "BR-e10bf6c3b2a0b8dd",
+        "BR-368ab38870574853",
+        "BR-4cecc042a3933d82",
+        "BR-a095a371be03640a",
+        "BR-75412a57425bdbc9",
+        "BR-556089449cc646e9",
+        "BR-50d06ca716b42248",
+        "BR-96f00759748a3067",
+        "BR-a1eb231c970c16bc",
+        "BR-1f6d2b0761380ab3",
+        "BR-ec34c677a0580012",
+        "BR-131f2b525a77583f",
+        "BR-694f636e14b50ea3",
+        "BR-8781b5f7e8994ad0",
+        "BR-9b9ad0d3425881ae",
+        "BR-23cf7b52dc648e66",
+        "BR-5cbe69c696f487db",
+        "BR-40ddcabcf7fc42e1",
+        "BR-c2d2a38777567902",
+        "BR-7b9e419d4a30bdce",
+        "BR-1a169cba9a74b8d5",
+        "BR-7bc399d22da04b4b",
+        "BR-ae8be3be646adb73",
+        "BR-ab4efa26ba9639d2",
+        "BR-be5e66ebaec89d2a",
+        "BR-962c66c4935d62fe",
+        "BR-be0cc1dbec4f776e",
+        "BR-b135eca61871c25f",
+        "BR-d87a331ff8da5e7a",
+        "BR-e6fb1446ed14edf0",
+        "BR-ead53ce9010385f4",
+        "BR-3c875faa093f784f",
+        "BR-9e1eb502737e56bc",
+        "BR-86ddcab9b2ac2a56",
+        "BR-ed6b7f0e74f8f8b1",
+        "BR-85f125d9b47b681a",
+        "BR-9cd415e4c5d0e5d5",
+        "BR-ea60c38620fc7241",
+        "BR-133e48cc3f1e0680",
+        "BR-3e56b8d3a156c3b0",
+        "BR-494dc4171d5f3193",
+        "BR-800fc913d31f68b5",
+        "BR-565368cb82dc9096",
+        "BR-e2d9cdd054cb94b8",
+        "BR-796e9e3d8803767d",
+        "BR-832bf72b29b3699d",
+        "BR-e1e355ea0b05ab01",
+        "BR-0023b65f882634c0",
+        "BR-ba811146f9fe2afd",
+        "BR-7070c359d1a5c233",
+        "BR-b09c803e144f84b8",
+        "BR-fe696397dc50a881",
+        "BR-45976ffef03e3efd",
+        "BR-d7eef11691b9b935",
+        "BR-04692d14717b6c06",
+        "BR-95ace35ed9e21d45",
+        "BR-3b7b79df670916f3",
+        "BR-3c99f49652076414",
+        "BR-bf0f0671f0324b83",
+        "BR-a3b711f88226f7a5",
+        "BR-f8cadca00921262f",
+        "BR-b5df8e5b4e6c58c1",
+        "BR-a1ced8977145c06e",
+        "BR-ee245f61844a2e3f",
+        "BR-d97a0b4808e7b6f7",
+        "BR-c95f86bfcf417c63",
+        "BR-ea0309e00c7651f3",
+        "BR-41cb326e3956be4a",
+        "BR-5e75f29b2e9eb044",
+        "BR-660c4c2e4829bf0f",
+        "BR-8a2ddf89d5bb8eb7",
+        "BR-e3236768a4036104",
+        "BR-849498c009871e3a",
+        "BR-2baac6f24d9c4289",
+        "BR-e5e96d712dd3a998",
+        "BR-c0b6dda21d009219",
+        "BR-f37fb1ed13b2d7b7",
+        "BR-4fcf900a92c18da6",
+        "BR-3116657534eabd85",
+        "BR-884769e37f1ff8d7",
+        "BR-0c781bd6870b2c2d",
+        "BR-2e51b81b411b9d18",
+        "BR-cab9744dd2c758e9",
+        "BR-a1622b32a9fd19a7",
+        "BR-127d08f8d5c80e1a",
+        "BR-e7bdb5aef559e47f",
+        "BR-f1d6de19912fce06",
+        "BR-5bffee450cffa23a",
+        "BR-954dbe25cbd0700d",
+        "BR-624fb6fd99d93b91",
+        "BR-88ee80b538e2fe79",
+        "BR-a230ab3612c5f178",
+        "BR-eed3ee9d929f5542",
+        "BR-4aca02950e14af37",
+        "BR-a6e5e72157e1a366",
+        "BR-2fb1630cf4cbb61a",
+        "BR-11cdfee1f6612237",
+        "BR-e33b9834daf73ae9",
+        "BR-a57816fdb1222c40",
+        "BR-65cd8acbef453285",
+        "BR-434c4fa24d47beb3",
+        "BR-93d39a6f5e4c7165",
+        "BR-d368784af84d3d8f",
+        "BR-c5a79f15b6a11093",
+        "BR-d590abeb6be5b9d5",
+        "BR-d7c407ac67ed0bf1",
+        "BR-76c95960ffb90f5b",
+        "BR-f42509448a32b36e",
+        "BR-0d60154ad7d19b60",
+        "BR-1a7ef407f5ff93d4",
+        "BR-6101bae6ac9867a3",
+        "BR-e61dd07c7f6f229e",
+        "BR-4efa6bfdbfff57a8",
+        "BR-737ac93a2bf7acdf",
+        "BR-2c51b44a11c979f4",
+        "BR-41e0d5909eb210e5",
+        "BR-55a51b2fe56bf61c",
+        "BR-57a8bb8515b8298c",
+        "BR-b8701861b8930d7b",
+        "BR-a5a0c3a3fe6c3020",
+        "BR-fec26c2c6fec130d",
+        "BR-f736f57dcc8199d2",
+        "BR-2911f44e8ef1f8fa",
+        "BR-2b7bf1a1cf9fdc39",
+        "BR-28887e72a326c771",
+        "BR-765a95aa09b786dd",
+        "BR-eef461d87f12f4a4",
+        "BR-239980a53478a925",
+        "BR-50868dc81e9e5188",
+        "BR-ce7e60e51794dba1",
+        "BR-3f3663bf68713a9e",
+        "BR-bbc497245af3df1d",
+        "BR-ec9d4170d8b09169",
+        "BR-45270bbe73e63906",
+        "BR-e25877f7f8ca3774",
+        "BR-4a87ad4a4b41b00f",
+        "BR-c837d6f88fdc0192",
+        "BR-d55d45cfa0b0729a",
+        "BR-30f0ad3f60ab1668",
+        "BR-814b17f8ec8df6cf",
+        "BR-7a4562475efbfe49",
+        "BR-a2e6ad2794771c4a",
+        "BR-61a60ba3d3fdaf45",
+        "BR-e4a12aea473d3b3d",
+        "BR-0da38c2f1bb58707",
+        "BR-702db73135c10412",
+        "BR-2ab71c2f49ae1d39",
+        "BR-10f643ae60b1280a",
+        "BR-ab2ee1234bb4ad66",
+        "BR-b85cd9c64b051235",
+        "BR-77bf7ccd63fad5d9",
+        "BR-f6df1d51c8fd89a9",
+        "BR-f69a3cc160bea02b",
+        "BR-25ac65be64fcbc88",
+        "BR-c6094779d85fbb57",
+        "BR-b700040870845dc2",
+        "BR-b9ecef838074a83d",
+        "BR-b730f3987460f79b",
+        "BR-f8359025d62b658a",
+        "BR-37cffe28e9d34d6f",
+        "BR-d72b8c43b458e9b9",
+        "BR-781ed425ac4c6e29",
+        "BR-c2ca5f4d1e48cb28",
+        "BR-b7272716f59cee8e",
+        "BR-be5d25e729712b67",
+        "BR-9d696618ff45b139",
+        "BR-3dd00dedf39f7321",
+        "BR-03ccd5f2d811eaa6",
+        "BR-cd8cd9381ba8143f",
+        "BR-1b97b9ab8f1d7a92",
+        "BR-34415a856b7e3912",
+        "BR-ca7913818e2dc811",
+        "BR-00f4d672cb7053ab",
+        "BR-a6a382446b28ec98",
+        "BR-953a986451a5b663",
+        "BR-3667afc31b3e2d89",
+        "BR-6b6734a7dc474aa6",
+        "BR-c95a7f25e81e9762",
+        "BR-16f18d9e3f5e6d4f",
+        "BR-2cf59136e2b915b3",
+        "BR-58755adb63ef75dd",
+        "BR-ad0183aed7401363",
+        "BR-447965f3180edb12",
+        "BR-b47d3013da26f8e9",
+        "BR-871d3ca1efb1a679",
+        "BR-c07d3b5af2ea1fe1",
+        "BR-7bb67593b76277e5",
+        "BR-012b265fef526fbf",
+        "BR-9de976b3a228cfbd",
+        "BR-b61d7611b4acbb2e",
+        "BR-33a54c7db7f427cb",
+        "BR-c7b0dfc19214a4ed",
+        "BR-4a2fd58aa97ea85f",
+        "BR-5642b6ed3defdb18",
+        "BR-7084ea8956d65f0d",
+        "BR-8be1660942e445c6",
+        "BR-9b37655df49cc545",
+        "BR-814d2343b2798d37",
+        "BR-948cdb7a5fb813e6",
+        "BR-43882ed0c048af68",
+        "BR-821a8e67160f171a",
+        "BR-50811fcb881dba9d",
+        "BR-ac6f58369275b337",
+        "BR-1e34d5b86e621718",
+        "BR-360a44f4a59c7c61",
+        "BR-628c679f4c4d5147",
+        "BR-4598e1881e5d1085",
+        "BR-1c2cefb38e9b846f",
+        "BR-24aff8154c7a177a",
+        "BR-499dafefdf073f69",
+        "BR-c2b7802463cd09a6",
+        "BR-52e1828d92ef5e2b",
+        "BR-38dfdbbbad612163",
+        "BR-45bd223959e2e35f",
+        "BR-3492899d6b43ba94",
+        "BR-be08c0263bb31d56",
+        "BR-b345b4a393b4977e",
+        "BR-a9edfb089b408cf3",
+        "BR-39fbe2b49fc1cb26",
+        "BR-b725d835dc7bd2dd",
+        "BR-347bde7f6498f453",
+        "BR-93227ae7feeba126",
+        "BR-b4f2a923a9141da3",
+        "BR-29dd902f1967e710",
+        "BR-0ada2b857036588e",
+        "BR-cc756f792c4dbde9",
+        "BR-cbeeb528227a09c1",
+        "BR-327226dcce1cbe59",
+        "BR-84148b648b65c966",
+        "BR-120e0d3f1e7415b8",
+        "BR-b3e66f564166d397",
+        "BR-a65925e4e4d73137",
+        "BR-29f9e128069fa415",
+        "BR-67e6d8c92642c602",
+        "BR-9e643f922b780e7d",
+        "BR-ba7b4158e1b881ae",
+        "BR-ceb05dbc1e7f3019",
+        "BR-084722164c767dca",
+        "BR-246dbc7dc57da5c5",
+        "BR-dac85218e0edb1ca",
+        "BR-4661123fe7952385",
+        "BR-a755b84b80ae8d1c",
+        "BR-73822b40e07cdcfc",
+        "BR-4e25db8fc7d2fc85",
+        "BR-f9ade182872da8eb",
+        "BR-95433aa7b6781877",
+        "BR-c7e146c8acf3b441",
+        "BR-3d4d8bf49b810886",
+        "BR-c22b643463f05139",
+        "BR-d0d035838c4a4bc2",
+        "BR-0c664be51a223846",
+        "BR-07f835aa95b33732",
+        "BR-0b706d50cad958e4",
+        "BR-c516d1d44a3f6c8e",
+        "BR-e76f1b9cbe41cb08",
+        "BR-5b02441463e82981",
+        "BR-67dbaffcb3ed3ff4",
+        "BR-61bcaa86409f8839",
+        "BR-bb81375fae297164",
+        "BR-f870ee176c94b15d",
+        "BR-3d8efd4008dab8f7",
+        "BR-f7d6c17853cdb18c",
+        "BR-0b0740f24fe47c6c",
+        "BR-24d3ff935d944cd3",
+        "BR-644895352c930911",
+        "BR-c7a72270d7fcb5ee",
+        "BR-f6a7eeaa996fa26f",
+        "BR-79ebea2279b63333",
+        "BR-a955f70519ce0f67",
+        "BR-db7086d9019e9428",
+        "BR-617a89a9f6ce54ab",
+        "BR-58957c73a203dd36",
+        "BR-f8f17d9fa5252d84",
+        "BR-b72d068c26cc135f",
+        "BR-04a5e324c963b0da",
+        "BR-370b3cf32acfcc55",
+        "BR-c0f9f658a6697bca",
+        "BR-f0e213730adc582d",
+        "BR-0b033b24218334c6",
+        "BR-48c98164e53efc0c",
+        "BR-55b1254c9360a5c9",
+        "BR-1840271e16de5d97",
+        "BR-6b314438f956daa9",
+        "BR-6c8682664d99c320"
+      ]
+    }
+  ]
+}

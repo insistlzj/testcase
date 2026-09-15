@@ -4,10 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>直播间（普通房） · 用户主播 App · Luma Live</title>
+    <script>
+      window.__lumaDirectLiveEntry =
+        new URLSearchParams(location.search).get("entry") === "live-plaza";
+    </script>
     <script src="../../../assets/tailwind.js"></script>
     <script src="../../../assets/tokens.js"></script>
     <link rel="stylesheet" href="../../../assets/common.css?v=p002-room-v45" />
-    <script src="../../../assets/common.js?v=20260811-guild-currency-v1"></script>
+    <script src="../../../assets/common.js?v=20260914-direct-live-entry-v1"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
     <style>
       .room {
@@ -2898,15 +2902,10 @@
         confirm.className = "manager-cancel-confirm state-hide";
         confirm.innerHTML = `<div><b></b><p></p><footer><button type="button" data-cancel-manager>取消</button><button type="button" data-confirm-manager>确认</button></footer></div>`;
         room.append(confirm);
-        var pending = null,
-          round = 0;
+        var pending = null;
         function openConfirm() {
-          confirm.querySelector("b").textContent =
-            round === 1 ? "取消房管？" : "再次确认取消房管？";
-          confirm.querySelector("p").textContent =
-            round === 1
-              ? "取消后将失去房管权限。"
-              : "确认取消该用户的房管权限？";
+          confirm.querySelector("b").textContent = "取消房管？";
+          confirm.querySelector("p").textContent = "取消后将失去房管权限。";
           confirm.classList.remove("state-hide");
         }
         panel
@@ -2916,7 +2915,6 @@
               if (toggle.checked) return;
               toggle.checked = true;
               pending = toggle;
-              round = 1;
               openConfirm();
             };
           });
@@ -2925,11 +2923,6 @@
           pending = null;
         };
         confirm.querySelector("[data-confirm-manager]").onclick = function () {
-          if (round === 1) {
-            round = 2;
-            openConfirm();
-            return;
-          }
           pending.checked = false;
           confirm.classList.add("state-hide");
           Luma.toast("已取消房管");
@@ -3079,15 +3072,10 @@
           label.append(input, track);
           row.append(label);
         });
-        var pending = null,
-          round = 0;
+        var pending = null;
         function openConfirm() {
-          confirm.querySelector("b").textContent =
-            round === 1 ? "取消房管？" : "再次确认取消房管？";
-          confirm.querySelector("p").textContent =
-            round === 1
-              ? "取消后将失去房管权限。"
-              : "确认取消该用户的房管权限？";
+          confirm.querySelector("b").textContent = "取消房管？";
+          confirm.querySelector("p").textContent = "取消后将失去房管权限。";
           confirm.classList.remove("state-hide");
         }
         panel
@@ -3097,7 +3085,6 @@
               if (toggle.checked) return;
               toggle.checked = true;
               pending = toggle;
-              round = 1;
               openConfirm();
             };
           });
@@ -3106,11 +3093,6 @@
           pending = null;
         };
         confirm.querySelector("[data-confirm-manager]").onclick = function () {
-          if (round === 1) {
-            round = 2;
-            openConfirm();
-            return;
-          }
           if (pending) pending.checked = false;
           confirm.classList.add("state-hide");
           Luma.toast("已取消房管");
@@ -3283,7 +3265,8 @@
         color: var(--g4);
         cursor: default;
       }
-      .room-access-blocked p {
+      .room-access-blocked p,
+      .room-access-fan-club p {
         margin: 12px 0 18px;
         color: var(--g3);
         font-size: 13px;
@@ -3340,6 +3323,11 @@
           '<p class="room-access-subtitle">Intan · 随机舞蹈</p>' +
           '<div class="room-access-ticket-item"><i>◆</i><div><b>本场直播门票</b><span>仅限当前场次</span></div><strong class="coin">10</strong></div>' +
           '<footer class="room-access-ticket-footer"><div class="room-access-balance"><span class="coin">12.580</span><button type="button" data-access-recharge aria-label="充值">+</button></div><button type="button" data-access-buy-ticket>购买</button></footer>' +
+          '</section>' +
+          '<section class="room-access-sheet room-access-fan-club state-hide" data-access-sheet="fan-club" role="dialog" aria-modal="true" aria-labelledby="fanClubAccessTitle">' +
+          '<h2 id="fanClubAccessTitle">无法进入直播间</h2>' +
+          '<p>访问直播间需先加入主播粉丝团</p>' +
+          '<button type="button" class="room-access-primary" data-access-back-home>返回</button>' +
           '</section>' +
           '<section class="room-access-sheet room-access-blocked state-hide" data-access-sheet="blocked" role="dialog" aria-modal="true" aria-labelledby="blockedAccessTitle">' +
           '<h2 id="blockedAccessTitle">无法进入直播间</h2>' +
@@ -3427,7 +3415,9 @@
         accessMask.querySelector("[data-access-buy-ticket]").onclick = function () {
           grantRoomAccess("购买门票成功");
         };
-        accessMask.querySelector("[data-access-back-home]").onclick = returnToSource;
+        accessMask.querySelectorAll("[data-access-back-home]").forEach(function (button) {
+          button.onclick = returnToSource;
+        });
         document.addEventListener("keydown", function (event) {
           if (event.key === "Escape" && !accessMask.classList.contains("state-hide"))
             returnToPlaza();
@@ -3441,12 +3431,11 @@
             "门票房-访问受限": function () {
               openAccessSheet("ticket");
             },
+            "非粉丝团成员-访问受限": function () {
+              openAccessSheet("fan-club");
+            },
             "被拉黑或踢出-访问受限": function () {
               openAccessSheet("blocked");
-            },
-            "巡房身份-正常进入": function () {
-              closeAccessSheet();
-              patrolNotice.classList.remove("state-hide");
             },
           },
         });
@@ -3456,7 +3445,7 @@
         } else if (requestedAccess === "patrol") {
           closeAccessSheet();
           patrolNotice.classList.remove("state-hide");
-        } else if (["password", "ticket", "blocked"].includes(requestedAccess))
+        } else if (["password", "ticket", "fan-club", "blocked"].includes(requestedAccess))
           openAccessSheet(requestedAccess);
       });
     </script>

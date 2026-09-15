@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { readUnits, textUnits, seedTransfer, validateTransfer, seedCoverage } from './requirement-traceability.mjs';
+import {expectedDirectory, updatePrototypeDirectory, moduleSection, readModuleDirectory} from './prototype-directory.mjs';
 
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
 const digest = value => hash(JSON.stringify(value));
@@ -25,6 +26,11 @@ export async function mainBasisConfig(root, project) {
   check(policy.来源策略 === 'prototype-primary' && policy.生成前同步 === true, 'MainBasis 上游同步必须保持 prototype-primary');
   check(Array.isArray(policy.派生需求清单) && policy.派生需求清单.length > 0, '缺少派生需求清单');
   check(policy.派生需求清单.every(file => relative(file) && file.startsWith('context/')), '派生需求只能位于 context/');
+  if (policy.原型目录结构) {
+    const directory=policy.原型目录结构;
+    check(relative(directory.入口) && directory.入口 === `${policy.原型目录}/index.html`, '原型目录入口必须是本项目 prototype 查看器');
+    check(relative(directory.输出) && policy.派生需求清单.includes(directory.输出), '原型目录文件必须登记到派生写入白名单');
+  }
   return { ...config, policy, project, baseline: `work/${project.replaceAll('/', '-')}-mainbasis/latest.json` };
 }
 
@@ -48,6 +54,7 @@ async function snapshot(root, config) {
   }
   await visit(config.project);
   for (const file of governance) files.push(await fileRecord(root, file));
+  if (config.policy.原型目录结构) files.push(await fileRecord(root,'scripts/prototype-directory.mjs'));
   files.sort((a, b) => a.路径 < b.路径 ? -1 : a.路径 > b.路径 ? 1 : 0);
   return files;
 }
@@ -69,6 +76,9 @@ function taskPath(root, task) {
 export async function startMainBasis(root, project, task) {
   const config = await mainBasisConfig(root, project);
   check(config, '项目未配置 MainBasis');
+  const startFile=path.join(taskPath(root,task),'mainbasis-start.json');
+  try {await fs.lstat(startFile); throw Object.assign(new Error('EEXIST：任务已开始，禁止重置快照'),{code:'EEXIST'});} catch(error) {if(error.code!=='ENOENT') throw error;}
+  await updatePrototypeDirectory(root,project,config.policy,task);
   const baseline = { schemaVersion: '1.0', 项目目录: project, 上游: await snapshot(root, config), 文档: [] };
   baseline.同步前派生文本 = await Promise.all(config.policy.派生需求清单.map(async file => ({ 路径: `${project}/${file}`, 原文: await fs.readFile(path.join(root, project, file), 'utf8') })));
   for (const file of [config.正式需求, config.风险清单]) {
@@ -83,6 +93,7 @@ async function transferInputs(root, config, task) {
   const start = await read(path.join(taskPath(root, task), 'mainbasis-start.json'));
   check(start.项目目录 === config.project, 'context 核对项目不一致');
   const upstream = await snapshot(root, config);
+  if (config.policy.原型目录结构) check(await fs.readFile(path.join(root,config.project,config.policy.原型目录结构.输出),'utf8') === await expectedDirectory(root,config.project,config.policy), '原型目录与当前 index.html 不一致，返回目录同步');
   const derived = new Set(config.policy.派生需求清单.map(file => `${config.project}/${file}`));
   check(digest(start.上游.filter(f => !derived.has(f.路径))) === digest(upstream.filter(f => !derived.has(f.路径))), 'context 同步期间上游变化，请重新 start');
   const scan = await read(path.join(taskPath(root, task), 'global-evidence-scan-result.json'));
@@ -128,6 +139,24 @@ async function checkedContext(root, project, task) {
 
 export async function prepareBasis(root, project, task) {
   const checkpoint = await checkedContext(root, project, task), config = await mainBasisConfig(root, project);
+  for (const name of ['mainbasis-transfer.json','mainbasis-units.json']) {
+    try {await fs.lstat(path.join(taskPath(root,task),name)); throw new Error('对照草稿已存在，禁止覆盖');} catch(error) {if(error.code!=='ENOENT') throw error;}
+  }
+  if (config.policy.原型目录结构) {
+    const section=moduleSection(await fs.readFile(path.join(root,project,config.policy.原型目录结构.输出),'utf8'));
+    const file=path.join(root,project,config.正式需求);
+    const stat=await fs.lstat(file); check(stat.isFile() && !stat.isSymbolicLink(), '正式需求必须是普通文件');
+    const before=await fs.readFile(file,'utf8');
+    const old=before.includes('<!-- prototype-modules:') ? moduleSection(before) : null;
+    const after=old===null ? before.trimEnd()+'\n\n'+section+'\n' : before.replace(old,section);
+    await write(path.join(taskPath(root,task),'mainbasis-module-sync.json'),{路径:`${project}/${config.正式需求}`,修改前SHA256:hash(before),修改后SHA256:hash(after),修改前区块:old,修改后区块:section},true);
+    if (before!==after) {
+      check(await fs.readFile(file,'utf8') === before, '目录传递期间正式需求被修改，禁止覆盖');
+      const temporary=`${file}.modules.tmp`;
+      await fs.writeFile(temporary,after,{flag:'wx'});
+      try {await fs.rename(temporary,file);} finally {await fs.rm(temporary,{force:true});}
+    }
+  }
   const sources = await readUnits(root, checkpoint.context), targets = await readUnits(root, await documents(root, config));
   await write(path.join(taskPath(root, task), 'mainbasis-transfer.json'), seedTransfer(sources, targets), true);
   await write(path.join(taskPath(root, task), 'mainbasis-units.json'), { 来源: sources, 目标: targets }, true);
@@ -135,12 +164,23 @@ export async function prepareBasis(root, project, task) {
 }
 
 export async function prepareCoverage(root, project, task) {
+  const tasks = Array.isArray(task) ? task : [task];
+  check(tasks.length > 0 && new Set(tasks).size === tasks.length, '覆盖任务目录为空或重复');
+  const directories = tasks.map(value => taskPath(root, value));
+  // One verified source read per batch; every end still starts with unreviewed coverage.
   const { baseline } = await verifyMainBasis(root, project);
   const units = await readUnits(root, baseline.文档);
   for (const unit of units) if (unit.路径 === baseline.文档[1].路径) unit.风险 = true;
-  await write(path.join(taskPath(root, task), 'requirement-units.json'), units, true);
-  await write(path.join(taskPath(root, task), 'requirement-coverage.json'), seedCoverage(units), true);
-  return { 状态: '已从两份 MainBasis 全文建立覆盖分母，初始全部未覆盖' };
+  for (const directory of directories) for (const name of ['requirement-units.json', 'requirement-coverage.json']) {
+    try { await fs.lstat(path.join(directory, name)); throw new Error(`覆盖草稿已存在，禁止覆盖：${directory}/${name}`); }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
+  const coverage = seedCoverage(units);
+  for (const directory of directories) {
+    await write(path.join(directory, 'requirement-units.json'), units, true);
+    await write(path.join(directory, 'requirement-coverage.json'), coverage, true);
+  }
+  return { 状态: '已从两份 MainBasis 全文建立覆盖分母，初始全部未覆盖', 任务目录: tasks, 来源单元: units.length };
 }
 
 export async function sealMainBasis(root, project, task) {
@@ -166,10 +206,21 @@ export async function sealMainBasis(root, project, task) {
   check(review.上游指纹 === digest(upstream), 'MainBasis 复核未绑定同步后的全部上游版本');
   check(Array.isArray(review.待确认问题) && Array.isArray(review.来源映射) && review.来源映射.length > 0, '缺少来源到需求/风险的映射及待确认问题清单');
   const byPath = new Map(upstream.map(file => [file.路径, file['SHA-256']]));
+  const targetTexts = new Map(await Promise.all(docs.map(async file => {
+    const text = await fs.readFile(path.join(root, file.路径), 'utf8');
+    check(hash(text) === file['SHA-256'], 'MainBasis 映射核对期间文档变化');
+    return [file.路径, text];
+  })));
+  let moduleHash;
+  if (config.policy.原型目录结构) {
+    const expected=moduleSection(await fs.readFile(path.join(root,project,config.policy.原型目录结构.输出),'utf8'));
+    check(moduleSection(targetTexts.get(`${project}/${config.正式需求}`)) === expected, 'MainBasis 模块目录与回读后的 context 不一致');
+    moduleHash=hash(expected);
+  }
   for (const mapping of review.来源映射) {
     check(byPath.get(mapping.来源路径) === mapping.来源SHA256 && mapping.来源位置?.trim(), 'MainBasis 来源映射的当前证据无效');
     const target = docs.find(file => file.路径 === mapping.目标路径);
-    check(target && mapping.目标原文?.trim() && (await fs.readFile(path.join(root, target.路径), 'utf8')).includes(mapping.目标原文), 'MainBasis 来源映射没有实际目标原文');
+    check(target && mapping.目标原文?.trim() && targetTexts.get(target.路径).includes(mapping.目标原文), 'MainBasis 来源映射没有实际目标原文');
   }
   const before = new Map([...start.上游, ...start.文档].map(file => [file.路径, file['SHA-256']]));
   const targets = [...upstream.filter(file => derived.has(file.路径)), ...docs];
@@ -181,9 +232,11 @@ export async function sealMainBasis(root, project, task) {
   }
   const checkpoint = await checkedContext(root, project, task);
   validateTransfer(await readUnits(root, checkpoint.context), await readUnits(root, docs), await read(path.join(directory, 'mainbasis-transfer.json')));
-  const reports = await Promise.all([syncFile, `${task}/mainbasis-start.json`, scanFile, `${task}/context-transfer.json`, `${task}/context-checkpoint.json`, `${task}/mainbasis-transfer.json`].map(file => fileRecord(root, file)));
+  const reportPaths=[syncFile, `${task}/mainbasis-start.json`, scanFile, `${task}/context-transfer.json`, `${task}/context-checkpoint.json`, `${task}/mainbasis-transfer.json`];
+  if (config.policy.原型目录结构) reportPaths.push(`${task}/prototype-directory-sync.json`,`${task}/mainbasis-module-sync.json`);
+  const reports = await Promise.all(reportPaths.map(file => fileRecord(root, file)));
   check(digest(upstream) === digest(await snapshot(root, config)) && digest(docs) === digest(await documents(root, config)), '发布期间输入发生变化');
-  const baseline = { schemaVersion: '2.0', 项目目录: project, 上游: upstream, 文档: docs, 同步记录: reports, 同步时间: new Date().toISOString() };
+  const baseline = { schemaVersion: '2.0', 项目目录: project, 上游: upstream, 文档: docs, 同步记录: reports, 同步时间: new Date().toISOString(), ...(moduleHash ? {模块目录SHA256:moduleHash} : {}) };
   await write(path.join(directory, 'mainbasis-baseline.json'), baseline, true);
   // Publish the pointer last: an interrupted two-document update cannot become current.
   const destination = path.join(root, config.baseline);
@@ -202,7 +255,8 @@ export async function verifyMainBasis(root, project) {
   check(baseline.schemaVersion === '2.0' && baseline.项目目录 === project, 'MainBasis 缺少新版全量逐项对照基线：返回 context 与 MainBasis 同步核对');
   check(digest(baseline.上游) === digest(await snapshot(root, config)), '上游文件或流程规则已变化：先同步 MainBasis，禁止复用旧用例输入');
   check(digest(baseline.文档) === digest(await documents(root, config)), 'MainBasis 文档已变化：重新核对并发布需求基线');
-  check(baseline.同步记录?.length === 6, 'MainBasis 缺少同步记录');
+  check(baseline.同步记录?.length === (config.policy.原型目录结构 ? 8 : 6), 'MainBasis 缺少同步记录');
+  if (config.policy.原型目录结构) check(baseline.模块目录SHA256 === hash(moduleSection(await fs.readFile(path.join(root,project,config.正式需求),'utf8'))), 'MainBasis 未绑定当前原型模块目录，返回需求同步');
   for (const report of baseline.同步记录) check(relative(report.路径) && report.路径.startsWith('work/') && digest(report) === digest(await fileRecord(root, report.路径)), '同步记录缺失或已变化');
   return { config, baseline, 基线SHA256: hash(await fs.readFile(path.join(root, config.baseline))) };
 }
@@ -225,11 +279,17 @@ export async function validateMainBasisInput(root, manifest) {
     const entry = sourceEntries.find(item => item.路径 === file.路径);
     check(entry?.角色 === role && entry?.允许定义业务规则 === mayDefine && entry?.['SHA-256'] === file['SHA-256'], `MainBasis 输入角色或版本不正确：${file.路径}`);
   }
-  return { freshOnly, requiresCoverage: true };
+  let moduleDirectory;
+  if (config.policy.原型目录结构) {
+    const prohibited=[config.policy.原型目录结构.入口,config.policy.原型目录结构.输出].map(file=>`${manifest.项目目录}/${file}`);
+    check(!manifest.输入文件.some(entry=>prohibited.includes(entry.路径)), '用例阶段不得额外输入原型目录或 index.html，只从 MainBasis 承接模块归属');
+    moduleDirectory=readModuleDirectory(await fs.readFile(path.join(root,formal.路径),'utf8'));
+  }
+  return { freshOnly, requiresCoverage: true, ...(moduleDirectory ? {moduleDirectory} : {}) };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
-  const [action, project, task] = process.argv.slice(2);
+  const [action, project, task, ...otherTasks] = process.argv.slice(2);
   const root = process.cwd();
   try {
     let result;
@@ -237,7 +297,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     else if (action === 'prepare-context') result = await prepareContext(root, project, task);
     else if (action === 'context') result = await reviewContext(root, project, task);
     else if (action === 'prepare-basis') result = await prepareBasis(root, project, task);
-    else if (action === 'prepare-coverage') result = await prepareCoverage(root, project, task);
+    else if (action === 'prepare-coverage') result = await prepareCoverage(root, project, [task, ...otherTasks]);
     else if (action === 'seal') result = await sealMainBasis(root, project, task);
     else if (action === 'verify') { const verified = await verifyMainBasis(root, project); result = { 状态: '版本一致', 基线SHA256: verified.基线SHA256, 文档: verified.baseline.文档 }; }
     else if (action === 'inspect') { const config = await mainBasisConfig(root, project); check(config, '项目未配置 MainBasis'); const upstream = await snapshot(root, config); result = { 上游指纹: digest(upstream), 上游: upstream }; }

@@ -494,10 +494,12 @@ window.LUMA_GUILD_CONTEXT = (() => {
   window.addEventListener('message', (event) => {
     if (event.source !== window.parent || !event.data) return;
     if (event.data.type === 'luma-apply-state') {
+      if (window.__lumaDirectLiveEntry) return;
       window.Luma.applyState(event.data.group, event.data.name);
       return;
     }
     if (event.data.type === 'luma-review-actions') {
+      if (window.__lumaDirectLiveEntry) return;
       (Array.isArray(event.data.selectors) ? event.data.selectors : []).slice(0, 4).forEach((selector, index) => {
         if (typeof selector !== 'string' || !selector) return;
         window.setTimeout(() => document.querySelector(selector)?.click(), index * 80);
@@ -882,7 +884,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const label = button.textContent.trim().replace(/^[^\u4e00-\u9fff]+/, '');
     if (shortcuts[label]) button.innerHTML = `<svg class="shortcut-icon" viewBox="0 0 24 24">${shortcuts[label]}</svg><span>${label}</span>`;
     if (label === '主播中心' && button.id !== 'roleCenterButton') button.onclick = () => { location.href = 'host-center.html'; };
-    if (label === '开始直播' && button.id !== 'roleStartButton') button.onclick = () => { if (button.textContent.includes('申请成为主播')) Luma.toast('申请成为主播'); else location.href = 'start-live-settings.html'; };
+    if (label === '开始直播' && button.id !== 'roleStartButton') button.onclick = () => { if (button.textContent.includes('申请成为主播')) Luma.toast('申请成为主播'); else location.href = 'start-live-settings.html?v=20260914-direct-live-entry-v1'; };
   });
 
   const notificationIcons = {
@@ -1363,7 +1365,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <button type="button" data-host-setting="beauty"><i>美</i><span>美颜设置</span></button>
             <button type="button" data-host-setting="muted"><i>禁</i><span>禁言列表</span></button>
             <button type="button" data-host-setting="password"><i>密</i><span>房间密码</span></button>
-            ${isPasswordHostRoom ? '<button type="button" data-host-setting="scope"><i>范</i><span>可见范围</span></button>' : ''}
+            ${isPasswordHostRoom ? '<button type="button" data-host-setting="scope"><i>限</i><span>访问范围</span></button>' : ''}
             <button type="button" data-host-setting="clear"><i>清</i><span>清屏</span></button>
           </div>
         `;
@@ -1591,7 +1593,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         };
         hostProfileActions.querySelector('[data-host-profile-action="remove"]').onclick = () => openHostProfileConfirm('踢出直播间？', '确认后该用户本场不可再次进入。', () => window.Luma.toast('已踢出直播间'));
-        hostProfileActions.querySelector('[data-host-profile-action="block"]').onclick = () => window.Luma.toast('已拉黑该用户');
+        hostProfileActions.querySelector('[data-host-profile-action="block"]').onclick = () => openHostProfileConfirm('拉黑该用户？', '确认后解除所有关系并进入黑名单。包括粉丝团、好友、关注。', () => window.Luma.toast('已拉黑该用户'));
         hostProfileActions.querySelector('[data-host-profile-action="manager"]').onclick = (event) => {
           const button = event.currentTarget;
           const manager = button.classList.contains('active');
@@ -1758,10 +1760,9 @@ document.addEventListener('DOMContentLoaded', () => {
       room.append(confirm);
 
       let pendingToggle = null;
-      let confirmRound = 0;
       const openConfirm = () => {
-        confirm.querySelector('b').textContent = confirmRound === 1 ? '取消房管？' : '再次确认取消房管？';
-        confirm.querySelector('p').textContent = confirmRound === 1 ? '取消后将失去房管权限。' : '确认取消该用户的房管权限？';
+        confirm.querySelector('b').textContent = '取消房管？';
+        confirm.querySelector('p').textContent = '取消后将失去房管权限。';
         confirm.classList.remove('state-hide');
       };
       managersPanel.querySelectorAll('[data-manager-toggle]').forEach((toggle) => {
@@ -1769,7 +1770,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (toggle.checked) return;
           toggle.checked = true;
           pendingToggle = toggle;
-          confirmRound = 1;
           openConfirm();
         };
       });
@@ -1778,11 +1778,6 @@ document.addEventListener('DOMContentLoaded', () => {
         pendingToggle = null;
       };
       confirm.querySelector('[data-confirm-manager]').onclick = () => {
-        if (confirmRound === 1) {
-          confirmRound = 2;
-          openConfirm();
-          return;
-        }
         if (pendingToggle) pendingToggle.checked = false;
         confirm.classList.add('state-hide');
         window.Luma.toast('已取消房管');
@@ -1872,7 +1867,6 @@ window.addEventListener('load', () => {
   const mutedUsers = new Set();
   let role = '普通观众';
   let pendingAction = null;
-  let confirmationRound = 0;
 
   const muteButton = document.createElement('button');
   muteButton.type = 'button';
@@ -1931,16 +1925,12 @@ window.addEventListener('load', () => {
   function closeConfirmation() {
     confirmation.classList.add('state-hide');
     pendingAction = null;
-    confirmationRound = 0;
   }
 
   function openConfirmation() {
     const verb = pendingAction.type === 'mute' ? '禁言' : '踢出直播间';
-    const repeat = confirmationRound === 2;
-    confirmation.querySelector('b').textContent = repeat ? `再次确认${verb}？` : `${verb}？`;
-    confirmation.querySelector('p').textContent = repeat
-      ? `确认后立即${verb} ${pendingAction.name}。`
-      : pendingAction.type === 'mute' ? `${pendingAction.name} 将无法在当前直播间继续发言。` : `${pendingAction.name} 将从当前在线观众中移除。`;
+    confirmation.querySelector('b').textContent = `${verb}？`;
+    confirmation.querySelector('p').textContent = pendingAction.type === 'mute' ? `${pendingAction.name} 将无法在当前直播间继续发言。` : `${pendingAction.name} 将从当前在线观众中移除。`;
     confirmation.classList.remove('state-hide');
   }
 
@@ -2003,21 +1993,14 @@ window.addEventListener('load', () => {
 
   muteButton.onclick = () => {
     pendingAction = { type: 'mute', name: profileName() };
-    confirmationRound = 1;
     openConfirmation();
   };
   removeButton.onclick = () => {
     pendingAction = { type: 'remove', name: profileName() };
-    confirmationRound = 1;
     openConfirmation();
   };
   confirmation.querySelector('[data-cancel-viewer-manager]').onclick = closeConfirmation;
   confirmation.querySelector('[data-confirm-viewer-manager]').onclick = () => {
-    if (confirmationRound === 1) {
-      confirmationRound = 2;
-      openConfirmation();
-      return;
-    }
     const { type, name } = pendingAction;
     if (type === 'mute') mutedUsers.add(name);
     else removedUsers.add(name);

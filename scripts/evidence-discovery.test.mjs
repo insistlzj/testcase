@@ -150,7 +150,7 @@ test('合法换行结束标签不合并按钮；同名弹窗按钮不得靠页�
   bindScenarioElements([s],localPages,elements);assert.equal(s.元素证据.length,0);
 });
 
-test('真实原型：热门/新人分离；通知归属不受虚拟页遍历顺序影响；旧用例允许等价措辞但拒绝相反断言',async()=>{
+test('真实原型：热门/新人分离；通知归属不受虚拟页遍历顺序影响；合成契约允许等价措辞但拒绝相反断言',async()=>{
   const root=path.resolve(import.meta.dirname,'..'),e=await collectLiveEvidence(root);
   assert.equal(e.pages['views/live-room/host-profile.html'].role,'观众');
   const controls=e.elements.filter(e=>/live-plaza.html$/u.test(e.文件));
@@ -161,11 +161,11 @@ test('真实原型：热门/新人分离；通知归属不受虚拟页遍历顺�
   bindScenarioElements(l.场景,e.pages,e.elements);
   const reordered=structuredClone(l.场景);bindScenarioElements(reordered,Object.fromEntries(Object.entries(e.pages).reverse()),e.elements);
   assert.deepEqual(reordered,l.场景);
-  const cases=JSON.parse(await fs.readFile(path.join(root,'work/liveshow-user-live-discovery-260910-005/current-testcase-candidate.json'),'utf8')).测试用例;
-  for(const [trigger,number] of [['切换新人','LIVE-0005'],['点击开启通知','LIVE-0014']]) {
-    const s=l.场景.find(s=>s.参数.trigger===trigger&&s.覆盖契约),c=cases.find(c=>c.用例编号===number);
-    assert.deepEqual(checkScenarioCase(s,c),[]);
-    assert.ok(checkScenarioCase(s,{...c,预期结果:['不'+c.预期结果[0]]}).length);
+  // Synthetic verifier inputs: no dependency on archived task output or its business design.
+  for(const [expected,paraphrase] of [['显示系统通知授权弹窗','页面显示系统通知授权弹窗'],['显示新人列表','页面显示新人列表']]) {
+    const contract={预期结果:[[expected]]}, candidate={预期结果:[paraphrase]};
+    assert.deepEqual(verifyCaseContract(contract,candidate),[]);
+    assert.ok(verifyCaseContract(contract,{预期结果:['不'+expected]}).length);
   }
   assert.ok(verifyCaseContract({预期结果:[['显示系统通知授权弹窗']]},{预期结果:['不显示系统通知授权弹窗']}).length);
 });

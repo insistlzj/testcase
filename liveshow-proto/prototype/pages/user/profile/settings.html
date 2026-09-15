@@ -249,16 +249,10 @@
       </header>
       <p class="section-label">账号与安全</p>
       <section class="settings-section">
-        <div class="setting-row">
-          <span>手机号</span><small id="phone"></small>
-        </div>
-        <div class="setting-row">
-          <span>邮箱</span><small id="email"></small>
-        </div>
-        <a
-          class="setting-row"
-          href="../auth/auth-login-register.html?flow=reset"
-          ><span>修改登录密码</span><i class="arrow">›</i></a
+        <div class="setting-row"><span>手机号</span><small id="phone"></small></div>
+        <div class="setting-row"><span>邮箱</span><small id="email"></small></div>
+        <a class="setting-row" id="passwordEntry" href="account-password-change.html"
+          ><span id="passwordAction">修改密码</span><small id="passwordStatus">已设置</small><i class="arrow">›</i></a
         >
       </section>
       <p class="section-label">通知</p>
@@ -398,6 +392,13 @@
         currentLanguage = settingsMock.language || "id";
       document.querySelector("#phone").textContent = settingsMock.phone;
       document.querySelector("#email").textContent = settingsMock.email;
+      function setPasswordState(hasPassword) {
+        passwordAction.textContent = hasPassword ? "修改密码" : "设置密码";
+        passwordStatus.textContent = hasPassword ? "已设置" : "未设置";
+        passwordEntry.href = hasPassword
+          ? "account-password-change.html"
+          : "account-password-set.html";
+      }
       function notificationPermission() {
         return notificationStorage.getItem("luma-notification-permission") || "default";
       }
@@ -634,9 +635,15 @@
         "*",
       );
       Luma.registerStates({
-        "系统通知-从未申请": () => setNotificationPermission("default"),
-        "系统通知-已拒绝": () => setNotificationPermission("denied"),
-        "系统通知-已授权": () => setNotificationPermission("granted"),
+        页面状态: {
+          "系统通知-从未申请": () => setNotificationPermission("default"),
+          "系统通知-已拒绝": () => setNotificationPermission("denied"),
+          "系统通知-已授权": () => setNotificationPermission("granted"),
+        },
+        密码状态: {
+          已设置: () => setPasswordState(true),
+          未设置: () => setPasswordState(false),
+        },
       });
     </script>
   </body>

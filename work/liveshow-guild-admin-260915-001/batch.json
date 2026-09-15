@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "项目目录": "liveshow-proto",
+  "目标端": ["公会App", "管理后台"],
+  "交付要求": "完整覆盖",
+  "端任务": [
+    {"端名": "公会App", "模块名称": "全部模块", "任务目录": "work/liveshow-guild-admin-260915-001/guild"},
+    {"端名": "管理后台", "模块名称": "全部模块", "任务目录": "work/liveshow-guild-admin-260915-001/admin"}
+  ]
+}

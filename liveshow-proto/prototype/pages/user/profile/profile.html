@@ -234,7 +234,7 @@
       <section class="menu">
         <button onclick="Luma.toast('进入黑名单')">
           <span>黑名单</span><span>›</span></button
-        ><button onclick="Luma.toast('打开客服会话')">
+        ><button onclick="location.href='customer-service.html'">
           <span>联系客服</span><span>›</span>
         </button>
       </section>
@@ -255,7 +255,7 @@
           '<i class="shortcut-icon">◉</i><span>开始直播</span>';
         roleStartButton.onclick = () =>
           (location.href = enabled
-            ? "../host/start-live-settings.html"
+            ? "../host/start-live-settings.html?v=20260914-direct-live-entry-v1"
             : "../host/host-center-pending.html");
         roleCenterButton.onclick = () =>
           (location.href = enabled

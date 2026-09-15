@@ -12,6 +12,7 @@
       href="../../../assets/admin.css?v=20260821-filter-layout-v4"
     />
     <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-date-range-picker.js?v=20260912-v1"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
     <script src="../../../assets/admin-mock.js?v=20260904-prop-types-v1"></script>
   </head>
@@ -162,6 +163,31 @@
                     ><span id="editStatusText"></span>
                   </div>
                 </div>
+                <div class="admin-form-row full">
+                  <label>可佩戴期限</label>
+                  <div class="admin-range-picker-control">
+                    <div class="admin-range-picker" id="editWearableRangePicker">
+                      <button class="admin-range-picker-trigger" data-range-trigger type="button" aria-expanded="false">
+                        <span data-range-start-text>--</span><span>→</span><span data-range-end-text>--</span><i class="admin-range-picker-icon" aria-hidden="true"></i>
+                      </button>
+                      <div class="admin-range-popover" data-range-popover hidden>
+                        <div class="admin-range-nav"><button data-range-prev type="button" aria-label="上一个月">‹</button><button data-range-next type="button" aria-label="下一个月">›</button></div>
+                        <div class="admin-range-months" data-range-months></div>
+                      </div>
+                      <input id="editWearableStart" type="hidden" />
+                      <input id="editWearableEnd" type="hidden" />
+                    </div>
+                    <label class="admin-check-inline"
+                      ><input id="editWearableUnlimited" type="checkbox" />不限</label
+                    >
+                  </div>
+                </div>
+                <div class="admin-form-row">
+                  <label for="editPrice">单价</label>
+                  <div class="admin-input-unit">
+                    <input class="admin-input" id="editPrice" type="number" min="1" step="1" required /><span>金币</span>
+                  </div>
+                </div>
               </div>
               <div class="admin-media-upload-grid">
                 <div class="admin-media-upload">
@@ -266,8 +292,7 @@
           { key: "medal", name: "勋章", names: { zh: "勋章", en: "Medal", id: "Medali", ms: "Pingat" } },
           { key: "bubble", name: "气泡", names: { zh: "气泡", en: "Chat Bubble", id: "Gelembung Obrolan", ms: "Gelembung Sembang" } },
           { key: "avatar", name: "头像框", names: { zh: "头像框", en: "Avatar Frame", id: "Bingkai Avatar", ms: "Bingkai Avatar" } },
-        ],
-        removedPresetTypes = new Set(["light", "title", "vehicle"]);
+        ];
       function sharedPropStorage() {
         try {
           return window.parent && window.parent !== window
@@ -284,7 +309,7 @@
           );
           if (Array.isArray(saved) && saved.length)
             return saved
-              .filter((type) => !removedPresetTypes.has(type.key))
+              .filter((type) => defaultPropTypes.some((preset) => preset.key === type.key))
               .map(normalizePropType);
         } catch (error) {}
         return defaultPropTypes.map(normalizePropType);
@@ -311,6 +336,14 @@
         confirmAction = "",
         editorIcon = item.icon,
         editorMaterial = item.material;
+      const wearableRangePicker = LumaAdminDateRange.create({
+        root: editWearableRangePicker,
+        startInput: editWearableStart,
+        endInput: editWearableEnd,
+        onChange: (start, end) => {
+          if (start || end) editWearableUnlimited.checked = false;
+        },
+      });
       function blankProp() {
         const next =
           Math.max(...props.map((prop) => Number(prop.id.replace(/\D/g, "")))) +
@@ -321,8 +354,11 @@
           icon: "未上传",
           material: "未上传",
           type: typeText[requestedType] ? requestedType : "medal",
+          price: "",
           sort: 50,
           status: "online",
+          wearableStart: "",
+          wearableEnd: "",
           updatedAt: "2026-08-05 14:20",
           changes: [],
         };
@@ -333,7 +369,7 @@
         propStatus.className = "admin-switch-control";
         propStatus.innerHTML = `<label class="admin-switch"><input type="checkbox" data-detail-status-toggle aria-label="${item.names.zh || item.names.id} 上下架状态" ${item.status === "online" ? "checked" : ""}><span class="admin-switch-track"></span></label><span>${item.status === "online" ? "上架" : "下架"}</span>`;
         actions.innerHTML = `<a class="admin-btn secondary" href="admin-prop-detail.html?id=${item.id}&edit=1">编辑</a><button class="admin-btn danger" id="deleteBtn">删除</button>`;
-        baseInfo.innerHTML = `<div class="admin-detail-item"><span>道具类型</span><b>${typeText[item.type]}</b></div><div class="admin-detail-item"><span>排序权重</span><b>${item.sort}</b></div><div class="admin-detail-item"><span>更新时间</span><b>${item.updatedAt}</b></div>`;
+        baseInfo.innerHTML = `<div class="admin-detail-item"><span>道具类型</span><b>${typeText[item.type]}</b></div><div class="admin-detail-item"><span>单价</span><b>${item.price} 金币</b></div><div class="admin-detail-item"><span>排序权重</span><b>${item.sort}</b></div><div class="admin-detail-item"><span>可佩戴期限</span><b>${item.wearableEnd ? `${item.wearableStart.slice(0, 10)} 至 ${item.wearableEnd.slice(0, 10)}` : "永久"}</b></div><div class="admin-detail-item"><span>更新时间</span><b>${item.updatedAt}</b></div>`;
         deleteBtn.onclick = () => openConfirm();
       }
       function renderTab(tab = activeTab) {
@@ -366,6 +402,16 @@
       function syncEditStatus() {
         editStatusText.textContent = editStatus.checked ? "上架" : "下架";
       }
+      function dateValueAfter(days = 0, base = Date.now()) {
+        const date = new Date(base);
+        date.setDate(date.getDate() + days);
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      }
+      function syncWearableUnlimited() {
+        if (editWearableUnlimited.checked) wearableRangePicker.clear();
+        else if (!editWearableStart.value || !editWearableEnd.value)
+          wearableRangePicker.setRange(dateValueAfter(), dateValueAfter(30));
+      }
       function openEditor() {
         pageName.textContent = `${isNew ? "新增" : "编辑"}道具`;
         editId.value = item.id;
@@ -379,8 +425,14 @@
           .map((type) => `<option value="${type.key}">${type.name}</option>`)
           .join("");
         editType.value = item.type;
+        editPrice.value = item.price;
         editSort.value = item.sort;
         editStatus.checked = item.status === "online";
+        const today = dateValueAfter();
+        wearableRangePicker.setMin(today);
+        editWearableUnlimited.checked = !isNew && !item.wearableEnd;
+        if (editWearableUnlimited.checked) wearableRangePicker.clear();
+        else wearableRangePicker.setRange(item.wearableStart?.slice(0, 10) || today, item.wearableEnd?.slice(0, 10) || dateValueAfter(30));
         editorIcon = item.icon;
         editorMaterial = item.material;
         renderMediaEditor();
@@ -405,6 +457,7 @@
         );
       cancelBtn.onclick = closeEditor;
       editStatus.onchange = syncEditStatus;
+      editWearableUnlimited.onchange = syncWearableUnlimited;
       document.addEventListener("click", (event) => {
         const remove = event.target.closest("[data-delete-media]");
         if (remove) {
@@ -464,9 +517,17 @@
       editorForm.onsubmit = (event) => {
         event.preventDefault();
         const created = isNew,
-          idValue = editId.value.trim();
+          idValue = editId.value.trim(),
+          wearableStartValue = editWearableStart.value,
+          wearableEndValue = editWearableEnd.value;
         if (created && props.some((prop) => prop.id === idValue))
           return Luma.toast("道具 ID 已存在");
+        if (!editWearableUnlimited.checked && (!wearableStartValue || !wearableEndValue))
+          return Luma.toast("请填写可佩戴期限");
+        if (!editWearableUnlimited.checked && wearableStartValue < dateValueAfter())
+          return Luma.toast("可佩戴开始日期不能早于当前日期");
+        if (!editWearableUnlimited.checked && wearableEndValue <= wearableStartValue)
+          return Luma.toast("可佩戴结束日期必须晚于开始日期");
         Object.assign(item, {
           id: idValue,
           names: {
@@ -478,8 +539,11 @@
           icon: editorIcon,
           material: editorMaterial,
           type: editType.value,
+          price: Number(editPrice.value),
           sort: Number(editSort.value),
           status: editStatus.checked ? "online" : "offline",
+          wearableStart: editWearableUnlimited.checked ? "" : editWearableStart.value,
+          wearableEnd: editWearableUnlimited.checked ? "" : editWearableEnd.value,
           updatedAt: "2026-08-05 14:20",
         });
         item.changes.unshift({

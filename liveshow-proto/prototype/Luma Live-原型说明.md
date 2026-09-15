@@ -21,10 +21,10 @@
 | 贡献榜（平台） | `pages/user/home/contribution-ranking.html` | P001-4，按当日、本周、本月展示用户贡献排名；点击用户进入用户主页。 |
 | 搜索 | `pages/user/home/search.html` | P001-2，输入房间号、主播 ID 或主播昵称后触发检索；搜索历史最多 10 条，支持单条删除和清空。 |
 | 搜索结果 | `pages/user/home/search-results.html` | P001-1，展示主播头像、昵称与房间号；直播中可进入直播间，无结果展示空状态。 |
-| 直播间（普通房） | `pages/user/live/live-room.html` | P006，默认普通观众；密码房、门票房、被拉黑或本场踢出均在进入后拦截。有效巡房任务进入时绕过上述限制，保护仅限本次巡房会话。 |
+| 直播间（普通房） | `pages/user/live/live-room.html` | P006，默认普通观众；密码房、门票房、非粉丝团成员、被拉黑或本场踢出均按对应规则拦截。有效巡房任务进入时绕过上述限制。 |
 | 举报直播间 | `pages/user/live/live-room-report.html` | P006-1，举报类型为色情低俗、涉及宗教政治、暴恐血腥、未成年有害、其他；选择原因并填写补充说明后提交。 |
 | 直播间-主播 | `pages/user/live/live-room-host.html` | P003，主播在普通房开播；管理观众互动与发起 PK。 |
-| 直播间-主播-密码房 | `pages/user/live/live-room-host-password.html` | P004，主播在密码房开播；房间成员须通过密码校验，主播可修改房间密码；不支持发起连麦或 PK。 |
+| 直播间-主播-密码房 | `pages/user/live/live-room-host-password.html` | P004，主播可修改房间密码、广场展示和粉丝团成员限制；有效成员仍须通过密码校验；不支持连麦或 PK。 |
 | 直播间-连麦中-主播 | `pages/user/live/live-room-cohost-active.html` | P005，仅普通房支持两位主播左右分屏；门票房、密码房及超过两人的连线或 PK 均不支持。 |
 | 充值福利 | `pages/user/home/welfare-center.html` | 签到、任务、邀请与充值福利入口。 |
 | 全部任务 | `pages/user/home/all-tasks.html` | P012-1，仅展示充值福利页入口中的三项任务及其进度、奖励和领取状态。 |
@@ -44,10 +44,7 @@
 | 主播礼物展馆 | `pages/user/social/host-gift-gallery.html` | P035-2，每行展示 3 个礼物；已收到显示数量，未收到置灰。 |
 | 我的 | `pages/user/profile/profile.html` | 个人资料、钱包、粉丝团和主播中心入口。 |
 | 我的关注 | `pages/user/profile/my-following.html` | P034-1，已关注主播的简介与开播状态；开播进入直播间，未开播进入主播主页。 |
-| 我的装扮 | `pages/user/profile/my-decoration.html` | 展示当前佩戴的头像框、聊天气泡和勋章，并进入对应栏目。 |
-| 头像框 | `pages/user/profile/my-decoration-avatar-frame.html` | 查看全部头像框并选择是否佩戴，最多 1 个。 |
-| 聊天气泡 | `pages/user/profile/my-decoration-chat-bubble.html` | 查看全部聊天气泡并选择是否佩戴，最多 1 个。 |
-| 勋章 | `pages/user/profile/my-decoration-medal.html` | 查看全部勋章并选择是否佩戴，最多 5 个。 |
+| 我的装扮 | `pages/user/profile/my-decoration.html` | 查看、购买并直接佩戴头像框、聊天气泡和勋章；勋章最多佩戴 5 个。 |
 | 资料编辑 | `pages/user/profile/profile-edit.html` | 编辑头像、背景图、昵称、签名、性别、地区和生日；头像或昵称保存时显示约 3 秒校验 loading，原型循环演示成功、不合规和网络异常结果。 |
 | 设置 | `pages/user/profile/settings.html` | 账号安全、系统通知权限、开播与互动分类偏好、四语言选择、退出登录；金币低于 100 可申请注销，含 10 秒确认与 7 天冷静期。 |
 | 黑名单管理 | `pages/user/profile/blacklist-management.html` | 查看已拉黑用户，二次确认后移除。 |

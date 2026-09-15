@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { validateTestcaseDelivery } from "./validate-testcase-delivery.mjs";
+import { validateMetrics } from './pipeline-metrics.mjs';
 
 const repoRoot = path.resolve(process.argv[2] || process.cwd());
 const taskDir = path.resolve(process.argv[3] || "");
@@ -32,11 +33,7 @@ const [scan, verification, comparison, metrics, manifest] = await Promise.all([
 if (scan.输出前复核?.状态 !== "通过") throw new Error("输出前证据复核未通过，禁止发布缓存");
 if (verification.状态 !== "通过") throw new Error("Excel 交付检查未通过，禁止发布缓存");
 if ((comparison.待人工复核 || []).length) throw new Error("历史比较仍有待人工复核，禁止发布缓存");
-const requiredStages = ["inventory-hash", "semantic-read", "sync", "normalize-rules", "generate-dedup", "history-compare", "json-validate", "xlsx-build", "xlsx-verify"];
-for (const stageName of requiredStages) {
-  const stage = metrics.阶段.find((item) => item.阶段名称 === stageName);
-  if (!Number.isFinite(stage?.耗时毫秒)) throw new Error(`阶段耗时不完整：${stageName}`);
-}
+validateMetrics(metrics);
 
 const candidatePath = path.join(repoRoot, manifest.当前候选用例);
 const finalPath = path.join(repoRoot, manifest.最终用例JSON);

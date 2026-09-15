@@ -1,0 +1,1428 @@
+[
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场贡献排序首条件",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A贡献200、粉丝1级、财富1级；B贡献100、粉丝10级、财富10级"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-2e0be6049dd2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "086d89635e81543ddaa6d4881b7c55d54d6074ad25ca7b6bdd2405eae375b1c1"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场贡献相同按本团等级",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献100；A本主播粉丝团5级、财富1级；B本团3级、财富10级"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-2e0be6049dd2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "086d89635e81543ddaa6d4881b7c55d54d6074ad25ca7b6bdd2405eae375b1c1"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场贡献及团等级相同按财富",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献100、本团等级3；A财富5级，B财富2级"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-2e0be6049dd2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "086d89635e81543ddaa6d4881b7c55d54d6074ad25ca7b6bdd2405eae375b1c1"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场完全同分按数字ID",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "ID为U2与U10的用户本场贡献、粉丝等级、财富等级完全相同"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "U2排在U10前",
+    "refs": [
+      "REQ-2e0be6049dd2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "086d89635e81543ddaa6d4881b7c55d54d6074ad25ca7b6bdd2405eae375b1c1"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场同分名次不并列",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B本场贡献、粉丝等级、财富等级相同；排序后相邻"
+    ],
+    "steps": [
+      "查看两人的名次"
+    ],
+    "result": "两人分配连续的不同名次",
+    "refs": [
+      "REQ-2e0be6049dd2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "086d89635e81543ddaa6d4881b7c55d54d6074ad25ca7b6bdd2405eae375b1c1"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场第九十九名边界",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "共100名有贡献用户；前98名贡献更高；末两人贡献及粉丝等级相同；A财富5级、B财富2级"
+    ],
+    "steps": [
+      "查看榜单末尾"
+    ],
+    "result": "第99名展示A，B不进入前99名列表",
+    "refs": [
+      "REQ-2e0be6049dd2",
+      "REQ-f824d220c8d2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "086d89635e81543ddaa6d4881b7c55d54d6074ad25ca7b6bdd2405eae375b1c1",
+      "816c66beae1d2d3a7eda6a040fb98367a399b4eaef5fd449ca2016023ebe5650"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场缺少粉丝等级按零排序",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献相同；A没有粉丝等级，B粉丝1级；其他排序条件一致"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "B排在A前",
+    "refs": [
+      "REQ-2e0be6049dd2",
+      "REQ-68eb3122d10e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "086d89635e81543ddaa6d4881b7c55d54d6074ad25ca7b6bdd2405eae375b1c1",
+      "8fb008ba61beec8bfdba5fc8c3d1e3a7f4442f136146779fcc94f59afc3d4621"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场缺少财富等级按零排序",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献及粉丝等级相同；A没有财富等级，B财富1级"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "B排在A前",
+    "refs": [
+      "REQ-2e0be6049dd2",
+      "REQ-68eb3122d10e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "086d89635e81543ddaa6d4881b7c55d54d6074ad25ca7b6bdd2405eae375b1c1",
+      "8fb008ba61beec8bfdba5fc8c3d1e3a7f4442f136146779fcc94f59afc3d4621"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场失败赠送不贡献",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A当前贡献100；一次50金币赠送请求已失败"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "A贡献仍为100",
+    "refs": [
+      "REQ-5d9d7f962139"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e68251c3f44325d930f46e494f1b0136d2a5d27c0ee5095f0aaae536dced09d7"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场撤销赠送不贡献",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A只有一笔已撤销赠送且没有其他有效贡献"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "该笔撤销赠送不计入A贡献",
+    "refs": [
+      "REQ-5d9d7f962139"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e68251c3f44325d930f46e494f1b0136d2a5d27c0ee5095f0aaae536dced09d7"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场消费冲正重排",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A原贡献200，B贡献150；A其中100金币有效消费已完成冲正"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "B排在A前",
+    "refs": [
+      "REQ-2e0be6049dd2",
+      "REQ-5d9d7f962139"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "086d89635e81543ddaa6d4881b7c55d54d6074ad25ca7b6bdd2405eae375b1c1",
+      "e68251c3f44325d930f46e494f1b0136d2a5d27c0ee5095f0aaae536dced09d7"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本场充值退款保留贡献",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A本场成功赠礼100金币；对应充值现已退款；没有赠礼消费冲正"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "A本场贡献仍为100",
+    "refs": [
+      "REQ-5d9d7f962139"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e68251c3f44325d930f46e494f1b0136d2a5d27c0ee5095f0aaae536dced09d7"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "注销贡献名称脱敏",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "本场贡献用户A已完成注销"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "A名称显示“账号已注销”",
+    "refs": [
+      "REQ-9186ff81b630"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "84084093c3f4fb63d31919f9046c878a3ff83c28e11a54f054a36e84ec69ce8c"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "注销贡献数值保留",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A本场贡献100后已完成注销"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "A历史贡献仍为100",
+    "refs": [
+      "REQ-9186ff81b630"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "84084093c3f4fb63d31919f9046c878a3ff83c28e11a54f054a36e84ec69ce8c"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "注销贡献账号不能进主页",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "本场贡献用户A已完成注销"
+    ],
+    "steps": [
+      "点击A的用户信息"
+    ],
+    "result": "不能进入A主页",
+    "refs": [
+      "REQ-9186ff81b630"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "84084093c3f4fb63d31919f9046c878a3ff83c28e11a54f054a36e84ec69ce8c"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场贡献排序首条件",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A贡献200、粉丝1级、财富1级；B贡献100、粉丝10级、财富10级"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-d641aedb45b9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c288c96aeeeae6f0ed9037442c3dd518ee8e570029471b91538fd537b0cf8ff"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场贡献相同按本团等级",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献100；A本主播粉丝团5级、财富1级；B本团3级、财富10级"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-d641aedb45b9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c288c96aeeeae6f0ed9037442c3dd518ee8e570029471b91538fd537b0cf8ff"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场贡献及团等级相同按财富",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献100、本团等级3；A财富5级，B财富2级"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-d641aedb45b9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c288c96aeeeae6f0ed9037442c3dd518ee8e570029471b91538fd537b0cf8ff"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场完全同分按数字ID",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "ID为U2与U10的用户本场贡献、粉丝等级、财富等级完全相同"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "U2排在U10前",
+    "refs": [
+      "REQ-d641aedb45b9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c288c96aeeeae6f0ed9037442c3dd518ee8e570029471b91538fd537b0cf8ff"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场同分名次不并列",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B本场贡献、粉丝等级、财富等级相同；排序后相邻"
+    ],
+    "steps": [
+      "查看两人的名次"
+    ],
+    "result": "两人分配连续的不同名次",
+    "refs": [
+      "REQ-d641aedb45b9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c288c96aeeeae6f0ed9037442c3dd518ee8e570029471b91538fd537b0cf8ff"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场第九十九名边界",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "共100名有贡献用户；前98名贡献更高；末两人贡献及粉丝等级相同；A财富5级、B财富2级"
+    ],
+    "steps": [
+      "查看榜单末尾"
+    ],
+    "result": "第99名展示A，B不进入前99名列表",
+    "refs": [
+      "REQ-d641aedb45b9",
+      "REQ-ca2bec752921"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c288c96aeeeae6f0ed9037442c3dd518ee8e570029471b91538fd537b0cf8ff",
+      "4639efc02a21d0b75222a2059a75da74ec6986e02323b7fb7c9dd5553c1af01e"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场缺少粉丝等级按零排序",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献相同；A没有粉丝等级，B粉丝1级；其他排序条件一致"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "B排在A前",
+    "refs": [
+      "REQ-d641aedb45b9",
+      "REQ-c5411596f1d1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c288c96aeeeae6f0ed9037442c3dd518ee8e570029471b91538fd537b0cf8ff",
+      "dd945648853f6c4b96e605dadd9cc9a594893db30fe04556411e5b4f5df79375"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场缺少财富等级按零排序",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献及粉丝等级相同；A没有财富等级，B财富1级"
+    ],
+    "steps": [
+      "查看本场贡献榜"
+    ],
+    "result": "B排在A前",
+    "refs": [
+      "REQ-d641aedb45b9",
+      "REQ-c5411596f1d1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c288c96aeeeae6f0ed9037442c3dd518ee8e570029471b91538fd537b0cf8ff",
+      "dd945648853f6c4b96e605dadd9cc9a594893db30fe04556411e5b4f5df79375"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场失败赠送不贡献",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A当前贡献100；一次50金币赠送请求已失败"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "A贡献仍为100",
+    "refs": [
+      "REQ-6d8fdcaf95b2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4721c5fcc6e61c3bf7818595dc090f97a43bd59810a0bad50a7b2235d927bfe2"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场撤销赠送不贡献",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A只有一笔已撤销赠送且没有其他有效贡献"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "该笔撤销赠送不计入A贡献",
+    "refs": [
+      "REQ-6d8fdcaf95b2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4721c5fcc6e61c3bf7818595dc090f97a43bd59810a0bad50a7b2235d927bfe2"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场消费冲正重排",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A原贡献200，B贡献150；A其中100金币有效消费已完成冲正"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "B排在A前",
+    "refs": [
+      "REQ-d641aedb45b9",
+      "REQ-6d8fdcaf95b2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6c288c96aeeeae6f0ed9037442c3dd518ee8e570029471b91538fd537b0cf8ff",
+      "4721c5fcc6e61c3bf7818595dc090f97a43bd59810a0bad50a7b2235d927bfe2"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "本场充值退款保留贡献",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A本场成功赠礼100金币；对应充值现已退款；没有赠礼消费冲正"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "A本场贡献仍为100",
+    "refs": [
+      "REQ-6d8fdcaf95b2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4721c5fcc6e61c3bf7818595dc090f97a43bd59810a0bad50a7b2235d927bfe2"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "注销贡献名称脱敏",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "本场贡献用户A已完成注销"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "A名称显示“账号已注销”",
+    "refs": [
+      "REQ-ac295ec06da1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b59dd624b4e9dbd2f97e902faa2cf9e11f5b23af43dc18851f6c02a7dcc0065e"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "注销贡献数值保留",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A本场贡献100后已完成注销"
+    ],
+    "steps": [
+      "刷新本场贡献榜"
+    ],
+    "result": "A历史贡献仍为100",
+    "refs": [
+      "REQ-ac295ec06da1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b59dd624b4e9dbd2f97e902faa2cf9e11f5b23af43dc18851f6c02a7dcc0065e"
+    ]
+  },
+  {
+    "page": "views/live-room-host/contribution-rank.html",
+    "role": "本场主播",
+    "point": "注销贡献账号不能进主页",
+    "pre": [
+      "本场主播；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "本场贡献用户A已完成注销"
+    ],
+    "steps": [
+      "点击A的用户信息"
+    ],
+    "result": "不能进入A主页",
+    "refs": [
+      "REQ-ac295ec06da1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b59dd624b4e9dbd2f97e902faa2cf9e11f5b23af43dc18851f6c02a7dcc0065e"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本人上榜置底名次",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "本人当前第5名"
+    ],
+    "steps": [
+      "查看榜单底部"
+    ],
+    "result": "固定区域显示本人排名5",
+    "refs": [
+      "REQ-6b2e57f33816"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "defb808966137da3b4d906d4cb2bed6b7ce1bb1bf32e19120dbff94837d8c52b"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "本人未上榜置底横线",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "本人当前排在第100名"
+    ],
+    "steps": [
+      "查看榜单底部"
+    ],
+    "result": "本人排名显示“-”",
+    "refs": [
+      "REQ-6b2e57f33816"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "defb808966137da3b4d906d4cb2bed6b7ce1bb1bf32e19120dbff94837d8c52b"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "滚动保留本人区域",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "榜单具有可滚动内容"
+    ],
+    "steps": [
+      "滚动榜单至中部"
+    ],
+    "result": "本人排名区域仍固定在底部",
+    "refs": [
+      "REQ-10a3463ba691"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c95201b475cd4fe9a145b7788973d2ea33b8a3d66ebb2e649b515ccc05f8a418"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-rank.html",
+    "role": "普通观众",
+    "point": "贡献用户资料卡入口",
+    "pre": [
+      "普通观众；当前处于本场贡献-贡献榜页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A在本场贡献榜且账号有效"
+    ],
+    "steps": [
+      "点击A用户行"
+    ],
+    "result": "打开A用户资料卡",
+    "refs": [
+      "REQ-340fbe842669"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d3657976c52c644ebeface94f98dfd0400c5de17eecc9f3a27bf988a7356051f"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-gifts.html",
+    "role": "普通观众",
+    "point": "本场礼物信息",
+    "pre": [
+      "普通观众；当前处于本场贡献-收到礼物页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "礼物玫瑰本场成功送出3件；其他场次成功5件"
+    ],
+    "steps": [
+      "查看礼物记录"
+    ],
+    "result": "玫瑰显示名称、图标和本场数量3",
+    "refs": [
+      "REQ-3bf510084052"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "68a33b4e6eb3e7ba73aaa211ffdf1677d37f7f4f173006a3dd7d1aaa5049ed7c"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-gifts.html",
+    "role": "普通观众",
+    "point": "本场赠送人范围",
+    "pre": [
+      "普通观众；当前处于本场贡献-收到礼物页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A本场成功赠礼；B只有上场同礼物记录"
+    ],
+    "steps": [
+      "查看赠送用户"
+    ],
+    "result": "本场赠送人包含A，不包含仅上场赠送的B",
+    "refs": [
+      "REQ-f3aa67f19ddf"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8361399d922984ebffc629a83eee07cd6ef45ef75d614ead65442add0af08a09"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-gifts.html",
+    "role": "普通观众",
+    "point": "失败记录不入礼物记录",
+    "pre": [
+      "普通观众；当前处于本场贡献-收到礼物页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "本场该礼物只有一笔失败记录"
+    ],
+    "steps": [
+      "刷新礼物记录"
+    ],
+    "result": "不展示该失败赠送记录",
+    "refs": [
+      "REQ-c03f091d9922"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "255b41b43c409131e18292455b8499dd4345488dc9b13e5e03c944b160e15de7"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-gifts.html",
+    "role": "普通观众",
+    "point": "撤销记录不入礼物记录",
+    "pre": [
+      "普通观众；当前处于本场贡献-收到礼物页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "本场该礼物只有一笔撤销记录"
+    ],
+    "steps": [
+      "刷新礼物记录"
+    ],
+    "result": "不展示该撤销赠送记录",
+    "refs": [
+      "REQ-c03f091d9922"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "255b41b43c409131e18292455b8499dd4345488dc9b13e5e03c944b160e15de7"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-gifts.html",
+    "role": "普通观众",
+    "point": "礼物切回同场排名",
+    "pre": [
+      "普通观众；当前处于本场贡献-收到礼物页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "当前查看场次S的礼物记录"
+    ],
+    "steps": [
+      "切换至贡献榜"
+    ],
+    "result": "贡献榜仍对应场次S",
+    "refs": [
+      "REQ-f7cba1074b52"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8bc4cafd691d69bee808b9127d9a3e862a4f7245c83c9ee8567cc20c72edba8f"
+    ]
+  },
+  {
+    "page": "views/live-room/contribution-gifts.html",
+    "role": "普通观众",
+    "point": "礼物赠送人资料卡",
+    "pre": [
+      "普通观众；当前处于本场贡献-收到礼物页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "本场礼物存在有效赠送人A"
+    ],
+    "steps": [
+      "点击赠送用户A"
+    ],
+    "result": "打开A用户资料卡",
+    "refs": [
+      "REQ-f7cba1074b52"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8bc4cafd691d69bee808b9127d9a3e862a4f7245c83c9ee8567cc20c72edba8f"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线贡献首条件",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A贡献200、粉丝1级、财富1级；B贡献100、粉丝10级、财富10级"
+    ],
+    "steps": [
+      "切换按贡献"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-c54be6966791"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe364c372e77f908eb8611b24b75b799f337649be688581b7d3250bb392ebba6"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线贡献同分按粉丝",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献100；A本团5级、财富1级；B本团3级、财富10级"
+    ],
+    "steps": [
+      "切换按贡献"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-c54be6966791"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe364c372e77f908eb8611b24b75b799f337649be688581b7d3250bb392ebba6"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线贡献粉丝同分按财富",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献100、本团3级；A财富5级，B财富2级"
+    ],
+    "steps": [
+      "切换按贡献"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-c54be6966791"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe364c372e77f908eb8611b24b75b799f337649be688581b7d3250bb392ebba6"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线贡献完全同分按ID",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "U2与U10贡献、粉丝等级、财富等级相同"
+    ],
+    "steps": [
+      "切换按贡献"
+    ],
+    "result": "U2排在U10前",
+    "refs": [
+      "REQ-c54be6966791"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe364c372e77f908eb8611b24b75b799f337649be688581b7d3250bb392ebba6"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线时长同分按贡献",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B在线10分钟；A贡献200，B贡献100"
+    ],
+    "steps": [
+      "切换按停留时长"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-bd7034620e3a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "664c016a93d61355b7f7782ad217e234ba878f2ee35c19762440f09bfa26e372"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线时长贡献同分按粉丝",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B在线10分钟、贡献100；A本团5级，B本团3级"
+    ],
+    "steps": [
+      "切换按停留时长"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-bd7034620e3a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "664c016a93d61355b7f7782ad217e234ba878f2ee35c19762440f09bfa26e372"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线时长贡献粉丝同分按财富",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B在线10分钟、贡献100、本团3级；A财富5级，B财富2级"
+    ],
+    "steps": [
+      "切换按停留时长"
+    ],
+    "result": "A排在B前",
+    "refs": [
+      "REQ-bd7034620e3a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "664c016a93d61355b7f7782ad217e234ba878f2ee35c19762440f09bfa26e372"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线全部同分按ID",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "U2与U10在线时长、贡献、粉丝等级、财富等级全部相同"
+    ],
+    "steps": [
+      "切换按停留时长"
+    ],
+    "result": "U2排在U10前",
+    "refs": [
+      "REQ-bd7034620e3a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "664c016a93d61355b7f7782ad217e234ba878f2ee35c19762440f09bfa26e372"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线缺少粉丝等级按零",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献相同；A无粉丝等级，B粉丝1级"
+    ],
+    "steps": [
+      "切换按贡献"
+    ],
+    "result": "B排在A前",
+    "refs": [
+      "REQ-c54be6966791",
+      "REQ-f5c9c76a625a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe364c372e77f908eb8611b24b75b799f337649be688581b7d3250bb392ebba6",
+      "f1660d7abc6857181ab417dc63e4bc2a92de635160b7cc75251bb26a538deb0f"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线缺少财富等级按零",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A与B贡献及粉丝等级相同；A无财富等级，B财富1级"
+    ],
+    "steps": [
+      "切换按贡献"
+    ],
+    "result": "B排在A前",
+    "refs": [
+      "REQ-c54be6966791",
+      "REQ-f5c9c76a625a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe364c372e77f908eb8611b24b75b799f337649be688581b7d3250bb392ebba6",
+      "f1660d7abc6857181ab417dc63e4bc2a92de635160b7cc75251bb26a538deb0f"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线排序保留房管身份",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A为已授权房管"
+    ],
+    "steps": [
+      "切换按停留时长"
+    ],
+    "result": "A仍保留房管身份",
+    "refs": [
+      "REQ-f5c9c76a625a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f1660d7abc6857181ab417dc63e4bc2a92de635160b7cc75251bb26a538deb0f"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线排序保留禁言",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A处于本场禁言"
+    ],
+    "steps": [
+      "切换按停留时长"
+    ],
+    "result": "A仍保留本场禁言状态",
+    "refs": [
+      "REQ-f5c9c76a625a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f1660d7abc6857181ab417dc63e4bc2a92de635160b7cc75251bb26a538deb0f"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线切换保留弹层",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播"
+    ],
+    "steps": [
+      "切换按停留时长"
+    ],
+    "result": "当前在线观众弹层保持打开",
+    "refs": [
+      "REQ-83a1d7cf23e6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "80e328358054497c4634e3ea171d8fd79e4f7f322cc6af08b19cb6e7d2001fcb"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "离开重进累计停留",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A本场首次在线10分钟后退出，现重进累计再在线5分钟"
+    ],
+    "steps": [
+      "查看A停留时长"
+    ],
+    "result": "A本场在线累计时长为15分钟",
+    "refs": [
+      "REQ-b989ba5f4b18"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2f4ca19573a22ad05a88f19597c90373253ef399c7737e45a2ee85d43d467ef9"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "财富等级缺失隐藏",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A仍在线但服务端未提供财富等级"
+    ],
+    "steps": [
+      "查看A用户行"
+    ],
+    "result": "不显示A财富等级",
+    "refs": [
+      "REQ-1588ce2d4e7d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "934a2c6bfaf531003ccd71b89dc4fe97e672248cb277f452ed2de9d95df0189f"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "有效团籍身份显示",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A属于当前主播粉丝团且身份数据完整"
+    ],
+    "steps": [
+      "查看A用户行"
+    ],
+    "result": "展示A的灯牌、粉丝等级和亲密度",
+    "refs": [
+      "REQ-dfcfbb57f874"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6005d5493962709e9eb0d97a2baec00bd536594637f950b3058e38278e617647"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "无有效团籍身份隐藏",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A不属于当前主播粉丝团"
+    ],
+    "steps": [
+      "查看A用户行"
+    ],
+    "result": "不展示当前主播灯牌、粉丝等级和亲密度",
+    "refs": [
+      "REQ-dfcfbb57f874"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6005d5493962709e9eb0d97a2baec00bd536594637f950b3058e38278e617647"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线当前禁言标识",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A在线且被本场禁言"
+    ],
+    "steps": [
+      "查看A用户行"
+    ],
+    "result": "展示A禁言标识",
+    "refs": [
+      "REQ-dd5c94f29b4f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6a31f664d7e1920c4e2840421f8cfa0bc29cb897e352524ed682cf3d01142c62"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "在线私信对象",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A在线且与主播为好友、双方未拉黑"
+    ],
+    "steps": [
+      "点击A私信"
+    ],
+    "result": "进入与A的单聊",
+    "refs": [
+      "REQ-20675b67160f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6aaa8fb2a4886799d9593b54c35c19ab33a412aaca771756ea1fa26a36faaa20"
+    ]
+  },
+  {
+    "page": "views/live-room-host/audience-viewers.html",
+    "role": "本场主播",
+    "point": "关闭观众弹层继续直播",
+    "pre": [
+      "本场主播；当前处于在线观众-观众列表页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播"
+    ],
+    "steps": [
+      "关闭在线观众弹层"
+    ],
+    "result": "返回直播间且直播保持进行",
+    "refs": [
+      "REQ-d261bc4d304f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4a6601902acea744bb1e909620b70ff1ce30797d896b462427ac59d9c0dfd83c"
+    ]
+  },
+  {
+    "page": "views/live-room-host/muted-users.html",
+    "role": "本场主播",
+    "point": "禁言列表仅本场有效记录",
+    "pre": [
+      "本场主播；当前处于禁用用户页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A本场仍被禁言；B禁言已解除；C仅上场被禁言"
+    ],
+    "steps": [
+      "查看禁言列表"
+    ],
+    "result": "列表仅包含A，不包含B和C",
+    "refs": [
+      "REQ-a5c4d32cf5b0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "998c01a50858cefc12ce81736768a14d49eeb3f83401aee8b20fa69dfba50a51"
+    ]
+  },
+  {
+    "page": "views/live-room-host/muted-users.html",
+    "role": "本场主播",
+    "point": "禁言记录身份快照",
+    "pre": [
+      "本场主播；当前处于禁用用户页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A被禁言时为房管，随后取消房管"
+    ],
+    "steps": [
+      "查看A禁言记录"
+    ],
+    "result": "身份信息按执行禁言时记录展示",
+    "refs": [
+      "REQ-d6b7442a2603"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a42e653b1a89f3ca222079ca197463962c61be7f9adb5969a9b3f1d3e7cb5397"
+    ]
+  },
+  {
+    "page": "views/live-room-host/muted-users.html",
+    "role": "本场主播",
+    "point": "主播执行禁言记录",
+    "pre": [
+      "本场主播；当前处于禁用用户页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A由当前主播执行禁言"
+    ],
+    "steps": [
+      "查看A禁言记录"
+    ],
+    "result": "操作人为当前主播",
+    "refs": [
+      "REQ-44ec20cb5bff"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "526e2269f5052ac97af322a87231a8a1311a44dd89150b036817ae0408028594"
+    ]
+  },
+  {
+    "page": "views/live-room-host/muted-users.html",
+    "role": "本场主播",
+    "point": "房管执行禁言记录",
+    "pre": [
+      "本场主播；当前处于禁用用户页面",
+      "测试环境已准备本场真实金币贡献；数据不涉及运营虚拟金币；当前场次仍在直播",
+      "A由房管B执行禁言"
+    ],
+    "steps": [
+      "查看A禁言记录"
+    ],
+    "result": "操作人为房管B",
+    "refs": [
+      "REQ-44ec20cb5bff"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "526e2269f5052ac97af322a87231a8a1311a44dd89150b036817ae0408028594"
+    ]
+  }
+]

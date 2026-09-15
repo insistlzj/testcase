@@ -34,6 +34,7 @@ window.LUMA_REPORT_TYPES = window.LUMA_READ_VIOLATION_TYPES()
 
 window.LUMA_MOCK = {
   user: { name: 'Andi', id: '88231007', coins: '12.580', level: '等级 12' },
+  customerService: { whatsapp: '+62 812-3456-7890', email: 'support@lumalive.id' },
   auth: {
     userName: 'Andi',
     defaultCountryCode: '+62',
@@ -51,28 +52,48 @@ window.LUMA_MOCK = {
   profileEditRiskDemo: { compliantNickname: 'Andi Live', nonCompliantNickname: '违规昵称' },
   myDecorations: {
     avatarFrames: [
-      { id: 'frame-starlight', name: '星光边框', mark: '✦', equipped: true },
-      { id: 'frame-moon', name: '月光边框', mark: '☾' },
-      { id: 'frame-crown', name: '王冠边框', mark: '♛' },
-      { id: 'frame-night', name: '夜幕边框', mark: '◆' },
-      { id: 'frame-spring', name: '春日边框', mark: '✿' },
-      { id: 'frame-sound', name: '律动边框', mark: '♫', expired: true }
+      { id: 'frame-starlight', name: '星光边框', mark: '✦', validity: '14/09/2026-31/12/2026', acquiredAt: '2026-09-14T10:00:00', equipped: true },
+      { id: 'frame-moon', name: '月光边框', mark: '☾', validity: '14/09/2026-31/03/2027', acquiredAt: '2026-09-13T10:00:00' },
+      { id: 'frame-crown', name: '王冠边框', mark: '♛', validity: '永久', acquiredAt: '2026-09-12T10:00:00' },
+      { id: 'frame-night', name: '夜幕边框', mark: '◆', validity: '01/09/2026-30/09/2026', acquiredAt: '2026-09-01T10:00:00' },
+      { id: 'frame-spring', name: '春日边框', mark: '✿', validity: '14/09/2026-31/12/2026', acquiredAt: '2026-09-10T10:00:00' },
+      { id: 'frame-sound', name: '律动边框', mark: '♫', validity: '01/08/2026-31/08/2026', acquiredAt: '2026-08-01T10:00:00', expired: true }
     ],
     chatBubbles: [
-      { id: 'bubble-starlight', name: '星光气泡', mark: '✦', equipped: true },
-      { id: 'bubble-cloud', name: '云朵气泡', mark: '☁' },
-      { id: 'bubble-music', name: '音符气泡', mark: '♫' },
-      { id: 'bubble-love', name: '心动气泡', mark: '♡' },
-      { id: 'bubble-night', name: '夜色气泡', mark: '☾' },
-      { id: 'bubble-ribbon', name: '丝带气泡', mark: '⌁' }
+      { id: 'bubble-starlight', name: '星光气泡', mark: '✦', validity: '14/09/2026-31/12/2026', acquiredAt: '2026-09-14T11:00:00', equipped: true },
+      { id: 'bubble-cloud', name: '云朵气泡', mark: '☁', validity: '永久', acquiredAt: '2026-09-10T11:00:00' },
+      { id: 'bubble-music', name: '音符气泡', mark: '♫', validity: '14/09/2026-31/03/2027', acquiredAt: '2026-09-13T11:00:00' },
+      { id: 'bubble-love', name: '心动气泡', mark: '♡', validity: '14/09/2026-31/12/2026', acquiredAt: '2026-09-12T11:00:00' },
+      { id: 'bubble-night', name: '夜色气泡', mark: '☾', validity: '永久', acquiredAt: '2026-09-01T11:00:00' },
+      { id: 'bubble-ribbon', name: '丝带气泡', mark: '⌁', validity: '01/08/2026-31/08/2026', acquiredAt: '2026-08-01T11:00:00', expired: true }
     ],
     medals: [
-      { id: 'medal-newcomer', name: '新星勋章', mark: '✦', equipped: true },
-      { id: 'medal-fan', name: '真爱粉勋章', mark: '♡', equipped: true },
-      { id: 'medal-singer', name: '音乐达人', mark: '♫', equipped: true },
-      { id: 'medal-guardian', name: '守护勋章', mark: '♛' },
-      { id: 'medal-active', name: '活跃达人', mark: '☼' },
-      { id: 'medal-gift', name: '心意礼物', mark: '◇' }
+      { id: 'medal-newcomer', name: '新星勋章', mark: '✦', validity: '14/09/2026-31/12/2026', acquiredAt: '2026-09-14T12:00:00', equipped: true },
+      { id: 'medal-fan', name: '真爱粉勋章', mark: '♡', validity: '永久', acquiredAt: '2026-09-13T12:00:00', equipped: true },
+      { id: 'medal-singer', name: '音乐达人', mark: '♫', validity: '14/09/2026-31/03/2027', acquiredAt: '2026-09-12T12:00:00', equipped: true },
+      { id: 'medal-guardian', name: '守护勋章', mark: '♛', validity: '永久', acquiredAt: '2026-09-01T12:00:00' },
+      { id: 'medal-active', name: '活跃达人', mark: '☼', validity: '14/09/2026-31/12/2026', acquiredAt: '2026-09-10T12:00:00' },
+      { id: 'medal-gift', name: '心意礼物', mark: '◇', validity: '14/09/2026-31/12/2026', acquiredAt: '2026-09-05T12:00:00' }
+    ],
+    shop: [
+      { id: 'shop-frame-aurora', type: 'avatarFrame', name: '极光头像框', mark: '✦', price: 680, validity: '14/09/2026-31/12/2026' },
+      { id: 'shop-frame-galaxy', type: 'avatarFrame', name: '星河头像框', mark: '◆', price: 18800, validity: '永久' },
+      { id: 'shop-frame-eclipse', type: 'avatarFrame', name: '月蚀头像框', mark: '☾', price: 980, validity: '14/09/2026-31/01/2027' },
+      { id: 'shop-frame-firework', type: 'avatarFrame', name: '花火头像框', mark: '✿', price: 1280, validity: '14/09/2026-31/12/2026' },
+      { id: 'shop-frame-soundwave', type: 'avatarFrame', name: '音浪头像框', mark: '♫', price: 2680, validity: '永久' },
+      { id: 'shop-frame-orbit', type: 'avatarFrame', name: '星轨头像框', mark: '◎', price: 5200, validity: '14/09/2026-31/03/2027' },
+      { id: 'shop-bubble-neon', type: 'chatBubble', name: '霓虹气泡', mark: '♫', price: 520, validity: '14/09/2026-31/12/2026' },
+      { id: 'shop-bubble-dream', type: 'chatBubble', name: '梦境气泡', mark: '☾', price: 1280, validity: '永久' },
+      { id: 'shop-bubble-wish', type: 'chatBubble', name: '星愿气泡', mark: '✦', price: 660, validity: '14/09/2026-30/11/2026' },
+      { id: 'shop-bubble-cloudsea', type: 'chatBubble', name: '云海气泡', mark: '☁', price: 880, validity: '14/09/2026-31/12/2026' },
+      { id: 'shop-bubble-heart', type: 'chatBubble', name: '心语气泡', mark: '♡', price: 1680, validity: '永久' },
+      { id: 'shop-bubble-aurora', type: 'chatBubble', name: '极光气泡', mark: '◇', price: 3200, validity: '14/09/2026-31/03/2027' },
+      { id: 'shop-medal-spark', type: 'medal', name: '闪耀之星', mark: '✦', price: 900, validity: '14/09/2026-31/12/2026' },
+      { id: 'shop-medal-crown', type: 'medal', name: '荣耀勋章', mark: '♛', price: 18800, validity: '永久' },
+      { id: 'shop-medal-popular', type: 'medal', name: '人气之星', mark: '★', price: 1200, validity: '14/09/2026-31/12/2026' },
+      { id: 'shop-medal-guardian', type: 'medal', name: '守护之心', mark: '♡', price: 2200, validity: '永久' },
+      { id: 'shop-medal-music', type: 'medal', name: '音乐新锐', mark: '♫', price: 1680, validity: '14/09/2026-31/01/2027' },
+      { id: 'shop-medal-party', type: 'medal', name: '派对达人', mark: '☼', price: 3600, validity: '14/09/2026-31/03/2027' }
     ]
   },
   settings: { phone: '+62 812****3107', email: 'an***@mail.com', language: 'id', liveReminder: true, interaction: true, coins: '12.580' },
@@ -102,7 +123,7 @@ window.LUMA_MOCK = {
     { name: 'Maya', title: '专场演出', meta: '才艺', visits: '3.1K' },
     { name: 'Ayu', title: '新人报到', meta: '跳舞 · 万隆', visits: '892', blocked: true },
     { name: 'Intan', title: '随机舞蹈', meta: '跳舞', visits: '5.6K', ticket: '10' },
-    { name: 'Lala', title: '粉丝专属夜', meta: '输入密码进入', visits: '—', locked: true, password: '123456' }
+    { name: 'Lala', title: '粉丝专属夜', meta: '粉丝团成员可进入', visits: '—', locked: true, fanClubOnly: true, password: '123456' }
   ],
   platformHostRanking: {
     day: [
@@ -146,17 +167,19 @@ window.LUMA_MOCK = {
   },
   search: {
     entries: [
-      { type: 'room', roomId: '62010001', hostId: '62010001', hostName: 'Sari', avatar: 'S', live: true },
-      { type: 'room', roomId: '62020002', hostId: '62020002', hostName: 'Dewi', avatar: 'D', live: true },
-      { type: 'host', roomId: '62010003', hostId: '62010003', hostName: 'Maya', avatar: 'M', live: false },
-      { type: 'host', roomId: '88231004', hostId: '88231004', hostName: 'Ayu', avatar: 'A', live: false }
+      { isHost: true, roomId: '62010001', id: '62010001', name: 'Sari', avatar: 'S', live: true },
+      { isHost: true, roomId: '62020002', id: '62020002', name: 'Dewi', avatar: 'D', live: true },
+      { isHost: true, roomId: '62010003', id: '62010003', name: 'Maya', avatar: 'M', live: false },
+      { isHost: true, roomId: '88231004', id: '88231004', name: 'Ayu', avatar: 'A', live: false },
+      { id: '88231007', name: 'Andi', avatar: '安', isHost: false, live: false },
+      { id: '62010007', name: 'Nara', avatar: 'N', isHost: false, live: false }
     ]
   },
   followingHosts: [
-    { name: 'Sari', avatar: 'S', description: '每晚 9 点，和 Sari 一起听歌聊天。', live: true },
-    { name: 'Dewi', avatar: 'D', description: '分享日常，也分享今天的小确幸。', live: true },
-    { name: 'Maya', avatar: 'M', description: '周末专场演出，期待和你见面。', live: false },
-    { name: 'Ayu', avatar: 'A', description: '新人舞蹈主播，记录每一次进步。', live: false }
+    { name: 'Sari', avatar: 'S', description: '每晚 9 点，和 Sari 一起听歌聊天。', isHost: true, followedAt: '2026-07-20T12:00:00', live: true },
+    { name: 'Dewi', avatar: 'D', description: '分享日常，也分享今天的小确幸。', isHost: true, followedAt: '2026-07-19T12:00:00', live: true },
+    { name: 'Maya', avatar: 'M', description: '周末专场演出，期待和你见面。', isHost: true, followedAt: '2026-07-18T12:00:00', live: false },
+    { name: 'Ayu', avatar: 'A', description: '新人舞蹈主播，记录每一次进步。', isHost: true, followedAt: '2026-07-17T12:00:00', live: false }
   ],
   hostProfiles: {
     sari: { key: 'sari', name: 'Sari', id: '62010001', avatar: 'S', gender: '女', age: 24, description: '每晚 9 点，和 Sari 一起听歌聊天。', hostLevel: 'Lv.20', wealthLevel: 'Lv.28', followers: '18.6K', following: '126', viewers: '36.8K', sent: '6.420', fanClubName: 'Sari 的粉丝团', fanClubLevel: 'Lv.8', fanClubMemberCount: '356', giftKindsReceived: 12, giftKindsTotal: 45, giftTotal: '12,680', gifts: [{ name: '星光', icon: '☆', count: '5,240' }, { name: '麦克风', icon: '♩', count: '3,860' }, { name: '鲜花', icon: '✦', count: '2,980' }, { name: '皇冠', icon: '♛', count: '600' }], contributionLeaders: ['R', 'M', 'D'], isFriend: false, live: true },
@@ -285,7 +308,7 @@ window.LUMA_MOCK = {
   myFanClubs: [
     { id: 'sari', host: 'Sari', avatar: 'S', name: 'Sari 的粉丝团', fanClubLevel: 'Lv.8', fanLevel: 'Lv.10', intimacy: '12.560', totalContribution: '36.820', intimacyRank: '18', leaders: ['R', 'M', 'D'], fanRank: '26', joined: '2026.07.11', live: true },
     { id: 'maya', host: 'Maya', avatar: 'M', name: 'Maya 的听友会', fanClubLevel: 'Lv.5', fanLevel: 'Lv.6', intimacy: '4.260', totalContribution: '12.480', intimacyRank: '42', leaders: ['A', 'T', 'I'], fanRank: '65', joined: '2026.06.29', live: false },
-    { id: 'dewi', host: 'Dewi', avatar: 'D', name: 'Dewi 甜心团', fanClubLevel: 'Lv.3', fanLevel: 'Lv.3', intimacy: '980', totalContribution: '3.260', intimacyRank: '96', leaders: ['N', 'B', 'W'], fanRank: '138', joined: '2026.07.06', live: true }
+    { id: 'dewi', host: 'Dewi', avatar: 'D', name: 'Dewi 甜心团', fanClubLevel: 'Lv.3', fanLevel: 'Lv.3', intimacy: '980', totalContribution: '3.260', intimacyRank: '96', leaders: ['安'], fanRank: '1', joined: '2026.07.06', live: true }
   ],
   fanContributionRanking: [
     { rank: 1, name: 'Rina', avatar: 'R', wealthLevel: '财富 Lv.28', fanLevel: '粉丝 Lv.15', contribution: '86.420' },
@@ -331,10 +354,10 @@ window.LUMA_MOCK = {
     activity: { coins: '3.000', bonus: '3.000', badge: '首充特惠', price: '$1.99' },
     limited: { coins: '1.000', bonus: '1.000', badge: '00:29:31', price: '$2.99' },
     packages: [
-      { coins: '5.000', bonus: '2.000', badge: '+20%', price: '$24.99' },
-      { coins: '10.000', bonus: '5.000', badge: '+30%', price: '$49.99' },
-      { coins: '20.000', bonus: '20.000', badge: '+50%', price: '$99.99' },
-      { coins: '40.000', bonus: '40.000', badge: '+70%', price: '$199.99' }
+      { coins: '5.000', bonus: '2.000', badge: '+40%', price: '$24.99' },
+      { coins: '10.000', bonus: '5.000', badge: '+50%', price: '$49.99' },
+      { coins: '20.000', bonus: '20.000', badge: '+100%', price: '$99.99' },
+      { coins: '40.000', bonus: '40.000', badge: '+100%', price: '$199.99' }
     ]
   },
   balanceRecords: [
@@ -387,12 +410,7 @@ window.LUMA_MOCK = {
     { name: 'Tika', avatar: 'T', wealthLevel: '财富 Lv.10', outfitIcon: '☼', outfitName: '活跃达人' }
   ],
   startLive: {
-    roomTypeTags: ['唱歌', '聊天', '舞蹈', '才艺'],
-    authorizedFans: [
-      { name: 'Rina', avatar: 'R' },
-      { name: 'Maya', avatar: 'M' },
-      { name: 'Dewi', avatar: 'D' }
-    ]
+    roomTypeTags: ['唱歌', '聊天', '舞蹈', '才艺']
   },
   myOutfits: [
     { id: 'OUTFIT001', type: 'avatarFrame', typeName: '头像框', name: '星光头像框', status: '穿戴中', validUntil: '永久' },
@@ -493,8 +511,8 @@ window.LUMA_MOCK = {
 
 // 等级配置示例数据；数值单位为金币，具体计算口径待确认。
 LUMA_MOCK.levelConfigs = {
-  host: { title: '主播等级', valueLabel: '收益数值（金币）', description: '主播等级按主播累计获得的收益金币衡量。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 1000, badgeImage: '' }, { level: 3, value: 5000, badgeImage: '' }, { level: 4, value: 20000, badgeImage: '' }, { level: 5, value: 100000, badgeImage: '' }] },
+  host: { title: '主播等级', valueLabel: '收益数值（金币）', description: '主播等级按主播累计获得的分成前收益金币衡量（不含运营号金币）。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 1000, badgeImage: '' }, { level: 3, value: 5000, badgeImage: '' }, { level: 4, value: 20000, badgeImage: '' }, { level: 5, value: 100000, badgeImage: '' }] },
   wealth: { title: '财富等级', valueLabel: '送礼贡献（金币）', description: '财富等级按用户向所有主播累计送礼的金币贡献衡量。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 2000, badgeImage: '' }, { level: 3, value: 10000, badgeImage: '' }, { level: 4, value: 50000, badgeImage: '' }, { level: 5, value: 200000, badgeImage: '' }] },
   fan: { title: '粉丝等级', valueLabel: '对主播送礼贡献（金币）', description: '粉丝等级按用户对单个主播累计送礼的金币贡献衡量，不同主播分别计算。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 100, badgeImage: '' }, { level: 3, value: 500, badgeImage: '' }, { level: 4, value: 2000, badgeImage: '' }, { level: 5, value: 10000, badgeImage: '' }] },
-  fanClub: { title: '粉丝团等级', valueLabel: '粉丝团累计收礼（金币）', description: '粉丝团等级按该粉丝团累计收到的礼物金币数值衡量。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 5000, badgeImage: '' }, { level: 3, value: 30000, badgeImage: '' }, { level: 4, value: 100000, badgeImage: '' }, { level: 5, value: 500000, badgeImage: '' }] }
+  fanClub: { title: '粉丝团等级', valueLabel: '粉丝团累计收礼（金币）', description: '粉丝团等级按该粉丝团累计收到的礼物金币数值衡量（不含运营号金币）。', rows: [{ level: 1, value: 0, badgeImage: '' }, { level: 2, value: 5000, badgeImage: '' }, { level: 3, value: 30000, badgeImage: '' }, { level: 4, value: 100000, badgeImage: '' }, { level: 5, value: 500000, badgeImage: '' }] }
 };

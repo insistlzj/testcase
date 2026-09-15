@@ -103,6 +103,15 @@
       .action span:last-child {
         color: var(--g4);
       }
+      .notice p { white-space: pre-wrap; overflow-wrap: anywhere; }
+      .notice-editor { width: calc(100% - 48px); max-width: 342px; padding: 20px; border: 0; border-radius: 12px; background: var(--g7); color: var(--g1); }
+      .notice-editor::backdrop { background: var(--g1); opacity: .45; }
+      .notice-editor h2 { margin: 0 0 16px; font-size: 18px; }
+      .notice-editor textarea { box-sizing: border-box; width: 100%; min-height: 140px; padding: 12px; border: 1px solid var(--g5); border-radius: 12px; background: var(--g7); color: var(--g1); font: inherit; resize: vertical; }
+      .notice-count { margin: 6px 0 16px; color: var(--g4); font-size: 12px; text-align: right; }
+      .notice-actions { display: flex; gap: 12px; }
+      .notice-actions button { flex: 1; }
+      .notice-actions button:disabled { opacity: .4; cursor: default; }
     </style>
   </head>
   <body>
@@ -135,11 +144,43 @@
       </section>
     </main>
     <div class="homebar"><i></i></div>
+    <dialog id="noticeEditor" class="notice-editor" aria-labelledby="noticeTitle">
+      <form id="noticeForm">
+        <h2 id="noticeTitle">编辑公告</h2>
+        <textarea id="noticeContent" maxlength="200" aria-label="公告内容" placeholder="请输入公告内容" required></textarea>
+        <div class="notice-count"><span id="noticeCount">0</span>/200</div>
+        <div class="notice-actions"><button class="btn sub" type="button" id="cancelNotice">取消</button><button class="btn" type="submit" id="saveNotice">保存</button></div>
+      </form>
+    </dialog>
     <script>
       const dnd = document.querySelector("#dnd");
       dnd.onclick = () => dnd.classList.toggle("on");
       report.onclick = () => Luma.toast("打开举报");
-      editNotice.onclick = () => Luma.toast("编辑群公告");
+      const editor = document.querySelector("#noticeEditor");
+      const content = document.querySelector("#noticeContent");
+      const notice = document.querySelector(".notice p");
+      const save = document.querySelector("#saveNotice");
+      function updateNoticeInput() {
+        document.querySelector("#noticeCount").textContent = content.value.length;
+        save.disabled = !content.value.trim() || content.value.length > 200;
+      }
+      function openNoticeEditor() {
+        content.value = notice.textContent;
+        updateNoticeInput();
+        if (!editor.open) editor.showModal();
+        content.focus();
+      }
+      editNotice.onclick = openNoticeEditor;
+      content.oninput = updateNoticeInput;
+      document.querySelector("#cancelNotice").onclick = () => editor.close();
+      document.querySelector("#noticeForm").onsubmit = (event) => {
+        event.preventDefault();
+        if (!content.value.trim() || content.value.length > 200) return;
+        notice.textContent = content.value;
+        editor.close();
+        Luma.toast("公告已更新");
+      };
+      Luma.registerStates({ 默认: () => editor.close(), 编辑公告: openNoticeEditor });
     </script>
   </body>
 </html>

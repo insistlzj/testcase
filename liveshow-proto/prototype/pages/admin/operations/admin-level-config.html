@@ -17,6 +17,7 @@
       .level-description { margin: 0; padding: 16px; color: var(--admin-muted); font-size: var(--admin-font-sm); border-bottom: 1px solid var(--admin-border); }
       .level-badge { display: flex; align-items: center; gap: 12px; }
       .level-badge img { width: 48px; height: 48px; object-fit: contain; border: 1px solid var(--admin-border); border-radius: var(--admin-radius-sm); background: var(--admin-surface); }
+      .level-value-locked { background: var(--admin-canvas); color: var(--admin-muted); cursor: not-allowed; }
     </style>
   </head>
   <body>
@@ -48,7 +49,7 @@
                 <p class="level-description" id="levelDescription"></p>
                 <table class="admin-table" style="min-width: 720px">
                   <colgroup><col style="width: 20%" /><col style="width: 45%" /><col /></colgroup>
-                  <thead><tr><th>等级</th><th id="valueHeader">收益数值（金币）</th><th>勋章图</th></tr></thead>
+                  <thead><tr><th>等级</th><th id="valueHeader">收益数值（金币）</th><th>勋章图<span style="color: var(--admin-danger)" aria-label="必填"> *</span></th></tr></thead>
                   <tbody id="levelRows"></tbody>
                 </table>
               </div>
@@ -73,8 +74,8 @@
           tab.setAttribute('aria-selected', String(active));
         });
         levelRows.innerHTML = config.rows.map((row, index) => `<tr>
-          <td><input class="admin-input" type="number" min="1" step="1" required data-index="${index}" data-field="level" aria-label="第 ${index + 1} 行等级" value="${row.level}" /></td>
-          <td><input class="admin-input" type="number" min="0" step="any" required data-index="${index}" data-field="value" aria-label="第 ${index + 1} 行${config.valueLabel}" value="${row.value}" /></td>
+          <td>${row.level}</td>
+          <td><input class="admin-input${index === 0 ? ' level-value-locked' : ''}" type="number" min="0" step="any" required data-index="${index}" data-field="value" aria-label="第 ${index + 1} 行${config.valueLabel}" value="${index === 0 ? 0 : row.value}" ${index === 0 ? 'readonly aria-readonly="true" title="1 级固定为 0"' : `placeholder="必须大于等级 ${index}"`} /></td>
           <td><div class="level-badge">
             ${row.badgeImage ? `<img src="${row.badgeImage}" alt="等级 ${row.level} 勋章图" />` : ''}
             <button class="admin-btn secondary" type="button" data-upload-badge="${index}">${row.badgeImage ? '更换图片' : '上传图片'}</button>
@@ -98,7 +99,10 @@
       });
       levelRows.oninput = (event) => {
         const input = event.target.closest('[data-field]');
-        if (input) configs[activeType].rows[Number(input.dataset.index)][input.dataset.field] = input.value;
+        if (input) {
+          configs[activeType].rows[Number(input.dataset.index)][input.dataset.field] = input.value;
+          input.classList.remove('admin-input-error');
+        }
       };
       levelRows.onclick = (event) => {
         const button = event.target.closest('[data-upload-badge]');
@@ -131,16 +135,26 @@
       };
       addLevel.onclick = () => {
         const rows = configs[activeType].rows;
-        rows.push({ level: Math.max(0, ...rows.map((row) => Number(row.level) || 0)) + 1, value: '', badgeImage: '' });
+        rows.push({ level: rows.length + 1, value: '', badgeImage: '' });
         renderLevels();
         levelRows.lastElementChild.querySelector('[data-field="value"]').focus();
       };
       levelForm.onsubmit = (event) => {
         event.preventDefault();
         const config = configs[activeType];
-        const levels = config.rows.map((row) => Number(row.level));
-        if (levels.some((level) => !Number.isInteger(level) || level < 1) || new Set(levels).size !== levels.length) {
-          Luma.toast('等级须为不重复的正整数');
+        config.rows[0].value = 0;
+        const invalidValue = config.rows.findIndex((row, index) => index > 0 && Number(row.value) <= Number(config.rows[index - 1].value));
+        if (invalidValue !== -1) {
+          const input = levelRows.querySelector(`[data-index="${invalidValue}"][data-field="value"]`);
+          input.classList.add('admin-input-error');
+          input.focus();
+          Luma.toast(`等级 ${config.rows[invalidValue].level} 的配置数值必须大于等级 ${config.rows[invalidValue - 1].level}`);
+          return;
+        }
+        const missingBadge = config.rows.findIndex((row) => !row.badgeImage);
+        if (missingBadge !== -1) {
+          Luma.toast(`请上传等级 ${config.rows[missingBadge].level} 的勋章图`);
+          levelRows.querySelector(`[data-upload-badge="${missingBadge}"]`).focus();
           return;
         }
         Luma.toast(`${config.title}已保存`);

@@ -184,25 +184,16 @@
         dialogTitle = document.querySelector("#dialogTitle"),
         dialogText = document.querySelector("#dialogText"),
         confirm = document.querySelector("#confirm");
-      let step = 0;
       dnd.onclick = () => dnd.classList.toggle("on");
       report.onclick = () => Luma.toast("打开举报");
       exitGroup.onclick = () => {
-        step = 1;
         dialogTitle.textContent = "退出粉丝群";
         dialogText.textContent = "退出粉丝群将解除团籍、去掉身份标识。";
-        confirm.textContent = "继续退出";
+        confirm.textContent = "确认退出";
         modal.classList.remove("state-hide");
       };
       cancel.onclick = () => modal.classList.add("state-hide");
       confirm.onclick = () => {
-        if (step === 1) {
-          step = 2;
-          dialogTitle.textContent = "再次确认退出";
-          dialogText.textContent = "确认退出后，将不再显示粉丝团身份标识。";
-          confirm.textContent = "确认退出";
-          return;
-        }
         modal.classList.add("state-hide");
         Luma.toast("已退出粉丝群");
         location.href = "message-center.html";

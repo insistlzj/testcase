@@ -1,0 +1,2787 @@
+[
+  {
+    "page": "message-center.html",
+    "role": "已登录普通用户",
+    "point": "系统互动通知固定置顶",
+    "pre": [
+      "已登录普通用户；当前处于消息页面",
+      "私信A比系统通知和互动通知更新"
+    ],
+    "steps": [
+      "查看消息列表"
+    ],
+    "result": "系统通知和互动通知仍固定在顶部",
+    "refs": [
+      "REQ-9b2c6b9ae474",
+      "REQ-e39bf53173c0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0c600d6c47c69426f418cc66e78d36d8411e10336bfef147436ac4161ea71d81",
+      "79459a9f6669feed8f571272820d68774ace17ffdf49fa7c9e414be16873a46c"
+    ]
+  },
+  {
+    "page": "message-center.html",
+    "role": "已登录普通用户",
+    "point": "会话按最后时间倒序",
+    "pre": [
+      "已登录普通用户；当前处于消息页面",
+      "私信A最后消息10:00，群B最后消息11:00"
+    ],
+    "steps": [
+      "查看对应会话顺序"
+    ],
+    "result": "会话B在A之前",
+    "refs": [
+      "REQ-0030121a7cb5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "63c920e431b444967320e27a2d848420b9f915d7ebc9a192efee2d811bd866a9"
+    ]
+  },
+  {
+    "page": "message-center.html",
+    "role": "已登录普通用户",
+    "point": "相同时间按会话ID倒序",
+    "pre": [
+      "已登录普通用户；当前处于消息页面",
+      "A会话ID100、B会话ID101；最后时间相同"
+    ],
+    "steps": [
+      "查看对应会话顺序"
+    ],
+    "result": "B在A之前",
+    "refs": [
+      "REQ-0030121a7cb5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "63c920e431b444967320e27a2d848420b9f915d7ebc9a192efee2d811bd866a9"
+    ]
+  },
+  {
+    "page": "message-center.html",
+    "role": "已登录普通用户",
+    "point": "会话摘要字段",
+    "pre": [
+      "已登录普通用户；当前处于消息页面",
+      "目标会话有未读消息"
+    ],
+    "steps": [
+      "查看该会话"
+    ],
+    "result": "展示头像、名称、最后消息、时间及未读数",
+    "refs": [
+      "REQ-9ea66b054fba"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "de16297d559f6a564f89cf054333fa10580ad67e0aa763f3297425fcd8622c8d"
+    ]
+  },
+  {
+    "page": "message-center.html",
+    "role": "已登录普通用户",
+    "point": "进入私信清未读",
+    "pre": [
+      "已登录普通用户；当前处于消息页面",
+      "目标私信有3条未读"
+    ],
+    "steps": [
+      "进入该私信",
+      "返回消息中心"
+    ],
+    "result": "该会话未读数清零",
+    "refs": [
+      "REQ-4f52093f9a0d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a0f8f533b5b5f49711c5a8444db516a59496c168f5955b091e47050d548073df"
+    ]
+  },
+  {
+    "page": "message-center.html",
+    "role": "已登录普通用户",
+    "point": "新消息更新会话",
+    "pre": [
+      "已登录普通用户；当前处于消息页面",
+      "目标会话原未读0；对方已发送一条新消息且未打开会话"
+    ],
+    "steps": [
+      "查看该会话"
+    ],
+    "result": "最后消息和时间更新且未读数为1",
+    "refs": [
+      "REQ-4f52093f9a0d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a0f8f533b5b5f49711c5a8444db516a59496c168f5955b091e47050d548073df"
+    ]
+  },
+  {
+    "page": "message-center.html",
+    "role": "已登录普通用户",
+    "point": "粉丝群与私信分别维护",
+    "pre": [
+      "已登录普通用户；当前处于消息页面",
+      "与主播A有私信且已加入A粉丝群"
+    ],
+    "steps": [
+      "查看消息分类"
+    ],
+    "result": "私信和粉丝群作为独立会话维护",
+    "refs": [
+      "REQ-e39bf53173c0",
+      "REQ-58f472356186"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "79459a9f6669feed8f571272820d68774ace17ffdf49fa7c9e414be16873a46c",
+      "e8ad0c4a4d3417a40e69077448878a89b0e217cd89c783082da53c0183d172c5"
+    ]
+  },
+  {
+    "page": "message-center.html",
+    "role": "已登录普通用户",
+    "point": "团籍失效移除会话",
+    "pre": [
+      "已登录普通用户；当前处于消息页面",
+      "当前粉丝团团籍刚被移除"
+    ],
+    "steps": [
+      "刷新消息列表"
+    ],
+    "result": "该粉丝群入口被移除",
+    "refs": [
+      "REQ-b50d6a9e70fe"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a1cb7a1fd68ed501c378f98eff807c28eb66b686d23212498290f4d3b2d049e6"
+    ]
+  },
+  {
+    "page": "message-center.html",
+    "role": "已登录普通用户",
+    "point": "有效粉丝群进入清未读",
+    "pre": [
+      "已登录普通用户；当前处于消息页面",
+      "有效粉丝群有2条未读"
+    ],
+    "steps": [
+      "进入该粉丝群",
+      "返回消息中心"
+    ],
+    "result": "该群未读数清零",
+    "refs": [
+      "REQ-b50d6a9e70fe"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a1cb7a1fd68ed501c378f98eff807c28eb66b686d23212498290f4d3b2d049e6"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "已登录普通用户",
+    "point": "系统通知仅当前账号",
+    "pre": [
+      "已登录普通用户；当前处于系统通知页面",
+      "测试环境有分别发送给A和B的通知；当前为A"
+    ],
+    "steps": [
+      "查看系统通知"
+    ],
+    "result": "只展示发送给A的通知",
+    "refs": [
+      "REQ-de9855455478"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "132e7add731f3dbcc876e48ad1198f56e2ee08d9f6c10ae04f50b3599e78e038"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "已登录普通用户",
+    "point": "系统通知时间倒序",
+    "pre": [
+      "已登录普通用户；当前处于系统通知页面",
+      "当前有10:00和11:00两条通知"
+    ],
+    "steps": [
+      "查看通知顺序"
+    ],
+    "result": "11:00通知在前",
+    "refs": [
+      "REQ-b815484d7cf5",
+      "REQ-593bd42602eb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1ff866e2c09a9a34de830db343807a1aa08f8d9eb7a71b849c35d109efa36197",
+      "9bdedce19acf9b9a55fa459f1441e52a1f50afe3f1b57d8395bc705dfcf8355a"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "已登录普通用户",
+    "point": "同时间按通知ID倒序",
+    "pre": [
+      "已登录普通用户；当前处于系统通知页面",
+      "两条通知时间相同，ID100和101"
+    ],
+    "steps": [
+      "查看通知顺序"
+    ],
+    "result": "ID101通知在前",
+    "refs": [
+      "REQ-b815484d7cf5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1ff866e2c09a9a34de830db343807a1aa08f8d9eb7a71b849c35d109efa36197"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "已登录普通用户",
+    "point": "进入标为已读",
+    "pre": [
+      "已登录普通用户；当前处于系统通知页面",
+      "当前有未读系统通知"
+    ],
+    "steps": [
+      "进入系统通知页"
+    ],
+    "result": "所查看通知标记为已读",
+    "refs": [
+      "REQ-76c920926c62"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "90a0832676ffd276a1beff9634724abab80a6f4f07ed7c69d79468858c71f074"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "已登录普通用户",
+    "point": "通知只读无业务操作",
+    "pre": [
+      "已登录普通用户；当前处于系统通知页面",
+      "当前有主播身份或公会关系结果通知"
+    ],
+    "steps": [
+      "查看通知可用操作"
+    ],
+    "result": "通知不提供跳转及业务处理按钮",
+    "refs": [
+      "REQ-17348b568b27"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "865082393ba35cf6b519a1a9355b579269755d04a55783252ebff74188dfae18"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "已登录普通用户",
+    "point": "关闭系统权限仍收到站内通知",
+    "pre": [
+      "已登录普通用户；当前处于系统通知页面",
+      "设备通知权限拒绝；平台已向该账号发出新通知"
+    ],
+    "steps": [
+      "查看系统通知列表"
+    ],
+    "result": "仍能看到新站内通知",
+    "refs": [
+      "REQ-de9855455478",
+      "REQ-16dc8a06fc75"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "132e7add731f3dbcc876e48ad1198f56e2ee08d9f6c10ae04f50b3599e78e038",
+      "d7f1a71d8fb690bb21877cb29d305bf09dc469c4e9ce117564550d2d61688267"
+    ]
+  },
+  {
+    "page": "follower-list.html",
+    "role": "已登录普通用户",
+    "point": "粉丝列表范围",
+    "pre": [
+      "已登录普通用户；当前处于粉丝列表页面",
+      "当前有有效粉丝A；关系已解除的B"
+    ],
+    "steps": [
+      "查看列表"
+    ],
+    "result": "只包含有效关系A",
+    "refs": [
+      "REQ-65d4e3a6786a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f2bcca1cf97360740cf828470a233868ef8d587dc48b008b465f0e45ad926d9c"
+    ]
+  },
+  {
+    "page": "follower-list.html",
+    "role": "已登录普通用户",
+    "point": "粉丝模糊搜索不区分大小写",
+    "pre": [
+      "已登录普通用户；当前处于粉丝列表页面",
+      "有效粉丝昵称QaTest"
+    ],
+    "steps": [
+      "输入qat"
+    ],
+    "result": "结果包含QaTest",
+    "refs": [
+      "REQ-971575bcd0ea"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6b852c3d4751aaada828723c3d570d30a10a6382d559d24383f1179d021cb39f"
+    ]
+  },
+  {
+    "page": "follower-list.html",
+    "role": "已登录普通用户",
+    "point": "粉丝空搜索恢复",
+    "pre": [
+      "已登录普通用户；当前处于粉丝列表页面",
+      "列表当前已筛选"
+    ],
+    "steps": [
+      "清空搜索词"
+    ],
+    "result": "恢复全部当前有效粉丝",
+    "refs": [
+      "REQ-971575bcd0ea"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6b852c3d4751aaada828723c3d570d30a10a6382d559d24383f1179d021cb39f"
+    ]
+  },
+  {
+    "page": "follower-list.html",
+    "role": "已登录普通用户",
+    "point": "粉丝无匹配空态",
+    "pre": [
+      "已登录普通用户；当前处于粉丝列表页面"
+    ],
+    "steps": [
+      "输入QA-NOT-EXIST"
+    ],
+    "result": "显示空状态",
+    "refs": [
+      "REQ-a59769f33803"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7f64d39955a32289c5d20f4012116b44ce74601bdc020a60aca8eecb4b674f87"
+    ]
+  },
+  {
+    "page": "follower-list.html",
+    "role": "已登录普通用户",
+    "point": "粉丝普通账号主页",
+    "pre": [
+      "已登录普通用户；当前处于粉丝列表页面",
+      "列表目标为普通用户A"
+    ],
+    "steps": [
+      "点击A头像"
+    ],
+    "result": "进入A用户主页",
+    "refs": [
+      "REQ-a59769f33803"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7f64d39955a32289c5d20f4012116b44ce74601bdc020a60aca8eecb4b674f87"
+    ]
+  },
+  {
+    "page": "follower-list.html",
+    "role": "已登录普通用户",
+    "point": "粉丝主播账号主页",
+    "pre": [
+      "已登录普通用户；当前处于粉丝列表页面",
+      "列表目标为主播B"
+    ],
+    "steps": [
+      "点击B头像"
+    ],
+    "result": "进入B主播主页",
+    "refs": [
+      "REQ-a59769f33803"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7f64d39955a32289c5d20f4012116b44ce74601bdc020a60aca8eecb4b674f87"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "好友列表范围",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面",
+      "当前有有效好友A；关系已解除的B"
+    ],
+    "steps": [
+      "查看列表"
+    ],
+    "result": "只包含有效关系A",
+    "refs": [
+      "REQ-9149cae5b26b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "54a567b49d56f93923216f11d8f99d16aa6f2a2f6fdf34ea1d5de5d1e72f6058"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "好友模糊搜索不区分大小写",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面",
+      "有效好友昵称QaTest"
+    ],
+    "steps": [
+      "输入qat"
+    ],
+    "result": "结果包含QaTest",
+    "refs": [
+      "REQ-1f98d757e221"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b58395a28eb5db86b1999b29ef5a369c5c567b55b507db59aac186ad30e6fe8b"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "好友空搜索恢复",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面",
+      "列表当前已筛选"
+    ],
+    "steps": [
+      "清空搜索词"
+    ],
+    "result": "恢复全部当前有效好友",
+    "refs": [
+      "REQ-1f98d757e221"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b58395a28eb5db86b1999b29ef5a369c5c567b55b507db59aac186ad30e6fe8b"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "好友无匹配空态",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面"
+    ],
+    "steps": [
+      "输入QA-NOT-EXIST"
+    ],
+    "result": "显示空状态",
+    "refs": [
+      "REQ-7adf09e79860"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "93e230363515f30a85c0a75410849d323903d31a8cbe10a0ec5e490e0da6985a"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "好友普通账号主页",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面",
+      "列表目标为普通用户A"
+    ],
+    "steps": [
+      "点击A头像"
+    ],
+    "result": "进入A用户主页",
+    "refs": [
+      "REQ-0e0a9d37b9cd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "848bcaa3a82241c7228aeb89ff138be5fb07f9d06f40419f349746f16c539655"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "好友主播账号主页",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面",
+      "列表目标为主播B"
+    ],
+    "steps": [
+      "点击B头像"
+    ],
+    "result": "进入B主播主页",
+    "refs": [
+      "REQ-0e0a9d37b9cd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "848bcaa3a82241c7228aeb89ff138be5fb07f9d06f40419f349746f16c539655"
+    ]
+  },
+  {
+    "page": "my-following.html",
+    "role": "已登录普通用户",
+    "point": "关注列表范围",
+    "pre": [
+      "已登录普通用户；当前处于我的关注页面",
+      "当前有有效关注A；关系已解除的B"
+    ],
+    "steps": [
+      "查看列表"
+    ],
+    "result": "只包含有效关系A",
+    "refs": [
+      "REQ-623dea81d02d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "da11a76ad1ef8b0f6313bd63cdf98ba80c3864efd28cfb6d190f239a51b1b031"
+    ]
+  },
+  {
+    "page": "my-following.html",
+    "role": "已登录普通用户",
+    "point": "关注模糊搜索不区分大小写",
+    "pre": [
+      "已登录普通用户；当前处于我的关注页面",
+      "有效关注昵称QaTest"
+    ],
+    "steps": [
+      "输入qat"
+    ],
+    "result": "结果包含QaTest",
+    "refs": [
+      "REQ-6b2cbb975486"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e67af3eee7dd36dd43e62cc16679e682ad085a2a75e3e7100ab2bafe73ab75ea"
+    ]
+  },
+  {
+    "page": "my-following.html",
+    "role": "已登录普通用户",
+    "point": "关注空搜索恢复",
+    "pre": [
+      "已登录普通用户；当前处于我的关注页面",
+      "列表当前已筛选"
+    ],
+    "steps": [
+      "清空搜索词"
+    ],
+    "result": "恢复全部当前有效关注",
+    "refs": [
+      "REQ-6b2cbb975486"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e67af3eee7dd36dd43e62cc16679e682ad085a2a75e3e7100ab2bafe73ab75ea"
+    ]
+  },
+  {
+    "page": "my-following.html",
+    "role": "已登录普通用户",
+    "point": "关注无匹配空态",
+    "pre": [
+      "已登录普通用户；当前处于我的关注页面"
+    ],
+    "steps": [
+      "输入QA-NOT-EXIST"
+    ],
+    "result": "显示空状态",
+    "refs": [
+      "REQ-72beab840243"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5f730757c7edcb8bbd8ad1cea427a6c4d18827742eed2640b9b25ee93c75aad4"
+    ]
+  },
+  {
+    "page": "my-following.html",
+    "role": "已登录普通用户",
+    "point": "关注普通账号主页",
+    "pre": [
+      "已登录普通用户；当前处于我的关注页面",
+      "列表目标为普通用户A"
+    ],
+    "steps": [
+      "点击A头像"
+    ],
+    "result": "进入A用户主页",
+    "refs": [
+      "REQ-72beab840243"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5f730757c7edcb8bbd8ad1cea427a6c4d18827742eed2640b9b25ee93c75aad4"
+    ]
+  },
+  {
+    "page": "my-following.html",
+    "role": "已登录普通用户",
+    "point": "关注主播账号主页",
+    "pre": [
+      "已登录普通用户；当前处于我的关注页面",
+      "列表目标为主播B"
+    ],
+    "steps": [
+      "点击B头像"
+    ],
+    "result": "进入B主播主页",
+    "refs": [
+      "REQ-72beab840243"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5f730757c7edcb8bbd8ad1cea427a6c4d18827742eed2640b9b25ee93c75aad4"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "好友申请接受后双方可见",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面",
+      "B已接受当前账号A好友申请"
+    ],
+    "steps": [
+      "刷新好友列表"
+    ],
+    "result": "好友列表中出现B",
+    "refs": [
+      "REQ-5080a485f149"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "185be6ec4c9afdd260be90d5bdeee9eaf6d423522ac5c7a8147ea05a42a012ca"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "取消拉黑不恢复好友",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面",
+      "此前与B为好友；拉黑后已取消拉黑"
+    ],
+    "steps": [
+      "查看好友列表"
+    ],
+    "result": "列表中不自动恢复B",
+    "refs": [
+      "REQ-a500e6f13be3"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b8bf91eff3a450d33136119cd10868a9e57d644198acb9cc9ea454a1139c9f1c"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "关注不自动成为好友",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面",
+      "当前只关注B而未建立好友关系"
+    ],
+    "steps": [
+      "查看好友列表"
+    ],
+    "result": "B不因关注进入好友列表",
+    "refs": [
+      "REQ-8676bba0cff0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4924f97574526da5dd6ed00d7d730119a7d9e3b41bb858e4bcb8efbc9e7284f8"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "好友行空白可点击",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面",
+      "列表存在好友A"
+    ],
+    "steps": [
+      "点击A行内空白"
+    ],
+    "result": "进入A主页",
+    "refs": [
+      "REQ-0e0a9d37b9cd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "848bcaa3a82241c7228aeb89ff138be5fb07f9d06f40419f349746f16c539655"
+    ]
+  },
+  {
+    "page": "friend-list.html",
+    "role": "已登录普通用户",
+    "point": "好友列表返回",
+    "pre": [
+      "已登录普通用户；当前处于好友列表页面"
+    ],
+    "steps": [
+      "点击返回"
+    ],
+    "result": "进入消息中心",
+    "refs": [
+      "REQ-6a0e0397b14c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c6928aec669d852d2f7b32049a6e7fcea223cf004d25346c38b2b4ad23285ed2"
+    ]
+  },
+  {
+    "page": "interaction-notifications.html",
+    "role": "好友申请接收用户",
+    "point": "同意好友申请",
+    "pre": [
+      "好友申请接收用户；当前处于互动通知页面",
+      "存在B发来的待处理好友申请"
+    ],
+    "steps": [
+      "点击同意"
+    ],
+    "result": "建立与B的好友关系",
+    "refs": [
+      "REQ-d3143269edb7"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "fdffc8db961fb7e9f04ef367b843a56b4187d7b11ed7ccf3391632ecbb6bb98a"
+    ]
+  },
+  {
+    "page": "interaction-notifications.html",
+    "role": "好友申请接收用户",
+    "point": "拒绝好友申请",
+    "pre": [
+      "好友申请接收用户；当前处于互动通知页面",
+      "存在B发来的待处理好友申请"
+    ],
+    "steps": [
+      "点击拒绝"
+    ],
+    "result": "不建立与B的好友关系",
+    "refs": [
+      "REQ-d3143269edb7"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "fdffc8db961fb7e9f04ef367b843a56b4187d7b11ed7ccf3391632ecbb6bb98a"
+    ]
+  },
+  {
+    "page": "interaction-notifications.html",
+    "role": "好友申请接收用户",
+    "point": "同意后不可重复操作",
+    "pre": [
+      "好友申请接收用户；当前处于互动通知页面",
+      "当前申请同意处理已成功"
+    ],
+    "steps": [
+      "查看该通知按钮"
+    ],
+    "result": "不再允许重复同意或拒绝",
+    "refs": [
+      "REQ-d8329a9997bf"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1f887805c6b6ed511bdaa081ce1a6cf3793ad1efa64925ed5a525d3627a0e017"
+    ]
+  },
+  {
+    "page": "interaction-notifications.html",
+    "role": "好友申请接收用户",
+    "point": "拒绝后不可重复操作",
+    "pre": [
+      "好友申请接收用户；当前处于互动通知页面",
+      "当前申请拒绝处理已成功"
+    ],
+    "steps": [
+      "查看该通知按钮"
+    ],
+    "result": "不再允许重复同意或拒绝",
+    "refs": [
+      "REQ-d8329a9997bf"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1f887805c6b6ed511bdaa081ce1a6cf3793ad1efa64925ed5a525d3627a0e017"
+    ]
+  },
+  {
+    "page": "interaction-notifications.html",
+    "role": "好友申请接收用户",
+    "point": "拉黑使申请失效",
+    "pre": [
+      "好友申请接收用户；当前处于互动通知页面",
+      "与申请发送方之间产生任一方向拉黑关系"
+    ],
+    "steps": [
+      "刷新互动通知"
+    ],
+    "result": "该好友申请变为已失效",
+    "refs": [
+      "REQ-d3143269edb7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fdffc8db961fb7e9f04ef367b843a56b4187d7b11ed7ccf3391632ecbb6bb98a"
+    ]
+  },
+  {
+    "page": "interaction-notifications.html",
+    "role": "好友申请接收用户",
+    "point": "失效申请无处理按钮",
+    "pre": [
+      "好友申请接收用户；当前处于互动通知页面",
+      "好友申请已失效"
+    ],
+    "steps": [
+      "查看该申请"
+    ],
+    "result": "仅展示状态，没有同意和拒绝按钮",
+    "refs": [
+      "REQ-3dd405057a47"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "2d78cfb27e5cfaeb41f109e878fbfdb0838afb0d53b5b4be9eaad06a433e649c"
+    ]
+  },
+  {
+    "page": "interaction-notifications.html",
+    "role": "好友申请接收用户",
+    "point": "互动通知时间排序",
+    "pre": [
+      "好友申请接收用户；当前处于互动通知页面",
+      "两条通知时间分别为10:00、11:00"
+    ],
+    "steps": [
+      "查看互动通知顺序"
+    ],
+    "result": "11:00通知在前",
+    "refs": [
+      "REQ-ac7acaac8831",
+      "REQ-d209e483b9a4"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fce453ab328e602b73ec1fa0848f4ccfcb4f6b3d6ddaa2ce06c9c8870bae6771",
+      "f2450a7773069c1855389d8b847746d75cd7a57609b824b3150c767fe435717b"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "私信消息时间正序",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "有10:00和11:00两条消息"
+    ],
+    "steps": [
+      "查看消息顺序"
+    ],
+    "result": "10:00消息在11:00之前",
+    "refs": [
+      "REQ-19ead9a24c54"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0dae9a93d3a708c280bac5bbad4b236ecf46a1330a71c002fa65252dfd29386b"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "相同时间消息ID正序",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "两条消息时间相同，ID100和101"
+    ],
+    "steps": [
+      "查看消息顺序"
+    ],
+    "result": "ID100在ID101之前",
+    "refs": [
+      "REQ-0d1b839dbefd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9e714bff5270007fe6d18d2cef73b0d4f0f8101276f6a73493b32e35d1cbb73c"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "好友不受三条限制",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "对方为好友且当前已成功发送3条消息"
+    ],
+    "steps": [
+      "输入第四条文本“QA第四条”",
+      "点击发送"
+    ],
+    "result": "第四条消息发送成功",
+    "refs": [
+      "REQ-ef2dad69af57"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f8f5c556449c2ca5855edc0612b389424de2741bee5133d1946c9a08efc07e7c"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "非好友第三条允许",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "对方为非好友；当前主动成功发送2条"
+    ],
+    "steps": [
+      "输入第三条文本“QA第三条”",
+      "点击发送"
+    ],
+    "result": "第三条消息发送成功",
+    "refs": [
+      "REQ-ef2dad69af57"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f8f5c556449c2ca5855edc0612b389424de2741bee5133d1946c9a08efc07e7c"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "非好友第四条限制",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "对方为非好友；当前主动成功发送3条"
+    ],
+    "steps": [
+      "输入第四条文本“QA第四条”",
+      "点击发送"
+    ],
+    "result": "提示“非好友最多发送三条”且不生成该消息",
+    "refs": [
+      "REQ-631a31f6df90"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "f48c78ca4ddfc2669b9616f7dfa186dd48ab10ccb0c2f377086372b338d13824"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "双向非好友独立计数",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "非好友B已向A发3条；当前A尚未向B发消息"
+    ],
+    "steps": [
+      "输入文本“QA首条”",
+      "点击发送"
+    ],
+    "result": "A可以向B发送第一条消息",
+    "refs": [
+      "REQ-ef2dad69af57"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f8f5c556449c2ca5855edc0612b389424de2741bee5133d1946c9a08efc07e7c"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "失败消息保留内容",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "发送请求返回失败"
+    ],
+    "steps": [
+      "输入文本“QA失败内容”",
+      "点击发送"
+    ],
+    "result": "显示失败图标并保留“QA失败内容”",
+    "refs": [
+      "REQ-631a31f6df90"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "f48c78ca4ddfc2669b9616f7dfa186dd48ab10ccb0c2f377086372b338d13824"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "失败图标重试",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "文本消息发送失败；网络已恢复且仍有发送资格"
+    ],
+    "steps": [
+      "点击失败图标"
+    ],
+    "result": "重新发送该条消息",
+    "refs": [
+      "REQ-631a31f6df90"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "f48c78ca4ddfc2669b9616f7dfa186dd48ab10ccb0c2f377086372b338d13824"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "对方进入更新已读",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "本账号消息已送达；对方已进入该会话"
+    ],
+    "steps": [
+      "查看该消息已读状态"
+    ],
+    "result": "更新为已读",
+    "refs": [
+      "REQ-4fd122fd97bf"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c089727eae17f569c5c33d45a7bd855b3fffb7d781070c6211852420ae83b021"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "删除好友清记录",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "对方已删除当前账号好友关系"
+    ],
+    "steps": [
+      "重新进入原会话"
+    ],
+    "result": "双方聊天记录已清空",
+    "refs": [
+      "REQ-8c837cf03a1e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ff84f7ed2d4de38320cce3a8421fa5178f6cbf19402a06a6cac5c4f0836cd3aa"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "私信发送文本",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "对方为好友且未拉黑"
+    ],
+    "steps": [
+      "选择并发送测试文本"
+    ],
+    "result": "会话中写入本次文本消息",
+    "refs": [
+      "REQ-19ead9a24c54",
+      "REQ-631a31f6df90"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0dae9a93d3a708c280bac5bbad4b236ecf46a1330a71c002fa65252dfd29386b",
+      "f48c78ca4ddfc2669b9616f7dfa186dd48ab10ccb0c2f377086372b338d13824"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "拉黑拒收文本",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "当前会话任一方已拉黑另一方"
+    ],
+    "steps": [
+      "选择并发送测试文本"
+    ],
+    "result": "消息显示失败标记及“消息发送失败，对方拒收”",
+    "refs": [
+      "REQ-ed062e4d11db"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "254a4da0e0b05146bf2426cac1381444c5a7250b9593b9f1cd5fc194c9529eb9"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "私信发送图片",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "对方为好友且未拉黑"
+    ],
+    "steps": [
+      "选择并发送测试图片"
+    ],
+    "result": "会话中写入本次图片消息",
+    "refs": [
+      "REQ-19ead9a24c54",
+      "REQ-631a31f6df90"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0dae9a93d3a708c280bac5bbad4b236ecf46a1330a71c002fa65252dfd29386b",
+      "f48c78ca4ddfc2669b9616f7dfa186dd48ab10ccb0c2f377086372b338d13824"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "拉黑拒收图片",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "当前会话任一方已拉黑另一方"
+    ],
+    "steps": [
+      "选择并发送测试图片"
+    ],
+    "result": "消息显示失败标记及“消息发送失败，对方拒收”",
+    "refs": [
+      "REQ-ed062e4d11db"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "254a4da0e0b05146bf2426cac1381444c5a7250b9593b9f1cd5fc194c9529eb9"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "私信发送语音",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "对方为好友且未拉黑"
+    ],
+    "steps": [
+      "选择并发送测试语音"
+    ],
+    "result": "会话中写入本次语音消息",
+    "refs": [
+      "REQ-19ead9a24c54",
+      "REQ-631a31f6df90"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0dae9a93d3a708c280bac5bbad4b236ecf46a1330a71c002fa65252dfd29386b",
+      "f48c78ca4ddfc2669b9616f7dfa186dd48ab10ccb0c2f377086372b338d13824"
+    ]
+  },
+  {
+    "page": "direct-message.html",
+    "role": "普通消息发送用户",
+    "point": "拉黑拒收语音",
+    "pre": [
+      "普通消息发送用户；当前处于1 对 1 私信页面",
+      "当前会话任一方已拉黑另一方"
+    ],
+    "steps": [
+      "选择并发送测试语音"
+    ],
+    "result": "消息显示失败标记及“消息发送失败，对方拒收”",
+    "refs": [
+      "REQ-ed062e4d11db"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "254a4da0e0b05146bf2426cac1381444c5a7250b9593b9f1cd5fc194c9529eb9"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "群消息可见字段",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "群内已有一条来自其他成员的消息"
+    ],
+    "steps": [
+      "查看该消息"
+    ],
+    "result": "显示发送人、身份标签、内容和时间",
+    "refs": [
+      "REQ-a4f295aca996"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "087752471f1d8151e560404c7347154bbf5357bdce4bad4dcc70fd88b1fe532a"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "群消息按时间正序",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "群内有10:00及11:00消息"
+    ],
+    "steps": [
+      "查看消息顺序"
+    ],
+    "result": "10:00消息在11:00之前",
+    "refs": [
+      "REQ-844c798f0cd0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6e73c9228542de9caf936d26df4b5dad2be09575bb0a2052776052a6b40ee78c"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "有效成员发送群消息",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "当前未被单人禁言、全员禁言或平台限制"
+    ],
+    "steps": [
+      "输入文本“QA群消息”",
+      "点击发送"
+    ],
+    "result": "本次消息写入群聊",
+    "refs": [
+      "REQ-56ec777b9716",
+      "REQ-394bc92e0b45"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "19fa83397527fd003b7611f9bcdf81fca85b5c360d2f85b5a51a47379a103046",
+      "bc1cc9826cc84bc6166d4643a8e41f4930156bc60de0e8f220e8602017edf970"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "团籍失效禁止历史访问",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "本账号已被移出该粉丝团"
+    ],
+    "steps": [
+      "重新进入原粉丝群"
+    ],
+    "result": "不能查看该群历史消息",
+    "refs": [
+      "REQ-76011ad6260c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "603abb30b148e456ebef7e0fc07860d3ebc0084ae945213d62381bad046eb1fa"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "有效直播卡片入场",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "群内卡片对应场次在播且当前有准入资格"
+    ],
+    "steps": [
+      "点击直播卡片"
+    ],
+    "result": "进入卡片对应的当前场次",
+    "refs": [
+      "REQ-394bc92e0b45"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bc1cc9826cc84bc6166d4643a8e41f4930156bc60de0e8f220e8602017edf970"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "过期直播卡片不跳新场",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "卡片对应场次已结束；主播又开新场"
+    ],
+    "steps": [
+      "点击旧直播卡片"
+    ],
+    "result": "提示直播已结束，不进入新场次",
+    "refs": [
+      "REQ-87cc31b3e391",
+      "REQ-394bc92e0b45"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7276605944afbb52385289f534775988b66f16f002eb97c71dfee79a6dc97575",
+      "bc1cc9826cc84bc6166d4643a8e41f4930156bc60de0e8f220e8602017edf970"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "有效粉丝团成员",
+    "point": "被禁言输入框",
+    "pre": [
+      "有效粉丝团成员；当前处于粉丝团群聊页面",
+      "当前在该群被禁言"
+    ],
+    "steps": [
+      "查看输入框"
+    ],
+    "result": "显示“当前被禁言”且不能输入或发送",
+    "refs": [
+      "REQ-394bc92e0b45"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bc1cc9826cc84bc6166d4643a8e41f4930156bc60de0e8f220e8602017edf970"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "被禁言粉丝团成员",
+    "point": "群禁言禁用语音",
+    "pre": [
+      "被禁言粉丝团成员；当前处于粉丝团群聊页面"
+    ],
+    "steps": [
+      "点击语音"
+    ],
+    "result": "提示“当前被禁言”且不打开该功能",
+    "refs": [
+      "REQ-394bc92e0b45"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "bc1cc9826cc84bc6166d4643a8e41f4930156bc60de0e8f220e8602017edf970"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "被禁言粉丝团成员",
+    "point": "群禁言禁用图片",
+    "pre": [
+      "被禁言粉丝团成员；当前处于粉丝团群聊页面"
+    ],
+    "steps": [
+      "点击图片"
+    ],
+    "result": "提示“当前被禁言”且不打开该功能",
+    "refs": [
+      "REQ-394bc92e0b45"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "bc1cc9826cc84bc6166d4643a8e41f4930156bc60de0e8f220e8602017edf970"
+    ]
+  },
+  {
+    "page": "fan-group-chat.html",
+    "role": "被禁言粉丝团成员",
+    "point": "群禁言禁用表情",
+    "pre": [
+      "被禁言粉丝团成员；当前处于粉丝团群聊页面"
+    ],
+    "steps": [
+      "点击表情"
+    ],
+    "result": "提示“当前被禁言”且不打开该功能",
+    "refs": [
+      "REQ-394bc92e0b45"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "bc1cc9826cc84bc6166d4643a8e41f4930156bc60de0e8f220e8602017edf970"
+    ]
+  },
+  {
+    "page": "group-manage-member.html",
+    "role": "普通粉丝团成员",
+    "point": "普通成员无管理权限",
+    "pre": [
+      "普通粉丝团成员；当前处于群管理（成员）页面"
+    ],
+    "steps": [
+      "查看群管理入口"
+    ],
+    "result": "不提供成员管理权限",
+    "refs": [
+      "REQ-26afc3a3ec61"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "68a8cc6aa9dc46f61905b1e53a6751ccf28fa9ee35dec6a5026d735e219ccbcd"
+    ]
+  },
+  {
+    "page": "group-manage-member.html",
+    "role": "普通粉丝团成员",
+    "point": "群免打扰不影响接收",
+    "pre": [
+      "普通粉丝团成员；当前处于群管理（成员）页面",
+      "本群免打扰已开启；群内已发新消息"
+    ],
+    "steps": [
+      "返回群聊"
+    ],
+    "result": "仍接收新群消息",
+    "refs": [
+      "REQ-afbde3ae27a9",
+      "REQ-43a003d8c23f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4cc8494c74bd6b8ddb748a26789f6c9ee1c5f526555c57ca5d8756b1a61528a1",
+      "7afb2b7a1cbe1d1145950e9ab08c91454d398969d9a3984118e0b149c67f2021"
+    ]
+  },
+  {
+    "page": "group-manage-member.html",
+    "role": "普通粉丝团成员",
+    "point": "退团需要确认",
+    "pre": [
+      "普通粉丝团成员；当前处于群管理（成员）页面"
+    ],
+    "steps": [
+      "点击退出粉丝团"
+    ],
+    "result": "显示二次确认",
+    "refs": [
+      "REQ-43a003d8c23f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7afb2b7a1cbe1d1145950e9ab08c91454d398969d9a3984118e0b149c67f2021"
+    ]
+  },
+  {
+    "page": "group-manage-member.html",
+    "role": "普通粉丝团成员",
+    "point": "确认退团返回消息",
+    "pre": [
+      "普通粉丝团成员；当前处于群管理（成员）页面"
+    ],
+    "steps": [
+      "点击退出粉丝团",
+      "点击确认退出"
+    ],
+    "result": "离开群聊并返回消息中心",
+    "refs": [
+      "REQ-43a003d8c23f"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "7afb2b7a1cbe1d1145950e9ab08c91454d398969d9a3984118e0b149c67f2021"
+    ]
+  },
+  {
+    "page": "group-manage-member.html",
+    "role": "普通粉丝团成员",
+    "point": "退团不取消关注",
+    "pre": [
+      "普通粉丝团成员；当前处于群管理（成员）页面",
+      "当前已关注所属主播"
+    ],
+    "steps": [
+      "点击退出粉丝团",
+      "点击确认退出",
+      "进入我的关注"
+    ],
+    "result": "仍保留对该主播的关注",
+    "refs": [
+      "REQ-a0492a84dfb6",
+      "COMMON-fan-exit"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e298c8bb92d885b28ab9267142fbfd8693145fedbfca965918b3698d1ed2c863",
+      "d6006f53eb45c132efcff1479cf39f94361c1524df0e4ed88de422d4876498c5"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "本粉丝团所属主播",
+    "point": "编辑公告回填",
+    "pre": [
+      "本粉丝团所属主播；当前处于群管理（群主）页面",
+      "已有公告“QA旧公告”"
+    ],
+    "steps": [
+      "点击编辑公告"
+    ],
+    "result": "弹窗回填“QA旧公告”",
+    "refs": [
+      "REQ-68d6b7d8d78b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fb7d0b555ab4f2d88c89cecf795ec5d362e70322cd90f06dab2c7c2e229190bb"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "本粉丝团所属主播",
+    "point": "公告支持换行",
+    "pre": [
+      "本粉丝团所属主播；当前处于群管理（群主）页面"
+    ],
+    "steps": [
+      "点击编辑公告",
+      "输入“第一行\n第二行”",
+      "点击保存"
+    ],
+    "result": "公告保留两行内容",
+    "refs": [
+      "REQ-68d6b7d8d78b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fb7d0b555ab4f2d88c89cecf795ec5d362e70322cd90f06dab2c7c2e229190bb"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "本粉丝团所属主播",
+    "point": "公告200字符边界",
+    "pre": [
+      "本粉丝团所属主播；当前处于群管理（群主）页面"
+    ],
+    "steps": [
+      "点击编辑公告",
+      "输入200个“测”",
+      "点击保存"
+    ],
+    "result": "公告保存200个字符",
+    "refs": [
+      "REQ-b01c59425713",
+      "REQ-68d6b7d8d78b"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "3a9ddc5fb944be01c8afefea7112dd750ebeb7cd766492d4ce03ad517b86d8a4",
+      "fb7d0b555ab4f2d88c89cecf795ec5d362e70322cd90f06dab2c7c2e229190bb"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "本粉丝团所属主播",
+    "point": "公告201字符限制",
+    "pre": [
+      "本粉丝团所属主播；当前处于群管理（群主）页面"
+    ],
+    "steps": [
+      "点击编辑公告",
+      "输入200个“测”",
+      "继续输入“多”"
+    ],
+    "result": "公告不能超过200字符",
+    "refs": [
+      "REQ-68d6b7d8d78b"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "fb7d0b555ab4f2d88c89cecf795ec5d362e70322cd90f06dab2c7c2e229190bb"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "本粉丝团所属主播",
+    "point": "空白公告不保存",
+    "pre": [
+      "本粉丝团所属主播；当前处于群管理（群主）页面"
+    ],
+    "steps": [
+      "点击编辑公告",
+      "输入三个空格",
+      "查看保存按钮"
+    ],
+    "result": "不能保存空白公告",
+    "refs": [
+      "REQ-68d6b7d8d78b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fb7d0b555ab4f2d88c89cecf795ec5d362e70322cd90f06dab2c7c2e229190bb"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "本粉丝团所属主播",
+    "point": "取消公告编辑",
+    "pre": [
+      "本粉丝团所属主播；当前处于群管理（群主）页面",
+      "原公告为QA旧公告"
+    ],
+    "steps": [
+      "点击编辑公告",
+      "输入QA新公告",
+      "点击取消"
+    ],
+    "result": "公告仍为QA旧公告",
+    "refs": [
+      "REQ-68d6b7d8d78b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fb7d0b555ab4f2d88c89cecf795ec5d362e70322cd90f06dab2c7c2e229190bb"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "本粉丝团所属主播",
+    "point": "群成员管理入口",
+    "pre": [
+      "本粉丝团所属主播；当前处于群管理（群主）页面"
+    ],
+    "steps": [
+      "点击群成员管理"
+    ],
+    "result": "进入当前粉丝团成员管理页",
+    "refs": [
+      "REQ-46ecbad6fafe"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c7c96e854c79e8618734de10872efbb33274270ea6c6adf527be33470c9e21f8"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "本粉丝团所属主播",
+    "point": "群主免打扰不影响成员",
+    "pre": [
+      "本粉丝团所属主播；当前处于群管理（群主）页面",
+      "其他成员A该群通知开启"
+    ],
+    "steps": [
+      "打开群主免打扰",
+      "查看成员A群通知设置"
+    ],
+    "result": "成员A该群通知仍开启",
+    "refs": [
+      "REQ-ed73a73d0917"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "158fe858fb6729d4bdab72766840604e8be9d4c33beb0a1e08c0948ab7ad27ef"
+    ]
+  },
+  {
+    "page": "group-manage-owner.html",
+    "role": "本粉丝团所属主播",
+    "point": "群管理返回",
+    "pre": [
+      "本粉丝团所属主播；当前处于群管理（群主）页面"
+    ],
+    "steps": [
+      "点击返回"
+    ],
+    "result": "进入粉丝群聊天页",
+    "refs": [
+      "REQ-bdc5b10ed889"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c1c1d04c5d3cd3ad775fdf1c15ee5d9ebfda25b49a6de22b3d8b0b7bd1223456"
+    ]
+  },
+  {
+    "page": "chat-settings.html",
+    "role": "已登录普通用户",
+    "point": "聊天对象资料",
+    "pre": [
+      "已登录普通用户；当前处于单聊设置页面",
+      "当前与测试账号B私信"
+    ],
+    "steps": [
+      "查看对象资料"
+    ],
+    "result": "显示B头像、昵称、等级及勋章",
+    "refs": [
+      "REQ-0fea8101aff7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "460709557db86d49cd13971314bcbcf6f5d46c1761a2c76e377eac3edbd0d053"
+    ]
+  },
+  {
+    "page": "chat-settings.html",
+    "role": "已登录普通用户",
+    "point": "单聊免打扰仍收消息",
+    "pre": [
+      "已登录普通用户；当前处于单聊设置页面",
+      "该会话免打扰开启；对方已发新消息"
+    ],
+    "steps": [
+      "返回单聊查看消息"
+    ],
+    "result": "仍接收对方消息",
+    "refs": [
+      "REQ-c2ec1fe35a84",
+      "REQ-5541ba5cbdc0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d3d149f547cc1bada77736310b1d12b0648e5cb6d10383ec6c5ee4112e37a8af",
+      "fcefeb873703cea8651728dd460d2b2c322ec8ed77a03cb6f46be69565f05951"
+    ]
+  },
+  {
+    "page": "chat-settings.html",
+    "role": "已登录普通用户",
+    "point": "取消拉黑确认",
+    "pre": [
+      "已登录普通用户；当前处于单聊设置页面",
+      "双方为好友；拉黑确认弹窗已打开"
+    ],
+    "steps": [
+      "点击取消"
+    ],
+    "result": "双方好友和会话保持",
+    "refs": [
+      "REQ-fd903e6b2ca7",
+      "REQ-4b0b89a9c815"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fcc5cce25513d4bb732cbaf0f9b6e7d08fe327e8f0d64945a34d294491317a5b",
+      "dd8e1cd9ac9114783194c3d96b852e5910e0f2184da37e7d0bddea088bcc22e6"
+    ]
+  },
+  {
+    "page": "chat-settings.html",
+    "role": "已登录普通用户",
+    "point": "确认拉黑删除会话",
+    "pre": [
+      "已登录普通用户；当前处于单聊设置页面",
+      "双方有历史聊天"
+    ],
+    "steps": [
+      "点击拉黑",
+      "点击确认拉黑"
+    ],
+    "result": "退出并删除当前私信会话",
+    "refs": [
+      "REQ-fd903e6b2ca7",
+      "REQ-bf0e1564d12b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fcc5cce25513d4bb732cbaf0f9b6e7d08fe327e8f0d64945a34d294491317a5b",
+      "e7b51063a69948337b94b65445f6fc5d5efec05adc8963690537da50ea06b834"
+    ]
+  },
+  {
+    "page": "chat-settings.html",
+    "role": "已登录普通用户",
+    "point": "拉黑对象确认",
+    "pre": [
+      "已登录普通用户；当前处于单聊设置页面",
+      "当前聊天对象昵称B"
+    ],
+    "steps": [
+      "点击拉黑"
+    ],
+    "result": "确认弹窗展示对象B",
+    "refs": [
+      "REQ-d9b5c1056043"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "267cb06283d63bf0a7ae016536cc9a8b15650a0f595aecec23f6ef619b468ef1"
+    ]
+  },
+  {
+    "page": "chat-settings.html",
+    "role": "已登录普通用户",
+    "point": "单聊举报对象",
+    "pre": [
+      "已登录普通用户；当前处于单聊设置页面"
+    ],
+    "steps": [
+      "点击举报"
+    ],
+    "result": "进入当前聊天对象的账号举报流程",
+    "refs": [
+      "REQ-fd903e6b2ca7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fcc5cce25513d4bb732cbaf0f9b6e7d08fe327e8f0d64945a34d294491317a5b"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "用户主页资料",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面",
+      "当前对象已准备头像、昵称、ID、签名及有效装扮"
+    ],
+    "steps": [
+      "查看用户资料"
+    ],
+    "result": "显示当前查看对象资料",
+    "refs": [
+      "REQ-2d3dd2a1a9fc",
+      "REQ-59e385cd850a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "acf563ea359519927b64bb3d2cb8df2d41a930f64d07b4ef7fe4a71f37d85e15",
+      "13e8977c6f630c08caf09068f4ec7376a046026222536618c65706a53a406507"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "关注建立",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面",
+      "当前未关注B且未拉黑"
+    ],
+    "steps": [
+      "点击关注"
+    ],
+    "result": "与B的关注状态更新为已关注",
+    "refs": [
+      "REQ-96e662bf62f9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a07d862f6a2170328597e5ed1f47bbeed8f5ab9f317fd179b4821156c5b70577"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "取消关注",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面",
+      "当前已关注B"
+    ],
+    "steps": [
+      "点击取消关注"
+    ],
+    "result": "与B的关注状态更新为未关注",
+    "refs": [
+      "REQ-96e662bf62f9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a07d862f6a2170328597e5ed1f47bbeed8f5ab9f317fd179b4821156c5b70577"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "取消关注不删好友",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面",
+      "B同时为已关注对象及好友"
+    ],
+    "steps": [
+      "点击取消关注",
+      "查看好友状态"
+    ],
+    "result": "好友关系仍保留",
+    "refs": [
+      "REQ-5273bfbbbf60",
+      "REQ-5e8b58e43195"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "750f4bd7f75e6fa3ff10db038d6d708675168a84e89011f4c3f3bf1c943dd67c",
+      "31e7e0e96dc366c1c73a1a2a07d3c12078d7a7ca80d14ba9e0f64f44d1316482"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "删除好友确认",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面",
+      "B为当前好友"
+    ],
+    "steps": [
+      "点击删除好友"
+    ],
+    "result": "显示二次确认",
+    "refs": [
+      "REQ-5e8b58e43195"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "31e7e0e96dc366c1c73a1a2a07d3c12078d7a7ca80d14ba9e0f64f44d1316482"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "删除好友不取消关注",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面",
+      "当前已关注好友B"
+    ],
+    "steps": [
+      "点击删除好友",
+      "点击确认删除",
+      "查看关注状态"
+    ],
+    "result": "仍为已关注B",
+    "refs": [
+      "REQ-eebc6e392955"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7d01f6ca85c65dc0024735c27778e8c72c7b16cb19ebc58fff360e8e4d8ece9e"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "好友进入单聊",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面",
+      "B为当前好友"
+    ],
+    "steps": [
+      "点击私信"
+    ],
+    "result": "进入与B的单聊",
+    "refs": [
+      "REQ-5e8b58e43195"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "31e7e0e96dc366c1c73a1a2a07d3c12078d7a7ca80d14ba9e0f64f44d1316482"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "拉黑确认取消",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面",
+      "B为当前好友"
+    ],
+    "steps": [
+      "点击拉黑",
+      "点击取消"
+    ],
+    "result": "好友及关注关系不改变",
+    "refs": [
+      "REQ-57fef5d354d0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fcdc686dc84d0f3add3eb546dc1e66ffb4076905b6b920ba9f4673b9dd0376d2"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "确认拉黑隐藏社交操作",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面"
+    ],
+    "steps": [
+      "点击拉黑",
+      "点击确认拉黑"
+    ],
+    "result": "主页隐藏关注、好友和私信操作",
+    "refs": [
+      "REQ-4911c9f85e5d",
+      "REQ-586155102c1f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "33b9a97bf21360f68db62c8550a21df0caebe311cf02f80eb6798944e389a645",
+      "24996b47147be2b4739a9ea61a63683d6870dc66e82ed2e07fefe06fcba0826b"
+    ]
+  },
+  {
+    "page": "user-home.html",
+    "role": "查看他人主页的普通用户",
+    "point": "取消拉黑不恢复关系",
+    "pre": [
+      "查看他人主页的普通用户；当前处于用户主页页面",
+      "B已被当前账号拉黑，B没有反向拉黑"
+    ],
+    "steps": [
+      "点击取消拉黑",
+      "点击确认"
+    ],
+    "result": "恢复可操作状态但关注、好友关系均未建立",
+    "refs": [
+      "REQ-abc9a04b4c60",
+      "REQ-586155102c1f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "01b7c16c57f7a9e11824aa54fadf4425242594988a0202592952d0ec60204fd6",
+      "24996b47147be2b4739a9ea61a63683d6870dc66e82ed2e07fefe06fcba0826b"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "查看主播主页的普通用户",
+    "point": "等级值独立",
+    "pre": [
+      "查看主播主页的普通用户；当前处于主播主页页面",
+      "目标主播等级10，财富等级5"
+    ],
+    "steps": [
+      "查看等级"
+    ],
+    "result": "分别显示主播等级10和财富等级5",
+    "refs": [
+      "REQ-0db6b2327cfc"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "34cea783f57302fcd0800502be70f18622673a923fb2eb57d24b991644e9d53c"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "查看主播主页的普通用户",
+    "point": "未开播无当前场次入口",
+    "pre": [
+      "查看主播主页的普通用户；当前处于主播主页页面",
+      "目标主播未开播"
+    ],
+    "steps": [
+      "查看直播入口"
+    ],
+    "result": "不提供当前直播场次入口",
+    "refs": [
+      "REQ-9636ec52b474"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4b167d7896d0d0633ff0c294a7e18cdb119e5e9f56a3f4f265b4d0df53a54222"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "查看主播主页的普通用户",
+    "point": "已入团进入贡献榜",
+    "pre": [
+      "查看主播主页的普通用户；当前处于主播主页页面",
+      "当前已加入该主播粉丝团"
+    ],
+    "steps": [
+      "点击粉丝团"
+    ],
+    "result": "进入该主播粉丝团贡献榜",
+    "refs": [
+      "REQ-94ebe8120ba8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9bda207156bc08a6b3a869982bce54c24b25af68325346acc174bcdc83ea85dc"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "查看主播主页的普通用户",
+    "point": "未入团打开加入视图",
+    "pre": [
+      "查看主播主页的普通用户；当前处于主播主页页面",
+      "当前未加入该主播粉丝团且无拉黑"
+    ],
+    "steps": [
+      "点击粉丝团"
+    ],
+    "result": "打开加入粉丝团视图",
+    "refs": [
+      "REQ-94ebe8120ba8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9bda207156bc08a6b3a869982bce54c24b25af68325346acc174bcdc83ea85dc"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "查看主播主页的普通用户",
+    "point": "主播历史数据不串号",
+    "pre": [
+      "查看主播主页的普通用户；当前处于主播主页页面",
+      "主播A和B历史数据不同；当前查看A"
+    ],
+    "steps": [
+      "查看历史统计"
+    ],
+    "result": "仅展示主播A的数据",
+    "refs": [
+      "REQ-5de8b3f2a4a8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1e51bd5977c2794066072ed6cd32b11b4b95f479f8a9a468485a5de074e32bf8"
+    ]
+  },
+  {
+    "page": "host-home.html",
+    "role": "运营账号",
+    "point": "运营号无加入粉丝团入口",
+    "pre": [
+      "运营账号；当前处于主播主页页面"
+    ],
+    "steps": [
+      "查看主播粉丝团区域"
+    ],
+    "result": "不展示加入入口",
+    "refs": [
+      "REQ-8262ce34db52"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "26960e5060edaac2bec1eea4ee4e02d2bc6e92e90c4a5dfb870f92ce3a49d4bd"
+    ]
+  },
+  {
+    "page": "host-gift-gallery.html",
+    "role": "已登录普通用户",
+    "point": "成功礼物数量统计",
+    "pre": [
+      "已登录普通用户；当前处于礼物展馆页面",
+      "该主播成功收到礼物A 2件；另有失败1件、撤销1件"
+    ],
+    "steps": [
+      "查看礼物A数量"
+    ],
+    "result": "收到数量为2",
+    "refs": [
+      "REQ-aa63cfd1d413",
+      "REQ-c758325242de"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "cd677cc7dfbe266aff236b3f0da0e612fedae07946e82d9fe661399027b87173",
+      "ea282be3bc2aa422521a9dcc88b652532d53f66d8f9f5e704faa4d1ff2f41dc5"
+    ]
+  },
+  {
+    "page": "host-gift-gallery.html",
+    "role": "已登录普通用户",
+    "point": "未收到礼物仍展示",
+    "pre": [
+      "已登录普通用户；当前处于礼物展馆页面",
+      "目录中礼物B无该主播收礼记录"
+    ],
+    "steps": [
+      "查看礼物B"
+    ],
+    "result": "展示B并标记未收到",
+    "refs": [
+      "REQ-7df8b071258b",
+      "REQ-aa63cfd1d413"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4a110335a6f50b3a38ad6bedac95fd4a18494fce8cb24b56d661eb3b18d5f23d",
+      "cd677cc7dfbe266aff236b3f0da0e612fedae07946e82d9fe661399027b87173"
+    ]
+  },
+  {
+    "page": "host-gift-gallery.html",
+    "role": "已登录普通用户",
+    "point": "下架保留礼物历史",
+    "pre": [
+      "已登录普通用户；当前处于礼物展馆页面",
+      "已收到2件礼物A；A随后下架"
+    ],
+    "steps": [
+      "查看礼物展馆"
+    ],
+    "result": "保留A及历史数量2",
+    "refs": [
+      "REQ-f5b8a3424b62"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5acd37cef03bc016fb69d24980a20ccbbaf5f34b1fc6071cc499530c6d7f06d4"
+    ]
+  },
+  {
+    "page": "host-gift-gallery.html",
+    "role": "已登录普通用户",
+    "point": "幸运礼物按件数",
+    "pre": [
+      "已登录普通用户；当前处于礼物展馆页面",
+      "当前主播收到一组10件幸运礼物"
+    ],
+    "steps": [
+      "查看幸运礼物数量"
+    ],
+    "result": "计入10件而非返奖倍数",
+    "refs": [
+      "REQ-8044906ab18d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0bfba70ad0a894b2fe0b4443efb8d8dadcc7d265aa32fe0171845c861859cc0e"
+    ]
+  },
+  {
+    "page": "host-gift-gallery.html",
+    "role": "已登录普通用户",
+    "point": "礼物目录顺序",
+    "pre": [
+      "已登录普通用户；当前处于礼物展馆页面",
+      "目录配置B在A之前"
+    ],
+    "steps": [
+      "查看展馆礼物顺序"
+    ],
+    "result": "B在A之前",
+    "refs": [
+      "REQ-34e417b94f9f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f485ea0ae2c479a573838a6d05d0704297b535a076d3c93655c9cbbd925aa7cb"
+    ]
+  },
+  {
+    "page": "host-gift-gallery.html",
+    "role": "已登录普通用户",
+    "point": "展馆返回",
+    "pre": [
+      "已登录普通用户；当前处于礼物展馆页面"
+    ],
+    "steps": [
+      "点击返回"
+    ],
+    "result": "回到当前主播主页",
+    "refs": [
+      "REQ-161f7fee35c9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a23db82f79c2f53430ffcaf6c9b881a9063aeee9a5f7c0c38c41de511b6af744"
+    ]
+  },
+  {
+    "page": "live-room-report.html",
+    "role": "举报用户",
+    "point": "场次举报必选原因",
+    "pre": [
+      "举报用户；当前处于举报直播间页面",
+      "当前举报目标为正在直播的场次"
+    ],
+    "steps": [
+      "不选择举报原因",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-c35cc339a6a2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c7e22eee6f08cc3150af955252c0878c9ebf9851c67c15bd841ae4c3dbf8ff25"
+    ]
+  },
+  {
+    "page": "live-room-report.html",
+    "role": "举报用户",
+    "point": "场次举报原因单选",
+    "pre": [
+      "举报用户；当前处于举报直播间页面",
+      "当前举报目标为正在直播的场次"
+    ],
+    "steps": [
+      "选择色情低俗",
+      "选择其他"
+    ],
+    "result": "仅其他被选中",
+    "refs": [
+      "REQ-5cd0945cbfbd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1d30f534d5b2a5f8faf74c715026a0c1f9729cbe6bcca619ac749f59465b61d5"
+    ]
+  },
+  {
+    "page": "live-room-report.html",
+    "role": "举报用户",
+    "point": "场次举报说明可空",
+    "pre": [
+      "举报用户；当前处于举报直播间页面",
+      "当前举报目标为正在直播的场次"
+    ],
+    "steps": [
+      "选择其他",
+      "清空补充说明",
+      "点击提交"
+    ],
+    "result": "提交场次举报并返回直播间",
+    "refs": [
+      "REQ-627cf0c2bdde",
+      "REQ-70ff17b1f30a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e869c035f9b87f4333d7171252cb9e5fd3e834799023be1698d2b631a12575e5",
+      "434aa33a456c67280164869e848ccb55e97bf09a69efb5b5a562b6a2aa510c51"
+    ]
+  },
+  {
+    "page": "live-room-report.html",
+    "role": "举报用户",
+    "point": "场次举报说明200字符",
+    "pre": [
+      "举报用户；当前处于举报直播间页面",
+      "当前举报目标为正在直播的场次"
+    ],
+    "steps": [
+      "选择其他",
+      "输入200个“测”作为说明",
+      "点击提交"
+    ],
+    "result": "允许提交200字符说明",
+    "refs": [
+      "REQ-627cf0c2bdde",
+      "REQ-70ff17b1f30a"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "e869c035f9b87f4333d7171252cb9e5fd3e834799023be1698d2b631a12575e5",
+      "434aa33a456c67280164869e848ccb55e97bf09a69efb5b5a562b6a2aa510c51"
+    ]
+  },
+  {
+    "page": "live-room-report.html",
+    "role": "举报用户",
+    "point": "场次举报说明超长",
+    "pre": [
+      "举报用户；当前处于举报直播间页面",
+      "当前举报目标为正在直播的场次"
+    ],
+    "steps": [
+      "输入201个“测”作为说明"
+    ],
+    "result": "不能提交超过200字符的说明",
+    "refs": [
+      "REQ-627cf0c2bdde"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "e869c035f9b87f4333d7171252cb9e5fd3e834799023be1698d2b631a12575e5"
+    ]
+  },
+  {
+    "page": "live-room-user-report.html",
+    "role": "举报用户",
+    "point": "账号举报必选原因",
+    "pre": [
+      "举报用户；当前处于举报用户页面",
+      "当前举报目标为账号B"
+    ],
+    "steps": [
+      "不选择举报原因",
+      "查看提交按钮"
+    ],
+    "result": "提交按钮不可用",
+    "refs": [
+      "REQ-cec4572b7621"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1578ea857b1d2f3d21a2d08e8d6966cd599f46caeee68cde351a4bc0017fa4df"
+    ]
+  },
+  {
+    "page": "live-room-user-report.html",
+    "role": "举报用户",
+    "point": "账号举报原因单选",
+    "pre": [
+      "举报用户；当前处于举报用户页面",
+      "当前举报目标为账号B"
+    ],
+    "steps": [
+      "选择色情低俗",
+      "选择其他"
+    ],
+    "result": "仅其他被选中",
+    "refs": [
+      "REQ-8dc817ffb01f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "dac3093ac9e3db85236132e832e420049c01ef445b91f5893c7d8b02e63e2bec"
+    ]
+  },
+  {
+    "page": "live-room-user-report.html",
+    "role": "举报用户",
+    "point": "账号举报说明可空",
+    "pre": [
+      "举报用户；当前处于举报用户页面",
+      "当前举报目标为账号B"
+    ],
+    "steps": [
+      "选择其他",
+      "清空补充说明",
+      "点击提交"
+    ],
+    "result": "提交账号举报并返回来源页",
+    "refs": [
+      "REQ-cd5a56a9a6ac",
+      "REQ-a9bb248fbeab"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4cfabf7f77d2149e960a66c353d205da37f161544c6c6b9590e6816b66fbbe5d",
+      "f31c423c85e497d814b353e829fbb02989a515227e11343cda1f83465740f923"
+    ]
+  },
+  {
+    "page": "live-room-user-report.html",
+    "role": "举报用户",
+    "point": "账号举报说明200字符",
+    "pre": [
+      "举报用户；当前处于举报用户页面",
+      "当前举报目标为账号B"
+    ],
+    "steps": [
+      "选择其他",
+      "输入200个“测”作为说明",
+      "点击提交"
+    ],
+    "result": "允许提交200字符说明",
+    "refs": [
+      "REQ-cd5a56a9a6ac",
+      "REQ-a9bb248fbeab"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "4cfabf7f77d2149e960a66c353d205da37f161544c6c6b9590e6816b66fbbe5d",
+      "f31c423c85e497d814b353e829fbb02989a515227e11343cda1f83465740f923"
+    ]
+  },
+  {
+    "page": "live-room-user-report.html",
+    "role": "举报用户",
+    "point": "账号举报说明超长",
+    "pre": [
+      "举报用户；当前处于举报用户页面",
+      "当前举报目标为账号B"
+    ],
+    "steps": [
+      "输入201个“测”作为说明"
+    ],
+    "result": "不能提交超过200字符的说明",
+    "refs": [
+      "REQ-cd5a56a9a6ac"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "4cfabf7f77d2149e960a66c353d205da37f161544c6c6b9590e6816b66fbbe5d"
+    ]
+  },
+  {
+    "page": "blacklist-management.html",
+    "role": "已登录普通用户",
+    "point": "黑名单仅主动拉黑",
+    "pre": [
+      "已登录普通用户；当前处于黑名单管理页面",
+      "当前A主动拉黑B；C仅单向拉黑A"
+    ],
+    "steps": [
+      "查看黑名单"
+    ],
+    "result": "展示B，不展示仅拉黑自己的C",
+    "refs": [
+      "REQ-d8cf5577aee7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7c0cc573e5c7fed02684d65aacc4ee9eefcf07cec1fcb068bcdea9392c3ce876"
+    ]
+  },
+  {
+    "page": "blacklist-management.html",
+    "role": "已登录普通用户",
+    "point": "黑名单时间倒序",
+    "pre": [
+      "已登录普通用户；当前处于黑名单管理页面",
+      "先拉黑A后拉黑B"
+    ],
+    "steps": [
+      "查看黑名单顺序"
+    ],
+    "result": "B在A之前",
+    "refs": [
+      "REQ-f47128bb78d9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "86be1e8d78e550e86c09c861708f08d5c0f07eefe9f46e306225332f6db84908"
+    ]
+  },
+  {
+    "page": "blacklist-management.html",
+    "role": "已登录普通用户",
+    "point": "取消拉黑确认",
+    "pre": [
+      "已登录普通用户；当前处于黑名单管理页面",
+      "列表有B"
+    ],
+    "steps": [
+      "点击B的取消拉黑"
+    ],
+    "result": "显示二次确认",
+    "refs": [
+      "REQ-11ba82bb2413"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "57f6957168d065f4978631eab0a21e97457cce406d432de333c28ece377a91bf"
+    ]
+  },
+  {
+    "page": "blacklist-management.html",
+    "role": "已登录普通用户",
+    "point": "取消拉黑成功移除",
+    "pre": [
+      "已登录普通用户；当前处于黑名单管理页面",
+      "列表有B且请求成功"
+    ],
+    "steps": [
+      "点击B的取消拉黑",
+      "点击确认"
+    ],
+    "result": "B从当前黑名单移除",
+    "refs": [
+      "REQ-11ba82bb2413"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "57f6957168d065f4978631eab0a21e97457cce406d432de333c28ece377a91bf"
+    ]
+  },
+  {
+    "page": "blacklist-management.html",
+    "role": "已登录普通用户",
+    "point": "取消拉黑失败保持",
+    "pre": [
+      "已登录普通用户；当前处于黑名单管理页面",
+      "列表有B；请求返回失败"
+    ],
+    "steps": [
+      "点击B的取消拉黑",
+      "点击确认"
+    ],
+    "result": "B仍在黑名单且提示“请求失败”",
+    "refs": [
+      "REQ-11ba82bb2413"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "57f6957168d065f4978631eab0a21e97457cce406d432de333c28ece377a91bf"
+    ]
+  },
+  {
+    "page": "blacklist-management.html",
+    "role": "已登录普通用户",
+    "point": "双方拉黑分别取消",
+    "pre": [
+      "已登录普通用户；当前处于黑名单管理页面",
+      "A与B互相拉黑；当前为A"
+    ],
+    "steps": [
+      "取消对B的拉黑并确认",
+      "查看对B的私信权限"
+    ],
+    "result": "B的反向拉黑仍生效，不能向B私信",
+    "refs": [
+      "REQ-000792392af7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d917fbe1b23d0a510ffe0fef58bcac4f8c50f0cc3a52ac7a2f87616fee795434"
+    ]
+  }
+]

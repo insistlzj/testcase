@@ -92,6 +92,7 @@
       }
     </style>
     <script src="../../../assets/common.js?v=20260814-coin-unit-v1"></script>
+    <script src="../../../assets/admin-date-range-picker.js?v=20260912-v1"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
     <script src="../../../assets/admin-mock.js?v=20260904-prop-types-v1"></script>
   </head>
@@ -152,16 +153,7 @@
           <div class="admin-prop-layout">
             <aside class="admin-panel admin-prop-type-panel">
               <div class="admin-prop-type-head">
-                <strong>道具类型</strong
-                ><button
-                  class="admin-icon-btn"
-                  id="newTypeBtn"
-                  type="button"
-                  title="新增道具类型"
-                  aria-label="新增道具类型"
-                >
-                  +
-                </button>
+                <strong>道具类型</strong>
               </div>
               <nav
                 class="admin-prop-type-list"
@@ -217,6 +209,7 @@
                         <th>道具 ID</th>
                         <th>道具名称</th>
                         <th>道具图标</th>
+                        <th>单价</th>
                         <th>排序权重</th>
                         <th>上下架状态</th>
                         <th>操作</th>
@@ -240,7 +233,7 @@
     <div class="admin-overlay" id="typeEditorOverlay">
       <section class="admin-modal">
         <div class="admin-modal-head">
-          <h2 id="typeEditorTitle">新增道具类型</h2>
+          <h2 id="typeEditorTitle">修改道具类型</h2>
           <button class="admin-icon-btn" data-close="typeEditorOverlay">
             ×
           </button>
@@ -380,6 +373,31 @@
                   ><span id="editStatusText"></span>
                 </div>
               </div>
+              <div class="admin-form-row full">
+                <label>可佩戴期限</label>
+                <div class="admin-range-picker-control">
+                  <div class="admin-range-picker" id="editWearableRangePicker">
+                    <button class="admin-range-picker-trigger" data-range-trigger type="button" aria-expanded="false">
+                      <span data-range-start-text>--</span><span>→</span><span data-range-end-text>--</span><i class="admin-range-picker-icon" aria-hidden="true"></i>
+                    </button>
+                    <div class="admin-range-popover" data-range-popover hidden>
+                      <div class="admin-range-nav"><button data-range-prev type="button" aria-label="上一个月">‹</button><button data-range-next type="button" aria-label="下一个月">›</button></div>
+                      <div class="admin-range-months" data-range-months></div>
+                    </div>
+                    <input id="editWearableStart" type="hidden" />
+                    <input id="editWearableEnd" type="hidden" />
+                  </div>
+                  <label class="admin-check-inline"
+                    ><input id="editWearableUnlimited" type="checkbox" />不限</label
+                  >
+                </div>
+              </div>
+              <div class="admin-form-row">
+                <label for="editPrice">单价</label>
+                <div class="admin-input-unit">
+                  <input class="admin-input" id="editPrice" type="number" min="1" step="1" required /><span>金币</span>
+                </div>
+              </div>
             </div>
           </div>
           <div class="admin-modal-foot">
@@ -436,7 +454,6 @@
           { key: "bubble", name: "气泡", names: { zh: "气泡", en: "Chat Bubble", id: "Gelembung Obrolan", ms: "Gelembung Sembang" } },
           { key: "avatar", name: "头像框", names: { zh: "头像框", en: "Avatar Frame", id: "Bingkai Avatar", ms: "Bingkai Avatar" } },
         ],
-        removedPresetTypes = new Set(["light", "title", "vehicle"]),
         propTypeStorageKey = "luma-admin-prop-types-v1";
       function sharedPropStorage() {
         try {
@@ -454,7 +471,7 @@
           );
           if (Array.isArray(saved) && saved.length)
             return saved
-              .filter((type) => !removedPresetTypes.has(type.key))
+              .filter((type) => defaultPropTypes.some((preset) => preset.key === type.key))
               .map(normalizePropType);
         } catch (error) {}
         return defaultPropTypes.map(normalizePropType);
@@ -489,6 +506,14 @@
         activeType = propTypes[0].key,
         activeStatus = "",
         editingTypeKey = "";
+      const wearableRangePicker = LumaAdminDateRange.create({
+        root: editWearableRangePicker,
+        startInput: editWearableStart,
+        endInput: editWearableEnd,
+        onChange: (start, end) => {
+          if (start || end) editWearableUnlimited.checked = false;
+        },
+      });
       function nextPropId() {
         return `PRP${Math.max(...props.map((item) => Number(item.id.replace(/\D/g, "")))) + 1}`;
       }
@@ -509,7 +534,7 @@
         pagination.classList.toggle("state-hide", !items.length);
         if (!items.length) {
           propRows.innerHTML =
-            '<tr><td colspan="6"><div class="admin-empty"><strong>未找到道具</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
+            '<tr><td colspan="7"><div class="admin-empty"><strong>未找到道具</strong><span>请调整筛选条件后重新查询</span></div></td></tr>';
           return;
         }
         propRows.innerHTML = items
@@ -525,6 +550,7 @@
                     >
                   </div>
                 </td>
+                <td>${item.price} 金币</td>
                 <td>${item.sort}</td>
                 <td>
                   <div class="admin-switch-control">
@@ -590,6 +616,16 @@
       function syncEditStatus() {
         editStatusText.textContent = editStatus.checked ? "上架" : "下架";
       }
+      function dateValueAfter(days = 0, base = Date.now()) {
+        const date = new Date(base);
+        date.setDate(date.getDate() + days);
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      }
+      function syncWearableUnlimited() {
+        if (editWearableUnlimited.checked) wearableRangePicker.clear();
+        else if (!editWearableStart.value || !editWearableEnd.value)
+          wearableRangePicker.setRange(dateValueAfter(), dateValueAfter(30));
+      }
       function setIdField(input, readonly) {
         let display = input.nextElementSibling;
         if (!display?.classList.contains("admin-readonly-value")) {
@@ -611,6 +647,11 @@
         editorIcon = item ? item.icon : "未上传";
         editorMaterial = item ? item.material : "未上传";
         editStatus.checked = item ? item.status === "online" : true;
+        const today = dateValueAfter();
+        wearableRangePicker.setMin(today);
+        editWearableUnlimited.checked = Boolean(item && !item.wearableEnd);
+        if (editWearableUnlimited.checked) wearableRangePicker.clear();
+        else wearableRangePicker.setRange(item?.wearableStart?.slice(0, 10) || today, item?.wearableEnd?.slice(0, 10) || dateValueAfter(30));
         editType.innerHTML = propTypes
           .map((type) => `<option value="${type.key}">${type.name}</option>`)
           .join("");
@@ -620,19 +661,21 @@
           nameId.value = item.names.id;
           nameMs.value = item.names.ms;
           editType.value = item.type;
+          editPrice.value = item.price;
           editSort.value = item.sort;
         } else {
           editType.value = activeType;
+          editPrice.value = "";
           editSort.value = 50;
         }
         renderMediaEditor();
         syncEditStatus();
         editorOverlay.classList.add("show");
       }
-      function openTypeEditor(key = "") {
+      function openTypeEditor(key) {
         editingTypeKey = key;
         const type = propTypes.find((item) => item.key === key);
-        typeEditorTitle.textContent = type ? "修改道具类型" : "新增道具类型";
+        typeEditorTitle.textContent = "修改道具类型";
         typeNameZh.value = type?.names?.zh || type?.name || "";
         typeNameEn.value = type?.names?.en || "";
         typeNameId.value = type?.names?.id || "";
@@ -668,7 +711,6 @@
       newPropBtn.onclick = () => {
         location.href = `admin-prop-detail.html?new=1&edit=1&type=${activeType}`;
       };
-      newTypeBtn.onclick = () => openTypeEditor();
       document.addEventListener("click", (event) => {
         const typeTab = event.target.closest("[data-type-tab]");
         if (typeTab) {
@@ -741,6 +783,7 @@
         }
       });
       editStatus.onchange = syncEditStatus;
+      editWearableUnlimited.onchange = syncWearableUnlimited;
       iconFile.onchange = () => {
         if (iconFile.files[0]) {
           editorIcon = iconFile.files[0].name;
@@ -755,9 +798,17 @@
       };
       editorForm.onsubmit = (event) => {
         event.preventDefault();
-        const id = editId.value.trim();
+        const id = editId.value.trim(),
+          wearableStartValue = editWearableStart.value,
+          wearableEndValue = editWearableEnd.value;
         if (!editing && props.some((item) => item.id === id))
           return Luma.toast("道具 ID 已存在");
+        if (!editWearableUnlimited.checked && (!wearableStartValue || !wearableEndValue))
+          return Luma.toast("请填写可佩戴期限");
+        if (!editWearableUnlimited.checked && wearableStartValue < dateValueAfter())
+          return Luma.toast("可佩戴开始日期不能早于当前日期");
+        if (!editWearableUnlimited.checked && wearableEndValue <= wearableStartValue)
+          return Luma.toast("可佩戴结束日期必须晚于开始日期");
         const time = "2026-08-05 14:20",
           data = {
             id,
@@ -770,8 +821,11 @@
             icon: editorIcon,
             material: editorMaterial,
             type: editType.value,
+            price: Number(editPrice.value),
             sort: Number(editSort.value),
             status: editStatus.checked ? "online" : "offline",
+            wearableStart: editWearableUnlimited.checked ? "" : editWearableStart.value,
+            wearableEnd: editWearableUnlimited.checked ? "" : editWearableEnd.value,
             updatedAt: time,
           };
         if (editing) {
@@ -812,21 +866,15 @@
           )
         )
           return Luma.toast("道具类型名称已存在");
-        if (editingTypeKey) {
-          Object.assign(
-            propTypes.find((type) => type.key === editingTypeKey),
-            { name, names },
-          );
-        } else {
-          const key = `custom_${Date.now()}`;
-          propTypes.push({ key, name, names });
-          activeType = key;
-        }
+        Object.assign(
+          propTypes.find((type) => type.key === editingTypeKey),
+          { name, names },
+        );
         savePropTypes();
         renderTypeNav();
         typeEditorOverlay.classList.remove("show");
         filter(false);
-        Luma.toast(editingTypeKey ? "道具类型已修改" : "道具类型已新增");
+        Luma.toast("道具类型已修改");
       };
       confirmForm.onsubmit = (event) => {
         event.preventDefault();
@@ -844,7 +892,6 @@
       );
       Luma.registerStates({
         道具列表: () => filter(false),
-        新增类型: () => openTypeEditor(),
         修改类型: () => openTypeEditor(activeType),
         新增道具: () =>
           (location.href = `admin-prop-detail.html?new=1&edit=1&type=${activeType}`),

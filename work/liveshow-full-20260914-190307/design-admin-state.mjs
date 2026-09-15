@@ -1,0 +1,33 @@
+import {page} from './design-current.mjs';
+const A='管理后台',G='公会App',U='用户App';
+const add=(key,title,pre,steps,results,re)=>page(A,key,[`测试管理员已登录，具有${key.includes('system-')?'系统管理':'本功能'}操作权限`]).add(title,pre,steps,results,[re]);
+for(const [key,object] of [['admin-live-management.html','直播列表'],['admin-live-detail.html','直播详情']]){
+ add(key,'结束场次没有即时处置入口',['S001 已结束'],[`打开${object}`,'查看 S001'],[{point:'结束态操作限制',result:'S001 不提供即时警告或关播操作'}],/已结束|即时|历史场次|结束/);
+ add(key,'历史场次不可重开',['S001 已结束'],[`打开${object}`,'查看 S001'],[{point:'场次结束不可逆',result:'不提供重新开启 S001 的操作'}],/历史场次不可重开|结束/);
+}
+for(const key of ['admin-host-detail.html','admin-user-detail.html'])add(key,'解封账号不恢复已关闭的直播权限',['主播甲账号封禁，平台直播权限在封禁前已关闭'],['打开主播甲详情','点击解封','填写原因“测试解封”','点击确认','查看直播权限'],[{point:'账号状态与直播权限独立',result:'直播权限仍为关闭'}],/解封.*不.*恢复|独立/);
+const schedule=page(A,'admin-inspection-schedule.html',['测试管理员有巡房排班权限；排班 IN001 时段为测试日 D 的10:00至11:00']);
+for(const [time,state] of [['09:59','待生效'],['10:01','生效中'],['11:01','已结束']])schedule.add(`排班在${time}的状态`,[`IN001 已启用；当前时间为 D 日${time}`],['打开巡房排班','查看 IN001'],[{point:'排班时间状态',result:`IN001 显示${state}`}],[/状态|时间|待生效|生效中|已结束/]);
+schedule.add('停用排班不再赋予巡房身份',['IN001 当前有效'],['打开巡房排班','停用 IN001','点击确认','查看 IN001'],[{point:'停用排班',result:'IN001 显示已停用'}],[/停用/]);
+add('admin-inspection-schedule-detail.html','巡房账号封禁后保留历史名单',['IN001 名单原有用户甲，用户甲随后被封禁'],['打开 IN001 排班详情','查看巡房人员'],[{point:'排班历史名单保留',result:'名单仍包含用户甲'}],/历史排班名单保留/);
+add('admin-inspection-schedule-create.html','巡房人员全选只作用当前查询结果',['可选用户甲、乙、丙；按昵称关键字筛选结果仅包含甲、乙'],['打开新建巡房排班','点击添加巡房人员','输入筛选关键字','点击查询','点击全选'],[{point:'巡房人员全选范围',result:'仅甲、乙处于选中状态'}],/全选仅作用当前结果/);
+for(const state of ['已忽略','已处置'])add('admin-content-audit-detail.html',`${state}告警不可重复处理`,[`AU001 当前${state}`],['打开 AU001 详情'],[{point:'告警终态只读',result:'不提供再次提交处置的操作'}],/终态|复审中/);
+add('admin-content-audit-detail.html','人工复审中可以继续处理',['AU001 当前复审中；确认其为误报'],['打开 AU001 详情','选择忽略','填写处置原因“误报测试”','点击提交'],[{point:'复审中继续处理',result:'AU001 显示已忽略'}],/复审中|忽略/);
+for(const state of ['已处理','已作废'])add('admin-report-detail.html',`${state}举报单只读`,[`RP001 当前${state}`],['打开 RP001 详情'],[{point:'举报终态不能重复处置',result:'不提供再次提交处置的操作'}],/终态|已作废|已处理/);
+for(const [state,balance] of [['未结清',10],['已结清',0]])add('admin-guild-detail.html',`公会收益${state}时解散`,[`公会甲名下主播未结清收益合计${balance}金币，其他解散条件满足`],['打开公会甲详情','点击解散',...(balance?[]:['点击确认'])],[{point:'解散结清门槛',result:balance?'公会甲未被解散':'公会甲已解散'}],/解散|结清/);
+add('admin-guild-detail.html','取消解散公会',['公会甲满足解散条件，未结清收益为0'],['打开公会甲详情','点击解散','点击取消'],[{point:'解散二次确认取消',result:'公会甲仍未解散'}],/解散.*确认/);
+add('admin-guild-detail.html','重置密码保留公会管理账号',['公会长原登录账号为guild_qa01'],['打开公会甲详情','点击重置密码','输入新的测试密码NewPass#2026','确认重置','查看管理账号'],[{point:'重置密码不更换账号',result:'登录账号仍为guild_qa01'}],/重置密码不改账号/);
+add('admin-guild-list.html','只停用公会长账号不改变公会状态',['公会甲启用，公会长甲账号启用'],['打开公会甲详情','关闭公会长账号状态','点击确认','返回公会列表'],[{point:'公会长停用的公会状态',result:'公会甲仍显示启用'}],/公会长账号停用/);
+for(const [key,object] of [['admin-gift-list.html','礼物甲'],['admin-custom-gift.html','定制礼物甲'],['admin-lucky-gift-config.html','幸运礼物甲']])add(key,'下架保留历史消费快照',[`${object}已有成功赠送订单 E001，单价100，历史收益已生成`],[`打开${object}配置`,`点击下架${object}`,'点击确认','打开 E001 消费订单详情'],[{point:'下架不改历史价格',result:'E001 单价仍为100金币'}],/历史|已完成/);
+add('admin-prop-list.html','下架道具保留已获得记录',['道具甲上架；用户乙已获得道具甲且仍在可佩戴期限内'],['打开道具列表','下架道具甲','点击确认'],[{point:'道具下架完成',result:'道具甲显示下架'}],/下架|已获得/);
+page(U,'my-decoration.html').add('已获得道具下架后仍可佩戴',['用户甲已获得有效头像框甲但尚未佩戴；后台随后下架该头像框'],['打开我的装扮','选择已拥有的头像框分类','点击头像框甲卡片'],[{point:'下架不影响已获得权益',result:'头像框甲显示已佩戴'}],[/下架|已获得/],{support:[/下架不影响已获得道具/]});
+add('admin-gift-send-count-rules.html','停用数量规则保留历史赠送数量',['规则 R001 原支持1和10，礼物甲历史订单 E001 数量10'],['打开赠送数量规则','停用 R001','点击确认'],[{point:'赠送数量规则停用',result:'R001 显示停用'}],/停用|已完成/);
+page(U,'views/live-room/gift.html').add('数量规则停用后新赠送只支持一件',['用户甲已进房，礼物甲上架，原关联的赠送数量规则刚停用'],['打开礼物面板','选择礼物甲','查看数量选项'],[{point:'数量规则停用默认值',result:'仅提供数量1'}],[/数量/],{support:[/停用后关联礼物默认仅支持/ ]});
+for(const key of ['admin-settlement-record-detail.html','admin-guild-settlement-record-detail.html'])for(const action of ['编辑','删除','审批'])add(key,`导入分成结果不提供${action}`,['当前批次已成功导入，财务明细已锁定'],['打开已导入分成详情',`查看${action}入口`],[{point:`分成结果${action}限制`,result:`不提供${action}操作`}],/只读|审批|锁定/);
+for(const [key,object] of [['admin-system-account.html','内置超级管理员账号'],['admin-system-role.html','内置超级管理员角色']])add(key,`${object}不可停用`,[`${object}已启用`],[`打开${object}所在列表`,`查看${object}的状态操作`],[{point:'内置超级管理员保护',result:'不提供停用操作'}],/不可停用|不可修改或停用/);
+add('admin-system-role-detail.html','内置超级管理员权限只读',['当前查看内置超级管理员角色'],['打开角色详情','查看菜单权限'],[{point:'超级管理员权限不可修改',result:'全部菜单权限已勾选且不可修改'}],/全部权限且不可修改/);
+add('admin-system-account-detail.html','超级管理员角色不可修改',['当前查看内置超级管理员账号'],['打开账号详情','查看所属角色'],[{point:'超级管理员账号角色保护',result:'所属角色不可修改'}],/角色和状态不可修改/);
+for(const action of ['创建运营账号','分配运营账号','发放虚拟金币'])add('admin-operation-accounts.html',`平台不提供${action}`,['管理员具有运营账号管理查看权限'],['打开运营账号列表',`查看${action}入口`],[{point:`运营账号${action}权限边界`,result:`不提供${action}操作`}],/平台不创建、不分配|不发放/);
+for(const action of ['编辑资料','重置密码'])add('admin-operation-account-detail.html',`平台不可${action}`,['运营账号 O001 属于公会甲'],['打开 O001 详情',`查看${action}入口`],[{point:`运营资料${action}归属`,result:`平台不可执行${action}`}],/公会权限|平台不得执行/);
+page(G,'guild-host-detail.html').add('未结清收益阻止移出主播',['主播甲当前在公会甲，尚有10金币收益未结清'],['打开主播甲详情','查看移出公会'],[{point:'移出主播结清门槛',result:'移出公会不可点击'}],[/未结清|置灰/]);
+page(G,'guild-host-detail.html').add('退会主播没有管理操作',['主播甲已退出当前公会甲，历史记录仍可查看'],['打开主播甲详情','查看管理操作'],[{point:'已退会主播管理权限',result:'不提供管理操作入口'}],[/已退会.*管理|不显示管理/]);

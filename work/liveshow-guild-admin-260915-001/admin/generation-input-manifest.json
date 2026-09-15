@@ -1,0 +1,215 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "任务标识": "liveshow-guild-admin-260915-001-admin",
+  "生成策略": "current-evidence-only",
+  "项目目录": "liveshow-proto",
+  "任务工作目录": "work/liveshow-guild-admin-260915-001/admin",
+  "目标范围": {
+    "端名": "管理后台",
+    "模块名称": "全部模块"
+  },
+  "历史策略": "不读取不比较",
+  "MainBasis基线": {
+    "路径": "work/liveshow-proto-mainbasis/latest.json",
+    "SHA-256": "476c05d755d4c845c9930c7e4e37dd0da848fa9d523f9711af1a2a9c7a59ebd1"
+  },
+  "当前业务规则清单": "work/liveshow-guild-admin-260915-001/admin/business-rule-catalog.json",
+  "生成脚本": "work/liveshow-guild-admin-260915-001/generate.mjs",
+  "当前候选用例": "work/liveshow-guild-admin-260915-001/admin/current-testcase-candidate.json",
+  "最终用例JSON": "work/liveshow-guild-admin-260915-001/admin/final.json",
+  "需求覆盖清单": "work/liveshow-guild-admin-260915-001/admin/requirement-coverage.json",
+  "独立场景库": "work/liveshow-guild-admin-260915-001/admin/independent-scenario-library.json",
+  "状态转换基线": "work/liveshow-guild-admin-260915-001/admin/state-transition-baseline.json",
+  "输入文件": [
+    {
+      "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+      "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213",
+      "角色": "当前业务证据",
+      "内容类型": "统一需求",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/MainBasis/需求待确认清单.md",
+      "SHA-256": "15cff2a52ec803b154618c65fb17f02865bb6f4c3b6eb789167d17dac0f44176",
+      "角色": "风险与缺口",
+      "内容类型": "当前需求缺口",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/generate.mjs",
+      "SHA-256": "267a9d92ec55d1be73d0e06af4be78543a505ff49dec3790f8cdfa9f7ff8352e",
+      "角色": "执行工具",
+      "内容类型": "本次独立设计及生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/design.mjs",
+      "SHA-256": "bbaa2eabc62c50d7b436025817afc0345295c0f3153a4d446f105fd63f7c82cf",
+      "角色": "执行工具",
+      "内容类型": "本次独立设计及生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/guild-design.mjs",
+      "SHA-256": "d6e5c0dffd437d92111b6689d2ac275c95530a87bbc69c3a9c0c80a90926b4be",
+      "角色": "执行工具",
+      "内容类型": "本次独立设计及生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin-design.mjs",
+      "SHA-256": "e1ca50b1773cfd4c108f4b6319bc41d06ecdd41eddfb9e52921c16a1686fe8db",
+      "角色": "执行工具",
+      "内容类型": "本次独立设计及生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/supplement.mjs",
+      "SHA-256": "7c0a05951e7c0f438e4f2b1fd6d95425caeb3507bb938aa2b58a11f87ac17cf2",
+      "角色": "执行工具",
+      "内容类型": "本次独立设计及生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/refine.mjs",
+      "SHA-256": "0334b0e11c7e39c3114736c8aec8ed709b56573b849c4e21b5546b18d5d464f4",
+      "角色": "执行工具",
+      "内容类型": "本次独立设计及生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/shared-states.mjs",
+      "SHA-256": "3296b0f6c09be2c3b8335ab91c009e900735b1ccd95428e3cb1983743d5adb2f",
+      "角色": "执行工具",
+      "内容类型": "本次独立设计及生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/coverage-decisions.mjs",
+      "SHA-256": "db95759ef0db910b8fadd0588a3c4d6eb27e48b9a8755d470122356e612d9401",
+      "角色": "执行工具",
+      "内容类型": "本次独立设计及生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/pending.mjs",
+      "SHA-256": "16d2ae0a58f9250e8c17198dd8ec0744d3d83c15dc580aaa57686a26271d392d",
+      "角色": "执行工具",
+      "内容类型": "本次独立设计及生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/testcase-design.mjs",
+      "SHA-256": "20500a012c52f68c365e027c2530e0e47caeb8776353e033d6f2b4943a1fe428",
+      "角色": "执行工具",
+      "内容类型": "通用生成与校验工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-generation-input.mjs",
+      "SHA-256": "9ca45d50d8fab554d9b420949800a695433cf930818f6c27f9fb4a27d35ba31b",
+      "角色": "执行工具",
+      "内容类型": "通用生成与校验工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-testcase-json.mjs",
+      "SHA-256": "a441260924499787f4619d0be82dd3ba0573d651d09f7ead95a410ef580d92f6",
+      "角色": "执行工具",
+      "内容类型": "通用生成与校验工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-testcase-delivery.mjs",
+      "SHA-256": "01385025f3ca084460aea2ef85448c75006feabf8cbdcdce2f532c3b38c0b66e",
+      "角色": "执行工具",
+      "内容类型": "通用生成与校验工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/build-testcase-workbook.mjs",
+      "SHA-256": "bb8b05c5e27832d432b4012827a82c885a4b8ba7ed24ff42505eccb73d7933a3",
+      "角色": "执行工具",
+      "内容类型": "通用生成与校验工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/business-rule-catalog.json",
+      "SHA-256": "05eb7aafc08afae6f8f9b9f67a04862f7f2bef7de73b48a6200bd613a4e181ea",
+      "角色": "本次派生产物",
+      "内容类型": "业务规则清单",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/independent-scenario-library.json",
+      "SHA-256": "4694a63c1b7d3084765334f9303b23993e3492d6f01f1cb3044022e3246d0b74",
+      "角色": "本次派生产物",
+      "内容类型": "independent-scenario-library",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/state-transition-baseline.json",
+      "SHA-256": "eaf92c9e90d7cda4bac36cce4e4b57d930fbbf4deea215c5e73554154d539a1d",
+      "角色": "本次派生产物",
+      "内容类型": "state-transition-baseline",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/requirement-coverage.json",
+      "SHA-256": "c537c63eb0037629548f0e4a20dbd5d29695b471b460a6101f4d501176fd214f",
+      "角色": "本次派生产物",
+      "内容类型": "requirement-coverage",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/evidence-atom-index.json",
+      "SHA-256": "185712d44bc1abad9219d008c55ceeead41c4bcb2970c5bba719e1d7bc9baf5d",
+      "角色": "本次派生产物",
+      "内容类型": "evidence-atom-index",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/coverage-matrix.json",
+      "SHA-256": "5478dc12eed4c916c41a50c226c59e2463ad290a4d157af7006c6ac6fa64c034",
+      "角色": "本次派生产物",
+      "内容类型": "coverage-matrix",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/global-evidence-scan-result.json",
+      "SHA-256": "f6e003611776b80a00b4bce650d3778e389100542c003b666f179834a3727719",
+      "角色": "本次派生产物",
+      "内容类型": "global-evidence-scan-result",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/prototype-context-sync-result.json",
+      "SHA-256": "892e075ab0d81d91d68a667ca88e42073dac1c1db4f493709c0655351e9cd08d",
+      "角色": "本次派生产物",
+      "内容类型": "prototype-context-sync-result",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/current-testcase-candidate.json",
+      "SHA-256": "608fe5fcd1a46c6d9c693862656cec4449979fbb81a93f32196681197f6befac",
+      "角色": "本次派生产物",
+      "内容类型": "当前候选用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/final.json",
+      "SHA-256": "608fe5fcd1a46c6d9c693862656cec4449979fbb81a93f32196681197f6befac",
+      "角色": "本次派生产物",
+      "内容类型": "最终用例JSON",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-guild-admin-260915-001/admin/semantic-dedup-review.json",
+      "SHA-256": "00049872e75ed5b53e064faf13aa8c991bfb2b29617c20729990d4dc44a7d747",
+      "角色": "本次派生产物",
+      "内容类型": "语义去重复核",
+      "允许定义业务规则": false
+    }
+  ]
+}

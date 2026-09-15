@@ -126,9 +126,7 @@
               <span>申请时间</span
               ><b>${LUMA_FORMAT.dateTime(selected.appliedAt)}</b>
             </div>
-            ${selected.status === "pending"
-              ? `<div class="guild-detail-item"><span>待结算收益</span><b class="guild-fiat-value">${selected.unsettled}</b></div>`
-              : ""}${selected.handledAt
+            ${selected.handledAt
               ? `<div class="guild-detail-item"><span>处理时间</span><b>${LUMA_FORMAT.dateTime(selected.handledAt)}</b></div><div class="guild-detail-item"><span>处理结果</span><b>${labels[selected.status]}</b></div>`
               : ""}
           </div>

@@ -1,0 +1,453 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "任务标识": "liveshow-user-260915-001",
+  "项目目录": "liveshow-proto",
+  "任务工作目录": "work/liveshow-user-260915-001/user",
+  "目标范围": {
+    "端名": "用户App",
+    "模块名称": "全部模块"
+  },
+  "生成策略": "current-evidence-only",
+  "历史策略": "不读取不比较",
+  "MainBasis基线": {
+    "路径": "work/liveshow-proto-mainbasis/latest.json",
+    "SHA-256": "de630a46c20903d66ef70a953eca6877e90ebd4070d7f398181abd047fef14f0"
+  },
+  "输入文件": [
+    {
+      "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+      "SHA-256": "72b8e0cd9b72ce8bd6a9d98ca24a03834c56e428bf0e1ee8684688cda221a6ce",
+      "角色": "当前业务证据",
+      "内容类型": "统一需求文档",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/MainBasis/需求待确认清单.md",
+      "SHA-256": "856a32ed7c79a211b87affceb93dfe07b8074060bb79a336d52d89a3e935495b",
+      "角色": "风险与缺口",
+      "内容类型": "需求待确认清单",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/business-rule-catalog.json",
+      "SHA-256": "ea8c023d75a96de9266d2fbf2814c8f7190d7cdfe176be7c5a45cdd264b0c5bd",
+      "角色": "本次派生产物",
+      "内容类型": "业务规则清单",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/test-scenario-library.json",
+      "SHA-256": "1010a6cbf1ea8c885c7621464bdf2708b7c27704841bc80251b9f85691289307",
+      "角色": "本次派生产物",
+      "内容类型": "本轮追溯报告",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/state-transition-baseline.json",
+      "SHA-256": "760d2e294d8dc82cac8bc2f07fa9ad20d2ecd810697c9af1af221ab19bd061f3",
+      "角色": "本次派生产物",
+      "内容类型": "本轮追溯报告",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/requirement-coverage.json",
+      "SHA-256": "659124d7ee69487cf3cb090e6e547a8175b54199a1d5a0b9df0f85f72ba70942",
+      "角色": "本次派生产物",
+      "内容类型": "本轮追溯报告",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/evidence-atom-index.json",
+      "SHA-256": "8bc6089ca7f99d35dc175885255667d5965949f6a496728578746d49bf71c129",
+      "角色": "本次派生产物",
+      "内容类型": "本轮追溯报告",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/coverage-matrix.json",
+      "SHA-256": "32a595d18afda7e5b71053f4d7a9037e195d9b115e93b54d788c572ac0870d0c",
+      "角色": "本次派生产物",
+      "内容类型": "本轮追溯报告",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/global-evidence-scan-result.json",
+      "SHA-256": "3e0fd0e2ec4eeebc4e095ab08bbb52b9d3b0827347f0f88a86ea37ae46794a9a",
+      "角色": "本次派生产物",
+      "内容类型": "本轮追溯报告",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/prototype-context-sync-result.json",
+      "SHA-256": "d8d94569daa3f5d0bcbe3ca7892a94e0f4c33abb493cbb26264b761b7ccdb600",
+      "角色": "本次派生产物",
+      "内容类型": "本轮追溯报告",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/semantic-dedup-review.json",
+      "SHA-256": "9df6bbc03d46fd5a745bf3918ae789d63226084004018292a2115923993a0de2",
+      "角色": "本次派生产物",
+      "内容类型": "本轮追溯报告",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/generation-isolation.json",
+      "SHA-256": "5721f81b0aa921debb8c25ecb1aa827061c39e05dd35337e24df93c91aed8913",
+      "角色": "本次派生产物",
+      "内容类型": "本轮追溯报告",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/basis-index.json",
+      "SHA-256": "8b755e58ed19460b8287cc88f9550b79d54843e70f93511964f993219bd8e0a3",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/requirement-units.json",
+      "SHA-256": "d94cd9db2f2f0cd8c21778af2679d8890e05c75e3c976da2cbcfeb88e8c66923",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/rule-design-review-draft.json",
+      "SHA-256": "e8d6f206b3f59399dda8bfceb53750330c2518b21b943a9074e3098641d4c5fd",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/scene-design-review-draft.json",
+      "SHA-256": "a01fe6e64321a018c8e904fda5390499293e0680102d8402de38d760c40b4d85",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/semantic-dispositions.json",
+      "SHA-256": "d002ed7465c0ac200a601de66a769c8a2060aad18f3727043946b8cc22fb04c7",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/questions-draft.json",
+      "SHA-256": "4268ce5c21edf336c081c07a5d7b65c202ee8345276271cad69186bfa68a417d",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/question-trace.json",
+      "SHA-256": "4f6e76e56a913a41520871fdb37e7fe54a41da7744b4881b64c5b2a892ece0f0",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/overview-coverage.json",
+      "SHA-256": "9bd592146c87ffb303bab10d930432e205e017898baefafee0978fe69561c8f0",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/clause-aliases.json",
+      "SHA-256": "520c6dffb2e28dcd980b7ceb6a1bfe303f5cc95acb9d6ba6ea48f6efbfaa11d1",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/coverage-bindings.json",
+      "SHA-256": "120f3154ce7d5f33ca9c5ace8b988dbf843370857c26b2be457f16b8441a3a25",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/atomic-review.json",
+      "SHA-256": "808227fbfa1e096242b1ff8906c45a459ac5580079d72ed8891ec018bcea1618",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/auth-design-draft.json",
+      "SHA-256": "29116aa854f0e0a62460934bee548451c744513a6aa2fb47008f06bd6447adba",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/closure-design-draft.json",
+      "SHA-256": "6dbdec6c7c147898be158a4e3fcda2fb2be1ce1ba560eff5036d8d8fb3ad3451",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/completion-design-draft.json",
+      "SHA-256": "8f9c84b091dabbdfdefbacc9deb2ace2014cd986ae695aa8739c9ec0c6ef1d67",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/decoration-fan-design-draft.json",
+      "SHA-256": "06450e033149b443d2cb490dc80ac3ebf07b5d0cdc56590aba74906dd26c2b8f",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/field-design-draft.json",
+      "SHA-256": "d2c5b10096ff76dea5b494462bd789cd07a5f31cd4ccb9f95e7080168c5bfee2",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/guild-wallet-design-draft.json",
+      "SHA-256": "87e835e19c61c0d797389913ebcace512396c45cffaf79ab2b2e694f9cd4d1e1",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/home-design-draft.json",
+      "SHA-256": "e4ce80464b6e7fb29fd986b926418ee502016f97ed5c30a428cc42caa6351b0c",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/host-design-draft.json",
+      "SHA-256": "8bb51385847a24dd591968f141be042089f4edab9c288c6b21041475461129e7",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/live-design-draft.json",
+      "SHA-256": "cb23e4636880d07a198eb031e6c0d6da387f65fd4972192a0227b27562bef2be",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/my-design-draft.json",
+      "SHA-256": "6be075f7f1072308f27355f7c5940f068abe15042f31f15acba39324299e8485",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/overview-design-draft.json",
+      "SHA-256": "a49cf8f52816db1c7b7f0b31483dedf85c588b0e22d967f072680ef387a672bd",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/ranking-design-draft.json",
+      "SHA-256": "1106e7036413087e386bce2ff4fd11bd4f61dc6a1eea9a845bb07d3756120e5c",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/social-design-draft.json",
+      "SHA-256": "62e36feaf231ff9fdc37bb864d93d2fcba59fbb286f36778c5a646d2040ca183",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/supplement-design-draft.json",
+      "SHA-256": "d8f36cd7d4f6107edf9c0b8b221bedb584813b5eec821dd8332265856df156a4",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/calculation-design.mjs",
+      "SHA-256": "ef8dfd0bd18f2c69787330579b86965ceacf572fa2ab0beccbc7d61cad9cf900",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/closure-design.mjs",
+      "SHA-256": "7f2fdc3ef42bd670228223a50f58c081bed8154d3ba01f94564327953194de08",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/compile-design.mjs",
+      "SHA-256": "f291acb3d66aa12868ea554c493072c90ccea805cd5b40814661909a354749ec",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/completion-design.mjs",
+      "SHA-256": "1ed8fbe5c79d6efc09b3c53c7e875c5af397af8ad08b3edfd47362f8dd6ce226",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/decoration-fan-design.mjs",
+      "SHA-256": "0e94816bbc96c53cdffb7ac4f5a9c425c93f28b74c292a9a4169c20a231fa390",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/design.mjs",
+      "SHA-256": "8bd037c120afd26fef3f785f77f36c107cd49eb3bc40ee1ce25926ae45aab00f",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/field-design.mjs",
+      "SHA-256": "d8a1b520b01ceae46f8f8ed2438fe04dab84fcb5708f049b717a63fac9b69acf",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/format-workbook.py",
+      "SHA-256": "36a130044ecb73e5835067a89f0b4ced10ca4498424922933671680c2f1aa362",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/guild-wallet-design.mjs",
+      "SHA-256": "8b516b740056207b16f870cfb10be4697d94b5f8c44e7219b8deff2f69f7feb3",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/home-design.mjs",
+      "SHA-256": "0d2e60a39fe1287aed329425d06d944ebe54124b32cf07c6209bd1598b9f5e64",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/host-design.mjs",
+      "SHA-256": "b37a12600db162f12028e9a9b2e3b40bb0322412a960b37e4af12bcab3e428ff",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/live-design.mjs",
+      "SHA-256": "6039ec6de46911120f81c3023752930afeb35adb97e177f0f64cf93d7a339dbe",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/my-design.mjs",
+      "SHA-256": "f3c6c5b6de50749ab46bbbfa58a3ffc3f9d240efba1a2ebea7659a03a7737a74",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/overview-design.mjs",
+      "SHA-256": "9ed25849d5990540d78ab5b1b8b9621418c652de96ce6c79af7f342b6f69f5ec",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/prepare-delivery.mjs",
+      "SHA-256": "02895421c0ac09aa1a2c3ee6da9778946a62e7d1699c638ae3c6cda7f955e6ab",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/questions-design.mjs",
+      "SHA-256": "39d86812d973ca3920b519686eee1807b503ce5e0f6b9d8e73e380aaba6d01c8",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/ranking-design.mjs",
+      "SHA-256": "c095c23d7febc51b887213a3527f051f8f3b0a6bbf4c548c4e6b12b24d853e1e",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/read-basis.mjs",
+      "SHA-256": "eebd991d8f141149b3052e22680fac2b5c2b8173974aba5b2728253dcc4c5e77",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/social-design.mjs",
+      "SHA-256": "bb4b768308ae9d234319007d5efb727ce9b3dc03c45bcac54fe2fd00ca4f9b2f",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/state-design.mjs",
+      "SHA-256": "a188acc98d790f62a498e0be3c6e2031d90b50e55572f164492003b0fdc27090",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/supplement-design.mjs",
+      "SHA-256": "bce012ca3760960a55ce4207c5a73df858d5899a7d89e742772e50339a3c026a",
+      "角色": "执行工具",
+      "内容类型": "当前任务生成工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/current-testcase-candidate.json",
+      "SHA-256": "f3ac31af945a29d2aafd0d4a539b13a8513496aabcf156daa4b2ebaf886754fa",
+      "角色": "本次派生产物",
+      "内容类型": "当前候选用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/final-testcases.json",
+      "SHA-256": "f3ac31af945a29d2aafd0d4a539b13a8513496aabcf156daa4b2ebaf886754fa",
+      "角色": "本次派生产物",
+      "内容类型": "最终用例JSON",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-260915-001/user/subitem-design.json",
+      "SHA-256": "796d04d969e9d6046032490ba4fb403d6da6967081c42205b54085dc12ae32be",
+      "角色": "本次派生产物",
+      "内容类型": "本轮独立需求解析与设计",
+      "允许定义业务规则": false
+    }
+  ],
+  "当前业务规则清单": "work/liveshow-user-260915-001/user/business-rule-catalog.json",
+  "生成脚本": "work/liveshow-user-260915-001/user/prepare-delivery.mjs",
+  "当前候选用例": "work/liveshow-user-260915-001/user/current-testcase-candidate.json",
+  "最终用例JSON": "work/liveshow-user-260915-001/user/final-testcases.json",
+  "需求覆盖清单": "work/liveshow-user-260915-001/user/requirement-coverage.json",
+  "独立场景库": "work/liveshow-user-260915-001/user/test-scenario-library.json",
+  "状态转换基线": "work/liveshow-user-260915-001/user/state-transition-baseline.json"
+}

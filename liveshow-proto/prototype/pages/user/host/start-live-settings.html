@@ -354,6 +354,7 @@
         font-size: 13px;
       }
       .switch {
+        flex: none;
         width: 38px;
         height: 22px;
         padding: 2px;
@@ -375,89 +376,6 @@
       }
       .switch.on i {
         transform: translateX(16px);
-      }
-      .authorized {
-        margin-top: 10px;
-        padding-top: 10px;
-        border-top: 1px solid var(--g6);
-      }
-      .authorized.state-hide {
-        display: none;
-      }
-      .authorized-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 8px;
-      }
-      .authorized-head p,
-      .authorized-head span {
-        margin: 0;
-        color: var(--g3);
-        font-size: 12px;
-      }
-      .fans {
-        display: flex;
-        align-items: flex-start;
-        gap: 7px;
-      }
-      .visible-fan,
-      .fan-add {
-        position: relative;
-        width: 44px;
-        padding: 0;
-        border: 0;
-        background: none;
-        color: var(--g3);
-        font: 10px inherit;
-      }
-      .fan-add {
-        cursor: pointer;
-      }
-      .visible-fan .avatar,
-      .fan-add i {
-        width: 30px;
-        height: 30px;
-        margin: 0 auto 4px;
-        border-radius: 50%;
-        background: var(--g6);
-        color: var(--g3);
-        display: grid;
-        place-items: center;
-        font-size: 10px;
-        font-style: normal;
-      }
-      .fan-overflow {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: var(--g6);
-        color: var(--g2);
-        display: grid;
-        place-items: center;
-        font: 12px inherit;
-      }
-      .visible-fan span,
-      .fan-add span {
-        display: block;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-      .fan-add i {
-        border: 1px dashed var(--g3);
-        background: var(--g7);
-        color: var(--g1);
-        margin-bottom: 0;
-      }
-      .fan-add svg {
-        width: 15px;
-        height: 15px;
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 1.8;
-        stroke-linecap: round;
-        stroke-linejoin: round;
       }
       .beauty-sheet {
         padding: 0 16px 20px;
@@ -584,17 +502,6 @@
         color: var(--g2);
         font-size: 14px;
       }
-      .launch-card button {
-        width: 100%;
-        height: 40px;
-        margin-top: 18px;
-        border: 0;
-        border-radius: 8px;
-        background: var(--g1);
-        color: var(--g7);
-        font: 14px inherit;
-        cursor: pointer;
-      }
     </style>
   </head>
   <body>
@@ -707,20 +614,16 @@
           />
           <div class="switch-row">
             <span>在广场展示</span
-            ><button class="switch on" id="plazaSwitch" type="button">
+            ><button class="switch on" id="plazaSwitch" type="button" role="switch" aria-label="在广场展示" aria-checked="true">
               <i></i>
             </button>
           </div>
           <div class="switch-row">
-            <span>从粉丝中授权可见</span
-            ><button class="switch" id="authorizeSwitch" type="button">
+            <span>仅粉丝团成员可进入直播间</span
+            ><button class="switch" id="fanClubOnlySwitch" type="button" role="switch" aria-label="仅粉丝团成员可进入直播间" aria-checked="false">
               <i></i>
             </button>
           </div>
-          <section class="authorized state-hide" id="authorized">
-            <header class="authorized-head"><p>可见名单</p><span id="visibleFanCount">已选 0 人</span></header>
-            <div class="fans" id="fans"></div>
-          </section>
         </div>
         <button class="save" id="saveRoom" type="button">确认</button>
       </div>
@@ -760,14 +663,6 @@
       <div class="launch-card">
         <b id="countdown">3</b>
         <p id="launchText">准备开播</p>
-        <button
-          class="state-hide"
-          id="enterRoom"
-          type="button"
-          onclick="location.href='../live/live-room-host.html'"
-        >
-          进入直播间
-        </button>
       </div>
     </section>
     <script>
@@ -778,11 +673,8 @@
         ticketOptions = document.querySelector("#ticketOptions"),
         ticketPriceLevels = document.querySelector("#ticketPriceLevels"),
         passwordOptions = document.querySelector("#passwordOptions"),
-        authorizeSwitch = document.querySelector("#authorizeSwitch"),
-        authorized = document.querySelector("#authorized"),
+        fanClubOnlySwitch = document.querySelector("#fanClubOnlySwitch"),
         plazaSwitch = document.querySelector("#plazaSwitch"),
-        fans = document.querySelector("#fans"),
-        visibleFanCount = document.querySelector("#visibleFanCount"),
         roomPassword = document.querySelector("#roomPassword"),
         cover = document.querySelector("#cover"),
         cameraSwitch = document.querySelector("#cameraSwitch"),
@@ -806,8 +698,8 @@
             .flat()
             .map((item) => [item, 50]),
         );
-      const visibleFanStorageKey = "luma-visible-fans",
-        passwordDraftStorageKey = "luma-start-live-password-draft",
+      const passwordPlazaStorageKey = "luma-password-room-plaza-visible",
+        passwordFanClubStorageKey = "luma-password-room-fan-club-only",
         ticketPriceStorageKey = "luma-admin-ticket-price-levels-v1";
       function readTicketPriceLevels() {
         let levels;
@@ -833,38 +725,19 @@
           )
           .join("");
       }
-      const defaultVisibleFanNames = () =>
-        LUMA_MOCK.startLive.authorizedFans.map((fan) => fan.name);
-      function readVisibleFanNames() {
-        let names = defaultVisibleFanNames();
-        try {
-          const saved = JSON.parse(localStorage.getItem(visibleFanStorageKey));
-          if (Array.isArray(saved)) names = saved;
-        } catch (_) {}
-        const available = new Set(LUMA_MOCK.hostFans.map((fan) => fan.name));
-        return names.filter((name) => available.has(name));
+      function readStoredSwitch(key, fallback) {
+        const value = localStorage.getItem(key);
+        return value === null ? fallback : value === "true";
       }
-      function renderVisibleFans() {
-        const selected = new Set(readVisibleFanNames());
-        const selectedFans = LUMA_MOCK.hostFans.filter((fan) =>
-          selected.has(fan.name),
-        );
-        visibleFanCount.textContent = `已选 ${selectedFans.length} 人`;
-        fans.innerHTML = selectedFans
-          .slice(0, 5)
-          .map(
-            (fan) =>
-              `<span class="visible-fan"><i class="avatar">${fan.avatar}</i><span>${fan.name}</span></span>`,
-          )
-          .join("");
-        if (selectedFans.length > 5)
-          fans.insertAdjacentHTML(
-            "beforeend",
-            '<span class="fan-overflow" aria-label="还有更多可见粉丝">...</span>',
-          );
-        fans.insertAdjacentHTML(
-          "beforeend",
-          '<button class="fan-add" id="addVisibleFan" type="button" aria-label="编辑可见名单，支持添加或删除" title="编辑可见名单"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg></i></button>',
+      function setSwitch(button, enabled) {
+        button.classList.toggle("on", enabled);
+        button.setAttribute("aria-checked", String(enabled));
+      }
+      function restorePasswordRoomSettings() {
+        setSwitch(plazaSwitch, readStoredSwitch(passwordPlazaStorageKey, true));
+        setSwitch(
+          fanClubOnlySwitch,
+          readStoredSwitch(passwordFanClubStorageKey, false),
         );
       }
       function openSheet(id) {
@@ -892,8 +765,10 @@
       titleAction.onclick = () => openSheet("titleSheet");
       document.querySelector("#categoryEntry").onclick = () =>
         openSheet("categorySheet");
-      document.querySelector("#roomEntry").onclick = () =>
+      document.querySelector("#roomEntry").onclick = () => {
+        restorePasswordRoomSettings();
         openSheet("roomSheet");
+      };
       document.querySelector("#beautyEntry").onclick = () => {
         renderBeauty();
         openSheet("beautySheet");
@@ -923,7 +798,7 @@
         closeSheet("titleSheet");
       };
       const categories = document.querySelector("#categories");
-      categories.innerHTML = LUMA_MOCK.startLive.categories
+      categories.innerHTML = LUMA_MOCK.startLive.roomTypeTags
         .map(
           (item) =>
             `<button class="${item === category ? "active" : ""}" type="button">${item}</button>`,
@@ -944,23 +819,6 @@
       cover.onchange = () => {
         if (cover.files?.[0]) Luma.toast(`已选择封面：${cover.files[0].name}`);
       };
-      fans.onclick = (event) => {
-        if (!event.target.closest("#addVisibleFan")) return;
-        sessionStorage.setItem(
-          passwordDraftStorageKey,
-          JSON.stringify({
-            password: roomPassword.value,
-            plazaVisible: plazaSwitch.classList.contains("on"),
-          }),
-        );
-        try {
-          parent.postMessage(
-            { type: "luma-page", file: "visible-fan-select.html" },
-            "*",
-          );
-        } catch (_) {}
-        location.href = "visible-fan-select.html";
-      };
       document.querySelectorAll('[name="roomType"]').forEach(
         (input) =>
           (input.onchange = () => {
@@ -974,20 +832,16 @@
             );
           }),
       );
-      [plazaSwitch, authorizeSwitch].forEach(
+      [plazaSwitch, fanClubOnlySwitch].forEach(
         (button) =>
           (button.onclick = () => {
-            button.classList.toggle("on");
-            if (button === authorizeSwitch)
-              authorized.classList.toggle(
-                "state-hide",
-                !button.classList.contains("on"),
-              );
             if (
-              button === authorizeSwitch &&
-              button.classList.contains("on")
+              button === fanClubOnlySwitch &&
+              !button.classList.contains("on") &&
+              !LUMA_MOCK.hostFanClubSettings
             )
-              renderVisibleFans();
+              return Luma.toast("请先创建粉丝团");
+            setSwitch(button, !button.classList.contains("on"));
           }),
       );
       document.querySelector("#saveRoom").onclick = () => {
@@ -1004,6 +858,16 @@
           return Luma.toast("请选择有效的门票价格");
         if (type === "password" && !/^\d{4,12}$/.test(password))
           return Luma.toast("密码必须是4-12个数字");
+        if (type === "password") {
+          localStorage.setItem(
+            passwordPlazaStorageKey,
+            String(plazaSwitch.classList.contains("on")),
+          );
+          localStorage.setItem(
+            passwordFanClubStorageKey,
+            String(fanClubOnlySwitch.classList.contains("on")),
+          );
+        }
         roomValue.textContent =
           type === "ticket"
             ? `${roomNames[type]} · ${selectedTicketPrice} ◆`
@@ -1044,10 +908,8 @@
       document.querySelector("#start").onclick = () => {
         const mask = document.querySelector("#launch"),
           countdown = document.querySelector("#countdown"),
-          launchText = document.querySelector("#launchText"),
-          enterRoom = document.querySelector("#enterRoom");
+          launchText = document.querySelector("#launchText");
         mask.classList.remove("state-hide");
-        enterRoom.classList.add("state-hide");
         let count = 3;
         countdown.textContent = count;
         launchText.textContent = "准备开播";
@@ -1058,24 +920,12 @@
             return;
           }
           clearInterval(timer);
-          countdown.textContent = "●";
-          launchText.textContent = "开播中";
-          enterRoom.classList.remove("state-hide");
-          Luma.toast("已开始直播");
+          location.href = "../live/live-room-host.html?entry=start-live";
         }, 1000);
       };
+      restorePasswordRoomSettings();
       if (new URLSearchParams(location.search).get("room") === "password") {
         document.querySelector('[name="roomType"][value="password"]').click();
-        authorizeSwitch.classList.add("on");
-        authorized.classList.remove("state-hide");
-        try {
-          const draft = JSON.parse(
-            sessionStorage.getItem(passwordDraftStorageKey) || "{}",
-          );
-          roomPassword.value = draft.password || "";
-          plazaSwitch.classList.toggle("on", draft.plazaVisible !== false);
-        } catch (_) {}
-        renderVisibleFans();
         openSheet("roomSheet");
         history.replaceState({}, "", location.pathname);
       }

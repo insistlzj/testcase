@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>联系客服 · 我的 · Luma Live</title>
+    <script src="../../../assets/tailwind.js"></script>
+    <script src="../../../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../../../assets/common.css" />
+    <script src="../../../assets/common.js"></script>
+    <script src="../../../assets/mock.js"></script>
+    <style>
+      .screen { padding-bottom: 34px; }
+      .contact-list { margin-top: 12px; background: var(--g7); }
+      .contact-row {
+        width: 100%;
+        min-height: 72px;
+        padding: 12px 16px;
+        border: 0;
+        border-bottom: 1px solid var(--g6);
+        background: var(--g7);
+        color: var(--g1);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 24px;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+        cursor: pointer;
+      }
+      .contact-row:last-child { border-bottom: 0; }
+      .contact-row span { display: block; color: var(--g3); font-size: 13px; }
+      .contact-row strong { display: block; margin-top: 5px; font-size: 15px; overflow-wrap: anywhere; }
+      .copy-icon { color: var(--g3); font-size: 20px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <main class="screen">
+      <div class="sb"><span>9:41</span><span>●●● ▲ ▮</span></div>
+      <header class="nav">
+        <button class="back" type="button" onclick="location.href='profile.html'">‹</button>联系客服
+      </header>
+      <section class="contact-list" aria-label="客服联系方式">
+        <button class="contact-row" type="button" data-copy="whatsapp">
+          <span><span>WhatsApp</span><strong id="whatsapp"></strong></span><i class="copy-icon" aria-hidden="true">⧉</i>
+        </button>
+        <button class="contact-row" type="button" data-copy="email">
+          <span><span>官方客服邮箱</span><strong id="email"></strong></span><i class="copy-icon" aria-hidden="true">⧉</i>
+        </button>
+      </section>
+    </main>
+    <div class="homebar"><i></i></div>
+    <script>
+      const contacts = LUMA_MOCK.customerService;
+      document.querySelector("#whatsapp").textContent = contacts.whatsapp;
+      document.querySelector("#email").textContent = contacts.email;
+
+      async function copyContact(value) {
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch (_) {
+          const input = document.createElement("textarea");
+          input.value = value;
+          document.body.append(input);
+          input.select();
+          document.execCommand("copy");
+          input.remove();
+        }
+        Luma.toast("已复制");
+      }
+
+      document.querySelectorAll("[data-copy]").forEach((button) => {
+        button.onclick = () => copyContact(contacts[button.dataset.copy]);
+      });
+    </script>
+  </body>
+</html>

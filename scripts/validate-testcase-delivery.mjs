@@ -1,12 +1,67 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
+import { pathToFileURL } from 'node:url';
 import { validateGenerationInput } from "./validate-generation-input.mjs";
 import { loadTestcaseLanguageRules, validateTestcaseRecords } from "./validate-testcase-json.mjs";
+import { localPath, fingerprint } from './requirement-traceability.mjs';
+import { verifyMainBasis } from './mainbasis.mjs';
 
 const hashFile = async (file) => crypto.createHash("sha256").update(await fs.readFile(file)).digest("hex");
 const read = async (file) => JSON.parse(await fs.readFile(file, "utf8"));
 const requirePass = (condition, message) => { if (!condition) throw new Error(message); };
+
+export async function validateWorkbookExportPaths(taskDir, root, sourcePath, outputPath, {stage = false} = {}) {
+  const manifest = await read(path.join(taskDir,'generation-input-manifest.json'));
+  const finalFile = manifest.最终用例JSON || manifest.最终JSON;
+  requirePass(finalFile && path.resolve(sourcePath) === path.resolve(localPath(root,finalFile)), '导出源必须是输入清单登记的最终 JSON');
+  const destination = path.relative(root,path.resolve(outputPath)).split(path.sep).join('/');
+  requirePass(typeof manifest.项目名称 === 'string' && !/[\\/]/.test(manifest.项目名称)
+    && path.posix.dirname(destination) === `outputs/${manifest.项目名称}-case`
+    && destination.endsWith('.xlsx') && stage === path.basename(destination).startsWith('阶段性-'),
+    stage ? '阶段性工作簿必须直接写入当前项目固定输出目录且文件名以“阶段性-”开头' : '工作簿必须直接写入当前项目固定输出目录，正式导出不得使用“阶段性-”前缀');
+  localPath(root,destination);
+  try { await fs.lstat(outputPath); throw new Error('工作簿已存在，必须使用新编号，禁止覆盖'); }
+  catch (error) { if (error.code !== 'ENOENT') throw error; }
+}
+
+export async function resolveTaskBatch(taskDir, root) {
+  const relative = path.relative(path.resolve(root),path.resolve(taskDir)).split(path.sep).join('/');
+  requirePass(/^work\/[^/]+(?:\/[^/]+)?$/.test(relative), '任务目录必须属于本轮 work 目录');
+  const file = localPath(root,relative.split('/').slice(0,2).join('/') + '/batch.json');
+  const batch = await read(file);
+  if (relative.split('/').length === 3) requirePass(batch.端任务?.some(item => item.任务目录 === relative), '本端未登记在当前批次中');
+  return {file, batch};
+}
+
+export function requireDeliverySatisfied(result) {
+  requirePass(result.交付要求满足 === true, `本轮交付要求未满足：${result.后续动作 || '继续核对覆盖'}；可保存阶段性产物，不得标记任务完成`);
+}
+
+export const batchScope = batch => ({项目目录:batch.项目目录, 目标端:batch.目标端, 交付要求:batch.交付要求,
+  端任务:batch.端任务?.map(({端名,任务目录,模块名称}) => ({端名,任务目录,...(模块名称!==undefined?{模块名称}:{})}))});
+
+export async function authorizeWorkbookExport(taskDir, root, sourcePath, outputPath, options = {}) {
+  await validateWorkbookExportPaths(taskDir,root,sourcePath,outputPath,options);
+  const manifest = await read(path.join(taskDir,'generation-input-manifest.json'));
+  if (options.stage || !manifest.MainBasis基线) return validateTestcaseDelivery(taskDir,root,{phase:'final'});
+  const {file,batch} = await resolveTaskBatch(taskDir,root);
+  const item = batch.端任务.find(item => path.resolve(localPath(root,item.任务目录)) === path.resolve(taskDir));
+  requirePass(item?.工作簿 && path.resolve(localPath(root,item.工作簿)) === path.resolve(outputPath), '正式导出路径必须与批次登记的本端工作簿一致');
+  const result = await validateTestcaseBatch(file,root);
+  requireDeliverySatisfied(result);
+  return result.端结果.find(end => end.端名 === item.端名);
+}
+
+export async function saveNewWorkbook(workbook, outputPath, beforePublish = async () => {}) {
+  const temporary = `${outputPath}.${crypto.randomUUID()}.tmp.xlsx`;
+  try {
+    await workbook.save(temporary);
+    await beforePublish();
+    // Exclusive publication also protects against two exports choosing the same filename.
+    await fs.copyFile(temporary,outputPath,fs.constants.COPYFILE_EXCL);
+  } finally { await fs.rm(temporary,{force:true}); }
+}
 
 async function projectFingerprint(directory) {
   const files = [];
@@ -85,7 +140,7 @@ export async function validateTestcaseDelivery(taskDir, repoRoot, { phase = "fin
   requirePass(sync.需求清单有修改 === (changed.length > 0), "同步修改标记与实际哈希差异矛盾");
   if (changed.length) requirePass(sync.需求清单变更日志编号?.length > 0, "实际同步修改缺少变更日志");
   requirePass(Array.isArray(coverage.规则处理) && coverage.规则处理.length > 0, "覆盖清单缺少逐规则处理去向");
-  const allowedDestinations = ["正式用例", "合并", "需求待确认", "范围外", "不适用", ...(sampledReview ? ['未逐条复核'] : [])];
+  const allowedDestinations = ["正式用例", "合并", "需求待确认", "范围外", "不适用", ...(sampledReview ? ['未逐条复核'] : []), ...(inputCheck.需求覆盖 ? ['生成待复核','未覆盖'] : [])];
   const unresolved = coverage.规则处理.filter((item) => !allowedDestinations.includes(item.去向) || !item.依据);
   requirePass(!unresolved.length, `仍有 ${unresolved.length} 项覆盖未完成复核`);
   const atoms = await readRegistered("evidence-atom-index.json");
@@ -121,6 +176,11 @@ export async function validateTestcaseDelivery(taskDir, repoRoot, { phase = "fin
     for (const item of coverage.规则处理) {
       if (["正式用例", "合并"].includes(item.去向)) requirePass(item.规则标识?.length && item.规则标识.every((id) => cases.has(id)), `覆盖指向不存在的正式规则：${item.原子标识}`);
       if (item.去向 === "需求待确认") requirePass(questions.has(item.问题编号), `覆盖指向不存在的需求问题：${item.原子标识}`);
+      if (['生成待复核','未覆盖'].includes(item.去向)) {
+        requirePass(inputCheck.需求覆盖?.交付性质 === '部分覆盖', '生成缺口不能声明完整覆盖');
+        requirePass(!(item.规则标识 || []).some(id => cases.has(id)), '生成待复核规则仍进入正式候选');
+        inputCheck.需求覆盖.未完成项.push({原子标识:item.原子标识, 规则标识:item.规则标识 || [], 状态:'未覆盖', 说明:item.说明 || item.去向});
+      }
     }
     if (manifest.覆盖展开策略版本 === "2.0") for (const mapping of coverage.场景映射) {
       if (mapping.用例编号 === "需求待确认") continue;
@@ -155,4 +215,87 @@ export async function validateTestcaseDelivery(taskDir, repoRoot, { phase = "fin
   }
   return { 状态: "通过", 阶段: phase, 输入清单SHA256: await hashFile(manifestFile), 候选SHA256: candidateHash,
     ...(inputCheck.需求覆盖 ? { 需求覆盖: inputCheck.需求覆盖 } : {}) };
+}
+
+export function validateBatchAgreement(batch, manifests, states) {
+  requirePass(batch.schemaVersion === '1.0' && ['完整覆盖','允许部分交付'].includes(batch.交付要求), '批次缺少版本或明确交付要求');
+  requirePass(Array.isArray(batch.目标端) && batch.目标端.length >= 1 && batch.目标端.every(end => typeof end === 'string' && end.trim())
+    && new Set(batch.目标端).size === batch.目标端.length, '批次目标端为空或重复');
+  requirePass(Array.isArray(batch.端任务) && batch.端任务.length === batch.目标端.length
+    && new Set(batch.端任务.map(item => item.端名)).size === batch.目标端.length
+    && batch.端任务.every(item => batch.目标端.includes(item.端名)), '端任务没有覆盖原定全部目标端');
+  requirePass(manifests.length === batch.端任务.length && states.length === manifests.length, '批次端侧输入不完整');
+  const basis = manifests[0].MainBasis基线;
+  requirePass(basis?.路径 && /^[a-f0-9]{64}$/.test(basis['SHA-256']), '批次缺少 MainBasis 版本');
+  for (const [index, manifest] of manifests.entries()) {
+    requirePass(manifest.项目目录 === batch.项目目录 && manifest.任务工作目录 === batch.端任务[index].任务目录
+      && manifest.目标范围?.端名 === batch.端任务[index].端名, '批次项目、端或任务目录不一致');
+    if (batch.端任务[index].模块名称!==undefined) requirePass(batch.端任务[index].模块名称 === manifest.目标范围?.模块名称, '端侧模块范围与任务最初登记不一致');
+    requirePass(fingerprint(manifest.MainBasis基线) === fingerprint(basis), '三端使用了不同 MainBasis 版本');
+    requirePass(Array.isArray(states[index]?.状态转换) && fingerprint(states[index]) === fingerprint(states[0]), '三端没有使用同一份共享状态转换基线');
+  }
+}
+
+export function summarizeBatchCoverage(batch, results) {
+  const unfinished = results.flatMap(result => (result.需求覆盖.未完成项 || []).map(item => ({端名:result.端名,...item})));
+  const complete = results.every(result => result.需求覆盖.交付性质 === '完整覆盖') && !unfinished.length;
+  const satisfied = complete || batch.交付要求 === '允许部分交付';
+  const action = satisfied ? (complete ? '可完整交付' : '可按授权部分交付')
+    : unfinished.some(item => item.状态 === '未覆盖') ? '继续补齐生成缺口'
+    : unfinished.length ? '等待业务确认' : '复核交付性质声明';
+  return {交付性质:complete?'完整覆盖':'部分覆盖',交付要求满足:satisfied,后续动作:action,未完成项:unfinished};
+}
+
+export async function validateTestcaseBatch(batchFile, repoRoot = process.cwd(), {workbooks = false} = {}) {
+  const root = path.resolve(repoRoot), file = path.resolve(batchFile), batchHash = await hashFile(file), batch = await read(file);
+  const family = path.relative(root, path.dirname(file)).split(path.sep).join('/');
+  requirePass(/^work\/[^/]+$/.test(family), '批次清单必须位于本轮 work 一级目录');
+  const metrics = await read(localPath(root,`${family}/pipeline-metrics.json`));
+  requirePass(metrics.任务?.交付范围 && fingerprint(metrics.任务.交付范围) === fingerprint(batchScope(batch)), '批次范围未在 task-start 固定或已变更；不得自行降低交付要求');
+  requirePass(Array.isArray(batch.端任务), '缺少批次端任务');
+  const manifests = [], states = [], results = [];
+  for (const item of batch.端任务) {
+    requirePass(item.任务目录?.startsWith(`${family}/`), '端任务不得来自旧任务或其他批次');
+    const manifest = await read(localPath(root, `${item.任务目录}/generation-input-manifest.json`));
+    requirePass(manifest.状态转换基线?.startsWith(`${item.任务目录}/`), '状态基线必须属于本轮端任务');
+    manifests.push(manifest); states.push(await read(localPath(root, manifest.状态转换基线)));
+  }
+  validateBatchAgreement(batch, manifests, states);
+  for (const item of batch.端任务) {
+    if (workbooks) {
+      const manifest = manifests[results.length];
+      requirePass(item.工作簿?.startsWith(`outputs/${manifest.项目名称}-case/`) && item.工作簿.endsWith('.xlsx'), '批次缺少当前项目正式工作簿路径');
+      const verification = await read(localPath(root,`${item.任务目录}/delivery-verification.json`));
+      requirePass(verification.导出用途 === '正式交付', '阶段性或旧版导出检查不能代替正式交付检查');
+    }
+    const result = await validateTestcaseDelivery(localPath(root, item.任务目录), root, {
+      phase:'final', ...(workbooks ? {workbook:localPath(root, item.工作簿)} : {}),
+    });
+    requirePass(result.需求覆盖, '批次没有完成 MainBasis 全文覆盖核对');
+    results.push({端名:item.端名, ...result});
+  }
+  // Recheck after all ends: a later end must not make an earlier check stale.
+  requirePass(await hashFile(file) === batchHash, '批次范围在检查期间变化');
+  for (const [index, manifest] of manifests.entries()) {
+    requirePass(await hashFile(localPath(root, `${manifest.任务工作目录}/generation-input-manifest.json`)) === results[index].输入清单SHA256, '端侧输入清单在批次检查期间变化');
+    for (const entry of manifest.输入文件) requirePass(await hashFile(localPath(root,entry.路径)) === entry['SHA-256'], '端侧输入在批次检查期间变化');
+    if (workbooks) {
+      const item = batch.端任务[index], verification = await read(localPath(root,`${item.任务目录}/delivery-verification.json`));
+      requirePass(await hashFile(localPath(root,item.工作簿)) === verification.工作簿SHA256, '工作簿在批次检查期间变化');
+    }
+  }
+  const current = await verifyMainBasis(root, batch.项目目录);
+  if (current.config.policy.原型目录结构) requirePass(batch.端任务.every(item=>typeof item.模块名称==='string' && item.模块名称.trim()), '原型目录项目必须在批次开始时登记各端模块范围');
+  requirePass(current.基线SHA256 === manifests[0].MainBasis基线['SHA-256'], 'MainBasis 版本在批次检查期间变化');
+  return {状态:'有效用例校验通过',...summarizeBatchCoverage(batch,results),批次SHA256:batchHash,端结果:results};
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  const [command, file, option] = process.argv.slice(2);
+  try {
+    requirePass(command === '--batch' && file && (!option || option === '--workbooks'), '用法：validate-testcase-delivery.mjs --batch <本轮batch.json> [--workbooks]');
+    const result = await validateTestcaseBatch(file,process.cwd(),{workbooks:option==='--workbooks'});
+    process.stdout.write(JSON.stringify(result,null,2)+'\n');
+    if (!result.交付要求满足) process.exitCode = 2;
+  } catch (error) { process.stderr.write(error.message+'\n'); process.exitCode = 1; }
 }

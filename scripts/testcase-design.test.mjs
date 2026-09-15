@@ -39,6 +39,28 @@ test("外部管理员动作不能伪装成主播操作，引用空入口不能�
   assert.ok(issues.some((item) => item.includes("入口或动作证据")));
 });
 
+test('子项按明确设计原样传递，允许同维度复用；缺失或修改后未复核不得导出', () => {
+  const sample = rule();
+  sample.用例设计.场景 = '验证邀请记录翻页';
+  sample.用例设计.验证子项 = '邀请记录分页';
+  sample.必要条件 = ['已登录用户的邀请记录超过一页'];
+  sample.用例设计.步骤 = [{执行角色:sample.执行角色,动作:'点击',对象:'下一页',操作:'点击下一页',证据:[0]}];
+  sample.目标状态或可观察结果 = '显示下一页邀请记录';
+  const first = reviewed(sample);
+  assert.equal(caseFromRule(first,1,'USER').验证用例子项,'邀请记录分页');
+  const previous = structuredClone(sample);
+  previous.用例设计.步骤[0].操作 = '点击上一页';
+  previous.用例设计.步骤[0].对象 = '上一页';
+  previous.目标状态或可观察结果 = '显示上一页邀请记录';
+  assert.equal(caseFromRule(reviewed(previous),2,'USER').验证用例子项,'邀请记录分页');
+  first.用例设计.验证子项 = '连麦邀请状态';
+  assert.throws(()=>caseFromRule(first,1,'USER'),/复核已失效/);
+  for (const value of [undefined,'','   ']) {
+    sample.用例设计.验证子项 = value;
+    assert.throws(()=>caseFromRule(reviewed(sample),1,'USER'),/缺少明确验证子项/);
+  }
+});
+
 test("计算按已命名业务变量执行，拒绝未知公式、零分母和错误最终值", () => {
   const expression = { 运算: "*", 参数: [{ 变量: "price" }, { 变量: "quantity" }] };
   assert.equal(evaluateCalculation(expression, { price: 10, quantity: 3 }), 30);

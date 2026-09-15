@@ -683,6 +683,9 @@ window.LUMA_ADMIN_MOCK = {
   mock.propItems = mock.propItems.filter((item) => ['medal', 'bubble', 'avatar'].includes(item.type));
   mock.propItems.forEach((item) => {
     item.names = { ...item.names, zh: item.names.zh || propZhNames[item.id] || item.names.id };
+    item.price ||= 100;
+    item.wearableStart ||= '2026-10-01';
+    item.wearableEnd ||= '2026-12-31';
   });
   mock.pushItems.forEach((item) => {
     const translation = pushTranslations[item.id] || {};

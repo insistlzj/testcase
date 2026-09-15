@@ -1,0 +1,2741 @@
+{
+  "schemaVersion": "1.0",
+  "说明": "以本轮当前需求设计的38项跨端与主要状态转换；未完成的其他条款和分支保留在全文覆盖清单，不据此声称全生命周期完整覆盖。",
+  "来源文档": {
+    "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+    "SHA-256": "a1d500fc0194549e48d645533cb008f356de1cf7be9b756c5a17597de307c7a6"
+  },
+  "状态转换": [
+    {
+      "共同业务对象": "入会申请",
+      "来源状态": "无处理中申请",
+      "触发动作": "提交入会申请",
+      "目标状态": "待公会审核",
+      "执行角色": "用户",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-FB1DDCCD736A53",
+      "流程编号": "FLOW-B8276CAE",
+      "证据": [
+        {
+          "需求编号": "REQ-ceba4c98a7af",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 978
+        },
+        {
+          "需求编号": "REQ-346431dc118a",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 979
+        },
+        {
+          "需求编号": "REQ-90b7bc82b314",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 980
+        },
+        {
+          "需求编号": "REQ-eea2fc98ca34",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 982
+        },
+        {
+          "需求编号": "REQ-ba11a1e6ab77",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 985
+        },
+        {
+          "需求编号": "REQ-462242468d38",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 986
+        },
+        {
+          "需求编号": "REQ-fff97e38fbb4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 987
+        },
+        {
+          "需求编号": "REQ-d2fbf9922c0b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 988
+        },
+        {
+          "需求编号": "REQ-15f627e7928f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2095
+        },
+        {
+          "需求编号": "REQ-bbd9cc4ccd76",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2098
+        }
+      ]
+    },
+    {
+      "共同业务对象": "入会申请",
+      "来源状态": "待公会审核",
+      "触发动作": "公会通过申请",
+      "目标状态": "待平台审核",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-F57AE597D9E9F3",
+      "流程编号": "FLOW-B8276CAE",
+      "证据": [
+        {
+          "需求编号": "REQ-e6229e5b4311",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2112
+        },
+        {
+          "需求编号": "REQ-a0fd66fbb2fb",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2113
+        },
+        {
+          "需求编号": "REQ-cf1b70d3c79f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2114
+        },
+        {
+          "需求编号": "REQ-889380bda48a",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2116
+        },
+        {
+          "需求编号": "REQ-dee8a804952b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2117
+        },
+        {
+          "需求编号": "REQ-01ce3495ca45",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2118
+        },
+        {
+          "需求编号": "REQ-da806b26301b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2119
+        },
+        {
+          "需求编号": "REQ-a12fc7f0f101",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 997
+        },
+        {
+          "需求编号": "REQ-a8135e417055",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1001
+        },
+        {
+          "需求编号": "REQ-a1486babc676",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2555
+        },
+        {
+          "需求编号": "REQ-5135045639b7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2556
+        },
+        {
+          "需求编号": "REQ-d30769807547",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2557
+        },
+        {
+          "需求编号": "REQ-f2ecf2583393",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2559
+        }
+      ]
+    },
+    {
+      "共同业务对象": "入会申请",
+      "来源状态": "待平台审核",
+      "触发动作": "平台通过终审",
+      "目标状态": "已加入公会并取得主播身份",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-01270E6C9F4190",
+      "流程编号": "FLOW-B8276CAE",
+      "证据": [
+        {
+          "需求编号": "REQ-239b36943cc7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2565
+        },
+        {
+          "需求编号": "REQ-46ad9a1720b8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2566
+        },
+        {
+          "需求编号": "REQ-2fa646efb769",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2567
+        },
+        {
+          "需求编号": "REQ-8f0c6407dafc",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2568
+        },
+        {
+          "需求编号": "REQ-ff7cedd8262e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2570
+        },
+        {
+          "需求编号": "REQ-d72906c23271",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 994
+        },
+        {
+          "需求编号": "REQ-a928c89adce3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 995
+        },
+        {
+          "需求编号": "REQ-d51b9931ad53",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 996
+        },
+        {
+          "需求编号": "REQ-a12fc7f0f101",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 997
+        },
+        {
+          "需求编号": "REQ-79ac284bd1ea",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 998
+        },
+        {
+          "需求编号": "REQ-3a4e7948c61c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 999
+        },
+        {
+          "需求编号": "REQ-33be2218af0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1000
+        },
+        {
+          "需求编号": "REQ-a8135e417055",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1001
+        },
+        {
+          "需求编号": "REQ-8d7f1a453117",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1002
+        },
+        {
+          "需求编号": "REQ-6a1f0c635a7b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2149
+        },
+        {
+          "需求编号": "REQ-1037a5908f68",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2150
+        },
+        {
+          "需求编号": "REQ-bae0f08d57d5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2151
+        },
+        {
+          "需求编号": "REQ-0caffc93bbfd",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2152
+        },
+        {
+          "需求编号": "REQ-a228fa3a63d1",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2153
+        },
+        {
+          "需求编号": "REQ-ac6f0201e1ae",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2154
+        },
+        {
+          "需求编号": "REQ-3b7b1bf1050e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2155
+        }
+      ]
+    },
+    {
+      "共同业务对象": "入会申请",
+      "来源状态": "待公会审核",
+      "触发动作": "公会驳回",
+      "目标状态": "申请作废",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "分支类型": "拒绝分支",
+      "状态转换标识": "ST-BF0795A5902DFB",
+      "流程编号": "FLOW-B8276CAE",
+      "证据": [
+        {
+          "需求编号": "REQ-cf1b70d3c79f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2114
+        },
+        {
+          "需求编号": "REQ-889380bda48a",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2116
+        },
+        {
+          "需求编号": "REQ-dee8a804952b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2117
+        },
+        {
+          "需求编号": "REQ-da806b26301b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2119
+        },
+        {
+          "需求编号": "REQ-a12fc7f0f101",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 997
+        },
+        {
+          "需求编号": "REQ-79ac284bd1ea",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 998
+        },
+        {
+          "需求编号": "REQ-a8135e417055",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1001
+        }
+      ]
+    },
+    {
+      "共同业务对象": "入会申请",
+      "来源状态": "待平台审核",
+      "触发动作": "平台驳回",
+      "目标状态": "申请作废",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "用户App",
+        "管理后台"
+      ],
+      "分支类型": "拒绝分支",
+      "状态转换标识": "ST-46501AA34ADDAC",
+      "流程编号": "FLOW-B8276CAE",
+      "证据": [
+        {
+          "需求编号": "REQ-46ad9a1720b8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2566
+        },
+        {
+          "需求编号": "REQ-2fa646efb769",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2567
+        },
+        {
+          "需求编号": "REQ-8f0c6407dafc",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2568
+        },
+        {
+          "需求编号": "REQ-0b99db22ad31",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2569
+        },
+        {
+          "需求编号": "REQ-ff7cedd8262e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2570
+        },
+        {
+          "需求编号": "REQ-a12fc7f0f101",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 997
+        },
+        {
+          "需求编号": "REQ-79ac284bd1ea",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 998
+        },
+        {
+          "需求编号": "REQ-a8135e417055",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1001
+        }
+      ]
+    },
+    {
+      "共同业务对象": "退会申请",
+      "来源状态": "公会内主播",
+      "触发动作": "提交退会申请",
+      "目标状态": "待公会审核且仍为主播",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-8785C763988143",
+      "流程编号": "FLOW-289CDBD1",
+      "证据": [
+        {
+          "需求编号": "REQ-02d8a01510f8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1031
+        },
+        {
+          "需求编号": "REQ-07eddabd29bb",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1033
+        },
+        {
+          "需求编号": "REQ-f73c1b223eaa",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1035
+        },
+        {
+          "需求编号": "REQ-fd33dcc75cb2",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1036
+        },
+        {
+          "需求编号": "REQ-c4f27cd5a1e2",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2134
+        },
+        {
+          "需求编号": "REQ-f42e4484494b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2135
+        },
+        {
+          "需求编号": "REQ-9fb4a71d06b5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2137
+        },
+        {
+          "需求编号": "REQ-c27f4dc80b59",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2138
+        },
+        {
+          "需求编号": "REQ-e04cd7aa2abc",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2139
+        },
+        {
+          "需求编号": "REQ-44d45e0c5d62",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2142
+        },
+        {
+          "需求编号": "REQ-1ba98012803f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2143
+        },
+        {
+          "需求编号": "REQ-305ac142e6f4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2145
+        }
+      ]
+    },
+    {
+      "共同业务对象": "退会申请",
+      "来源状态": "待审核",
+      "触发动作": "同意退会",
+      "目标状态": "退出公会且失去主播身份",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-095E0E836B7635",
+      "流程编号": "FLOW-289CDBD1",
+      "证据": [
+        {
+          "需求编号": "REQ-c27f4dc80b59",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2138
+        },
+        {
+          "需求编号": "REQ-0bb5af2f5376",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2140
+        },
+        {
+          "需求编号": "REQ-6cafd7643204",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2141
+        },
+        {
+          "需求编号": "REQ-44d45e0c5d62",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2142
+        },
+        {
+          "需求编号": "REQ-1ba98012803f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2143
+        },
+        {
+          "需求编号": "REQ-7126bee0f50e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2144
+        },
+        {
+          "需求编号": "REQ-305ac142e6f4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2145
+        },
+        {
+          "需求编号": "REQ-a928c89adce3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 995
+        },
+        {
+          "需求编号": "REQ-a12fc7f0f101",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 997
+        },
+        {
+          "需求编号": "REQ-79ac284bd1ea",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 998
+        },
+        {
+          "需求编号": "REQ-3a4e7948c61c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 999
+        },
+        {
+          "需求编号": "REQ-33be2218af0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1000
+        },
+        {
+          "需求编号": "REQ-a8135e417055",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1001
+        },
+        {
+          "需求编号": "REQ-8d7f1a453117",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1002
+        }
+      ]
+    },
+    {
+      "共同业务对象": "退会申请",
+      "来源状态": "待审核",
+      "触发动作": "驳回退会",
+      "目标状态": "仍在公会且保留主播身份",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "分支类型": "拒绝分支",
+      "状态转换标识": "ST-FB9350E8BFFA81",
+      "流程编号": "FLOW-289CDBD1",
+      "证据": [
+        {
+          "需求编号": "REQ-c27f4dc80b59",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2138
+        },
+        {
+          "需求编号": "REQ-0bb5af2f5376",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2140
+        },
+        {
+          "需求编号": "REQ-6cafd7643204",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2141
+        },
+        {
+          "需求编号": "REQ-44d45e0c5d62",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2142
+        },
+        {
+          "需求编号": "REQ-1ba98012803f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2143
+        },
+        {
+          "需求编号": "REQ-7126bee0f50e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2144
+        },
+        {
+          "需求编号": "REQ-305ac142e6f4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2145
+        },
+        {
+          "需求编号": "REQ-a928c89adce3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 995
+        },
+        {
+          "需求编号": "REQ-a12fc7f0f101",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 997
+        },
+        {
+          "需求编号": "REQ-79ac284bd1ea",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 998
+        },
+        {
+          "需求编号": "REQ-3a4e7948c61c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 999
+        },
+        {
+          "需求编号": "REQ-33be2218af0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1000
+        },
+        {
+          "需求编号": "REQ-a8135e417055",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1001
+        },
+        {
+          "需求编号": "REQ-8d7f1a453117",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1002
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播开播权限",
+      "来源状态": "平台开播开关为关闭，公会原开关为关闭，平台未锁定公会权限",
+      "触发动作": "尝试开播",
+      "目标状态": "禁止开播",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-7CCC66F4E10EF2",
+      "流程编号": "FLOW-B5CAB366",
+      "证据": [
+        {
+          "需求编号": "REQ-f3cafeef850c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1190
+        },
+        {
+          "需求编号": "REQ-87ffa9153ad7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1191
+        },
+        {
+          "需求编号": "REQ-d3dcb9f11f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1196
+        },
+        {
+          "需求编号": "REQ-c746884dbbc3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1197
+        },
+        {
+          "需求编号": "REQ-9c8b33e8ea5e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1199
+        },
+        {
+          "需求编号": "REQ-b6bddb65ebc8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1200
+        },
+        {
+          "需求编号": "REQ-2afca99fcc33",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1206
+        },
+        {
+          "需求编号": "REQ-e9225b315300",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1207
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播开播权限",
+      "来源状态": "平台开播开关为关闭，公会原开关为开启，平台未锁定公会权限",
+      "触发动作": "尝试开播",
+      "目标状态": "禁止开播",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-5CAB53EDBAE58E",
+      "流程编号": "FLOW-B5CAB366",
+      "证据": [
+        {
+          "需求编号": "REQ-f3cafeef850c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1190
+        },
+        {
+          "需求编号": "REQ-87ffa9153ad7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1191
+        },
+        {
+          "需求编号": "REQ-d3dcb9f11f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1196
+        },
+        {
+          "需求编号": "REQ-c746884dbbc3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1197
+        },
+        {
+          "需求编号": "REQ-9c8b33e8ea5e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1199
+        },
+        {
+          "需求编号": "REQ-b6bddb65ebc8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1200
+        },
+        {
+          "需求编号": "REQ-2afca99fcc33",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1206
+        },
+        {
+          "需求编号": "REQ-e9225b315300",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1207
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播开播权限",
+      "来源状态": "平台开播开关为关闭，公会原开关为关闭，平台已锁定公会权限",
+      "触发动作": "尝试开播",
+      "目标状态": "禁止开播",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-D1AA0B2D190C66",
+      "流程编号": "FLOW-B5CAB366",
+      "证据": [
+        {
+          "需求编号": "REQ-f3cafeef850c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1190
+        },
+        {
+          "需求编号": "REQ-87ffa9153ad7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1191
+        },
+        {
+          "需求编号": "REQ-d3dcb9f11f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1196
+        },
+        {
+          "需求编号": "REQ-c746884dbbc3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1197
+        },
+        {
+          "需求编号": "REQ-9c8b33e8ea5e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1199
+        },
+        {
+          "需求编号": "REQ-b6bddb65ebc8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1200
+        },
+        {
+          "需求编号": "REQ-2afca99fcc33",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1206
+        },
+        {
+          "需求编号": "REQ-e9225b315300",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1207
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播开播权限",
+      "来源状态": "平台开播开关为关闭，公会原开关为开启，平台已锁定公会权限",
+      "触发动作": "尝试开播",
+      "目标状态": "禁止开播",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-692EF1CD5F0BB2",
+      "流程编号": "FLOW-B5CAB366",
+      "证据": [
+        {
+          "需求编号": "REQ-f3cafeef850c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1190
+        },
+        {
+          "需求编号": "REQ-87ffa9153ad7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1191
+        },
+        {
+          "需求编号": "REQ-d3dcb9f11f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1196
+        },
+        {
+          "需求编号": "REQ-c746884dbbc3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1197
+        },
+        {
+          "需求编号": "REQ-9c8b33e8ea5e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1199
+        },
+        {
+          "需求编号": "REQ-b6bddb65ebc8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1200
+        },
+        {
+          "需求编号": "REQ-2afca99fcc33",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1206
+        },
+        {
+          "需求编号": "REQ-e9225b315300",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1207
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播开播权限",
+      "来源状态": "平台开播开关为开启，公会原开关为关闭，平台未锁定公会权限",
+      "触发动作": "尝试开播",
+      "目标状态": "禁止开播",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-B1059ABF1DA0CC",
+      "流程编号": "FLOW-B5CAB366",
+      "证据": [
+        {
+          "需求编号": "REQ-f3cafeef850c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1190
+        },
+        {
+          "需求编号": "REQ-87ffa9153ad7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1191
+        },
+        {
+          "需求编号": "REQ-d3dcb9f11f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1196
+        },
+        {
+          "需求编号": "REQ-c746884dbbc3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1197
+        },
+        {
+          "需求编号": "REQ-9c8b33e8ea5e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1199
+        },
+        {
+          "需求编号": "REQ-b6bddb65ebc8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1200
+        },
+        {
+          "需求编号": "REQ-2afca99fcc33",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1206
+        },
+        {
+          "需求编号": "REQ-e9225b315300",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1207
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播开播权限",
+      "来源状态": "平台开播开关为开启，公会原开关为开启，平台未锁定公会权限",
+      "触发动作": "尝试开播",
+      "目标状态": "进入直播中",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-3FEF20433A464E",
+      "流程编号": "FLOW-B5CAB366",
+      "证据": [
+        {
+          "需求编号": "REQ-f3cafeef850c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1190
+        },
+        {
+          "需求编号": "REQ-87ffa9153ad7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1191
+        },
+        {
+          "需求编号": "REQ-d3dcb9f11f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1196
+        },
+        {
+          "需求编号": "REQ-c746884dbbc3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1197
+        },
+        {
+          "需求编号": "REQ-9c8b33e8ea5e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1199
+        },
+        {
+          "需求编号": "REQ-b6bddb65ebc8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1200
+        },
+        {
+          "需求编号": "REQ-2afca99fcc33",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1206
+        },
+        {
+          "需求编号": "REQ-e9225b315300",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1207
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播开播权限",
+      "来源状态": "平台开播开关为开启，公会原开关为关闭，平台已锁定公会权限",
+      "触发动作": "尝试开播",
+      "目标状态": "进入直播中",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-A749CF15FA863C",
+      "流程编号": "FLOW-B5CAB366",
+      "证据": [
+        {
+          "需求编号": "REQ-f3cafeef850c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1190
+        },
+        {
+          "需求编号": "REQ-87ffa9153ad7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1191
+        },
+        {
+          "需求编号": "REQ-d3dcb9f11f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1196
+        },
+        {
+          "需求编号": "REQ-c746884dbbc3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1197
+        },
+        {
+          "需求编号": "REQ-9c8b33e8ea5e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1199
+        },
+        {
+          "需求编号": "REQ-b6bddb65ebc8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1200
+        },
+        {
+          "需求编号": "REQ-2afca99fcc33",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1206
+        },
+        {
+          "需求编号": "REQ-e9225b315300",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1207
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播开播权限",
+      "来源状态": "平台开播开关为开启，公会原开关为开启，平台已锁定公会权限",
+      "触发动作": "尝试开播",
+      "目标状态": "进入直播中",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-E9AADD21A447B9",
+      "流程编号": "FLOW-B5CAB366",
+      "证据": [
+        {
+          "需求编号": "REQ-f3cafeef850c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1190
+        },
+        {
+          "需求编号": "REQ-87ffa9153ad7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1191
+        },
+        {
+          "需求编号": "REQ-d3dcb9f11f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1196
+        },
+        {
+          "需求编号": "REQ-c746884dbbc3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1197
+        },
+        {
+          "需求编号": "REQ-9c8b33e8ea5e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1199
+        },
+        {
+          "需求编号": "REQ-b6bddb65ebc8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1200
+        },
+        {
+          "需求编号": "REQ-2afca99fcc33",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1206
+        },
+        {
+          "需求编号": "REQ-e9225b315300",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1207
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播开播权限",
+      "来源状态": "平台开启且锁定，公会原设置关闭",
+      "触发动作": "平台解除锁定",
+      "目标状态": "恢复公会原设置关闭",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-46504199082460",
+      "流程编号": "FLOW-B5CAB366",
+      "证据": [
+        {
+          "需求编号": "REQ-d130240c4251",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2542
+        },
+        {
+          "需求编号": "REQ-373e19aa441c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2543
+        },
+        {
+          "需求编号": "REQ-010f9be072e9",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2547
+        },
+        {
+          "需求编号": "REQ-9ca7f9940a95",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2548
+        },
+        {
+          "需求编号": "REQ-57c9a3ba03a1",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2202
+        },
+        {
+          "需求编号": "REQ-5b2794c3a2dd",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2203
+        },
+        {
+          "需求编号": "REQ-c38fd8665271",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2204
+        },
+        {
+          "需求编号": "REQ-d2a5c66939bd",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2207
+        },
+        {
+          "需求编号": "REQ-44352c936b14",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2214
+        },
+        {
+          "需求编号": "REQ-3a054fa514c9",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2215
+        },
+        {
+          "需求编号": "REQ-cc2e01100f18",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2217
+        },
+        {
+          "需求编号": "REQ-f3cafeef850c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1190
+        },
+        {
+          "需求编号": "REQ-87ffa9153ad7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1191
+        },
+        {
+          "需求编号": "REQ-d3dcb9f11f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1196
+        },
+        {
+          "需求编号": "REQ-c746884dbbc3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1197
+        },
+        {
+          "需求编号": "REQ-9c8b33e8ea5e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1199
+        },
+        {
+          "需求编号": "REQ-b6bddb65ebc8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1200
+        },
+        {
+          "需求编号": "REQ-2afca99fcc33",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1206
+        },
+        {
+          "需求编号": "REQ-e9225b315300",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1207
+        }
+      ]
+    },
+    {
+      "共同业务对象": "直播场次",
+      "来源状态": "直播中且权限开启",
+      "触发动作": "平台关闭直播权限",
+      "目标状态": "场次结束且不能重新开播",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-65C0302EF813E3",
+      "流程编号": "FLOW-3316A78D",
+      "证据": [
+        {
+          "需求编号": "REQ-d130240c4251",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2542
+        },
+        {
+          "需求编号": "REQ-373e19aa441c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2543
+        },
+        {
+          "需求编号": "REQ-010f9be072e9",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2547
+        },
+        {
+          "需求编号": "REQ-9ca7f9940a95",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2548
+        },
+        {
+          "需求编号": "REQ-5ebd79b1bbf8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 802
+        },
+        {
+          "需求编号": "REQ-dd74c6de0e69",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 805
+        },
+        {
+          "需求编号": "REQ-5d70e4b3fe67",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 807
+        },
+        {
+          "需求编号": "REQ-57c9a3ba03a1",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2202
+        },
+        {
+          "需求编号": "REQ-5b2794c3a2dd",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2203
+        },
+        {
+          "需求编号": "REQ-d2a5c66939bd",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2207
+        },
+        {
+          "需求编号": "REQ-44352c936b14",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2214
+        },
+        {
+          "需求编号": "REQ-3a054fa514c9",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2215
+        },
+        {
+          "需求编号": "REQ-5b67d7facca5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2216
+        }
+      ]
+    },
+    {
+      "共同业务对象": "充值订单",
+      "来源状态": "待支付",
+      "触发动作": "完成渠道支付",
+      "目标状态": "支付成功且到账一次",
+      "执行角色": "用户",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App",
+        "管理后台"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-4A2C2C9AFBAD0F",
+      "流程编号": "FLOW-2BA2481A",
+      "证据": [
+        {
+          "需求编号": "REQ-b1863c50e3dc",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1291
+        },
+        {
+          "需求编号": "REQ-df533863abd0",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1292
+        },
+        {
+          "需求编号": "REQ-afb2e3c341b6",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1295
+        },
+        {
+          "需求编号": "REQ-eccfb73ebed1",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1301
+        },
+        {
+          "需求编号": "REQ-7f4554ffc2b6",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1302
+        },
+        {
+          "需求编号": "REQ-33923242e1a4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1303
+        },
+        {
+          "需求编号": "REQ-dd6df4e4ca51",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1306
+        },
+        {
+          "需求编号": "REQ-60ec2f938995",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1307
+        },
+        {
+          "需求编号": "REQ-7c224188f2bc",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3033
+        },
+        {
+          "需求编号": "REQ-3d354bb90a70",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3034
+        },
+        {
+          "需求编号": "REQ-fa8bd96b4052",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3037
+        },
+        {
+          "需求编号": "REQ-63c70e1efb57",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3038
+        },
+        {
+          "需求编号": "REQ-84cfed3bdffd",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3039
+        }
+      ]
+    },
+    {
+      "共同业务对象": "充值退款",
+      "来源状态": "成功充值且未退款",
+      "触发动作": "后台全额退款",
+      "目标状态": "退款完成并扣回原到账金币",
+      "执行角色": "财务管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "用户App",
+        "管理后台"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-4FBBE588319D02",
+      "流程编号": "FLOW-2815AFE9",
+      "证据": [
+        {
+          "需求编号": "REQ-8e7aa87b5d95",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3048
+        },
+        {
+          "需求编号": "REQ-1f829f8940ff",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3049
+        },
+        {
+          "需求编号": "REQ-0e5199b07a9f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3054
+        },
+        {
+          "需求编号": "REQ-eccfb73ebed1",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1301
+        },
+        {
+          "需求编号": "REQ-33923242e1a4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1303
+        },
+        {
+          "需求编号": "REQ-b5d63468de7c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1315
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播分成导入",
+      "来源状态": "线下结果未导入",
+      "触发动作": "确认导入线下分成",
+      "目标状态": "生成锁定的分成记录",
+      "执行角色": "财务管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "管理后台",
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-CAB5CFAC51A4E3",
+      "流程编号": "FLOW-7B38EAA6",
+      "证据": [
+        {
+          "需求编号": "REQ-ba876ca67d7c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3100
+        },
+        {
+          "需求编号": "REQ-5722d7cb5927",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3102
+        },
+        {
+          "需求编号": "REQ-10841cd8ff25",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3103
+        },
+        {
+          "需求编号": "REQ-f97c65e1f01d",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3111
+        },
+        {
+          "需求编号": "REQ-7c63525f97ff",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3112
+        },
+        {
+          "需求编号": "REQ-defd01187ffd",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1279
+        },
+        {
+          "需求编号": "REQ-f523be65f8f8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1280
+        },
+        {
+          "需求编号": "REQ-c14d836f25cf",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1281
+        },
+        {
+          "需求编号": "REQ-30aac05533fe",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1282
+        },
+        {
+          "需求编号": "REQ-95fd6cd9e563",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1283
+        },
+        {
+          "需求编号": "REQ-fba5f1526c9c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1284
+        },
+        {
+          "需求编号": "REQ-75a3b148aa3c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1285
+        }
+      ]
+    },
+    {
+      "共同业务对象": "公会分成导入",
+      "来源状态": "线下结果未导入",
+      "触发动作": "确认导入线下分成",
+      "目标状态": "生成锁定的分成记录",
+      "执行角色": "财务管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "管理后台",
+        "公会App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-12E46DFAE5307C",
+      "流程编号": "FLOW-8FE0E611",
+      "证据": [
+        {
+          "需求编号": "REQ-6676d19ab3a5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3139
+        },
+        {
+          "需求编号": "REQ-e1f56b5ef1ca",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3140
+        },
+        {
+          "需求编号": "REQ-81a1b1243e27",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3142
+        },
+        {
+          "需求编号": "REQ-6a167aa9190d",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3150
+        },
+        {
+          "需求编号": "REQ-95c2ebec4848",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3151
+        },
+        {
+          "需求编号": "REQ-97eddfd7336d",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2465
+        },
+        {
+          "需求编号": "REQ-290d0c4a70a5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2466
+        },
+        {
+          "需求编号": "REQ-ab7fad33ca13",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2467
+        },
+        {
+          "需求编号": "REQ-26b0cd31708d",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2468
+        }
+      ]
+    },
+    {
+      "共同业务对象": "关注关系",
+      "来源状态": "未关注",
+      "触发动作": "点击关注",
+      "目标状态": "已关注",
+      "执行角色": "用户",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-1144ABD74659E2",
+      "流程编号": "FLOW-CBE8E6D5",
+      "证据": [
+        {
+          "需求编号": "REQ-5abada83e2e9",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1042
+        },
+        {
+          "需求编号": "REQ-92eca975cc39",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1044
+        },
+        {
+          "需求编号": "REQ-9b8279d86ad4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1045
+        },
+        {
+          "需求编号": "REQ-5273bfbbbf60",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1046
+        },
+        {
+          "需求编号": "REQ-64c43dff585c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1047
+        },
+        {
+          "需求编号": "REQ-96e662bf62f9",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1049
+        }
+      ]
+    },
+    {
+      "共同业务对象": "好友申请",
+      "来源状态": "双方非好友且无待审申请",
+      "触发动作": "发送好友申请",
+      "目标状态": "等待对方处理",
+      "执行角色": "用户",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-29A77E4EC81C3B",
+      "流程编号": "FLOW-74D9AD48",
+      "证据": [
+        {
+          "需求编号": "REQ-92eca975cc39",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1044
+        },
+        {
+          "需求编号": "REQ-5273bfbbbf60",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1046
+        },
+        {
+          "需求编号": "REQ-64c43dff585c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1047
+        },
+        {
+          "需求编号": "REQ-b90f85aeaa35",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1050
+        },
+        {
+          "需求编号": "REQ-fa316e8ebde9",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 872
+        },
+        {
+          "需求编号": "REQ-6638d0f48f9f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 873
+        },
+        {
+          "需求编号": "REQ-039d749c962c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 875
+        },
+        {
+          "需求编号": "REQ-d3143269edb7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 876
+        },
+        {
+          "需求编号": "REQ-c2c029b3b74b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 877
+        },
+        {
+          "需求编号": "REQ-3dd405057a47",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 880
+        }
+      ]
+    },
+    {
+      "共同业务对象": "账号拉黑",
+      "来源状态": "甲乙无拉黑关系",
+      "触发动作": "甲拉黑乙",
+      "目标状态": "建立双向业务限制并清理关系",
+      "执行角色": "用户",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-4E1C6EF156A262",
+      "流程编号": "FLOW-CF070039",
+      "证据": [
+        {
+          "需求编号": "REQ-9ebb6e575423",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 936
+        },
+        {
+          "需求编号": "REQ-75dd5551e443",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 937
+        },
+        {
+          "需求编号": "REQ-fd903e6b2ca7",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 938
+        }
+      ]
+    },
+    {
+      "共同业务对象": "粉丝团成员",
+      "来源状态": "已加入",
+      "触发动作": "主动退出粉丝群",
+      "目标状态": "退团并清零粉丝成长",
+      "执行角色": "用户",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-3F168C24F8E5D9",
+      "流程编号": "FLOW-0B36AD5E",
+      "证据": [
+        {
+          "需求编号": "REQ-26afc3a3ec61",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 913
+        },
+        {
+          "需求编号": "REQ-a0492a84dfb6",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 915
+        },
+        {
+          "需求编号": "REQ-43a003d8c23f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 916
+        }
+      ]
+    },
+    {
+      "共同业务对象": "场次门票",
+      "来源状态": "未购本场门票",
+      "触发动作": "支付门票进入",
+      "目标状态": "本场门票有效",
+      "执行角色": "用户",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App",
+        "管理后台"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-E7C0A0A17B8040",
+      "流程编号": "FLOW-4E34EF63",
+      "证据": [
+        {
+          "需求编号": "REQ-13cdd1512b85",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 764
+        },
+        {
+          "需求编号": "REQ-af9fad486413",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 765
+        },
+        {
+          "需求编号": "REQ-376b8a19b5d1",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 767
+        },
+        {
+          "需求编号": "REQ-8db6c2c015b3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 772
+        },
+        {
+          "需求编号": "REQ-88567f103f20",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3077
+        }
+      ]
+    },
+    {
+      "共同业务对象": "礼物消费",
+      "来源状态": "礼物上架且余额足够",
+      "触发动作": "赠送礼物",
+      "目标状态": "扣款一次并生成消费记录",
+      "执行角色": "用户",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-F3A71EBBD06B4D",
+      "流程编号": "FLOW-3674B837",
+      "证据": [
+        {
+          "需求编号": "REQ-80a63c1ae2ea",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1576
+        },
+        {
+          "需求编号": "REQ-661e85b151ed",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1577
+        },
+        {
+          "需求编号": "REQ-007896e4eadc",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1578
+        },
+        {
+          "需求编号": "REQ-266b9b9485db",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1580
+        },
+        {
+          "需求编号": "REQ-4d7983ee3408",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1583
+        },
+        {
+          "需求编号": "REQ-066734efc56b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1585
+        },
+        {
+          "需求编号": "REQ-bed789897c95",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1586
+        },
+        {
+          "需求编号": "REQ-522c5292c024",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2384
+        },
+        {
+          "需求编号": "REQ-61bbf5f75bd1",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2385
+        },
+        {
+          "需求编号": "REQ-d9fa75022018",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2387
+        },
+        {
+          "需求编号": "REQ-2f94055c070c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2388
+        },
+        {
+          "需求编号": "REQ-0be76a1f4058",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2389
+        },
+        {
+          "需求编号": "REQ-056fee828da5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2390
+        },
+        {
+          "需求编号": "REQ-fb723479307b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2391
+        },
+        {
+          "需求编号": "REQ-fbb528057483",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2392
+        },
+        {
+          "需求编号": "REQ-8bae2a494638",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2393
+        },
+        {
+          "需求编号": "REQ-77644e12086b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2395
+        },
+        {
+          "需求编号": "REQ-5e39153fcfa6",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2396
+        },
+        {
+          "需求编号": "REQ-8526bb52368c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2397
+        },
+        {
+          "需求编号": "REQ-916c296c5395",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2398
+        },
+        {
+          "需求编号": "REQ-fa2f2cd06047",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3060
+        },
+        {
+          "需求编号": "REQ-ce5a3ea958dd",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3061
+        },
+        {
+          "需求编号": "REQ-1c89bea50533",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3062
+        },
+        {
+          "需求编号": "REQ-d4f480f23cac",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3063
+        },
+        {
+          "需求编号": "REQ-ad02ff530d39",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3065
+        },
+        {
+          "需求编号": "REQ-290d7b832404",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3066
+        },
+        {
+          "需求编号": "REQ-e73bc1482a71",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3067
+        }
+      ]
+    },
+    {
+      "共同业务对象": "主播连麦",
+      "来源状态": "双方未连麦",
+      "触发动作": "发送连麦邀请",
+      "目标状态": "甲等待乙回应",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-CE470242B722DE",
+      "流程编号": "FLOW-C4714004",
+      "证据": [
+        {
+          "需求编号": "REQ-f9623e60781e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1825
+        },
+        {
+          "需求编号": "REQ-250e13b31320",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1826
+        },
+        {
+          "需求编号": "REQ-fcf4f0b8f117",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1827
+        },
+        {
+          "需求编号": "REQ-00c732684671",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1828
+        },
+        {
+          "需求编号": "REQ-fed69bde9ff8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1829
+        },
+        {
+          "需求编号": "REQ-b5c3e7b92403",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1830
+        }
+      ]
+    },
+    {
+      "共同业务对象": "公会运营消息",
+      "来源状态": "待发送",
+      "触发动作": "确认发送运营消息",
+      "目标状态": "生成接收快照及通知",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "观察端": [
+        "公会App",
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-B459E1901A1359",
+      "流程编号": "FLOW-62C3136D",
+      "证据": [
+        {
+          "需求编号": "REQ-6e882aec84a0",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2235
+        },
+        {
+          "需求编号": "REQ-b23c987807fa",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2238
+        },
+        {
+          "需求编号": "REQ-6caa3d6ba0bd",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2239
+        },
+        {
+          "需求编号": "REQ-6e53209ec69b",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1161
+        },
+        {
+          "需求编号": "REQ-60f97773a8af",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1162
+        },
+        {
+          "需求编号": "REQ-4a4d3dc2c8a5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1163
+        },
+        {
+          "需求编号": "REQ-7bc85d9f5b42",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1164
+        }
+      ]
+    },
+    {
+      "共同业务对象": "虚拟金币发放",
+      "来源状态": "在月度额度内",
+      "触发动作": "公会发放虚拟金币",
+      "目标状态": "增加虚拟余额并占用月额度",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "观察端": [
+        "公会App",
+        "管理后台",
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-5EF3ED47ED09D0",
+      "流程编号": "FLOW-E6B5F087",
+      "证据": [
+        {
+          "需求编号": "REQ-32378557ba74",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2297
+        },
+        {
+          "需求编号": "REQ-cdac02520c9e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2298
+        },
+        {
+          "需求编号": "REQ-6187fe048a35",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2300
+        },
+        {
+          "需求编号": "REQ-2fa9a7ac1d2e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2302
+        },
+        {
+          "需求编号": "REQ-722c17a54831",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2303
+        },
+        {
+          "需求编号": "REQ-805cf44f6817",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2304
+        },
+        {
+          "需求编号": "REQ-43f3dfaba8d2",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2305
+        },
+        {
+          "需求编号": "REQ-3cb9a733a5b0",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2306
+        },
+        {
+          "需求编号": "REQ-dafa95393229",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3374
+        },
+        {
+          "需求编号": "REQ-2d8cefe6c177",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3375
+        },
+        {
+          "需求编号": "REQ-fd0506fa2db0",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3376
+        },
+        {
+          "需求编号": "REQ-95d55a52be24",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 681
+        }
+      ]
+    },
+    {
+      "共同业务对象": "账号状态",
+      "来源状态": "正常",
+      "触发动作": "平台封禁账号",
+      "目标状态": "封禁且终止会话",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "管理后台",
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-F07DF2985780A8",
+      "流程编号": "FLOW-449636A1",
+      "证据": [
+        {
+          "需求编号": "REQ-12e618050f4f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2516
+        },
+        {
+          "需求编号": "REQ-c006ed524230",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1360
+        },
+        {
+          "需求编号": "REQ-f07ba4f39c72",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1367
+        },
+        {
+          "需求编号": "REQ-5ebd79b1bbf8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 802
+        },
+        {
+          "需求编号": "REQ-dd74c6de0e69",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 805
+        },
+        {
+          "需求编号": "REQ-5d70e4b3fe67",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 807
+        }
+      ]
+    },
+    {
+      "共同业务对象": "公会状态",
+      "来源状态": "启用",
+      "触发动作": "平台停用公会",
+      "目标状态": "公会停用并解除主播关系",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "管理后台",
+        "公会App",
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-CA583426A898CD",
+      "流程编号": "FLOW-BBDF5E6E",
+      "证据": [
+        {
+          "需求编号": "REQ-98bbfd149ca6",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2721
+        },
+        {
+          "需求编号": "REQ-06e5fe687f7e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2726
+        },
+        {
+          "需求编号": "REQ-99fe0d1b0f0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2727
+        },
+        {
+          "需求编号": "REQ-0db0877f0fe5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2048
+        },
+        {
+          "需求编号": "REQ-0fc472689017",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2049
+        },
+        {
+          "需求编号": "REQ-edeab24ec66a",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2050
+        },
+        {
+          "需求编号": "REQ-7f64ff578699",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2711
+        },
+        {
+          "需求编号": "REQ-d72906c23271",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 994
+        },
+        {
+          "需求编号": "REQ-a928c89adce3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 995
+        },
+        {
+          "需求编号": "REQ-d51b9931ad53",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 996
+        },
+        {
+          "需求编号": "REQ-a12fc7f0f101",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 997
+        },
+        {
+          "需求编号": "REQ-79ac284bd1ea",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 998
+        },
+        {
+          "需求编号": "REQ-3a4e7948c61c",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 999
+        },
+        {
+          "需求编号": "REQ-33be2218af0e",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1000
+        },
+        {
+          "需求编号": "REQ-a8135e417055",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1001
+        },
+        {
+          "需求编号": "REQ-8d7f1a453117",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1002
+        }
+      ]
+    },
+    {
+      "共同业务对象": "直播举报处置",
+      "来源状态": "待处理且本场直播中",
+      "触发动作": "不处置",
+      "目标状态": "不处置处理完成且场次直播中",
+      "执行角色": "审核管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "管理后台",
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-7FFD543C9B4292",
+      "流程编号": "FLOW-1AF39D89",
+      "证据": [
+        {
+          "需求编号": "REQ-9c0667b4cf62",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2673
+        },
+        {
+          "需求编号": "REQ-dd130a0f8dd4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2675
+        },
+        {
+          "需求编号": "REQ-dde89ade1a55",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2677
+        },
+        {
+          "需求编号": "REQ-9bc480896cd5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2678
+        },
+        {
+          "需求编号": "REQ-839dd56e82e3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2679
+        },
+        {
+          "需求编号": "REQ-741630d0f3d0",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2680
+        },
+        {
+          "需求编号": "REQ-9676a9ade1da",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 797
+        },
+        {
+          "需求编号": "REQ-5ebd79b1bbf8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 802
+        },
+        {
+          "需求编号": "REQ-dd74c6de0e69",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 805
+        },
+        {
+          "需求编号": "REQ-5d70e4b3fe67",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 807
+        },
+        {
+          "需求编号": "REQ-26c90db50167",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 850
+        },
+        {
+          "需求编号": "REQ-fd0092181557",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1865
+        },
+        {
+          "需求编号": "REQ-02eb22f92b59",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2409
+        },
+        {
+          "需求编号": "REQ-b8c55635b4fb",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2410
+        },
+        {
+          "需求编号": "REQ-c3c43cdfeffa",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2537
+        },
+        {
+          "需求编号": "REQ-5486bbbe8ae4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2584
+        },
+        {
+          "需求编号": "REQ-0f804538eb02",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2595
+        },
+        {
+          "需求编号": "REQ-d2dab6a4ea9a",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2596
+        }
+      ]
+    },
+    {
+      "共同业务对象": "直播举报处置",
+      "来源状态": "待处理且本场直播中",
+      "触发动作": "警告",
+      "目标状态": "警告处理完成且场次直播中",
+      "执行角色": "审核管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "管理后台",
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-A3F1AF03377254",
+      "流程编号": "FLOW-1AF39D89",
+      "证据": [
+        {
+          "需求编号": "REQ-9c0667b4cf62",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2673
+        },
+        {
+          "需求编号": "REQ-dd130a0f8dd4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2675
+        },
+        {
+          "需求编号": "REQ-dde89ade1a55",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2677
+        },
+        {
+          "需求编号": "REQ-9bc480896cd5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2678
+        },
+        {
+          "需求编号": "REQ-839dd56e82e3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2679
+        },
+        {
+          "需求编号": "REQ-741630d0f3d0",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2680
+        },
+        {
+          "需求编号": "REQ-9676a9ade1da",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 797
+        },
+        {
+          "需求编号": "REQ-5ebd79b1bbf8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 802
+        },
+        {
+          "需求编号": "REQ-dd74c6de0e69",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 805
+        },
+        {
+          "需求编号": "REQ-5d70e4b3fe67",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 807
+        },
+        {
+          "需求编号": "REQ-26c90db50167",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 850
+        },
+        {
+          "需求编号": "REQ-fd0092181557",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1865
+        },
+        {
+          "需求编号": "REQ-02eb22f92b59",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2409
+        },
+        {
+          "需求编号": "REQ-b8c55635b4fb",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2410
+        },
+        {
+          "需求编号": "REQ-c3c43cdfeffa",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2537
+        },
+        {
+          "需求编号": "REQ-5486bbbe8ae4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2584
+        },
+        {
+          "需求编号": "REQ-0f804538eb02",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2595
+        },
+        {
+          "需求编号": "REQ-d2dab6a4ea9a",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2596
+        }
+      ]
+    },
+    {
+      "共同业务对象": "直播举报处置",
+      "来源状态": "待处理且本场直播中",
+      "触发动作": "关播",
+      "目标状态": "关播处理完成且场次已结束",
+      "执行角色": "审核管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "管理后台",
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-295D642A9B3B18",
+      "流程编号": "FLOW-1AF39D89",
+      "证据": [
+        {
+          "需求编号": "REQ-9c0667b4cf62",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2673
+        },
+        {
+          "需求编号": "REQ-dd130a0f8dd4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2675
+        },
+        {
+          "需求编号": "REQ-dde89ade1a55",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2677
+        },
+        {
+          "需求编号": "REQ-9bc480896cd5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2678
+        },
+        {
+          "需求编号": "REQ-839dd56e82e3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2679
+        },
+        {
+          "需求编号": "REQ-741630d0f3d0",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2680
+        },
+        {
+          "需求编号": "REQ-9676a9ade1da",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 797
+        },
+        {
+          "需求编号": "REQ-5ebd79b1bbf8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 802
+        },
+        {
+          "需求编号": "REQ-dd74c6de0e69",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 805
+        },
+        {
+          "需求编号": "REQ-5d70e4b3fe67",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 807
+        },
+        {
+          "需求编号": "REQ-26c90db50167",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 850
+        },
+        {
+          "需求编号": "REQ-fd0092181557",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1865
+        },
+        {
+          "需求编号": "REQ-02eb22f92b59",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2409
+        },
+        {
+          "需求编号": "REQ-b8c55635b4fb",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2410
+        },
+        {
+          "需求编号": "REQ-c3c43cdfeffa",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2537
+        },
+        {
+          "需求编号": "REQ-5486bbbe8ae4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2584
+        },
+        {
+          "需求编号": "REQ-0f804538eb02",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2595
+        },
+        {
+          "需求编号": "REQ-d2dab6a4ea9a",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2596
+        }
+      ]
+    },
+    {
+      "共同业务对象": "直播举报处置",
+      "来源状态": "待处理且本场直播中",
+      "触发动作": "关闭直播权限",
+      "目标状态": "关闭直播权限处理完成且场次已结束",
+      "执行角色": "审核管理员",
+      "操作端": "管理后台",
+      "观察端": [
+        "管理后台",
+        "用户App"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-43B1B10AB4551B",
+      "流程编号": "FLOW-1AF39D89",
+      "证据": [
+        {
+          "需求编号": "REQ-9c0667b4cf62",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2673
+        },
+        {
+          "需求编号": "REQ-dd130a0f8dd4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2675
+        },
+        {
+          "需求编号": "REQ-dde89ade1a55",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2677
+        },
+        {
+          "需求编号": "REQ-9bc480896cd5",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2678
+        },
+        {
+          "需求编号": "REQ-839dd56e82e3",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2679
+        },
+        {
+          "需求编号": "REQ-741630d0f3d0",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2680
+        },
+        {
+          "需求编号": "REQ-9676a9ade1da",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 797
+        },
+        {
+          "需求编号": "REQ-5ebd79b1bbf8",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 802
+        },
+        {
+          "需求编号": "REQ-dd74c6de0e69",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 805
+        },
+        {
+          "需求编号": "REQ-5d70e4b3fe67",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 807
+        },
+        {
+          "需求编号": "REQ-26c90db50167",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 850
+        },
+        {
+          "需求编号": "REQ-fd0092181557",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1865
+        },
+        {
+          "需求编号": "REQ-02eb22f92b59",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2409
+        },
+        {
+          "需求编号": "REQ-b8c55635b4fb",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2410
+        },
+        {
+          "需求编号": "REQ-c3c43cdfeffa",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2537
+        },
+        {
+          "需求编号": "REQ-5486bbbe8ae4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2584
+        },
+        {
+          "需求编号": "REQ-0f804538eb02",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2595
+        },
+        {
+          "需求编号": "REQ-d2dab6a4ea9a",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2596
+        }
+      ]
+    },
+    {
+      "共同业务对象": "直播场次",
+      "来源状态": "直播中",
+      "触发动作": "确认结束直播",
+      "目标状态": "已结束",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "分支类型": "正常分支",
+      "状态转换标识": "ST-415DB2DA9831EE",
+      "流程编号": "FLOW-3316A78D",
+      "证据": [
+        {
+          "需求编号": "REQ-fd0092181557",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1865
+        },
+        {
+          "需求编号": "REQ-8576b6c9d4ef",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 1866
+        },
+        {
+          "需求编号": "REQ-ea9a5bdb93b9",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2361
+        },
+        {
+          "需求编号": "REQ-b8fbc07e8999",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2363
+        },
+        {
+          "需求编号": "REQ-fb2f7046d77a",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2367
+        },
+        {
+          "需求编号": "REQ-5a047639c8df",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2373
+        },
+        {
+          "需求编号": "REQ-d1ff9ee9a737",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2374
+        },
+        {
+          "需求编号": "REQ-201858313f73",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 2375
+        },
+        {
+          "需求编号": "REQ-ed3244207fd4",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3241
+        },
+        {
+          "需求编号": "REQ-e105026f258f",
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "行": 3245
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3810 @@
+[
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-plaza.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-plaza.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-plaza.html",
+    "section": "交互",
+    "line": 3,
+    "text": "3. 进房演示固定为：Ayu 显示拉黑或踢出拦截，Intan 显示门票拦截；每次点击 Lala 时，密码房拦截和非粉丝团成员拦截交替显示；其他直播卡片直接进入。"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-ranking.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-ranking.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "contribution-ranking.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "contribution-ranking.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "search.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "search.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "search-results.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "search-results.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "welfare-center.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "welfare-center.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "welfare-center.html",
+    "section": "任务中心领取",
+    "line": 3,
+    "text": "3. 原型以 Toast 代替前往观看或分享的业务动作，仅模拟当前页领取状态；不实际发币、不持久化。"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "all-tasks.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "all-tasks.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "invite-friends.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "invite-friends.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "message-center.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "message-center.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "system-notifications.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "system-notifications.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "profile.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "profile.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "profile.html",
+    "section": "交互",
+    "line": 3,
+    "text": "| --- | --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "customer-service.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "customer-service.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "follower-list.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "follower-list.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "my-following.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "my-following.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "my-decoration.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "my-decoration.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-report.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-report.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-user-report.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-user-report.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-host.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-host.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-host-password.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-host-password.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-cohost-active.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-room-cohost-active.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-end-viewer.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-end-viewer.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-end-host.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-end-host.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "friend-list.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "friend-list.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "interaction-notifications.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "interaction-notifications.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "direct-message.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "direct-message.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-group-chat.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-group-chat.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "group-manage-member.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "group-manage-member.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "group-manage-owner.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "group-manage-owner.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "chat-settings.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "chat-settings.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "blacklist-management.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "blacklist-management.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-management.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-management.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-application-form.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-application-form.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-application-records.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-application-records.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-leave-application.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "guild-leave-application.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "user-home.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "user-home.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-home.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-home.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-gift-gallery.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-gift-gallery.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "my-fan-clubs.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "my-fan-clubs.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-contribution-ranking.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-contribution-ranking.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-center.html",
+    "section": "主播信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-center.html",
+    "section": "主播信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-center.html",
+    "section": "数据中心字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-center.html",
+    "section": "数据中心字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "moderator-management.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "moderator-management.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-guild-notifications.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-guild-notifications.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-center-pending.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "host-center-pending.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "start-live-settings.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "start-live-settings.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-list.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-list.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-club.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-club.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-club-settings.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "fan-club-settings.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-data.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-data.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-records.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "live-records.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "income-sharing.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "income-sharing.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "recharge.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "recharge.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "balance-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "balance-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "order-income-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "order-income-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "order-expense-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "order-expense-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-login-register.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-login-register.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-profile-completion.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-profile-completion.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-phone-login.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-phone-login.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-country-select.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-country-select.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-email-login.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "auth-email-login.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "profile-edit.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "profile-edit.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "settings.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "settings.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/settings/password-not-set.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/settings/password-not-set.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "account-password-set.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "account-password-set.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "account-password-change.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "account-password-change.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "account-password-reset.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "account-password-reset.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/auth-login-register/deletion-cooling.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/auth-login-register/deletion-cooling.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-plaza/notification-intro.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-plaza/notification-intro.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-plaza/notification-permission.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-plaza/notification-permission.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/settings/notification-default.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/settings/notification-default.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/settings/notification-denied.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/settings/notification-denied.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/settings/notification-granted.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/settings/notification-granted.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/gift.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/gift.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/fan-club/member-mute-confirm.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/fan-club/member-mute-confirm.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/fan-club-not-joined.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/fan-club-not-joined.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/fan-club-joined.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/fan-club-joined.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/password-room-restricted.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/password-room-restricted.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/ticket-room-restricted.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/ticket-room-restricted.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/audience-online.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/audience-online.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/audience-managers.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/audience-managers.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/profile-viewer.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/profile-viewer.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/contribution-rank.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/contribution-rank.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/contribution-gifts.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/contribution-gifts.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/host-profile.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room/host-profile.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/contribution-rank.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/contribution-rank.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/audience-viewers.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/audience-viewers.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/muted-users.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/muted-users.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/profile-host.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/profile-host.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/thank-message.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/thank-message.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/focus-viewers.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/focus-viewers.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/cohost-hosts.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/cohost-hosts.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/cohost-hosts-search-result.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/cohost-hosts-search-result.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/cohost-invite-notice.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/cohost-invite-notice.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/share-recipient.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host/share-recipient.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host-password/room-password.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host-password/room-password.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host-password/access-scope.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-room-host-password/access-scope.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/welfare-center/claimed.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/welfare-center/claimed.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/invite-friends/share-options.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/invite-friends/share-options.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/message-center/fan-group.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/message-center/fan-group.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/user-home/friend.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/user-home/friend.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/user-home/blocked.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/user-home/blocked.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/user-home/block-confirm.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/user-home/block-confirm.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/host-home/block-confirm.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/host-home/block-confirm.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/chat-settings/block-confirm.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/chat-settings/block-confirm.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/category.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/category.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/room-normal.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/room-normal.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/room-ticket.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/room-ticket.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/room-password.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/room-password.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/beauty.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/start-live-settings/beauty.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-data/month.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/user.js",
+    "page": "views/live-data/month.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-login.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-login.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-switch.html",
+    "section": "公会长字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-switch.html",
+    "section": "公会长字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-switch.html",
+    "section": "公会列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-switch.html",
+    "section": "公会列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-home.html",
+    "section": "公会信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-home.html",
+    "section": "公会信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-home.html",
+    "section": "今日概况字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-home.html",
+    "section": "今日概况字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-notifications.html",
+    "section": "通知列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-notifications.html",
+    "section": "通知列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-notification-detail.html",
+    "section": "通知内容字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-notification-detail.html",
+    "section": "通知内容字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review.html",
+    "section": "申请列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review.html",
+    "section": "申请列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review-detail.html",
+    "section": "申请人字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review-detail.html",
+    "section": "申请人字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review-detail.html",
+    "section": "认证材料字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review-detail.html",
+    "section": "认证材料字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review-detail.html",
+    "section": "审核进度字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-join-review-detail.html",
+    "section": "审核进度字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-leave-review.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-leave-review.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-leave-review.html",
+    "section": "申请列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-leave-review.html",
+    "section": "申请列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-leave-review-detail.html",
+    "section": "主播信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-leave-review-detail.html",
+    "section": "主播信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-leave-review-detail.html",
+    "section": "申请与处理字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-leave-review-detail.html",
+    "section": "申请与处理字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-member-list.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-member-list.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-member-list.html",
+    "section": "主播列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-member-list.html",
+    "section": "主播列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-list.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-list.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-list.html",
+    "section": "主播列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-list.html",
+    "section": "主播列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-list.html",
+    "section": "数据中心字段",
+    "line": 2,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-list.html",
+    "section": "数据中心字段",
+    "line": 3,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-summary.html",
+    "section": "主播信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-summary.html",
+    "section": "主播信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-summary.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-summary.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-summary.html",
+    "section": "数据列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-summary.html",
+    "section": "数据列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "主播信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "主播信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "认证信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "认证信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "管理字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "管理字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "申请记录字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "申请记录字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "数据中心字段（业绩）",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-detail.html",
+    "section": "数据中心字段（业绩）",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-messages.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-messages.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-messages.html",
+    "section": "发送记录字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-messages.html",
+    "section": "发送记录字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-message-compose.html",
+    "section": "发送对象字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-message-compose.html",
+    "section": "发送对象字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-message-compose.html",
+    "section": "消息内容字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-message-compose.html",
+    "section": "消息内容字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-select.html",
+    "section": "选择字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-select.html",
+    "section": "选择字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-message-detail.html",
+    "section": "发送信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-message-detail.html",
+    "section": "发送信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-message-detail.html",
+    "section": "消息内容字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-message-detail.html",
+    "section": "消息内容字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-accounts.html",
+    "section": "账号列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-accounts.html",
+    "section": "账号列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-accounts.html",
+    "section": "数据中心字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-accounts.html",
+    "section": "数据中心字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-compose.html",
+    "section": "账号信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-compose.html",
+    "section": "账号信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-compose.html",
+    "section": "发放金币字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-compose.html",
+    "section": "发放金币字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-detail.html",
+    "section": "账号信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-detail.html",
+    "section": "账号信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-detail.html",
+    "section": "消费明细字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-detail.html",
+    "section": "消费明细字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-detail.html",
+    "section": "管理弹层字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-detail.html",
+    "section": "管理弹层字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-detail.html",
+    "section": "数据中心字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-detail.html",
+    "section": "数据中心字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-gift-records.html",
+    "section": "送礼列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-gift-records.html",
+    "section": "送礼列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-gift-records.html",
+    "section": "送礼详情字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-gift-records.html",
+    "section": "送礼详情字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-gift-records.html",
+    "section": "数据中心字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-gift-records.html",
+    "section": "数据中心字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-select.html",
+    "section": "选择字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-operation-account-select.html",
+    "section": "选择字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-profile.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-profile.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-settings.html",
+    "section": "账号信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-settings.html",
+    "section": "账号信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-settings.html",
+    "section": "设置字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-settings.html",
+    "section": "设置字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-password.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-password.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-data.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-data.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-data.html",
+    "section": "直播记录字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-data.html",
+    "section": "直播记录字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-data.html",
+    "section": "数据中心字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-host-data.html",
+    "section": "数据中心字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-live-gift-detail.html",
+    "section": "场次信息字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-live-gift-detail.html",
+    "section": "场次信息字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-live-gift-detail.html",
+    "section": "送礼列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-live-gift-detail.html",
+    "section": "送礼列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-live-gift-detail.html",
+    "section": "送礼详情字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-live-gift-detail.html",
+    "section": "送礼详情字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-live-gift-detail.html",
+    "section": "数据中心字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-live-gift-detail.html",
+    "section": "数据中心字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-all-violations.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-all-violations.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-all-violations.html",
+    "section": "违规明细字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-all-violations.html",
+    "section": "违规明细字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "日数据列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "日数据列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "月数据列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "月数据列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "数据中心字段（日数据）",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "数据中心字段（日数据）",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "数据中心字段（月数据）",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income.html",
+    "section": "数据中心字段（月数据）",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income-day-detail.html",
+    "section": "日期与筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income-day-detail.html",
+    "section": "日期与筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income-day-detail.html",
+    "section": "主播列表字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income-day-detail.html",
+    "section": "主播列表字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income-day-detail.html",
+    "section": "数据中心字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-income-day-detail.html",
+    "section": "数据中心字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-share-ledger.html",
+    "section": "筛选字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-share-ledger.html",
+    "section": "筛选字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-share-ledger.html",
+    "section": "分成记录字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-share-ledger.html",
+    "section": "分成记录字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-share-income.html",
+    "section": "公会分成记录字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-share-income.html",
+    "section": "公会分成记录字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-violation-host-select.html",
+    "section": "选择字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/guild.js",
+    "page": "guild-violation-host-select.html",
+    "section": "选择字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-dashboard.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-dashboard.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-user-list.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-user-list.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-user-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-user-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-list.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-list.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-review.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-review.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-review-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-review-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-live-management.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-live-management.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-live-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-live-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-inspection-schedule.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-inspection-schedule.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-inspection-schedule-create.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-inspection-schedule-create.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-inspection-schedule-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-inspection-schedule-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-content-audit.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-content-audit.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-content-audit-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-content-audit-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-account-violation.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-account-violation.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-report-handling.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-report-handling.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-report-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-report-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-violation-types.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-violation-types.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-violation-type-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-violation-type-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-list.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-list.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-gift-list.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-gift-list.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-gift-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-gift-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-custom-gift.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-custom-gift.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-lucky-gift-config.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-lucky-gift-config.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-lucky-gift-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-lucky-gift-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-prop-list.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-prop-list.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-prop-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-prop-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-gift-send-count-rules.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-gift-send-count-rules.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-gift-send-count-rule-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-gift-send-count-rule-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-placement-config.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-placement-config.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-placement-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-placement-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-push-management.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-push-management.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-push-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-push-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-package.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-package.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-package-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-package-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-task-config.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-task-config.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-task-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-task-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-recommendation.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-recommendation.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-recommendation-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-recommendation-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-level-config.html",
+    "section": "字段与数据归属",
+    "line": 2,
+    "text": "| --- | --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-live-type.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-live-type.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-feature-switch.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-feature-switch.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-ticket-price-level.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-ticket-price-level.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-ticket-price-level-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-ticket-price-level-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-sensitive-words.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-sensitive-words.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-sensitive-words-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-sensitive-words-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-order.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-order.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-order-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-order-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-consumption-order.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-consumption-order.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-consumption-order-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-consumption-order-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-refund-order.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-refund-order.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-settlement-record.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-settlement-record.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-settlement-record-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-settlement-record-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-account-balance.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-account-balance.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-balance-change-record.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-balance-change-record.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-settlement-record.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-settlement-record.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-settlement-record-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-settlement-record-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-account-balance.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-account-balance.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-balance-change-record.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-guild-balance-change-record.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-report-center.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-report-center.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-data-overview.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-data-overview.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-daily-statistics.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-daily-statistics.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-user-active-statistics.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-user-active-statistics.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-statistics.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-statistics.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-live-statistics.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-live-statistics.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-live-record-report.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-host-live-record-report.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-statistics.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-statistics.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-user-activity-statistics.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-user-activity-statistics.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-income-expense.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-income-expense.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-host-share.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-host-share.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-host-earnings.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-host-earnings.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-viewer-consumption.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-viewer-consumption.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-gift-sales.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 指标 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-monthly-gift-sales.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-consumption-order-detail-report.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-consumption-order-detail-report.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-refund-order-detail-report.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-refund-order-detail-report.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-order-detail-report.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-recharge-order-detail-report.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-accounts.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-accounts.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-account-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-account-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-issue-records.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-issue-records.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-gift-records.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-gift-records.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-guild-controls.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 计算方式 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-operation-guild-controls.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-system-account.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-system-account.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-system-account-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-system-account-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-system-role.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-system-role.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-system-role-detail.html",
+    "section": "字段",
+    "line": 1,
+    "text": "| 字段 | 规则 |"
+  },
+  {
+    "file": "liveshow-proto/prototype/annotations/admin.js",
+    "page": "admin-system-role-detail.html",
+    "section": "字段",
+    "line": 2,
+    "text": "| --- | --- |"
+  }
+]

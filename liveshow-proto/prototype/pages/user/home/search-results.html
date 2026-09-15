@@ -261,7 +261,7 @@
           <input
             id="keyword"
             autocomplete="off"
-            placeholder="搜索房间号、主播 ID 或主播昵称"
+            placeholder="搜索房间号、用户 ID 或昵称"
           />
           <button type="submit">搜索</button>
         </form>
@@ -333,7 +333,7 @@
         const matches = entries.filter((item) =>
           (managerMode
             ? [item.id, item.name]
-            : [item.roomId, item.hostId, item.hostName]
+            : [item.id, item.name, item.isHost ? item.roomId : ""]
           )
             .filter(Boolean)
             .some((field) => String(field).toLowerCase().includes(normalized)),
@@ -346,12 +346,15 @@
             if (managerMode)
               return `<article class="result"><button class="avatar avatar-action" type="button" data-manager-id="${item.id}" aria-label="查看 ${item.name} 的资料卡">${item.avatar}</button><span class="result-info"><b>${item.name}</b><span>ID：${item.id}</span></span><button class="live-entry" type="button" data-manager-id="${item.id}">查看资料</button></article>`;
             const liveTarget = `../live/live-room.html?room=${encodeURIComponent(item.roomId)}`;
-            const profileTarget = `../social/user-home.html?host=${encodeURIComponent(item.hostId)}`;
-            const avatarTarget = item.live ? liveTarget : profileTarget;
-            const action = item.live
+            const isLive = item.isHost && item.live;
+            const profileTarget = item.isHost
+              ? `../social/host-home.html?host=${encodeURIComponent(item.name.toLowerCase())}`
+              : `../social/user-home.html?user=${encodeURIComponent(item.id)}`;
+            const avatarTarget = isLive ? liveTarget : profileTarget;
+            const action = isLive
               ? `<button class="live-entry" type="button" data-live-target="${liveTarget}">直播中</button>`
               : "";
-            return `<article class="result"><button class="avatar avatar-action" type="button" aria-label="进入${item.live ? "直播间" : "主播主页"}" data-avatar-target="${avatarTarget}">${item.avatar}</button><span class="result-info"><b>${item.hostName}</b><span>房间号：${item.hostId}</span></span>${action}</article>`;
+            return `<article class="result"><button class="avatar avatar-action" type="button" aria-label="进入${isLive ? "直播间" : item.isHost ? "主播主页" : "用户主页"}" data-avatar-target="${avatarTarget}">${item.avatar}</button><span class="result-info"><b>${item.name}</b>${item.isHost ? `<span>房间号：${item.roomId}</span>` : ""}</span>${action}</article>`;
           })
           .join("");
         if (managerMode)

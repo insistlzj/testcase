@@ -1,0 +1,522 @@
+[
+  {
+    "page": "live-room.html",
+    "role": "运营账号",
+    "point": "运营密码房免输密码",
+    "pre": [
+      "运营账号；当前处于直播间（普通房）页面",
+      "账号可用；目标为正在直播的密码房，当前不处于有效巡房会话"
+    ],
+    "steps": [
+      "进入目标密码房"
+    ],
+    "result": "无需输入密码即可观看",
+    "refs": [
+      "MAIN-455"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5267f8b6246a21c65bbc3e1abca46d303ffb25d21c5e03ef9cc014c39d4d49ea"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "举报人",
+    "point": "直播举报不处置通知",
+    "pre": [
+      "举报人；当前处于系统通知页面",
+      "当前场次举报已被平台判定不处置"
+    ],
+    "steps": [
+      "刷新系统通知"
+    ],
+    "result": "收到“举报内容暂无可处置违规，感谢您的反馈”",
+    "refs": [
+      "MAIN-292"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "97135ebb61235eda3d6f313e45a195dbc540ce719c1a7fcdfd5c65ea83828d21"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "举报人",
+    "point": "直播举报警告通知",
+    "pre": [
+      "举报人；当前处于系统通知页面",
+      "当前场次举报已被平台判定警告"
+    ],
+    "steps": [
+      "刷新系统通知"
+    ],
+    "result": "收到“举报成立，平台已依规处理”",
+    "refs": [
+      "MAIN-293"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fd365d51791b1386376fcd582cf535e734f370bf69d5275e24a99965b1a1cc06"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "举报人",
+    "point": "直播举报关播通知",
+    "pre": [
+      "举报人；当前处于系统通知页面",
+      "当前场次举报已被平台判定关播"
+    ],
+    "steps": [
+      "刷新系统通知"
+    ],
+    "result": "收到“举报成立，平台已依规处理”",
+    "refs": [
+      "MAIN-294"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ea9ae582b708425fd2961f7da2ddd36c49f5391f390cc11407da9851cac9e86a"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "举报人",
+    "point": "直播举报关闭权限通知",
+    "pre": [
+      "举报人；当前处于系统通知页面",
+      "当前场次举报已被平台判定关闭直播权限"
+    ],
+    "steps": [
+      "刷新系统通知"
+    ],
+    "result": "收到“举报成立，平台已依规处理”",
+    "refs": [
+      "MAIN-295"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "80f0dace183fea91840ab859cb4a53e8396cf29b3e75757f3413ee8e0ba6e24c"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "举报人",
+    "point": "账号举报不处置通知",
+    "pre": [
+      "举报人；当前处于系统通知页面",
+      "对账号A举报已被平台判定不处置"
+    ],
+    "steps": [
+      "刷新系统通知"
+    ],
+    "result": "收到“举报账号暂无可处置的违规，感谢您的反馈”",
+    "refs": [
+      "MAIN-307"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "67a08793aee86ce38abb6576ea5cab1471258d3f0e2274b9c8885fe4b26585e1"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "举报人",
+    "point": "账号举报封禁通知",
+    "pre": [
+      "举报人；当前处于系统通知页面",
+      "对账号A举报已成立并封禁A"
+    ],
+    "steps": [
+      "刷新系统通知"
+    ],
+    "result": "收到“举报成立，平台已依规处理”",
+    "refs": [
+      "MAIN-308"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d6f962de6c8e68197653f97e40b2631129e51b231a7f7357331a55c5e046ba74"
+    ]
+  },
+  {
+    "page": "live-room-host.html",
+    "role": "本场主播",
+    "point": "举报警告保留直播",
+    "pre": [
+      "本场主播；当前处于直播间（主播）页面",
+      "本场收到平台警告处置"
+    ],
+    "steps": [
+      "查看当前直播画面"
+    ],
+    "result": "本场仍在直播",
+    "refs": [
+      "MAIN-293"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fd365d51791b1386376fcd582cf535e734f370bf69d5275e24a99965b1a1cc06"
+    ]
+  },
+  {
+    "page": "live-room-host.html",
+    "role": "本场主播",
+    "point": "举报警告强提示",
+    "pre": [
+      "本场主播；当前处于直播间（主播）页面",
+      "本场收到平台警告处置"
+    ],
+    "steps": [
+      "查看直播间弹窗"
+    ],
+    "result": "显示“直播间存在违规，请及时调整”",
+    "refs": [
+      "MAIN-293"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fd365d51791b1386376fcd582cf535e734f370bf69d5275e24a99965b1a1cc06"
+    ]
+  },
+  {
+    "page": "live-room-host.html",
+    "role": "本场主播",
+    "point": "举报关播结束本场",
+    "pre": [
+      "本场主播；当前处于直播间（主播）页面",
+      "平台刚对当前场次执行关播"
+    ],
+    "steps": [
+      "查看当前场次状态"
+    ],
+    "result": "本场变为已结束",
+    "refs": [
+      "MAIN-294"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ea9ae582b708425fd2961f7da2ddd36c49f5391f390cc11407da9851cac9e86a"
+    ]
+  },
+  {
+    "page": "live-room-host.html",
+    "role": "本场主播",
+    "point": "举报关闭权限结束本场",
+    "pre": [
+      "本场主播；当前处于直播间（主播）页面",
+      "平台刚关闭当前主播直播权限"
+    ],
+    "steps": [
+      "查看当前场次状态"
+    ],
+    "result": "本场变为已结束",
+    "refs": [
+      "MAIN-295"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "80f0dace183fea91840ab859cb4a53e8396cf29b3e75757f3413ee8e0ba6e24c"
+    ]
+  },
+  {
+    "page": "live-room-host.html",
+    "role": "本场主播",
+    "point": "账号封禁强制下线",
+    "pre": [
+      "本场主播；当前处于直播间（主播）页面",
+      "平台刚封禁当前账号，封禁前正在直播"
+    ],
+    "steps": [
+      "查看当前会话"
+    ],
+    "result": "当前账号被强制下线",
+    "refs": [
+      "MAIN-308"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d6f962de6c8e68197653f97e40b2631129e51b231a7f7357331a55c5e046ba74"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "被处置主播",
+    "point": "举报警告站内消息",
+    "pre": [
+      "被处置主播；当前处于系统通知页面",
+      "此前场次受到警告处置"
+    ],
+    "steps": [
+      "刷新系统通知"
+    ],
+    "result": "收到“直播间存在违规，请及时调整”",
+    "refs": [
+      "MAIN-293"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fd365d51791b1386376fcd582cf535e734f370bf69d5275e24a99965b1a1cc06"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "被处置主播",
+    "point": "举报关播站内消息",
+    "pre": [
+      "被处置主播；当前处于系统通知页面",
+      "此前场次受到关播处置"
+    ],
+    "steps": [
+      "刷新系统通知"
+    ],
+    "result": "收到“直播间存在违规，平台已关闭直播间”",
+    "refs": [
+      "MAIN-294"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ea9ae582b708425fd2961f7da2ddd36c49f5391f390cc11407da9851cac9e86a"
+    ]
+  },
+  {
+    "page": "system-notifications.html",
+    "role": "被处置主播",
+    "point": "举报关闭权限站内消息",
+    "pre": [
+      "被处置主播；当前处于系统通知页面",
+      "此前场次受到关闭直播权限处置",
+      "预期通知正文为“直播间严重违规，平台已关闭直播间，并关闭直播权限”"
+    ],
+    "steps": [
+      "刷新系统通知"
+    ],
+    "result": "通知正文与预置的完整关闭权限文案逐字一致",
+    "refs": [
+      "MAIN-295"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "80f0dace183fea91840ab859cb4a53e8396cf29b3e75757f3413ee8e0ba6e24c"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "仅关播后仍可再播",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "上一场因举报被关播，但账号、公会、认证和最终开播权限仍有效"
+    ],
+    "steps": [
+      "点击开始直播"
+    ],
+    "result": "允许进入开播设置",
+    "refs": [
+      "MAIN-294",
+      "MAIN-201"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ea9ae582b708425fd2961f7da2ddd36c49f5391f390cc11407da9851cac9e86a",
+      "4c8c458efecab89237a918b45ea5959c71d3243e8e68c0c11bb1451332810309"
+    ]
+  },
+  {
+    "page": "host-center.html",
+    "role": "已认证主播",
+    "point": "举报关权限后不能再播",
+    "pre": [
+      "已认证主播；当前处于主播中心页面",
+      "上一场因举报关闭直播权限，权限尚未恢复"
+    ],
+    "steps": [
+      "点击开始直播"
+    ],
+    "result": "不能再次开播",
+    "refs": [
+      "MAIN-295",
+      "MAIN-203"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "80f0dace183fea91840ab859cb4a53e8396cf29b3e75757f3413ee8e0ba6e24c",
+      "7ebf97d4fa61154526c455c205dc42b53c0c60f2228fc12c4bd323b977d670ae"
+    ]
+  },
+  {
+    "page": "auth-phone-login.html",
+    "role": "被封禁账号用户",
+    "point": "被举报封禁后登录反馈",
+    "pre": [
+      "被封禁账号用户；当前处于手机号登录页面",
+      "账号绑定手机号有效；已同意协议且持有有效登录凭证"
+    ],
+    "steps": [
+      "输入已绑定手机号及有效验证码",
+      "点击继续"
+    ],
+    "result": "提示“账号已封禁”",
+    "refs": [
+      "MAIN-308"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d6f962de6c8e68197653f97e40b2631129e51b231a7f7357331a55c5e046ba74"
+    ]
+  },
+  {
+    "page": "live-room-host.html",
+    "role": "正在直播的普通房主播",
+    "point": "主动取消连麦邀请",
+    "pre": [
+      "正在直播的普通房主播；当前处于直播间（主播）页面",
+      "已向B发出尚未回应的连麦邀请"
+    ],
+    "steps": [
+      "点击取消邀请"
+    ],
+    "result": "已发给B的邀请失效",
+    "refs": [
+      "MAIN-274"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7c0a1ebc62ed53dd39cd514c33d97590208e0c39c2206dc648a13008d3d8819d"
+    ]
+  },
+  {
+    "page": "live-room.html",
+    "role": "普通观众",
+    "point": "主播屏蔽评论对观众生效",
+    "pre": [
+      "普通观众；当前处于直播间（普通房）页面",
+      "本场消息M刚被主播屏蔽"
+    ],
+    "steps": [
+      "查看本场公屏"
+    ],
+    "result": "不再显示消息M",
+    "refs": [
+      "MAIN-252"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c65a00213f4175eb4da30cffe6d2f628584872bb51c79ccdf4ad76a950a346c7"
+    ]
+  },
+  {
+    "page": "live-room.html",
+    "role": "已购买本场门票的观众",
+    "point": "旧场门票不用于新场",
+    "pre": [
+      "已购买本场门票的观众；当前处于直播间（普通房）页面",
+      "刚结束门票场次S，原票只属于S；同一主播又创建新门票场次T，当前有足够余额"
+    ],
+    "steps": [
+      "进入新场次T"
+    ],
+    "result": "需要重新购买T场次门票",
+    "refs": [
+      "MAIN-190",
+      "REQ-671e67c30c1e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "795d525003439390c738284d5bedcc60d0b1ad11e9b66ccb2be2a9b43cb5dcbc",
+      "ef66a8ccdcfb198ce90b354513624a3765f0d8f66392db3c14a4ea302e9867af"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "普通用户",
+    "point": "邀请金币合计",
+    "pre": [
+      "普通用户；当前处于邀请好友页面",
+      "活动当前每个成功邀请奖励10金币；当前成功邀请3人且奖励均已到账，无其他邀请奖励"
+    ],
+    "steps": [
+      "查看累计获得金币"
+    ],
+    "result": "累计获得30金币",
+    "refs": [
+      "REQ-7ccfa7f59f24",
+      "REQ-d2b2aa2425d8",
+      "REQ-99c9c053820e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "cd1eabf4efaafeeb80c9d1432cecca1060a49f361af8e135b1722ba1f70d45b5",
+      "3d98b9e68ee3c0c196af316dab6895193e719ba1fbaa3c558d156c7db08d0267",
+      "415b4c3efbbcf795b51d2b1301d5468c9463947ce976c59acbf736d95d204811"
+    ]
+  },
+  {
+    "page": "balance-detail.html",
+    "role": "真实金币用户",
+    "point": "整笔充值退款形成负余额",
+    "pre": [
+      "真实金币用户；当前处于余额明细页面",
+      "原充值订单到账1000金币已全部消费，目前余额0；该充值订单刚完成退款"
+    ],
+    "steps": [
+      "刷新金币余额"
+    ],
+    "result": "余额变为-1000金币",
+    "refs": [
+      "MAIN-403",
+      "MAIN-407"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "151203c3b8dd6233d582f2898daad880d8546d4d0b7a060c9523c7c6dea570e1",
+      "ce703e8858c6db912956b6ad3ba2d4e3cdee6bf3948ff51d45a7c62960b93e11"
+    ]
+  },
+  {
+    "page": "order-expense-detail.html",
+    "role": "真实金币用户",
+    "point": "结束场次保留消费记录",
+    "pre": [
+      "真实金币用户；当前处于支出订单详情页面",
+      "本笔消费属于已结束场次S，原始消费金额100金币"
+    ],
+    "steps": [
+      "查看该支出订单"
+    ],
+    "result": "原支付100金币消费记录保留",
+    "refs": [
+      "MAIN-181",
+      "REQ-671e67c30c1e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "24ac500ce4c7f3339fa0c025913c71c33446a5470f3dbea6866d57a4cfdef440",
+      "ef66a8ccdcfb198ce90b354513624a3765f0d8f66392db3c14a4ea302e9867af"
+    ]
+  }
+]

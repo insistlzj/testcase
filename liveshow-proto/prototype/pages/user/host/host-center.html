@@ -65,6 +65,20 @@
         color: var(--g3);
         font-size: 12px;
       }
+      .host-name .level {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 6px;
+        padding: 2px 7px;
+        border: 1px solid var(--g5);
+        border-radius: 6px;
+        background: var(--g6);
+        color: var(--g2);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.4;
+        vertical-align: middle;
+      }
       .profile-stats {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -190,14 +204,6 @@
         border-radius: inherit;
         background: var(--g1);
         transition: width 0.2s;
-      }
-      .valid-day-message {
-        margin: 8px 0 0;
-        color: var(--g3);
-        font-size: 12px;
-      }
-      .valid-day-message.complete {
-        color: var(--success);
       }
       .section-title {
         display: flex;
@@ -331,12 +337,11 @@
           aria-label="当日有效天进度"
         >
           <div class="valid-day-title">
-            <b>当日有效天</b><span id="validDayDuration"></span>
+            <b id="validDayTitle">当日有效天</b><span id="validDayDuration"></span>
           </div>
           <div class="valid-day-track" aria-hidden="true">
             <i id="validDayBar"></i>
           </div>
-          <p class="valid-day-message" id="validDayMessage"></p>
         </section>
       </section>
       <div class="section-title"><h2>主播工具</h2></div>
@@ -441,7 +446,7 @@
           livePermissionDialog.showModal();
           return;
         }
-        location.href = "start-live-settings.html";
+        location.href = "start-live-settings.html?v=20260914-direct-live-entry-v1";
       }
       const hostCenter = LUMA_MOCK.hostCenter;
       const guildNoticeBadge = document.querySelector("#guildNoticeBadge");
@@ -470,9 +475,8 @@
           `${data.duration}/${data.target}`;
         document.querySelector("#validDayBar").style.width =
           `${Math.min((data.minutes / data.targetMinutes) * 100, 100)}%`;
-        const message = document.querySelector("#validDayMessage");
-        message.textContent = data.achieved ? "今日已达标，计为有效天" : "";
-        message.classList.toggle("complete", data.achieved);
+        document.querySelector("#validDayTitle").textContent =
+          data.achieved ? "当日有效天 ✅" : "当日有效天";
       }
       function renderPeriod(period) {
         metrics.innerHTML = periodMetrics[period]

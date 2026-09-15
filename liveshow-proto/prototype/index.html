@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Luma Live · 产品原型</title>
+  <script src="assets/annotation-review-changes.js?v=20260914-start-live-v2"></script>
   <script src="assets/annotations.js?v=20260909-p014-application-notes-v2"></script>
-  <script src="annotations/user.js?v=20260909-guild-timeline-sort-v1"></script>
+  <script src="annotations/user.js?v=20260914-start-live-v2"></script>
   <script>window.USER_PROTO_ANNOTATIONS = window.PROTO_ANNOTATIONS;</script>
-  <script src="annotations/guild.js?v=20260908-operation-account-v1"></script>
+  <script src="annotations/guild.js?v=20260911-field-review-v1"></script>
   <script>window.GUILD_PROTO_ANNOTATIONS = window.PROTO_ANNOTATIONS;</script>
-  <script src="annotations/admin.js?v=20260910-level-config"></script>
+  <script src="annotations/admin.js?v=20260912-level-thresholds-v1"></script>
   <style>
-    :root{--g1:#333333;--g2:#555555;--g3:#7F7F7F;--g4:#AAAAAA;--g5:#D7D7D7;--g6:#F2F2F2;--g7:#FFFFFF;--success:#2E8B57}
+    :root{--g1:#333333;--g2:#555555;--g3:#7F7F7F;--g4:#AAAAAA;--g5:#D7D7D7;--g6:#F2F2F2;--g7:#FFFFFF;--success:#2E8B57;--danger:#B42318}
     *{box-sizing:border-box}
     body{margin:0;background:var(--g6);color:var(--g1);font:14px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;overflow:hidden}
     .bar{height:52px;padding:0 16px;background:var(--g7);border-bottom:1px solid var(--g5);display:flex;align-items:center;gap:12px}
@@ -58,6 +59,7 @@
     .note-term{color:var(--success);font-weight:600}
     .note-table{width:100%;margin-top:8px;border-collapse:collapse;color:var(--g3);font-size:12px;line-height:1.45}
     .note-table th,.note-table td{padding:6px;border:1px solid var(--g5);text-align:left;vertical-align:top}
+    #notes .note .note-updated{color:var(--danger)}
     .note-table th{color:var(--g2);font-weight:600}
     .guild-note-table tbody td:first-child,.guild-note-table .note-field-list{color:var(--success);font-weight:600}
     .note-target{display:block!important;max-width:100%;margin-bottom:7px;border:0!important;background:var(--g6)!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}
@@ -111,11 +113,9 @@
       { file: 'message-center.html', title: '消息', type: 'mobile' },
       { file: 'system-notifications.html', title: '系统通知', type: 'mobile' },
       { file: 'profile.html', title: '我的', type: 'mobile' },
+      { file: 'customer-service.html', title: '联系客服', type: 'mobile' },
       { file: 'my-following.html', title: '我的关注', type: 'mobile' },
       { file: 'my-decoration.html', title: '我的装扮', type: 'mobile' },
-      { file: 'my-decoration-avatar-frame.html', title: '头像框', type: 'mobile' },
-      { file: 'my-decoration-chat-bubble.html', title: '聊天气泡', type: 'mobile' },
-      { file: 'my-decoration-medal.html', title: '勋章', type: 'mobile' },
       { file: 'live-room.html', title: '直播间-观众', type: 'mobile' },
       { file: 'live-room-report.html', title: '举报直播间', type: 'mobile' },
       { file: 'live-room-user-report.html', title: '举报用户', type: 'mobile' },
@@ -148,7 +148,6 @@
       { file: 'host-guild-notifications.html', title: '公会通知', type: 'mobile' },
       { file: 'host-center-pending.html', title: '申请成为主播', type: 'mobile' },
       { file: 'start-live-settings.html', title: '开播设置', type: 'mobile' },
-      { file: 'visible-fan-select.html', title: '选择可见粉丝', type: 'mobile' },
       { file: 'fan-list.html', title: '粉丝列表', type: 'mobile' },
       { file: 'fan-club.html', title: '粉丝团', type: 'mobile' },
       { file: 'fan-club-settings.html', title: '粉丝团设置', type: 'mobile' },
@@ -165,7 +164,10 @@
       { file: 'auth-country-select.html', title: '选择国家/地区', type: 'mobile' },
       { file: 'auth-email-login.html', title: '邮箱登录', type: 'mobile' },
       { file: 'profile-edit.html', title: '资料编辑', type: 'mobile' },
-      { file: 'settings.html', title: '设置', type: 'mobile' }
+      { file: 'settings.html', title: '设置', type: 'mobile' },
+      { file: 'account-password-set.html', title: '设置密码', type: 'mobile' },
+      { file: 'account-password-change.html', title: '修改密码', type: 'mobile' },
+      { file: 'account-password-reset.html', title: '忘记密码', type: 'mobile' }
     ];
     const guildPages = [
       { file: 'guild-login.html', title: '公会登录', type: 'mobile' },
@@ -370,13 +372,13 @@
     const baseUserPageOrder = [
       'live-plaza.html', 'host-ranking.html', 'contribution-ranking.html', 'search.html', 'search-results.html', 'live-room.html', 'live-room-report.html', 'live-room-user-report.html', 'live-room-host.html', 'live-room-host-password.html', 'live-room-cohost-active.html', 'live-end-viewer.html', 'live-end-host.html',
       'welfare-center.html', 'invite-friends.html', 'message-center.html', 'direct-message.html', 'fan-group-chat.html', 'group-manage-member.html',
-      'group-manage-owner.html', 'profile.html', 'my-following.html', 'my-decoration.html', 'my-decoration-avatar-frame.html', 'my-decoration-chat-bubble.html', 'my-decoration-medal.html', 'my-fan-clubs.html', 'fan-contribution-ranking.html', 'host-center.html', 'moderator-management.html', 'host-guild-notifications.html', 'host-center-pending.html',
+      'group-manage-owner.html', 'profile.html', 'customer-service.html', 'my-following.html', 'my-decoration.html', 'my-fan-clubs.html', 'fan-contribution-ranking.html', 'host-center.html', 'moderator-management.html', 'host-guild-notifications.html', 'host-center-pending.html',
       'start-live-settings.html', 'fan-list.html', 'fan-club.html', 'fan-club-settings.html', 'live-data.html', 'live-records.html', 'income-sharing.html',
       'recharge.html', 'balance-detail.html', 'order-income-detail.html', 'order-expense-detail.html', 'chat-settings.html',
       'user-home.html', 'host-home.html', 'host-gift-gallery.html', 'friend-list.html', 'interaction-notifications.html', 'blacklist-management.html', 'guild-management.html', 'guild-application-form.html',
       'guild-application-records.html', 'guild-detail.html', 'guild-leave-application.html', 'system-notifications.html'
     ];
-    const userPageOrder = ['auth-login-register.html', 'auth-profile-completion.html', 'auth-phone-login.html', 'auth-country-select.html', 'auth-email-login.html', ...baseUserPageOrder.slice(0, 12), 'profile-edit.html', 'settings.html', ...baseUserPageOrder.slice(12)].flatMap((file) => file === 'welfare-center.html' ? [file, 'all-tasks.html'] : file === 'friend-list.html' ? [file, 'follower-list.html'] : [file]);
+    const userPageOrder = ['auth-login-register.html', 'auth-profile-completion.html', 'auth-phone-login.html', 'auth-country-select.html', 'auth-email-login.html', ...baseUserPageOrder.slice(0, 12), 'profile-edit.html', 'settings.html', 'account-password-set.html', 'account-password-change.html', 'account-password-reset.html', ...baseUserPageOrder.slice(12)].flatMap((file) => file === 'welfare-center.html' ? [file, 'all-tasks.html'] : file === 'friend-list.html' ? [file, 'follower-list.html'] : [file]);
     const userPageCodes = {
       'auth-login-register.html': 'A001',
       'auth-phone-login.html': 'A002',
@@ -401,17 +403,17 @@
       'user-home.html': 'P044',
       'fan-contribution-ranking.html': 'P011-5',
       'my-decoration.html': 'P011-4',
-      'my-decoration-avatar-frame.html': 'P011-4-1',
-      'my-decoration-chat-bubble.html': 'P011-4-2',
-      'my-decoration-medal.html': 'P011-4-3',
       'profile-edit.html': 'P011-2',
-      'settings.html': 'P011-3'
+      'customer-service.html': 'P011-6',
+      'settings.html': 'P011-3',
+      'account-password-set.html': 'P011-3-1',
+      'account-password-change.html': 'P011-3-2',
+      'account-password-reset.html': 'P011-3-3'
       ,'my-following.html': 'P034-1'
       ,'host-home.html': 'P035-1'
       ,'host-gift-gallery.html': 'P035-2'
       ,'host-center-pending.html': 'P014-1'
       ,'fan-list.html': 'P014-2'
-      ,'visible-fan-select.html': 'P031-1'
       ,'host-center.html': 'P027'
       ,'moderator-management.html': 'P027-1'
       ,'host-guild-notifications.html': 'P027-2'
@@ -459,13 +461,14 @@
   "host-home.html": "user/social/host-home.html",
   "host-gift-gallery.html": "user/social/host-gift-gallery.html",
   "profile.html": "user/profile/profile.html",
+  "customer-service.html": "user/profile/customer-service.html",
   "my-following.html": "user/profile/my-following.html",
   "my-decoration.html": "user/profile/my-decoration.html",
-  "my-decoration-avatar-frame.html": "user/profile/my-decoration-avatar-frame.html",
-  "my-decoration-chat-bubble.html": "user/profile/my-decoration-chat-bubble.html",
-  "my-decoration-medal.html": "user/profile/my-decoration-medal.html",
   "profile-edit.html": "user/profile/profile-edit.html",
   "settings.html": "user/profile/settings.html",
+  "account-password-set.html": "user/profile/account-password-set.html",
+  "account-password-change.html": "user/profile/account-password-change.html",
+  "account-password-reset.html": "user/profile/account-password-reset.html",
   "blacklist-management.html": "user/profile/blacklist-management.html",
   "my-fan-clubs.html": "user/fan-club/my-fan-clubs.html",
   "fan-contribution-ranking.html": "user/fan-club/fan-contribution-ranking.html",
@@ -479,7 +482,6 @@
   "host-guild-notifications.html": "user/host/host-guild-notifications.html",
   "host-center-pending.html": "user/host/host-center-pending.html",
   "start-live-settings.html": "user/host/start-live-settings.html",
-  "visible-fan-select.html": "user/host/visible-fan-select.html",
   "fan-list.html": "user/host/fan-list.html",
   "fan-club.html": "user/host/fan-club.html",
   "fan-club-settings.html": "user/host/fan-club-settings.html",
@@ -647,8 +649,8 @@
         { id: 'comment:muted', file: 'views/live-room/comment-muted.html', title: '视图-被禁言', state: { group: '发言状态', name: '被禁言' } },
         { id: 'password-room:restricted', file: 'views/live-room/password-room-restricted.html', title: '视图-密码房-访问受限', state: { group: '房间访问', name: '密码房-访问受限' } },
         { id: 'ticket-room:restricted', file: 'views/live-room/ticket-room-restricted.html', title: '视图-门票房-访问受限', state: { group: '房间访问', name: '门票房-访问受限' } },
+        { id: 'fan-club-room:restricted', file: 'views/live-room/fan-club-room-restricted.html', title: '视图-非粉丝团成员-访问受限', state: { group: '房间访问', name: '非粉丝团成员-访问受限' } },
         { id: 'blocked-room:restricted', file: 'views/live-room/blocked-room-restricted.html', title: '视图-被拉黑或踢出-访问受限', state: { group: '房间访问', name: '被拉黑或踢出-访问受限' } },
-        { id: 'patrol-room:allowed', file: 'views/live-room/patrol-room-allowed.html', title: '视图-巡房身份-正常进入', state: { group: '房间访问', name: '巡房身份-正常进入' } },
         { id: 'audience:online', file: 'views/live-room/audience-online.html', title: '视图-在线观众-观众列表', selectors: ['.watch-chip', '[data-manager-tab="online"]'] },
         { id: 'audience:managers', file: 'views/live-room/audience-managers.html', title: '视图-在线观众-房管列表', selectors: ['.watch-chip', '[data-manager-tab="managers"]'] },
         {
@@ -713,7 +715,7 @@
       'live-room-host-password.html': [
         { id: 'more-actions', file: 'views/live-room-host-password/more-actions.html', title: '视图-更多功能', selectors: ['#moreActions'] },
         { id: 'room-password', file: 'views/live-room-host-password/room-password.html', title: '视图-房间密码', selectors: ['#moreActions', '[data-host-setting="password"]'] },
-        { id: 'visible-scope', file: 'views/live-room-host-password/visible-scope.html', title: '视图-可见范围', selectors: ['#moreActions', '[data-host-setting="scope"]'] }
+        { id: 'access-scope', file: 'views/live-room-host-password/access-scope.html', title: '视图-访问范围', selectors: ['#moreActions', '[data-host-setting="scope"]'] }
       ],
       'live-room-cohost-active.html': [
         { id: 'more-actions', file: 'views/live-room-cohost-active/more-actions.html', title: '视图-更多功能', selectors: ['#moreActions'] },
@@ -780,6 +782,17 @@
     };
     const guildReviewFiles = new Set(Object.keys(guildReviewViews));
     const staticPageViews = {
+      'group-manage-owner.html': [
+        { id: 'edit-notice', title: '视图-编辑公告', state: { group: '页面状态', name: '编辑公告' } }
+      ],
+      'my-fan-clubs.html': [
+        { id: 'empty', title: '视图-空白', state: { group: '页面状态', name: '空白' } }
+      ],
+      'my-decoration.html': [
+        { id: 'store', file: 'views/my-decoration/store.html', title: '视图-装扮商城', selectors: ['[data-decoration-tab="store"]'] },
+        { id: 'purchase-confirm', file: 'views/my-decoration/purchase-confirm.html', title: '视图-购买确认', selectors: ['[data-decoration-tab="store"]', '[data-product-id="shop-frame-aurora"]'] },
+        { id: 'insufficient', file: 'views/my-decoration/insufficient.html', title: '视图-金币不足', selectors: ['[data-decoration-tab="store"]', '[data-product-id="shop-frame-galaxy"]', '[data-buy-decoration]'] }
+      ],
       'guild-detail.html': [
         { id: 'state:页面状态:入会申请中', title: '视图-入会申请中', state: { group: '页面状态', name: '入会申请中' } },
         { id: 'state:页面状态:已加入', title: '视图-已加入', state: { group: '页面状态', name: '已加入' } },
@@ -849,13 +862,14 @@
       'settings.html': [
         { id: 'notification-default', file: 'views/settings/notification-default.html', title: '视图-系统通知-从未申请', state: { group: '页面状态', name: '系统通知-从未申请' }, selectors: ['#systemNotification'] },
         { id: 'notification-denied', file: 'views/settings/notification-denied.html', title: '视图-系统通知-已拒绝', state: { group: '页面状态', name: '系统通知-已拒绝' }, selectors: ['#systemNotification'] },
-        { id: 'notification-granted', file: 'views/settings/notification-granted.html', title: '视图-系统通知-已授权', state: { group: '页面状态', name: '系统通知-已授权' } }
+        { id: 'notification-granted', file: 'views/settings/notification-granted.html', title: '视图-系统通知-已授权', state: { group: '页面状态', name: '系统通知-已授权' } },
+        { id: 'state:密码状态:未设置', file: 'views/settings/password-not-set.html', title: '视图-未设置密码', state: { group: '密码状态', name: '未设置' } }
       ],
       'start-live-settings.html': [
         { id: 'category-sheet', file: 'views/start-live-settings/category.html', title: '视图-选类型', selectors: ['#categoryEntry'] },
         { id: 'room-normal', file: 'views/start-live-settings/room-normal.html', title: '视图-房型（普通）', selectors: ['#roomEntry'] },
         { id: 'room-ticket', file: 'views/start-live-settings/room-ticket.html', title: '视图-房型（门票房）', selectors: ['#roomEntry', '[name="roomType"][value="ticket"]'] },
-        { id: 'room-password', file: 'views/start-live-settings/room-password.html', title: '视图-房型（密码房）', selectors: ['#roomEntry', '[name="roomType"][value="password"]', '#authorizeSwitch'] },
+        { id: 'room-password', file: 'views/start-live-settings/room-password.html', title: '视图-房型（密码房）', selectors: ['#roomEntry', '[name="roomType"][value="password"]'] },
         { id: 'beauty-sheet', file: 'views/start-live-settings/beauty.html', title: '视图-美颜设置', selectors: ['#beautyEntry'] }
       ],
       'live-data.html': [
@@ -1103,6 +1117,11 @@
       }).join('');
       const addedHtml = added.map((item) => `<div class="note"><button class="note-target" data-note-locate="${escapeHtml(item.id)}" title="定位到 ${escapeHtml(item.target)}">${escapeHtml(item.target)}</button><b>${escapeHtml(item.title)}</b><p>${escapeHtml(item.content)}</p><div class="note-actions"><button data-note-edit="${escapeHtml(item.id)}">编辑</button><button data-note-delete="${escapeHtml(item.id)}">删除</button></div></div>`).join('');
       notesPanel.innerHTML = `<div class="notes-head"><h2>原型批注</h2><button id="addNote" type="button">添加批注</button></div>${structuredHtml}${builtInHtml}${addedHtml}${noteForm()}`;
+      const changedText = new Set(window.LUMA_ANNOTATION_REVIEW_CHANGES?.[annotationKey] || []);
+      notesPanel.querySelectorAll('.note > b, .note > p, .note-lines > div, .note-table td, .note-table th, .note-metrics dt, .note-metrics dd').forEach((element) => {
+        const text = element.textContent.replace(/^\d+[.、]\s*/, '').replace(/\s+/g, ' ').trim();
+        if (changedText.has(text)) element.classList.add('note-updated');
+      });
     }
 
     function postFrameMessage(message) {
@@ -1161,6 +1180,7 @@
       if (['guild-detail.html', 'guild-application-records.html'].includes(page.file)) {
         url = pageUrl(page, url.includes('?') ? url.slice(url.indexOf('?')) : '');
       }
+      if (pendingReviewView && pendingReviewView.pageFile !== page.file) pendingReviewView = null;
       current = page;
       currentUrl = url;
       currentAnnotationKey = annotationKey;
@@ -1319,6 +1339,75 @@
       }
     }
 
+    // 2026-09-09、2026-09-10 原型及批注修改页，含本轮尚未提交的修订。
+    const updatedReviewPages = new Set([
+      "admin-guild-detail.html",
+      "admin-guild-list.html",
+      "admin-level-config.html",
+      "admin-push-detail.html",
+      "admin-push-management.html",
+      "admin-task-detail.html",
+      "all-tasks.html",
+      "auth-country-select.html",
+      "auth-email-login.html",
+      "auth-login-register.html",
+      "auth-phone-login.html",
+      "auth-profile-completion.html",
+      "balance-detail.html",
+      "blacklist-management.html",
+      "chat-settings.html",
+      "contribution-ranking.html",
+      "direct-message.html",
+      "fan-club-settings.html",
+      "fan-club.html",
+      "fan-contribution-ranking.html",
+      "fan-group-chat.html",
+      "fan-list.html",
+      "follower-list.html",
+      "friend-list.html",
+      "group-manage-member.html",
+      "group-manage-owner.html",
+      "guild-application-form.html",
+      "guild-application-records.html",
+      "guild-detail.html",
+      "guild-leave-application.html",
+      "guild-management.html",
+      "host-center-pending.html",
+      "host-center.html",
+      "host-gift-gallery.html",
+      "host-guild-notifications.html",
+      "host-home.html",
+      "host-ranking.html",
+      "income-sharing.html",
+      "interaction-notifications.html",
+      "invite-friends.html",
+      "live-data.html",
+      "live-end-viewer.html",
+      "live-plaza.html",
+      "live-records.html",
+      "message-center.html",
+      "moderator-management.html",
+      "my-decoration.html",
+      "my-fan-clubs.html",
+      "my-following.html",
+      "order-expense-detail.html",
+      "order-income-detail.html",
+      "profile-edit.html",
+      "profile.html",
+      "customer-service.html",
+      "recharge.html",
+      "search-results.html",
+      "search.html",
+      "settings.html",
+      "start-live-settings.html",
+      "system-notifications.html",
+      "user-home.html",
+      "welfare-center.html"
+]);
+    // 2026-09-11 公会 APP 批注校对。
+    ["guild-switch.html","guild-home.html","guild-notifications.html","guild-notification-detail.html","guild-join-review.html","guild-leave-review.html","guild-join-review-detail.html","guild-leave-review-detail.html","guild-member-list.html","guild-host-list.html","guild-host-summary.html","guild-host-detail.html","guild-messages.html","guild-message-compose.html","guild-host-select.html","guild-message-detail.html","guild-operation-accounts.html","guild-operation-account-compose.html","guild-operation-account-detail.html","guild-operation-gift-records.html","guild-operation-account-select.html","guild-settings.html","guild-host-data.html","guild-live-gift-detail.html","guild-all-violations.html","guild-income.html","guild-income-day-detail.html","guild-share-ledger.html","guild-share-income.html","guild-violation-host-select.html"].forEach(file => updatedReviewPages.add(file));
+    const treePageTitle = (page) => `${updatedReviewPages.has(page.file) ? "🟢 " : ""}${page.title}`;
+
     function addFolder(label, folderPages, expanded) {
       const folder = document.createElement('button');
       const children = document.createElement('div');
@@ -1330,7 +1419,7 @@
       folderPages.forEach((page) => {
         const button = document.createElement('button');
         button.dataset.file = page.file;
-        button.textContent = page.title;
+        button.textContent = treePageTitle(page);
         button.onclick = () => load(page);
         children.appendChild(button);
       });
@@ -1351,9 +1440,9 @@
         ['首页与福利', ['live-plaza.html', 'host-ranking.html', 'contribution-ranking.html', 'search.html', 'search-results.html', 'welfare-center.html', 'all-tasks.html', 'invite-friends.html']],
         ['直播', ['live-room.html', 'live-room-user-report.html', 'live-room-host.html', 'live-room-host-password.html', 'live-room-cohost-active.html', 'live-end-viewer.html', 'live-end-host.html']],
         ['消息与社交', ['message-center.html', 'system-notifications.html', 'direct-message.html', 'fan-group-chat.html', 'group-manage-member.html', 'group-manage-owner.html', 'chat-settings.html', 'friend-list.html', 'follower-list.html', 'interaction-notifications.html', 'user-home.html', 'host-home.html', 'live-room-report.html', 'host-gift-gallery.html']],
-        ['我的', ['profile.html', 'profile-edit.html', 'my-following.html', 'my-decoration.html', 'my-decoration-avatar-frame.html', 'my-decoration-chat-bubble.html', 'my-decoration-medal.html', 'settings.html', 'blacklist-management.html', 'my-fan-clubs.html', 'fan-contribution-ranking.html', 'host-center-pending.html']],
+        ['我的', ['profile.html', 'profile-edit.html', 'customer-service.html', 'my-following.html', 'my-decoration.html', 'settings.html', 'account-password-set.html', 'account-password-change.html', 'account-password-reset.html', 'blacklist-management.html', 'my-fan-clubs.html', 'fan-contribution-ranking.html', 'host-center-pending.html']],
         ['公会关系', ['guild-management.html', 'guild-application-form.html', 'guild-application-records.html', 'guild-detail.html', 'guild-leave-application.html']],
-        ['主播中心', ['host-center.html', 'moderator-management.html', 'host-guild-notifications.html', 'start-live-settings.html', 'visible-fan-select.html', 'fan-list.html', 'fan-club.html', 'fan-club-settings.html', 'live-data.html', 'live-records.html', 'income-sharing.html']],
+        ['主播中心', ['host-center.html', 'moderator-management.html', 'host-guild-notifications.html', 'start-live-settings.html', 'fan-list.html', 'fan-club.html', 'fan-club-settings.html', 'live-data.html', 'live-records.html', 'income-sharing.html']],
         ['钱包与账单', ['recharge.html', 'balance-detail.html', 'order-income-detail.html', 'order-expense-detail.html']]
       ];
       const appendPage = (box, file) => {
@@ -1363,7 +1452,7 @@
         button.dataset.file = page.file;
         const index = baseUserPageOrder.filter((file) => file !== 'live-room-report.html').indexOf(page.file);
         const code = userPageCodes[page.file] || ('P' + String(index + 1 - (index > 10 ? 1 : 0)).padStart(3, '0'));
-        button.textContent = page.title + ' · ' + code;
+        button.textContent = treePageTitle(page) + ' · ' + code;
         button.onclick = () => load(page);
         box.appendChild(button);
         if (reviewFiles.has(file)) {
@@ -1416,7 +1505,7 @@
             const page = adminPages.find((item) => item.file === file);
             const button = document.createElement('button');
             button.dataset.file = page.file;
-            button.textContent = page.title;
+            button.textContent = treePageTitle(page);
             button.onclick = () => load(page);
             groupChildren.appendChild(button);
             if (reviewFiles.has(file)) {
@@ -1451,7 +1540,7 @@
         if (!page) return;
         const button = document.createElement('button');
         button.dataset.file = page.file;
-        button.textContent = `${page.title}-${String(guildTreeFiles.indexOf(page.file) + 1).padStart(2, '0')}`;
+        button.textContent = `${treePageTitle(page)}-${String(guildTreeFiles.indexOf(page.file) + 1).padStart(2, '0')}`;
         button.onclick = () => load(page);
         box.appendChild(button);
         if (guildReviewFiles.has(page.file)) {
@@ -1500,6 +1589,8 @@
         currentUrl = nextUrl;
         openPage.href = currentUrl;
         if (pageChanged) {
+          pendingReviewView = null;
+          clearTimeout(pendingReviewTimer);
           currentAnnotationKey = page.file;
           clearReviewSelection();
           resetStateControls();
@@ -1639,6 +1730,7 @@
         }
       }
       if (event.data && event.data.type === 'luma-states') {
+        syncPageFromFrame();
         const groups = event.data.groups || { '页面状态': event.data.states || [] };
         const grouped = typeof event.data.grouped === 'boolean' ? event.data.grouped : !Object.prototype.hasOwnProperty.call(groups, '页面状态');
         renderStateControls(groups, grouped);
@@ -1657,6 +1749,8 @@
         currentUrl = nextUrl;
         openPage.href = currentUrl;
         if (pageChanged) {
+          pendingReviewView = null;
+          clearTimeout(pendingReviewTimer);
           currentAnnotationKey = page.file;
           clearReviewSelection();
           editingNoteId = null;

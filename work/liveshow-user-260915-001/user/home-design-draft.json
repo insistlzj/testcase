@@ -1,0 +1,3127 @@
+[
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "当前场次直播卡片",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "存在已知封面、标题、主播和分类的正在直播场次"
+    ],
+    "steps": [
+      "查看对应直播卡片"
+    ],
+    "result": "卡片展示该场次的封面、主题、主播及分类",
+    "refs": [
+      "REQ-26266fc1addf"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4e04f94dcaf4015a7a478fa5e818e46ddb146bb3312769fc30263bf72effa1d6"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "成功进入累计访问",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "目标场次已有2次成功访问；本账号有入场资格"
+    ],
+    "steps": [
+      "点击目标直播间",
+      "返回首页",
+      "查看该场次访问次数"
+    ],
+    "result": "访问次数变为3",
+    "refs": [
+      "REQ-26266fc1addf"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "4e04f94dcaf4015a7a478fa5e818e46ddb146bb3312769fc30263bf72effa1d6"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "同账号重复访问累计",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "目标场次已有2次成功访问；本账号已访问过该场次"
+    ],
+    "steps": [
+      "再次进入目标直播间",
+      "返回首页",
+      "查看该場次访问次数"
+    ],
+    "result": "访问次数变为3",
+    "refs": [
+      "REQ-26266fc1addf"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "4e04f94dcaf4015a7a478fa5e818e46ddb146bb3312769fc30263bf72effa1d6"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "列表曝光不累计访问",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "目标场次访问次数为2"
+    ],
+    "steps": [
+      "刷新首页直播列表",
+      "查看目标场次访问次数"
+    ],
+    "result": "访问次数仍为2",
+    "refs": [
+      "REQ-26266fc1addf"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4e04f94dcaf4015a7a478fa5e818e46ddb146bb3312769fc30263bf72effa1d6"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "普通房卡片标识",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "目标为普通房"
+    ],
+    "steps": [
+      "查看目标直播卡片"
+    ],
+    "result": "不显示门票或密码准入标识",
+    "refs": [
+      "REQ-f407e5fbcd10"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e77e0bf564c1b51229f44c2a16146fe2c14932c4aaa6bd030cf36a7007dc14ad"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "门票房卡片价格",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "目标场次门票为50金币"
+    ],
+    "steps": [
+      "查看目标直播卡片"
+    ],
+    "result": "显示门票价格50金币",
+    "refs": [
+      "REQ-f407e5fbcd10"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e77e0bf564c1b51229f44c2a16146fe2c14932c4aaa6bd030cf36a7007dc14ad"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "密码房卡片标识",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "目标为密码房"
+    ],
+    "steps": [
+      "查看目标直播卡片"
+    ],
+    "result": "显示密码准入提示",
+    "refs": [
+      "REQ-f407e5fbcd10"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e77e0bf564c1b51229f44c2a16146fe2c14932c4aaa6bd030cf36a7007dc14ad"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "关注区主播过滤",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "已关注主播A在播、B未开播；未关注主播C在播"
+    ],
+    "steps": [
+      "查看关注主播区"
+    ],
+    "result": "只展示已关注且在播的主播A",
+    "refs": [
+      "REQ-199b478e27ce",
+      "REQ-288a28d5bee2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "54172f901e6b2005a82738aeb5440ce4d8037862fdec9ed4d992f6ab3814b9fc",
+      "76d21aaf70064e467391901739c66c27b0de15592ec7fa0fe0f8ec72f94b8850"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "关注区空态",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "没有已关注且在播的主播"
+    ],
+    "steps": [
+      "查看首页"
+    ],
+    "result": "关注主播区隐藏",
+    "refs": [
+      "REQ-288a28d5bee2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "76d21aaf70064e467391901739c66c27b0de15592ec7fa0fe0f8ec72f94b8850"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "平台Banner展示",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "平台当前启用两张有效Banner并指定先B后A"
+    ],
+    "steps": [
+      "查看首页Banner"
+    ],
+    "result": "Banner按B、A顺序展示",
+    "refs": [
+      "REQ-2d0b8f0363f7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e5020d9a91003c83767056abe8e4408639b9eff8862c29a55701cf1fea2e45d8"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "过期Banner过滤",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "BannerA已超过配置的有效期"
+    ],
+    "steps": [
+      "刷新首页"
+    ],
+    "result": "不展示已过期的BannerA",
+    "refs": [
+      "REQ-2d0b8f0363f7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e5020d9a91003c83767056abe8e4408639b9eff8862c29a55701cf1fea2e45d8"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "Banner配置跳转",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "有效Banner配置跳转至充值页"
+    ],
+    "steps": [
+      "点击该Banner"
+    ],
+    "result": "进入充值页",
+    "refs": [
+      "REQ-2d0b8f0363f7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e5020d9a91003c83767056abe8e4408639b9eff8862c29a55701cf1fea2e45d8"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "搜索入口",
+    "pre": [
+      "已登录普通用户；当前处于首页页面"
+    ],
+    "steps": [
+      "点击搜索"
+    ],
+    "result": "进入搜索页",
+    "refs": [
+      "REQ-509b608bd4e7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "36ea026e3b2c2f20157208f7d916e571a861ef94c17a72f7de6b97449e443169"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "热门新人切换",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "存在热门及新人分类的测试直播数据"
+    ],
+    "steps": [
+      "点击新人"
+    ],
+    "result": "刷新为新人直播列表",
+    "refs": [
+      "REQ-48ed6b7054ef"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e8a30f4bf420bc3412930816ed079ba21ed4416afc1cf99c08186097f13a7259"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "直播分类筛选",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "目标分类有在播主播"
+    ],
+    "steps": [
+      "选择目标分类"
+    ],
+    "result": "列表刷新为该分类直播",
+    "refs": [
+      "REQ-48ed6b7054ef"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e8a30f4bf420bc3412930816ed079ba21ed4416afc1cf99c08186097f13a7259"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "粉丝专属密码房卡片不隐藏",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "密码房已开启仅粉丝团成员进入及广场展示；当前不是该团成员"
+    ],
+    "steps": [
+      "查看广场列表"
+    ],
+    "result": "该密码房卡片仍然展示",
+    "refs": [
+      "REQ-c1abe223a320"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f1d4f2147adac31fd1ca24b61977694cb97288d25a642c6d81d1f93b995424ba"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "非粉丝点击专属密码房",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "密码房已开启仅粉丝团成员进入；当前非成员"
+    ],
+    "steps": [
+      "点击该房间卡片"
+    ],
+    "result": "显示访问受限",
+    "refs": [
+      "REQ-c1abe223a320"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "f1d4f2147adac31fd1ca24b61977694cb97288d25a642c6d81d1f93b995424ba"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "粉丝进入专属密码房仍需密码",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "密码房已开启仅粉丝团成员进入；当前已入团"
+    ],
+    "steps": [
+      "点击该房间卡片"
+    ],
+    "result": "继续要求校验房间密码",
+    "refs": [
+      "REQ-c1abe223a320"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f1d4f2147adac31fd1ca24b61977694cb97288d25a642c6d81d1f93b995424ba"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "密码错误保留页面",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "目标为密码房；当前具备其他准入资格"
+    ],
+    "steps": [
+      "点击目标房间",
+      "输入错误密码",
+      "点击确认"
+    ],
+    "result": "保留当前页面并提示重试",
+    "refs": [
+      "REQ-5ccb1a22c513"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "5b885c6620641fec4b18acbe2f01f415c1485bb5e7a300798b32ce31d77ca4f6"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "密码正确入场",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "目标为密码房；当前具备其他准入资格"
+    ],
+    "steps": [
+      "点击目标房间",
+      "输入正确密码",
+      "点击确认"
+    ],
+    "result": "进入目标直播间",
+    "refs": [
+      "REQ-5ccb1a22c513"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "5b885c6620641fec4b18acbe2f01f415c1485bb5e7a300798b32ce31d77ca4f6"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "首次登录通知说明",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "当前设备首次登录后进入首页"
+    ],
+    "steps": [
+      "查看首页弹窗"
+    ],
+    "result": "显示开启通知说明及暂不开启、开启通知按钮",
+    "refs": [
+      "REQ-e8ec3f943f5b",
+      "REQ-b6e971fe282d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3d6fd49154717ef77717df375764646421c4477da5623d55d2b388940eca6333",
+      "5d32f2da10fd728496ee3a7c5f2f6829e63fd911ec27b0eb2d828c544aef22d7"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "暂不开启通知",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "首次通知说明已打开"
+    ],
+    "steps": [
+      "点击暂不开启"
+    ],
+    "result": "关闭说明且不请求系统通知权限",
+    "refs": [
+      "REQ-76425e959ab6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "75199e629395cf5407e620edf1c4e6518fe53e245f53f9d6bf3d9497531493b5"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "同意开启通知",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "首次通知说明已打开"
+    ],
+    "steps": [
+      "点击开启通知"
+    ],
+    "result": "打开系统通知授权弹窗",
+    "refs": [
+      "REQ-76425e959ab6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "75199e629395cf5407e620edf1c4e6518fe53e245f53f9d6bf3d9497531493b5"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "暂不开启后不重复询问",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "此前已选择暂不开启；账号再次登录"
+    ],
+    "steps": [
+      "查看首页"
+    ],
+    "result": "不再显示首次通知说明",
+    "refs": [
+      "REQ-b6e971fe282d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5d32f2da10fd728496ee3a7c5f2f6829e63fd911ec27b0eb2d828c544aef22d7"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "已登录普通用户",
+    "point": "开启后不重复询问",
+    "pre": [
+      "已登录普通用户；当前处于首页页面",
+      "此前已选择开启通知；账号再次登录"
+    ],
+    "steps": [
+      "查看首页"
+    ],
+    "result": "不再显示首次通知说明",
+    "refs": [
+      "REQ-c5181f8521fc"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "6f71ce898d2080c2b409c48edd00d8f1525842fadde3286a34971fe0447bf3d3"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "游客",
+    "point": "游客点击直播间",
+    "pre": [
+      "游客；当前处于首页页面"
+    ],
+    "steps": [
+      "点击直播间"
+    ],
+    "result": "直接进入登录页，不执行原账号操作",
+    "refs": [
+      "REQ-e944097da140"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "4412d3223756752cbbd9695fddf3fa49a26d21c68c76d3bdea1c681f17cc7468"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "游客",
+    "point": "游客点击搜索",
+    "pre": [
+      "游客；当前处于首页页面"
+    ],
+    "steps": [
+      "点击搜索"
+    ],
+    "result": "直接进入登录页，不执行原账号操作",
+    "refs": [
+      "REQ-e944097da140"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "4412d3223756752cbbd9695fddf3fa49a26d21c68c76d3bdea1c681f17cc7468"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "游客",
+    "point": "游客点击消息",
+    "pre": [
+      "游客；当前处于首页页面"
+    ],
+    "steps": [
+      "点击消息"
+    ],
+    "result": "直接进入登录页，不执行原账号操作",
+    "refs": [
+      "REQ-e944097da140"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "4412d3223756752cbbd9695fddf3fa49a26d21c68c76d3bdea1c681f17cc7468"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "游客",
+    "point": "游客点击我的",
+    "pre": [
+      "游客；当前处于首页页面"
+    ],
+    "steps": [
+      "点击我的"
+    ],
+    "result": "直接进入登录页，不执行原账号操作",
+    "refs": [
+      "REQ-e944097da140"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "4412d3223756752cbbd9695fddf3fa49a26d21c68c76d3bdea1c681f17cc7468"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "游客",
+    "point": "游客浏览主播榜",
+    "pre": [
+      "游客；当前处于首页页面"
+    ],
+    "steps": [
+      "点击主播榜"
+    ],
+    "result": "允许进入主播榜页面",
+    "refs": [
+      "REQ-d5aa38b782fd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bb7c4c092cd7bbe7ccb13831c60bdff080978e6b5645bb2b991dd1b7a44d8b30"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "游客",
+    "point": "游客浏览贡献榜",
+    "pre": [
+      "游客；当前处于首页页面"
+    ],
+    "steps": [
+      "点击贡献榜"
+    ],
+    "result": "允许进入贡献榜页面",
+    "refs": [
+      "REQ-d5aa38b782fd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bb7c4c092cd7bbe7ccb13831c60bdff080978e6b5645bb2b991dd1b7a44d8b30"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "游客",
+    "point": "游客浏览福利",
+    "pre": [
+      "游客；当前处于首页页面"
+    ],
+    "steps": [
+      "点击福利"
+    ],
+    "result": "允许进入福利页面",
+    "refs": [
+      "REQ-d5aa38b782fd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bb7c4c092cd7bbe7ccb13831c60bdff080978e6b5645bb2b991dd1b7a44d8b30"
+    ]
+  },
+  {
+    "page": "live-plaza.html",
+    "role": "游客",
+    "point": "游客浏览邀请好友",
+    "pre": [
+      "游客；当前处于首页页面"
+    ],
+    "steps": [
+      "点击邀请好友"
+    ],
+    "result": "允许进入邀请好友页面",
+    "refs": [
+      "REQ-d5aa38b782fd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bb7c4c092cd7bbe7ccb13831c60bdff080978e6b5645bb2b991dd1b7a44d8b30"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "收礼值降序",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "A的收礼值为200，B为100"
+    ],
+    "steps": [
+      "查看榜单排名"
+    ],
+    "result": "A排在B之前",
+    "refs": [
+      "REQ-cfb0b2e6ae0f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1afe61f41fab089f1999fba8648f91eddde2f356e27f31a70a667ac1774d1249"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "财富等级破同分",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "A、B的收礼值相同且主播等级相同；A财富等级10、B为5"
+    ],
+    "steps": [
+      "查看榜单排名"
+    ],
+    "result": "A排在B之前",
+    "refs": [
+      "REQ-cfb0b2e6ae0f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1afe61f41fab089f1999fba8648f91eddde2f356e27f31a70a667ac1774d1249"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "数字ID破同分",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "A、B的收礼值及参与排序的等级相同；A的ID数字部分为9，B为10"
+    ],
+    "steps": [
+      "查看榜单排名"
+    ],
+    "result": "A排在B之前且不设并列名次",
+    "refs": [
+      "REQ-cfb0b2e6ae0f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1afe61f41fab089f1999fba8648f91eddde2f356e27f31a70a667ac1774d1249"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "第三十名同分截断",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "有效数据有31人；第30和31候选收礼值相同；排序后的第30人为A、第31人为B"
+    ],
+    "steps": [
+      "查看榜单末尾"
+    ],
+    "result": "仅显示A作为第30名，不展示B",
+    "refs": [
+      "REQ-cfb0b2e6ae0f",
+      "REQ-9e4e83c848d1"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "1afe61f41fab089f1999fba8648f91eddde2f356e27f31a70a667ac1774d1249",
+      "494fedb9c03f8e6a3b481086c946e88a1147641c40a986c28957909e0e22ed5e"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "不足三十条展示",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "所选周期只有3名有效上榜账号"
+    ],
+    "steps": [
+      "查看榜单"
+    ],
+    "result": "仅展示3名账号",
+    "refs": [
+      "REQ-9e4e83c848d1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "494fedb9c03f8e6a3b481086c946e88a1147641c40a986c28957909e0e22ed5e"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "幸运礼物返奖不冲减榜单",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标账号本周期只有一笔100金币幸运礼物，赠送者另获返奖"
+    ],
+    "steps": [
+      "查看目标账号榜单数值"
+    ],
+    "result": "收礼值为100",
+    "refs": [
+      "REQ-61f3f54e13a7"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "92b242222d735386d05896438812e925eea8541af45561cb29524ac59f6e90dc"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "充值退款不冲减已送礼",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "账号本周期有已完成送礼；随后原充值已退款"
+    ],
+    "steps": [
+      "刷新榜单"
+    ],
+    "result": "已完成送礼的收礼值仍保留",
+    "refs": [
+      "REQ-3260f386f0f2"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "3888e7eac490af95e51e297f04ba7ce6a3abcc76c226dba350da069c15a05524"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "消费冲正重新统计",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标账号原有100金币有效消费贡献；该消费已被有效冲正"
+    ],
+    "steps": [
+      "刷新榜单"
+    ],
+    "result": "目标账号不再计入该笔消费的收礼值",
+    "refs": [
+      "REQ-3260f386f0f2"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "3888e7eac490af95e51e297f04ba7ce6a3abcc76c226dba350da069c15a05524"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "注销账号名称",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标上榜账号已最终注销"
+    ],
+    "steps": [
+      "查看对应排名行"
+    ],
+    "result": "名称显示“账号已注销”",
+    "refs": [
+      "REQ-3260f386f0f2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3888e7eac490af95e51e297f04ba7ce6a3abcc76c226dba350da069c15a05524"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "注销账号主页禁止进入",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标上榜账号已最终注销"
+    ],
+    "steps": [
+      "点击对应排名行"
+    ],
+    "result": "不能进入该账号主页",
+    "refs": [
+      "REQ-3260f386f0f2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3888e7eac490af95e51e297f04ba7ce6a3abcc76c226dba350da069c15a05524"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "账号主页跳转",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标账号未注销且当前可访问"
+    ],
+    "steps": [
+      "点击对应排名行"
+    ],
+    "result": "进入该主播主页",
+    "refs": [
+      "REQ-021f33d6dcb2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "030462aeb63053134db2bf58ed4a95782674b8377bec94f83dfc435c4a7ebbe8"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "切换当日",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "当日测试数据已有独立统计结果；测试环境业务时区已确认"
+    ],
+    "steps": [
+      "选择当日"
+    ],
+    "result": "前三名、列表和收礼值同步切换为当日统计数据",
+    "refs": [
+      "REQ-f7b4f8b5b63e",
+      "REQ-bb13319d039b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fbef76e892a4af1666296a94c2ad023375fe6e9186dabe51bddca7d395ce2a7d",
+      "4a3fe7ea72a7529e9473c640bf0015968b4a2cbd50260e3a3fd7414fdcfc56b8"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "切换本周",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "本周测试数据已有独立统计结果；测试环境业务时区已确认"
+    ],
+    "steps": [
+      "选择本周"
+    ],
+    "result": "前三名、列表和收礼值同步切换为本周统计数据",
+    "refs": [
+      "REQ-f7b4f8b5b63e",
+      "REQ-bb13319d039b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fbef76e892a4af1666296a94c2ad023375fe6e9186dabe51bddca7d395ce2a7d",
+      "4a3fe7ea72a7529e9473c640bf0015968b4a2cbd50260e3a3fd7414fdcfc56b8"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "切换本月",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "本月测试数据已有独立统计结果；测试环境业务时区已确认"
+    ],
+    "steps": [
+      "选择本月"
+    ],
+    "result": "前三名、列表和收礼值同步切换为本月统计数据",
+    "refs": [
+      "REQ-f7b4f8b5b63e",
+      "REQ-bb13319d039b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fbef76e892a4af1666296a94c2ad023375fe6e9186dabe51bddca7d395ce2a7d",
+      "4a3fe7ea72a7529e9473c640bf0015968b4a2cbd50260e3a3fd7414fdcfc56b8"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "游客",
+    "point": "游客点击账号",
+    "pre": [
+      "游客；当前处于主播榜页面"
+    ],
+    "steps": [
+      "点击一个未注销的上榜账号"
+    ],
+    "result": "进入登录页",
+    "refs": [
+      "REQ-021f33d6dcb2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "030462aeb63053134db2bf58ed4a95782674b8377bec94f83dfc435c4a7ebbe8"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "贡献值降序",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "A的贡献值为200，B为100"
+    ],
+    "steps": [
+      "查看榜单排名"
+    ],
+    "result": "A排在B之前",
+    "refs": [
+      "REQ-ad3b4b3d5e9b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9a8a6360554611d510c2ce09f3919f5f0b01b7038f86ab48d96bb589ed2a2367"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "财富等级破同分",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "A、B的贡献值相同且主播等级相同；A财富等级10、B为5"
+    ],
+    "steps": [
+      "查看榜单排名"
+    ],
+    "result": "A排在B之前",
+    "refs": [
+      "REQ-ad3b4b3d5e9b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9a8a6360554611d510c2ce09f3919f5f0b01b7038f86ab48d96bb589ed2a2367"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "数字ID破同分",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "A、B的贡献值及参与排序的等级相同；A的ID数字部分为9，B为10"
+    ],
+    "steps": [
+      "查看榜单排名"
+    ],
+    "result": "A排在B之前且不设并列名次",
+    "refs": [
+      "REQ-ad3b4b3d5e9b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9a8a6360554611d510c2ce09f3919f5f0b01b7038f86ab48d96bb589ed2a2367"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "第三十名同分截断",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "有效数据有31人；第30和31候选贡献值相同；排序后的第30人为A、第31人为B"
+    ],
+    "steps": [
+      "查看榜单末尾"
+    ],
+    "result": "仅显示A作为第30名，不展示B",
+    "refs": [
+      "REQ-ad3b4b3d5e9b",
+      "REQ-3e39503ac52e"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "9a8a6360554611d510c2ce09f3919f5f0b01b7038f86ab48d96bb589ed2a2367",
+      "620bfa809d0d6625a57a87647c4699524aa7206ee9addf80635c91f1948c9f2e"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "不足三十条展示",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "所选周期只有3名有效上榜账号"
+    ],
+    "steps": [
+      "查看榜单"
+    ],
+    "result": "仅展示3名账号",
+    "refs": [
+      "REQ-3e39503ac52e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "620bfa809d0d6625a57a87647c4699524aa7206ee9addf80635c91f1948c9f2e"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "幸运礼物返奖不冲减榜单",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标账号本周期只有一笔100金币幸运礼物，赠送者另获返奖"
+    ],
+    "steps": [
+      "查看目标账号榜单数值"
+    ],
+    "result": "贡献值为100",
+    "refs": [
+      "REQ-337ad0065e55"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "17200b9b2eff3e442b9a8b74a564b9390cbd4aeaa3f16db36a8cc8533b6f5524"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "充值退款不冲减已送礼",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "账号本周期有已完成送礼；随后原充值已退款"
+    ],
+    "steps": [
+      "刷新榜单"
+    ],
+    "result": "已完成送礼的贡献值仍保留",
+    "refs": [
+      "REQ-d78c5211c8a5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "a0e05677fc572247fd400d07aae9692b0bb0d7e1cf453b7d90d97070d52c306a"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "消费冲正重新统计",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标账号原有100金币有效消费贡献；该消费已被有效冲正"
+    ],
+    "steps": [
+      "刷新榜单"
+    ],
+    "result": "目标账号不再计入该笔消费的贡献值",
+    "refs": [
+      "REQ-d78c5211c8a5"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "a0e05677fc572247fd400d07aae9692b0bb0d7e1cf453b7d90d97070d52c306a"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "注销账号名称",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标上榜账号已最终注销"
+    ],
+    "steps": [
+      "查看对应排名行"
+    ],
+    "result": "名称显示“账号已注销”",
+    "refs": [
+      "REQ-d78c5211c8a5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a0e05677fc572247fd400d07aae9692b0bb0d7e1cf453b7d90d97070d52c306a"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "注销账号主页禁止进入",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标上榜账号已最终注销"
+    ],
+    "steps": [
+      "点击对应排名行"
+    ],
+    "result": "不能进入该账号主页",
+    "refs": [
+      "REQ-d78c5211c8a5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a0e05677fc572247fd400d07aae9692b0bb0d7e1cf453b7d90d97070d52c306a"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "账号主页跳转",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "测试榜单仅包含真实金币有效消费",
+      "目标账号未注销且当前可访问"
+    ],
+    "steps": [
+      "点击对应排名行"
+    ],
+    "result": "进入该用户主页",
+    "refs": [
+      "REQ-2a0dc67e1447"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1a14b5d268097babf8dbc0199dc2dfa17ad35d51c260cfffee8480fc122ca727"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "切换当日",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "当日测试数据已有独立统计结果；测试环境业务时区已确认"
+    ],
+    "steps": [
+      "选择当日"
+    ],
+    "result": "前三名、列表和贡献值同步切换为当日统计数据",
+    "refs": [
+      "REQ-c861a60701cb",
+      "REQ-aa4b9b6bedf2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "39b0518a28d7fb9cea212514867ccacfa3dbbd5b0f0e413912c4afa815e9db9a",
+      "26bbd4335c0b41743e74d58c344cd18a59e165bbc3052b5785d99010464115b6"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "切换本周",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "本周测试数据已有独立统计结果；测试环境业务时区已确认"
+    ],
+    "steps": [
+      "选择本周"
+    ],
+    "result": "前三名、列表和贡献值同步切换为本周统计数据",
+    "refs": [
+      "REQ-c861a60701cb",
+      "REQ-aa4b9b6bedf2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "39b0518a28d7fb9cea212514867ccacfa3dbbd5b0f0e413912c4afa815e9db9a",
+      "26bbd4335c0b41743e74d58c344cd18a59e165bbc3052b5785d99010464115b6"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "已登录普通用户",
+    "point": "切换本月",
+    "pre": [
+      "已登录普通用户；当前处于贡献榜页面",
+      "本月测试数据已有独立统计结果；测试环境业务时区已确认"
+    ],
+    "steps": [
+      "选择本月"
+    ],
+    "result": "前三名、列表和贡献值同步切换为本月统计数据",
+    "refs": [
+      "REQ-c861a60701cb",
+      "REQ-aa4b9b6bedf2"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "39b0518a28d7fb9cea212514867ccacfa3dbbd5b0f0e413912c4afa815e9db9a",
+      "26bbd4335c0b41743e74d58c344cd18a59e165bbc3052b5785d99010464115b6"
+    ]
+  },
+  {
+    "page": "contribution-ranking.html",
+    "role": "游客",
+    "point": "游客点击账号",
+    "pre": [
+      "游客；当前处于贡献榜页面"
+    ],
+    "steps": [
+      "点击一个未注销的上榜账号"
+    ],
+    "result": "进入登录页",
+    "refs": [
+      "REQ-2a0dc67e1447"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1a14b5d268097babf8dbc0199dc2dfa17ad35d51c260cfffee8480fc122ca727"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "主播等级破同收礼值",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "A、B收礼值相同；A主播等级20、B主播等级10"
+    ],
+    "steps": [
+      "查看排名"
+    ],
+    "result": "A排在B之前",
+    "refs": [
+      "REQ-cfb0b2e6ae0f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1afe61f41fab089f1999fba8648f91eddde2f356e27f31a70a667ac1774d1249"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "缺失等级按零排序",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "A、B收礼值相同；A主播等级缺失、B主播等级为1"
+    ],
+    "steps": [
+      "查看排名"
+    ],
+    "result": "B排在A之前",
+    "refs": [
+      "REQ-f3e7be9f9a0b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "53713b5dff369906929d7894b21b6c1234fae0b4584f0e10e19918ea29da6978"
+    ]
+  },
+  {
+    "page": "host-ranking.html",
+    "role": "已登录普通用户",
+    "point": "当前开播状态展示",
+    "pre": [
+      "已登录普通用户；当前处于主播榜页面",
+      "主播A在播、主播B未开播"
+    ],
+    "steps": [
+      "查看两位主播榜单信息"
+    ],
+    "result": "两位主播展示各自当前开播状态",
+    "refs": [
+      "REQ-bfa59063842c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0206ce142eb9addff55260a7657613e9a6061a2f677b872d102d3971398232f1"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "搜索框自动聚焦",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面"
+    ],
+    "steps": [
+      "进入搜索页"
+    ],
+    "result": "搜索框自动获得焦点",
+    "refs": [
+      "REQ-a02e580d25de"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "75d7155eee24083f9970762f22f2187a734c94a1baf9926697fa4d98c5b9eb84"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "空搜索拦截",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面"
+    ],
+    "steps": [
+      "清空搜索词",
+      "点击搜索"
+    ],
+    "result": "提示输入且不进入结果页",
+    "refs": [
+      "REQ-a0a19c423e65"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b63130d261b93fb598745b42e307aa6e53c467ec9d8eeb28173f273d7b3b633c"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "全空格搜索拦截",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面"
+    ],
+    "steps": [
+      "输入三个空格",
+      "点击搜索"
+    ],
+    "result": "不进入搜索结果页",
+    "refs": [
+      "REQ-c644e17bfb6f"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "d1977e686bab504811c5642cf5ac944773b66cce5d26dd3543d1304b272868e3"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "去除搜索词首尾空格",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面"
+    ],
+    "steps": [
+      "输入“  QA主播  ”",
+      "点击搜索"
+    ],
+    "result": "以“QA主播”作为搜索关键词",
+    "refs": [
+      "REQ-c644e17bfb6f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d1977e686bab504811c5642cf5ac944773b66cce5d26dd3543d1304b272868e3"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "同词历史移到首位",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面",
+      "历史按新到旧为A、B、C"
+    ],
+    "steps": [
+      "输入B",
+      "点击搜索",
+      "返回搜索页"
+    ],
+    "result": "历史顺序为B、A、C且B不重复",
+    "refs": [
+      "REQ-1206e925fd86"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "112dd31a76d0a1018e6f671c91bdfc0809a949e27a73750d0b92e09de248cb74"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "第十一条搜索淘汰最早",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面",
+      "当前已有10个不重复搜索词"
+    ],
+    "steps": [
+      "输入新的第11个关键词",
+      "点击搜索",
+      "返回搜索页"
+    ],
+    "result": "历史保留最新10条并删除最早一条",
+    "refs": [
+      "REQ-1206e925fd86"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "112dd31a76d0a1018e6f671c91bdfc0809a949e27a73750d0b92e09de248cb74"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "历史词再次搜索",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面",
+      "历史中存在QA主播"
+    ],
+    "steps": [
+      "点击历史词QA主播"
+    ],
+    "result": "进入QA主播的搜索结果页",
+    "refs": [
+      "REQ-51257e5ecd35"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "5d9d89579e23d752db233b7530a160dc34e3f52e5c0d3e6dfd630878bb7678a1"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "删除单条历史",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面",
+      "历史有A、B、C"
+    ],
+    "steps": [
+      "点击B右侧删除"
+    ],
+    "result": "历史只移除B，A和C保留",
+    "refs": [
+      "REQ-2b7db2f77439"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a0b4be15e5947d9dd82578550905dd4ceb4e941ac328cdd13e7ede5374d6b6f1"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "清空全部历史",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面",
+      "当前已有搜索历史"
+    ],
+    "steps": [
+      "点击清空全部"
+    ],
+    "result": "搜索历史为空并显示空状态",
+    "refs": [
+      "REQ-2b7db2f77439"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a0b4be15e5947d9dd82578550905dd4ceb4e941ac328cdd13e7ede5374d6b6f1"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "不展示热门搜索",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面"
+    ],
+    "steps": [
+      "查看搜索页内容"
+    ],
+    "result": "不展示热门搜索词",
+    "refs": [
+      "REQ-e6e0d7e38a8f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ab556aea3075daeb15695c5fe4786cbbcbc740617c734da63947547dc0fefa4c"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "搜索记录不跨设备同步",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面",
+      "本账号在设备A搜索过QA新词；设备B此前没有该历史；当前使用设备B"
+    ],
+    "steps": [
+      "查看设备B搜索历史"
+    ],
+    "result": "历史中未因设备A搜索新增QA新词",
+    "refs": [
+      "REQ-da88ffbc47a5"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "df396504c44293e78de0f5948731e4b4e3c48a95a7fd5af2681ea9092ac524d5"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "按房间号搜索",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面",
+      "已准备当前可搜索账号的房间号"
+    ],
+    "steps": [
+      "输入该账号房间号",
+      "点击搜索"
+    ],
+    "result": "进入对应账号的搜索结果页",
+    "refs": [
+      "REQ-c644e17bfb6f",
+      "REQ-51257e5ecd35"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d1977e686bab504811c5642cf5ac944773b66cce5d26dd3543d1304b272868e3",
+      "5d9d89579e23d752db233b7530a160dc34e3f52e5c0d3e6dfd630878bb7678a1"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "按用户ID搜索",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面",
+      "已准备当前可搜索账号的用户ID"
+    ],
+    "steps": [
+      "输入该账号用户ID",
+      "点击搜索"
+    ],
+    "result": "进入对应账号的搜索结果页",
+    "refs": [
+      "REQ-c644e17bfb6f",
+      "REQ-51257e5ecd35"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d1977e686bab504811c5642cf5ac944773b66cce5d26dd3543d1304b272868e3",
+      "5d9d89579e23d752db233b7530a160dc34e3f52e5c0d3e6dfd630878bb7678a1"
+    ]
+  },
+  {
+    "page": "search.html",
+    "role": "已登录普通用户",
+    "point": "按用户昵称搜索",
+    "pre": [
+      "已登录普通用户；当前处于搜索页面",
+      "已准备当前可搜索账号的用户昵称"
+    ],
+    "steps": [
+      "输入该账号用户昵称",
+      "点击搜索"
+    ],
+    "result": "进入对应账号的搜索结果页",
+    "refs": [
+      "REQ-c644e17bfb6f",
+      "REQ-51257e5ecd35"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d1977e686bab504811c5642cf5ac944773b66cce5d26dd3543d1304b272868e3",
+      "5d9d89579e23d752db233b7530a160dc34e3f52e5c0d3e6dfd630878bb7678a1"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "搜索词回填",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "来源搜索词为QA主播"
+    ],
+    "steps": [
+      "查看搜索输入框"
+    ],
+    "result": "回填QA主播",
+    "refs": [
+      "REQ-40e02f89bd30"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3460d012cb9b5fa964d97d34a444e8d0ff27cfc48daea9f63ea40b6da2f59c66"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "账号结果去重",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "同一账号同时匹配昵称及ID条件"
+    ],
+    "steps": [
+      "查看搜索结果"
+    ],
+    "result": "该账号只有一条结果",
+    "refs": [
+      "REQ-0d5340455b00"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3cf289f5604acf3b06d0553bfce26c683cbc267e0042f9af508db1335053734a"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "无结果空态",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "关键词没有匹配账号"
+    ],
+    "steps": [
+      "查看搜索结果"
+    ],
+    "result": "保留搜索框并展示空状态",
+    "refs": [
+      "REQ-071020a0b13a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "272f720cf669435468631f63ea5963798aed3ce36b7b541899cde3fd04232b0a"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "非主播不显示房间号",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "结果包含非主播账号"
+    ],
+    "steps": [
+      "查看该账号结果"
+    ],
+    "result": "不显示房间号",
+    "refs": [
+      "REQ-ca0a9c12ec62"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4996aedcedc762ffcd4b2eb94c39eb067cf14ad335f86fc431aafd2c8eee6d55"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "主播显示房间号",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "结果包含主播账号"
+    ],
+    "steps": [
+      "查看该账号结果"
+    ],
+    "result": "显示该主播的房间号",
+    "refs": [
+      "REQ-ca0a9c12ec62"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4996aedcedc762ffcd4b2eb94c39eb067cf14ad335f86fc431aafd2c8eee6d55"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "在播主播标记",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "结果账号有主播身份且正在直播"
+    ],
+    "steps": [
+      "查看该账号结果"
+    ],
+    "result": "显示直播中标记",
+    "refs": [
+      "REQ-0d5340455b00"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3cf289f5604acf3b06d0553bfce26c683cbc267e0042f9af508db1335053734a"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "未开播不显示在播标记",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "结果主播当前未开播"
+    ],
+    "steps": [
+      "查看该账号结果"
+    ],
+    "result": "不显示直播中标记",
+    "refs": [
+      "REQ-0d5340455b00"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3cf289f5604acf3b06d0553bfce26c683cbc267e0042f9af508db1335053734a"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "进入在播账号",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "结果主播正在普通房直播且本账号有访问资格"
+    ],
+    "steps": [
+      "点击该结果"
+    ],
+    "result": "进入该直播间",
+    "refs": [
+      "REQ-517b2a4a3b1f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8fbe02568b153bc6777ca5efcaeb8f60199085baec0400b0c8b2d68580c48014"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "进入未开播主播主页",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "结果主播未开播"
+    ],
+    "steps": [
+      "点击该结果"
+    ],
+    "result": "进入该主播主页",
+    "refs": [
+      "REQ-77596e9bf81c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "540453cc42930536d61c70bc9292d651e9f499874e35693ba20d6563ed936b14"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "进入非主播用户主页",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "结果账号没有主播身份"
+    ],
+    "steps": [
+      "点击该结果"
+    ],
+    "result": "进入该用户主页",
+    "refs": [
+      "REQ-77596e9bf81c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "540453cc42930536d61c70bc9292d651e9f499874e35693ba20d6563ed936b14"
+    ]
+  },
+  {
+    "page": "search-results.html",
+    "role": "已登录普通用户",
+    "point": "修改关键词刷新",
+    "pre": [
+      "已登录普通用户；当前处于搜索结果页面",
+      "当前结果关键词A；关键词B匹配不同账号"
+    ],
+    "steps": [
+      "将搜索词改为B",
+      "点击搜索"
+    ],
+    "result": "结果刷新为B匹配的账号",
+    "refs": [
+      "REQ-dcaeabbc4a86"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "757f38804147a9d3abbd95abc580cf7de80f469d167d27f15a77098201be545c"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "登录不等于签到",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "今日已登录但未手动签到"
+    ],
+    "steps": [
+      "查看连续签到天数"
+    ],
+    "result": "连续签到天数不会因今日登录增加",
+    "refs": [
+      "REQ-6333241d4b9b",
+      "REQ-97320cbd6d67"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "279c290a1e9d1555a205be9588f832d6b8f8bce076215aed32b1d74da341d873",
+      "98e93a6e2c4150d6623677fda4a9fe5944800309d7434c7c646dde28814472c4"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "今日未签到按钮",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "今日未签到"
+    ],
+    "steps": [
+      "查看签到按钮"
+    ],
+    "result": "显示签到且可操作",
+    "refs": [
+      "REQ-bcf3754632ce"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d4f9ae6270b4c6d3971443b1e5aa1e36fe331def015aeb61ddd8cb318988c094"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "手动签到成功",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "今日未签到；当前第1天奖励配置为20金币"
+    ],
+    "steps": [
+      "点击签到"
+    ],
+    "result": "当日签到变为已签到且按钮禁用",
+    "refs": [
+      "REQ-4d0358d54570"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "7068bf4b02abdda52015b7a55a8b61963169cea578bb4930122c61ddd54b5ae2"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "签到金币到账",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "今日未签到；当前第1天奖励20金币；余额100金币"
+    ],
+    "steps": [
+      "点击签到",
+      "进入我的页面查看余额"
+    ],
+    "result": "金币余额为120",
+    "refs": [
+      "REQ-4d0358d54570",
+      "REQ-dd6d795f15ac"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "7068bf4b02abdda52015b7a55a8b61963169cea578bb4930122c61ddd54b5ae2",
+      "09a03f3da1a4cb1796a4dbc6393cefd9805bdf762f3c320810dd19dde6580c64"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "同日签到不可重复",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "今日已领取签到奖励"
+    ],
+    "steps": [
+      "再次点击签到奖励"
+    ],
+    "result": "不重复发放当日金币",
+    "refs": [
+      "REQ-4d0358d54570"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7068bf4b02abdda52015b7a55a8b61963169cea578bb4930122c61ddd54b5ae2"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "断签后从第一天开始",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "仅配置第1天20金币、第2天30金币；昨日未手动签到"
+    ],
+    "steps": [
+      "点击今日签到"
+    ],
+    "result": "本次领取第1天20金币奖励",
+    "refs": [
+      "REQ-87b984d32f90",
+      "REQ-6015ad1aaa2f"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "519300464a3f5be854e5b7d4be4f64a89f9310bfcc3f44644376e75fb5ad63a4",
+      "e2673b47bed566e53e4c0a54324355b0b8d0c63654c9b9512132f07014df6b85"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "最高连续天数之后不循环",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "仅配置第1天20金币、第2天30金币；此前已连续签到2天"
+    ],
+    "steps": [
+      "点击第3天签到"
+    ],
+    "result": "本次领取30金币",
+    "refs": [
+      "REQ-6a839b7cf44a",
+      "REQ-6015ad1aaa2f"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "dfe37880fd32d6815f9bb9e0c9ad0583c5783b3b2ea9fabd17b9d833b27c69fe",
+      "e2673b47bed566e53e4c0a54324355b0b8d0c63654c9b9512132f07014df6b85"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "仅登录仍会断签",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "昨日登录但没有签到；此前连续签到2天"
+    ],
+    "steps": [
+      "点击今日签到"
+    ],
+    "result": "今日按连续第1天计算",
+    "refs": [
+      "REQ-87b984d32f90"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "519300464a3f5be854e5b7d4be4f64a89f9310bfcc3f44644376e75fb5ad63a4"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "签到奖励取实时配置",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "已生效签到配置第1天25金币"
+    ],
+    "steps": [
+      "查看第1天签到奖励"
+    ],
+    "result": "展示25金币而非固定演示金额",
+    "refs": [
+      "REQ-ab820593d424"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ed512c9f287b6ba51d0ef82e782d2943090b6f03e20c7418b9ec377c7bcf1eae"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "任务未完成不可领取",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "观看任务未达到目标"
+    ],
+    "steps": [
+      "点击观看任务奖励"
+    ],
+    "result": "提示“任务尚未完成”",
+    "refs": [
+      "REQ-82a825a0e8be"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ac5cb5df1f1d4a3ed81290997e6f86f7392bd662ebc8e9803c7797070e053c6e"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "任务达标手动领取",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "任务条件已达成且奖励未过期"
+    ],
+    "steps": [
+      "点击领取"
+    ],
+    "result": "该档奖励状态变为已领取",
+    "refs": [
+      "REQ-c1796e8ee348"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a94fea7e73788ac9e068453dc9fe7d6d5f5311a7a2890d61a18b24cf7a455cca"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "奖励不自动发放",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "任务已达到条件但尚未领取；余额100"
+    ],
+    "steps": [
+      "查看任务状态和当前余额"
+    ],
+    "result": "任务可领取但余额仍为100",
+    "refs": [
+      "REQ-9ef14bed6d45",
+      "REQ-c1796e8ee348"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7329061895aaa9a93008bcc11ede30a37c3a44c1c22dc267f063c3454015b0e4",
+      "a94fea7e73788ac9e068453dc9fe7d6d5f5311a7a2890d61a18b24cf7a455cca"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "每档条件独立领取",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "同一任务两档均达标且未过期；第一档已领取"
+    ],
+    "steps": [
+      "点击第二档领取"
+    ],
+    "result": "第二档仍可独立领取一次",
+    "refs": [
+      "REQ-c1796e8ee348"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a94fea7e73788ac9e068453dc9fe7d6d5f5311a7a2890d61a18b24cf7a455cca"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "重复领奖不重复入账",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "奖励已成功领取；本次为相同奖励实例的重复请求"
+    ],
+    "steps": [
+      "再次点击该奖励"
+    ],
+    "result": "该实例金币不再入账",
+    "refs": [
+      "REQ-4a4228d2744b",
+      "REQ-79150d93c909"
+    ],
+    "type": "逻辑校验",
+    "priority": "P0",
+    "sourceUnits": [
+      "e2ab1dddcb9b8a32fbe5c3e0ffc97eb13be21a8d3fe932251d8c67af4fa24942",
+      "5f8826c2142a76f3e281de6ea5c17ca119bd38781d2bdbf05ff5cd100c39f1f4"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "领取失败保留待领取",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "条件达标且未过期；领奖请求返回失败"
+    ],
+    "steps": [
+      "点击领取"
+    ],
+    "result": "不改为已领取并允许重试",
+    "refs": [
+      "REQ-4a4228d2744b"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "e2ab1dddcb9b8a32fbe5c3e0ffc97eb13be21a8d3fe932251d8c67af4fa24942"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "领取失败后重试",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "首次领取失败且未入账；奖励仍有效；服务已恢复"
+    ],
+    "steps": [
+      "点击领取"
+    ],
+    "result": "该奖励领取成功一次",
+    "refs": [
+      "REQ-4a4228d2744b"
+    ],
+    "type": "业务流程",
+    "priority": "P1",
+    "sourceUnits": [
+      "e2ab1dddcb9b8a32fbe5c3e0ffc97eb13be21a8d3fe932251d8c67af4fa24942"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "逾期任务奖励失效",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "奖励已达标但超过获得奖励当天23:59；业务时区已确认"
+    ],
+    "steps": [
+      "点击领取"
+    ],
+    "result": "提示“奖励已失效”且不发奖",
+    "refs": [
+      "REQ-dcd9abdf8544"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "0075441d0c13907313c33c0649f1cc4119e2646d989764e7bd963b4f4c0842e3"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "无周期奖励也逾期",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "无周期任务奖励已超过获得奖励当天23:59"
+    ],
+    "steps": [
+      "点击领取"
+    ],
+    "result": "奖励失效不能补领",
+    "refs": [
+      "REQ-dcd9abdf8544"
+    ],
+    "type": "异常用例",
+    "priority": "P1",
+    "sourceUnits": [
+      "0075441d0c13907313c33c0649f1cc4119e2646d989764e7bd963b4f4c0842e3"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "停用任务不新增进度",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "任务已停用；停用前进度为1；之后发生一次对应动作"
+    ],
+    "steps": [
+      "查看该任务进度"
+    ],
+    "result": "停用后的动作不增加任务进度",
+    "refs": [
+      "REQ-9ef14bed6d45"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7329061895aaa9a93008bcc11ede30a37c3a44c1c22dc267f063c3454015b0e4"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "停用任务不收回已领金币",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "金币奖励已到账；该任务随后被停用"
+    ],
+    "steps": [
+      "查看金币余额"
+    ],
+    "result": "停用任务不扣回已领取奖励",
+    "refs": [
+      "REQ-9ef14bed6d45"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7329061895aaa9a93008bcc11ede30a37c3a44c1c22dc267f063c3454015b0e4"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "改配置不补发已领实例",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "同一任务实例已领奖；后台随后调高奖励"
+    ],
+    "steps": [
+      "重新进入福利页查看该奖励"
+    ],
+    "result": "已领取状态保持且不补发差额",
+    "refs": [
+      "REQ-766a354bc835"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d9f1825b5b6b64d2249b018470354c9bff5c8ec53ef62f4a551b946538b0d88e"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "福利邀请入口",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击邀请好友"
+    ],
+    "result": "进入邀请好友页面",
+    "refs": [
+      "REQ-3f2252f33285",
+      "REQ-e29f8734021f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "68f7edcdb16d64b865cbbdb72b644779da04329de78cef4c8832cc80226b65bc",
+      "e130849257c0a5822ff979832b546d256df2dbf9916c49fd997c2a7662926018"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "福利充值入口",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击充值福利"
+    ],
+    "result": "进入充值页面",
+    "refs": [
+      "REQ-43b7a1560781",
+      "REQ-850b9e1ebe7d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "96c63dc74d4f8277d86f1b1b9bec829e8858f103495bb44fde0f8d14fb78ea31",
+      "20c5ba688415b3a122cc7e9b8489a8e803a5401d95cb4d343105a48842032890"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "充值赠送提示取最大套餐",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "当前启用套餐分别赠送10、30、20金币"
+    ],
+    "steps": [
+      "查看充值福利卡片"
+    ],
+    "result": "卡片提示赠送30金币",
+    "refs": [
+      "REQ-18d996ff9b5b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "373c046fa024de85cf4fb6b1824fc47b86ee573ce545caed21b79f1cc3177560"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "每日任务进度重置",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "每日任务上一周期进度非零；当前已进入新周期且未发生新动作"
+    ],
+    "steps": [
+      "查看该任务进度"
+    ],
+    "result": "进度归零",
+    "refs": [
+      "REQ-cf5cb96cec55"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "8e2684ab904fd1b4ef011c40b970506a4ebac997e9c8533d2acd8e3dd78ee8d0"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "每周任务进度重置",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "每周任务上一周期进度非零；当前已进入新周期且未发生新动作"
+    ],
+    "steps": [
+      "查看该任务进度"
+    ],
+    "result": "进度归零",
+    "refs": [
+      "REQ-cf5cb96cec55"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "8e2684ab904fd1b4ef011c40b970506a4ebac997e9c8533d2acd8e3dd78ee8d0"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "每月任务进度重置",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "每月任务上一周期进度非零；当前已进入新周期且未发生新动作"
+    ],
+    "steps": [
+      "查看该任务进度"
+    ],
+    "result": "进度归零",
+    "refs": [
+      "REQ-cf5cb96cec55"
+    ],
+    "type": "逻辑校验",
+    "priority": "P1",
+    "sourceUnits": [
+      "8e2684ab904fd1b4ef011c40b970506a4ebac997e9c8533d2acd8e3dd78ee8d0"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "已登录普通用户",
+    "point": "无周期任务持续累计",
+    "pre": [
+      "已登录普通用户；当前处于充值福利页面",
+      "无周期任务仍在有效期内；当前跨过自然日"
+    ],
+    "steps": [
+      "查看该任务进度"
+    ],
+    "result": "保留有效期内已有累计进度",
+    "refs": [
+      "REQ-cf5cb96cec55"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8e2684ab904fd1b4ef011c40b970506a4ebac997e9c8533d2acd8e3dd78ee8d0"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "游客",
+    "point": "游客签到限制",
+    "pre": [
+      "游客；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击签到"
+    ],
+    "result": "跳转登录页",
+    "refs": [
+      "REQ-ee270bd5644f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe8a9efaefae8b80ccef6a5de230da93917068317d65a8ce8ac69e596e956a50"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "游客",
+    "point": "游客领奖限制",
+    "pre": [
+      "游客；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击领奖"
+    ],
+    "result": "跳转登录页",
+    "refs": [
+      "REQ-ee270bd5644f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe8a9efaefae8b80ccef6a5de230da93917068317d65a8ce8ac69e596e956a50"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "游客",
+    "point": "游客充值限制",
+    "pre": [
+      "游客；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击充值"
+    ],
+    "result": "跳转登录页",
+    "refs": [
+      "REQ-ee270bd5644f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe8a9efaefae8b80ccef6a5de230da93917068317d65a8ce8ac69e596e956a50"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "运营账号",
+    "point": "运营账号邀请好友限制",
+    "pre": [
+      "运营账号；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击邀请好友"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "REQ-ee270bd5644f",
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe8a9efaefae8b80ccef6a5de230da93917068317d65a8ce8ac69e596e956a50",
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "运营账号",
+    "point": "运营账号充值福利限制",
+    "pre": [
+      "运营账号；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击充值福利"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "REQ-ee270bd5644f",
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe8a9efaefae8b80ccef6a5de230da93917068317d65a8ce8ac69e596e956a50",
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "运营账号",
+    "point": "运营账号签到限制",
+    "pre": [
+      "运营账号；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击签到"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "REQ-ee270bd5644f",
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe8a9efaefae8b80ccef6a5de230da93917068317d65a8ce8ac69e596e956a50",
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "运营账号",
+    "point": "运营账号任务奖励限制",
+    "pre": [
+      "运营账号；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击任务奖励"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "REQ-ee270bd5644f",
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe8a9efaefae8b80ccef6a5de230da93917068317d65a8ce8ac69e596e956a50",
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "welfare-center.html",
+    "role": "运营账号",
+    "point": "运营账号全部任务限制",
+    "pre": [
+      "运营账号；当前处于充值福利页面"
+    ],
+    "steps": [
+      "点击全部任务"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "REQ-ee270bd5644f",
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fe8a9efaefae8b80ccef6a5de230da93917068317d65a8ce8ac69e596e956a50",
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "all-tasks.html",
+    "role": "已登录普通用户",
+    "point": "任务展示范围",
+    "pre": [
+      "已登录普通用户；当前处于全部任务页面"
+    ],
+    "steps": [
+      "查看全部任务列表"
+    ],
+    "result": "展示观看直播、送礼和分享三项当前任务",
+    "refs": [
+      "REQ-3c7e1d9db425",
+      "REQ-ba1acdb7a8b1"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b670df9f959066987a28f39c6c021ac133e3162fea78907c6b1bcec851486e12",
+      "043dcff60a1449f518e557674e4e583f467ea190c5c87bc1faf36eff75f60f8a"
+    ]
+  },
+  {
+    "page": "all-tasks.html",
+    "role": "已登录普通用户",
+    "point": "任务信息",
+    "pre": [
+      "已登录普通用户；当前处于全部任务页面",
+      "三项任务已配置目标值、奖励及当前进度"
+    ],
+    "steps": [
+      "查看任务项"
+    ],
+    "result": "展示对应目标、当前进度、金币奖励和状态",
+    "refs": [
+      "REQ-c37bf0e509ae",
+      "REQ-139bf5a1451b",
+      "REQ-30377b8c96cd"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "017f95b0d3f797313c1d614ca3284c051ec538786469284a1474e869a71ab0e7",
+      "05bbec1860ad3e8d4033785bf4b43d13bc945315d52406a9205c45ff49a0b920",
+      "d08484ab34124152bde272a8ab37c23858d20c9ae0ac9898b2e6c23c3e82bef4"
+    ]
+  },
+  {
+    "page": "all-tasks.html",
+    "role": "已登录普通用户",
+    "point": "去完成入口",
+    "pre": [
+      "已登录普通用户；当前处于全部任务页面",
+      "目标任务未完成"
+    ],
+    "steps": [
+      "点击去完成"
+    ],
+    "result": "进入对应功能或提示前往路径",
+    "refs": [
+      "REQ-29668ff3f5d8"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "32f8023f1de0ce869abb63ae87e40a094a900d909459f67fc4fd19ae078c4a62"
+    ]
+  },
+  {
+    "page": "all-tasks.html",
+    "role": "已登录普通用户",
+    "point": "任务奖励领取",
+    "pre": [
+      "已登录普通用户；当前处于全部任务页面",
+      "任务已达标且未过期未领奖"
+    ],
+    "steps": [
+      "点击领取"
+    ],
+    "result": "发放一次奖励并切换为已领取",
+    "refs": [
+      "REQ-9d9b03964763"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4a2f7b20ed94f9ceb1b3da64146bd9f1c2265fd5d290e505091beb8b12a49deb"
+    ]
+  },
+  {
+    "page": "all-tasks.html",
+    "role": "已登录普通用户",
+    "point": "已领取禁重复",
+    "pre": [
+      "已登录普通用户；当前处于全部任务页面",
+      "任务实例已领取"
+    ],
+    "steps": [
+      "点击已领取"
+    ],
+    "result": "不重复发放奖励",
+    "refs": [
+      "REQ-64027ca93b29",
+      "REQ-9d9b03964763"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ce35b64f3e9a73e47e31d59d31c2d8f80844accc6a50701f433060af09028921",
+      "4a2f7b20ed94f9ceb1b3da64146bd9f1c2265fd5d290e505091beb8b12a49deb"
+    ]
+  },
+  {
+    "page": "all-tasks.html",
+    "role": "已登录普通用户",
+    "point": "返回福利页",
+    "pre": [
+      "已登录普通用户；当前处于全部任务页面"
+    ],
+    "steps": [
+      "点击返回"
+    ],
+    "result": "回到充值福利页",
+    "refs": [
+      "REQ-c3c7d67d479f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "16c2db2eb04c2cf44a2ec2aff91913cb960588ea1d24851675f9bd1179a619f9"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "成功邀请人数",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "当前账号有3名成功邀请好友"
+    ],
+    "steps": [
+      "查看已邀请好友"
+    ],
+    "result": "人数为3",
+    "refs": [
+      "REQ-1028b23fcb3c"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f97ae7bc3cf39adda42d614dcd12b7ce5c85d82e496ac2d5e9c6d18c2bbebb71"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "邀请记录范围",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "当前账号及另一账号均有成功邀请记录"
+    ],
+    "steps": [
+      "切换邀请记录"
+    ],
+    "result": "仅展示当前账号成功邀请的好友",
+    "refs": [
+      "REQ-abc8e1c873de"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "37cc19451c0bbe06ebb8107cf409047f1f8616d0931d1a9aebfbf635b58d0154"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "邀请记录倒序",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "有9月14日和9月15日两条邀请记录"
+    ],
+    "steps": [
+      "查看邀请记录"
+    ],
+    "result": "9月15日记录排在9月14日前",
+    "refs": [
+      "REQ-abc8e1c873de"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "37cc19451c0bbe06ebb8107cf409047f1f8616d0931d1a9aebfbf635b58d0154"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "邀请记录字段",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "当前有成功邀请记录"
+    ],
+    "steps": [
+      "查看邀请记录"
+    ],
+    "result": "展示好友昵称及邀请日期",
+    "refs": [
+      "REQ-d8079cb13024"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c17121a5e426bcd73b9498da52977111ad69c06fb9b292c2e4622dbeaa05eec2"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "邀请记录翻页",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "邀请记录超过一页"
+    ],
+    "steps": [
+      "点击下一页"
+    ],
+    "result": "显示下一页邀请记录",
+    "refs": [
+      "REQ-0c5010af8a9d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "97af051542dec4ed738e9bf99b01bfb2833a1629883128bf0cb3ccd7a0ffc176"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "邀请选项",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面"
+    ],
+    "steps": [
+      "点击邀请好友"
+    ],
+    "result": "显示复制链接、发送给好友和保存图片",
+    "refs": [
+      "REQ-790ed0bb1222",
+      "REQ-fb3af64eb689"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8e6222a794f6fae686eeecefd37404f8d918ae859390cbea0b18005dbaf1067c",
+      "528fb2c178968ef80c2a5b5e1f1dc189351b260d91247f6eca21907f98c52ec8"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "复制邀请链接",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "分享选项已打开"
+    ],
+    "steps": [
+      "点击复制链接"
+    ],
+    "result": "复制当前账号邀请链接并提示“复制成功”",
+    "refs": [
+      "REQ-f02ca831c50d",
+      "REQ-8331dedb9c7b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "988e1bb6c8d068965a9e33b75be35d4fd47ebddea69e5d642474620f81a006bd",
+      "24471330d6ea7f279429d750efb512d8dd08160f70512ed55aa01474c1937383"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "系统分享邀请",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "分享选项已打开"
+    ],
+    "steps": [
+      "点击发送给好友"
+    ],
+    "result": "唤起系统分享能力",
+    "refs": [
+      "REQ-1c675ff25b98"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "c188de885aa19b87eb4952895447d74633cb08992e879e30a15045f617e47fd7"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "保存邀请图片",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "分享选项已打开"
+    ],
+    "steps": [
+      "点击保存图片"
+    ],
+    "result": "给出图片保存结果反馈",
+    "refs": [
+      "REQ-302147eb36d7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bb1803789f4968b02ac8e40cf7aa905b11a30fe0e1b5fd0071c9e064677be794"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "分享不计成功邀请",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "成功邀请人数为3"
+    ],
+    "steps": [
+      "点击邀请好友",
+      "点击复制链接",
+      "查看邀请人数"
+    ],
+    "result": "成功邀请人数仍为3",
+    "refs": [
+      "REQ-8331dedb9c7b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "24471330d6ea7f279429d750efb512d8dd08160f70512ed55aa01474c1937383"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "取消邀请分享",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "分享选项已打开"
+    ],
+    "steps": [
+      "点击取消"
+    ],
+    "result": "分享选项关闭",
+    "refs": [
+      "REQ-c4b268c81d8b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "642bcec849f562d9b545ffbbcf15e20b5cde21be5a8c3bfbc4c169d8ef490db4"
+    ]
+  },
+  {
+    "page": "invite-friends.html",
+    "role": "已登录普通用户",
+    "point": "遮罩关闭邀请分享",
+    "pre": [
+      "已登录普通用户；当前处于邀请好友页面",
+      "分享选项已打开"
+    ],
+    "steps": [
+      "点击遮罩"
+    ],
+    "result": "分享选项关闭",
+    "refs": [
+      "REQ-c4b268c81d8b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "642bcec849f562d9b545ffbbcf15e20b5cde21be5a8c3bfbc4c169d8ef490db4"
+    ]
+  }
+]

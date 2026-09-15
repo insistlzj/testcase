@@ -1,0 +1,31 @@
+{
+  "时间": "2026-09-15T03:36:33.524Z",
+  "文件": [
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "SHA-256": "3c9f70a46aff6f789e338c380ea401117f4ea8413c9ca5fd38d19dbd22c23956",
+      "非空行数": 1452
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "SHA-256": "1c98bff1512422f08dd710ee2c1280b8e27eb08606be6fcf9a429243be332a32",
+      "非空行数": 432
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "SHA-256": "297b59b399c47a2c5965c264b26b43cd778b7f61326040f863a07f8bee4d5b9f",
+      "非空行数": 926
+    },
+    {
+      "路径": "liveshow-proto/context/原型页面目录结构.md",
+      "SHA-256": "88ab7af6fe1caaec394d9be70a1822a3c2b6d169bbdff24ce45ea250930ac6eb",
+      "非空行数": 270
+    },
+    {
+      "路径": "liveshow-proto/context/系统概要 .md",
+      "SHA-256": "4ccf8afccec09e5c1727c768439e09b61419d13aa335b4ec9d3c7f2eae8f72d4",
+      "非空行数": 279
+    }
+  ],
+  "说明": "checkpoint之后重新从磁盘完整读取全部五份context；以下MainBasis仅使用本次回读文本，不复用最初整理的内存结果"
+}

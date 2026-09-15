@@ -4,13 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>直播间（主播） · 用户主播 App · Luma Live</title>
+    <script>
+      window.__lumaDirectLiveEntry =
+        new URLSearchParams(location.search).get("entry") === "start-live";
+    </script>
     <script src="../../../assets/tailwind.js"></script>
     <script src="../../../assets/tokens.js"></script>
     <link
       rel="stylesheet"
       href="../../../assets/common.css?v=p003-host-room-v25"
     />
-    <script src="../../../assets/common.js?v=20260904-contribution-count-v12"></script>
+    <script src="../../../assets/common.js?v=20260914-direct-live-entry-v1"></script>
     <script src="../../../assets/mock.js?v=20260811-guild-currency-v1"></script>
     <style>
       .room {
@@ -2293,5 +2297,26 @@
       })();
     </script>
     <script src="../../../assets/live-muted-users.js"></script>
+    <script>
+      if (window.__lumaDirectLiveEntry) {
+        document.addEventListener("DOMContentLoaded", function () {
+          function resetCohostView() {
+            document.querySelector(".cohost-sheet")?.classList.add("state-hide");
+            document
+              .querySelector(".cohost-invite-notice")
+              ?.classList.add("state-hide");
+            document
+              .querySelector(".cohost-invite-badge")
+              ?.classList.add("state-hide");
+          }
+          resetCohostView();
+          window.setTimeout(resetCohostView, 300);
+          window.setTimeout(function () {
+            resetCohostView();
+            window.__lumaDirectLiveEntry = false;
+          }, 800);
+        });
+      }
+    </script>
   </body>
 </html>

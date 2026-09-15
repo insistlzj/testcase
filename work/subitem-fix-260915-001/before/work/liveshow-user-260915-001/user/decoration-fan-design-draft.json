@@ -1,0 +1,1364 @@
+[
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "已拥有装扮分类",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面"
+    ],
+    "steps": [
+      "查看已拥有分类"
+    ],
+    "result": "按头像框、聊天气泡和勋章分类展示",
+    "refs": [
+      "REQ-7ec007a72525"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fc8009ae02c802429f004e62586ab5a75926dd647cdc558d8fc1130460bc1f03"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "点击卡片直接佩戴",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "当前有有效未佩戴头像框A"
+    ],
+    "steps": [
+      "点击A卡片"
+    ],
+    "result": "直接佩戴A而不跳转新页",
+    "refs": [
+      "REQ-7ec007a72525",
+      "REQ-971eafce429b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "fc8009ae02c802429f004e62586ab5a75926dd647cdc558d8fc1130460bc1f03",
+      "844faa3f6c834794b736d2a33cb6833be762aca9bd3b8a8957a624640368f31f"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "点击佩戴卡片卸下",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "头像框A当前已佩戴"
+    ],
+    "steps": [
+      "点击A卡片"
+    ],
+    "result": "A被卸下",
+    "refs": [
+      "REQ-971eafce429b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "844faa3f6c834794b736d2a33cb6833be762aca9bd3b8a8957a624640368f31f"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "头像框互斥",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "已佩戴A，拥有有效头像框B"
+    ],
+    "steps": [
+      "点击B卡片"
+    ],
+    "result": "B被佩戴且A自动卸下",
+    "refs": [
+      "REQ-135008fb4450"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4a05edbb0a13849d844a02a51d3f49cbcd5de68b5082d59ec38714fed93bd161"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "聊天气泡互斥",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "已佩戴气泡A，拥有有效气泡B"
+    ],
+    "steps": [
+      "点击B卡片"
+    ],
+    "result": "B被佩戴且A自动卸下",
+    "refs": [
+      "REQ-135008fb4450"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4a05edbb0a13849d844a02a51d3f49cbcd5de68b5082d59ec38714fed93bd161"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "第五枚勋章可佩戴",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "当前已佩戴4枚；另有有效勋章A"
+    ],
+    "steps": [
+      "点击A卡片"
+    ],
+    "result": "A被佩戴且计数显示5/5",
+    "refs": [
+      "REQ-135008fb4450",
+      "REQ-d0c6e46cb920"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4a05edbb0a13849d844a02a51d3f49cbcd5de68b5082d59ec38714fed93bd161",
+      "4fe1827b91993fc7efbf4984c471249a5e66842276516acd4fd0846de7fcd35c"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "第六枚勋章需先卸下",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "已佩戴5枚；另有未佩戴有效勋章A"
+    ],
+    "steps": [
+      "点击A卡片"
+    ],
+    "result": "A不能被直接佩戴，需先卸下已有勋章",
+    "refs": [
+      "REQ-971eafce429b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "844faa3f6c834794b736d2a33cb6833be762aca9bd3b8a8957a624640368f31f"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "过期装扮不可点击",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "拥有的装扮A已经到期"
+    ],
+    "steps": [
+      "查看A卡片"
+    ],
+    "result": "显示已过期且不可佩戴",
+    "refs": [
+      "REQ-a634bce5f1b9",
+      "REQ-971eafce429b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "22639d6a6fbb1ba552005d3e81603f612a82f349f33f1160896af30e4cc7f56f",
+      "844faa3f6c834794b736d2a33cb6833be762aca9bd3b8a8957a624640368f31f"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "永久装扮可长期佩戴",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "装扮A结束日期为不限且已拥有"
+    ],
+    "steps": [
+      "点击A卡片"
+    ],
+    "result": "允许佩戴A",
+    "refs": [
+      "REQ-7228b94a5deb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7bba9526dd4f5283b3127264c4a2aac3cf44633f7188960841cfc94a098cb934"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "已拥有按状态排序",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "有已佩戴A、未佩戴B、失效C"
+    ],
+    "steps": [
+      "查看已拥有列表"
+    ],
+    "result": "顺序为A、B、C",
+    "refs": [
+      "REQ-135008fb4450"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4a05edbb0a13849d844a02a51d3f49cbcd5de68b5082d59ec38714fed93bd161"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "同状态按获得时间倒序",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "A、B均未佩戴；B获得时间晚于A"
+    ],
+    "steps": [
+      "查看已拥有列表"
+    ],
+    "result": "B在A之前",
+    "refs": [
+      "REQ-135008fb4450"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "4a05edbb0a13849d844a02a51d3f49cbcd5de68b5082d59ec38714fed93bd161"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "商城只展示上架可购买",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "A上架且可购，B下架，C身份专属不可购"
+    ],
+    "steps": [
+      "切换装扮商城"
+    ],
+    "result": "只提供A作为可购买商品",
+    "refs": [
+      "REQ-d8055d299140",
+      "REQ-d2faa5ffb1d6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a4a127efa7c66be7abcb823a4b6841acfd1c0122c8bf013f7e357f5ef9fc471a",
+      "f1f8f1fbf4bc8755005bb4db5586867b29094c16ffd9b7384a044e1ace92b5e8"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "已购商品显示已获得",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "已拥有商城商品A"
+    ],
+    "steps": [
+      "查看A商品"
+    ],
+    "result": "显示已获得且不能重复购买",
+    "refs": [
+      "REQ-964e0be5b065",
+      "REQ-3a34cf10d98f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "1986cf634e7cbae424599075079137177249021024e718d0442afb0411e583aa",
+      "61e28165cada1040df769427a52a0b67dff8bd15895d2c74fb0e38ad86d51fe1"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "永久装扮不重复购买",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "已拥有永久装扮A"
+    ],
+    "steps": [
+      "尝试再次购买A"
+    ],
+    "result": "不生成重复购买",
+    "refs": [
+      "REQ-3a34cf10d98f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "61e28165cada1040df769427a52a0b67dff8bd15895d2c74fb0e38ad86d51fe1"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "限时装扮不重复购买",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "已拥有限时装扮A且仍有效"
+    ],
+    "steps": [
+      "尝试再次购买A"
+    ],
+    "result": "不生成重复购买",
+    "refs": [
+      "REQ-3a34cf10d98f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "61e28165cada1040df769427a52a0b67dff8bd15895d2c74fb0e38ad86d51fe1"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "可购商品信息",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "A名称QA头像框，有效期2026年9月1日至30日，价格100"
+    ],
+    "steps": [
+      "查看A商城卡片"
+    ],
+    "result": "展示QA头像框、01/09/2026-30/09/2026及100金币",
+    "refs": [
+      "REQ-9c8849c7f7ca"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bba4a4682d8813908065b77d196d90520d49811934be75b47e18d8092d3dfa2f"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "购买确认内容",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "真实余额200；商品A价格100且可购买"
+    ],
+    "steps": [
+      "点击购买A"
+    ],
+    "result": "弹窗展示A预览、名称期限、价格及取消购买按钮",
+    "refs": [
+      "REQ-971eafce429b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "844faa3f6c834794b736d2a33cb6833be762aca9bd3b8a8957a624640368f31f"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "取消购买不扣款",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "真实余额200；A购买确认已打开"
+    ],
+    "steps": [
+      "点击取消"
+    ],
+    "result": "弹窗关闭且不购买A",
+    "refs": [
+      "REQ-3399ecc6c459"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ab09d7d9b2831189053ce414844b7c111bd6c75c018237b134ae7929ac8a957c"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "购买成功取得道具",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "真实余额200；A价格100且未拥有"
+    ],
+    "steps": [
+      "打开A购买确认",
+      "点击购买"
+    ],
+    "result": "扣款并将A加入已拥有",
+    "refs": [
+      "REQ-3399ecc6c459"
+    ],
+    "type": "业务流程",
+    "priority": "P0",
+    "sourceUnits": [
+      "ab09d7d9b2831189053ce414844b7c111bd6c75c018237b134ae7929ac8a957c"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "购买成功继续商城",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "A购买成功弹窗已打开"
+    ],
+    "steps": [
+      "点击继续购买"
+    ],
+    "result": "关闭弹窗并停留商城",
+    "refs": [
+      "REQ-3399ecc6c459"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ab09d7d9b2831189053ce414844b7c111bd6c75c018237b134ae7929ac8a957c"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "购买成功去对应分类",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "聊天气泡A购买成功"
+    ],
+    "steps": [
+      "点击去佩戴"
+    ],
+    "result": "进入已拥有并切换聊天气泡分类",
+    "refs": [
+      "REQ-3399ecc6c459"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ab09d7d9b2831189053ce414844b7c111bd6c75c018237b134ae7929ac8a957c"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "实时余额不足拦截",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "打开A确认时余额100；A价格100；提交前余额已变为99"
+    ],
+    "steps": [
+      "点击购买"
+    ],
+    "result": "不生成购买记录",
+    "refs": [
+      "REQ-971eafce429b",
+      "REQ-61c8fdb4de84"
+    ],
+    "type": "异常用例",
+    "priority": "P0",
+    "sourceUnits": [
+      "844faa3f6c834794b736d2a33cb6833be762aca9bd3b8a8957a624640368f31f",
+      "d15b296e8986ce6afcb2460f3667454a3c19deeb2619832a7e28b215baaa6792"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "提交时重新检查持有状态",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "A购买确认已打开；另一个设备刚成功购买A"
+    ],
+    "steps": [
+      "点击购买"
+    ],
+    "result": "不重复购买已拥有A",
+    "refs": [
+      "REQ-3399ecc6c459"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ab09d7d9b2831189053ce414844b7c111bd6c75c018237b134ae7929ac8a957c"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "提交时检查商品状态",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "A购买确认已打开；后台刚下架A"
+    ],
+    "steps": [
+      "点击购买"
+    ],
+    "result": "不能购买已下架A",
+    "refs": [
+      "REQ-3399ecc6c459"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ab09d7d9b2831189053ce414844b7c111bd6c75c018237b134ae7929ac8a957c"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "不足金币显示充值提示",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "余额99；A价格100"
+    ],
+    "steps": [
+      "点击购买A"
+    ],
+    "result": "只显示金币余额不足提示及取消、去充值操作",
+    "refs": [
+      "REQ-971eafce429b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "844faa3f6c834794b736d2a33cb6833be762aca9bd3b8a8957a624640368f31f"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "不足金币去充值",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "金币不足弹窗已打开"
+    ],
+    "steps": [
+      "点击去充值"
+    ],
+    "result": "进入充值页",
+    "refs": [
+      "REQ-61c8fdb4de84"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "d15b296e8986ce6afcb2460f3667454a3c19deeb2619832a7e28b215baaa6792"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "已购装扮不可退款",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "A已购买成功"
+    ],
+    "steps": [
+      "查看A可用操作"
+    ],
+    "result": "不提供退款操作",
+    "refs": [
+      "REQ-3a34cf10d98f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "61e28165cada1040df769427a52a0b67dff8bd15895d2c74fb0e38ad86d51fe1"
+    ]
+  },
+  {
+    "page": "my-decoration.html",
+    "role": "真实金币用户",
+    "point": "下架不使已持有失效",
+    "pre": [
+      "真实金币用户；当前处于我的装扮页面",
+      "A已拥有且未到期；后台已下架A"
+    ],
+    "steps": [
+      "点击A佩戴"
+    ],
+    "result": "仍可在有效期限内佩戴A",
+    "refs": [
+      "REQ-121c9aebf014",
+      "REQ-7228b94a5deb"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "abb4f2e9f6fc5a13503c7a446f0858ee6863d1e69d7e99f8afee940ea410b3d7",
+      "7bba9526dd4f5283b3127264c4a2aac3cf44633f7188960841cfc94a098cb934"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "当前有效团籍卡片",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "A团籍有效；B团籍已失效"
+    ],
+    "steps": [
+      "查看我的粉丝团"
+    ],
+    "result": "只展示A粉丝团卡片",
+    "refs": [
+      "REQ-116da02e3d22"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "33d2d2877bbed4d558d17b83848ad529cc02f221de828a4c94215519e32b7742"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "无有效团籍空态",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "本账号已无有效团籍"
+    ],
+    "steps": [
+      "查看我的粉丝团"
+    ],
+    "result": "显示“暂未加入粉丝团”且无团卡片",
+    "refs": [
+      "REQ-7246eea0cf07"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "36882ba1afbb4f86d180706597cfa339a5b9a7e1acd3302bd8c14755ba59c709"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "粉丝团按本次加入倒序",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "A本次加入9月14日，B9月15日"
+    ],
+    "steps": [
+      "查看卡片顺序"
+    ],
+    "result": "B在A之前",
+    "refs": [
+      "REQ-f0b5607d3a9e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "be2454a05dd71b6e489aa5ad1ac2dc1c1d62583e8a804417d8535dbe70fb9372"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "重新加入更新加入日期",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "本账号此前退出A，9月15日重新加入"
+    ],
+    "steps": [
+      "查看A加入日期"
+    ],
+    "result": "使用本次9月15日加入日期",
+    "refs": [
+      "REQ-5773069f8c9b"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b8a81f89fbfee18f29aba6e506b5652965d764fa0ea110bef6861c0ce3c6307c"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "主播头像本身不跳转",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面"
+    ],
+    "steps": [
+      "点击卡片主播头像"
+    ],
+    "result": "不跳转页面",
+    "refs": [
+      "REQ-e728d38fdf88"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "f963c55f3e7b6942be79e2d6a2542cc5c7cc571a08970abbe983b1d956693970"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "主播直播标记进入房间",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "卡片所属主播正在普通房直播且准入满足"
+    ],
+    "steps": [
+      "点击头像上的直播标记"
+    ],
+    "result": "进入该主播当前直播间",
+    "refs": [
+      "REQ-afffb431b83e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3980ac9a9d135864c6e95999b775e5dada7363d084c3a5dab96852f874b434bc"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "未直播隐藏标记",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "卡片所属主播未开播"
+    ],
+    "steps": [
+      "查看直播标记"
+    ],
+    "result": "不显示直播标记",
+    "refs": [
+      "REQ-dc110b656375"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "7f48defde34dcc73425e7b0e9f5da65b1277119940836b3bd422ff51109a17cc"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "卡片群聊入口",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "当前团籍有效"
+    ],
+    "steps": [
+      "点击群聊"
+    ],
+    "result": "进入该卡片对应粉丝群",
+    "refs": [
+      "REQ-68435087e853",
+      "REQ-afffb431b83e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "89b592fc5df09ece22e2110f2ded8d107aa1004a422299a6a2addadd72af6370",
+      "3980ac9a9d135864c6e95999b775e5dada7363d084c3a5dab96852f874b434bc"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "卡片贡献行进入本周榜",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "当前团籍有效"
+    ],
+    "steps": [
+      "点击贡献榜整行"
+    ],
+    "result": "进入当前主播粉丝团本周贡献榜",
+    "refs": [
+      "REQ-afffb431b83e"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "3980ac9a9d135864c6e95999b775e5dada7363d084c3a5dab96852f874b434bc"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "退团历史总贡献保留",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "入团前10、入团中20、退团期间30、重新入团后40金币成功贡献"
+    ],
+    "steps": [
+      "查看总贡献"
+    ],
+    "result": "总贡献为100",
+    "refs": [
+      "REQ-1dccf04f8d96",
+      "REQ-f9943d155e02"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "558ae083b2529356ecccc8672b5d80b858e32885cfb8eac371c9347a9364b497",
+      "ea15ea9019f456b584f97d2b434516f253931449336a6374ee0582420d6bc55c"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "重新入团不恢复个人等级",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "之前粉丝等级高于0；已退团后重新入团且没有新贡献"
+    ],
+    "steps": [
+      "查看个人粉丝等级"
+    ],
+    "result": "本次从0开始，不恢复旧等级",
+    "refs": [
+      "REQ-91d599404b3b",
+      "REQ-f9943d155e02"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "e01ec011f0327253e708e07a43a5eb5fe2d636d386b9097886918e4c4954f999",
+      "ea15ea9019f456b584f97d2b434516f253931449336a6374ee0582420d6bc55c"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "团等级与个人等级独立",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "团整体等级10，个人粉丝等级5"
+    ],
+    "steps": [
+      "查看卡片等级"
+    ],
+    "result": "分别显示团Lv.10及个人粉丝等级5",
+    "refs": [
+      "REQ-5e67af64734c",
+      "REQ-e0f392d27e3d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "997a49cd1f35c1a9e759d6570f69b07b8eed13d07a281c5d4386bf362b8c6bde",
+      "89e4ccc91434efd4026e4bdae8a5bafaec8c49e46080f2d05bf885feabee9a0d"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "充值退款不降低团等级",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "真实礼物已完成；来源充值随后退款"
+    ],
+    "steps": [
+      "查看团等级及个人粉丝等级"
+    ],
+    "result": "两类等级不因该充值退款下降",
+    "refs": [
+      "REQ-e0f392d27e3d"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "89e4ccc91434efd4026e4bdae8a5bafaec8c49e46080f2d05bf885feabee9a0d"
+    ]
+  },
+  {
+    "page": "my-fan-clubs.html",
+    "role": "有效粉丝团成员",
+    "point": "只有自己时头像保留",
+    "pre": [
+      "有效粉丝团成员；当前处于我的粉丝团页面",
+      "本周贡献榜当前仅自己一名有效团成员"
+    ],
+    "steps": [
+      "查看贡献榜头像"
+    ],
+    "result": "至少展示自己的头像",
+    "refs": [
+      "REQ-3f080fdffaf9"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a1a6d29ed4f058e3eaef3e36460ab37577f59657a86da3c1268515b786d24462"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "粉丝榜默认本月",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "通过普通贡献榜入口进入而非卡片明确本周入口"
+    ],
+    "steps": [
+      "查看周期"
+    ],
+    "result": "默认本月",
+    "refs": [
+      "REQ-a28dd52dce0f"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "a566c297bd7eceb1f22f46ea63b78837d560af652580dabeb16fc7fca55ab2a1"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "本周期贡献不按入团截断",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "本月入团前送出100、入团后送出50；团籍当前有效"
+    ],
+    "steps": [
+      "选择本月",
+      "查看个人贡献"
+    ],
+    "result": "本月贡献为150",
+    "refs": [
+      "REQ-1804ee8d77c7",
+      "REQ-5bb579766f2a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0f037637416b24fce016be4c9e9620f7357781ed68016a38687af08cd145bddf",
+      "b47a8cf57322e35edbe3a0082745dd0c71c8320beed59cca480bc5e9b7e57f07"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "退团成员不展示",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "A有历史贡献但已退团"
+    ],
+    "steps": [
+      "查看贡献榜"
+    ],
+    "result": "不展示A",
+    "refs": [
+      "REQ-1804ee8d77c7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0f037637416b24fce016be4c9e9620f7357781ed68016a38687af08cd145bddf"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "重新入团恢复周期贡献",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "A本周已贡献100后退团，现重入团且本周无新贡献"
+    ],
+    "steps": [
+      "选择本周",
+      "查看A贡献"
+    ],
+    "result": "A重新进入榜单并保留本周贡献100",
+    "refs": [
+      "REQ-1804ee8d77c7"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "0f037637416b24fce016be4c9e9620f7357781ed68016a38687af08cd145bddf"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "贡献相同按粉丝等级",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "A、B贡献相同；A当前粉丝等级10，B5"
+    ],
+    "steps": [
+      "查看榜单"
+    ],
+    "result": "A在B之前",
+    "refs": [
+      "REQ-f2d77ae32fb0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "13cccfde604a731d5b59ff81a6a613dd23a6b830fa29c08e79d546071b645e0a"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "粉丝等级相同按财富等级",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "A、B贡献与粉丝等级相同；A财富等级10、B5"
+    ],
+    "steps": [
+      "查看榜单"
+    ],
+    "result": "A在B之前",
+    "refs": [
+      "REQ-f2d77ae32fb0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "13cccfde604a731d5b59ff81a6a613dd23a6b830fa29c08e79d546071b645e0a"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "完全同值按数字ID",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "A、B贡献及两类等级相同；A的ID数字9、B为10"
+    ],
+    "steps": [
+      "查看榜单"
+    ],
+    "result": "A在B之前且无并列",
+    "refs": [
+      "REQ-f2d77ae32fb0"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "13cccfde604a731d5b59ff81a6a613dd23a6b830fa29c08e79d546071b645e0a"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "第99名同分完整排序",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "有100个有效成员；第99及100贡献相同；其余条件排定A为99、B为100"
+    ],
+    "steps": [
+      "查看榜单末尾"
+    ],
+    "result": "只展示A为99名，不展示B",
+    "refs": [
+      "REQ-7eddb785c4b6"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "bea5fdc5d8850583b34251bbf98e5f83183b4278cd581bca16e30d764167234a"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "我的排名固定底部",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "榜单超过一屏且本账号有排名"
+    ],
+    "steps": [
+      "滚动榜单"
+    ],
+    "result": "我的排名和贡献仍固定在底部",
+    "refs": [
+      "REQ-8d9332ffb195"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "9f31892d515d553a24b9eb0ddb2a4ab2a9ec2609f90a6dc413ff9a5223f53907"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "幸运返奖不扣贡献",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "本周期向该主播送出100金币幸运礼物且获返奖"
+    ],
+    "steps": [
+      "查看本周期贡献"
+    ],
+    "result": "该笔贡献仍为100",
+    "refs": [
+      "REQ-5bb579766f2a"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "b47a8cf57322e35edbe3a0082745dd0c71c8320beed59cca480bc5e9b7e57f07"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "失败撤销礼物不计贡献",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "本周期只有失败及撤销礼物记录"
+    ],
+    "steps": [
+      "查看个人贡献"
+    ],
+    "result": "个人有效贡献为0",
+    "refs": [
+      "REQ-38cc6d044efe"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "8c9d9b0b96e818fbb397b6754422d552bdae23b70de00176863e49627f8547e2"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "榜单账号主页",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "目标成员A未注销且可访问"
+    ],
+    "steps": [
+      "点击A"
+    ],
+    "result": "进入A主页",
+    "refs": [
+      "REQ-87a3b3133e12"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ef459cb8214370ada44468714a00faacaccd2c0830c317ec18c667e944db6c5f"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "粉丝榜切换本周",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "本周有独立的已知贡献数据"
+    ],
+    "steps": [
+      "选择本周"
+    ],
+    "result": "前三名、榜单和我的排名同步按所选周期更新",
+    "refs": [
+      "REQ-87a3b3133e12"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ef459cb8214370ada44468714a00faacaccd2c0830c317ec18c667e944db6c5f"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "粉丝榜切换本月",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "本月有独立的已知贡献数据"
+    ],
+    "steps": [
+      "选择本月"
+    ],
+    "result": "前三名、榜单和我的排名同步按所选周期更新",
+    "refs": [
+      "REQ-87a3b3133e12"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ef459cb8214370ada44468714a00faacaccd2c0830c317ec18c667e944db6c5f"
+    ]
+  },
+  {
+    "page": "fan-contribution-ranking.html",
+    "role": "有效粉丝团成员",
+    "point": "粉丝榜切换累计",
+    "pre": [
+      "有效粉丝团成员；当前处于贡献榜页面",
+      "累计有独立的已知贡献数据"
+    ],
+    "steps": [
+      "选择累计"
+    ],
+    "result": "前三名、榜单和我的排名同步按所选周期更新",
+    "refs": [
+      "REQ-87a3b3133e12"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "ef459cb8214370ada44468714a00faacaccd2c0830c317ec18c667e944db6c5f"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "运营账号",
+    "point": "运营账号我的充值限制",
+    "pre": [
+      "运营账号；当前处于我的页面"
+    ],
+    "steps": [
+      "点击充值"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "运营账号",
+    "point": "运营账号我的我的装扮限制",
+    "pre": [
+      "运营账号；当前处于我的页面"
+    ],
+    "steps": [
+      "点击我的装扮"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "运营账号",
+    "point": "运营账号我的我的粉丝团限制",
+    "pre": [
+      "运营账号；当前处于我的页面"
+    ],
+    "steps": [
+      "点击我的粉丝团"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "运营账号",
+    "point": "运营账号我的邀请奖励限制",
+    "pre": [
+      "运营账号；当前处于我的页面"
+    ],
+    "steps": [
+      "点击邀请奖励"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "运营账号",
+    "point": "运营账号我的开播限制",
+    "pre": [
+      "运营账号；当前处于我的页面"
+    ],
+    "steps": [
+      "点击开播"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "运营账号",
+    "point": "运营账号我的主播中心限制",
+    "pre": [
+      "运营账号；当前处于我的页面"
+    ],
+    "steps": [
+      "点击主播中心"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  },
+  {
+    "page": "profile.html",
+    "role": "运营账号",
+    "point": "运营账号我的公会中心限制",
+    "pre": [
+      "运营账号；当前处于我的页面"
+    ],
+    "steps": [
+      "点击公会中心"
+    ],
+    "result": "提示“运营账号无法操作”",
+    "refs": [
+      "COMMON-operation-whitelist"
+    ],
+    "type": "功能需求",
+    "priority": "P2",
+    "sourceUnits": [
+      "07559a2e23a7bd14cb72cfb8ad74d1530f298904e33df020fefb8756120068c1"
+    ]
+  }
+]

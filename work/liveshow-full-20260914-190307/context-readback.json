@@ -1,0 +1,31 @@
+{
+  "时间": "2026-09-14T11:47:06.846Z",
+  "context": [
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "SHA256": "6361b88fef3728bc259e4e5ea2b6fef162137e71a42ac4a220afbd3cd93e257d",
+      "完整回读行数": 1580,
+      "需求条款": 1052
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "SHA256": "1c98bff1512422f08dd710ee2c1280b8e27eb08606be6fcf9a429243be332a32",
+      "完整回读行数": 469,
+      "需求条款": 336
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "SHA256": "d96235876789b8e0880bdc435b0647e0142d65cb54d78b133d1763963519b5ed",
+      "完整回读行数": 1013,
+      "需求条款": 620
+    },
+    {
+      "路径": "liveshow-proto/context/系统概要 .md",
+      "SHA256": "4ccf8afccec09e5c1727c768439e09b61419d13aa335b4ec9d3c7f2eae8f72d4",
+      "完整回读行数": 484,
+      "需求条款": 0
+    }
+  ],
+  "公共条款去重": true,
+  "独立待确认": 39
+}

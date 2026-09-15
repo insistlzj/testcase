@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "项目目录": "liveshow-proto",
+  "任务标识": "liveshow-full-20260914-190307-user",
+  "任务工作目录": "work/liveshow-full-20260914-190307/user",
+  "生成策略": "current-evidence-only",
+  "历史策略": "不读取不比较",
+  "目标范围": {
+    "端名": "用户App",
+    "模块名称": "首页与发现、消息与社交、个人中心、直播、公会管理、粉丝团、主播管理、钱包与充值、账号与登录"
+  },
+  "MainBasis基线": {
+    "路径": "work/liveshow-proto-mainbasis/latest.json",
+    "SHA-256": "de74154a9d8d6aa071875e3906eddcf6c1bc7db48df827962ec5a03cd976623c"
+  },
+  "输入文件": [
+    {
+      "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+      "SHA-256": "a1d500fc0194549e48d645533cb008f356de1cf7be9b756c5a17597de307c7a6",
+      "角色": "当前业务证据",
+      "内容类型": "正式需求",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/MainBasis/需求待确认清单.md",
+      "SHA-256": "8eb527aa77c2e6362677c424aca997066755a8d3a5919334da8bdd5f4b67aa75",
+      "角色": "风险与缺口",
+      "内容类型": "需求待确认",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/business-rule-catalog.json",
+      "SHA-256": "5397cfa8bed467bc208c9d4ab2b17c88173223d5e7286b5240a45234922af324",
+      "角色": "本次派生产物",
+      "内容类型": "业务规则清单",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/independent-source-rules.json",
+      "SHA-256": "ae536ef82c6c8596fb2e6bffdea248cf5ce25063a4fa710270d336f50d345b1c",
+      "角色": "本次派生产物",
+      "内容类型": "独立来源规则库",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/independent-scenario-library.json",
+      "SHA-256": "0fb553a5365b5b6a831434e75ec7abff0b08de14b415400ecefd881230ab3bfc",
+      "角色": "本次派生产物",
+      "内容类型": "独立场景库",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/state-transition-baseline.json",
+      "SHA-256": "8cbe5eac19197447c1a0b2933f4599abf1de80273a5d45694230fb19b46da6cb",
+      "角色": "本次派生产物",
+      "内容类型": "业务状态转换基线",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/requirement-units.json",
+      "SHA-256": "f86d448f0ae22326ff54dddbf81e0a3bf4ab542e32ee181148c6498f7c913a99",
+      "角色": "本次派生产物",
+      "内容类型": "全文来源单元",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/requirement-coverage.json",
+      "SHA-256": "495b4647e112658db74a6687b8ec3c2be2f35293ee61ddceb6b1f841e57aa7ab",
+      "角色": "本次派生产物",
+      "内容类型": "逐需求覆盖清单",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/coverage-gaps.json",
+      "SHA-256": "dfd8b2fa7555eca9efcc28bba71fae78eb392845929a844c29b6af2e91b79393",
+      "角色": "本次派生产物",
+      "内容类型": "覆盖缺口",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/evidence-atom-index.json",
+      "SHA-256": "a9a61e356e5805bbeccfb0f25a2e33e753c61f0224a647f0b71a4e51dc80411a",
+      "角色": "本次派生产物",
+      "内容类型": "来源证据索引",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/coverage-matrix.json",
+      "SHA-256": "89d3553620fb541c130bc121a5003640ccfe174e8d55a49fc522b56abf240ecc",
+      "角色": "本次派生产物",
+      "内容类型": "逐规则处理去向",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/global-evidence-scan-result.json",
+      "SHA-256": "4ca774ff846dcc81e8d4cf0c8712c109b33ec9c2e9062d5c7e68522b96899ff9",
+      "角色": "本次派生产物",
+      "内容类型": "本轮全局扫描结果",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/prototype-context-sync-result.json",
+      "SHA-256": "1501260405e177a94a4679e4527718217c7e58c0c4ab3e44ff1f08c4d6a75b4f",
+      "角色": "本次派生产物",
+      "内容类型": "本轮需求同步结果",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/current-testcase-candidate.json",
+      "SHA-256": "881eb85f207157918216592082e0ea84f9539ec8b53718526efd467c09690be7",
+      "角色": "本次派生产物",
+      "内容类型": "当前候选用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/final-testcases.json",
+      "SHA-256": "881eb85f207157918216592082e0ea84f9539ec8b53718526efd467c09690be7",
+      "角色": "本次派生产物",
+      "内容类型": "最终用例JSON",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/semantic-dedup-review.json",
+      "SHA-256": "71c5cc1cbcba1d6ecde656639ebe9ba12e6144ebf5fd95123b12ae6bd9401d58",
+      "角色": "本次派生产物",
+      "内容类型": "本次语义去重复核",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/user/isolated-designs.json",
+      "SHA-256": "0baff352281c27c7e6767854bb43d4730a711eddd709d2d79749c4b0cff9eae3",
+      "角色": "本次派生产物",
+      "内容类型": "局部隔离设计",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/assemble-current.mjs",
+      "SHA-256": "81e750ad7e0ff69737ab1c772eecb2c8811a2e7ab25a08354e80966597d9c5c1",
+      "角色": "执行工具",
+      "内容类型": "当前生成或交付工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-20260914-190307/review-current.mjs",
+      "SHA-256": "c4ac2329ee1f2eb460d4218f7c7b52969743538237cb41e959d2ba4e8f801225",
+      "角色": "执行工具",
+      "内容类型": "当前生成或交付工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/testcase-design.mjs",
+      "SHA-256": "aa312711deafb9f795d2f5f89ad915204e2b8d44214e158fe5179e227a322f24",
+      "角色": "执行工具",
+      "内容类型": "当前生成或交付工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/build-testcase-workbook.mjs",
+      "SHA-256": "a005f223c888ea8dea748259e3bdb2f2f19b1c4ca4747e3995207f656e8ade40",
+      "角色": "执行工具",
+      "内容类型": "当前生成或交付工具",
+      "允许定义业务规则": false
+    }
+  ],
+  "当前业务规则清单": "work/liveshow-full-20260914-190307/user/business-rule-catalog.json",
+  "生成脚本": "work/liveshow-full-20260914-190307/assemble-current.mjs",
+  "独立场景库": "work/liveshow-full-20260914-190307/user/independent-scenario-library.json",
+  "状态转换基线": "work/liveshow-full-20260914-190307/user/state-transition-baseline.json",
+  "需求覆盖清单": "work/liveshow-full-20260914-190307/user/requirement-coverage.json",
+  "当前候选用例": "work/liveshow-full-20260914-190307/user/current-testcase-candidate.json",
+  "最终用例JSON": "work/liveshow-full-20260914-190307/user/final-testcases.json"
+}

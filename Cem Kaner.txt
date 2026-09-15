@@ -26,6 +26,10 @@
 <<HISTORY_POLICY>>
 项目使用全新生成模式时固定为“不读取不比较”；既有覆盖映射输入不适用，按 AGENTS.md 的 BASIS-01 第 8 项直接从当前独立场景生成全新用例。
 
+### 本轮批次范围（MainBasis 项目必填，含单端）
+<<GENERATION_BATCH_JSON>>
+按《流程追溯文件说明.md》保存 batch.json；使用任务最初确定的目标端和交付要求，不从已生成用例缩小范围。
+
 ### 原型与需求清单同步结果
 <<PROTOTYPE_CONTEXT_SYNC_RESULT_JSON>>
 
@@ -36,6 +40,8 @@
 <<MAINBASIS_BASELINE_JSON>>
 <<MAINBASIS_FORMAL_REQUIREMENTS_MD>>
 <<MAINBASIS_PENDING_REQUIREMENTS_MD>>
+
+项目配置原型目录流程时，统一需求文档必须包含 MODULE-01 的模块归属区块。模块名从该区块取；规则填写模块归属说明及设计的观察页面路径。候选通过共用 casesFromCatalog 生成，不额外传入原型目录文件。具体接口见《流程追溯文件说明.md》。
 
 ### 全文需求覆盖与两段传递核对（MainBasis 项目必填，执行 TRACE-01）
 <<CONTEXT_CHECKPOINT_JSON>>
@@ -65,9 +71,9 @@
 3. 根据项目来源策略调用对应的全局证据扫描和原型同步指令；已配置 MainBasis 时先执行 `AGENTS.md` 的 `BASIS-01` 和同步指令第 3.9 节，使用当前两文档及已核对版本作为生成输入。扫描/同步记录只证明过程，不参与定义业务预期。问题按 `GATE-01` 处理。
 4. 执行 `AGENTS.md` 的 `DISC-01`、`TRACE-01`：先从完整当前需求建立覆盖分母，再独立建立规则、状态转换及端侧场景；按 `流程追溯文件说明.md` 登记覆盖、场景与状态接口。执行 `pre-generate` 校验。仅允许历史比较的项目在此后映射已有用例；全新模式跳过历史读取和比较。
 5. 按 `AGENTS.md` 执行目标端检查、结果完整性扫描、单结果拆分和语义去重后，将本文件输出保存为本次任务的 `current-testcase-candidate.json`，此时不得作为最终交付。
-6. 本文件仅使用状态转换基线及独立场景库中的真实未覆盖项生成缺失用例；外层流程在状态转换和场景固定后映射历史并保存 `historical-case-comparison.json`。既有用例只能经当前来源复核后保留，不得反向定义规则、状态或场景。未解释条款、待补转换与业务待确认问题分开记录。
+6. 本文件仅使用状态转换基线及独立场景库中的真实未覆盖项生成用例；全新模式不读取不比较历史。允许历史比较的项目由外层流程在状态转换和场景固定后映射历史并保存 `historical-case-comparison.json`。既有用例只能经当前来源复核后保留，不得反向定义规则、状态或场景。未解释条款、待补转换与业务待确认问题分开记录。
 7. 跨端或跨模块场景必须绑定状态转换标识和流程编号；每条正式用例仍只执行一个角色在一个端的动作，并只验证一个观察端的一个结果。
-8. 最终 JSON 的文件 SHA-256 必须与通过历史比较的候选完全一致，并在 `scripts/validate-generation-input.mjs --phase final` 和 `AGENTS.md` 第 14 节全部质量门禁通过后才能交付。
+8. 最终 JSON 的文件 SHA-256 必须与通过适用门禁的候选完全一致；历史比较仅在允许的项目执行。运行 `scripts/validate-generation-input.mjs --phase final`、`AGENTS.md` 第 14 节检查；MainBasis 项目由外层流程执行批次校验，导出及任务结束执行 GATE-01 第 0.4.6 节，接口见《流程追溯文件说明.md》。
 9. 本文件只生成 JSON；历史比较、Excel 转换、文件命名、样式和交付检查由外层流程按照 `AGENTS.md` 第 3、11、13、14 节执行。
 
 ## 规则引用
@@ -89,7 +95,7 @@
 
 ## 输出 JSON 契约
 
-通过候选生成门禁后，只输出一个可被严格解析的 JSON 对象，不输出 Markdown 代码块、解释、前言或结尾。该对象先保存为 `current-testcase-candidate.json`；通过外层历史比较和最终门禁后，才能作为正式 JSON 使用。
+通过候选生成门禁后，只输出一个可被严格解析的 JSON 对象，不输出 Markdown 代码块、解释、前言或结尾。该对象先保存为 `current-testcase-candidate.json`；通过外层适用的历史比较和最终门禁后，才能作为正式 JSON 使用。
 
 根节点固定包含：
 

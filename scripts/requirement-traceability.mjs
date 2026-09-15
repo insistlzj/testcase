@@ -79,11 +79,28 @@ export function seedCoverage(units) {
     状态转换处理: [],
     语义复核: { 说明: '', 内容SHA256: '' } };
 }
-export function validateCoverage(units, report, { phase = 'pre-generate', cases = [], questions = [] } = {}) {
+function coverageResolver(report, library) {
+  if (report.契约模式 !== '场景引用') return branch => branch;
+  check(library && report.场景库SHA256 === fingerprint(library), '场景引用未绑定当前完整场景库，须重新复核覆盖');
+  const scenes = new Map((library.场景 || []).map(scene => [scene.场景标识, scene]));
+  check(scenes.size === library.场景?.length, '独立场景库编号重复或结构缺失');
+  return branch => {
+    if (branch.状态 !== '已设计') return branch;
+    const scene = scenes.get(branch.场景标识);
+    check(scene, '覆盖分支引用不存在的独立场景');
+    for (const key of ['执行角色', '目标端', '入口', '用例契约']) check(branch[key] === undefined, '场景引用模式不得维护重复契约字段');
+    return { ...branch, 执行角色: scene.执行角色, 目标端: scene.目标端, 入口: scene.入口, 用例契约: scene.用例契约 };
+  };
+}
+
+export function validateCoverage(units, report, { phase = 'pre-generate', cases = [], questions = [], library } = {}) {
   check(units.length > 0, 'MainBasis 全文为空，无法建立覆盖分母');
   check(report?.schemaVersion === '1.0' && report.来源指纹 === fingerprint(units), '覆盖分母必须绑定 MainBasis 全文，不能来自已生成场景');
   check(['完整覆盖', '部分覆盖'].includes(report.交付性质), '必须声明完整或部分覆盖');
-  const rows = exactRows(report.逐项, units, '来源标识'), counts = {}, caseMap = new Map(cases.map(c => [c.用例编号, c]));
+  check(report.契约模式 === undefined || report.契约模式 === '场景引用', '未知覆盖契约模式');
+  const resolveBranch = coverageResolver(report, library);
+  const rows = exactRows(report.逐项, units, '来源标识'), counts = {}, unfinished = [], caseMap = new Map(cases.map(c => [c.用例编号, c]));
+  check(caseMap.size === cases.length, '正式用例编号重复');
   const questionIds = new Set(questions.map(q => q.问题编号)), used = new Set(), branchIds = new Set();
   for (const unit of units) {
     const row = rows.get(unit.标识);
@@ -96,11 +113,14 @@ export function validateCoverage(units, report, { phase = 'pre-generate', cases 
       check(nonempty(row.问题编号), '待确认缺少问题编号');
       if (phase === 'final') check(questionIds.has(row.问题编号), '待确认未进入最终问题清单');
     }
-    for (const branch of row.分支) {
+    if (['未覆盖', '待确认'].includes(row.状态)) unfinished.push({来源标识:unit.标识, 路径:unit.路径, 行:unit.行, 状态:row.状态, 说明:row.说明, ...(row.问题编号 ? {问题编号:row.问题编号} : {})});
+    for (const rawBranch of row.分支) {
+      const branch = resolveBranch(rawBranch);
       check(nonempty(branch.标识) && !branchIds.has(branch.标识), '分支编号缺失或重复'); branchIds.add(branch.标识);
       check(['已设计', '未覆盖', '待确认'].includes(branch.状态) && nonempty(branch.说明), '分支缺少真实状态与说明');
       if (row.状态 === '已覆盖') check(branch.状态 === '已设计', '条款已覆盖声明隐藏了未覆盖分支');
       if (branch.状态 !== '已设计') {
+        unfinished.push({来源标识:unit.标识, 分支标识:branch.标识, 路径:unit.路径, 行:unit.行, 状态:branch.状态, 说明:branch.说明, ...(branch.问题编号 ? {问题编号:branch.问题编号} : {})});
         if (branch.状态 === '待确认') {
           check(nonempty(branch.问题编号), '分支待确认缺少问题编号');
           if (phase === 'final') check(questionIds.has(branch.问题编号), '分支问题未进入最终问题清单');
@@ -125,7 +145,7 @@ export function validateCoverage(units, report, { phase = 'pre-generate', cases 
   const incomplete = (counts.部分覆盖 || 0) + (counts.未覆盖 || 0) + (counts.待确认 || 0);
   if (report.交付性质 === '完整覆盖') check(incomplete === 0, '仍有未覆盖、部分覆盖或待确认，禁止声明完整交付');
   review(report);
-  return { 校验: '通过', 交付性质: report.交付性质, 条款处理统计: counts, 说明: '单元计数不是业务覆盖率；语义正确性仍需逐条复核' };
+  return { 校验: '通过', 交付性质: report.交付性质, 条款处理统计: counts, 未完成项: unfinished, 说明: '单元计数不是业务覆盖率；语义正确性仍需逐条复核' };
 }
 
 export async function validateCoverageInput(root, manifest, phase) {
@@ -144,10 +164,12 @@ export async function validateCoverageInput(root, manifest, phase) {
   for (const unit of units) if (riskPaths.has(unit.路径)) unit.风险 = true;
   const coverage = await load(manifest.需求覆盖清单);
   const library = await load(manifest.独立场景库);
+  const resolveBranch = coverageResolver(coverage, library);
   const scenes = new Map((library.场景 || []).map(scene => [scene.场景标识, scene]));
   check(scenes.size === library.场景?.length, '独立场景库编号重复或结构缺失');
   const boundScenes = new Set();
-  for (const row of coverage.逐项 || []) for (const branch of row.分支 || []) if (branch.状态 === '已设计') {
+  for (const row of coverage.逐项 || []) for (const rawBranch of row.分支 || []) if (rawBranch.状态 === '已设计') {
+    const branch = resolveBranch(rawBranch);
     const scene = scenes.get(branch.场景标识);
     check(scene && ['执行角色', '目标端', '入口', '用例契约'].every(key => fingerprint(scene[key] ?? null) === fingerprint(branch[key] ?? null)), '覆盖分支与独立场景的角色、入口或契约不符');
     check(branch.目标端 === manifest.目标范围?.端名, '端侧覆盖分支的执行端与本次范围不符');
@@ -175,5 +197,13 @@ export async function validateCoverageInput(root, manifest, phase) {
   const stateIds = new Set(transitions.map(t => t.状态转换标识));
   for (const scene of scenes.values()) if (scene.状态转换标识) check(stateIds.has(scene.状态转换标识), '场景引用不存在或不属于目标端的状态转换');
   const candidate = phase === 'final' ? await load(manifest.当前候选用例) : { 测试用例: [], 需求待确认: [] };
-  return validateCoverage(units, coverage, { phase, cases: candidate.测试用例, questions: candidate.需求待确认 });
+  const result = validateCoverage(units, coverage, { phase, cases: candidate.测试用例, questions: candidate.需求待确认, library });
+  for (const projection of projections.values()) if (projection.状态 !== '已映射') {
+    if (projection.状态 === '待确认') {
+      check(nonempty(projection.问题编号), '状态转换待确认缺少问题编号');
+      if (phase === 'final') check(candidate.需求待确认.some(q => q.问题编号 === projection.问题编号), '状态转换问题未进入最终问题清单');
+    }
+    result.未完成项.push({状态转换标识:projection.状态转换标识, 状态:projection.状态, 说明:projection.说明, ...(projection.问题编号 ? {问题编号:projection.问题编号} : {})});
+  }
+  return result;
 }

@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import {moduleNames} from './prototype-directory.mjs';
 
 const digest = (value) => crypto.createHash("sha256").update(JSON.stringify(value)).digest("hex");
 const text = (value) => typeof value === "string" && value.trim().length > 0;
@@ -110,6 +111,7 @@ export function caseFromRule(rule, sequence, prefix) {
 function renderCase(rule, sequence, prefix, trace) {
   const design = rule.用例设计;
   if (!design) throw new Error(`${rule.稳定规则标识}缺少用例设计`);
+  if (!text(design.验证子项)) throw new Error(`${rule.稳定规则标识}缺少明确验证子项，须补齐设计，不得猜测或填充默认值`);
   if (rule.设计复核?.状态 !== "通过" || rule.设计复核?.设计SHA256 !== ruleDesignHash(rule)) throw new Error(`${rule.稳定规则标识}设计尚未复核或复核已失效`);
   return {
     序号: sequence, 用例编号: `${prefix}-${String(sequence).padStart(4, "0")}`,
@@ -139,6 +141,25 @@ export function casesFromRule(rule, startSequence, prefix) {
       规则标识: rule.稳定规则标识,
       分支标识: branch.分支标识,
     }));
+}
+
+export function casesFromCatalog(catalog, {moduleDirectory, coverageV2 = false, prefix = 'CASE'} = {}) {
+  const modules=moduleDirectory ? moduleNames(moduleDirectory,catalog.目标范围.端名) : null;
+  const endPrefix={'用户App':'USER','公会App':'GUILD','管理后台':'ADMIN'}[catalog.目标范围.端名];
+  const counters=new Map(), cases=[];
+  for (const rule of catalog.规则) {
+    const rows=coverageV2 ? casesFromRule(rule,cases.length+1,prefix) : rule.可生成正式用例 ? [caseFromRule(rule,cases.length+1,prefix)] : [];
+    for (const row of rows) {
+      if (modules) {
+        const index=modules.indexOf(row.功能模块);
+        if (index<0 || !endPrefix) throw new Error('用例模块或端不属于 MainBasis 原型目录');
+        const count=(counters.get(row.功能模块)||0)+1; counters.set(row.功能模块,count);
+        row.用例编号=`${endPrefix}-${String(index+1).padStart(2,'0')}-${String(count).padStart(4,'0')}`;
+      }
+      cases.push(row);
+    }
+  }
+  return cases;
 }
 
 export function validateCoverageExpansion(rule, languageRules) {

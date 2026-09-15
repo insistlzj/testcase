@@ -5,9 +5,10 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { hasBalancedDelimiters, splitAtomicResults, loadTestcaseLanguageRules, validateTestcaseJson } from "./validate-testcase-json.mjs";
-import { caseFromRule, casesFromRule, coverageBranches, validateCoverageExpansion, validateRuleDesign } from "./testcase-design.mjs";
+import { casesFromCatalog, coverageBranches, validateCoverageExpansion, validateRuleDesign } from "./testcase-design.mjs";
 import { validateMainBasisInput } from './mainbasis.mjs';
 import { validateCoverageInput } from './requirement-traceability.mjs';
+import {validateModuleAssignment, moduleSection} from './prototype-directory.mjs';
 
 const ROLES = new Set(["当前业务证据", "风险与缺口", "本次派生产物", "历史参照", "样式参照", "执行工具"]);
 const RULE_STATUSES = new Set(["已确认规则", "实现推导", "来源冲突", "证据缺口", "生成待复核"]);
@@ -60,7 +61,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
   const manifestPath = path.resolve(manifestFile);
   const manifest = await readJson(manifestPath, "生成输入角色清单");
 
-  const { freshOnly = false, requiresCoverage = false } = await validateMainBasisInput(root, manifest) || {};
+  const { freshOnly = false, requiresCoverage = false, moduleDirectory } = await validateMainBasisInput(root, manifest) || {};
   if (freshOnly) {
     const taskFamily = String(manifest.任务工作目录 || '').split('/').slice(0, 2).join('/');
     for (const input of manifest.输入文件) {
@@ -197,6 +198,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
   const validationRules = coverageV2
     ? catalog.规则.flatMap((rule) => coverageBranches(rule).map((branch) => branch.原子规则))
     : catalog.规则;
+  if (moduleDirectory) validateModuleAssignment(moduleDirectory,manifest.目标范围,validationRules);
   const atomicRuleIds = new Set();
   for (const [index, rule] of validationRules.entries()) {
     const label = `规则[${index}]`;
@@ -223,7 +225,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
     if (!RULE_STATUSES.has(rule.规则状态)) fail(`${label}.规则状态不合法：${rule.规则状态}`);
     if (typeof rule.可生成正式用例 !== "boolean") fail(`${label}.可生成正式用例必须是布尔值`);
     if (rule.可生成正式用例) {
-      if (!manifest.目标范围.模块名称.split('、').includes(rule.功能模块)) fail(`正式规则模块超出本次范围：${rule.稳定规则标识}`);
+      if (!moduleDirectory && !manifest.目标范围.模块名称.split('、').includes(rule.功能模块)) fail(`正式规则模块超出本次范围：${rule.稳定规则标识}`);
       if (rule.适用角色和端[0] !== `${manifest.目标范围.端名}-${rule.执行角色}`) fail(`正式规则归属端超出本次范围：${rule.稳定规则标识}`);
       const designIssues = validateRuleDesign(rule, languageRules);
       if (designIssues.length) fail(`${rule.稳定规则标识}：${designIssues.join("；")}`);
@@ -261,8 +263,11 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
       }
       if (rule.可生成正式用例) {
         requireString(evidence.原文, `${evidenceLabel}.原文`);
-        if (!evidenceTexts.has(evidencePath)) evidenceTexts.set(evidencePath, await fs.readFile(evidenceEntry.absolutePath, "utf8"));
-        if (!evidenceTexts.get(evidencePath).includes(evidence.原文)) fail(`引用原文未在当前文件命中：${rule.稳定规则标识} -> ${evidencePath}`);
+        if (!evidenceTexts.has(evidencePath)) {
+          const evidenceText=await fs.readFile(evidenceEntry.absolutePath,'utf8');
+          evidenceTexts.set(evidencePath,moduleDirectory ? evidenceText.replace(moduleSection(evidenceText),'') : evidenceText);
+        }
+        if (!evidenceTexts.get(evidencePath).includes(evidence.原文)) fail(`引用原文未在当前业务正文命中，目录不能证明业务预期：${rule.稳定规则标识} -> ${evidencePath}`);
       }
     }
   }
@@ -297,6 +302,11 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
       fail("最终用例 JSON 与当前候选用例的 SHA-256 不一致，禁止历史比较后局部修改");
     }
     const candidate = await readJson(candidateEntry.absolutePath, "当前候选用例");
+    if (moduleDirectory) validateModuleAssignment(moduleDirectory,manifest.目标范围,validationRules,candidate.需求待确认);
+    if (moduleDirectory) for (const question of candidate.需求待确认.filter(item=>item.功能模块==='待映射')) {
+      if (requirementCoverage.交付性质 !== '部分覆盖') fail('问题模块归属未完成，不能声明完整覆盖');
+      requirementCoverage.未完成项.push({问题编号:question.问题编号,状态:'未覆盖',说明:'需求问题的模块归属尚未整理；不是新增业务待确认'});
+    }
     const jsonCheck = await validateTestcaseJson(candidateEntry.absolutePath);
     if (jsonCheck.状态 !== "通过") fail(`候选语言校验失败：${jsonCheck.问题.join("；")}`);
     const caseIds = new Set(candidate.测试用例.map((item) => item.用例编号));
@@ -309,13 +319,7 @@ export async function validateGenerationInput(manifestFile, repoRoot = process.c
       usedRules.add(id);
     }
     const prefix = candidate.测试用例[0]?.用例编号.replace(/-\d+$/, "") || "CASE";
-    let sequence = 1;
-    const renderedCases = catalog.规则.flatMap((rule) => {
-      const rendered = coverageV2 ? casesFromRule(rule, sequence, prefix)
-        : rule.可生成正式用例 ? [caseFromRule(rule, sequence, prefix)] : [];
-      sequence += rendered.length;
-      return rendered;
-    });
+    const renderedCases = casesFromCatalog(catalog,{moduleDirectory,coverageV2,prefix});
     if (JSON.stringify(renderedCases) !== JSON.stringify(candidate.测试用例)) fail("正式字段或场景分支顺序与已复核设计不一致");
     for (const rule of catalog.规则.filter((item) => coverageV2 ? coverageBranches(item).some((branch) => branch.原子规则.可生成正式用例) : item.可生成正式用例)) {
       if (!usedRules.has(rule.稳定规则标识)) fail(`当前可生成规则没有正式用例覆盖：${rule.稳定规则标识}`);
