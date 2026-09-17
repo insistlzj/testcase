@@ -120,7 +120,7 @@ styleDataSheet(pendingSheet, pendingHeaders, pendingRows, [12, 13, 13, 20, 11, 1
 pendingSheet.freezePanes.freezeColumns(3);
 
 casesSheet.getRange(`E2:E${caseLastRow}`).dataValidation = { rule: { type: "list", values: ["功能需求", "业务流程", "逻辑校验", "异常用例"] } };
-casesSheet.getRange(`F2:F${caseLastRow}`).dataValidation = { rule: { type: "list", values: ["P0", "P1", "P2", "P3"] } };
+casesSheet.getRange(`F2:F${caseLastRow}`).dataValidation = { rule: { type: "list", values: ["P0", "P1", "P2", "P3", "P4"] } };
 casesSheet.getRange(`M2:M${caseLastRow}`).dataValidation = { rule: { type: "list", values: ["未测", "通过", "不通过", "阻塞", "不适用"] } };
 pendingSheet.getRange(`E2:E${pendingLastRow}`).dataValidation = { rule: { type: "list", values: ["阻塞测试", "部分阻塞", "不阻塞"] } };
 pendingSheet.getRange(`H2:H${pendingLastRow}`).dataValidation = { rule: { type: "list", values: ["需求范围", "业务规则", "角色与权限", "流程与状态", "字段与数据校验", "计算与统计口径", "异常处理", "跨端与跨模块一致性", "配置和历史数据影响", "交互与文案规则"] } };

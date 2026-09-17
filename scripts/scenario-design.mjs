@@ -278,7 +278,7 @@ export function designScenario(s, pages, ruleById) {
     ({description,point,pre,steps,result}=direct);
   }
   if (!steps.length || !result) return null;
-  const testcase = { 序号: 0, 用例编号: '', 功能模块: '直播模块', 功能结构: `${page.name}（${s.角色}视角）`, 用例类型: dimension.includes('输入边界') ? '逻辑校验' : '业务流程', 优先级: 'P1',
+  const testcase = { 序号: 0, 用例编号: '', 功能模块: '直播模块', 功能结构: `${page.name}（${s.角色}视角）`, 用例类型: dimension.includes('输入边界') ? '逻辑校验' : '业务流程', 优先级: 'P2',
     用例描述: description, 验证用例子项: point, 前置条件: pre, 操作步骤: steps, 预期结果: [result], 流程编号: '', 测试结果: '未测', 测试人员: '',
     备注: [...groupSources(s.证据), `规则：${s.规则标识.join('、')}`, `场景：${s.场景标识}`, '未动态验证'] };
   // Contract remains independent of the later candidate and includes the complete

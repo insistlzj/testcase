@@ -26,7 +26,7 @@ for(const p of pages.values()){
   if(found){p.end=found.端名;p.module=found.功能模块;p.registeredName=found.页面名称;}
 }
 const language=await loadTestcaseLanguageRules();
-const priorityReason={P0:'核心入口或主交易成功路径，失败会阻断后续业务测试。',P1:'该验证点涉及核心业务条件、权限、资产或状态分支。',P2:'该验证点属于辅助功能、常见替代入口或一般表单边界。',P3:'该验证点属于低频兼容或较低风险的展示细节。'};
+const priorityReason={P0:'最小冒烟或主流程成功路径，失败会阻断后续关键测试。',P1:'本条直接验证权限、资产、状态、审核、支付、退款、封禁或跨端同步等关键业务结果。',P2:'本条验证搜索、筛选、排序、展示、详情、候选定位、入口跳转或普通表单校验等功能完整性。',P3:'本条验证边界、健壮性、弱网、重复点击、兼容性或低频异常。',P4:'本条验证低价值体验或展示补充，对核心业务结果无明显影响。'};
 export function sourceRows(pageKey,fragments){
   const p=pages.get(pageKey);assert(p,`页面不存在${pageKey}`);
   const found=[];
@@ -38,7 +38,7 @@ export function sourceRows(pageKey,fragments){
 }
 export function test(pageKey,fragments,role,title,point,conditions,steps,result,options){
   role=role.trim();
-  assert(options&&['P0','P1','P2','P3'].includes(options.p)&&options.type,'必须明确优先级与用例类型');
+  assert(options&&['P0','P1','P2','P3','P4'].includes(options.p)&&options.type,'必须明确优先级与用例类型');
   const p=pages.get(options.observe||pageKey);assert(p?.end,`目标页未登记${options.observe||pageKey}`);
   assert.equal(p.end,pages.get(pageKey)?.end,'观察位置不得静默扩大到其他端');
   let refs=sourceRows(pageKey,fragments);
@@ -64,7 +64,7 @@ export function test(pageKey,fragments,role,title,point,conditions,steps,result,
   rules.push(rule);observations.push({规则标识:rule.稳定规则标识,页面:pageKey,来源:refs.map(r=>({单元:r.unit,片段:r.body})),状态转换标识:options.transition||null,变化维度:options.dimensions||['正常主流程','可观察结果'],独立差异:options.difference||title});
   return rule;
 }
-export const P0={p:'P0',type:'业务流程'},P1={p:'P1',type:'逻辑校验'},P2={p:'P2',type:'功能需求'},ERR={p:'P1',type:'异常用例'};
+export const P0={p:'P0',type:'业务流程'},P1={p:'P1',type:'逻辑校验'},P2={p:'P2',type:'功能需求'},P3={p:'P3',type:'异常用例'},P4={p:'P4',type:'功能需求'},ERR={p:'P1',type:'异常用例'};
 export function calculation(formula,values,expression,result,unit='金币',scope='当前测试账号的本次业务记录'){
   const units={精度:'无量纲',数量:'个',A数量:'个',B数量:'个',份数:'份',开奖次数:'次',充值人数:'人',新用户充值人数:'人',比例:'无量纲',收益比例:'无量纲',旧比例:'无量纲',新比例:'无量纲',百分比系数:'无量纲',有效观看分钟:'分钟',有效分钟:'分钟',窗口内分钟:'分钟',每分钟亲密度:'亲密度/分钟'};
   return{公式:formula,数据范围:scope,结果单位:unit,证据:[0],变量:Object.entries(values).map(([name,value])=>({名称:name,业务含义:name,数值:value,单位:units[name]||(unit==='%'?'金币':unit)})),表达式:expression,最终值:result};

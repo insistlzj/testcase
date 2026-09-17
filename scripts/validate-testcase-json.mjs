@@ -8,7 +8,7 @@ import { finishStage, startStage } from "./pipeline-metrics.mjs";
 const caseFields = ["序号", "用例编号", "功能模块", "功能结构", "用例类型", "优先级", "用例描述", "验证用例子项", "前置条件", "操作步骤", "预期结果", "流程编号", "测试结果", "测试人员", "备注"];
 const pendingFields = ["问题编号", "需求组编号", "父问题编号", "追问触发条件", "阻塞等级", "功能模块", "具体场景", "问题分类", "待决策问题", "可选方案", "测试建议", "产品结论", "结论补充", "已知依据", "影响范围", "已有用例编号", "确认后待补用例", "负责人", "期望确认时间", "确认状态"];
 const allowedTypes = new Set(["功能需求", "业务流程", "逻辑校验", "异常用例"]);
-const allowedPriorities = new Set(["P0", "P1", "P2", "P3"]);
+const allowedPriorities = new Set(["P0", "P1", "P2", "P3", "P4"]);
 const languageRulesFile = new URL("../AGENTS.md", import.meta.url);
 const languageRulesStart = "<!-- TESTCASE_LANGUAGE_RULES_BEGIN -->";
 const languageRulesEnd = "<!-- TESTCASE_LANGUAGE_RULES_END -->";

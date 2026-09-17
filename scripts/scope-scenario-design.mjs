@@ -123,7 +123,7 @@ export function designScopeScenario(scene, pages) {
   if (!design) return null;
   const testcase = {
     序号: 0, 用例编号: '', 功能模块: page.module, 功能结构: `${page.name}（${scene.角色}视角）`, 用例类型: design.type,
-    优先级: /登录|审核|结算|支付|充值|提现|直播/u.test(`${page.module}${page.name}`) ? 'P1' : 'P2',
+    优先级: 'P2',
     用例描述: design.description, 验证用例子项: design.point.slice(0, 30), 前置条件: design.pre, 操作步骤: design.steps,
     预期结果: [design.result], 流程编号: '', 测试结果: '未测', 测试人员: '',
     备注: [...groupSources(scene.证据), `页面：${scene.页面.join('、')}`, `规则：${scene.规则标识.join('、')}`, `场景：${scene.场景标识}`, '未动态验证'],

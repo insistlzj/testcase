@@ -43,6 +43,7 @@ test("AGENTS.md 机器语言规则可解析且词表无重复", async () => {
 test("具体字段通过，通用占位内容失败", async () => {
   const passed = await validate({ 测试用例: [validCase], 需求待确认: [] });
   assert.equal(passed.状态, "通过");
+  assert.equal((await validate({ 测试用例: [{ ...validCase, 优先级: "P4" }], 需求待确认: [] })).状态, "通过");
 
   const failed = await validate({
     测试用例: [{
