@@ -164,6 +164,8 @@ function parseCounts(values) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  // Finish module evaluation before loading delivery checks that import this module.
+  void (async () => {
   const [command, directory, stage, ...values] = process.argv.slice(2);
   try {
     check(directory, '缺少任务目录');
@@ -176,4 +178,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
       : (() => { throw new Error('用法：pipeline-metrics.mjs <task-start|task-finish|status|start|finish|skip> <任务目录> [阶段或请求时间] [字段=值或原因]'); })();
     process.stdout.write(JSON.stringify(result, null, 2) + '\n');
   } catch (error) { process.stderr.write(error.message + '\n'); process.exitCode = 1; }
+  })();
 }

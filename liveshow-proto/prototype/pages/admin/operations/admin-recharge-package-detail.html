@@ -14,12 +14,11 @@
     <script src="../../../assets/common.js?v=20260821-date-placeholder-v3"></script>
     <script src="../../../assets/admin-mock.js?v=20260813-id-format-v4"></script>
     <style>
-      .admin-field-hint {
-        display: block;
-        margin-top: 6px;
-        color: var(--admin-muted);
-        font-size: var(--admin-font-xs);
-      }
+      .product-select.is-placeholder{color:var(--admin-muted);font-size:var(--admin-font-xs)}
+      .product-select option{color:var(--admin-ink);font-size:var(--admin-font-base)}
+      .store-price-summary{min-height:36px;display:flex;align-items:center;color:var(--admin-muted);font-size:var(--admin-font-xs)}
+      .store-price-summary.has-value{color:var(--admin-ink);font-size:var(--admin-font-sm);font-weight:500}
+      .store-price-summary.is-error{color:var(--admin-danger);font-weight:600}
     </style>
   </head>
   <body>
@@ -87,142 +86,72 @@
           <section class="admin-panel admin-profile-panel">
             <div class="admin-section-head"><h2 id="formTitle"></h2></div>
             <form class="admin-resource-form" id="packageForm">
-              <div class="admin-form-grid admin-basic-form-grid">
-                <div class="admin-form-row">
-                  <label>套餐 ID</label>
-                  <div class="admin-readonly-value" id="packageId"></div>
-                </div>
-                <div class="admin-form-row" id="typeRow">
-                  <label for="typeValue">套餐类型</label
-                  ><select class="admin-select" id="typeValue">
-                    <option value="regular">常规</option>
-                    <option value="activity">活动</option>
-                  </select>
-                </div>
-                <div class="admin-form-row" id="sortRow">
-                  <label for="sort">排序权重</label
-                  ><input
-                    class="admin-input"
-                    id="sort"
-                    type="number"
-                    min="0"
-                    required
-                  />
-                </div>
-                <div class="admin-form-row">
-                  <label>上下架状态</label>
-                  <div class="admin-switch-control">
-                    <label class="admin-switch"
-                      ><input id="enabled" type="checkbox" checked /><span
-                        class="admin-switch-track"
-                      ></span></label
-                    ><span id="enabledText"></span>
+              <section class="admin-resource-section">
+                <div class="admin-form-grid">
+                  <div class="admin-form-row"><label>套餐 ID</label><div class="admin-readonly-value" id="packageId"></div></div>
+                  <div class="admin-form-row"><label for="sort">排序</label><input class="admin-input" id="sort" type="number" step="1" required /></div>
+                  <div class="admin-form-row">
+                    <label for="typeValue">套餐类型</label>
+                    <select class="admin-select" id="typeValue"><option value="regular">常规</option><option value="activity">活动</option></select>
                   </div>
                 </div>
+                <div class="admin-media-upload-grid">
+                  <div class="admin-media-upload">
+                    <h4>套餐封面</h4>
+                    <div class="admin-media-upload-preview-wrap">
+                      <button class="admin-media-upload-preview" id="coverPreview" type="button"></button>
+                      <button class="admin-media-delete" id="deleteCoverBtn" type="button" aria-label="删除套餐封面" title="删除套餐封面">×</button>
+                    </div>
+                    <input class="admin-file-input" id="coverFile" type="file" accept="image/*" />
+                  </div>
+                </div>
+                <div class="admin-form-grid">
+                  <div class="admin-form-row"><label>销售价格 / 地区</label><div class="store-price-summary" id="storePriceSummary">选择商品后回显</div></div>
+                  <div class="admin-form-row">
+                    <label>上下架</label>
+                    <div class="admin-switch-control"><label class="admin-switch"><input id="enabled" type="checkbox" /><span class="admin-switch-track"></span></label><span id="enabledText"></span></div>
+                  </div>
+                  <div class="admin-form-row" id="purchaseLimitRow">
+                    <label for="purchaseLimit">单用户限购次数</label>
+                    <input class="admin-input" id="purchaseLimit" type="number" min="1" step="1" />
+                    <div class="admin-readonly-value state-hide" id="purchaseLimitUnlimited">不限</div>
+                  </div>
+                  <div class="admin-form-row" id="timeRow">
+                    <label>有效时间</label>
+                    <div class="admin-range" id="timeRange"><input class="admin-input" id="startAt" type="datetime-local" /><span>至</span><input class="admin-input" id="endAt" type="datetime-local" /></div>
+                    <div class="admin-readonly-value state-hide" id="timeUnlimited">不限</div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="admin-resource-section">
+                <div class="admin-form-grid">
+                  <div class="admin-form-row">
+                    <label>是否启用 iOS</label>
+                    <div class="admin-switch-control"><label class="admin-switch"><input id="iosEnabled" type="checkbox" /><span class="admin-switch-track"></span></label><span id="iosEnabledText"></span></div>
+                  </div>
+                  <div class="admin-form-row"><label for="iosProductId">iOS 商品</label><select class="admin-select product-select" id="iosProductId"></select></div>
+                  <div class="admin-form-row"><label for="iosBaseCoins">iOS 充值金币</label><input class="admin-input" id="iosBaseCoins" type="number" min="1" step="1" /></div>
+                  <div class="admin-form-row"><label for="iosBonus">iOS 赠送金币</label><input class="admin-input" id="iosBonus" type="number" min="0" step="1" /></div>
+                </div>
+              </section>
+
+              <section class="admin-resource-section">
+                <div class="admin-form-grid">
+                  <div class="admin-form-row">
+                    <label>是否启用 Android</label>
+                    <div class="admin-switch-control"><label class="admin-switch"><input id="androidEnabled" type="checkbox" /><span class="admin-switch-track"></span></label><span id="androidEnabledText"></span></div>
+                  </div>
+                  <div class="admin-form-row"><label for="androidProductId">Android 商品</label><select class="admin-select product-select" id="androidProductId"></select></div>
+                  <div class="admin-form-row"><label for="androidBaseCoins">Android 充值金币</label><input class="admin-input" id="androidBaseCoins" type="number" min="1" step="1" /></div>
+                  <div class="admin-form-row"><label for="androidBonus">Android 赠送金币</label><input class="admin-input" id="androidBonus" type="number" min="0" step="1" /></div>
+                </div>
+              </section>
+
+              <div class="admin-form-grid admin-resource-section">
+                <div class="admin-form-row"><label>更新时间</label><div class="admin-readonly-value" id="updatedAt"></div></div>
               </div>
-              <div class="admin-media-upload-grid">
-                <div class="admin-media-upload">
-                  <h4>套餐封面</h4>
-                  <div class="admin-media-upload-preview-wrap">
-                    <button
-                      class="admin-media-upload-preview"
-                      id="coverPreview"
-                      type="button"
-                    ></button
-                    ><button
-                      class="admin-media-delete"
-                      id="deleteCoverBtn"
-                      type="button"
-                      aria-label="删除套餐封面"
-                      title="删除套餐封面"
-                    >
-                      ×
-                    </button>
-                  </div>
-                  <input
-                    class="admin-file-input"
-                    id="coverFile"
-                    type="file"
-                    accept="image/*"
-                  />
-                </div>
-              </div>
-              <div class="admin-form-grid">
-                <div class="admin-form-row">
-                  <label for="price">销售价格（USD）</label
-                  ><input
-                    class="admin-input"
-                    id="price"
-                    type="text"
-                    inputmode="decimal"
-                    data-luma-decimal
-                    min="0.01"
-                    step="0.01"
-                    required
-                  />
-                </div>
-                <div class="admin-form-row">
-                  <label for="coins">充值金币</label
-                  ><input
-                    class="admin-input"
-                    id="coins"
-                    type="number"
-                    min="1"
-                    required
-                  />
-                </div>
-                <div class="admin-form-row">
-                  <label for="bonus">赠送金币</label
-                  ><input
-                    class="admin-input"
-                    id="bonus"
-                    type="number"
-                    min="0"
-                    required
-                  />
-                </div>
-                <div class="admin-form-row" id="purchaseLimitRow">
-                  <label for="purchaseLimit">单用户限购次数</label
-                  ><input
-                    class="admin-input"
-                    id="purchaseLimit"
-                    type="number"
-                    min="1"
-                    step="1"
-                  />
-                  <div
-                    class="admin-readonly-value state-hide"
-                    id="purchaseLimitUnlimited"
-                  >
-                    不限
-                  </div>
-                </div>
-                <div class="admin-form-row" id="timeRow">
-                  <label>有效时间</label>
-                  <div class="admin-range" id="timeRange">
-                    <input
-                      class="admin-input"
-                      id="startAt"
-                      type="datetime-local"
-                    /><span>至</span
-                    ><input
-                      class="admin-input"
-                      id="endAt"
-                      type="datetime-local"
-                    />
-                  </div>
-                  <div
-                    class="admin-readonly-value state-hide"
-                    id="timeUnlimited"
-                  >
-                    不限
-                  </div>
-                </div>
-                <div class="admin-form-row">
-                  <label>最后更新时间</label>
-                  <div class="admin-readonly-value" id="updatedAt"></div>
-                </div>
-              </div>
+
               <div class="admin-modal-foot">
                 <a
                   class="admin-btn secondary"
@@ -239,24 +168,42 @@
       const packages = window.LUMA_ADMIN_MOCK.rechargePackageItems,
         params = new URLSearchParams(location.search);
       let isNew = params.get("new") === "1",
-        item = isNew
-          ? blankItem()
-          : packages.find((entry) => entry.id === params.get("id")) ||
-            packages[0],
+        savedItem = packages.find((entry) => entry.id === params.get("id")) || packages[0],
+        item = isNew ? blankItem() : JSON.parse(JSON.stringify(savedItem)),
         editorCover = item.cover;
+      const productCatalog = {
+        ios: [
+          { id: "com.luma.coins.600", key: "starter", name: "入门金币包", price: 1.49, currency: "USD", region: "美国" },
+          { id: "com.luma.coins.1250", key: "value", name: "超值金币包", price: 2.99, currency: "USD", region: "美国" },
+          { id: "com.luma.coins.summer", key: "summer", name: "夏日金币包", price: 6.99, currency: "USD", region: "美国" },
+          { id: "com.luma.coins.festival", key: "festival", name: "节日金币包", price: 20.99, currency: "USD", region: "美国" },
+          { id: "com.luma.coins.newcomer", key: "newcomer", name: "新人金币包", price: 3.99, currency: "USD", region: "美国" },
+        ],
+        android: [
+          { id: "coins_600", key: "starter", name: "入门金币包", price: 1.49, currency: "USD", region: "美国" },
+          { id: "coins_1250", key: "value", name: "超值金币包", price: 2.99, currency: "USD", region: "美国" },
+          { id: "coins_summer", key: "summer", name: "夏日金币包", price: 6.99, currency: "USD", region: "美国" },
+          { id: "coins_festival", key: "festival", name: "节日金币包", price: 20.99, currency: "USD", region: "美国" },
+          { id: "coins_newcomer", key: "newcomer", name: "新人金币包", price: 3.99, currency: "USD", region: "美国" },
+        ],
+      };
+      const platformMeta = {
+        ios: { enabled: iosEnabled, enabledText: iosEnabledText, productId: iosProductId, baseCoins: iosBaseCoins, bonus: iosBonus },
+        android: { enabled: androidEnabled, enabledText: androidEnabledText, productId: androidProductId, baseCoins: androidBaseCoins, bonus: androidBonus },
+      };
       function blankItem() {
         return {
           id: "",
           cover: "未上传",
-          type: "activity",
-          coins: 600,
-          price: 1.5,
-          bonus: 0,
-          purchaseLimit: 1,
+          type: "regular",
+          price: 0,
+          purchaseLimit: 0,
           startAt: "",
           endAt: "",
           sort: 50,
           enabled: true,
+          ios: { enabled: true, productId: "", baseCoins: "", bonus: "" },
+          android: { enabled: true, productId: "", baseCoins: "", bonus: "" },
           updatedAt: "-",
         };
       }
@@ -267,8 +214,7 @@
         enabledText.textContent = enabled.checked ? "上架" : "下架";
       }
       function syncType() {
-        item.type = typeValue.value;
-        const activity = item.type === "activity";
+        const activity = typeValue.value === "activity";
         purchaseLimit.classList.toggle("state-hide", !activity);
         purchaseLimitUnlimited.classList.toggle("state-hide", activity);
         timeRange.classList.toggle("state-hide", !activity);
@@ -276,13 +222,6 @@
         purchaseLimit.required = activity;
         startAt.required = activity;
         endAt.required = activity;
-        if (!activity) {
-          purchaseLimit.value = "";
-          startAt.value = "";
-          endAt.value = "";
-        } else if (!purchaseLimit.value) {
-          purchaseLimit.value = "1";
-        }
       }
       function renderCover() {
         const empty = editorCover === "未上传";
@@ -290,17 +229,52 @@
         coverPreview.classList.toggle("is-empty", empty);
         deleteCoverBtn.classList.toggle("state-hide", empty);
       }
+      function syncPlatform(name) {
+        const controls = platformMeta[name], checked = controls.enabled.checked;
+        controls.enabledText.textContent = checked ? "启用" : "禁用";
+        controls.productId.disabled = !checked;
+        controls.productId.required = checked;
+        syncProduct(name);
+      }
+      function selectedProduct(name) {
+        return productCatalog[name].find((entry) => entry.id === platformMeta[name].productId.value);
+      }
+      function syncStorePrice() {
+        const products = Object.keys(platformMeta).filter((name) => platformMeta[name].enabled.checked).map(selectedProduct).filter(Boolean),
+          first = products[0],
+          mismatch = products.length > 1 && products.some((product) => product.key !== first.key || product.price !== first.price || product.currency !== first.currency || product.region !== first.region);
+        storePriceSummary.classList.toggle("has-value", Boolean(first) && !mismatch);
+        storePriceSummary.classList.toggle("is-error", mismatch);
+        storePriceSummary.textContent = mismatch ? "双平台商品、价格或地区不一致" : first ? `${LUMA_FORMAT.money(first.price)} · ${first.region}` : "选择商品后回显";
+        item.price = first?.price || 0;
+        return mismatch;
+      }
+      function syncCoins(name) {
+        const controls = platformMeta[name], product = selectedProduct(name), baseCoins = Number(controls.baseCoins.value), bonus = Number(controls.bonus.value);
+        item[name] = { enabled: controls.enabled.checked, productId: product?.id || "", productKey: product?.key || "", productName: product?.name || "", productPrice: product?.price || 0, currency: product?.currency || "", region: product?.region || "", baseCoins: controls.baseCoins.value === "" ? "" : baseCoins, bonus: controls.bonus.value === "" ? "" : bonus };
+      }
+      function syncProduct(name, resetCoins = false) {
+        const controls = platformMeta[name], product = selectedProduct(name);
+        if (resetCoins) {
+          controls.baseCoins.value = "";
+          controls.bonus.value = "";
+        }
+        controls.productId.classList.toggle("is-placeholder", !product);
+        controls.baseCoins.disabled = !controls.enabled.checked || !product;
+        controls.bonus.disabled = !controls.enabled.checked || !product;
+        controls.baseCoins.required = controls.enabled.checked && Boolean(product);
+        controls.bonus.required = controls.enabled.checked && Boolean(product);
+        syncCoins(name);
+        syncStorePrice();
+      }
       function render() {
         const title = isNew ? "新增充值套餐" : "编辑充值套餐";
         pageName.textContent = title;
         formTitle.textContent = title;
         packageId.textContent = isNew ? "保存后由系统生成" : item.id;
-        typeValue.value = item.type;
-        price.value = LUMA_FORMAT.decimalInput(item.price);
-        coins.value = item.coins;
-        bonus.value = item.bonus;
-        purchaseLimit.value = item.purchaseLimit || 1;
         sort.value = item.sort;
+        typeValue.value = item.type;
+        purchaseLimit.value = item.purchaseLimit || 1;
         startAt.value = item.startAt.replace(" ", "T");
         endAt.value = item.endAt.replace(" ", "T");
         enabled.checked = item.enabled;
@@ -308,6 +282,18 @@
         syncEnabled();
         syncType();
         renderCover();
+        Object.keys(platformMeta).forEach((name) => {
+          const channel = item[name], controls = platformMeta[name];
+          controls.productId.innerHTML = '<option value="">请选择商品</option>' + productCatalog[name].map((entry) => `<option value="${entry.id}">${entry.id}｜${entry.name}｜${LUMA_FORMAT.money(entry.price)}｜${entry.region}</option>`).join("");
+          controls.enabled.checked = channel.enabled;
+          controls.productId.value = channel.productId;
+          controls.baseCoins.value = channel.baseCoins ?? "";
+          controls.bonus.value = channel.bonus ?? "";
+          syncPlatform(name);
+        });
+      }
+      function duplicateProductId(name, productId) {
+        return packages.some((entry) => entry.id !== item.id && entry[name].productId === productId);
       }
       enabled.onchange = syncEnabled;
       typeValue.onchange = syncType;
@@ -323,36 +309,52 @@
         coverFile.value = "";
         renderCover();
       };
+      Object.entries(platformMeta).forEach(([name, controls]) => {
+        controls.enabled.onchange = () => syncPlatform(name);
+        controls.productId.onchange = () => syncProduct(name, true);
+        controls.baseCoins.oninput = () => syncCoins(name);
+        controls.bonus.oninput = () => syncCoins(name);
+      });
       packageForm.onsubmit = (event) => {
         event.preventDefault();
+        const order = Number(sort.value), activity = typeValue.value === "activity";
+        if (!Number.isInteger(order)) return Luma.toast("排序必须是整数");
         if (editorCover === "未上传") return Luma.toast("请上传套餐封面");
-        if (item.type === "activity" && startAt.value >= endAt.value)
-          return Luma.toast("有效时间的结束时间必须晚于开始时间");
+        if (activity && (!Number.isInteger(Number(purchaseLimit.value)) || Number(purchaseLimit.value) <= 0)) return Luma.toast("单用户限购次数必须是正整数");
+        if (activity && startAt.value >= endAt.value) return Luma.toast("有效时间的结束时间必须晚于开始时间");
+        const enabledPlatforms = Object.keys(platformMeta).filter((name) => item[name].enabled);
+        if (!enabledPlatforms.length) return Luma.toast("至少启用一个平台");
+        for (const name of enabledPlatforms) {
+          if (!item[name].productId) return Luma.toast(`请选择${name === "ios" ? "iOS" : "Android"}商品 ID`);
+          if (duplicateProductId(name, item[name].productId)) return Luma.toast("该商品 ID 已绑定其他套餐");
+          if (!Number.isInteger(item[name].baseCoins) || item[name].baseCoins <= 0) return Luma.toast(`${name === "ios" ? "iOS" : "Android"}充值金币必须是正整数`);
+          if (!Number.isInteger(item[name].bonus) || item[name].bonus < 0) return Luma.toast(`${name === "ios" ? "iOS" : "Android"}赠送金币必须是非负整数`);
+        }
+        if (syncStorePrice()) return Luma.toast("iOS 和 Android 所选商品、价格及地区必须一致");
         const created = isNew;
         Object.assign(item, {
           id: created ? nextId() : item.id,
           cover: editorCover,
           type: typeValue.value,
-          coins: Number(coins.value),
-          price: LUMA_FORMAT.parseDecimal(price.value),
-          bonus: Number(bonus.value),
-          purchaseLimit:
-            item.type === "activity" ? Number(purchaseLimit.value) : 0,
-          startAt:
-            item.type === "activity" ? startAt.value.replace("T", " ") : "",
-          endAt: item.type === "activity" ? endAt.value.replace("T", " ") : "",
-          sort: Number(sort.value),
+          price: item.price,
+          purchaseLimit: activity ? Number(purchaseLimit.value) : 0,
+          startAt: activity ? startAt.value.replace("T", " ") : "",
+          endAt: activity ? endAt.value.replace("T", " ") : "",
+          sort: order,
           enabled: enabled.checked,
-          updatedAt: "2026-08-06 15:00",
+          updatedAt: "2026-09-15 10:30",
         });
         if (created) {
           packages.push(item);
+          savedItem = item;
           isNew = false;
           history.replaceState(
             null,
             "",
             `admin-recharge-package-detail.html?id=${item.id}&edit=1`,
           );
+        } else {
+          Object.assign(savedItem, JSON.parse(JSON.stringify(item)));
         }
         render();
         Luma.toast(created ? "充值套餐已新增" : "充值套餐已保存");
@@ -367,13 +369,9 @@
         "*",
       );
       Luma.registerStates({
-        活动套餐: () => {
-          if (item.type === "activity") {
-            startAt.value = "2026-08-10T00:00";
-            endAt.value = "2026-08-18T23:59";
-            syncType();
-          }
-        },
+        当前配置: render,
+        常规套餐: () => { typeValue.value = "regular"; syncType(); },
+        活动套餐: () => { typeValue.value = "activity"; syncType(); },
       });
     </script>
   </body>

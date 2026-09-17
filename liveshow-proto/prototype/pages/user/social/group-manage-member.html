@@ -159,9 +159,7 @@
         </button>
       </section>
       <section class="section">
-        <button class="action" id="report">
-          <span>举报</span><span>›</span></button
-        ><button class="action danger" id="exitGroup">
+        <button class="action danger" id="exitGroup">
           <span>退出粉丝群</span><span>›</span>
         </button>
       </section>
@@ -185,7 +183,6 @@
         dialogText = document.querySelector("#dialogText"),
         confirm = document.querySelector("#confirm");
       dnd.onclick = () => dnd.classList.toggle("on");
-      report.onclick = () => Luma.toast("打开举报");
       exitGroup.onclick = () => {
         dialogTitle.textContent = "退出粉丝群";
         dialogText.textContent = "退出粉丝群将解除团籍、去掉身份标识。";

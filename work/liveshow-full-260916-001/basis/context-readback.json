@@ -1,0 +1,35 @@
+{
+  "来源": "独立读取当前磁盘context；不是从生成时内存直接汇总",
+  "文件": [
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "SHA-256": "31a780018299edd9ae0f9c917cbb8e0ae95e5cb1a669383b9c2196965c8b5476",
+      "条目数": 1145,
+      "非空行数": 2559
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "SHA-256": "9eb2900ec6ad7ea2310258b271694cde53806e9e6330419b1d0ac0df4d3a067a",
+      "条目数": 337,
+      "非空行数": 747
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "SHA-256": "5ab2a65730dda20647820986002116e722355064aa8148696e36b3edac01fe82",
+      "条目数": 728,
+      "非空行数": 1655
+    },
+    {
+      "路径": "liveshow-proto/context/原型页面目录结构.md",
+      "SHA-256": "88ab7af6fe1caaec394d9be70a1822a3c2b6d169bbdff24ce45ea250930ac6eb",
+      "条目数": 0,
+      "非空行数": 270
+    },
+    {
+      "路径": "liveshow-proto/context/系统概要 .md",
+      "SHA-256": "2a6c67e61840e0e43992b4c98d363bdddb14f1f3d2c4c74478b4511b8c4364f9",
+      "条目数": 0,
+      "非空行数": 281
+    }
+  ]
+}

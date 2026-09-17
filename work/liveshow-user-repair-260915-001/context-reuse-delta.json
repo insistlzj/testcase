@@ -1,0 +1,56 @@
+[
+  {
+    "路径": "同步前:liveshow-proto/context/01-用户主播App-项目需求清单.md",
+    "行": 6,
+    "原文": "- [COMMON-user-date-format] 原型说明约定用户 App 日期时间采用 dd/mm/yyyy HH.mm，纯日期不附加时间；注销冷静期批注另写 MM/DD HH:mm，该页面格式冲突见 PENDING-cooling-date-format。格式不决定业务时区，业务日边界仍按 PENDING-business-zone 待确认。〔依据：prototype/Luma Live-原型说明.md / 视觉规则；prototype/annotations/user.js / views/auth-login-register/deletion-cooling.html〕",
+    "目标标识": "6ff944d06606c79d538b7f6095599805d599a90f4ba030dd6344a6931decad72"
+  },
+  {
+    "路径": "同步前:liveshow-proto/context/01-用户主播App-项目需求清单.md",
+    "行": 1547,
+    "原文": "- [PENDING-cooling-date-format] 注销冷静期日期格式：可取消截止时间采用原型统一日期格式还是冷静期独立批注格式？ 选项：A. dd/mm/yyyy HH.mm；B. MM/DD HH:mm。影响端：用户App。依据：prototype/Luma Live-原型说明.md 第7行与 prototype/annotations/user.js 的注销冷静期字段说明。",
+    "目标标识": "9471985da9dda97fa4a43e18b50250290f49023bee1ed8195d94fcf8bd002b98"
+  },
+  {
+    "路径": "同步前:liveshow-proto/context/02-公会App-项目需求清单.md",
+    "行": 6,
+    "原文": "- [COMMON-guild-date-format] 公会 App 的日期时间字段统一按 dd/mm/yyyy HH.mm 展示，纯日期不附加时间。格式不决定业务时区，业务日边界仍按 PENDING-business-zone 待确认。〔依据：prototype/Luma Live-原型说明.md / 视觉规则〕",
+    "目标标识": "9f772df27b17199c6038671798ed2e4dcdbbb9b70fe918b3dc119cfe9a3c8896"
+  },
+  {
+    "路径": "同步前:liveshow-proto/context/03-管理后台-项目需求清单.md",
+    "行": 6,
+    "原文": "- [COMMON-admin-date-format] 管理后台日期采用日/月/年且不补零，时间使用点号分隔，例如 2026 年 12 月 8 日 14 点 30 分显示为 8/12/2026 14.30；纯日期不附加时间。格式不决定业务时区。〔依据：prototype/Luma Live-原型说明.md / 管理后台通用约定〕",
+    "目标标识": "96becc0f855eaa871aab50a30b65175dae7750be5bcc07b733ff6ed473601a40"
+  },
+  {
+    "路径": "同步前:liveshow-proto/context/03-管理后台-项目需求清单.md",
+    "行": 7,
+    "原文": "- [COMMON-admin-decimal-input] 管理后台小数输入使用逗号分隔，例如 10,4 表示数值 10.4；不改变字段自身的单位、精度和允许范围。〔依据：prototype/Luma Live-原型说明.md / 管理后台通用约定〕",
+    "目标标识": "24a1dfdd382b3df40d85f60962f08a6df6f9ec38fbf2114d6ec269813d25e8bd"
+  },
+  {
+    "路径": "同步前:liveshow-proto/context/03-管理后台-项目需求清单.md",
+    "行": 8,
+    "原文": "- [COMMON-admin-field-label] 管理后台缺少明确字段名的值，鼠标移入时显示“字段名：值”；展示字段默认不脱敏，仅有明确要求时脱敏。〔依据：prototype/Luma Live-原型说明.md / 管理后台通用约定〕",
+    "目标标识": "eb72d80d854a92167d883b1879194cf3fae5b1ab1e7c63f71ff852a9718f9335"
+  },
+  {
+    "路径": "同步前:liveshow-proto/context/03-管理后台-项目需求清单.md",
+    "行": 9,
+    "原文": "- [COMMON-admin-review-gray] App 上架审核期灰度只隐藏端内入口，不改变后台功能或礼物配置，不在单个礼物上设置端内灰度状态。〔依据：prototype/Luma Live-原型说明.md / 管理后台通用约定〕",
+    "目标标识": "60f362a171f4a392c9a512d62a88ced08708e8b1dd99416a12d872ee8e27c72f"
+  },
+  {
+    "路径": "同步前:liveshow-proto/context/03-管理后台-项目需求清单.md",
+    "行": 637,
+    "原文": "- [REQ-host-import-template] 上传弹窗提供“下载模板”；下载 CSV 表头依次为主播名称、主播ID、公会名称、公会ID、分成金额。关闭上传或预览弹窗不执行“确认导入”；预览明细不应被原型的固定 Mock 数据替代。〔依据：prototype/assets/admin-settlement-upload-page.js / downloadTemplateBtn、closeImportPreview、confirmImportBtn；当前页面引入该共享脚本；仅提取入口和模板，不以 Mock 证明真实解析已实现〕",
+    "目标标识": "a9864b3f89a2833ae621e64311b7173d4337ca540ce38d10130b9ed204121194"
+  },
+  {
+    "路径": "同步前:liveshow-proto/context/03-管理后台-项目需求清单.md",
+    "行": 677,
+    "原文": "- [REQ-guild-import-template] 上传弹窗提供“下载模板”；下载 CSV 表头依次为公会名称、公会ID、分成金额(USD)。关闭上传或预览弹窗不执行“确认导入”；预览明细不应被原型的固定 Mock 数据替代。〔依据：prototype/assets/admin-settlement-upload-page.js / downloadTemplateBtn、closeImportPreview、confirmImportBtn；当前页面引入该共享脚本；仅提取入口和模板，不以 Mock 证明真实解析已实现〕",
+    "目标标识": "0a69fd55285afde4a3629d9e4a3cf5e7c7f280e1771450d673c9673db3fc5bb2"
+  }
+]

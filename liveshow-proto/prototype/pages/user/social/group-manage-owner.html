@@ -84,8 +84,7 @@
         padding: 0;
         overflow: hidden;
       }
-      .member-entry,
-      .action {
+      .member-entry {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -99,8 +98,7 @@
         text-decoration: none;
         cursor: pointer;
       }
-      .member-entry span:last-child,
-      .action span:last-child {
+      .member-entry span:last-child {
         color: var(--g4);
       }
       .notice p { white-space: pre-wrap; overflow-wrap: anywhere; }
@@ -137,11 +135,6 @@
           ><span>›</span></a
         >
       </section>
-      <section class="section">
-        <button class="action" id="report">
-          <span>举报</span><span>›</span>
-        </button>
-      </section>
     </main>
     <div class="homebar"><i></i></div>
     <dialog id="noticeEditor" class="notice-editor" aria-labelledby="noticeTitle">
@@ -155,7 +148,6 @@
     <script>
       const dnd = document.querySelector("#dnd");
       dnd.onclick = () => dnd.classList.toggle("on");
-      report.onclick = () => Luma.toast("打开举报");
       const editor = document.querySelector("#noticeEditor");
       const content = document.querySelector("#noticeContent");
       const notice = document.querySelector(".notice p");

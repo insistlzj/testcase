@@ -35,7 +35,7 @@ test('目录按端和原型分组提取，详情保留、同页视图不冒充�
 test('模块归属绑定本端观察页面；公共规则可归属实际页面，编号按模块连续',()=>{
   const directory=extractPrototypeDirectory(index,source), scope={端名:'用户App',模块名称:'全部模块'};
   const rule=(moduleName,page,n)=>{
-    const value={稳定规则标识:`R${n}`,功能模块:moduleName,功能结构:'提交',可生成正式用例:true,模块归属说明:'通过当前页面观察业务结果',必要条件:['已准备有效账号'],目标状态或可观察结果:'申请进入待审核',证据引用:[],用例设计:{观察页面路径:page,场景:'提交申请',验证子项:'申请状态',用例类型:'功能需求',优先级:'P1',步骤:[{操作:'点击提交'}]}};
+    const value={稳定规则标识:`R${n}`,功能模块:moduleName,功能结构:'提交',可生成正式用例:true,模块归属说明:'通过当前页面观察业务结果',必要条件:['已准备有效账号'],目标状态或可观察结果:'申请进入待审核',证据引用:[],用例设计:{观察页面路径:page,场景:'提交申请',验证子项:'申请状态',用例类型:'功能需求',优先级:'P1',优先级依据:'申请进入审核是后续处理的必要入口',步骤:[{操作:'点击提交'}]}};
     value.设计复核={状态:'通过',设计SHA256:ruleDesignHash(value)}; return value;
   };
   const rules=[rule('系统入口','project/prototype/pages/user/login.html',1),rule('钱包与账单','project/prototype/pages/user/wallet.html',2),rule('系统入口','project/prototype/pages/user/login.html',3)];

@@ -1,0 +1,432 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "项目目录": "liveshow-proto",
+  "任务标识": "liveshow-full-260916-001-guild",
+  "任务工作目录": "work/liveshow-full-260916-001/guild",
+  "目标范围": {
+    "端名": "公会App",
+    "模块名称": "全部模块"
+  },
+  "生成策略": "current-evidence-only",
+  "历史策略": "不读取不比较",
+  "MainBasis基线": {
+    "路径": "work/liveshow-proto-mainbasis/latest.json",
+    "SHA-256": "576d3f39aca07493e9529129f322daadc93b3886b256b3b7f56c8acb1b007015"
+  },
+  "当前业务规则清单": "work/liveshow-full-260916-001/guild/business-rule-catalog.json",
+  "独立场景库": "work/liveshow-full-260916-001/guild/independent-scenario-library.json",
+  "状态转换基线": "work/liveshow-full-260916-001/guild/state-transition-baseline.json",
+  "需求覆盖清单": "work/liveshow-full-260916-001/guild/requirement-coverage.json",
+  "生成脚本": "work/liveshow-full-260916-001/assemble.mjs",
+  "当前候选用例": "work/liveshow-full-260916-001/guild/candidate.json",
+  "最终用例JSON": "work/liveshow-full-260916-001/guild/final.json",
+  "输入文件": [
+    {
+      "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+      "SHA-256": "c3d075e44564c09d56017baecb1180b648a05ed04c046b27da38402553e02821",
+      "角色": "当前业务证据",
+      "内容类型": "正式需求",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/MainBasis/需求待确认清单.md",
+      "SHA-256": "2a8243b10b08d676dbbd7ec340e8a27f6e4efcfdf110e946c56e2c18841430f5",
+      "角色": "风险与缺口",
+      "内容类型": "需求待确认",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/business-rule-catalog.json",
+      "SHA-256": "c2c842f6fb56e05d3459e5a3d1d207efe4035a63ef4202d44892627495e81aae",
+      "角色": "本次派生产物",
+      "内容类型": "业务规则清单",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/independent-scenario-library.json",
+      "SHA-256": "db0bfa3e6896c927c126090726f670026f7cb771708f054417ef0af748f67e27",
+      "角色": "本次派生产物",
+      "内容类型": "independent-scenario-library.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/state-transition-baseline.json",
+      "SHA-256": "f330e5764b111b0b01cb5a242110e0157a54c04130e4c10bc1d499f08fafc521",
+      "角色": "本次派生产物",
+      "内容类型": "state-transition-baseline.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/requirement-coverage.json",
+      "SHA-256": "204c4bc974c298c40ccb3d19d264d370dc6f912eca54892c7e6d8e1144efe592",
+      "角色": "本次派生产物",
+      "内容类型": "requirement-coverage.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/evidence-atom-index.json",
+      "SHA-256": "a0b5609c2138f0236f9d608684b687ee55ebc2bc525ac2a0b83133bb66758882",
+      "角色": "本次派生产物",
+      "内容类型": "evidence-atom-index.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/coverage-matrix.json",
+      "SHA-256": "479a9d64727aa56cd532d9c0280fe237ee060d3afc9889d90ee822052c80bb75",
+      "角色": "本次派生产物",
+      "内容类型": "coverage-matrix.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/semantic-dedup-review.json",
+      "SHA-256": "90fc3cdcff854933d3dbc6191e76ca92025fac048a3e9a109ec2ae020c8837b4",
+      "角色": "本次派生产物",
+      "内容类型": "semantic-dedup-review.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/global-evidence-scan-result.json",
+      "SHA-256": "a822c76c85d78222c22ded71d2696c9274ba6e4699a90b256db1c445278c60c0",
+      "角色": "本次派生产物",
+      "内容类型": "global-evidence-scan-result.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/prototype-context-sync-result.json",
+      "SHA-256": "8c229352b07ed6e937a1855f95e6caad35047c6912c9a12914659dcee6c29392",
+      "角色": "本次派生产物",
+      "内容类型": "prototype-context-sync-result.json",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/candidate.json",
+      "SHA-256": "da0f192ceb90837fe37580cb374c13ecfef6783f3137d78caea9eb34bdb4e9a0",
+      "角色": "本次派生产物",
+      "内容类型": "当前候选用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/guild/final.json",
+      "SHA-256": "da0f192ceb90837fe37580cb374c13ecfef6783f3137d78caea9eb34bdb4e9a0",
+      "角色": "本次派生产物",
+      "内容类型": "最终用例JSON",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/analyze-open-coverage.mjs",
+      "SHA-256": "358d42d778296d7e8efa0308e4d408ef250def8632cd3d7f263212aaef2e90a3",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/assemble.mjs",
+      "SHA-256": "48dac4fa71ba6b41655ede455758255618b1220070381c22916860c252dd78d1",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/basis-flow.mjs",
+      "SHA-256": "09e096cd97789c3f94ce9d1a4323ae1acd630285f2402970792ae03248a577c0",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/capture-source.mjs",
+      "SHA-256": "84ad08dc7e28642ca026caad69983878031ffe67fe848b2f93ebf77b2d1c02b6",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/case-design.mjs",
+      "SHA-256": "6f59dfe1249a5759f9cd0fe732a0e13dbc4830c6aeb9722ff12e450693de0735",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/check-draft.mjs",
+      "SHA-256": "9e30032f9a0a9fdae1e7a206f6bc09e617b3abc123e011fc6be57dce7c1f6b0d",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/complete-rule-baseline.mjs",
+      "SHA-256": "a9f40ea1171ab3fd421d3eccaf0ac73c2e8433c2d38c7ab4d11f9bf30a4e5abb",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/coverage-decisions.mjs",
+      "SHA-256": "def485981aeb2474c69292f4f0b89e86b1202f0ccc9078b66e6ddc81ca896122",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-admin-final.mjs",
+      "SHA-256": "f1e593646ece9e05dcfe641dcd4a169d7ca8daddd33dfc3ee6a889a2be739777",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-admin-finance.mjs",
+      "SHA-256": "f01be8bbbd42af6f8ef2496e1b57fe2c58800ef1592d9171d7130af844745d72",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-admin-gaps.mjs",
+      "SHA-256": "23c98131e6a86844101f20f6a4555d74499732c67dad0dd0c2d3a269e873d12b",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-admin-operations.mjs",
+      "SHA-256": "e67222e4de919bd6258dc211b31db60742a27aac4fcbddd9daf34040e071a85e",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-admin-reports.mjs",
+      "SHA-256": "e35f2c345a6df26e5358de8cebc1590e28fa86daf0416226fa3cbb30d30c10d5",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-admin.mjs",
+      "SHA-256": "d1319678f1cf46730ebad891a4f08338f6fcb3844374de121326771805998c30",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-cross-effects.mjs",
+      "SHA-256": "2b67af215dcf7902119a9d65522b568cc18201622b52cca36dccf4f1f4f0f170",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-guild-gaps.mjs",
+      "SHA-256": "af1d9ed4251dd127bf60ded81af19a1429e51eaae205ae541b5fa3679e80acec",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-guild.mjs",
+      "SHA-256": "34ad3d851961c6318775e3eb1ce9e292bd8b6ea69e7ab74241a8d62ee336533d",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-result-gaps.mjs",
+      "SHA-256": "40d1e3fa22eb360bcc5d2238dbcfa1bfc94eec8ee9fcec29b78e46f0ef3f4e0d",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-user-final.mjs",
+      "SHA-256": "b75cd7263ba8053e0054e25a4d2cc61974b3760d71a7613939857dfa4507d94d",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-user-home.mjs",
+      "SHA-256": "f1f4fe7e2bcc24f488a6b2559d09abca1b288c7436a60e2e1746af90ac8c5396",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-user-host.mjs",
+      "SHA-256": "8559b993b0df94718eb1d022335341f0969234e0d0ba5e03b6065cc750d3f29e",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-user-live-gaps.mjs",
+      "SHA-256": "4f40a9dcb0894b2a08f3790f9022e02ed88f4d29a9469f279b41c3f0d24001c5",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-user-live.mjs",
+      "SHA-256": "efbe400b1653230d2e3a135243809da2b15fcad653d388379aee23026c44ad42",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-user-profile.mjs",
+      "SHA-256": "163b4fc129736cc773ff8878e55aab91dd9b0c0d90f4222e42bf6e3ac7a15d1e",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-user-social.mjs",
+      "SHA-256": "6f9a79281904c8dc1e233add194132bdf16691c52972a959086d782e35fadd06",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-user-wallet-guild.mjs",
+      "SHA-256": "da16674128f536a5e7ca54cc4e82ef6a394e12d95c880e25b5336266113e328a",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/design-user.mjs",
+      "SHA-256": "b55958c5384197a803afb77b6cc69926e39f1b2d37c16fbbc4e210da90ef1f1d",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/normalize-current-source.mjs",
+      "SHA-256": "6ba36be93f26dd83535979124a88c4d3b37c5aa5f10f44c5343a495ff2ff29f8",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/pending-decisions.mjs",
+      "SHA-256": "b05ca957de3f47f9101d71a925e404f19343610250ff69d0a1c148bda13ddad5",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/reverse-review.mjs",
+      "SHA-256": "b798f7b4664537f44c91c75885fd8926f25e9a2c3362420afce8191e442e40e1",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/source-end-review.mjs",
+      "SHA-256": "93c0e8d1d90149259555eef011cffca7451d6847fa26f71f3c84dccd53049f95",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/state-model.mjs",
+      "SHA-256": "0fd97090f8523df5b36afd98c1ccc35449c08e560cc1af8c0b361dbf2ffecc07",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/state-review.mjs",
+      "SHA-256": "d2353d7c3676562f77e97e36c708c7648445c9a899ac92495c6771545f962020",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-full-260916-001/sync-context.mjs",
+      "SHA-256": "3fb1d2c555b1dbe855184e9061ced8c37cf02d5ab28c6f893b5d20fce23729ac",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "AGENTS.md",
+      "SHA-256": "8bf268f6b8fa065a798a41bbe0f8e3f79451848ccac7338e5ead6a33489f8683",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/testcase-design.mjs",
+      "SHA-256": "e975866cc7e745a4d9b9dd1753c8cb4fa7982ba3dd664f81cbffdafaa9656ce4",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/requirement-traceability.mjs",
+      "SHA-256": "a4a3e003f7785d8584ded32a4b653a9029135853a4232956ead5d88f86593b7a",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/mainbasis.mjs",
+      "SHA-256": "d106fec45fe3e0bf36b1f5fccacc6e3ff70ab40e654918b919a052c52b76e5ef",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/prototype-directory.mjs",
+      "SHA-256": "1ae51fb9a1252f2040d6ba24cbd37dcdb79a437c00ea880078950f8dcd0e0e5d",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/build-testcase-workbook.mjs",
+      "SHA-256": "ed18d0dfc3cf6920844e25df2892b2ee0b7a64aa88a5ad016e3a51e9278d812a",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-generation-input.mjs",
+      "SHA-256": "9ca45d50d8fab554d9b420949800a695433cf930818f6c27f9fb4a27d35ba31b",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-testcase-json.mjs",
+      "SHA-256": "e616b6e4bff6c8300e18ad325dda0c19cf3a8a2b3f88941aabebce533abd2d4a",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/validate-testcase-delivery.mjs",
+      "SHA-256": "01385025f3ca084460aea2ef85448c75006feabf8cbdcdce2f532c3b38c0b66e",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/pipeline-metrics.mjs",
+      "SHA-256": "02c558d0dbf6268217c1c69ab211a3b5954c38bd1383ab9613229433c1baf2b4",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "scripts/pending-core-view.py",
+      "SHA-256": "e7678337f8feaf345782b09bcf84a2466f58405870106a50b61d26d3e43e7856",
+      "角色": "执行工具",
+      "内容类型": "执行工具",
+      "允许定义业务规则": false
+    }
+  ]
+}

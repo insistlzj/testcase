@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "同步状态": "通过",
+  "阻塞异常": [],
+  "需求清单有修改": false,
+  "文件核对": [
+    {
+      "路径": "liveshow-proto/context/01-用户主播App-项目需求清单.md",
+      "修改前SHA256": "4e831613f0b5e47a530ff38d8aa71f7de4bf37d2754df9dac00a681c1e0a95ad",
+      "修改后SHA256": "4e831613f0b5e47a530ff38d8aa71f7de4bf37d2754df9dac00a681c1e0a95ad",
+      "核对说明": "本次 MainBasis 版本检查确认当前上游未变化，复用已发布需求同步记录；未重新生成或修改需求"
+    },
+    {
+      "路径": "liveshow-proto/context/02-公会App-项目需求清单.md",
+      "修改前SHA256": "803c22e2e058f835212fda65bfb65e19ebc4b71d94b9325a849448eb8c23d6aa",
+      "修改后SHA256": "803c22e2e058f835212fda65bfb65e19ebc4b71d94b9325a849448eb8c23d6aa",
+      "核对说明": "本次 MainBasis 版本检查确认当前上游未变化，复用已发布需求同步记录；未重新生成或修改需求"
+    },
+    {
+      "路径": "liveshow-proto/context/03-管理后台-项目需求清单.md",
+      "修改前SHA256": "08fd5572bd065bd5234f2169b9a07e5c50a25c3b467488c6e23924e76560beec",
+      "修改后SHA256": "08fd5572bd065bd5234f2169b9a07e5c50a25c3b467488c6e23924e76560beec",
+      "核对说明": "本次 MainBasis 版本检查确认当前上游未变化，复用已发布需求同步记录；未重新生成或修改需求"
+    },
+    {
+      "路径": "liveshow-proto/context/原型页面目录结构.md",
+      "修改前SHA256": "88ab7af6fe1caaec394d9be70a1822a3c2b6d169bbdff24ce45ea250930ac6eb",
+      "修改后SHA256": "88ab7af6fe1caaec394d9be70a1822a3c2b6d169bbdff24ce45ea250930ac6eb",
+      "核对说明": "本次 MainBasis 版本检查确认当前上游未变化，复用已发布需求同步记录；未重新生成或修改需求"
+    },
+    {
+      "路径": "liveshow-proto/context/系统概要 .md",
+      "修改前SHA256": "4ccf8afccec09e5c1727c768439e09b61419d13aa335b4ec9d3c7f2eae8f72d4",
+      "修改后SHA256": "4ccf8afccec09e5c1727c768439e09b61419d13aa335b4ec9d3c7f2eae8f72d4",
+      "核对说明": "本次 MainBasis 版本检查确认当前上游未变化，复用已发布需求同步记录；未重新生成或修改需求"
+    }
+  ],
+  "说明": "verifyMainBasis 验证上游全量哈希及已发布的两段逐项同步记录；本轮未发生上游变化，不重复同步"
+}

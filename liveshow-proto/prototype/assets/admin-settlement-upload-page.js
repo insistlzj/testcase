@@ -57,11 +57,6 @@
     const uploadFields = `<div class="admin-form-row"><label for="uploadRemark">备注</label><input class="admin-input" id="uploadRemark" maxlength="100" placeholder="填写分成备注" required></div>`;
     const uploadFileTitle = '上传文件';
     const uploadLockNote = '<span class="settlement-upload-note">上传成功后记录锁定，不支持修改或删除。</span>';
-    const importPreviewDialog = `
-      <div class="admin-overlay" id="importPreviewOverlay"><section class="admin-modal xwide" role="dialog" aria-modal="true" aria-labelledby="importPreviewTitle">
-        <div class="admin-modal-head"><h2 id="importPreviewTitle">预览</h2><div class="settlement-import-actions"><button class="admin-btn" id="confirmImportBtn" type="button">确认导入</button><button class="admin-icon-btn" type="button" data-close-preview aria-label="关闭">×</button></div></div>
-        <div class="admin-modal-body"><div class="admin-metrics settlement-import-summary"><div class="admin-metric"><span>分成${type === 'host' ? '人数' : '公会数'}</span><b id="previewEntityCount"></b></div><div class="admin-metric"><span>分成总金额</span><b id="previewTotalAmount"></b></div></div><div class="admin-table-wrap"><table class="admin-table settlement-detail-table"><thead><tr>${type === 'host' ? '<th>主播昵称</th><th>ID</th><th>所属公会</th><th>分成金额</th>' : '<th>公会名称</th><th>ID</th><th>分成金额</th>'}</tr></thead><tbody id="previewRows"></tbody></table></div></div>
-      </section></div>`;
     root.innerHTML = `
       <div class="admin-page-head"><h1>${config.label}</h1></div>
       <section class="admin-panel admin-filter" aria-label="${config.label}筛选">
@@ -80,9 +75,10 @@
         <div class="admin-modal-head"><h2 id="uploadTitle">上传文件</h2><button class="admin-icon-btn" type="button" data-close-upload aria-label="关闭">×</button></div>
         <form id="uploadForm"><div class="admin-modal-body">
           <div class="admin-form-grid settlement-upload-fields">${uploadFields}</div>
-          <div class="admin-media-upload"><div class="settlement-upload-file-head"><h4>${uploadFileTitle}</h4><button class="admin-action" id="downloadTemplateBtn" type="button">下载模板</button></div><div class="admin-media-upload-preview-wrap"><button class="admin-media-upload-preview is-empty" id="uploadPreview" type="button">点击上传 XLSX、XLS 或 CSV</button></div><input class="admin-file-input" id="uploadFile" type="file" accept=".xlsx,.xls,.csv" required></div>
-        </div><div class="admin-modal-foot">${uploadLockNote}<button class="admin-btn secondary" type="button" data-close-upload>取消</button><button class="admin-btn" type="submit">确认上传</button></div></form>
-      </section></div>${importPreviewDialog}`;
+          <div class="admin-media-upload"><div class="settlement-upload-file-head"><h4>${uploadFileTitle}</h4><button class="admin-action" id="downloadTemplateBtn" type="button">下载模板</button></div><div class="admin-media-upload-preview-wrap"><button class="admin-media-upload-preview is-empty" id="uploadPreview" type="button">点击上传 XLSX、XLS 或 CSV</button></div><input class="admin-file-input" id="uploadFile" type="file" accept=".xlsx,.xls,.csv"></div>
+          ${type === 'host' ? '<section class="settlement-validation-error state-hide" id="uploadErrorResult" aria-live="polite"><div class="settlement-validation-head"><strong id="uploadErrorTitle"></strong><button class="admin-action" id="copyErrorsBtn" type="button">复制</button></div><pre class="settlement-validation-text" id="uploadErrorText"></pre></section>' : ''}
+        </div><div class="admin-modal-foot">${uploadLockNote}<button class="admin-btn secondary" type="button" data-close-upload>取消</button><button class="admin-btn" id="uploadSubmitBtn" type="submit">确认上传</button></div></form>
+      </section></div>`;
 
     const rows = document.getElementById('settlementRows');
     const resultCount = document.getElementById('resultCount');
@@ -91,8 +87,10 @@
     const uploadForm = document.getElementById('uploadForm');
     const uploadFile = document.getElementById('uploadFile');
     const uploadPreview = document.getElementById('uploadPreview');
-    const importPreviewOverlay = document.getElementById('importPreviewOverlay');
-    let pendingImport = null;
+    const uploadSubmitBtn = document.getElementById('uploadSubmitBtn');
+    const uploadErrorResult = document.getElementById('uploadErrorResult');
+    let validationErrors = [];
+    let nextHostUploadFails = false;
 
     function render(items) {
       if (resultCount) resultCount.textContent = `共 ${items.length} 条`;
@@ -119,21 +117,6 @@
       uploadOverlay.classList.remove('show');
     }
 
-    function closeImportPreview() {
-      importPreviewOverlay?.classList.remove('show');
-      pendingImport = null;
-    }
-
-    function openImportPreview(importData) {
-      pendingImport = importData;
-      document.getElementById('previewEntityCount').textContent = format.integer(importData.details.length);
-      document.getElementById('previewTotalAmount').textContent = format.money(importData.details.reduce((sum, item) => sum + item.amount, 0));
-      document.getElementById('previewRows').innerHTML = importData.details.map((item) => type === 'host'
-        ? `<tr><td>${escapeHtml(item.name)}</td><td>${escapeHtml(item.id)}</td><td>${escapeHtml(item.guildName)}</td><td><b>${format.money(item.amount)}</b></td></tr>`
-        : `<tr><td>${escapeHtml(item.name)}</td><td>${escapeHtml(item.id)}</td><td><b>${format.money(item.amount)}</b></td></tr>`).join('');
-      importPreviewOverlay.classList.add('show');
-    }
-
     function createRecord(importData) {
       return {
         id: `${type === 'host' ? 'HSR' : 'GSR'}20260820${String(records.length + 1).padStart(3, '0')}`,
@@ -155,7 +138,34 @@
       uploadForm.reset();
       uploadPreview.textContent = '点击上传 XLSX、XLS 或 CSV';
       uploadPreview.classList.add('is-empty');
+      resetValidationError();
       uploadOverlay.classList.add('show');
+    }
+
+    function resetValidationError() {
+      validationErrors = [];
+      uploadErrorResult?.classList.add('state-hide');
+      uploadSubmitBtn.textContent = '确认上传';
+    }
+
+    function showValidationErrors(errors, fileName) {
+      validationErrors = errors;
+      uploadPreview.textContent = fileName;
+      uploadPreview.classList.remove('is-empty');
+      document.getElementById('uploadErrorTitle').textContent = `上传失败，存在${errors.length}个主播ID无法查询`;
+      document.getElementById('uploadErrorText').textContent = errors.map((error) => `第${error.row}行，未查询到主播ID${error.hostId}`).join('\n');
+      uploadErrorResult.classList.remove('state-hide');
+      uploadSubmitBtn.textContent = '重新上传';
+    }
+
+    function validateHostIds(details) {
+      const accountIds = new Set(window.LUMA_ADMIN_MOCK.hostAccountBalances.map((account) => account.hostId));
+      return details.flatMap((detail, index) => accountIds.has(detail.id) ? [] : [{ row: detail.row || index + 2, hostId: detail.id }]);
+    }
+
+    function failedHostDetails() {
+      const rows = [8, 12, 20], ids = ['77219999', '77218888', '77217777'];
+      return Array.from({ length: 52 }, (_, index) => ({ row: rows[index] || index + 18, id: ids[index] || String(77217000 + index) }));
     }
 
     function uploadedDetails() {
@@ -179,8 +189,6 @@
     };
     document.querySelectorAll('[data-close-upload]').forEach((button) => { button.onclick = closeUpload; });
     uploadOverlay.onclick = (event) => { if (event.target === uploadOverlay) closeUpload(); };
-    document.querySelectorAll('[data-close-preview]').forEach((button) => { button.onclick = closeImportPreview; });
-    if (importPreviewOverlay) importPreviewOverlay.onclick = (event) => { if (event.target === importPreviewOverlay) closeImportPreview(); };
     uploadPreview.onclick = () => uploadFile.click();
     document.getElementById('downloadTemplateBtn').onclick = () => {
       const columns = type === 'host'
@@ -196,27 +204,43 @@
     };
     uploadFile.onchange = () => {
       const file = uploadFile.files[0];
+      resetValidationError();
       uploadPreview.textContent = file ? file.name : '点击上传 XLSX、XLS 或 CSV';
       uploadPreview.classList.toggle('is-empty', !file);
     };
+    document.getElementById('copyErrorsBtn')?.addEventListener('click', () => {
+      const range = document.createRange();
+      range.selectNodeContents(document.getElementById('uploadErrorText'));
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+      Luma.toast('错误数据已复制');
+    });
     uploadForm.onsubmit = (event) => {
       event.preventDefault();
+      if (validationErrors.length) {
+        uploadFile.value = '';
+        uploadPreview.textContent = '点击上传 XLSX、XLS 或 CSV';
+        uploadPreview.classList.add('is-empty');
+        resetValidationError();
+        return;
+      }
       const file = uploadFile.files[0];
-      if (!file) return Luma.toast('请上传分成数据文件');
       const remark = document.getElementById('uploadRemark').value.trim();
       if (!remark) return Luma.toast('请输入分成备注');
-      const importData = { details: uploadedDetails(), remark, fileName: file.name };
-      closeUpload();
-      openImportPreview(importData);
-    };
-    document.getElementById('confirmImportBtn')?.addEventListener('click', () => {
-      if (!pendingImport) return;
-      const record = createRecord(pendingImport);
+      const shouldFail = type === 'host' && nextHostUploadFails;
+      if (type === 'host') nextHostUploadFails = !nextHostUploadFails;
+      const details = shouldFail ? failedHostDetails() : uploadedDetails();
+      const importData = { details, remark, fileName: file?.name || `${config.shortLabel}数据.xlsx` };
+      const errors = type === 'host' ? validateHostIds(importData.details) : [];
+      if (errors.length) return showValidationErrors(errors, file?.name || '未选择文件（演示）');
+      const record = createRecord(importData);
       records.unshift(record);
-      closeImportPreview();
+      closeUpload();
       render(records);
       Luma.toast(`${config.shortLabel}数据已导入，记录已锁定`);
-    });
+    };
     rows.onclick = (event) => {
       if (event.target.closest('a')) return;
       const row = event.target.closest('[data-detail]');
@@ -226,10 +250,15 @@
       const row = event.target.closest('[data-detail]');
       if (row && (event.key === 'Enter' || event.key === ' ')) location.href = row.dataset.detail;
     };
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeUpload(); closeImportPreview(); } });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeUpload(); });
 
     render(records);
-    Luma.registerStates({ '全部记录': () => render(records), '上传数据': openUpload, '无查询结果': () => render([]) });
+    Luma.registerStates({
+      '全部记录': () => render(records),
+      '上传数据': openUpload,
+      ...(type === 'host' ? { '上传校验失败': () => { openUpload(); document.getElementById('uploadRemark').value = '2026 年 8 月主播分成'; showValidationErrors(validateHostIds(failedHostDetails()), '2026年8月主播分成.xlsx'); } } : {}),
+      '无查询结果': () => render([])
+    });
   }
 
   function detailPage() {

@@ -3,7 +3,18 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import {execFileSync} from 'node:child_process';
 import {startTask, finishTask, startStage, finishStage, skipStage, readMetrics, validateMetrics, summarizeMetrics, requiredStages} from './pipeline-metrics.mjs';
+
+test('批次计时命令不会因交付检查循环导入而退出并遗留锁', async () => {
+  const task = await fs.mkdtemp(path.join(os.tmpdir(), 'metrics-cli-'));
+  try {
+    await fs.writeFile(path.join(task, 'batch.json'), JSON.stringify({schemaVersion:'1.0', 项目目录:'project', 目标端:['用户App'], 交付要求:'允许部分交付', 端任务:[{端名:'用户App', 模块名称:'全部模块', 任务目录:'work/task/user'}]}));
+    const output = execFileSync(process.execPath, ['scripts/pipeline-metrics.mjs', 'task-start', task], {encoding:'utf8', timeout:10000});
+    assert.equal(JSON.parse(output).状态, '进行中');
+    await assert.rejects(fs.stat(path.join(task, 'pipeline-metrics.json.lock')), {code:'ENOENT'});
+  } finally { await fs.rm(task, {recursive:true, force:true}); }
+});
 
 test('返工保留全部尝试；失败、中断和缺失阶段不能冒充任务完成', async () => {
   const task = await fs.mkdtemp(path.join(os.tmpdir(), 'pipeline-metrics-'));

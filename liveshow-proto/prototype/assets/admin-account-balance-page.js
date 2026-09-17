@@ -142,7 +142,6 @@
       event.preventDefault();
       const signedAmount = Number(document.getElementById('changeAmount').value);
       if (!Number.isFinite(signedAmount) || signedAmount === 0) return Luma.toast('请输入不为 0 的变更金额');
-      if (signedAmount < 0 && Math.abs(signedAmount) > account.balance) return Luma.toast('扣减金额不能大于当前账户余额');
       const direction = signedAmount > 0 ? 'in' : 'out';
       const amount = Math.abs(signedAmount);
       const before = account.balance;

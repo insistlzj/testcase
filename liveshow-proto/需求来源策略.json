@@ -1,26 +1,15 @@
 {
   "项目名称": "Luma Live",
+  "项目目录": "liveshow-proto",
   "来源策略": "prototype-primary",
   "原型目录": "prototype",
-  "派生需求目录": "context",
-  "派生需求清单": [
-    "context/01-用户主播App-项目需求清单.md",
-    "context/02-公会App-项目需求清单.md",
-    "context/03-管理后台-项目需求清单.md",
-    "context/原型页面目录结构.md"
-  ],
-  "原型目录结构": {
-    "入口": "prototype/index.html",
-    "输出": "context/原型页面目录结构.md"
-  },
-  "公共证据清单": ["context/系统概要 .md"],
   "生成前同步": true,
-  "历史来源只读": true,
+  "系统概要": "context/系统概要 .md",
+  "公共证据清单": ["context/系统概要 .md", "项目说明.md"],
+  "派生需求清单": ["context/01-用户主播App-项目需求清单.md", "context/02-公会App-项目需求清单.md", "context/03-管理后台-项目需求清单.md", "context/原型页面目录结构.md"],
+  "原型目录结构": {"入口": "prototype/index.html", "输出": "context/原型页面目录结构.md"},
+  "MainBasis": {"正式需求": "MainBasis/统一需求文档.md", "风险清单": "MainBasis/需求待确认清单.md", "生成前更新": true},
   "用例生成模式": "全新生成",
   "历史比较": false,
-  "MainBasis": {
-    "生成前更新": true,
-    "正式需求": "MainBasis/统一需求文档.md",
-    "风险清单": "MainBasis/需求待确认清单.md"
-  }
+  "配置依据": "恢复当前对话已确认的系统概要优先、原型和批注补充策略；用户替换项目后原配置缺失。"
 }

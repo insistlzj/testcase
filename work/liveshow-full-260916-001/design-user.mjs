@@ -1,0 +1,74 @@
+import {test,P0,P1,P2,ERR,enter,pages,saveDraft} from './case-design.mjs';
+
+const login='auth-login-register.html';
+for(const provider of ['Google','Facebook','Apple ID','TikTok']){
+  const platform=provider==='Apple ID'?'iOS设备':'安装对应授权组件的测试设备';
+  const basic=[platform,'两份登录协议已勾选'];
+  test(login,[provider,'唤起对应平台授权'],'未登录用户',`${provider}入口唤起授权`,`${provider}授权入口`,basic,[enter(login),`点击|${provider}登录`],`显示${provider==='Apple ID'?'Apple':provider}授权页面`,P2);
+  for(const agreement of ['两份协议均未勾选','仅勾选用户协议','仅勾选隐私政策'])test(login,['发起登录前必须同意','不发起授权'],'未登录用户',`${provider}在${agreement}时阻止授权`,`${provider}协议拦截`,[platform,agreement],[enter(login),`点击|${provider}登录`],'提示先同意《用户协议》和《隐私政策》',ERR);
+  test(login,['已有账号','按对应平台账号标识'],'未登录用户',`${provider}绑定账号登录成功`,`${provider}登录成功去向`,[...basic,`${provider}测试身份已绑定一个正常的Luma Live账号`],[enter(login),`点击|${provider}登录`,`确认|${provider}测试身份授权`],'进入首页',{...P0,transition:'ST-login'});
+  test(login,['所有新注册账号','资料补全'],'未登录用户',`${provider}未注册身份首次授权`,`${provider}首次登录去向`,[...basic,`${provider}测试身份尚未注册Luma Live`],[enter(login),`点击|${provider}登录`,`确认|${provider}测试身份授权`],'进入资料补全页',{...P1,transition:'ST-oauth-new'});
+  test(login,['已取消授权'],'未登录用户',`${provider}授权页取消登录`,`${provider}授权取消提示`,basic,[enter(login),`点击|${provider}登录`,`取消|${provider}授权`],'提示“已取消授权”',P2);
+  test(login,['登录失败，请重试'],'未登录用户',`${provider}授权服务返回失败`,`${provider}授权失败提示`,[...basic,`环境准备：可将${provider}授权回调设为失败；当前尚无故障模拟环境，执行前需提供该能力`],[enter(login),`点击|${provider}登录`,`确认|${provider}授权`],'提示“登录失败，请重试”',ERR);
+  test(login,['账号已封禁'],'未登录用户',`${provider}授权后命中封禁账号`,`${provider}封禁登录提示`,[...basic,`${provider}测试身份已绑定封禁账号`],[enter(login),`点击|${provider}登录`,`确认|${provider}授权`],'提示“账号已封禁”',ERR);
+}
+for(const os of ['iOS','Android'])test(login,['Apple ID 仅在 iOS 展示'],'未登录用户',`${os}设备打开登录页的Apple入口`, 'Apple登录适用平台',[`${os}设备`],[enter(login)],os==='iOS'?'显示Apple ID登录入口':'不显示Apple ID登录入口',P2);
+for(const [button,destination]of [['手机号登录','手机号登录页'],['邮箱','邮箱登录页'],['游客进入','首页']])test(login,[button],'未登录用户',`通过${button}进入对应页面`,`${button}入口去向`,button==='游客进入'?['两份协议均未勾选']:[],[enter(login),`点击|${button}`],`进入${destination}`,P2);
+for(const [key,field,sample,channel]of [['auth-phone-login.html','手机号','81234567890','短信'],['auth-email-login.html','邮箱','qa.member@example.com','邮箱']]){
+  const credential=`${field} ${sample} 对应正常账号，测试密码为QaTest!2026`;
+  test(key,[`默认使用${channel}验证码登录`],'未登录用户',`${field}登录默认展示验证码方式`,`${field}默认登录方式`,[],[enter(key)],`显示${channel}验证码登录表单`,P2);
+  for(const mode of ['密码','验证码'])test(key,['登录成功 -> 进入首页'],'未登录用户',`${field}使用${mode}登录`,`${field}${mode}登录成功去向`,[credential,'协议已勾选',mode==='验证码'?'环境准备：短信或邮件通道可获取本账号本次发出的6位验证码':'账号已设置测试密码'],[enter(key),`切换|${mode==='密码'?'使用密码登录':channel+'验证码登录'}`,`填写|${field}|为${sample}`,...(mode==='验证码'?['点击|获取验证码']:[]),`填写|${mode}|为${mode==='密码'?'QaTest!2026':'本次收到的验证码'}`,'点击|继续'],'进入首页',{...P0,transition:'ST-login'});
+  test(key,['倒计时 60 秒'],'未登录用户',`${channel}验证码发送后限制再次获取`,`${channel}重复获取限制`,[credential,'环境准备：验证码发送通道可成功发送'],[enter(key),`填写|${field}|为${sample}`,'点击|获取验证码','点击|获取验证码'],'获取验证码入口在60秒倒计时结束前不可再次发送',P1);
+  test(key,['倒计时 60 秒'],'未登录用户',`${channel}验证码倒计时结束后再次获取`,`${channel}重发开放时点`,[credential,'上次验证码成功发送已满60秒'],[enter(key),`填写|${field}|为${sample}`,'点击|获取验证码'],'获取验证码入口重新开始60秒倒计时',P1);
+  for(const value of ['12345','1234567','12a456'])test(key,['6 位数字'],'未登录用户',`${channel}验证码输入${value}`,`${channel}验证码格式校验`,[credential,'协议已勾选'],[enter(key),`填写|${field}|为${sample}`,`填写|验证码|为${value}`,'点击|继续'],'不能通过验证码登录',P1);
+  test(key,['有效期 5 分钟'],'未登录用户',`${channel}验证码在有效期结束前登录`,`${channel}验证码有效期内边界`,[credential,'协议已勾选','验证码未使用且未达到错误次数限制','环境准备：认证请求到达校验点时距验证码签发4分59秒；需可控测试时钟'],[enter(key),`填写|${field}|为${sample}`,'填写|验证码|为本次收到的6位验证码','点击|继续'],'进入首页',P1);
+  test(key,['有效期 5 分钟'],'未登录用户',`${channel}验证码超过有效期后登录`,`${channel}过期验证码拒绝`,[credential,'协议已勾选','验证码已发出5分钟1秒，未使用'],[enter(key),`填写|${field}|为${sample}`,'填写|验证码|为过期验证码','点击|继续'],'不能使用该验证码完成登录',ERR);
+  test(key,['连续错误 5 次后'],'未登录用户',`${channel}验证码连续错误5次后改用原正确值`,`${channel}错误次数失效`,[credential,'协议已勾选','同一验证码尚在有效期内，已有4次错误验证；测试正确值与999999不同'],[enter(key),`填写|${field}|为${sample}`,'填写|验证码|为999999','点击|继续','填写|验证码|为本次发出的正确值','点击|继续'],'不能使用已达到错误次数上限的验证码完成登录',ERR);
+  test(key,['密码登录时必填'],'未登录用户',`${field}密码登录漏填密码`,`${field}空密码拦截`,[credential,'协议已勾选'],[enter(key),'切换|使用密码登录',`填写|${field}|为${sample}`,'清空|密码','点击|继续'],'不能提交空密码登录',P1);
+  test(key,['切换登录方式'],'未登录用户',`${field}登录切换到密码方式`,`${field}密码表单切换`,[],[enter(key),'点击|使用密码登录'],'显示密码输入框',P2);
+  test(key,['冷静期'],'未登录用户',`${field}认证命中注销冷静期`,`${field}冷静期分流`,[`${field}对应账号正处于注销申请后第3天`,'已具备有效登录凭证','协议已勾选'],[enter(key),`填写|${field}|为${sample}`,'填写|验证码|为本次收到的验证码','点击|继续'],'显示注销冷静期弹窗',P1);
+}
+const phone='auth-phone-login.html';
+for(const [value,allowed]of [['1234567',false],['12345678',true],['123456789012345',true],['1234567890123456',false],['1234abcd',false]])test(phone,['8-15 位数字','手机号有效'],'未登录用户',`手机号${value}的验证码获取资格`,'手机号长度与类型',[`环境准备：${value}作为测试输入；对可接受号码提供验证码沙箱通道`],[enter(phone),`填写|手机号|为${value}`,'点击|获取验证码'],allowed?'获取验证码后显示60秒倒计时':'不能向该输入发送验证码',P1);
+for(const device of ['无法识别设备地区','设备地区为中国大陆'])test('auth-country-select.html',['无法识别或设备地区为不支持项'],'未登录用户',`${device}时选择默认区号`,'不支持地区回退区号',[device],[enter('auth-country-select.html')],'当前选中区号为印度尼西亚+62',P2);
+test(phone,['默认按设备地区匹配'],'未登录用户','设备地区为印度尼西亚时进入手机号登录','设备地区默认区号',['设备地区为印度尼西亚'],[enter(phone)],'区号显示+62',P2);
+const email='auth-email-login.html';
+for(const value of ['qa.member','qa@','@example.com'])test(email,['有效邮箱地址'],'未登录用户',`邮箱${value}请求验证码`,'邮箱格式校验',[],[enter(email),`填写|邮箱|为${value}`,'点击|获取验证码'],'不能向该输入发送邮箱验证码',P1);
+const country='auth-country-select.html';
+for(const [query,expected]of [['+62','搜索结果包含印度尼西亚+62'],['印度尼西亚','搜索结果包含印度尼西亚+62'],['+86','显示无匹配结果的空状态'],['ZZZ-NO-COUNTRY','显示无匹配结果的空状态']])test(country,['搜索','可选地区'],'未登录用户',`区号搜索${query}`,'国家地区搜索范围',['App语言为中文'],[enter(country),`输入|搜索框|内容为${query}`],expected,P2);
+test(country,['清空搜索'],'未登录用户','区号搜索后清空条件','地区搜索清空恢复',[],[enter(country),'输入|搜索框|内容为+62','清空|搜索框'],'显示全部可选国家或地区',P2);
+test(country,['不提供中国大陆 +86'],'未登录用户','查看国家地区可选列表','中国大陆区号排除',[],[enter(country)],'可选列表不包含中国大陆+86',P1);
+test(country,['保留已输入手机号'],'未登录用户','选择新区号后保留手机号草稿','返回后的手机号保留',['原手机号输入为81234567890，当前使用密码登录且协议已勾选'],[enter(country),'选择|印度尼西亚+62'],'返回手机号登录页后手机号仍为81234567890',P2);
+test(country,['不改变原区号'],'未登录用户','取消区号选择返回登录表单','取消选择区号保持',['原区号为+62'],[enter(country),'点击|返回'],'手机号登录页区号仍为+62',P2);
+for(const action of ['选择地区','返回'])for(const field of ['登录方式','协议状态'])test(country,[action==='选择地区'?'保留已输入手机号、登录方式和协议勾选状态':'不改变原区号并返回手机号登录页'],'未登录用户',`区号页${action}后恢复${field}`,`区号返回${field}`,[`手机号81234567890、区号+62、密码登录、两份协议已勾选；当前从手机号登录进入区号页`],[action==='选择地区'?'选择|印度尼西亚+62':'点击|返回'],field==='登录方式'?'仍显示密码登录表单':'两份协议仍为勾选状态',{...P2,extra:[[phone,'选择或返回后恢复登录表单']]});
+test(country,['区号只影响手机号登录标识，不改变账号地区资料'],'普通用户','选择登录区号不修改账号资料地区','登录区号与地区分离',['账号资料地区马来西亚，账号绑定+62手机号81234567890，当前已退出登录；具备该账号有效登录凭证'],[enter(phone),'点击|区号','选择|印度尼西亚+62','填写|手机号|为81234567890','点击|获取验证码','填写|验证码|为本次收到的有效值','勾选|用户协议和隐私政策','点击|继续',enter('profile-edit.html')],'资料地区仍为马来西亚',{...P1,observe:'profile-edit.html',extra:[['profile-edit.html','地区：']]});
+for(const [page,label,channel]of [[phone,'手机号','短信'],[email,'邮箱','邮箱']])test(page,['切换登录方式'],'未登录用户',`${label}密码方式切回验证码`,`${label}验证码表单恢复`,['当前使用密码登录方式'],[enter(page),`点击|${channel}验证码登录`],`显示${channel}验证码输入框`,P2);
+const complete='auth-profile-completion.html';
+for(const [nick,allowed]of [['',false],['A',true],['A'.repeat(20),true],['A'.repeat(21),false]])test(complete,['最长 20','不能为空','保存资料'],'新用户',`首次补全昵称长度为${nick.length}`,'补全昵称输入边界',['账号已创建但尚未完成首次资料补全'],[enter(complete),nick?`填写|昵称|为${nick}`:'清空|昵称','点击|保存'],allowed?'进入首页':'不能保存该昵称',P1);
+test(complete,['默认使用系统头像'],'新用户','首次补全默认头像','系统默认头像',['账号已创建但尚未完成首次资料补全'],[enter(complete)],'显示系统默认头像',P2);
+test(complete,['可选择预置头像'],'新用户','首次补全选择预置头像','预置头像选择',['账号已创建但尚未完成首次资料补全'],[enter(complete),'选择|预置头像|列表中的第2个头像'],'头像预览显示所选第2个预置头像',P2);
+test(complete,['跳过'],'新用户','跳过首次资料补全','跳过资料补全去向',['账号已创建但尚未完成首次资料补全'],[enter(complete),'点击|跳过'],'进入首页',P2);
+const cooling='views/auth-login-register/deletion-cooling.html';
+test(cooling,['暂不取消'],'普通用户','注销冷静期内暂不取消申请','冷静期暂不取消去向',['账号处于注销冷静期，冷静期弹窗已显示'],['点击|暂不取消'],'停留登录与注册页',P1);
+test(cooling,['取消注销','直接登录'],'普通用户','注销冷静期内恢复账号','取消注销后的登录去向',['账号处于注销冷静期，冷静期弹窗已显示'],['点击|取消注销'],'进入首页',{...P1,transition:'ST-deletion-cancel'});
+test(cooling,['提交时间加七日'],'普通用户','冷静期显示七日后的截止时间','注销取消截止时点',['注销申请提交时间为2026年9月16日14时30分，当前时间为9月17日','该账号使用有效凭证认证后已显示注销冷静期弹窗'],['查看|冷静期弹窗中的可取消截止时间'],'弹窗显示的可取消截止时点为2026年9月23日14时30分',P1);
+
+await import('./design-user-home.mjs');
+await import('./design-user-profile.mjs');
+await import('./design-user-wallet-guild.mjs');
+await import('./design-user-live.mjs');
+await import('./design-user-social.mjs');
+await import('./design-user-host.mjs');
+await import('./design-user-live-gaps.mjs');
+await import('./design-user-final.mjs');
+await import('./design-guild.mjs');
+await import('./design-guild-gaps.mjs');
+await import('./design-admin.mjs');
+await import('./design-admin-operations.mjs');
+await import('./design-admin-finance.mjs');
+await import('./design-admin-reports.mjs');
+await import('./design-admin-gaps.mjs');
+await import('./design-admin-final.mjs');
+await import('./design-cross-effects.mjs');
+await import('./design-result-gaps.mjs');
+await saveDraft();

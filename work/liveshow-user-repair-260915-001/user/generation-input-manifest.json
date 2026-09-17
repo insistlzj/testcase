@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "1.0",
+  "项目名称": "Luma Live",
+  "项目目录": "liveshow-proto",
+  "任务标识": "liveshow-user-repair-260915-001",
+  "任务工作目录": "work/liveshow-user-repair-260915-001/user",
+  "目标范围": {
+    "端名": "用户App",
+    "模块名称": "全部模块"
+  },
+  "生成策略": "current-evidence-only",
+  "历史策略": "不读取不比较",
+  "修订授权": "当前用户明确要求修复本次审查问题；当前交付为修订对象，不参与业务规则推导或历史比较",
+  "MainBasis基线": {
+    "路径": "work/liveshow-proto-mainbasis/latest.json",
+    "SHA-256": "a59c5697f2f13b01368251e365018ec5c29b57a4cc47fb6d099c8bbbef48a1f3"
+  },
+  "当前业务规则清单": "work/liveshow-user-repair-260915-001/user/business-rule-catalog.json",
+  "当前候选用例": "work/liveshow-user-repair-260915-001/user/current-testcase-candidate.json",
+  "最终用例JSON": "work/liveshow-user-repair-260915-001/user/final-testcases.json",
+  "生成脚本": "work/liveshow-user-repair-260915-001/user/repair.mjs",
+  "需求覆盖清单": "work/liveshow-user-repair-260915-001/user/requirement-coverage.json",
+  "独立场景库": "work/liveshow-user-repair-260915-001/user/test-scenario-library.json",
+  "状态转换基线": "work/liveshow-user-repair-260915-001/user/state-transition-baseline.json",
+  "输入文件": [
+    {
+      "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+      "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213",
+      "角色": "当前业务证据",
+      "内容类型": "统一需求文档",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "liveshow-proto/MainBasis/需求待确认清单.md",
+      "SHA-256": "15cff2a52ec803b154618c65fb17f02865bb6f4c3b6eb789167d17dac0f44176",
+      "角色": "风险与缺口",
+      "内容类型": "需求待确认清单",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/business-rule-catalog.json",
+      "SHA-256": "3f18794d2697b10d0edb0cdc222ef7783e47d71ae12e416f071652d6a0dfcc31",
+      "角色": "本次派生产物",
+      "内容类型": "业务规则清单",
+      "允许定义业务规则": true
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/test-scenario-library.json",
+      "SHA-256": "8d27000cf9403c83caa2a2e2ed36e83933d4b782dd85e3c7ef2410a7108e00af",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/state-transition-baseline.json",
+      "SHA-256": "f509472cc6b4014d6c4beeaeff79fb85a90f0356fd8519231da69e2f364fd735",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/requirement-units.json",
+      "SHA-256": "3d260b684709cdff4f98fe7a0b8513077c8f49e743613731b83388c298d82bfd",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/requirement-coverage.json",
+      "SHA-256": "352991033c73cf84dc3e584cc2380efd6fcd28d385720feb8c7717327e8029b7",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/evidence-atom-index.json",
+      "SHA-256": "0d0686c824b95c72de275afb99b5904d32a5c8540205877e62a85411dec583f4",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/coverage-matrix.json",
+      "SHA-256": "f0de0f17c0694b6a9ccc8456bab5db764860ab1c57bebcd6d978951c9db7321f",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/semantic-dedup-review.json",
+      "SHA-256": "5841fa82b6280b35d30c9f68ffb878010c69f8e8e111c1f5589f328ef9879a5b",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/global-evidence-scan-result.json",
+      "SHA-256": "2a03e77236f34e9e69b9b1229384bdce817b5e99fc8a5a61d630bbfc3bb17996",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/prototype-context-sync-result.json",
+      "SHA-256": "574b860a336bbbb1e3bf07ab7ad23f82c614cc9f14ad9318e659d95167ae5d38",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/repair-summary.json",
+      "SHA-256": "fc7a639b7ac33d3d89ec9815132c152d33f8768384fed55a8b9b08f732a3a1f7",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/repair-input.json",
+      "SHA-256": "8fd6af3bc70d17abd92c101be13e6c099b398a29e6e49d437b9bec99680002e7",
+      "角色": "本次派生产物",
+      "内容类型": "用户指定当前修订对象快照",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/isolated-case.json",
+      "SHA-256": "12e669753be4b7facfb9157a91a2a3a4d614e1f3916731baf88efe8aaa297984",
+      "角色": "本次派生产物",
+      "内容类型": "当前修订追溯",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/repair.mjs",
+      "SHA-256": "630929f06f3891e302161d793b1058713cff22d129c1e42f73cd930331ca2192",
+      "角色": "执行工具",
+      "内容类型": "当前修订设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/subitem-review.mjs",
+      "SHA-256": "cbf00eb2e88c9d30d739fe3cdf34d5a91082832717b1f23bb46af5366f165595",
+      "角色": "执行工具",
+      "内容类型": "当前修订设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/priority-review.mjs",
+      "SHA-256": "19f2334960968c4ad11edd7d87002e0c9b3e3464ca08fc346c2b5e454a906ae2",
+      "角色": "执行工具",
+      "内容类型": "当前修订设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/fault-review.mjs",
+      "SHA-256": "db5cfad2091e554616c23714501975497e9d2c3049645f3a78ebedf3c643c787",
+      "角色": "执行工具",
+      "内容类型": "当前修订设计工具",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/current-testcase-candidate.json",
+      "SHA-256": "7265789e45dc84baadb292b4778ac911c14b67f1fe44ff87609c8a15d30ed130",
+      "角色": "本次派生产物",
+      "内容类型": "当前候选用例",
+      "允许定义业务规则": false
+    },
+    {
+      "路径": "work/liveshow-user-repair-260915-001/user/final-testcases.json",
+      "SHA-256": "7265789e45dc84baadb292b4778ac911c14b67f1fe44ff87609c8a15d30ed130",
+      "角色": "本次派生产物",
+      "内容类型": "最终用例JSON",
+      "允许定义业务规则": false
+    }
+  ]
+}

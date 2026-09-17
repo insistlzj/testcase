@@ -12,6 +12,7 @@ function rule() {
     必要条件: ["使用公会长身份进入创建运营账号页，其他必填项使用合法值", "初始密码准备为 5 位"],
     目标状态或可观察结果: "初始密码长度校验不通过", 证据引用: [{ 路径: "test-requirement.txt", 位置: "初始密码", 证明内容: "测试契约：至少 6 位" }],
     用例设计: { 场景: "验证初始密码为 5 位时提交账号资料", 验证子项: "初始密码最小长度", 用例类型: "异常用例", 优先级: "P1",
+      优先级依据: "账号凭证的关键长度边界，影响账号安全校验",
       观察端: "公会App", 观察页面: "创建运营账号", 观察对象: "初始密码校验", 观察证据: [0], 计算: null,
       设计说明: "用 5 位输入验证 6 位最小长度下界，其他字段排除独立阻断原因。",
       步骤: [{ 执行角色: "公会长", 动作: "输入", 对象: "初始密码", 操作: "输入已准备的 5 位初始密码", 证据: [0] },
@@ -19,6 +20,17 @@ function rule() {
   };
 }
 const reviewed = (value) => ({ ...value, 设计复核: { 状态: "通过", 说明: "测试中显式完成语义复核", 设计SHA256: ruleDesignHash(value) } });
+
+test('拒绝通用子项和没有依据的默认优先级，具体提示维度仍可使用', () => {
+  for (const point of ['展示内容', '页面去向', '反馈文案']) {
+    const sample = rule(); sample.用例设计.验证子项 = point;
+    assert.ok(validateRuleDesign(reviewed(sample), language).some(issue => issue.includes('具体观察对象')));
+  }
+  const sample = rule(); sample.用例设计.验证子项 = '密码长度拒绝提示';
+  assert.deepEqual(validateRuleDesign(reviewed(sample), language), []);
+  delete sample.用例设计.优先级依据;
+  assert.throws(() => caseFromRule(reviewed(sample), 1, 'CASE'), /优先级及依据/);
+});
 
 test("未设计、未复核、修改后的设计均不能生成正式用例", () => {
   const sample = rule();
@@ -69,6 +81,8 @@ test("计算按已命名业务变量执行，拒绝未知公式、零分母和�
   assert.equal(evaluateCalculation({ 运算: "round", 参数: [{ 运算: "/", 参数: [{ 变量: "seconds" }, { 变量: "minute" }] }, { 变量: "places" }] }, { seconds: 90, minute: 60, places: 0 }), 2);
   assert.throws(() => evaluateCalculation({ 运算: "round", 参数: [{ 变量: "amount" }, { 变量: "places" }] }, { amount: -1, places: 0 }), /仅支持非负/);
   assert.equal(evaluateCalculation({ 运算: "round", 参数: [{ 变量: "amount" }, { 变量: "places" }] }, { amount: 1.005, places: 2 }), 1.01);
+  assert.equal(evaluateCalculation({ 运算: "ceil", 参数: [{ 变量: "amount" }, { 变量: "places" }] }, { amount: 97.01, places: 1 }), 97.1);
+  assert.equal(evaluateCalculation({ 运算: "ceil", 参数: [{ 变量: "amount" }, { 变量: "places" }] }, { amount: 97.1, places: 1 }), 97.1);
   assert.throws(() => evaluateCalculation(expression, { price: 10 }), /缺少数值变量/);
   assert.throws(() => evaluateCalculation({ 运算: "/", 参数: [{ 变量: "a" }, { 变量: "b" }] }, { a: 10, b: 0 }), /零分母/);
   assert.throws(() => evaluateCalculation({ 运算: "guess", 参数: [{ 变量: "a" }, { 变量: "b" }] }, { a: 10, b: 3 }), /不支持/);

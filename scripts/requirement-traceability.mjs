@@ -107,6 +107,18 @@ export function validateCoverage(units, report, { phase = 'pre-generate', cases 
     check(['已覆盖', '部分覆盖', '未覆盖', '待确认', '不适用'].includes(row.状态) && nonempty(row.说明), `条款未说明去向：${unit.路径}:${unit.行}`);
     counts[row.状态] = (counts[row.状态] || 0) + 1;
     check(Array.isArray(row.分支), '条款缺少分支清单');
+    // An authored result inventory stays independent of the generated scene bindings.
+    // This checks its preservation; it does not claim to understand natural-language requirements.
+    if (row.结果基线 !== undefined) {
+      check(Array.isArray(row.结果基线) && row.结果基线.length > 0, '需求结果基线不能为空');
+      const resultIds = new Set();
+      for (const result of row.结果基线) {
+        check(nonempty(result.标识) && !resultIds.has(result.标识), '需求结果标识缺失或重复'); resultIds.add(result.标识);
+        check(nonempty(result.来源片段) && unit.原文.includes(result.来源片段), '需求结果基线缺少直接来源片段');
+        check(nonempty(result.结果说明) && Array.isArray(result.分支标识) && result.分支标识.length > 0, '需求结果没有覆盖或缺口去向');
+        check(result.分支标识.every(id => row.分支.some(branch => branch.标识 === id)), '需求结果引用不存在的分支，可能遗漏或被删除');
+      }
+    }
     if (['已覆盖', '部分覆盖'].includes(row.状态)) check(row.分支.length > 0, '已覆盖或部分覆盖条款没有分支');
     if (row.状态 === '不适用') check(row.分支.length === 0, '不适用条款不能暗藏正式分支');
     if (row.状态 === '待确认') {

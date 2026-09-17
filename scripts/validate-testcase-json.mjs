@@ -140,6 +140,9 @@ export function validateTestcaseRecords(value, languageRules) {
     if (item.预期结果?.length !== 1) issues.push(`${label}必须只有一个预期结果`);
     if (!item.备注?.some((text) => /^规则：BR-/.test(text))) issues.push(`${label}缺少稳定规则标识`);
     const point = comparableText(item.验证用例子项);
+    if ((placeholders.verificationPointExact || []).some(value => comparableText(value) === point)) {
+      issues.push(`${label}验证用例子项缺少具体观察对象`);
+    }
     const descriptionText = String(item.用例描述 || "").replace(/^验证/, "").replace(/（路径\d+）$/, "");
     const description = comparableText(descriptionText);
     const expected = comparableText(item.预期结果?.[0]);

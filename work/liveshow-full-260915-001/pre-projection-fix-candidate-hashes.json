@@ -1,0 +1,26 @@
+[
+  {
+    "路径": "work/liveshow-full-260915-001/user/final-testcases.json",
+    "SHA256": "08f0c2be125bf68130d5bc65ccfe4fc8148744838c507ac49d1823d8f4c8164b"
+  },
+  {
+    "路径": "work/liveshow-full-260915-001/user/current-testcase-candidate.json",
+    "SHA256": "08f0c2be125bf68130d5bc65ccfe4fc8148744838c507ac49d1823d8f4c8164b"
+  },
+  {
+    "路径": "work/liveshow-full-260915-001/guild/final-testcases.json",
+    "SHA256": "1bdfa3f7e900400d3fa7d7b6682652d2f0a161874d21cefca343b9af52f18215"
+  },
+  {
+    "路径": "work/liveshow-full-260915-001/guild/current-testcase-candidate.json",
+    "SHA256": "1bdfa3f7e900400d3fa7d7b6682652d2f0a161874d21cefca343b9af52f18215"
+  },
+  {
+    "路径": "work/liveshow-full-260915-001/admin/final-testcases.json",
+    "SHA256": "d9c818b2108656f5ee637105a198d7f8d147746aad6cc119c9ee8adbe2af1ba1"
+  },
+  {
+    "路径": "work/liveshow-full-260915-001/admin/current-testcase-candidate.json",
+    "SHA256": "d9c818b2108656f5ee637105a198d7f8d147746aad6cc119c9ee8adbe2af1ba1"
+  }
+]

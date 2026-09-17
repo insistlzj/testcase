@@ -1,0 +1,1669 @@
+{
+  "schemaVersion": "1.0",
+  "来源指纹": "e8419c3fdb05a5a3a940958ec6b258d081709d33a0446cdfb6fdde4f3e49cc7d",
+  "说明": "根据当前需求建立的共享业务对象状态转换；缺失投影保留在各端覆盖清单",
+  "状态转换": [
+    {
+      "状态转换标识": "ST-JOIN-SUBMIT",
+      "共同业务对象": "入会申请",
+      "来源状态": "无处理中申请",
+      "触发动作": "提交申请",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "待公会审核",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行979",
+          "原文": "- [REQ-ceba4c98a7af] 姓名：必填，去除首尾空格后不能为空。〔来源：AN-e0a97e96d357；liveshow-proto/prototype/annotations/user.js；guild-application-form.html/字段/4〕",
+          "证明内容": "- [REQ-ceba4c98a7af] 姓名：必填，去除首尾空格后不能为空。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行980",
+          "原文": "- [REQ-346431dc118a] 电话：必填，使用 +62 印尼手机号。〔来源：AN-c6226d4697a9；liveshow-proto/prototype/annotations/user.js；guild-application-form.html/字段/5〕",
+          "证明内容": "- [REQ-346431dc118a] 电话：必填，使用 +62 印尼手机号。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行981",
+          "原文": "- [REQ-90b7bc82b314] 本人照片：必填，仅上传图片。〔来源：AN-70ba7e7bec28；liveshow-proto/prototype/annotations/user.js；guild-application-form.html/字段/6〕",
+          "证明内容": "- [REQ-90b7bc82b314] 本人照片：必填，仅上传图片。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行982",
+          "原文": "- [REQ-79d0bf462da2] 证件类型：必选，使用单选框选择 KTP（印尼居民身份证）或 SIM（印尼驾驶证），默认选择 KTP。〔来源：AN-09d838f91460；liveshow-proto/prototype/annotations/user.js；guild-application-form.html/字段/7〕",
+          "证明内容": "- [REQ-79d0bf462da2] 证件类型：必选，使用单选框选择 KTP（印尼居民身份证）或 SIM（印尼驾驶证），默认选择 KTP。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行983",
+          "原文": "- [REQ-eea2fc98ca34] 证件照片：正面、反面均必填，仅上传与所选证件类型对应的图片。〔来源：AN-0e6e2299facd；liveshow-proto/prototype/annotations/user.js；guild-application-form.html/字段/8〕",
+          "证明内容": "- [REQ-eea2fc98ca34] 证件照片：正面、反面均必填，仅上传与所选证件类型对应的图片。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行986",
+          "原文": "- [REQ-ba11a1e6ab77] 提交后进入公会审核；公会同意后自动进入平台审核，无需用户重复提交。〔来源：AN-04dec364bc8c；liveshow-proto/prototype/annotations/user.js；guild-application-form.html/业务规则/3〕",
+          "证明内容": "- [REQ-ba11a1e6ab77] 提交后进入公会审核；公会同意后自动进入平台审核，无需用户重复提交。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行989",
+          "原文": "- [REQ-d2fbf9922c0b] 提交成功 -> 生成处理中申请并进入公会详情。〔来源：AN-1ef23b738d04；liveshow-proto/prototype/annotations/user.js；guild-application-form.html/交互/2〕",
+          "证明内容": "- [REQ-d2fbf9922c0b] 提交成功 -> 生成处理中申请并进入公会详情。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-JOIN-GUILD-PASS",
+      "共同业务对象": "入会申请",
+      "来源状态": "待公会审核",
+      "触发动作": "公会通过",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "目标状态": "平台审核中",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2136",
+          "原文": "- [REQ-889380bda48a] 公会审核通过后，自动进入平台审核节点，无需用户再次提交。〔来源：AN-54d2d0f50f51；liveshow-proto/prototype/annotations/guild.js；guild-join-review-detail.html/业务规则/1〕",
+          "证明内容": "- [REQ-889380bda48a] 公会审核通过后，自动进入平台审核节点，无需用户再次提交。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2139",
+          "原文": "- [REQ-da806b26301b] 通过 -> 二次确认 -> 提交平台终审；驳回 -> 填写可选理由 -> 结束申请。〔来源：AN-92947d7b5eeb；liveshow-proto/prototype/annotations/guild.js；guild-join-review-detail.html/交互规则/1〕",
+          "证明内容": "- [REQ-da806b26301b] 通过 -> 二次确认 -> 提交平台终审；驳回 -> 填写可选理由 -> 结束申请。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1181",
+          "原文": "- [REQ-5eeedca6238d] 公会通过后自动进入平台审核；公会显示“已通过”，平台显示“审核中”，不能重复提交或开播。〔来源：AN-700a0e0675e0；liveshow-proto/prototype/annotations/user.js；host-center-pending.html/业务规则/4〕",
+          "证明内容": "- [REQ-5eeedca6238d] 公会通过后自动进入平台审核；公会显示“已通过”，平台显示“审核中”，不能重复提交或开播。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-JOIN-GUILD-REJECT",
+      "共同业务对象": "入会申请",
+      "来源状态": "待公会审核",
+      "触发动作": "公会驳回",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "目标状态": "公会驳回",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2120",
+          "原文": "- [REQ-aad9d80d34b7] 公会驳回后关闭本次申请，用户重新申请时生成新申请单。〔来源：AN-a90854caffa4；liveshow-proto/prototype/annotations/guild.js；guild-join-review.html/业务规则/2〕",
+          "证明内容": "- [REQ-aad9d80d34b7] 公会驳回后关闭本次申请，用户重新申请时生成新申请单。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2139",
+          "原文": "- [REQ-da806b26301b] 通过 -> 二次确认 -> 提交平台终审；驳回 -> 填写可选理由 -> 结束申请。〔来源：AN-92947d7b5eeb；liveshow-proto/prototype/annotations/guild.js；guild-join-review-detail.html/交互规则/1〕",
+          "证明内容": "- [REQ-da806b26301b] 通过 -> 二次确认 -> 提交平台终审；驳回 -> 填写可选理由 -> 结束申请。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1180",
+          "原文": "- [REQ-d30322236a1a] 公会驳回：展示驳回状态和原因，可重新选择公会申请；平台审核不开始。〔来源：AN-89b268361424；liveshow-proto/prototype/annotations/user.js；host-center-pending.html/业务规则/3〕",
+          "证明内容": "- [REQ-d30322236a1a] 公会驳回：展示驳回状态和原因，可重新选择公会申请；平台审核不开始。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-JOIN-PLATFORM-PASS",
+      "共同业务对象": "入会申请",
+      "来源状态": "平台审核中",
+      "触发动作": "平台通过",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "平台通过并建立主播身份",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2613",
+          "原文": "- [REQ-ff7cedd8262e] 通过后加入申请公会并获得主播身份；开播仍需满足账号、公会和双重权限。〔来源：AN-d7ad60032a86；liveshow-proto/prototype/annotations/admin.js；admin-host-review-detail.html/业务/1〕",
+          "证明内容": "- [REQ-ff7cedd8262e] 通过后加入申请公会并获得主播身份；开播仍需满足账号、公会和双重权限。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1183",
+          "原文": "- [REQ-04b54cbcba08] 平台审核通过后即成为主播，时间线最终节点显示已完成，不展示操作按钮。〔来源：AN-5081ca246018；liveshow-proto/prototype/annotations/user.js；host-center-pending.html/业务规则/6〕",
+          "证明内容": "- [REQ-04b54cbcba08] 平台审核通过后即成为主播，时间线最终节点显示已完成，不展示操作按钮。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-JOIN-PLATFORM-REJECT",
+      "共同业务对象": "入会申请",
+      "来源状态": "平台审核中",
+      "触发动作": "平台驳回",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "平台驳回且申请作废",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2612",
+          "原文": "- [REQ-0b99db22ad31] 驳回原因：驳回时必填并通知申请人。〔来源：AN-cc98d7eff727；liveshow-proto/prototype/annotations/admin.js；admin-host-review-detail.html/字段/8〕",
+          "证明内容": "- [REQ-0b99db22ad31] 驳回原因：驳回时必填并通知申请人。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2614",
+          "原文": "- [REQ-e7f39befc5cf] 仅待审核可处理；确认 -> 固化结果并禁止重复提交。〔来源：AN-9e1bacc54bdd；liveshow-proto/prototype/annotations/admin.js；admin-host-review-detail.html/交互/1〕",
+          "证明内容": "- [REQ-e7f39befc5cf] 仅待审核可处理；确认 -> 固化结果并禁止重复提交。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1182",
+          "原文": "- [REQ-d4f2f719ead2] 平台驳回后，本次入会申请作废；点击重新申请进入公会选择并提交新申请，不沿用原公会通过结果。〔来源：AN-1d6ae3e6dc73；liveshow-proto/prototype/annotations/user.js；host-center-pending.html/业务规则/5〕",
+          "证明内容": "- [REQ-d4f2f719ead2] 平台驳回后，本次入会申请作废；点击重新申请进入公会选择并提交新申请，不沿用原公会通过结果。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2137",
+          "原文": "- [REQ-dee8a804952b] 平台驳回后本次申请作废；用户重新申请时生成新申请，重新经过公会初审和平台终审。〔来源：AN-42549dbbfb76；liveshow-proto/prototype/annotations/guild.js；guild-join-review-detail.html/业务规则/2〕",
+          "证明内容": "- [REQ-dee8a804952b] 平台驳回后本次申请作废；用户重新申请时生成新申请，重新经过公会初审和平台终审。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-LEAVE-SUBMIT",
+      "共同业务对象": "退会申请",
+      "来源状态": "在会且无处理中退会",
+      "触发动作": "提交退会申请",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "待公会审核",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1032",
+          "原文": "- [REQ-02d8a01510f8] 退会原因：必填，去除首尾空格后不能为空。〔来源：AN-593458a405d9；liveshow-proto/prototype/annotations/user.js；guild-leave-application.html/字段/4〕",
+          "证明内容": "- [REQ-02d8a01510f8] 退会原因：必填，去除首尾空格后不能为空。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1033",
+          "原文": "- [REQ-63e0747ae182] 同一时间只能存在一笔处理中退会申请。〔来源：AN-65382814c61e；liveshow-proto/prototype/annotations/user.js；guild-leave-application.html/业务规则/1〕",
+          "证明内容": "- [REQ-63e0747ae182] 同一时间只能存在一笔处理中退会申请。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1037",
+          "原文": "- [REQ-fd33dcc75cb2] 退会原因为空 -> 提交按钮不可用；填写有效原因后按钮可用；提交成功 -> 生成处理中申请。〔来源：AN-cd4eb385f8c2；liveshow-proto/prototype/annotations/user.js；guild-leave-application.html/交互/1〕",
+          "证明内容": "- [REQ-fd33dcc75cb2] 退会原因为空 -> 提交按钮不可用；填写有效原因后按钮可用；提交成功 -> 生成处理中申请。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-LEAVE-PASS",
+      "共同业务对象": "公会关系",
+      "来源状态": "退会审核中",
+      "触发动作": "公会通过",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "目标状态": "退出公会",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2162",
+          "原文": "- [REQ-44d45e0c5d62] 通过 -> 立即结束当前直播、解除公会关系并失去主播身份。〔来源：AN-965e42871d60；liveshow-proto/prototype/annotations/guild.js；guild-leave-review-detail.html/业务规则/1〕",
+          "证明内容": "- [REQ-44d45e0c5d62] 通过 -> 立即结束当前直播、解除公会关系并失去主播身份。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1035",
+          "原文": "- [REQ-187659c2dddc] 退会申请通过或被公会移出 -> 立即结束当前直播、退出公会并失去主播身份；主播创建的粉丝团立即解散，所有成员的团籍和群聊权限解除，粉丝等级和亲密度清零。以后重新认证成为主播时，需重新创建粉丝团。〔来源：AN-edb7015561b5；liveshow-proto/prototype/annotations/user.js；guild-leave-application.html/业务规则/3〕",
+          "证明内容": "- [REQ-187659c2dddc] 退会申请通过或被公会移出 -> 立即结束当前直播、退出公会并失去主播身份；主播创建的粉丝团立即解散，所有成员的团籍和群聊权限解除，粉丝等级和亲密度清零。以后重新认证成为主播时，需重新创建粉丝团。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-LEAVE-REJECT",
+      "共同业务对象": "退会申请",
+      "来源状态": "退会审核中",
+      "触发动作": "公会驳回",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "目标状态": "退会已驳回仍在会",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2163",
+          "原文": "- [REQ-1ba98012803f] 驳回 -> 保留主播身份和公会关系；主播可重新申请。〔来源：AN-47d615a16634；liveshow-proto/prototype/annotations/guild.js；guild-leave-review-detail.html/业务规则/2〕",
+          "证明内容": "- [REQ-1ba98012803f] 驳回 -> 保留主播身份和公会关系；主播可重新申请。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1034",
+          "原文": "- [REQ-07eddabd29bb] 公会驳回 -> 保留公会关系和主播身份，可重新提交。〔来源：AN-413478aaa334；liveshow-proto/prototype/annotations/user.js；guild-leave-application.html/业务规则/2〕",
+          "证明内容": "- [REQ-07eddabd29bb] 公会驳回 -> 保留公会关系和主播身份，可重新提交。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-GUILD-REMOVE",
+      "共同业务对象": "公会关系",
+      "来源状态": "已在会且无未结收益",
+      "触发动作": "移出主播",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "目标状态": "已退出且失去主播身份",
+      "观察端": [
+        "用户App",
+        "公会App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2237",
+          "原文": "- [REQ-cc2e01100f18] 存在未结清收益时移出公会按钮置灰；确认移出后结束当前直播并解除公会关系。〔来源：AN-7c6e54eb0a41；liveshow-proto/prototype/annotations/guild.js；guild-host-detail.html/管理规则/4〕",
+          "证明内容": "- [REQ-cc2e01100f18] 存在未结清收益时移出公会按钮置灰；确认移出后结束当前直播并解除公会关系。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1035",
+          "原文": "- [REQ-187659c2dddc] 退会申请通过或被公会移出 -> 立即结束当前直播、退出公会并失去主播身份；主播创建的粉丝团立即解散，所有成员的团籍和群聊权限解除，粉丝等级和亲密度清零。以后重新认证成为主播时，需重新创建粉丝团。〔来源：AN-edb7015561b5；liveshow-proto/prototype/annotations/user.js；guild-leave-application.html/业务规则/3〕",
+          "证明内容": "- [REQ-187659c2dddc] 退会申请通过或被公会移出 -> 立即结束当前直播、退出公会并失去主播身份；主播创建的粉丝团立即解散，所有成员的团籍和群聊权限解除，粉丝等级和亲密度清零。以后重新认证成为主播时，需重新创建粉丝团。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-GUILD-STOP",
+      "共同业务对象": "公会",
+      "来源状态": "启用",
+      "触发动作": "停用公会",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "停用",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2513",
+          "原文": "- [COMMON-guild-stop] 平台停用公会后，公会不可被搜索，公会长不能登录，主播关系解除，名下主播失去身份并停止开播，业务历史保留且后台可查看。单独停用公会长账号只影响该账号登录，不影响主播。〔依据：context/系统概要 .md / 3.2 公会账号与权限〕",
+          "证明内容": "- [COMMON-guild-stop] 平台停用公会后，公会不可被搜索，公会长不能登录，主播关系解除，名下主播失去身份并停止开播，业务历史保留且后台可查看。单独停用公会长账号只影响该账号登录，不影响主播。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2753",
+          "原文": "- [REQ-fc3b2805ae4c] 公会停用时，该公会所有管理账号均不能登录，但各账号自身状态不变。〔来源：AN-4a0943c8f2b0；liveshow-proto/prototype/annotations/admin.js；admin-guild-list.html/业务/1〕",
+          "证明内容": "- [REQ-fc3b2805ae4c] 公会停用时，该公会所有管理账号均不能登录，但各账号自身状态不变。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2756",
+          "原文": "- [REQ-3d86ee8bf72f] 新建 -> 详情编辑态；启停或解散 -> 校验并确认 -> 更新状态和关联对象。〔来源：AN-afd9c9987ce6；liveshow-proto/prototype/annotations/admin.js；admin-guild-list.html/交互/1〕",
+          "证明内容": "- [REQ-3d86ee8bf72f] 新建 -> 详情编辑态；启停或解散 -> 校验并确认 -> 更新状态和关联对象。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-GUILD-DISSOLVE",
+      "共同业务对象": "公会",
+      "来源状态": "未解散且收益结清",
+      "触发动作": "解散公会",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "已解散",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2755",
+          "原文": "- [REQ-74523caaeaac] 解散前须结清全部主播收益；解散后账号失效、关系解除、主播失去身份并停止开播。〔来源：AN-622822462103；liveshow-proto/prototype/annotations/admin.js；admin-guild-list.html/业务/3〕",
+          "证明内容": "- [REQ-74523caaeaac] 解散前须结清全部主播收益；解散后账号失效、关系解除、主播失去身份并停止开播。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2771",
+          "原文": "- [REQ-0463379c3d50] 资料和管理账号分别保存；重置密码不改账号；解散 -> 未结收益为 0 后确认。〔来源：AN-db3a515a2c2f；liveshow-proto/prototype/annotations/admin.js；admin-guild-detail.html/交互/2〕",
+          "证明内容": "- [REQ-0463379c3d50] 资料和管理账号分别保存；重置密码不改账号；解散 -> 未结收益为 0 后确认。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-GUILD-OWNER-STOP",
+      "共同业务对象": "公会长账号",
+      "来源状态": "启用",
+      "触发动作": "停用公会长账号",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "停用",
+      "观察端": [
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2754",
+          "原文": "- [REQ-7f64ff578699] 公会长账号停用时，仅该账号不能登录，不改变公会状态，也不影响主播。〔来源：AN-f811144264a0；liveshow-proto/prototype/annotations/admin.js；admin-guild-list.html/业务/2〕",
+          "证明内容": "- [REQ-7f64ff578699] 公会长账号停用时，仅该账号不能登录，不改变公会状态，也不影响主播。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2769",
+          "原文": "- [REQ-06e5fe687f7e] 登录须同时满足公会启用和管理账号自身启用。公会停用会拦截全部管理账号；公会长账号停用只拦截该账号。〔来源：AN-24177def9cd3；liveshow-proto/prototype/annotations/admin.js；admin-guild-detail.html/业务/2〕",
+          "证明内容": "- [REQ-06e5fe687f7e] 登录须同时满足公会启用和管理账号自身启用。公会停用会拦截全部管理账号；公会长账号停用只拦截该账号。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-PERMISSION-GUILD-OFF",
+      "共同业务对象": "主播直播权限",
+      "来源状态": "平台开启未锁定且公会开启",
+      "触发动作": "关闭直播权限",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "目标状态": "最终权限关闭",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2234",
+          "原文": "- [REQ-44352c936b14] 开播需满足账号可用、公会有效、主播认证通过和最终直播权限开启。平台关闭时最终关闭；平台开启且未锁定时采用公会开关；平台开启且锁定时最终开启，公会开关只读并跟随平台；解锁恢复锁定前公会设定并重新计算。〔来源：AN-048c1429bc77；liveshow-proto/prototype/annotations/guild.js；guild-host-detail.html/管理规则/1〕",
+          "证明内容": "- [REQ-44352c936b14] 开播需满足账号可用、公会有效、主播认证通过和最终直播权限开启。平台关闭时最终关闭；平台开启且未锁定时采用公会开关；平台开启且锁定时最终开启，公会开关只读并跟随平台；解锁恢复锁定前公会设定并重新计算。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2236",
+          "原文": "- [REQ-5b67d7facca5] 关闭正在直播主播的权限 -> 二次确认后立即结束当前直播，并禁止再次开播。〔来源：AN-260d2fa74ffd；liveshow-proto/prototype/annotations/guild.js；guild-host-detail.html/管理规则/3〕",
+          "证明内容": "- [REQ-5b67d7facca5] 关闭正在直播主播的权限 -> 二次确认后立即结束当前直播，并禁止再次开播。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2575",
+          "原文": "- [REQ-bb2f7783951c] 最终开播权限以系统概要的权限矩阵为准：账号可用、公会有效、认证通过；平台关闭则最终关闭；平台开启且未锁定时取公会开关；平台开启且锁定时最终开启，解锁后恢复原公会设置。〔来源：AN-ded61b7178e8；liveshow-proto/prototype/annotations/admin.js；admin-host-list.html/字段/5〕",
+          "证明内容": "- [REQ-bb2f7783951c] 最终开播权限以系统概要的权限矩阵为准：账号可用、公会有效、认证通过；平台关闭则最终关闭；平台开启且未锁定时取公会开关；平台开启且锁定时最终开启，解锁后恢复原公会设置。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-PERMISSION-PLATFORM-OFF",
+      "共同业务对象": "主播直播权限",
+      "来源状态": "最终权限开启",
+      "触发动作": "关闭平台直播权限",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "最终权限关闭",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2578",
+          "原文": "- [REQ-e66434cf8b97] 平台关闭直播权限时立即关播并禁止再次开播。〔来源：AN-5460cf7d4481；liveshow-proto/prototype/annotations/admin.js；admin-host-list.html/业务/1〕",
+          "证明内容": "- [REQ-e66434cf8b97] 平台关闭直播权限时立即关播并禁止再次开播。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2234",
+          "原文": "- [REQ-44352c936b14] 开播需满足账号可用、公会有效、主播认证通过和最终直播权限开启。平台关闭时最终关闭；平台开启且未锁定时采用公会开关；平台开启且锁定时最终开启，公会开关只读并跟随平台；解锁恢复锁定前公会设定并重新计算。〔来源：AN-048c1429bc77；liveshow-proto/prototype/annotations/guild.js；guild-host-detail.html/管理规则/1〕",
+          "证明内容": "- [REQ-44352c936b14] 开播需满足账号可用、公会有效、主播认证通过和最终直播权限开启。平台关闭时最终关闭；平台开启且未锁定时采用公会开关；平台开启且锁定时最终开启，公会开关只读并跟随平台；解锁恢复锁定前公会设定并重新计算。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1207",
+          "原文": "- [REQ-2afca99fcc33] 点击开始直播 -> 开播条件和场次字段校验通过后检查相机、麦克风权限；未申请时直接调用系统授权，已授权时创建新场次并显示 3 秒开播倒计时，倒计时结束后进入【直播间-主播视角】。〔来源：AN-9d5888b38f54；liveshow-proto/prototype/annotations/user.js；start-live-settings.html/交互/3〕",
+          "证明内容": "- [REQ-2afca99fcc33] 点击开始直播 -> 开播条件和场次字段校验通过后检查相机、麦克风权限；未申请时直接调用系统授权，已授权时创建新场次并显示 3 秒开播倒计时，倒计时结束后进入【直播间-主播视角】。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-PERMISSION-LOCK",
+      "共同业务对象": "主播直播权限",
+      "来源状态": "平台开启公会关闭且未锁定",
+      "触发动作": "锁定公会管理",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "锁定并跟随平台开启",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2514",
+          "原文": "- [COMMON-permission] 直播权限与主播身份分开。平台关闭时最终禁止开播；平台开启且未锁定时按公会开关；平台开启且锁定时最终允许开播，公会设置只读并跟随平台，原值被保留；解锁恢复原公会设定并重算。最终权限被关闭立即结束正在进行的直播，不能再开播。〔依据：context/系统概要 .md / 3.2.3 开播权限〕",
+          "证明内容": "- [COMMON-permission] 直播权限与主播身份分开。平台关闭时最终禁止开播；平台开启且未锁定时按公会开关；平台开启且锁定时最终允许开播，公会设置只读并跟随平台，原值被保留；解锁恢复原公会设定并重算。最终权限被关闭立即结束正在进行的直播，不能再开播。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2579",
+          "原文": "- [REQ-d6f13676fc7b] 锁定期间公会设置跟随平台且不可改；解锁后恢复锁定前设置并重算权限。〔来源：AN-3fd7cb8d0060；liveshow-proto/prototype/annotations/admin.js；admin-host-list.html/业务/2〕",
+          "证明内容": "- [REQ-d6f13676fc7b] 锁定期间公会设置跟随平台且不可改；解锁后恢复锁定前设置并重算权限。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2234",
+          "原文": "- [REQ-44352c936b14] 开播需满足账号可用、公会有效、主播认证通过和最终直播权限开启。平台关闭时最终关闭；平台开启且未锁定时采用公会开关；平台开启且锁定时最终开启，公会开关只读并跟随平台；解锁恢复锁定前公会设定并重新计算。〔来源：AN-048c1429bc77；liveshow-proto/prototype/annotations/guild.js；guild-host-detail.html/管理规则/1〕",
+          "证明内容": "- [REQ-44352c936b14] 开播需满足账号可用、公会有效、主播认证通过和最终直播权限开启。平台关闭时最终关闭；平台开启且未锁定时采用公会开关；平台开启且锁定时最终开启，公会开关只读并跟随平台；解锁恢复锁定前公会设定并重新计算。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-PERMISSION-UNLOCK",
+      "共同业务对象": "主播直播权限",
+      "来源状态": "平台开启且锁定前公会关闭",
+      "触发动作": "解除锁定",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "恢复公会关闭",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2514",
+          "原文": "- [COMMON-permission] 直播权限与主播身份分开。平台关闭时最终禁止开播；平台开启且未锁定时按公会开关；平台开启且锁定时最终允许开播，公会设置只读并跟随平台，原值被保留；解锁恢复原公会设定并重算。最终权限被关闭立即结束正在进行的直播，不能再开播。〔依据：context/系统概要 .md / 3.2.3 开播权限〕",
+          "证明内容": "- [COMMON-permission] 直播权限与主播身份分开。平台关闭时最终禁止开播；平台开启且未锁定时按公会开关；平台开启且锁定时最终允许开播，公会设置只读并跟随平台，原值被保留；解锁恢复原公会设定并重算。最终权限被关闭立即结束正在进行的直播，不能再开播。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2579",
+          "原文": "- [REQ-d6f13676fc7b] 锁定期间公会设置跟随平台且不可改；解锁后恢复锁定前设置并重算权限。〔来源：AN-3fd7cb8d0060；liveshow-proto/prototype/annotations/admin.js；admin-host-list.html/业务/2〕",
+          "证明内容": "- [REQ-d6f13676fc7b] 锁定期间公会设置跟随平台且不可改；解锁后恢复锁定前设置并重算权限。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2234",
+          "原文": "- [REQ-44352c936b14] 开播需满足账号可用、公会有效、主播认证通过和最终直播权限开启。平台关闭时最终关闭；平台开启且未锁定时采用公会开关；平台开启且锁定时最终开启，公会开关只读并跟随平台；解锁恢复锁定前公会设定并重新计算。〔来源：AN-048c1429bc77；liveshow-proto/prototype/annotations/guild.js；guild-host-detail.html/管理规则/1〕",
+          "证明内容": "- [REQ-44352c936b14] 开播需满足账号可用、公会有效、主播认证通过和最终直播权限开启。平台关闭时最终关闭；平台开启且未锁定时采用公会开关；平台开启且锁定时最终开启，公会开关只读并跟随平台；解锁恢复锁定前公会设定并重新计算。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-LIVE-START",
+      "共同业务对象": "直播场次",
+      "来源状态": "无进行中场次且满足开播条件",
+      "触发动作": "开始直播",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "直播中",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1197",
+          "原文": "- [REQ-d3dcb9f11f0e] 账号可用、公会有效、主播认证通过且直播权限开启时才可开播；直播中权限被关闭 -> 立即结束当前场次。〔来源：AN-de6fe08c2559；liveshow-proto/prototype/annotations/user.js；start-live-settings.html/业务规则/1〕",
+          "证明内容": "- [REQ-d3dcb9f11f0e] 账号可用、公会有效、主播认证通过且直播权限开启时才可开播；直播中权限被关闭 -> 立即结束当前场次。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1207",
+          "原文": "- [REQ-2afca99fcc33] 点击开始直播 -> 开播条件和场次字段校验通过后检查相机、麦克风权限；未申请时直接调用系统授权，已授权时创建新场次并显示 3 秒开播倒计时，倒计时结束后进入【直播间-主播视角】。〔来源：AN-9d5888b38f54；liveshow-proto/prototype/annotations/user.js；start-live-settings.html/交互/3〕",
+          "证明内容": "- [REQ-2afca99fcc33] 点击开始直播 -> 开播条件和场次字段校验通过后检查相机、麦克风权限；未申请时直接调用系统授权，已授权时创建新场次并显示 3 秒开播倒计时，倒计时结束后进入【直播间-主播视角】。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2394",
+          "原文": "- [REQ-d1ff9ee9a737] 每次开播创建一个新场次；场次结束后消息、消费、处置和收益记录继续保留。〔来源：AN-73340a0b5c13；liveshow-proto/prototype/annotations/guild.js；guild-host-data.html/业务规则/1〕",
+          "证明内容": "- [REQ-d1ff9ee9a737] 每次开播创建一个新场次；场次结束后消息、消费、处置和收益记录继续保留。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2619",
+          "原文": "- [REQ-2d6daad85499] 直播场次 ID：每次开播唯一；主播直播间 ID 长期不变。〔来源：AN-eb64c32a664e；liveshow-proto/prototype/annotations/admin.js；admin-live-management.html/字段/3〕",
+          "证明内容": "- [REQ-2d6daad85499] 直播场次 ID：每次开播唯一；主播直播间 ID 长期不变。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-LIVE-END",
+      "共同业务对象": "直播场次",
+      "来源状态": "直播中",
+      "触发动作": "结束直播",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "已结束",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1866",
+          "原文": "- [REQ-fd0092181557] 结束直播会关闭当前场次，使连麦、待处理邀请、门票和本场禁言/踢出状态失效；历史消息、消费、处置和收益记录保留。〔来源：AN-594da460ef2c；liveshow-proto/prototype/annotations/user.js；views/live-room-host/end-confirm.html/业务/1〕",
+          "证明内容": "- [REQ-fd0092181557] 结束直播会关闭当前场次，使连麦、待处理邀请、门票和本场禁言/踢出状态失效；历史消息、消费、处置和收益记录保留。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1867",
+          "原文": "- [REQ-8576b6c9d4ef] 确认 -> 结束场次并进入主播结束页；取消或关闭 -> 返回直播间继续直播；重复确认只处理一次。〔来源：AN-beec1b975959；liveshow-proto/prototype/annotations/user.js；views/live-room-host/end-confirm.html/交互/1〕",
+          "证明内容": "- [REQ-8576b6c9d4ef] 确认 -> 结束场次并进入主播结束页；取消或关闭 -> 返回直播间继续直播；重复确认只处理一次。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2394",
+          "原文": "- [REQ-d1ff9ee9a737] 每次开播创建一个新场次；场次结束后消息、消费、处置和收益记录继续保留。〔来源：AN-73340a0b5c13；liveshow-proto/prototype/annotations/guild.js；guild-host-data.html/业务规则/1〕",
+          "证明内容": "- [REQ-d1ff9ee9a737] 每次开播创建一个新场次；场次结束后消息、消费、处置和收益记录继续保留。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2626",
+          "原文": "- [REQ-01bfb061e40d] 结束后保留消息、消费、处置和收益，历史场次不可重开。〔来源：AN-56d6c84a96ba；liveshow-proto/prototype/annotations/admin.js；admin-live-management.html/业务/1〕",
+          "证明内容": "- [REQ-01bfb061e40d] 结束后保留消息、消费、处置和收益，历史场次不可重开。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-ACCOUNT-BAN",
+      "共同业务对象": "账号",
+      "来源状态": "正常",
+      "触发动作": "封禁账号",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "封禁",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2552",
+          "原文": "- [REQ-d7c78e90d406] 封禁后立即下线，正在直播时同时关播，未登录账号禁止登录。〔来源：AN-df80a43706df；liveshow-proto/prototype/annotations/admin.js；admin-user-list.html/业务/1〕",
+          "证明内容": "- [REQ-d7c78e90d406] 封禁后立即下线，正在直播时同时关播，未登录账号禁止登录。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2554",
+          "原文": "- [REQ-3533fefe2798] 封禁或解封 -> 填写原因并确认 -> 更新并留痕。〔来源：AN-b1b0df8f5c6e；liveshow-proto/prototype/annotations/admin.js；admin-user-list.html/交互/2〕",
+          "证明内容": "- [REQ-3533fefe2798] 封禁或解封 -> 填写原因并确认 -> 更新并留痕。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2431",
+          "原文": "- [REQ-739f70aff6e8] 账号封禁后当前会话下线；直播中同时结束当前场次。〔来源：AN-3b29515faca3；liveshow-proto/prototype/annotations/guild.js；guild-all-violations.html/业务规则/2〕",
+          "证明内容": "- [REQ-739f70aff6e8] 账号封禁后当前会话下线；直播中同时结束当前场次。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-ACCOUNT-UNBAN",
+      "共同业务对象": "账号",
+      "来源状态": "封禁",
+      "触发动作": "解封账号",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "正常且不恢复直播权限",
+      "观察端": [
+        "用户App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2566",
+          "原文": "- [REQ-9cc42d630910] 解封只恢复登录，不自动恢复直播权限。〔来源：AN-f9a56fcadf9f；liveshow-proto/prototype/annotations/admin.js；admin-user-detail.html/业务/1〕",
+          "证明内容": "- [REQ-9cc42d630910] 解封只恢复登录，不自动恢复直播权限。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2554",
+          "原文": "- [REQ-3533fefe2798] 封禁或解封 -> 填写原因并确认 -> 更新并留痕。〔来源：AN-b1b0df8f5c6e；liveshow-proto/prototype/annotations/admin.js；admin-user-list.html/交互/2〕",
+          "证明内容": "- [REQ-3533fefe2798] 封禁或解封 -> 填写原因并确认 -> 更新并留痕。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-COHOST-INVITE",
+      "共同业务对象": "连麦邀请",
+      "来源状态": "双方普通房在播未连麦",
+      "触发动作": "发送连麦邀请",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "邀请中",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1827",
+          "原文": "- [REQ-250e13b31320] 仅普通房支持连麦，固定两位主播，不支持观众上麦。〔来源：AN-8e9093a07685；liveshow-proto/prototype/annotations/user.js；views/live-room-host/cohost-hosts.html/业务/1〕",
+          "证明内容": "- [REQ-250e13b31320] 仅普通房支持连麦，固定两位主播，不支持观众上麦。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1828",
+          "原文": "- [REQ-fcf4f0b8f117] 双方须正在直播、均未处于连麦中且不存在账号拉黑关系。〔来源：AN-8c5b6b724c1e；liveshow-proto/prototype/annotations/user.js；views/live-room-host/cohost-hosts.html/业务/2〕",
+          "证明内容": "- [REQ-fcf4f0b8f117] 双方须正在直播、均未处于连麦中且不存在账号拉黑关系。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1829",
+          "原文": "- [REQ-00c732684671] 发起方同一时间只能存在 1 个待处理邀请；接收方可以收到多个邀请。〔来源：AN-21570ea5cbd2；liveshow-proto/prototype/annotations/user.js；views/live-room-host/cohost-hosts.html/业务/3〕",
+          "证明内容": "- [REQ-00c732684671] 发起方同一时间只能存在 1 个待处理邀请；接收方可以收到多个邀请。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1831",
+          "原文": "- [REQ-b5c3e7b92403] 邀请成功 -> 标记邀请中并禁止重复发送；搜索无结果或主播未在普通房直播 -> 显示“查询结果为空或主播未在普通房直播”；请求失败 -> 不生成邀请并提示“请求失败”；搜索结果在固定高度覆盖层展示。〔来源：AN-d6532f646323；liveshow-proto/prototype/annotations/user.js；views/live-room-host/cohost-hosts.html/交互/1〕",
+          "证明内容": "- [REQ-b5c3e7b92403] 邀请成功 -> 标记邀请中并禁止重复发送；搜索无结果或主播未在普通房直播 -> 显示“查询结果为空或主播未在普通房直播”；请求失败 -> 不生成邀请并提示“请求失败”；搜索结果在固定高度覆盖层展示。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-COHOST-ACCEPT",
+      "共同业务对象": "连麦关系",
+      "来源状态": "收到有效邀请",
+      "触发动作": "接受连麦邀请",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "双主播连麦中",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1846",
+          "原文": "- [REQ-1a86c568fda4] 接受一条邀请并建立连麦后，自己发出的邀请失效，其他收到的邀请保留；连麦中不能接受其他邀请或发起新邀请。〔来源：AN-38f38c6d49d3；liveshow-proto/prototype/annotations/user.js；views/live-room-host/cohost-invite-notice.html/业务/3〕",
+          "证明内容": "- [REQ-1a86c568fda4] 接受一条邀请并建立连麦后，自己发出的邀请失效，其他收到的邀请保留；连麦中不能接受其他邀请或发起新邀请。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1847",
+          "原文": "- [REQ-7ccdccc5eb39] 接受 -> 再次校验条件后建立连麦；拒绝 -> 关闭该邀请；点击提示 -> 打开全部待处理邀请；处理后同步更新数量。〔来源：AN-13a80d109b75；liveshow-proto/prototype/annotations/user.js；views/live-room-host/cohost-invite-notice.html/交互/1〕",
+          "证明内容": "- [REQ-7ccdccc5eb39] 接受 -> 再次校验条件后建立连麦；拒绝 -> 关闭该邀请；点击提示 -> 打开全部待处理邀请；处理后同步更新数量。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-COHOST-REJECT",
+      "共同业务对象": "连麦邀请",
+      "来源状态": "收到有效邀请",
+      "触发动作": "拒绝邀请",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "已拒绝",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1847",
+          "原文": "- [REQ-7ccdccc5eb39] 接受 -> 再次校验条件后建立连麦；拒绝 -> 关闭该邀请；点击提示 -> 打开全部待处理邀请；处理后同步更新数量。〔来源：AN-13a80d109b75；liveshow-proto/prototype/annotations/user.js；views/live-room-host/cohost-invite-notice.html/交互/1〕",
+          "证明内容": "- [REQ-7ccdccc5eb39] 接受 -> 再次校验条件后建立连麦；拒绝 -> 关闭该邀请；点击提示 -> 打开全部待处理邀请；处理后同步更新数量。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-COHOST-EXIT",
+      "共同业务对象": "连麦关系",
+      "来源状态": "双主播连麦中",
+      "触发动作": "退出连麦",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "双方单人直播",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1899",
+          "原文": "- [REQ-6516ede9aac0] 主动退出只结束双方连麦关系，不结束任何一方的直播场次；本场贡献、消息和观众数据继续累计。〔来源：AN-8f80bf2ea72a；liveshow-proto/prototype/annotations/user.js；views/live-room-cohost-active/cohost-exit-confirm.html/业务/1〕",
+          "证明内容": "- [REQ-6516ede9aac0] 主动退出只结束双方连麦关系，不结束任何一方的直播场次；本场贡献、消息和观众数据继续累计。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1900",
+          "原文": "- [REQ-9669e16fa307] 确认 -> 双方退出连麦画面并恢复各自单人直播；取消或关闭 -> 保持连麦；请求失败 -> 保持当前画面并提示“退出失败”。〔来源：AN-3439503b1af1；liveshow-proto/prototype/annotations/user.js；views/live-room-cohost-active/cohost-exit-confirm.html/交互/1〕",
+          "证明内容": "- [REQ-9669e16fa307] 确认 -> 双方退出连麦画面并恢复各自单人直播；取消或关闭 -> 保持连麦；请求失败 -> 保持当前画面并提示“退出失败”。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-FRIEND-ACCEPT",
+      "共同业务对象": "好友关系",
+      "来源状态": "待处理申请",
+      "触发动作": "同意申请",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "双方好友",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行877",
+          "原文": "- [REQ-d3143269edb7] 同意 -> 建立好友关系；拒绝 -> 不建立关系；任一方拉黑 -> 待处理申请失效。〔来源：AN-17a0526e5010；liveshow-proto/prototype/annotations/user.js；interaction-notifications.html/业务规则/2〕",
+          "证明内容": "- [REQ-d3143269edb7] 同意 -> 建立好友关系；拒绝 -> 不建立关系；任一方拉黑 -> 待处理申请失效。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行880",
+          "原文": "- [REQ-d8329a9997bf] 同意或拒绝成功 -> 当前通知更新为处理结果且按钮不可重复点击；点击头像 -> 进入对应用户或主播主页。〔来源：AN-7203b589c4d4；liveshow-proto/prototype/annotations/user.js；interaction-notifications.html/交互/1〕",
+          "证明内容": "- [REQ-d8329a9997bf] 同意或拒绝成功 -> 当前通知更新为处理结果且按钮不可重复点击；点击头像 -> 进入对应用户或主播主页。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-FRIEND-DELETE",
+      "共同业务对象": "好友关系",
+      "来源状态": "已成为好友",
+      "触发动作": "删除好友",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "非好友",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1937",
+          "原文": "- [REQ-eebc6e392955] 删除好友只解除好友关系并清空双方聊天记录，不自动取消关注。〔来源：AN-07938dcdd6d9；liveshow-proto/prototype/annotations/user.js；views/user-home/friend.html/业务规则/2〕",
+          "证明内容": "- [REQ-eebc6e392955] 删除好友只解除好友关系并清空双方聊天记录，不自动取消关注。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1939",
+          "原文": "- [REQ-5e8b58e43195] 私信 -> 进入单聊；删除好友 -> 二次确认后更新主页关系状态；关注或取消关注 -> 仅更新关注关系。〔来源：AN-a0e01a303c26；liveshow-proto/prototype/annotations/user.js；views/user-home/friend.html/交互/1〕",
+          "证明内容": "- [REQ-5e8b58e43195] 私信 -> 进入单聊；删除好友 -> 二次确认后更新主页关系状态；关注或取消关注 -> 仅更新关注关系。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-BLOCK",
+      "共同业务对象": "账号拉黑关系",
+      "来源状态": "未拉黑",
+      "触发动作": "确认拉黑",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "已拉黑",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行945",
+          "原文": "- [REQ-000792392af7] A 拉黑 B 后生成 A→B 的拉黑记录，B 进入 A 的黑名单；限制双向生效。若 B 另行拉黑 A，则两条记录分别取消。〔来源：AN-0883144bde64；liveshow-proto/prototype/annotations/user.js；blacklist-management.html/业务规则/1〕",
+          "证明内容": "- [REQ-000792392af7] A 拉黑 B 后生成 A→B 的拉黑记录，B 进入 A 的黑名单；限制双向生效。若 B 另行拉黑 A，则两条记录分别取消。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行946",
+          "原文": "- [REQ-16cfbeeea18a] 拉黑后双向解除关注和好友关系，使待处理好友申请失效；双方加入对方粉丝团的关系和已有房管关系同步解除，粉丝团即对应粉丝群。〔来源：AN-840c14424fd4；liveshow-proto/prototype/annotations/user.js；blacklist-management.html/业务规则/2〕",
+          "证明内容": "- [REQ-16cfbeeea18a] 拉黑后双向解除关注和好友关系，使待处理好友申请失效；双方加入对方粉丝团的关系和已有房管关系同步解除，粉丝团即对应粉丝群。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行955",
+          "原文": "- [REQ-6d27692459f2] 从用户主页、主播主页或聊天设置点击拉黑 -> 显示确认弹窗；确认后执行并同步清理关系、会话和聊天记录，取消不改变状态。〔来源：AN-593cbdc27774；liveshow-proto/prototype/annotations/user.js；blacklist-management.html/交互/1〕",
+          "证明内容": "- [REQ-6d27692459f2] 从用户主页、主播主页或聊天设置点击拉黑 -> 显示确认弹窗；确认后执行并同步清理关系、会话和聊天记录，取消不改变状态。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-UNBLOCK",
+      "共同业务对象": "账号拉黑关系",
+      "来源状态": "已拉黑",
+      "触发动作": "取消拉黑",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "解除当前单向拉黑记录",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行951",
+          "原文": "- [REQ-f5e511bd4cd3] 取消拉黑仅解除当前拉黑记录，不恢复关注、好友、好友申请、粉丝团、房管、会话和聊天记录。〔来源：AN-4ea5bb9aa098；liveshow-proto/prototype/annotations/user.js；blacklist-management.html/业务规则/7〕",
+          "证明内容": "- [REQ-f5e511bd4cd3] 取消拉黑仅解除当前拉黑记录，不恢复关注、好友、好友申请、粉丝团、房管、会话和聊天记录。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行956",
+          "原文": "- [REQ-11ba82bb2413] 取消拉黑 -> 二次确认后从列表移除；请求失败 -> 保持原状态并提示“请求失败”。〔来源：AN-a80a833659a3；liveshow-proto/prototype/annotations/user.js；blacklist-management.html/交互/2〕",
+          "证明内容": "- [REQ-11ba82bb2413] 取消拉黑 -> 二次确认后从列表移除；请求失败 -> 保持原状态并提示“请求失败”。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-FAN-JOIN",
+      "共同业务对象": "粉丝团团籍",
+      "来源状态": "非成员且符合门槛",
+      "触发动作": "加入粉丝团",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "有效团籍",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1612",
+          "原文": "- [REQ-5e497d5f205b] 普通用户须满足全部加入条件，且与主播不存在拉黑关系。〔来源：AN-5c78b36b3c91；liveshow-proto/prototype/annotations/user.js；views/live-room/fan-club-not-joined.html/业务/2〕",
+          "证明内容": "- [REQ-5e497d5f205b] 普通用户须满足全部加入条件，且与主播不存在拉黑关系。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1613",
+          "原文": "- [REQ-a182b35936fd] 每位主播一期仅有一个粉丝团；达到 500 人上限后不可加入。〔来源：AN-42ffd2eaf937；liveshow-proto/prototype/annotations/user.js；views/live-room/fan-club-not-joined.html/业务/3〕",
+          "证明内容": "- [REQ-a182b35936fd] 每位主播一期仅有一个粉丝团；达到 500 人上限后不可加入。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1614",
+          "原文": "- [REQ-8d9134a2137d] 加入成功后同步获得团籍和群籍，粉丝等级与亲密度从当前有效值开始累计。〔来源：AN-b79c18c4d0bf；liveshow-proto/prototype/annotations/user.js；views/live-room/fan-club-not-joined.html/业务/4〕",
+          "证明内容": "- [REQ-8d9134a2137d] 加入成功后同步获得团籍和群籍，粉丝等级与亲密度从当前有效值开始累计。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1617",
+          "原文": "- [REQ-9577b57d4264] 加入成功 -> 切换为已加入视图并开放粉丝群入口。〔来源：AN-f57f3a8c1252；liveshow-proto/prototype/annotations/user.js；views/live-room/fan-club-not-joined.html/交互/3〕",
+          "证明内容": "- [REQ-9577b57d4264] 加入成功 -> 切换为已加入视图并开放粉丝群入口。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-FAN-EXIT",
+      "共同业务对象": "粉丝团团籍",
+      "来源状态": "有效团籍",
+      "触发动作": "退出粉丝团",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "团籍解除且个人粉丝成长清零",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行916",
+          "原文": "- [REQ-a0492a84dfb6] 主动退出 -> 团籍和群籍同时解除，粉丝等级与亲密度清零；关注关系不受影响。〔来源：AN-4055bd235d8f；liveshow-proto/prototype/annotations/user.js；group-manage-member.html/业务规则/3〕",
+          "证明内容": "- [REQ-a0492a84dfb6] 主动退出 -> 团籍和群籍同时解除，粉丝等级与亲密度清零；关注关系不受影响。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行917",
+          "原文": "- [REQ-43a003d8c23f] 退出粉丝团 -> 二次确认后离开群聊并返回消息中心；消息免打扰只关闭通知，不影响消息接收。〔来源：AN-9915d8699f58；liveshow-proto/prototype/annotations/user.js；group-manage-member.html/交互/1〕",
+          "证明内容": "- [REQ-43a003d8c23f] 退出粉丝团 -> 二次确认后离开群聊并返回消息中心；消息免打扰只关闭通知，不影响消息接收。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-FAN-REMOVE",
+      "共同业务对象": "粉丝团团籍",
+      "来源状态": "有效团籍",
+      "触发动作": "移除成员",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "团籍解除",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1229",
+          "原文": "- [REQ-5d55548c15b9] 移除成员后团籍和群籍同步解除；不影响关注，粉丝等级与亲密度清零，重新加入不恢复。〔来源：AN-bcfaca92fc8d；liveshow-proto/prototype/annotations/user.js；fan-club.html/业务规则/2〕",
+          "证明内容": "- [REQ-5d55548c15b9] 移除成员后团籍和群籍同步解除；不影响关注，粉丝等级与亲密度清零，重新加入不恢复。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1233",
+          "原文": "- [REQ-10e94366689d] 单人禁言 -> 二次确认后限制该成员群内发言；左滑成员 -> 显示移除操作，确认移除后更新成员数、群聊权限和用户身份。〔来源：AN-70421d699927；liveshow-proto/prototype/annotations/user.js；fan-club.html/交互/2〕",
+          "证明内容": "- [REQ-10e94366689d] 单人禁言 -> 二次确认后限制该成员群内发言；左滑成员 -> 显示移除操作，确认移除后更新成员数、群聊权限和用户身份。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-COMMENT-MUTE",
+      "共同业务对象": "本场禁言",
+      "来源状态": "可发言",
+      "触发动作": "确认禁言",
+      "执行角色": "房管",
+      "操作端": "用户App",
+      "目标状态": "本场禁言",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1704",
+          "原文": "- [REQ-405d165ca7cd] 禁言仅限制目标用户当前场次公屏发言，不影响观看、送礼和私信；下一场默认恢复。〔来源：AN-6f001cfac877；liveshow-proto/prototype/annotations/user.js；views/live-room/profile-moderator-mute.html/业务/1〕",
+          "证明内容": "- [REQ-405d165ca7cd] 禁言仅限制目标用户当前场次公屏发言，不影响观看、送礼和私信；下一场默认恢复。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1705",
+          "原文": "- [REQ-c1cf1dffdbca] 确认 -> 写入本场禁言状态并更新输入框、资料卡和禁言列表；取消或关闭 -> 不改变状态。〔来源：AN-d8d36012e5ae；liveshow-proto/prototype/annotations/user.js；views/live-room/profile-moderator-mute.html/交互/1〕",
+          "证明内容": "- [REQ-c1cf1dffdbca] 确认 -> 写入本场禁言状态并更新输入框、资料卡和禁言列表；取消或关闭 -> 不改变状态。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-COMMENT-RESTORE",
+      "共同业务对象": "本场禁言",
+      "来源状态": "本场禁言",
+      "触发动作": "恢复发言",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "可发言",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1793",
+          "原文": "- [REQ-0ef5361aead4] 仅可恢复当前场次仍被禁言的用户；用户已恢复或场次已结束时不重复执行。〔来源：AN-0e6a54b6f49b；liveshow-proto/prototype/annotations/user.js；views/live-room-host/restore-speaking-confirm.html/业务/1〕",
+          "证明内容": "- [REQ-0ef5361aead4] 仅可恢复当前场次仍被禁言的用户；用户已恢复或场次已结束时不重复执行。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1794",
+          "原文": "- [REQ-26841d4c5bb2] 确认 -> 解除本场禁言、移出禁言列表并恢复公屏输入；取消、关闭或请求失败 -> 保持原状态并给出结果反馈。〔来源：AN-43ac1264105d；liveshow-proto/prototype/annotations/user.js；views/live-room-host/restore-speaking-confirm.html/交互/1〕",
+          "证明内容": "- [REQ-26841d4c5bb2] 确认 -> 解除本场禁言、移出禁言列表并恢复公屏输入；取消、关闭或请求失败 -> 保持原状态并给出结果反馈。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-VIEWER-KICK",
+      "共同业务对象": "本场准入",
+      "来源状态": "已进入",
+      "触发动作": "确认踢出",
+      "执行角色": "房管",
+      "操作端": "用户App",
+      "目标状态": "本场不可进入",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1709",
+          "原文": "- [REQ-46bf665b8202] 踢出只作用于当前直播场次；目标用户下一场可重新进入。门票房被踢出后门票失效且不退款。巡房会话中的人员不可被踢出。〔来源：AN-b4c5e15aa298；liveshow-proto/prototype/annotations/user.js；views/live-room/profile-moderator-remove.html/业务/1〕",
+          "证明内容": "- [REQ-46bf665b8202] 踢出只作用于当前直播场次；目标用户下一场可重新进入。门票房被踢出后门票失效且不退款。巡房会话中的人员不可被踢出。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1710",
+          "原文": "- [REQ-fcc05c0f3df1] 确认 -> 用户立即退出、写入本场踢出状态并从在线列表移除；取消或关闭 -> 不改变状态。〔来源：AN-6e12fc7adeb1；liveshow-proto/prototype/annotations/user.js；views/live-room/profile-moderator-remove.html/交互/1〕",
+          "证明内容": "- [REQ-fcc05c0f3df1] 确认 -> 用户立即退出、写入本场踢出状态并从在线列表移除；取消或关闭 -> 不改变状态。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-MODERATOR-REMOVE",
+      "共同业务对象": "房管授权",
+      "来源状态": "已授权",
+      "触发动作": "取消房管",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "普通观众",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1683",
+          "原文": "- [REQ-16aa6fb8b07f] 主播取消授权后立即失去管理权限，不影响其普通观众身份。〔来源：AN-91431471d76f；liveshow-proto/prototype/annotations/user.js；views/live-room/audience-managers.html/业务/4〕",
+          "证明内容": "- [REQ-16aa6fb8b07f] 主播取消授权后立即失去管理权限，不影响其普通观众身份。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1684",
+          "原文": "- [REQ-9afe74673c0a] 主播取消房管 -> 二次确认后更新列表；因拉黑自动解除 -> 立即更新房管列表和管理权限；普通观众只读查看，不显示授权操作。〔来源：AN-4206d7a7462a；liveshow-proto/prototype/annotations/user.js；views/live-room/audience-managers.html/交互/1〕",
+          "证明内容": "- [REQ-9afe74673c0a] 主播取消房管 -> 二次确认后更新列表；因拉黑自动解除 -> 立即更新房管列表和管理权限；普通观众只读查看，不显示授权操作。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-RECHARGE",
+      "共同业务对象": "充值订单",
+      "来源状态": "待支付",
+      "触发动作": "支付套餐",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "支付成功并入账",
+      "观察端": [
+        "用户App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1303",
+          "原文": "- [REQ-7f4554ffc2b6] 到账金币以下单时套餐快照为准；支付成功后增加余额并生成充值记录，同一订单重复回调只入账一次；失败、超时或取消不增加余额。〔来源：AN-f98ec3faf54c；liveshow-proto/prototype/annotations/user.js；recharge.html/业务规则/3〕",
+          "证明内容": "- [REQ-7f4554ffc2b6] 到账金币以下单时套餐快照为准；支付成功后增加余额并生成充值记录，同一订单重复回调只入账一次；失败、超时或取消不增加余额。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1307",
+          "原文": "- [REQ-dd6df4e4ca51] 支付成功后刷新余额和可购买套餐；失败或取消保留原余额并提示结果。〔来源：AN-3d25ebb2bc99；liveshow-proto/prototype/annotations/user.js；recharge.html/交互/2〕",
+          "证明内容": "- [REQ-dd6df4e4ca51] 支付成功后刷新余额和可购买套餐；失败或取消保留原余额并提示结果。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3079",
+          "原文": "- [REQ-968f7abf9780] 到账金币：基础金币 + 赠送金币。〔来源：AN-03ec96c4ccfb；liveshow-proto/prototype/annotations/admin.js；admin-recharge-order.html/字段/6〕",
+          "证明内容": "- [REQ-968f7abf9780] 到账金币：基础金币 + 赠送金币。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-REFUND",
+      "共同业务对象": "充值订单",
+      "来源状态": "已支付未退款",
+      "触发动作": "手动退款",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "已退款",
+      "观察端": [
+        "用户App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3094",
+          "原文": "- [REQ-83b8bf8977cf] 仅支付成功且未退款的订单可退，不支持部分或重复退款。〔来源：AN-679d7d23cdfd；liveshow-proto/prototype/annotations/admin.js；admin-recharge-order-detail.html/业务/1〕",
+          "证明内容": "- [REQ-83b8bf8977cf] 仅支付成功且未退款的订单可退，不支持部分或重复退款。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3095",
+          "原文": "- [REQ-90b04c7baeb1] 退款后余额 = 退款前余额 - 原订单总到账金币，可为负；后续充值余额 = 原余额 + 新到账金币。〔来源：AN-1da45b03e224；liveshow-proto/prototype/annotations/admin.js；admin-recharge-order-detail.html/业务/2〕",
+          "证明内容": "- [REQ-90b04c7baeb1] 退款后余额 = 退款前余额 - 原订单总到账金币，可为负；后续充值余额 = 原余额 + 新到账金币。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3097",
+          "原文": "- [REQ-0e5199b07a9f] 手动退款 -> 填写原因并确认 -> 原渠道全额退款、扣回金币并生成退款单。〔来源：AN-831537ac6a78；liveshow-proto/prototype/annotations/admin.js；admin-recharge-order-detail.html/交互/1〕",
+          "证明内容": "- [REQ-0e5199b07a9f] 手动退款 -> 填写原因并确认 -> 原渠道全额退款、扣回金币并生成退款单。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1304",
+          "原文": "- [REQ-33923242e1a4] 用户侧不提供退款操作。后台退款或渠道拒付扣除该订单到账金币；余额不足时允许为负，后续充值先抵扣负余额；不撤销已完成的礼物和门票消费。〔来源：AN-60b4adc78c87；liveshow-proto/prototype/annotations/user.js；recharge.html/业务规则/4〕",
+          "证明内容": "- [REQ-33923242e1a4] 用户侧不提供退款操作。后台退款或渠道拒付扣除该订单到账金币；余额不足时允许为负，后续充值先抵扣负余额；不撤销已完成的礼物和门票消费。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-GIFT",
+      "共同业务对象": "礼物消费",
+      "来源状态": "可赠送且余额充足",
+      "触发动作": "赠送礼物",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "消费成功",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1584",
+          "原文": "- [REQ-4d7983ee3408] 成功赠送不可退款；请求失败或余额不足时不扣减金币。〔来源：AN-31c94e97f55c；liveshow-proto/prototype/annotations/user.js；views/live-room/gift.html/业务/6〕",
+          "证明内容": "- [REQ-4d7983ee3408] 成功赠送不可退款；请求失败或余额不足时不扣减金币。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1586",
+          "原文": "- [REQ-066734efc56b] 普通用户赠送成功 -> 扣减金币、播放礼物效果并更新余额和本场贡献；运营账号赠送成功 -> 扣减虚拟金币并播放礼物效果，只更新公屏氛围。〔来源：AN-beb5a28011d0；liveshow-proto/prototype/annotations/user.js；views/live-room/gift.html/交互/2〕",
+          "证明内容": "- [REQ-066734efc56b] 普通用户赠送成功 -> 扣减金币、播放礼物效果并更新余额和本场贡献；运营账号赠送成功 -> 扣减虚拟金币并播放礼物效果，只更新公屏氛围。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2417",
+          "原文": "- [REQ-8526bb52368c] 普通礼物、定制礼物按成功实际消费金币计入；幸运礼物按礼物总价值 × 后台配置比例计入，默认 1%，返奖不影响主播收益。〔来源：AN-658b12888a85；liveshow-proto/prototype/annotations/guild.js；guild-live-gift-detail.html/计算规则/1〕",
+          "证明内容": "- [REQ-8526bb52368c] 普通礼物、定制礼物按成功实际消费金币计入；幸运礼物按礼物总价值 × 后台配置比例计入，默认 1%，返奖不影响主播收益。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3104",
+          "原文": "- [REQ-ce5a3ea958dd] 消费金币：订单扣减金币 = 商品单价 × 数量；幸运礼物返奖另记收入流水。〔来源：AN-d741211f9265；liveshow-proto/prototype/annotations/admin.js；admin-consumption-order.html/字段/5〕",
+          "证明内容": "- [REQ-ce5a3ea958dd] 消费金币：订单扣减金币 = 商品单价 × 数量；幸运礼物返奖另记收入流水。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-VIRTUAL-ISSUE",
+      "共同业务对象": "虚拟金币账户",
+      "来源状态": "可发放且额度充足",
+      "触发动作": "发放虚拟金币",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "目标状态": "余额及累计发放增加",
+      "观察端": [
+        "公会App",
+        "管理后台",
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2325",
+          "原文": "- [REQ-43f3dfaba8d2] 发放上限取账号月剩余额度与公会月剩余额度的较小值。〔来源：AN-f73b3add19c2；liveshow-proto/prototype/annotations/guild.js；guild-operation-account-detail.html/管理规则/4〕",
+          "证明内容": "- [REQ-43f3dfaba8d2] 发放上限取账号月剩余额度与公会月剩余额度的较小值。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2326",
+          "原文": "- [REQ-3cb9a733a5b0] 点击日期消费 -> 进入送礼记录并带入账号和日期；启停或发放成功后刷新指标。〔来源：AN-dec339e89210；liveshow-proto/prototype/annotations/guild.js；guild-operation-account-detail.html/交互规则/1〕",
+          "证明内容": "- [REQ-3cb9a733a5b0] 点击日期消费 -> 进入送礼记录并带入账号和日期；启停或发放成功后刷新指标。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3409",
+          "原文": "- [REQ-fcdd1d15e729] 发放记录：发放后余额 = 发放前余额 + 发放金币。〔来源：AN-20f053e35003；liveshow-proto/prototype/annotations/admin.js；admin-operation-account-detail.html/字段/5〕",
+          "证明内容": "- [REQ-fcdd1d15e729] 发放记录：发放后余额 = 发放前余额 + 发放金币。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1578",
+          "原文": "- [REQ-661e85b151ed] 金币余额：普通用户显示真实金币余额；运营账号只显示所属公会发放的虚拟金币余额。〔来源：AN-d768cfd60b6b；liveshow-proto/prototype/annotations/user.js；views/live-room/gift.html/字段/5〕",
+          "证明内容": "- [REQ-661e85b151ed] 金币余额：普通用户显示真实金币余额；运营账号只显示所属公会发放的虚拟金币余额。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-OP-STOP",
+      "共同业务对象": "运营账号",
+      "来源状态": "启用",
+      "触发动作": "禁用运营账号",
+      "执行角色": "公会长",
+      "操作端": "公会App",
+      "目标状态": "禁用",
+      "观察端": [
+        "公会App",
+        "管理后台",
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2323",
+          "原文": "- [REQ-722c17a54831] 禁用后不可登录或送礼，历史记录和余额保留；重新启用后恢复。〔来源：AN-b30e97144187；liveshow-proto/prototype/annotations/guild.js；guild-operation-account-detail.html/管理规则/2〕",
+          "证明内容": "- [REQ-722c17a54831] 禁用后不可登录或送礼，历史记录和余额保留；重新启用后恢复。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3399",
+          "原文": "- [REQ-cf7ea44b32ed] 状态：启用、停用；平台可启停并锁定公会管理权限。〔来源：AN-19d0ad386778；liveshow-proto/prototype/annotations/admin.js；admin-operation-accounts.html/字段/7〕",
+          "证明内容": "- [REQ-cf7ea44b32ed] 状态：启用、停用；平台可启停并锁定公会管理权限。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-DELETION-REQUEST",
+      "共同业务对象": "注销申请",
+      "来源状态": "金币余额小于100",
+      "触发动作": "倒计时结束提交",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "七日冷静期",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1469",
+          "原文": "- [REQ-24324b2a4408] 金币余额低于 100 -> 按钮从左到右为“确认注销、取消”；点击确认注销 -> 新弹窗自动倒计时 10 秒，仅显示取消按钮。〔来源：AN-7f025b88e45c；liveshow-proto/prototype/annotations/user.js；settings.html/交互/8〕",
+          "证明内容": "- [REQ-24324b2a4408] 金币余额低于 100 -> 按钮从左到右为“确认注销、取消”；点击确认注销 -> 新弹窗自动倒计时 10 秒，仅显示取消按钮。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1470",
+          "原文": "- [REQ-68795c484bd7] 倒计时结束 -> 提交注销申请，记录七日后的最终删除时间，展示提交结果并退出到登录与注册页；点击取消 -> 停止倒计时，不提交申请。〔来源：AN-fce61bfb6cd4；liveshow-proto/prototype/annotations/user.js；settings.html/交互/9〕",
+          "证明内容": "- [REQ-68795c484bd7] 倒计时结束 -> 提交注销申请，记录七日后的最终删除时间，展示提交结果并退出到登录与注册页；点击取消 -> 停止倒计时，不提交申请。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1528",
+          "原文": "- [REQ-5fc094115b81] 冷静期内保留账号、资产、社交关系、聊天记录及创建的粉丝团，不执行最终删除。〔来源：AN-e8b063ba7298；liveshow-proto/prototype/annotations/user.js；views/auth-login-register/deletion-cooling.html/业务规则/1〕",
+          "证明内容": "- [REQ-5fc094115b81] 冷静期内保留账号、资产、社交关系、聊天记录及创建的粉丝团，不执行最终删除。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-DELETION-CANCEL",
+      "共同业务对象": "注销申请",
+      "来源状态": "七日冷静期内",
+      "触发动作": "取消注销",
+      "执行角色": "未登录用户",
+      "操作端": "用户App",
+      "目标状态": "账号恢复登录",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1530",
+          "原文": "- [REQ-8b071c7b7730] 取消注销 -> 清除待注销状态，原有数据和关系保持不变。〔来源：AN-f0d6f98b40a3；liveshow-proto/prototype/annotations/user.js；views/auth-login-register/deletion-cooling.html/业务规则/3〕",
+          "证明内容": "- [REQ-8b071c7b7730] 取消注销 -> 清除待注销状态，原有数据和关系保持不变。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1531",
+          "原文": "- [REQ-1cb452c4f51b] 点击暂不取消 -> 关闭弹窗并停留登录与注册页；点击取消注销 -> 清除待注销状态并直接登录。〔来源：AN-ee1ede28b7a6；liveshow-proto/prototype/annotations/user.js；views/auth-login-register/deletion-cooling.html/交互/1〕",
+          "证明内容": "- [REQ-1cb452c4f51b] 点击暂不取消 -> 关闭弹窗并停留登录与注册页；点击取消注销 -> 清除待注销状态并直接登录。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-TASK-CLAIM",
+      "共同业务对象": "任务奖励",
+      "来源状态": "达标未领取且领取期内",
+      "触发动作": "领取奖励",
+      "执行角色": "已登录用户",
+      "操作端": "用户App",
+      "目标状态": "已领取",
+      "观察端": [
+        "用户App"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行619",
+          "原文": "- [REQ-c1796e8ee348] 达到条件后可手动领取该档金币；同一账号、同一任务周期内，每个条件独立领取一次。未达成不能领取，已领取不能重复领取。〔来源：AN-26eeeca7b67f；liveshow-proto/prototype/annotations/user.js；welfare-center.html/任务中心/3〕",
+          "证明内容": "- [REQ-c1796e8ee348] 达到条件后可手动领取该档金币；同一账号、同一任务周期内，每个条件独立领取一次。未达成不能领取，已领取不能重复领取。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行621",
+          "原文": "- [REQ-4a4228d2744b] 领取成功后更新领取记录、钱包金币余额及金币流水；重复点击或重试不得重复入账。领取失败时不改为已领取，提示失败并允许重试。〔来源：AN-1b812744068d；liveshow-proto/prototype/annotations/user.js；welfare-center.html/任务中心领取/1〕",
+          "证明内容": "- [REQ-4a4228d2744b] 领取成功后更新领取记录、钱包金币余额及金币流水；重复点击或重试不得重复入账。领取失败时不改为已领取，提示失败并允许重试。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1907",
+          "原文": "- [REQ-79150d93c909] 已领取奖励不可再次领取；领取状态按任务实例保存。〔来源：AN-399172c72af5；liveshow-proto/prototype/annotations/user.js；views/welfare-center/claimed.html/业务规则/1〕",
+          "证明内容": "- [REQ-79150d93c909] 已领取奖励不可再次领取；领取状态按任务实例保存。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-REPORT-RESOLVE",
+      "共同业务对象": "直播举报",
+      "来源状态": "待处理且直播中",
+      "触发动作": "处置直播举报",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "已处理",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2718",
+          "原文": "- [REQ-dd130a0f8dd4] 处置类型：账号：不处置、封禁；直播：不处置、警告、关播、关闭直播权限。〔来源：AN-624dd3de359a；liveshow-proto/prototype/annotations/admin.js；admin-report-detail.html/字段/5〕",
+          "证明内容": "- [REQ-dd130a0f8dd4] 处置类型：账号：不处置、封禁；直播：不处置、警告、关播、关闭直播权限。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2720",
+          "原文": "- [REQ-dde89ade1a55] 通知：按结果通知举报人；直播处罚同时通知主播。〔来源：AN-fba0826659c0；liveshow-proto/prototype/annotations/admin.js；admin-report-detail.html/字段/7〕",
+          "证明内容": "- [REQ-dde89ade1a55] 通知：按结果通知举报人；直播处罚同时通知主播。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2723",
+          "原文": "- [REQ-741630d0f3d0] 处理 -> 选择合法处置并填写原因 -> 执行、通知并置为已处理；终态不可重复提交。〔来源：AN-1775e4be8fdc；liveshow-proto/prototype/annotations/admin.js；admin-report-detail.html/交互/1〕",
+          "证明内容": "- [REQ-741630d0f3d0] 处理 -> 选择合法处置并填写原因 -> 执行、通知并置为已处理；终态不可重复提交。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2429",
+          "原文": "- [REQ-02eb22f92b59] 处理结果：警告、关闭场次、关闭直播权限、账号封禁等；无处置结果显示“-”。〔来源：AN-c52205d0a34f；liveshow-proto/prototype/annotations/guild.js；guild-all-violations.html/违规明细字段/6〕",
+          "证明内容": "- [REQ-02eb22f92b59] 处理结果：警告、关闭场次、关闭直播权限、账号封禁等；无处置结果显示“-”。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-REPORT-VOID",
+      "共同业务对象": "直播举报",
+      "来源状态": "待处理且直播中",
+      "触发动作": "场次结束",
+      "执行角色": "主播",
+      "操作端": "用户App",
+      "目标状态": "已作废",
+      "观察端": [
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1866",
+          "原文": "- [REQ-fd0092181557] 结束直播会关闭当前场次，使连麦、待处理邀请、门票和本场禁言/踢出状态失效；历史消息、消费、处置和收益记录保留。〔来源：AN-594da460ef2c；liveshow-proto/prototype/annotations/user.js；views/live-room-host/end-confirm.html/业务/1〕",
+          "证明内容": "- [REQ-fd0092181557] 结束直播会关闭当前场次，使连麦、待处理邀请、门票和本场禁言/踢出状态失效；历史消息、消费、处置和收益记录保留。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2710",
+          "原文": "- [REQ-1fb3044e702c] 直播举报入口仅在直播中开放；待处理期间直播结束，工单自动作废。〔来源：AN-580020d61287；liveshow-proto/prototype/annotations/admin.js；admin-report-handling.html/业务/1〕",
+          "证明内容": "- [REQ-1fb3044e702c] 直播举报入口仅在直播中开放；待处理期间直播结束，工单自动作废。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2722",
+          "原文": "- [REQ-839dd56e82e3] 封禁账号立即下线并结束直播；待处理直播工单在直播结束时自动失效，页面状态显示“已作废”。〔来源：AN-a7b745ef6f0f；liveshow-proto/prototype/annotations/admin.js；admin-report-detail.html/业务/2〕",
+          "证明内容": "- [REQ-839dd56e82e3] 封禁账号立即下线并结束直播；待处理直播工单在直播结束时自动失效，页面状态显示“已作废”。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-SETTLEMENT-IMPORT",
+      "共同业务对象": "主播分成批次",
+      "来源状态": "预览中",
+      "触发动作": "确认导入",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "锁定的导入结果",
+      "观察端": [
+        "用户App",
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3145",
+          "原文": "- [REQ-45aeb4799cb3] 系统不计算具体分成，不提供线上申请或审批；财务线下核算后上传。〔来源：AN-3e9d59aab118；liveshow-proto/prototype/annotations/admin.js；admin-settlement-record.html/业务/1〕",
+          "证明内容": "- [REQ-45aeb4799cb3] 系统不计算具体分成，不提供线上申请或审批；财务线下核算后上传。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3146",
+          "原文": "- [REQ-5722d7cb5927] 导入成功后记录锁定，不可编辑或删除。〔来源：AN-4270e933caef；liveshow-proto/prototype/annotations/admin.js；admin-settlement-record.html/业务/2〕",
+          "证明内容": "- [REQ-5722d7cb5927] 导入成功后记录锁定，不可编辑或删除。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3147",
+          "原文": "- [REQ-10841cd8ff25] 上传 -> 解析并预览人数、总额和明细 -> 确认导入 -> 生成锁定记录。〔来源：AN-c08a64dbc639；liveshow-proto/prototype/annotations/admin.js；admin-settlement-record.html/交互/1〕",
+          "证明内容": "- [REQ-10841cd8ff25] 上传 -> 解析并预览人数、总额和明细 -> 确认导入 -> 生成锁定记录。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行1282",
+          "原文": "- [REQ-c14d836f25cf] 系统不提供主播线上结算申请或审批，本页只展示财务线下结算后上传的结果。〔来源：AN-9d8474c49a59；liveshow-proto/prototype/annotations/user.js；income-sharing.html/业务规则/1〕",
+          "证明内容": "- [REQ-c14d836f25cf] 系统不提供主播线上结算申请或审批，本页只展示财务线下结算后上传的结果。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2480",
+          "原文": "- [REQ-a00c25f0c736] 系统不在线计算或审批最终分成；财务线下确定比例和金额后上传结果。〔来源：AN-8b39965beed2；liveshow-proto/prototype/annotations/guild.js；guild-share-ledger.html/业务规则/1〕",
+          "证明内容": "- [REQ-a00c25f0c736] 系统不在线计算或审批最终分成；财务线下确定比例和金额后上传结果。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-GUILD-SETTLEMENT-IMPORT",
+      "共同业务对象": "公会分成批次",
+      "来源状态": "预览中",
+      "触发动作": "确认导入",
+      "执行角色": "平台管理员",
+      "操作端": "管理后台",
+      "目标状态": "锁定的导入结果",
+      "观察端": [
+        "公会App",
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3185",
+          "原文": "- [REQ-e1f56b5ef1ca] 结果由财务线下核算；导入成功后锁定且不可编辑或删除。〔来源：AN-4a6e0d67b7b0；liveshow-proto/prototype/annotations/admin.js；admin-guild-settlement-record.html/业务/1〕",
+          "证明内容": "- [REQ-e1f56b5ef1ca] 结果由财务线下核算；导入成功后锁定且不可编辑或删除。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3187",
+          "原文": "- [REQ-81a1b1243e27] 上传 -> 预览公会数、总额和明细 -> 确认 -> 生成锁定记录。〔来源：AN-e61ff938c8d8；liveshow-proto/prototype/annotations/admin.js；admin-guild-settlement-record.html/交互/1〕",
+          "证明内容": "- [REQ-81a1b1243e27] 上传 -> 预览公会数、总额和明细 -> 确认 -> 生成锁定记录。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        },
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行2487",
+          "原文": "- [REQ-ab7fad33ca13] 仅展示当前公会的财务上传结果，不提供日期筛选或在线分成计算。〔来源：AN-b0302da97345；liveshow-proto/prototype/annotations/guild.js；guild-share-income.html/业务规则/1〕",
+          "证明内容": "- [REQ-ab7fad33ca13] 仅展示当前公会的财务上传结果，不提供日期筛选或在线分成计算。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    },
+    {
+      "状态转换标识": "ST-ROLE-DISABLE",
+      "共同业务对象": "后台角色",
+      "来源状态": "启用",
+      "触发动作": "停用角色",
+      "执行角色": "超级管理员",
+      "操作端": "管理后台",
+      "目标状态": "角色权限失效",
+      "观察端": [
+        "管理后台"
+      ],
+      "证据引用": [
+        {
+          "路径": "liveshow-proto/MainBasis/统一需求文档.md",
+          "位置": "行3479",
+          "原文": "- [REQ-a82aab423a93] 状态：启用、停用；停用后关联账号立即失去该角色权限。〔来源：AN-ce3877a81108；liveshow-proto/prototype/annotations/admin.js；admin-system-role.html/字段/6〕",
+          "证明内容": "- [REQ-a82aab423a93] 状态：启用、停用；停用后关联账号立即失去该角色权限。",
+          "SHA-256": "a23d1db2402f3f3e56544c52f0d551018a3878774e93ccc0f92e10dffd463213"
+        }
+      ]
+    }
+  ]
+}

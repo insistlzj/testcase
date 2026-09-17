@@ -29,10 +29,11 @@ export function evaluateCalculation(node, variables) {
     case "*": value = values.reduce((product, item) => product * item, 1); break;
     case "min": value = Math.min(...values); break;
     case "max": value = Math.max(...values); break;
+    case "ceil":
     case "round": {
       const [amount, places] = values;
       if (values.length !== 2 || amount < 0 || !Number.isInteger(places) || places < 0 || places > 6) throw new Error("四舍五入仅支持非负统计值和 0 至 6 位精度；金额规则须另行明确");
-      value = Number(new Intl.NumberFormat('en-US', { useGrouping: false, maximumFractionDigits: places, roundingMode: 'halfExpand' }).format(amount));
+      value = Number(new Intl.NumberFormat('en-US', { useGrouping: false, maximumFractionDigits: places, roundingMode: node.运算 === 'ceil' ? 'ceil' : 'halfExpand' }).format(amount));
       break;
     }
     case "-": value = values.slice(1).reduce((result, item) => result - item, values[0]); break;
@@ -55,6 +56,10 @@ export function validateRuleDesign(rule, languageRules, { requireReview = true }
   const refs = (indexes) => Array.isArray(indexes) && indexes.length > 0
     && indexes.every((index) => Number.isInteger(index) && index >= 0 && index < evidence.length);
   for (const field of ["场景", "验证子项", "观察页面", "观察对象", "观察端", "设计说明"]) check(text(design[field]), `用例设计缺少${field}`);
+  check(["功能需求", "业务流程", "逻辑校验", "异常用例"].includes(design.用例类型), "须明确填写合法用例类型，不得使用缺省值");
+  check(["P0", "P1", "P2", "P3"].includes(design.优先级), "须明确填写合法优先级，不得使用缺省值");
+  check(text(design.优先级依据), "缺少该验证点的优先级依据");
+  check(!(languageRules.forbiddenPlaceholders.verificationPointExact || []).includes(design.验证子项?.trim()), "验证子项缺少具体观察对象");
   check(refs(design.观察证据), "观察位置缺少有效证据映射");
   check(Array.isArray(design.步骤) && design.步骤.length > 0, "用例设计缺少步骤");
   check(rule.适用角色和端?.some((value) => value.startsWith(`${design.观察端}-`)), "观察端与规则归属不一致");
@@ -112,6 +117,7 @@ function renderCase(rule, sequence, prefix, trace) {
   const design = rule.用例设计;
   if (!design) throw new Error(`${rule.稳定规则标识}缺少用例设计`);
   if (!text(design.验证子项)) throw new Error(`${rule.稳定规则标识}缺少明确验证子项，须补齐设计，不得猜测或填充默认值`);
+  if (!text(design.优先级依据) || !["P0", "P1", "P2", "P3"].includes(design.优先级) || !["功能需求", "业务流程", "逻辑校验", "异常用例"].includes(design.用例类型)) throw new Error(`${rule.稳定规则标识}缺少明确的类型、优先级及依据`);
   if (rule.设计复核?.状态 !== "通过" || rule.设计复核?.设计SHA256 !== ruleDesignHash(rule)) throw new Error(`${rule.稳定规则标识}设计尚未复核或复核已失效`);
   return {
     序号: sequence, 用例编号: `${prefix}-${String(sequence).padStart(4, "0")}`,

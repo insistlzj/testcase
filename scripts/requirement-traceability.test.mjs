@@ -103,6 +103,11 @@ test('全部需求作为分母；不相同的状态分支、条件和断言不�
   assert.equal(validateCoverage(units, reviewed(partial), { phase: 'final', cases: [cases[0]] }).条款处理统计.未覆盖, 1);
   const hidden = structuredClone(report); hidden.逐项[0].分支.push({ 标识: 'missing-branch', 状态: '未覆盖', 说明: '另一个分支' });
   assert.throws(() => validateCoverage(units, reviewed(hidden)), /隐藏了未覆盖分支/);
+  const inventory = structuredClone(report);
+  inventory.逐项[0].结果基线 = [{标识:'RESULT-1', 来源片段:'到期后不能新佩戴', 结果说明:'拒绝已到期装扮的新佩戴', 分支标识:['B0']}];
+  assert.equal(validateCoverage(units, reviewed(inventory), {phase:'final',cases}).交付性质,'完整覆盖');
+  inventory.逐项[0].结果基线[0].分支标识.push('lost-result');
+  assert.throws(() => validateCoverage(units, reviewed(inventory)), /不存在的分支/);
   const risk = units.map(u => ({ ...u, 风险: true })), unsafe = structuredClone(report);
   unsafe.来源指纹 = seedCoverage(risk).来源指纹;
   assert.throws(() => validateCoverage(risk, reviewed(unsafe)), /风险清单/);

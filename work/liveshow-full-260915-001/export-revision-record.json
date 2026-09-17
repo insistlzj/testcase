@@ -1,0 +1,41 @@
+{
+  "时间": "2026-09-15T13:20:53.078Z",
+  "记录": [
+    {
+      "原路径": "outputs/Luma Live-case/阶段性-用户App-全部模块-260915-006.xlsx",
+      "归档路径": "work/liveshow-full-260915-001/user/superseded-export-01/阶段性-用户App-全部模块-260915-006.xlsx",
+      "SHA256": "6162999cfcf9ed20812037ec394c286f06a3e45ca2bc34fec9587009c71f2751",
+      "原因": "本批未交付的首次导出，因角色、重复路径和新增分支修正失效；保留恢复，不读取为新用例业务依据"
+    },
+    {
+      "原路径": "outputs/Luma Live-case/阶段性-用户App-全部模块-260915-006.xlsx.52e51440-c912-4e60-9985-0a26f07dfdbb.tmp.xlsx.inspect.ndjson",
+      "归档路径": "work/liveshow-full-260915-001/user/superseded-export-01/阶段性-用户App-全部模块-260915-006.xlsx.52e51440-c912-4e60-9985-0a26f07dfdbb.tmp.xlsx.inspect.ndjson",
+      "SHA256": "ed04686d4145c4d66b53c247dbde417b928cafb1f898552e7c236fe79b0708a5",
+      "原因": "本批未交付的首次导出，因角色、重复路径和新增分支修正失效；保留恢复，不读取为新用例业务依据"
+    },
+    {
+      "原路径": "outputs/Luma Live-case/阶段性-公会App-全部模块-260915-003.xlsx",
+      "归档路径": "work/liveshow-full-260915-001/guild/superseded-export-01/阶段性-公会App-全部模块-260915-003.xlsx",
+      "SHA256": "96571581ac5d40dd98bcc8a4d92cbacee7e6edbea00cf850f708d5865a3ce448",
+      "原因": "本批未交付的首次导出，因角色、重复路径和新增分支修正失效；保留恢复，不读取为新用例业务依据"
+    },
+    {
+      "原路径": "outputs/Luma Live-case/阶段性-公会App-全部模块-260915-003.xlsx.5ead97fb-d7ea-4479-a2be-5bb0c2562c82.tmp.xlsx.inspect.ndjson",
+      "归档路径": "work/liveshow-full-260915-001/guild/superseded-export-01/阶段性-公会App-全部模块-260915-003.xlsx.5ead97fb-d7ea-4479-a2be-5bb0c2562c82.tmp.xlsx.inspect.ndjson",
+      "SHA256": "b6a814908c339302cf96107fd87d68c016f75448a811072ef2b713525c9eef69",
+      "原因": "本批未交付的首次导出，因角色、重复路径和新增分支修正失效；保留恢复，不读取为新用例业务依据"
+    },
+    {
+      "原路径": "outputs/Luma Live-case/阶段性-管理后台-全部模块-260915-003.xlsx",
+      "归档路径": "work/liveshow-full-260915-001/admin/superseded-export-01/阶段性-管理后台-全部模块-260915-003.xlsx",
+      "SHA256": "e0f2884d6fe66918fbb48931b36df1474b2b9c14903aa4a544a5e69bc8ce02a2",
+      "原因": "本批未交付的首次导出，因角色、重复路径和新增分支修正失效；保留恢复，不读取为新用例业务依据"
+    },
+    {
+      "原路径": "outputs/Luma Live-case/阶段性-管理后台-全部模块-260915-003.xlsx.293a3dce-3218-4df9-b5d3-e19779527b2d.tmp.xlsx.inspect.ndjson",
+      "归档路径": "work/liveshow-full-260915-001/admin/superseded-export-01/阶段性-管理后台-全部模块-260915-003.xlsx.293a3dce-3218-4df9-b5d3-e19779527b2d.tmp.xlsx.inspect.ndjson",
+      "SHA256": "2efcf9f459db84aef1009894c2423b0f39f807e9b84b5b902a4e6ae096a05661",
+      "原因": "本批未交付的首次导出，因角色、重复路径和新增分支修正失效；保留恢复，不读取为新用例业务依据"
+    }
+  ]
+}
